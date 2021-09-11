@@ -38,7 +38,7 @@ class UIMainWindow(QW.QMainWindow):
 
     def display_kingdom(self):
         """Updates the kingdom cards"""
-        self.widgets.labels.create_labels_from_supply(self.data_container.kingdom, self.data_container.csos)
+        self.widgets.labels.create_labels_from_supply(self.data_container.kingdom, self.data_container.landscapes)
         self.widgets.update_card_display()
 
 

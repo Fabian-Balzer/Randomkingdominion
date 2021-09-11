@@ -42,7 +42,7 @@ class DataContainer:
 
     def print_kingdom(self):
         print(self.kingdom_cards[["Name", "Cost", "Set"]].sort_values(["Cost", "Name"]))
-        print(self.csos[["Name", "Cost", "Set"]].sort_values(["Cost", "Name"]))
+        print(self.landscapes[["Name", "Cost", "Set"]].sort_values(["Cost", "Name"]))
 
     def update_card_subset(self):
         self.card_subset = filter_sets(self.all_cards, self.params.sets)  # Subset of the currently overall available cards
@@ -50,8 +50,8 @@ class DataContainer:
     def randomize(self):
         self.update_card_subset()
         self.kingdom = pull_kingdom_cards(self.card_subset, self.params)
-        self.csos = pull_csos(self.card_subset, self.params)
-        self.supply = create_supply(self.kingdom, self.csos)
+        self.landscapes = pull_landscapes(self.card_subset, self.params)
+        self.supply = create_supply(self.kingdom, self.landscapes)
 
 
 def pull_kingdom_cards(cards, params):
@@ -63,19 +63,19 @@ def pull_kingdom_cards(cards, params):
     return kingdom.sort_values(by=["Cost", "Name"])
 
 
-def pull_csos(cards, params):
-    csos = cards.iloc[0:0]  # empty landmarks
-    if len(cards[cards["IsCSO"]]) > 0:
+def pull_landscapes(cards, params):
+    landscapes = cards.iloc[0:0]  # empty landmarks
+    if len(cards[cards["IsLandscape"]]) > 0:
         for pull in range(params.num_landmarks):
-            subset = CardSubset(cards, csos)
-            new_cso = subset.pick_cso(params)
-            csos = pd.concat([csos, new_cso])
-    return csos.sort_values(by=["Cost", "Name"])
+            subset = CardSubset(cards, landscapes)
+            new_landscape = subset.pick_landscape(params)
+            landscapes = pd.concat([landscapes, new_landscape])
+    return landscapes.sort_values(by=["Cost", "Name"])
     
 
-def create_supply(kingdom, csos):
-    supply = kingdom.append(csos, sort=False)
-    supply = supply.sort_values(by=["IsInSupply", "IsCSO", "IsOtherThing", "Cost", "Name"],
+def create_supply(kingdom, landscapes):
+    supply = kingdom.append(landscapes, sort=False)
+    supply = supply.sort_values(by=["IsInSupply", "IsLandscape", "IsOtherThing", "Cost", "Name"],
         ascending=[False, True, True, True, True])
     return supply
 
@@ -108,7 +108,7 @@ class CardSubset:
         pick = self.df.sample(n=1)
         return pick
 
-    def pick_cso(self, randomizerOptions):
-        csos = self.df[self.df["IsCSO"]]
-        pick = csos.sample(n=1)
+    def pick_landscape(self, randomizerOptions):
+        landscapes = self.df[self.df["IsLandscape"]]
+        pick = landscapes.sample(n=1)
         return pick

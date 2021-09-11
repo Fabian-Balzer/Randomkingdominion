@@ -15,6 +15,8 @@ import os
 import os.path
 import pandas as pd
 import re  # Regular expressions
+from collections import defaultdict
+import json
 
 
 string = ""
@@ -68,10 +70,10 @@ def do_lists_have_common(l1, l2):
     return len([y for y in l1 if y in l2]) > 0
 
 
-def test_cso(df):
+def test_landscape(df):
     """Tests whether the given object is an Event, Project, Way or landmark."""
-    csolist = ["Event", "Project", "Way", "Landmark"]
-    series = df["Types"].apply(lambda x: do_lists_have_common(x, csolist))
+    landscapelist = ["Event", "Project", "Way", "Landmark"]
+    series = df["Types"].apply(lambda x: do_lists_have_common(x, landscapelist))
     return series
 
 
@@ -97,17 +99,121 @@ def test_in_supply(df):
     series = ((df["Types"].apply(lambda x: do_lists_have_common(x, typelist)) &
               df["Name"].apply(lambda x: x not in ["Page", "Peasant"])) |
               df["Name"].apply(lambda x: x in namelist) |
-              df["IsCSO"] |
+              df["IsLandscape"] |
               df["IsOtherThing"])
     return ~series
 
 
+def drawqual_cards(pluscardstring):
+    draw_quality = 0
+    try:
+        draw_count = int(pluscardstring)
+        draw_quality = min(draw_count*2, 10)  # maximum of 10
+    except ValueError:
+        pass
+    return draw_quality
+
+
+def get_draw_quality(row):
+    """Asserts the draw quality b"""
+    # Moat has a draw_quality of 4.
+    print(row)
+    pluscardstring, cardname = row["Name"], row["Name"]
+    draw_quality_dict = {"Apothecary": 5,
+        "Apprentice":6,
+        "Archive": 6,
+        "Barge": 7,
+        "Caravan": 5,
+        "Cavalry": 5,
+        "City Quarter": 8,
+        "Courtyard": 5,
+        "Crop Rotation": 2,
+        "Crossroads": 4,
+        "Crypt": 2,
+        "Cursed Village": 8,
+        "Den of Sin": 6,
+        "Embassy": 4,
+        "Enchantress": 4,
+        "Expedition": 4,
+        "Flagbearer": 1,
+        "Gear": 4,
+        "Governor": 4,
+        "Haunted Woods": 6,
+        "Herald": 3,
+        "Hireling": 6,
+        "Ironmonger": 2,
+        "Jack of All Trades": 4,
+        "Library": 8,
+        "Madman": 10,
+        "Magpie": 3,
+        "Menagerie": 6,
+        "Minion": 6,
+        "Nobles": 4,
+        "Pathfinding": 8,
+        "Patrician": 2,
+        "Patrol": 8,
+        "Pooka": 8,
+        "Ranger": 7,
+        "Road Network": 3,
+        "Royal Blacksmith": 8,
+        "Sacrifice": 1,
+        "Scholar": 8,
+        "Scout": 3,
+        "Scrying Pool": 10,
+        "Seer": 8,
+        "Shanty Town": 3,
+        "Shepherd": 5,
+        "Silk Merchant": 4,
+        "Sinister Plot": 4,
+        "Spice Merchant": 2,
+        "Stables": 5,
+        "Steward": 4,
+        "Storyteller": 8,
+        "Tactician": 4,
+        "Teacher": 8,
+        "Tormentor": 2,
+        "Tribute": 3,
+        "Trusty Steed": 4,
+        "Vagrant": 3,
+        "Vault": 4,
+        "Village Green": 1,
+        "Watchtower": 5,
+        "Way of the Chameleon": 2,
+        "Way of the Squirrel": 4,
+        "Werewolf": 6,
+        "Wharf": 8,
+        "Wild Hunt": 6,
+        "Will-o'-Wisp": 2,
+        "Wishing Well": 2,
+        "Zombie Apprentice": 6}
+    draw_quality_dict = defaultdict(lambda: 0, draw_quality_dict)
+    draw_quality = draw_quality_dict[cardname]
+    try:
+        draw_count = int(pluscardstring)
+        draw_quality_dict[cardname] = min(draw_count*2, 10)  # maximum of 10
+    except ValueError:
+        pass
+    with open("card_info/draw_qualities.txt", "w") as f:
+        json.dump(draw_quality_dict, f)
+    return draw_quality
+    
+
 def add_bool_columns(df):
     """Adds some boolean columns and saves the types as a list"""
     df["Types"] = df["Types"].str.split(" - ")
-    df["IsCSO"] = test_cso(df)
+    df["IsLandscape"] = test_landscape(df)
     df["IsOtherThing"] = test_other(df)
     df["IsInSupply"] = test_in_supply(df)
+    df["DrawQuality"] = df.apply(get_draw_quality, axis=1)
+    # df["AttackType"]
+    # df["IsAltVP"]
+    # df["IsCantrip"]
+    # df["IsWorkshop"]
+    # df["IsVillage"]
+    # df["IsTrasher"]
+    # df["IsPeddler"]
+    # df["HasPlusBuy"]
+    # df["IsSifter"]
     return df
 
 
@@ -115,7 +221,7 @@ def add_knight_pile(df):
     knighttext = ('Shuffle the Knights pile before each game with it. '
     "Keep it face down except for the top card, which is the only one "
     'that can be bought or gained.')
-    keys = ["Name", "Set", "Types", "Cost", "Text", "IsCSO", "IsOtherThing",
+    keys = ["Name", "Set", "Types", "Cost", "Text", "IsLandscape", "IsOtherThing",
             "IsInSupply"]
     values = ["Knights", "Dark Ages", ["Action", "Attack", "Knights"],
               "$5* ", knighttext, False, False, True]
@@ -130,7 +236,7 @@ def add_castle_pile(df):
     castletext = ('Sort the Castle pile by cost, putting the more '
         'expensive Castles on the bottom. For a 2-player game, '
         'use only one of each Castle. Only the top card of the pile can be gained or bought.')
-    keys = ["Name", "Set", "Types", "Cost", "Text", "IsCSO", "IsOtherThing",
+    keys = ["Name", "Set", "Types", "Cost", "Text", "IsLandscape", "IsOtherThing",
             "IsInSupply"]
     values = ["Castles", "Empires", ["Victory", "Castle"],
               "$3* ", castletext, False, False, True]
@@ -141,22 +247,16 @@ def add_castle_pile(df):
     return df
 
 
-def write_dataframe_to_file(df, filename):
-    """Writes the given dataframe to a file"""
-    if os.path.isfile(filename):
-        answer = input(f"The file '{filename}' already exists.\nDo you want to overwrite (y) or cancel (n)?\n>>> ")
-        while True:
-            if answer is "n":
-                print("Did not rewrite the file due to your concerns.")
-                return
-            if answer is "y":
-                break
-            answer = input("Please type y for overwriting or n for cancelling.\n>>> ")
-    df.to_csv(filename, sep=";")
-    print(f"Successfully wrote the dominion cards to the file '{filename}' in the current path.")
-
-
 def write_image_database(df):
+    answer = input(f"\nDo you want to scrape the Wiki to create an image database?\n"
+        f"This may take some time. Please write (y) or cancel (n).\n>>> ")
+    while True:
+        if answer is "n":
+            print("Did not download an image database due to your concerns.")
+            return
+        if answer is "y":
+            break
+        answer = input("Please type y for creating an image db or n for cancelling.\n>>> ")
     dirname = "card_pictures"
     if not os.path.exists(dirname):
         os.makedirs(dirname)
@@ -204,6 +304,24 @@ def save_image(impath, card_name):
         f.write(site.content)
 
 
+def write_dataframe_to_file(df, filename, folder):
+    """Writes the given dataframe to a file"""
+    if not os.path.exists(folder):
+        os.makedirs(folder)
+    fpath = folder + "/" + filename
+    if os.path.isfile(fpath):
+        answer = input(f"The file '{fpath}' already exists.\nDo you want to overwrite (y) or cancel (n)?\n>>> ")
+        while True:
+            if answer is "n":
+                print("Did not rewrite the file due to your concerns.")
+                return
+            if answer is "y":
+                break
+            answer = input("Please type y for overwriting or n for cancelling.\n>>> ")
+    df.to_csv(fpath, sep=";")
+    print(f"Successfully wrote the dominion cards to the file '{fpath}' in the current path.")
+
+
 def main():
     df = retrieve_data()
     df.pipe(add_bool_columns)
@@ -212,7 +330,7 @@ def main():
     df["Cost"] = df["Cost"].str.replace("star", "*")
     df["Cost"] = df["Cost"].str.replace("plus", "+")
     write_image_database(df)
-    write_dataframe_to_file(df, filename="card_data.csv")
+    write_dataframe_to_file(df, filename="card_data.csv", folder="card_info")
     return df
 
 
