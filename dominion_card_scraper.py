@@ -14,8 +14,8 @@ import requests
 import os
 import os.path
 import pandas as pd
-import re  # Regular expressions
 from collections import defaultdict
+from collections import OrderedDict
 import json
 
 
@@ -38,7 +38,7 @@ def retrieve_data():
     soup = BeautifulSoup(response.text, "html.parser")
     card_table = soup.find('table', {'class': table_class})
     fix_cost_and_vp(card_table)
-    print(card_table.find('span', {"class": "coin-icon"}))
+    # print(card_table.find('span', {"class": "coin-icon"}))
     htmlstring = str(card_table)
     df = pd.read_html(htmlstring, encoding='utf-8')[0]
     return df
@@ -93,7 +93,15 @@ def get_draw_quality(cardname):
         data = json.load(f)
         draw_dict = defaultdict(lambda: 0, data)
     return draw_dict[cardname]
-    
+
+
+def get_attack_type(cardname):
+    """Pulls the attack type of an attack of a card from an external dictionary."""
+    with open("card_info/attack_types.txt", "r") as f:
+        data = json.load(f)
+        draw_dict = defaultdict(lambda: [], data)
+    return draw_dict[cardname]
+
 
 def add_bool_columns(df):
     """Adds some boolean columns and saves the types as a list"""
@@ -102,7 +110,7 @@ def add_bool_columns(df):
     df["IsOtherThing"] = test_other(df)
     df["IsInSupply"] = test_in_supply(df)
     df["DrawQuality"] = df["Name"].apply(get_draw_quality)
-    # df["AttackType"]
+    df["AttackType"] = df["Name"].apply(get_attack_type)
     # df["IsAltVP"]
     # df["IsCantrip"]
     # df["IsWorkshop"]
@@ -233,3 +241,78 @@ def main():
 
 if __name__ == "__main__":
     df = main()  # For me to inspect it in variable manager
+
+mydict = {"Bureaucrat": ["Handsize", "Topdeck"],
+"Militia": ["Handsize"],
+"Spy": ["Topdeck"],
+"Thief": ["Topdeck", "TreasureTrasher"],
+"Bandit": ["Topdeck", "TreasureTrasher"],
+"Witch": ["Curser"],
+"Swindler": ["Topdeck", "AllTrasher", "Curser"],
+"Minion": ["Handsize"],
+"Replace": ["Curser"],
+"Saboteur": ["Topdeck", "CostTrasher"],
+"Torturer": ["Handsize", "Curser"],
+"Ambassador": ["Junker"],
+"Cutpurse": ["Handsize"],
+"Pirate Ship": ["Topdeck", "TreasureTrasher"],
+"Sea Hag": ["Topdeck", "Curser"],
+"Ghost Ship": ["Topdeck", "Handsize"],
+"Scrying Pool": ["Topdeck"],
+"Familiar": ["Curser"],
+"Mountebank": ["Curser", "Junker"],
+"Rabble": ["Topdeck"],
+"Goons": ["Handsize"],
+"Fortune Teller": ["Topdeck"],
+"Young Witch": ["Curser"],
+"Jester": ["Topdeck", "Junker"],
+"Followers": ["Curser", "Handsize"],
+"Oracle": ["Topdeck"],
+"Noble Brigand": ["Topdeck", "TreasureTrasher"],
+"Margrave": ["Handsize"],
+"Urchin": ["Handsize"],
+"Marauder": ["Looter"],
+"Cultist": ["Looter"],
+"Pillage": ["Handsize"],
+"Rogue": ["Topdeck", "CostTrasher"],
+"Dame Anna": ["Topdeck", "CostTrasher"],
+"Dame Josephine": ["Topdeck", "CostTrasher"],
+"Dame Molly": ["Topdeck", "CostTrasher"],
+"Dame Natalie": ["Topdeck", "CostTrasher"],
+"Dame Sylvia": ["Topdeck", "CostTrasher"],
+"Sir Bailey": ["Topdeck", "CostTrasher"],
+"Sir Destry": ["Topdeck", "CostTrasher"],
+"Sir Martin": ["Topdeck", "CostTrasher"],
+"Sir Michael": ["Topdeck", "CostTrasher", "Handsize"],
+"Sir Vander": ["Topdeck", "CostTrasher"],
+"Mercenary": ["Handsize"],
+"Taxman": ["Handsize"],
+"Soothsayer": ["Curser"],
+"Bridge Troll": ["MinusCoin"],
+"Giant": ["Curser", "Topdeck" "CostTrasher"],
+"Haunted Woods": ["Topdeck"],
+"Relic": ["MinusCard"],
+"Swamp Hag": ["Curser"],
+"Soldier": ["Handsize"],
+"Warrior": ["Topdeck", "CostTrasher"],
+"Catapult": ["Curser", "Handsize"],
+"Enchantress": ["Piggify"],
+"Legionary": ["Handsize"],
+"Skulk": ["Hexer"],
+"Idol": ["Curser"],
+"Tormentor": ["Hexer"],
+"Vampire": ["Hexer"],
+"Werewolf": ["Hexer"],
+"Raider": ["Handsize"],
+"Old Witch": ["Curser"],
+"Villain": ["Handsize"],
+"Black Cat": ["Curser"],
+"Cardinal": ["Topdeck", "Exiler"],
+"Coven": ["Curser"],
+"Ill-Gotten Gains": ["Curser"],
+"Possession": ["Possession"],
+"Masquerade": ["Masquerade"],
+"Raid": ["MinusCard"],
+"Gatekeeper": ["Exiler"]}
+with open("card_info/attack_types.txt", "w") as f:
+    json.dump(mydict, f)
