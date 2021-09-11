@@ -63,7 +63,7 @@ def write_dataframe_to_file(df, filename, folder):
     print(f"Successfully wrote the dominion cards to the file '{fpath}' in the current path.")
 
 
-def read_raw_dataframe_from_file(filename, folder):
+def read_dataframe_from_file(filename, folder):
     fpath = folder + "/" + filename
     if os.path.isfile(fpath):
         df = pd.read_csv(fpath, sep=";", header=0)
@@ -79,7 +79,7 @@ def main():
         df["Cost"] = df["Cost"].str.replace("plus", "+")
         df = write_image_database(df)
         write_dataframe_to_file(df, filename="raw_card_data.csv", folder="card_info")
-    df = read_raw_dataframe_from_file(filename="raw_card_data.csv", folder="card_info")
+    df = read_dataframe_from_file(filename="raw_card_data.csv", folder="card_info")
     df = add_info_columns(df)
     write_dataframe_to_file(df, filename="good_card_data.csv", folder="card_info")
     return df

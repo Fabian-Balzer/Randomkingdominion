@@ -42,42 +42,13 @@ def test_in_supply(df):
     return ~series
 
 
-def get_draw_quality(cardname):
-    """Pulls the draw quality of a card from an external dictionary.
-    The draw quality is a number x with 0 <= x <= 10, where x = 2*n for
-    n being the number of cards the card draws.
-    Cards with no draw have x = 0, cards with weird draw were judged by my gut feeling,
-    i. e. Scrying Pool has x = 10 while Courtyard has x = 5."""
-    with open("card_info/draw_qualities.txt", "r") as f:
-        data = json.load(f)
-        draw_dict = defaultdict(lambda: 0, data)
-    return draw_dict[cardname]
-
-
-def get_attack_type(cardname):
-    """Pulls the attack type of an attack of a card from an external dictionary."""
-    with open("card_info/attack_types.txt", "r") as f:
-        data = json.load(f)
-        draw_dict = defaultdict(lambda: [], data)
-    return draw_dict[cardname]
-
-
 def add_bool_columns(df):
     """Adds some boolean columns and saves the types as a list"""
     df["Types"] = df["Types"].str.split(" - ")
     df["IsLandscape"] = test_landscape(df)
     df["IsOtherThing"] = test_other(df)
     df["IsInSupply"] = test_in_supply(df)
-    df["DrawQuality"] = df["Name"].apply(get_draw_quality)
-    df["AttackType"] = df["Name"].apply(get_attack_type)
-    # df["IsAltVP"]
-    # df["IsCantrip"]
-    # df["IsWorkshop"]
-    # df["IsVillage"]
-    # df["IsTrasher"]
-    # df["IsPeddler"]
-    # df["HasPlusBuy"]
-    # df["IsSifter"]
+    # df["IsCantrip"] = test_cantrip(df)
     return df
 
 
@@ -111,8 +82,24 @@ def add_castle_pile(df):
     return df
 
 
+def get_specific_info(cardname, info_type, default_value):
+    """Retrieves the info of info_type stored in the specifics folder."""
+    try: 
+        with open(f"card_info/specifics/{info_type}.txt", "r") as f:
+            data = json.load(f)
+            draw_dict = defaultdict(lambda: default_value, data)
+    except FileNotFoundError:
+        return default_value
+    return draw_dict[cardname]
+
+
 def add_info_columns(df):
-    df.pipe(add_bool_columns)
+    df = add_bool_columns(df)
     df = add_knight_pile(df)
     df = add_castle_pile(df)
+    info_types = {"DrawQuality": 0, "AttackType": [],
+        "AltVPStrength": 0, "GainQuality": 0,
+        "PlusBuys": 0, "CoinValue": 0, "TrashQuality": 0}
+    for info_type, default_value in info_types.items():
+        df[info_type] = df["Name"].apply(lambda name: get_specific_info(name, info_type, default_value))
     return df
