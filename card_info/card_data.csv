@@ -80,7 +80,7 @@
 78;Lookout;Seaside;['Action'];$3;+1 ActionLook at the top 3 cards of your deck. Trash one of them. Discard one of them. Put the other one back on top of your deck.;+1;;;;1;;;;;False;False;True;0.0
 79;Smugglers;Seaside;['Action'];$3;Gain a copy of a card costing up to $6 that the player to your right gained on their last turn.;;;;;;;;1;;False;False;True;0.0
 80;Warehouse;Seaside;['Action'];$3;+3 Cards+1 ActionDiscard 3 cards.;+1;+3,-3;;;;;;;;False;False;True;0.0
-81;Caravan;Seaside;['Action', 'Duration'];$4;+1 Card+1 ActionAt the start of your next turn, +1 Card.;+1;+1, N+1;;;;;;;;False;False;True;5.0
+81;Caravan;Seaside;['Action', 'Duration'];$4;+1 Card+1 ActionAt the start of your next turn, +1 Card.;+1;+1, N+1;;;;;;;;False;False;True;4.0
 82;Cutpurse;Seaside;['Action', 'Attack'];$4;+$2Each other player discards a Copper (or reveals a hand with no Copper).;;;;+$2;;;;;;False;False;True;0.0
 83;Island;Seaside;['Action', 'Victory'];$4;Put this and a card from your hand onto your Island mat.2VP;;;;;1,Self;;;;2VP;False;False;True;0.0
 84;Navigator;Seaside;['Action'];$4;+$2Look at the top 5 cards of your deck. Either discard them all, or put them back in any order.;;;;+$2;;;;;;False;False;True;0.0
@@ -515,7 +515,7 @@
 513;Stockpile;Menagerie;['Treasure'];$3;$3+1 BuyWhen you play this, Exile it.;;;+1;+$3;;Self;;;;False;False;True;0.0
 514;Bounty Hunter;Menagerie;['Action'];$4;+1 ActionExile a card from your hand. If you didn't have a copy of it in Exile, +$3.;+1;;;+$3?;;1;;;;False;False;True;0.0
 515;Cardinal;Menagerie;['Action', 'Attack'];$4;+$2Each other player reveals the top 2 cards of their deck, Exiles one costing from $3 to $6, and discards the rest.;;;;+$2;;;;;;False;False;True;0.0
-516;Cavalry;Menagerie;['Action'];$4;Gain 2 Horses.When you gain this, +2 Cards, +1 Buy, and if it's your Buy phase return to your Action phase.;;*+2;*+1;;;;;2;;False;False;True;5.0
+516;Cavalry;Menagerie;['Action'];$4;Gain 2 Horses.When you gain this, +2 Cards, +1 Buy, and if it's your Buy phase return to your Action phase.;;*+2;*+1;;;;;2;;False;False;True;4.0
 517;Groom;Menagerie;['Action'];$4;"Gain a card costing up to $4 If it's an...Action card, gain a Horse;Treasure card, gain a Silver;Victory card, +1 Card and +1 Action.";+1?;+1?;;;;;;1, 1?;;False;False;True;0.0
 518;Hostelry;Menagerie;['Action'];$4;+1 Card+2 ActionsWhen you gain this, you may discard any number of Treasures, revealed, to gain that many Horses.;+2;+1*-X;;;;;;*X;;False;False;True;0.0
 519;Village Green;Menagerie;['Action', 'Duration', 'Reaction'];$4;Either now or at the start of your next turn, +1 Card and +2 Actions.When you discard this other than during Clean-up, you may play it.;+2?, N+2?;+1?, N+1?;;;;;;;;False;False;True;1.0

@@ -19,26 +19,8 @@ from collections import defaultdict
 import json
 
 
-string = ""
-def fix_cost_expressions(htmlstring):
-    """Replaces problematic cost expressions as they are given in pictures"""
-    comstring = r'\<span class="coin-icon"\>\<img alt='  # String that is common
-    comstring2 = r'\<span class="coin-icon"\>\<a href="/index.php/Potion" title="Potion"><img alt="P"'
-    comstring3 = r'\<span class="debt-icon"\>\<a href="/index.php/Debt" title="Debt"><img alt='
-    comstring4 = r'\<span class="coin-icon"\>\<a href="/index.php/Victory_point"'
-    for i in list(range(15)) + ["X", " "]:  # 0 to 14 because of dominate.
-        htmlstring = re.sub(f'{comstring}"\${i}".*?\<\/span\>', f"${i} ", htmlstring)
-        htmlstring = re.sub(f'{comstring}"\${i}star".*?\<\/span\>', f"${i}* ", htmlstring)
-        htmlstring = re.sub(f'{comstring}"\${i}plus".*?\<\/span\>', f"${i}+ ", htmlstring)
-        htmlstring = re.sub(f'{comstring3}"{i}D".*?\<\/span\>', f"{i}D ", htmlstring)
-    htmlstring = re.sub(f'{comstring2}.*?\<\/span\>', f"P ", htmlstring)
-    htmlstring = re.sub(f'{comstring4}.*?\<\/span\>', f"VP ", htmlstring)
-    htmlstring = re.sub(f'{comstring}".*?\<\/span\>', f" Coin ", htmlstring)
-    htmlstring = htmlstring.replace("<br/>", "\\n")
-    return htmlstring
-
 def fix_cost_and_vp(doc):
-    """As cost anv victory points are hidden in images, the parser has a hard time
+    """As cost and victory points are hidden in images, the parser has a hard time
     reading it. Thus, we modify it a little to only have the alt value."""
     pics = doc.find_all('span', {"class": "coin-icon"})
     for pic in pics:
@@ -58,9 +40,6 @@ def retrieve_data():
     fix_cost_and_vp(card_table)
     print(card_table.find('span', {"class": "coin-icon"}))
     htmlstring = str(card_table)
-    global string
-    string = htmlstring
-    # htmlstring = fix_cost_expressions(htmlstring)
     df = pd.read_html(htmlstring, encoding='utf-8')[0]
     return df
 
@@ -104,98 +83,16 @@ def test_in_supply(df):
     return ~series
 
 
-def drawqual_cards(pluscardstring):
-    draw_quality = 0
-    try:
-        draw_count = int(pluscardstring)
-        draw_quality = min(draw_count*2, 10)  # maximum of 10
-    except ValueError:
-        pass
-    return draw_quality
-
-
-def get_draw_quality(row):
-    """Asserts the draw quality b"""
-    # Moat has a draw_quality of 4.
-    print(row)
-    pluscardstring, cardname = row["Name"], row["Name"]
-    draw_quality_dict = {"Apothecary": 5,
-        "Apprentice":6,
-        "Archive": 6,
-        "Barge": 7,
-        "Caravan": 5,
-        "Cavalry": 5,
-        "City Quarter": 8,
-        "Courtyard": 5,
-        "Crop Rotation": 2,
-        "Crossroads": 4,
-        "Crypt": 2,
-        "Cursed Village": 8,
-        "Den of Sin": 6,
-        "Embassy": 4,
-        "Enchantress": 4,
-        "Expedition": 4,
-        "Flagbearer": 1,
-        "Gear": 4,
-        "Governor": 4,
-        "Haunted Woods": 6,
-        "Herald": 3,
-        "Hireling": 6,
-        "Ironmonger": 2,
-        "Jack of All Trades": 4,
-        "Library": 8,
-        "Madman": 10,
-        "Magpie": 3,
-        "Menagerie": 6,
-        "Minion": 6,
-        "Nobles": 4,
-        "Pathfinding": 8,
-        "Patrician": 2,
-        "Patrol": 8,
-        "Pooka": 8,
-        "Ranger": 7,
-        "Road Network": 3,
-        "Royal Blacksmith": 8,
-        "Sacrifice": 1,
-        "Scholar": 8,
-        "Scout": 3,
-        "Scrying Pool": 10,
-        "Seer": 8,
-        "Shanty Town": 3,
-        "Shepherd": 5,
-        "Silk Merchant": 4,
-        "Sinister Plot": 4,
-        "Spice Merchant": 2,
-        "Stables": 5,
-        "Steward": 4,
-        "Storyteller": 8,
-        "Tactician": 4,
-        "Teacher": 8,
-        "Tormentor": 2,
-        "Tribute": 3,
-        "Trusty Steed": 4,
-        "Vagrant": 3,
-        "Vault": 4,
-        "Village Green": 1,
-        "Watchtower": 5,
-        "Way of the Chameleon": 2,
-        "Way of the Squirrel": 4,
-        "Werewolf": 6,
-        "Wharf": 8,
-        "Wild Hunt": 6,
-        "Will-o'-Wisp": 2,
-        "Wishing Well": 2,
-        "Zombie Apprentice": 6}
-    draw_quality_dict = defaultdict(lambda: 0, draw_quality_dict)
-    draw_quality = draw_quality_dict[cardname]
-    try:
-        draw_count = int(pluscardstring)
-        draw_quality_dict[cardname] = min(draw_count*2, 10)  # maximum of 10
-    except ValueError:
-        pass
-    with open("card_info/draw_qualities.txt", "w") as f:
-        json.dump(draw_quality_dict, f)
-    return draw_quality
+def get_draw_quality(cardname):
+    """Pulls the draw quality of a card from an external dictionary.
+    The draw quality is a number x with 0 <= x <= 10, where x = 2*n for
+    n being the number of cards the card draws.
+    Cards with no draw have x = 0, cards with weird draw were judged by my gut feeling,
+    i. e. Scrying Pool has x = 10 while Courtyard has x = 5."""
+    with open("card_info/draw_qualities.txt", "r") as f:
+        data = json.load(f)
+        draw_dict = defaultdict(lambda: 0, data)
+    return draw_dict[cardname]
     
 
 def add_bool_columns(df):
@@ -204,7 +101,7 @@ def add_bool_columns(df):
     df["IsLandscape"] = test_landscape(df)
     df["IsOtherThing"] = test_other(df)
     df["IsInSupply"] = test_in_supply(df)
-    df["DrawQuality"] = df.apply(get_draw_quality, axis=1)
+    df["DrawQuality"] = df["Name"].apply(get_draw_quality)
     # df["AttackType"]
     # df["IsAltVP"]
     # df["IsCantrip"]
