@@ -1,4 +1,5 @@
 import pandas as pd
+from card_scraper import read_dataframe_from_file
 
 
 class RandomParameters:
@@ -22,13 +23,6 @@ class RandomParameters:
         self.sets.discard(set) if set in self.sets else self.sets.add(set)
 
 
-
-def read_file():
-    filename = "card_data.csv"
-    df = pd.read_csv(filename, sep=";", header=0)
-    return df
-
-
 def filter_sets(df, sets):
     df = df.loc[df["Set"].apply(lambda x: x in sets)]
     return df
@@ -37,7 +31,7 @@ def filter_sets(df, sets):
 class DataContainer:
     def __init__(self):
         self.params = RandomParameters()
-        self.all_cards = read_file()
+        self.all_cards = read_dataframe_from_file(filename="good_card_data.csv", folder="card_info")
         self.params.load_sets(set(self.all_cards["Set"]))
 
     def print_kingdom(self):
