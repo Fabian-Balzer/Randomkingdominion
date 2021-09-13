@@ -1,4 +1,5 @@
 import PyQt5.QtWidgets as QW
+from math import floor, ceil
 
 
 def createHorLayout(widList, stretch=True, spacing=0):
@@ -47,3 +48,86 @@ qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop:
 
     def makeButtonRed(self):
         self.setButtonStyle(borderColor="255, 0, 0", bold="bold")
+
+
+class coolRadioButton(QW.QRadioButton):
+    """Modified version of QRadioButtons.
+    Creates a QRadioButton with a given placeholder and tooltip.
+    params:
+        lineText: Text to be already entered. Overrides placeholder.
+        placeholder: Text to be displayed by default
+        tooltip: optionally create a tooltip for the edit"""
+    def __init__(self, text=None, tooltip=None, width=50):
+        super().__init__()
+        self.setText(text)
+        self.setToolTip(tooltip)
+        self.setMinimumWidth(width)
+        self.setStyleSheet("""QRadioButton {padding: 1px 1px;
+                           color: black; background-color:
+                           qlineargradient(x1: 0, y1: 0, 
+                           2: 0, y2: 1, stop: 0 #f6f7fa, stop: 1 #dadbde);
+                           font: bold 14px} 
+                           QRadioButton:checked {color: rgb(0, 0, 150)}
+                           """)
+
+
+def create_radio_buttons(group, names, tooltips=None):
+    """
+    Creates QRadioButtons with the names passed through 'names' and adds them
+    to a RadioButton group.
+    params:
+        group: QButtonGroup object
+        names: List of Strings for the radio button names
+        tooltip: optionally create a tooltip for the buttons
+    returns:
+        button_dict: Dictionary of QRadioButtonObjects with their names
+    """
+    tooltips = tooltips if tooltips is not None else [None for name in names]
+    buttons = []
+    for i, name in enumerate(names):
+        RadioButton = coolRadioButton(name, tooltips[i])
+        group.addButton(RadioButton)
+        buttons.append(RadioButton)
+    button_dict = dict(zip(names, buttons))
+    return button_dict
+
+
+def group_widgets(wid_list, text=None, num_rows=1):
+    """Takes a list of widgets and group them in their own GridLayout
+    params:
+        wid_list: list of widgets
+        text: In case the group is supposed to have an outline and heading
+    returns:
+        wid: widget in QGridLayout"""
+    if text is None:
+        wid = QW.QWidget()
+    else:
+        wid = QW.QGroupBox(text)
+    layout = QW.QGridLayout(wid)
+    layout.setContentsMargins(5, 0, 5, 5)
+    num_items = len(wid_list)
+    num_cols = ceil(num_items/num_rows)
+    for i, button in enumerate(wid_list):
+        row = floor(i/num_cols)
+        col = i - row*num_cols
+        layout.addWidget(button, row, col)
+    return wid
+
+
+
+class coolCheckBox(QW.QCheckBox):
+    """Modified version of QCheckBoxes.
+    Creates a QCheckBox with a given text and tooltip.
+    params:
+        text: Text to be shown
+        tooltip: optionally create a tooltip for the edit
+        checked: Bool set to false by default.
+    """
+    def __init__(self, text=None, tooltip=None, checked=False, width=150):
+        super().__init__()
+        self.setText(text)
+        self.setToolTip(tooltip)
+        self.setChecked(checked)
+        if width is not None:
+            self.setFixedWidth(width)
+        self.setStyleSheet("QCheckBox {color: rgb(0, 0, 0); height: 18 px}")

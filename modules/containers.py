@@ -2,20 +2,23 @@ import PyQt5.QtCore as QC
 import PyQt5.QtWidgets as QW
 import PyQt5.QtGui as QG
 from numpy.lib.function_base import disp
-from modules.utils import coolButton
+from modules.utils import coolButton, coolCheckBox, group_widgets
 import pandas as pd
 import numpy as np
 
 
 class WidgetContainer:
-    def __init__(self, _main):
+    def __init__(self, _main, df):
         self._main = _main
         self.layouts = LayoutContainer(self._main)
         self.buttons = ButtonContainer()
         self.labels = LabelContainer()
+        self.checkboxes = CheckBoxContainer()
+        self.checkboxes.create_set_group(set(df["Set"]))
         self.arrange_widgets()
 
     def arrange_widgets(self):
+        self.layouts.settings.addWidget(self.checkboxes.set_group)
         self.layouts.settings.addWidget(self.buttons.randomize)
 
     def update_card_display(self):
@@ -43,7 +46,20 @@ class WidgetContainer:
             lay.addWidget(pic)
             lay.addWidget(label)
             self.layouts.csodisplay.addWidget(wid, 2, i)
-            
+
+
+class CheckBoxContainer:
+    def __init__(self):
+        self.sets = {}
+    
+    def create_set_group(self, all_sets):
+        sets = [set_ for set_ in all_sets if set_ not in ["Intrigue", "Base"]]
+        tooltips = [f"Randomize cards from the {set_} expansion." for set_ in sets]
+        for set_, tooltip in zip(sets, tooltips):
+            checkbox = coolCheckBox(set_, tooltip)
+            self.sets[set_] = checkbox
+        set_list = [self.sets[key] for key in sorted(self.sets.keys())]
+        self.set_group = group_widgets(set_list, "Sets used for randomization", num_rows=6)
 
 
 class ButtonContainer:

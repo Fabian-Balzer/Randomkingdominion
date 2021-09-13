@@ -22,6 +22,7 @@ LICENSE:
 Code to open a GUI Dominion randomizer
 """
 import sys
+import pandas as pd
 from modules.containers import WidgetContainer
 from modules.data_handling import DataContainer
 import PyQt5.QtWidgets as QW
@@ -47,7 +48,7 @@ class UIMainWindow(QW.QMainWindow):
         width = int(QW.QDesktopWidget().screenGeometry(-1).width()*0.7)
         self.setGeometry(0, 0, width, height)
         self.move(20, 20)
-        self.widgets = WidgetContainer(self._main)
+        self.widgets = WidgetContainer(self._main, self.data_container.all_cards)
         self.connect_buttons()
 
     def connect_buttons(self):
