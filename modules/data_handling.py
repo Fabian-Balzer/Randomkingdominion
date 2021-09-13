@@ -104,7 +104,6 @@ class CardSubset:
 
     def pick_landscape(self, randomizerOptions):
         if self.already_picked["Types"].apply(lambda types: "Way" in types).any():
-            print("Excluding ways," + str(self.already_picked))
             self.df = self.df[self.df["Types"].apply(lambda types: "Way" not in types)]
         landscapes = self.df[self.df["IsLandscape"]]
         pick = landscapes.sample(n=1)
