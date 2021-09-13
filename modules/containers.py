@@ -21,7 +21,7 @@ class WidgetContainer:
     def arrange_widgets(self):
         self.layouts.settings.addWidget(self.checkboxes.set_group)
         self.layouts.settings.addWidget(self.spinners.quality_group)
-        self.layouts.settings.addWidget(self.checkboxes.attack_types)
+        self.layouts.settings.addWidget(self.checkboxes.attack_type_group)
         self.layouts.settings.addStretch()
         self.layouts.settings.addWidget(self.buttons.randomize)
 
@@ -57,7 +57,7 @@ class CheckBoxContainer:
         self.sets = {}
         self.set_group = self.create_set_group(all_sets, params)
         self.attack_types = {}
-        self.attack_types = self.create_attack_type_group(all_attack_types, params)
+        self.attack_type_group = self.create_attack_type_group(all_attack_types, params)
     
     def create_set_group(self, all_sets, params):
         sets = [set_ for set_ in all_sets if set_ not in ["Intrigue", "Base"]]
