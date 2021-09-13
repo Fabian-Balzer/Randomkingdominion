@@ -57,6 +57,12 @@ class UIMainWindow(QW.QMainWindow):
         for set_, checkbox in self.widgets.checkboxes.sets.items():
             # The partial function must be used as lambda functions don't work with iterators
             checkbox.toggled.connect(partial(self.data_container.params.toggle_set, set_))
+        for type_, checkbox in self.widgets.checkboxes.attack_types.items():
+            checkbox.toggled.connect(partial(self.data_container.params.toggle_attack_type, type_))
+        for quality_name, spinner in self.widgets.spinners.quality_spinners.items():
+            spinner.valueChanged.connect(partial(self.data_container.params.change_quality_arg, quality_name))
+
+
 
     def randomize(self):
         self.data_container.randomize()

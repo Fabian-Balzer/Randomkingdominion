@@ -1,23 +1,28 @@
 import pandas as pd
 from card_scraper import read_dataframe_from_file
+import random
+import json
 
 
 class RandomParameters:
     """A class containing all options as attributes"""
     def __init__(self, num_cards=10,
-                 num_landmarks=2,
-                 drawers=None,
+                 num_landscapes=2,
+                 draw_quality=5,
                  trashers=None,
                  attacks=None,
                  distribute_cost=False):
         self.num_cards = num_cards
-        self.num_landmarks = num_landmarks
-        self.drawers = drawers
-        self.trashers = trashers
+        self.num_landscapes = num_landscapes
+        self.quality_dict = {"DrawQuality": draw_quality}
+        self.draw_requirement_index = random.randint(1, num_cards + num_landscapes)
         self.distribute_cost = distribute_cost
 
     def load_sets(self, sets):
         self.sets = sets
+
+    def load_attack_types(self, types):
+        self.attack_types = types
 
     def toggle_set(self, set_):
         self.sets.discard(set_) if set_ in self.sets else self.sets.add(set_)
@@ -28,6 +33,18 @@ class RandomParameters:
                 is_in = is_in or (special in current_set)  # Otherwise we'd change set size during iteration
             if is_in:
                 self.sets.add(special)
+
+    def toggle_attack_type(self, type_):
+        self.attack_types.discard(type_) if type_ in self.sets else self.sets.add(type_)
+
+    def change_quality_arg(self, arg_name, value):
+        self.quality_dict[arg_name] = value
+
+    def does_kingdom_fulfill_requirements(self, supply):
+        """Checks wether a given kingdom fulfils the requirements passed."""
+        if sum(supply["DrawQuality"]) < self.quality_dict["DrawQuality"]:
+            return False
+        return True
 
 
 def filter_sets(df, sets):
@@ -40,6 +57,7 @@ class DataContainer:
         self.params = RandomParameters()
         self.all_cards = read_dataframe_from_file(filename="good_card_data.csv", folder="card_info")
         self.params.load_sets(set(self.all_cards["Set"]))
+        self.params.load_attack_types([])
 
     def print_kingdom(self):
         print(self.kingdom_cards[["Name", "Cost", "Set"]].sort_values(["Cost", "Name"]))
@@ -50,9 +68,27 @@ class DataContainer:
 
     def randomize(self):
         self.update_card_subset()
-        self.kingdom = pull_kingdom_cards(self.card_subset, self.params)
-        self.landscapes = pull_landscapes(self.card_subset, self.params)
-        self.supply = create_supply(self.kingdom, self.landscapes)
+        try_, max_tries = 1, 200
+        no_good_kingdom = True
+        while no_good_kingdom:
+            self.kingdom = pull_kingdom_cards(self.card_subset, self.params)
+            self.landscapes = pull_landscapes(self.card_subset, self.params)
+            self.supply = create_supply(self.kingdom, self.landscapes)
+            no_good_kingdom = not self.params.does_kingdom_fulfill_requirements(self.supply)
+            if try_ > max_tries:
+                print("Did not find a kingdom with the necessary requirements")
+                break
+            try_ += 1
+        print(self.supply[["Name", "DrawQuality"]])
+        print(f"Took me {try_-1} tries to get this kingdom.")
+
+    def get_attack_types(self):
+        all_types = [element.strip("'") for list_ in self.all_cards["AttackType"] for element in list_.strip('][').split(', ')]
+        set_ = set(all_types)
+        set_.discard("")
+        return set_
+
+
 
 
 def pull_kingdom_cards(cards, params):
@@ -67,9 +103,9 @@ def pull_kingdom_cards(cards, params):
 
 
 def pull_landscapes(cards, params):
-    landscapes = cards.iloc[0:0]  # empty landmarks
+    landscapes = cards.iloc[0:0]  # empty landscapes
     if len(cards[cards["IsLandscape"]]) > 0:
-        for pull in range(params.num_landmarks):
+        for pull in range(params.num_landscapes):
             subset = CardSubset(cards, landscapes)
             if len(subset) == 0:
                 break

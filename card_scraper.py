@@ -34,7 +34,7 @@ from modules.add_info_columns import add_info_columns, add_knights_and_castles
 
 # Determines wether the program tries to scrape the wiki pages for
 # card and image data or just meddle with existing data
-DOWNLOAD_DATA = True#not os.path.isfile("card_info/raw_card_data.csv")
+DOWNLOAD_DATA = not os.path.isfile("card_info/raw_card_data.csv")
 
 
 def fix_cost_and_vp(doc):

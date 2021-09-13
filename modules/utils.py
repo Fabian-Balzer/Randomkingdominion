@@ -2,7 +2,7 @@ import PyQt5.QtWidgets as QW
 from math import floor, ceil
 
 
-def createHorLayout(widList, stretch=True, spacing=0):
+def createHorLayout(widList, stretch=False, spacing=0):
     """Create horizontal box layout widget containing widgets in widList"""
     wid = QW.QWidget()
     wid.setStyleSheet("""QWidget {border: 0px solid gray;
@@ -93,7 +93,8 @@ def create_radio_buttons(group, names, tooltips=None):
 
 
 def group_widgets(wid_list, text=None, num_rows=1):
-    """Takes a list of widgets and group them in their own GridLayout
+    """
+    Takes a list of widgets and group them in their own GridLayout with an according number of rows
     params:
         wid_list: list of widgets
         text: In case the group is supposed to have an outline and heading
@@ -107,10 +108,10 @@ def group_widgets(wid_list, text=None, num_rows=1):
     layout.setContentsMargins(5, 0, 5, 5)
     num_items = len(wid_list)
     num_cols = ceil(num_items/num_rows)
-    for i, button in enumerate(wid_list):
+    for i, widget in enumerate(wid_list):
         row = floor(i/num_cols)
         col = i - row*num_cols
-        layout.addWidget(button, row, col)
+        layout.addWidget(widget, row, col)
     return wid
 
 
@@ -131,3 +132,24 @@ class coolCheckBox(QW.QCheckBox):
         if width is not None:
             self.setFixedWidth(width)
         self.setStyleSheet("QCheckBox {color: rgb(0, 0, 0); height: 18 px}")
+
+        
+# %% The coolSpinBox class and functions for SpinBoxes
+class coolSpinBox(QW.QSpinBox):
+    """Modified version of QSpinBox
+    Creates a QSpinBox with a given range and start value
+    params:
+        range_: range for the Box
+        value: start value. Needs to be in range.
+        tooltip: optionally create a tooltip for the edit
+    """
+    def __init__(self, range_=(0, 100), value=50, tooltip=None, width=250):
+        super().__init__()
+        self.setRange(*range_)
+        self.setValue(value)
+        self.setToolTip(tooltip)
+        if width:
+            self.setFixedWidth(width)
+        self.setStyleSheet("""QSpinBox {color: rgb(0,0,0); height: 18px;
+                            background: transparent; padding-right: 5px;
+                            /* make room for the arrows */}""")
