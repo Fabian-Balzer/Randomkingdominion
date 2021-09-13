@@ -19,8 +19,15 @@ class RandomParameters:
     def load_sets(self, sets):
         self.sets = sets
 
-    def toggle_set(self, set):
-        self.sets.discard(set) if set in self.sets else self.sets.add(set)
+    def toggle_set(self, set_):
+        self.sets.discard(set_) if set_ in self.sets else self.sets.add(set_)
+        for special in ["Base", "Intrigue"]:
+            is_in = False
+            self.sets.discard(special)
+            for current_set in self.sets:
+                is_in = is_in or (special in current_set)  # Otherwise we'd change set size during iteration
+            if is_in:
+                self.sets.add(special)
 
 
 def filter_sets(df, sets):
@@ -52,6 +59,8 @@ def pull_kingdom_cards(cards, params):
     kingdom = cards.iloc[0:0]  # empty kingdom
     for pull in range(params.num_cards):
         subset = CardSubset(cards, kingdom)
+        if len(subset) == 0:
+            break
         new_card = subset.pick_card(params)
         kingdom = pd.concat([kingdom, new_card])
     return kingdom.sort_values(by=["Cost", "Name"])
@@ -62,6 +71,8 @@ def pull_landscapes(cards, params):
     if len(cards[cards["IsLandscape"]]) > 0:
         for pull in range(params.num_landmarks):
             subset = CardSubset(cards, landscapes)
+            if len(subset) == 0:
+                break
             new_landscape = subset.pick_landscape(params)
             landscapes = pd.concat([landscapes, new_landscape])
     return landscapes.sort_values(by=["Cost", "Name"])
@@ -78,6 +89,9 @@ class CardSubset:
     def __init__(self, df, already_picked):
         self.df = df.drop(already_picked.index)
         self.already_picked = already_picked
+
+    def __len__(self):
+        return len(self.df)
 
     def filter_requirement(self, req):
         df = self.df

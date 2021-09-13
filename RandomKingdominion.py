@@ -27,6 +27,7 @@ from modules.containers import WidgetContainer
 from modules.data_handling import DataContainer
 import PyQt5.QtWidgets as QW
 import PyQt5.QtGui as QG
+from functools import partial
 
 
 class UIMainWindow(QW.QMainWindow):
@@ -48,11 +49,14 @@ class UIMainWindow(QW.QMainWindow):
         width = int(QW.QDesktopWidget().screenGeometry(-1).width()*0.7)
         self.setGeometry(0, 0, width, height)
         self.move(20, 20)
-        self.widgets = WidgetContainer(self._main, self.data_container.all_cards)
+        self.widgets = WidgetContainer(self._main, self.data_container)
         self.connect_buttons()
 
     def connect_buttons(self):
         self.widgets.buttons.randomize.clicked.connect(self.randomize)
+        for set_, checkbox in self.widgets.checkboxes.sets.items():
+            # The partial function must be used as lambda functions don't work with iterators
+            checkbox.toggled.connect(partial(self.data_container.params.toggle_set, set_))
 
     def randomize(self):
         self.data_container.randomize()

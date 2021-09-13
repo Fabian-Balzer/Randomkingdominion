@@ -8,13 +8,13 @@ import numpy as np
 
 
 class WidgetContainer:
-    def __init__(self, _main, df):
+    def __init__(self, _main, data_container):
         self._main = _main
         self.layouts = LayoutContainer(self._main)
         self.buttons = ButtonContainer()
         self.labels = LabelContainer()
         self.checkboxes = CheckBoxContainer()
-        self.checkboxes.create_set_group(set(df["Set"]))
+        self.checkboxes.create_set_group(set(data_container.all_cards["Set"]), data_container.params)
         self.arrange_widgets()
 
     def arrange_widgets(self):
@@ -52,11 +52,12 @@ class CheckBoxContainer:
     def __init__(self):
         self.sets = {}
     
-    def create_set_group(self, all_sets):
+    def create_set_group(self, all_sets, params):
         sets = [set_ for set_ in all_sets if set_ not in ["Intrigue", "Base"]]
         tooltips = [f"Randomize cards from the {set_} expansion." for set_ in sets]
         for set_, tooltip in zip(sets, tooltips):
-            checkbox = coolCheckBox(set_, tooltip)
+            checked = set_ in params.sets
+            checkbox = coolCheckBox(set_, tooltip, checked=checked)
             self.sets[set_] = checkbox
         set_list = [self.sets[key] for key in sorted(self.sets.keys())]
         self.set_group = group_widgets(set_list, "Sets used for randomization", num_rows=6)
