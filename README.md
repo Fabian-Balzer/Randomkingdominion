@@ -1,5 +1,5 @@
 ## Random KingDominion - just another Dominion randomizer.
-This application features a randomizer for a dominion kingdom.
+This application features a randomizer for a dominion kingdom which I wrote just as an exercise for myself.
 
 So far, only basic randomization is being covered, but more flexibility (i. e. setting draw, village and payload quality or even attack types) is planned.
 
