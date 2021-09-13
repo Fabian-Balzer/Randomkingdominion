@@ -3,6 +3,7 @@ import PyQt5.QtWidgets as QW
 import PyQt5.QtGui as QG
 from numpy.lib.function_base import disp
 from modules.utils import coolButton
+import pandas as pd
 import numpy as np
 
 
@@ -126,7 +127,7 @@ def create_cso_labels(cards):
 
 
 def create_label_pair(card, width, height):
-    display_text = f"{card['Name']} ({card['Cost']})\n({card['Set']})"
+    display_text = get_display_text(card)
     pic = QW.QLabel()
     pic.setAlignment(QC.Qt.AlignHCenter)
     pic.setWordWrap(True)
@@ -142,3 +143,8 @@ def create_label_pair(card, width, height):
     label.setWordWrap(True)
     label.setFixedSize(width, 50)
     return pic, label
+
+
+def get_display_text(card):
+    coststring =  f" ({card['Cost']})" if pd.notna(card['Cost']) else ""
+    return f"{card['Name']}{coststring}\n({card['Set']})"

@@ -30,11 +30,11 @@ import requests
 import pandas as pd
 import os
 from modules.write_image_database import write_image_database
-from modules.add_info_columns import add_info_columns
+from modules.add_info_columns import add_info_columns, add_knights_and_castles
 
 # Determines wether the program tries to scrape the wiki pages for
 # card and image data or just meddle with existing data
-DOWNLOAD_DATA = not os.path.isfile("card_info/raw_card_data.csv")
+DOWNLOAD_DATA = True#not os.path.isfile("card_info/raw_card_data.csv")
 
 
 def fix_cost_and_vp(doc):
@@ -94,6 +94,7 @@ def main():
         df = retrieve_data()
         df["Cost"] = df["Cost"].str.replace("star", "*")
         df["Cost"] = df["Cost"].str.replace("plus", "+")
+        df = add_knights_and_castles(df)
         df = write_image_database(df)
         write_dataframe_to_file(df, filename="raw_card_data.csv", folder="card_info")
     df = read_dataframe_from_file(filename="raw_card_data.csv", folder="card_info")

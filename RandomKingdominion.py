@@ -22,7 +22,6 @@ LICENSE:
 Code to open a GUI Dominion randomizer
 """
 import sys
-import pandas as pd
 from modules.containers import WidgetContainer
 from modules.data_handling import DataContainer
 import PyQt5.QtWidgets as QW
@@ -42,7 +41,7 @@ class UIMainWindow(QW.QMainWindow):
     def init_ui(self):
         """Contains all the actions needed for intitializing the interface.
         """
-        self.setWindowIcon(QG.QIcon('../Assets/CoverIcon.png'))
+        self.setWindowIcon(QG.QIcon('assets/CoverIcon.png'))
         self.setWindowTitle("Random Kingdominon")
         height = int(QW.QDesktopWidget().screenGeometry(-1).height()*0.85)
         width = int(QW.QDesktopWidget().screenGeometry(-1).width()*0.7)

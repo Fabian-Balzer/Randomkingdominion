@@ -93,10 +93,14 @@ def get_specific_info(cardname, info_type, default_value):
     return draw_dict[cardname]
 
 
-def add_info_columns(df):
-    df = add_bool_columns(df)
+def add_knights_and_castles(df):
     df = add_knight_pile(df)
     df = add_castle_pile(df)
+    return df
+
+
+def add_info_columns(df):
+    df = add_bool_columns(df)
     info_types = {"DrawQuality": 0, "AttackType": [],
         "AltVPStrength": 0, "GainQuality": 0,
         "PlusBuys": 0, "CoinValue": 0, "TrashQuality": 0}

@@ -75,9 +75,9 @@ def create_supply(kingdom, landscapes):
 
 
 class CardSubset:
-    def __init__(self, df, kingdom):
-        self.df = df.drop(kingdom.index)
-        self.kingdom = kingdom
+    def __init__(self, df, already_picked):
+        self.df = df.drop(already_picked.index)
+        self.already_picked = already_picked
 
     def filter_requirement(self, req):
         df = self.df
@@ -103,6 +103,9 @@ class CardSubset:
         return pick
 
     def pick_landscape(self, randomizerOptions):
+        if self.already_picked["Types"].apply(lambda types: "Way" in types).any():
+            print("Excluding ways," + str(self.already_picked))
+            self.df = self.df[self.df["Types"].apply(lambda types: "Way" not in types)]
         landscapes = self.df[self.df["IsLandscape"]]
         pick = landscapes.sample(n=1)
         return pick
