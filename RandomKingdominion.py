@@ -53,16 +53,14 @@ class UIMainWindow(QW.QMainWindow):
         self.connect_buttons()
 
     def connect_buttons(self):
-        self.widgets.buttons.randomize.clicked.connect(self.randomize)
-        for set_, checkbox in self.widgets.checkboxes.sets.items():
+        self.widgets.buttons["Randomize"].clicked.connect(self.randomize)
+        for set_, checkbox in self.widgets.checkboxes["SetDict"].items():
             # The partial function must be used as lambda functions don't work with iterators
             checkbox.toggled.connect(partial(self.data_container.params.toggle_set, set_))
-        for type_, checkbox in self.widgets.checkboxes.attack_types.items():
+        for type_, checkbox in self.widgets.checkboxes["AttackTypeDict"].items():
             checkbox.toggled.connect(partial(self.data_container.params.toggle_attack_type, type_))
-        for quality_name, spinner in self.widgets.spinners.quality_spinners.items():
+        for quality_name, spinner in self.widgets.spinners["QualityDict"].items():
             spinner.valueChanged.connect(partial(self.data_container.params.change_quality_arg, quality_name))
-
-
 
     def randomize(self):
         self.data_container.randomize()
@@ -70,8 +68,7 @@ class UIMainWindow(QW.QMainWindow):
 
     def display_kingdom(self):
         """Updates the kingdom cards"""
-        self.widgets.labels.create_labels_from_supply(self.data_container.kingdom, self.data_container.landscapes)
-        self.widgets.update_card_display()
+        self.widgets.update_card_display(self.data_container.kingdom, self.data_container.landscapes)
 
 
 def start_program():
