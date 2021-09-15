@@ -101,7 +101,7 @@ def add_knights_and_castles(df):
 
 def add_info_columns(df):
     df = add_bool_columns(df)
-    info_types = {"DrawQuality": 0, "AttackType": [""],
+    info_types = {"DrawQuality": 0, "AttackType": [""], "VillageQuality": 0,
         "AltVPStrength": 0, "GainQuality": 0,
         "PlusBuys": 0, "CoinValue": 0, "TrashQuality": 0}
     for info_type, default_value in info_types.items():

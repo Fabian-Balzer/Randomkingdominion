@@ -9,12 +9,13 @@ class RandomParameters:
     def __init__(self, num_cards=10,
                  num_landscapes=2,
                  draw_quality=5,
+                 village_quality=5,
                  trashers=None,
                  attacks=None,
                  distribute_cost=False):
         self.num_cards = num_cards
         self.num_landscapes = num_landscapes
-        self.quality_dict = {"DrawQuality": draw_quality}
+        self.quality_dict = {"DrawQuality": draw_quality, "VillageQuality": village_quality}
         self.draw_requirement_index = random.randint(1, num_cards + num_landscapes)
         self.distribute_cost = distribute_cost
 
@@ -42,8 +43,9 @@ class RandomParameters:
 
     def does_kingdom_fulfill_requirements(self, supply):
         """Checks wether a given kingdom fulfils the requirements passed."""
-        if sum(supply["DrawQuality"]) < self.quality_dict["DrawQuality"]:
-            return False
+        for quality in ["DrawQuality", "VillageQuality"]:
+                if sum(supply[quality]) < self.quality_dict[quality]:
+                    return False
         return True
 
 
@@ -57,7 +59,7 @@ class DataContainer:
         self.params = RandomParameters()
         self.all_cards = read_dataframe_from_file(filename="good_card_data.csv", folder="card_info")
         self.params.load_sets(set(self.all_cards["Set"]))
-        self.params.load_attack_types([])
+        self.params.load_attack_types(set())
 
     def print_kingdom(self):
         print(self.kingdom_cards[["Name", "Cost", "Set"]].sort_values(["Cost", "Name"]))
@@ -79,7 +81,7 @@ class DataContainer:
                 print("Did not find a kingdom with the necessary requirements")
                 break
             try_ += 1
-        print(self.supply[["Name", "DrawQuality"]])
+        print(self.supply[["Name", "DrawQuality", "VillageQuality"]])
         print(f"Took me {try_-1} tries to get this kingdom.")
 
     def get_attack_types(self):

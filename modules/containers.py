@@ -17,20 +17,20 @@ class WidgetContainer:
         self.checkboxes = create_checkboxes(all_sets,
             all_attack_types, params)
         self.spinners = create_spinners()
-        self.layouts = LayoutContainer(self._main)
+        self.layouts = create_layouts(self._main)
         self.arrange_widgets()
 
     def arrange_widgets(self):
-        self.layouts.settings.addWidget(self.checkboxes["SetGroup"])
-        self.layouts.settings.addWidget(self.spinners["QualityGroup"])
-        self.layouts.settings.addWidget(self.checkboxes["AttackTypeGroup"])
-        self.layouts.settings.addStretch()
-        self.layouts.settings.addWidget(self.buttons["Randomize"])
+        self.layouts["Settings"].addWidget(self.checkboxes["SetGroup"])
+        self.layouts["Settings"].addWidget(self.spinners["QualityGroup"])
+        self.layouts["Settings"].addWidget(self.checkboxes["AttackTypeGroup"])
+        self.layouts["Settings"].addStretch()
+        self.layouts["Settings"].addWidget(self.buttons["Randomize"])
 
     def update_card_display(self, kingdom, landscapes):
         self.labels = create_labels(kingdom, landscapes)
-        for i in reversed(range(self.layouts.kingdomdisplay.count())): 
-            self.layouts.kingdomdisplay.itemAt(i).widget().setParent(None)
+        for i in reversed(range(self.layouts["Kingdomdisplay"].count())): 
+            self.layouts["Kingdomdisplay"].itemAt(i).widget().setParent(None)
         for i in range(len(self.labels["KingdomList"])):
             row = 0 if i < 5 else 1
             col = i if i < 5 else i-5
@@ -41,9 +41,9 @@ class WidgetContainer:
             pic, label = self.labels["KingdomList"][i]
             lay.addWidget(pic)
             lay.addWidget(label)
-            self.layouts.kingdomdisplay.addWidget(wid, row, col)
-        for i in reversed(range(self.layouts.csodisplay.count())): 
-            self.layouts.csodisplay.itemAt(i).widget().setParent(None)
+            self.layouts["Kingdomdisplay"].addWidget(wid, row, col)
+        for i in reversed(range(self.layouts["Landscapedisplay"].count())): 
+            self.layouts["Landscapedisplay"].itemAt(i).widget().setParent(None)
         for i in range(len(self.labels["LandscapeList"])):
             wid = QW.QWidget()
             wid.setFixedSize(250, 150)
@@ -52,7 +52,7 @@ class WidgetContainer:
             pic, label = self.labels["LandscapeList"][i]
             lay.addWidget(pic)
             lay.addWidget(label)
-            self.layouts.csodisplay.addWidget(wid, 2, i)
+            self.layouts["Landscapedisplay"].addWidget(wid, 2, i)
 
 
 def create_checkboxes(all_sets, all_attack_types, params):
@@ -78,7 +78,7 @@ def create_checkbox_group(names, params, kind):
         checkbox = coolCheckBox(name, tooltip, checked=checked)
         box_dict[name] = checkbox
     set_list = [box_dict[key] for key in sorted(box_dict.keys())]
-    return box_dict, group_widgets(set_list, "{kind} used for randomization", num_rows=6)
+    return box_dict, group_widgets(set_list, f"{kind} used for randomization", num_rows=6)
 
 
 def create_buttons():
@@ -95,66 +95,54 @@ def create_spinners():
 def create_spinner_group():
     qual_dict = {}
     spin_dict = {"DrawQuality": {"Range": (0, 30), "Text": "Draw Quality (max 30):",
-        "Default": 5, "Tooltip": "What shall be the overall draw quality of the kingdom?",}}
+        "Default": 5, "Tooltip": "What shall be the overall draw quality of the kingdom?",},
+        "VillageQuality": {"Range": (0, 30), "Text": "Village Quality (max 30):",
+        "Default": 5, "Tooltip": "What shall be the overall village quality of the kingdom?",}}
     group_list = []
     for spin_name, vals in spin_dict.items():
         label = QW.QLabel(vals["Text"])
-        box = coolSpinBox(range_=vals["Range"], value=vals["Default"], tooltip=vals["Tooltip"])
+        box = coolSpinBox(range_=vals["Range"], value=vals["Default"], tooltip=vals["Tooltip"], width=50)
         subgroup = group_widgets([label, box])
         group_list.append(subgroup)
         qual_dict[spin_name] = box
-    return qual_dict, group_widgets(group_list, "Parameters used for randomization", num_rows=1)
+    return qual_dict, group_widgets(group_list, "Parameters used for randomization", num_rows=len(group_list))
 
 
-class LayoutContainer:
-    def __init__(self, _main):
-        self.main_widget = QW.QWidget()
-        self._main = _main
-        self.main = self.create_main()
-        self.settings = self.create_settings()
-        self.display = self.create_display()
-        self.kingdomdisplay = self.create_kingdomdisplay()
-        self.csodisplay = self.create_csodisplay()
+def create_layouts(_main):
+    layout_dict = {}
+    main = create_main_layout(_main)
+    layout_dict["Settings"] = create_vboxlayout("Settings", main, 0, 0)
+    layout_dict["Display"] = create_vboxlayout("Kingdom overview", main, 0, 1)
+    layout_dict["Kingdomdisplay"] = create_gridlayout(layout_dict["Display"])
+    layout_dict["Landscapedisplay"] = create_gridlayout(layout_dict["Display"])
+    layout_dict["Main"] = main
+    return layout_dict
 
-    def create_main(self):
-        lay = QW.QGridLayout(self._main)
-        lay.setContentsMargins(1, 1, 1, 1)
-        # A top one to contain plotting and plot mode
-        lay.addWidget(self.main_widget, 0, 0)
-        return lay
 
-    def create_settings(self):
-        wid = QW.QGroupBox("Settings")
-        wid.setFixedWidth(500)
-        lay = QW.QVBoxLayout(wid)
-        lay.setSpacing(20)
-        lay.setContentsMargins(3, 3, 3, 3)
-        self.main.addWidget(wid, 0, 0)
-        return lay
+def create_main_layout(_main):
+    lay = QW.QGridLayout(_main)
+    wid = QW.QWidget()
+    lay.setContentsMargins(1, 1, 1, 1)
+    lay.addWidget(wid, 0, 0)
+    return lay
 
-    def create_display(self):
-        wid = QW.QGroupBox("Kingdom Overview")
-        lay = QW.QGridLayout(wid)
-        lay.setSpacing(0)
-        lay.setContentsMargins(3, 3, 3, 3)
-        self.main.addWidget(wid, 0, 1)
-        return lay
 
-    def create_kingdomdisplay(self):
-        wid = QW.QWidget()
-        lay = QW.QGridLayout(wid)
-        lay.setSpacing(10)
-        lay.setContentsMargins(3, 3, 3, 3)
-        self.display.addWidget(wid, 0, 0)
-        return lay
+def create_vboxlayout(name, parent, row, col):
+    wid = QW.QGroupBox(name)
+    lay = QW.QVBoxLayout(wid)
+    lay.setSpacing(20)
+    lay.setContentsMargins(3, 3, 3, 3)
+    parent.addWidget(wid, row, col)
+    return lay
 
-    def create_csodisplay(self):
-        wid = QW.QWidget()
-        lay = QW.QGridLayout(wid)
-        lay.setSpacing(10)
-        lay.setContentsMargins(3, 3, 3, 3)
-        self.display.addWidget(wid, 1, 0)
-        return lay
+
+def create_gridlayout(parent):
+    wid = QW.QWidget()
+    lay = QW.QGridLayout(wid)
+    lay.setSpacing(20)
+    lay.setContentsMargins(3, 3, 3, 3)
+    parent.addWidget(wid)
+    return lay
 
 
 def create_labels(kingdom, landscapes):

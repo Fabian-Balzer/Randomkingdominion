@@ -14,6 +14,7 @@
 - Implement permanently stored data
 - Implement kingdom history
 - Show kingdom strength
+- Klick on single cards to exchange them
 
 
 ### Card metadata
@@ -24,7 +25,7 @@
 - Add GainQuality
 - Add GainType (Buys, AllWithCost, Treasure, Action, Trash)
 - Add IsCantrip
-- Add VillageQuality (Normal Village has 5, up to 10)
+DONE Add VillageQuality (Normal Village has 5, up to 10)
 - Add Associated Cards (Horses, Knights, Castles, Potion etc.)
 - Add AltVPQuality
 - Add CardAmount (i. e. 12 for ports, 50 for coppers etc.)
