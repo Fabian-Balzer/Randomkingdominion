@@ -19,6 +19,10 @@ class RandomParameters:
         self.draw_requirement_index = random.randint(1, num_cards + num_landscapes)
         self.distribute_cost = distribute_cost
 
+    def set_sets(self, set_dict):
+        for set_ in set_dict.keys():
+            set_dict[set_].setChecked()
+
     def load_sets(self, sets):
         self.sets = sets
 

@@ -114,6 +114,24 @@ def group_widgets(wid_list, text=None, num_rows=1):
         layout.addWidget(widget, row, col)
     return wid
 
+    
+def display_labels(label_dict, layout_dict, name, num_rows=2, size=(150, 300)):
+    for i in reversed(range(layout_dict[f"{name}display"].count())): 
+        layout_dict[f"{name}display"].itemAt(i).widget().setParent(None)
+    num_items = len(label_dict[f"{name}List"])
+    num_cols = ceil(num_items/num_rows)
+    for i, widget in enumerate(label_dict[f"{name}List"]):
+        row = floor(i/num_cols)
+        col = i - row*num_cols
+        wid = QW.QWidget()
+        wid.setFixedSize(*size)
+        lay = QW.QVBoxLayout(wid)
+        lay.setContentsMargins(1, 1, 1, 1)
+        pic, label = label_dict[f"{name}List"][i]
+        lay.addWidget(pic)
+        lay.addWidget(label)
+        layout_dict[f"{name}display"].addWidget(wid, row, col)
+
 
 
 class coolCheckBox(QW.QCheckBox):
