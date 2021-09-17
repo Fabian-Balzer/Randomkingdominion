@@ -19,9 +19,6 @@ class RandomParameters:
         self.draw_requirement_index = random.randint(1, num_cards + num_landscapes)
         self.distribute_cost = distribute_cost
 
-    def set_sets(self, set_dict):
-        for set_ in set_dict.keys():
-            set_dict[set_].setChecked()
 
     def load_sets(self, sets):
         self.sets = sets
@@ -42,15 +39,7 @@ class RandomParameters:
     def toggle_attack_type(self, type_):
         self.attack_types.discard(type_) if type_ in self.sets else self.sets.add(type_)
 
-    def change_quality_arg(self, arg_name, value):
-        self.quality_dict[arg_name] = value
 
-    def does_kingdom_fulfill_requirements(self, supply):
-        """Checks wether a given kingdom fulfils the requirements passed."""
-        for quality in ["DrawQuality", "VillageQuality"]:
-                if sum(supply[quality]) < self.quality_dict[quality]:
-                    return False
-        return True
 
 
 def filter_sets(df, sets):
@@ -60,27 +49,47 @@ def filter_sets(df, sets):
 
 class DataContainer:
     def __init__(self):
-        self.params = RandomParameters()
         self.all_cards = read_dataframe_from_file(filename="good_card_data.csv", folder="card_info")
-        self.params.load_sets(set(self.all_cards["Set"]))
-        self.params.load_attack_types(set())
+        self.all_sets = list(set(self.all_cards["Set"]))
+        self.selected_sets = []
+        self.selected_cards = self.all_cards
+        self.num_cards = 10
+        self.num_landscapes = 2
+        self.quality_dict = {"DrawQuality": 0, "VillageQuality": 0}
+
+        # self.params.load_sets(set(self.all_cards["Set"]))
+        # self.params.load_attack_types(set())
 
     def print_kingdom(self):
         print(self.kingdom_cards[["Name", "Cost", "Set"]].sort_values(["Cost", "Name"]))
         print(self.landscapes[["Name", "Cost", "Set"]].sort_values(["Cost", "Name"]))
 
-    def update_card_subset(self):
-        self.card_subset = filter_sets(self.all_cards, self.params.sets)  # Subset of the currently overall available cards
+    def get_sets(self, checkbox_set_dict):
+        """Reads out the currently selected sets and saves them. Also changes the selection."""
+        self.selected_sets = [setname for setname, checkbox in checkbox_set_dict.items() if checkbox.isChecked()]
+        self.selected_cards = self.all_cards[self.all_cards["Set"].apply(lambda set_: set_ in self.selected_sets)]
+
+    def set_sets(self, set_dict):
+        # TODO: Load this from a config file.
+        for set_ in ["Menagerie", "Nocturne"]:
+            set_dict[set_].setChecked(True)
+
+    def get_quality_arg(self, arg_name, value):
+        self.quality_dict[arg_name] = value
+
+    def set_quality_args(self, spin_dict):
+        # TODO: Load this from a config file
+        for arg_name in self.quality_dict.keys():
+            spin_dict[arg_name].setValue(self.quality_dict[arg_name])
 
     def randomize(self):
-        self.update_card_subset()
         try_, max_tries = 1, 200
         no_good_kingdom = True
         while no_good_kingdom:
-            self.kingdom = pull_kingdom_cards(self.card_subset, self.params)
-            self.landscapes = pull_landscapes(self.card_subset, self.params)
+            self.kingdom = self.pull_kingdom_cards()
+            self.landscapes = self.pull_landscapes()
             self.supply = create_supply(self.kingdom, self.landscapes)
-            no_good_kingdom = not self.params.does_kingdom_fulfill_requirements(self.supply)
+            no_good_kingdom = not self.does_kingdom_fulfill_requirements()
             if try_ > max_tries:
                 print("Did not find a kingdom with the necessary requirements")
                 break
@@ -94,30 +103,33 @@ class DataContainer:
         set_.discard("")
         return set_
 
-
-
-
-def pull_kingdom_cards(cards, params):
-    kingdom = cards.iloc[0:0]  # empty kingdom
-    for pull in range(params.num_cards):
-        subset = CardSubset(cards, kingdom)
-        if len(subset) == 0:
-            break
-        new_card = subset.pick_card(params)
-        kingdom = pd.concat([kingdom, new_card])
-    return kingdom.sort_values(by=["Cost", "Name"])
-
-
-def pull_landscapes(cards, params):
-    landscapes = cards.iloc[0:0]  # empty landscapes
-    if len(cards[cards["IsLandscape"]]) > 0:
-        for pull in range(params.num_landscapes):
-            subset = CardSubset(cards, landscapes)
+    def pull_kingdom_cards(self):
+        kingdom = self.selected_cards.iloc[0:0]  # empty kingdom
+        for pull in range(self.num_cards):
+            subset = CardSubset(self.selected_cards, kingdom)
             if len(subset) == 0:
                 break
-            new_landscape = subset.pick_landscape(params)
-            landscapes = pd.concat([landscapes, new_landscape])
-    return landscapes.sort_values(by=["Cost", "Name"])
+            new_card = subset.pick_card()
+            kingdom = pd.concat([kingdom, new_card])
+        return kingdom.sort_values(by=["Cost", "Name"])
+
+    def pull_landscapes(self):
+        landscapes = self.selected_cards.iloc[0:0]  # empty landscapes
+        if len(self.selected_cards[self.selected_cards["IsLandscape"]]) > 0:
+            for pull in range(self.num_landscapes):
+                subset = CardSubset(self.selected_cards, landscapes)
+                if len(subset) == 0:
+                    break
+                new_landscape = subset.pick_landscape()
+                landscapes = pd.concat([landscapes, new_landscape])
+        return landscapes.sort_values(by=["Cost", "Name"])
+
+    def does_kingdom_fulfill_requirements(self):
+        """Checks wether a given kingdom fulfils the requirements passed."""
+        for quality in ["DrawQuality", "VillageQuality"]:
+                if sum(self.supply[quality]) < self.quality_dict[quality]:
+                    return False
+        return True
     
 
 def create_supply(kingdom, landscapes):
@@ -151,14 +163,12 @@ class CardSubset:
     def filter_in_supply(self):
         self.df = self.df[self.df["IsInSupply"]]
 
-    def pick_card(self, randomizerOptions):
+    def pick_card(self):
         self.filter_in_supply()
-        if randomizerOptions.distribute_cost:
-            pass
         pick = self.df.sample(n=1)
         return pick
 
-    def pick_landscape(self, randomizerOptions):
+    def pick_landscape(self):
         if self.already_picked["Types"].apply(lambda types: "Way" in types).any():
             self.df = self.df[self.df["Types"].apply(lambda types: "Way" not in types)]
         landscapes = self.df[self.df["IsLandscape"]]

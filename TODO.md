@@ -1,5 +1,5 @@
 ### General
-- Finish Refactoring Widgets
+DONE Finish Refactoring Widgets
 - Refactor Data_Container with get and set methods
 - Refactor how the randomizer picks cards depending on the attributes given
 - Add options to prioritize a set

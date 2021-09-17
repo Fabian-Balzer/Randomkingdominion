@@ -5,27 +5,24 @@ from modules.utils import coolButton, coolCheckBox, group_widgets, coolSpinBox
 import pandas as pd
 
 
-def create_checkboxes(all_sets, all_attack_types, params):
+def create_checkboxes(all_sets, all_attack_types):
     checkbox_dict = {}
-    checkbox_dict["SetDict"], checkbox_dict["SetGroup"] = create_checkbox_group(all_sets, params, "Sets")
-    checkbox_dict["AttackTypeDict"], checkbox_dict["AttackTypeGroup"] = create_checkbox_group(all_attack_types, params, "Attack Types")
+    checkbox_dict["SetDict"], checkbox_dict["SetGroup"] = create_checkbox_group(all_sets, "Sets")
+    checkbox_dict["AttackTypeDict"], checkbox_dict["AttackTypeGroup"] = create_checkbox_group(all_attack_types, "Attack Types")
     return checkbox_dict
 
 
-def create_checkbox_group(names, params, kind):
+def create_checkbox_group(names, kind):
     """Creates a dictionary containing all checkboxes for set selection and a group
     widget containing all of them for display."""
     box_dict = {}
     if kind == "Sets":
         names = [set_ for set_ in names if set_ not in ["Intrigue", "Base"]]
         tooltips = [f"Randomize cards from the {set_} expansion." for set_ in names]
-        checked_check = params.sets
     elif kind == "Attack Types":
         tooltips = [f"Require attack of {type_} in selection." for type_ in names]
-        checked_check = params.attack_types
     for name, tooltip in zip(names, tooltips):
-        checked = name in checked_check
-        checkbox = coolCheckBox(name, tooltip, checked=checked)
+        checkbox = coolCheckBox(name, tooltip)
         box_dict[name] = checkbox
     set_list = [box_dict[key] for key in sorted(box_dict.keys())]
     return box_dict, group_widgets(set_list, f"{kind} used for randomization", num_rows=6)

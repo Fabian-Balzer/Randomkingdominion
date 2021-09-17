@@ -51,16 +51,21 @@ class UIMainWindow(QW.QMainWindow):
         self.move(20, 20)
         self.widgets = WidgetContainer(self._main, self.data_container)
         self.connect_buttons()
+        self.set_values()
 
     def connect_buttons(self):
         self.widgets.buttons["Randomize"].clicked.connect(self.randomize)
         for set_, checkbox in self.widgets.checkboxes["SetDict"].items():
             # The partial function must be used as lambda functions don't work with iterators
-            checkbox.toggled.connect(partial(self.data_container.params.toggle_set, set_))
-        for type_, checkbox in self.widgets.checkboxes["AttackTypeDict"].items():
-            checkbox.toggled.connect(partial(self.data_container.params.toggle_attack_type, type_))
-        for quality_name, spinner in self.widgets.spinners["QualityDict"].items():
-            spinner.valueChanged.connect(partial(self.data_container.params.change_quality_arg, quality_name))
+            checkbox.toggled.connect(partial(self.data_container.get_sets, self.widgets.checkboxes["SetDict"]))
+        # for type_, checkbox in self.widgets.checkboxes["AttackTypeDict"].items():
+        #     checkbox.toggled.connect(partial(self.data_container.params.toggle_attack_type, type_))
+        # for quality_name, spinner in self.widgets.spinners["QualityDict"].items():
+        #     spinner.valueChanged.connect(partial(self.data_container.params.change_quality_arg, quality_name))
+
+    def set_values(self):
+        self.data_container.set_sets(self.widgets.checkboxes["SetDict"])
+        self.data_container.set_quality_args(self.widgets.spinners["QualityDict"])
 
     def randomize(self):
         self.data_container.randomize()
