@@ -60,8 +60,8 @@ class UIMainWindow(QW.QMainWindow):
             checkbox.toggled.connect(partial(self.data_container.get_sets, self.widgets.checkboxes["SetDict"]))
         # for type_, checkbox in self.widgets.checkboxes["AttackTypeDict"].items():
         #     checkbox.toggled.connect(partial(self.data_container.params.toggle_attack_type, type_))
-        # for quality_name, spinner in self.widgets.spinners["QualityDict"].items():
-        #     spinner.valueChanged.connect(partial(self.data_container.params.change_quality_arg, quality_name))
+        for quality_name, spinner in self.widgets.spinners["QualityDict"].items():
+            spinner.valueChanged.connect(partial(self.data_container.get_quality_arg, quality_name))
 
     def set_values(self):
         self.data_container.set_sets(self.widgets.checkboxes["SetDict"])

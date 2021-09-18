@@ -13,7 +13,7 @@ class RandomParameters:
                  trashers=None,
                  attacks=None,
                  distribute_cost=False):
-        self.num_cards = num_cards
+        self.num_kingdomcards = num_cards
         self.num_landscapes = num_landscapes
         self.quality_dict = {"DrawQuality": draw_quality, "VillageQuality": village_quality}
         self.draw_requirement_index = random.randint(1, num_cards + num_landscapes)
@@ -53,9 +53,11 @@ class DataContainer:
         self.all_sets = list(set(self.all_cards["Set"]))
         self.selected_sets = []
         self.selected_cards = self.all_cards
-        self.num_cards = 10
+        self.picked_selection = self.all_cards.iloc[0:0]
+        self.num_kingdomcards = 10
         self.num_landscapes = 2
-        self.quality_dict = {"DrawQuality": 0, "VillageQuality": 0}
+        self.quality_dict = {"DrawQuality": 0, "VillageQuality": 0}  # Dict containing the quality parameters for the kingdom
+        self.kingdom_dict = {"DrawQuality": 0, "VillageQuality": 0}  # Dict containing information about the kingdom
 
         # self.params.load_sets(set(self.all_cards["Set"]))
         # self.params.load_attack_types(set())
@@ -67,7 +69,6 @@ class DataContainer:
     def get_sets(self, checkbox_set_dict):
         """Reads out the currently selected sets and saves them. Also changes the selection."""
         self.selected_sets = [setname for setname, checkbox in checkbox_set_dict.items() if checkbox.isChecked()]
-        self.selected_cards = self.all_cards[self.all_cards["Set"].apply(lambda set_: set_ in self.selected_sets)]
 
     def set_sets(self, set_dict):
         # TODO: Load this from a config file.
@@ -82,19 +83,60 @@ class DataContainer:
         for arg_name in self.quality_dict.keys():
             spin_dict[arg_name].setValue(self.quality_dict[arg_name])
 
+    def reset_kingdom_dict(self):
+        for key in self.kingdom_dict.keys():
+            self.kingdom_dict[key] = 0
+
     def randomize(self):
+        self.reset_kingdom_dict
+        self.selected_cards = self.all_cards[self.all_cards["Set"].apply(lambda set_: set_ in self.selected_sets)]
+        self.selected_cards = self.selected_cards[self.selected_cards["IsInSupply"] | self.selected_cards["IsLandscape"]]
+        self.picked_selection = self.all_cards.iloc[0:0]
+        for i in range(self.num_kingdomcards + self.num_landscapes):
+            self.pick_card_or_landscape()
+        self.picked_selection = self.picked_selection.sort_values(by=["IsInSupply", "IsLandscape", "IsOtherThing", "Cost", "Name"])
+        self.kingdom = self.picked_selection[~self.picked_selection["IsLandscape"]]
+        self.landscapes = self.picked_selection[self.picked_selection["IsLandscape"]]
+        print(self.picked_selection[["Name", "DrawQuality", "VillageQuality"]])
+
+    def pick_card_or_landscape(self):
+        draw_pool = self.selected_cards
+        if len(self.picked_selection) > 0:
+            draw_pool = draw_pool.drop(self.picked_selection.index)
+        if len(self.picked_selection[self.picked_selection["IsLandscape"]]) == self.num_landscapes:
+            draw_pool = draw_pool[~draw_pool["IsLandscape"]]
+        if len(self.picked_selection[~self.picked_selection["IsLandscape"]]) == self.num_kingdomcards:
+            draw_pool = draw_pool[draw_pool["IsLandscape"]]
+        choices = {arg_name: (val - self.kingdom_dict[arg_name]) \
+            for arg_name, val  in self.quality_dict.items() if val - self.kingdom_dict[arg_name] > 0}
+        if len(choices) > 0:  # pick a quality defining this draw
+            defining_quality = random.choice([k for k in choices for x in range(choices[k])])  # weighting the choices
+            min_quality = random.randint(1, min(6, choices[defining_quality]))
+            before_narrowing = draw_pool
+            draw_pool = self.selected_cards[self.selected_cards[defining_quality] >= min_quality]
+            if len(draw_pool) == 0:  # If the constraints are too much, do not constrain it.
+                draw_pool = before_narrowing
+            print("Selecting subset for " + defining_quality)
+        pick = draw_pool.sample(n=1)
+        print("picked", pick[["Name", "DrawQuality"]])
+        self.picked_selection = pd.concat([self.picked_selection, pick])
+        # TODO: Append Associated cards
+        for arg_name in self.quality_dict.keys():
+            self.kingdom_dict[arg_name] = sum(self.picked_selection[arg_name])
+
+    def randomize_brute_force(self):
         try_, max_tries = 1, 200
         no_good_kingdom = True
         while no_good_kingdom:
             self.kingdom = self.pull_kingdom_cards()
             self.landscapes = self.pull_landscapes()
-            self.supply = create_supply(self.kingdom, self.landscapes)
+            self.picked_cards = create_supply(self.kingdom, self.landscapes)
             no_good_kingdom = not self.does_kingdom_fulfill_requirements()
             if try_ > max_tries:
                 print("Did not find a kingdom with the necessary requirements")
                 break
             try_ += 1
-        print(self.supply[["Name", "DrawQuality", "VillageQuality"]])
+        print(self.picked_cards[["Name", "DrawQuality", "VillageQuality"]])
         print(f"Took me {try_-1} tries to get this kingdom.")
 
     def get_attack_types(self):
@@ -105,7 +147,7 @@ class DataContainer:
 
     def pull_kingdom_cards(self):
         kingdom = self.selected_cards.iloc[0:0]  # empty kingdom
-        for pull in range(self.num_cards):
+        for pull in range(self.num_kingdomcards):
             subset = CardSubset(self.selected_cards, kingdom)
             if len(subset) == 0:
                 break
@@ -127,7 +169,7 @@ class DataContainer:
     def does_kingdom_fulfill_requirements(self):
         """Checks wether a given kingdom fulfils the requirements passed."""
         for quality in ["DrawQuality", "VillageQuality"]:
-                if sum(self.supply[quality]) < self.quality_dict[quality]:
+                if sum(self.picked_cards[quality]) < self.quality_dict[quality]:
                     return False
         return True
     
