@@ -69,6 +69,12 @@ class DataContainer:
     def get_sets(self, checkbox_set_dict):
         """Reads out the currently selected sets and saves them. Also changes the selection."""
         self.selected_sets = [setname for setname, checkbox in checkbox_set_dict.items() if checkbox.isChecked()]
+        for special in ["Base", "Intrigue"]:
+            is_in = False
+            for current_set in self.selected_sets:
+                is_in = is_in or (special in current_set)
+            if is_in:
+                self.selected_sets.append(special)
 
     def set_sets(self, set_dict):
         # TODO: Load this from a config file.
@@ -90,6 +96,7 @@ class DataContainer:
     def randomize(self):
         self.reset_kingdom_dict()
         self.selected_cards = self.all_cards[self.all_cards["Set"].apply(lambda set_: set_ in self.selected_sets)]
+        print(self.selected_cards)
         self.selected_cards = self.selected_cards[self.selected_cards["IsInSupply"] | self.selected_cards["IsLandscape"]]
         self.picked_selection = self.all_cards.iloc[0:0]
         for i in range(self.num_kingdomcards + self.num_landscapes):
@@ -103,8 +110,9 @@ class DataContainer:
 
     def pick_card_or_landscape(self):
         draw_pool = self.create_draw_pool()
-        pick = draw_pool.sample(n=1)
-        self.picked_selection = pd.concat([self.picked_selection, pick])
+        if len(draw_pool) > 0:
+            pick = draw_pool.sample(n=1)
+            self.picked_selection = pd.concat([self.picked_selection, pick])
         # TODO: Append Associated cards
         for arg_name in self.quality_dict.keys():
             self.kingdom_dict[arg_name] = sum(self.picked_selection[arg_name])
