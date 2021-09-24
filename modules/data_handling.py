@@ -88,41 +88,44 @@ class DataContainer:
             self.kingdom_dict[key] = 0
 
     def randomize(self):
-        self.reset_kingdom_dict
+        self.reset_kingdom_dict()
         self.selected_cards = self.all_cards[self.all_cards["Set"].apply(lambda set_: set_ in self.selected_sets)]
         self.selected_cards = self.selected_cards[self.selected_cards["IsInSupply"] | self.selected_cards["IsLandscape"]]
         self.picked_selection = self.all_cards.iloc[0:0]
         for i in range(self.num_kingdomcards + self.num_landscapes):
             self.pick_card_or_landscape()
-        self.picked_selection = self.picked_selection.sort_values(by=["IsInSupply", "IsLandscape", "IsOtherThing", "Cost", "Name"])
+        self.sort_selection()
         self.kingdom = self.picked_selection[~self.picked_selection["IsLandscape"]]
         self.landscapes = self.picked_selection[self.picked_selection["IsLandscape"]]
         print(self.picked_selection[["Name", "DrawQuality", "VillageQuality"]])
+        qualities = {qual: sum(self.picked_selection[qual + "Quality"]) for qual in ["Draw", "Village"]}
+        print("\n".join([f"Total {qual} Quality:\t{val}" for qual, val in qualities.items()]))
 
     def pick_card_or_landscape(self):
-        draw_pool = self.selected_cards
-        if len(self.picked_selection) > 0:
-            draw_pool = draw_pool.drop(self.picked_selection.index)
-        if len(self.picked_selection[self.picked_selection["IsLandscape"]]) == self.num_landscapes:
-            draw_pool = draw_pool[~draw_pool["IsLandscape"]]
-        if len(self.picked_selection[~self.picked_selection["IsLandscape"]]) == self.num_kingdomcards:
-            draw_pool = draw_pool[draw_pool["IsLandscape"]]
-        choices = {arg_name: (val - self.kingdom_dict[arg_name]) \
-            for arg_name, val  in self.quality_dict.items() if val - self.kingdom_dict[arg_name] > 0}
-        if len(choices) > 0:  # pick a quality defining this draw
-            defining_quality = random.choice([k for k in choices for x in range(choices[k])])  # weighting the choices
-            min_quality = random.randint(1, min(6, choices[defining_quality]))
-            before_narrowing = draw_pool
-            draw_pool = self.selected_cards[self.selected_cards[defining_quality] >= min_quality]
-            if len(draw_pool) == 0:  # If the constraints are too much, do not constrain it.
-                draw_pool = before_narrowing
-            print("Selecting subset for " + defining_quality)
+        draw_pool = self.create_draw_pool()
         pick = draw_pool.sample(n=1)
-        print("picked", pick[["Name", "DrawQuality"]])
         self.picked_selection = pd.concat([self.picked_selection, pick])
         # TODO: Append Associated cards
         for arg_name in self.quality_dict.keys():
             self.kingdom_dict[arg_name] = sum(self.picked_selection[arg_name])
+
+    def create_draw_pool(self):
+        draw_pool = self.selected_cards.drop(self.picked_selection.index)
+        if len(self.picked_selection[self.picked_selection["IsLandscape"]]) == self.num_landscapes:
+            draw_pool = draw_pool[~draw_pool["IsLandscape"]]
+        if len(self.picked_selection[~self.picked_selection["IsLandscape"]]) == self.num_kingdomcards:
+            draw_pool = draw_pool[draw_pool["IsLandscape"]]
+        # Create a dictionary for args that still require fulfilment (i. e. VQ is set to 7-4 if the kingdom already contains a DQ of 4)
+        choices = {arg_name: (val - self.kingdom_dict[arg_name]) \
+            for arg_name, val  in self.quality_dict.items() if val - self.kingdom_dict[arg_name] > 0}
+        if len(choices) > 0:  # pick a quality defining this draw
+            defining_quality = random.choice([k for k in choices for x in range(choices[k])])  # weighting the choices by urgency
+            min_quality = random.randint(1, min(6, choices[defining_quality]))
+            before_narrowing = draw_pool
+            draw_pool = draw_pool[draw_pool[defining_quality] >= min_quality]
+            if len(draw_pool) == 0:  # If the constraints are too much, do not constrain it.
+                draw_pool = before_narrowing
+        return draw_pool
 
     def randomize_brute_force(self):
         try_, max_tries = 1, 200
@@ -172,6 +175,9 @@ class DataContainer:
                 if sum(self.picked_cards[quality]) < self.quality_dict[quality]:
                     return False
         return True
+
+    def sort_selection(self):
+        self.picked_selection = self.picked_selection.sort_values(by=["IsInSupply", "IsLandscape", "IsOtherThing", "Cost", "Name"])
     
 
 def create_supply(kingdom, landscapes):

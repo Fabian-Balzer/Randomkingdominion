@@ -7,12 +7,12 @@ import numpy as np
 from collections import defaultdict
 
 
+PATHBASE = "../card_info/specifics/"
 
 
 def get_card_quality(df):
     df["DrawQualityNew"] = (2*pd.to_numeric(df["Cards"], errors='coerce')).fillna(0).astype(np.int64)
-    pathbase = "../card_info/specifics/"
-    with open(f"../card_info/specifics/DrawQuality.txt", "r") as f:
+    with open(PATHBASE + "DrawQuality.txt", "r") as f:
         data = json.load(f)
         data = defaultdict(lambda: 0, data)
     old_data = df[["Name", "DrawQualityNew"]].to_dict()
@@ -44,8 +44,27 @@ def get_village_quality(df):
     for i, card in df[(df["VillageQuality"] == 0) & (df["Actions / Villagers"].notna()) & (pd.to_numeric(df["Actions / Villagers"], errors="coerce") != 1)].iterrows():
         print(f'"{card["Name"]}": ', end=", ")
 
-    pathbase = "../card_info/specifics/"
-    with open(pathbase + "VillageQuality.txt", "w") as f:
+    with open(PATHBASE + "VillageQuality.txt", "w") as f:
+        json.dump(new_data, f)
+
+
+def get_trashing_quality(df):
+    df["TrashingQualityTest"] = 0
+    df.fillna('', inplace=True)
+    df.loc[(~df["Trash / Return"].str.lower().apply(lambda x: x in ["self", "self?"])) & (df["Trash / Return"].str.len() != 0), "TrashingQualityTest"] = 10  # The self-trashers are only returned, so we don't want them in here
+    for i in range(5):
+        df.loc[(df["Trash / Return"].str.contains(str(i))), "TrashingQualityTest"] = i*2
+    my_trashers = df[["Name", "TrashingQualityTest"]].to_dict()
+    my_trashers = {my_trashers["Name"][i]: my_trashers["TrashingQualityTest"][i] for i in range(len(my_trashers["Name"]))}
+    other_trashers = {"Mint": 5, "Forge": 6, "Count": 5, "Donate": 10, "Monastery": 6, "Sauna": 2}
+    other_trashers = defaultdict(lambda: 0, other_trashers)
+    new_data = {name: max(other_trashers[name], my_trashers[name]) for name in sorted(my_trashers.keys())}
+    # print(set(df["Trash / Return"]))
+    # print(", ".join(['"' + row[1]["Name"] + '": ' + str(row[1]["TrashingQualityTest"]) for row in df[df["TrashingQualityTest"] == 10][["Name", "Trash / Return", "TrashingQualityTest"]].iterrows()]))
+    # print(df[df["Trash / Return"].str.contains("1\?")]["Name"])
+    # print("\n".join([f'"{name}": ' for name in df[df["TrashingQualityTest"] > 5]["Name"]]))
+
+    with open(PATHBASE + "TrashingQuality.txt", "w") as f:
         json.dump(new_data, f)
 
 
@@ -53,7 +72,7 @@ def get_village_quality(df):
 def main():
     fpath = "../card_info/good_card_data.csv"
     df = df = pd.read_csv(fpath, sep=";", header=0)
-    get_village_quality(df)
+    get_trashing_quality(df)
 
 
 if __name__ == '__main__':
