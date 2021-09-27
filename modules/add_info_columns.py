@@ -103,7 +103,7 @@ def add_info_columns(df):
     df = add_bool_columns(df)
     info_types = {"DrawQuality": 0, "AttackType": [""], "VillageQuality": 0,
         "AltVPStrength": 0, "GainQuality": 0,
-        "PlusBuys": 0, "CoinValue": 0, "TrashQuality": 0}
+        "PlusBuys": 0, "CoinValue": 0, "TrashingQuality": 0}
     for info_type, default_value in info_types.items():
         df[info_type] = df["Name"].apply(lambda name: get_specific_info(name, info_type, default_value))
     return df

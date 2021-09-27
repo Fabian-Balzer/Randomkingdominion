@@ -56,7 +56,8 @@ class DataContainer:
         self.picked_selection = self.all_cards.iloc[0:0]
         self.num_kingdomcards = 10
         self.num_landscapes = 2
-        self.quality_dict = {"DrawQuality": 0, "VillageQuality": 0}  # Dict containing the quality parameters for the kingdom
+        qualities = ["Draw", "Village", "Trashing"]
+        self.quality_dict = {f""}  # Dict containing the quality parameters for the kingdom
         self.kingdom_dict = {"DrawQuality": 0, "VillageQuality": 0}  # Dict containing information about the kingdom
 
         # self.params.load_sets(set(self.all_cards["Set"]))
@@ -104,9 +105,9 @@ class DataContainer:
         self.sort_selection()
         self.kingdom = self.picked_selection[~self.picked_selection["IsLandscape"]]
         self.landscapes = self.picked_selection[self.picked_selection["IsLandscape"]]
-        print(self.picked_selection[["Name", "DrawQuality", "VillageQuality"]])
-        qualities = {qual: sum(self.picked_selection[qual + "Quality"]) for qual in ["Draw", "Village"]}
+        qualities = {qual: sum(self.picked_selection[qual + "Quality"]) for qual in ["Draw", "Village", "Trashing"]}
         print("\n".join([f"Total {qual} Quality:\t{val}" for qual, val in qualities.items()]))
+        print(self.picked_selection[["Name"] + [f"{qual}Quality" for qual in qualities.keys()]])
 
     def pick_card_or_landscape(self):
         draw_pool = self.create_draw_pool()

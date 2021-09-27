@@ -46,7 +46,10 @@ def create_spinner_group():
     spin_dict = {"DrawQuality": {"Range": (0, 30), "Text": "Draw Quality (max 30):",
         "Default": 5, "Tooltip": "What shall be the overall draw quality of the kingdom?",},
         "VillageQuality": {"Range": (0, 30), "Text": "Village Quality (max 30):",
-        "Default": 5, "Tooltip": "What shall be the overall village quality of the kingdom?",}}
+        "Default": 5, "Tooltip": "What shall be the overall village quality of the kingdom?",},
+        "TrashingQuality": {"Range": (0, 20), "Text": "Trashing Quality (max 20):",
+        "Default": 5, "Tooltip": "What shall be the overall trashing quality of the kingdom?"}
+        }
     group_list = []
     for spin_name, vals in spin_dict.items():
         label = QW.QLabel(vals["Text"])
