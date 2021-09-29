@@ -26,6 +26,6 @@ class WidgetContainer:
     def update_card_display(self, kingdom, landscapes):
         self.labels = cf.create_labels(kingdom, landscapes)
         utils.display_labels(self.labels, self.layouts, "Kingdom", num_rows=2)
-        utils.display_labels(self.labels, self.layouts, "Landscape", num_rows=1, size=(250, 150))
+        utils.display_labels(self.labels, self.layouts, "Landscape", num_rows=1, size=(250, 170))
 
 

@@ -115,7 +115,7 @@ def group_widgets(wid_list, text=None, num_rows=1):
     return wid
 
     
-def display_labels(label_dict, layout_dict, name, num_rows=2, size=(150, 300)):
+def display_labels(label_dict, layout_dict, name, num_rows=2, size=(150, 320)):
     for i in reversed(range(layout_dict[f"{name}display"].count())): 
         layout_dict[f"{name}display"].itemAt(i).widget().setParent(None)
     num_items = len(label_dict[f"{name}List"])
@@ -127,9 +127,10 @@ def display_labels(label_dict, layout_dict, name, num_rows=2, size=(150, 300)):
         wid.setFixedSize(*size)
         lay = QW.QVBoxLayout(wid)
         lay.setContentsMargins(1, 1, 1, 1)
-        pic, label = label_dict[f"{name}List"][i]
-        lay.addWidget(pic)
-        lay.addWidget(label)
+        entry = label_dict[f"{name}List"][i]
+        lay.addWidget(entry["Button"])
+        lay.addWidget(entry["Pic"])
+        lay.addWidget(entry["Label"])
         layout_dict[f"{name}display"].addWidget(wid, row, col)
 
 

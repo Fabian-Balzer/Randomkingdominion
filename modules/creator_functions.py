@@ -107,34 +107,37 @@ def create_labels(kingdom, landscapes):
 def create_kingdom_labels(cards):
     kingdom = []
     for i, card in cards.iterrows():
-        kingdom.append(create_label_pair(card, 150, 250))
+        kingdom.append(create_label_group(card, 150, 250))
     return kingdom
 
 
 def create_cso_labels(cards):
     csos = []
     for i, card in cards.iterrows():
-        csos.append(create_label_pair(card, 250, 100))
+        csos.append(create_label_group(card, 250, 100))
     return csos
 
 
-def create_label_pair(card, width, height):
+def create_label_group(card, width, pic_height):
     display_text = get_display_text(card)
     pic = QW.QLabel()
     pic.setAlignment(QC.Qt.AlignHCenter)
     pic.setWordWrap(True)
     pixmap = QG.QPixmap(card["ImagePath"])
     w = min(pixmap.width(),  width)
-    h = min(pixmap.height(), height)
+    h = min(pixmap.height(), pic_height)
     pixmap = pixmap.scaled(QC.QSize(w, h),
         QC.Qt.KeepAspectRatio, QC.Qt.SmoothTransformation)
     pic.setPixmap(pixmap)
-    pic.setFixedSize(width, height)
+    pic.setFixedSize(width, pic_height)
     label = QW.QLabel(display_text)
     label.setAlignment(QC.Qt.AlignHCenter)
     label.setWordWrap(True)
     label.setFixedSize(width, 50)
-    return pic, label
+    button = QW.QPushButton(f"Reroll {card['Name']}")
+    button.setFixedSize(width, 20)
+    attrdict = {"Pic": pic, "Label": label, "Button": button, "Name": card["Name"]}
+    return attrdict
 
 
 def get_display_text(card):

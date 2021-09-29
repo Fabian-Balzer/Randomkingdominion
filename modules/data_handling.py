@@ -57,8 +57,8 @@ class DataContainer:
         self.num_kingdomcards = 10
         self.num_landscapes = 2
         qualities = ["Draw", "Village", "Trashing"]
-        self.quality_dict = {f""}  # Dict containing the quality parameters for the kingdom
-        self.kingdom_dict = {"DrawQuality": 0, "VillageQuality": 0}  # Dict containing information about the kingdom
+        self.quality_dict = {f"{quality}Quality": 0 for quality in qualities}  # Dict containing the quality parameters for the kingdom
+        self.kingdom_dict = {f"{quality}Quality": 0 for quality in qualities}  # Dict containing information about the kingdom, important during randomization.
 
         # self.params.load_sets(set(self.all_cards["Set"]))
         # self.params.load_attack_types(set())
