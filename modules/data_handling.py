@@ -112,7 +112,7 @@ class DataContainer:
         self.landscapes = self.picked_selection[self.picked_selection["IsLandscape"]]
         qualities = {qual: sum(self.picked_selection[qual + "Quality"]) for qual in ["Draw", "Village", "Trashing"]}
         print("\n".join([f"Total {qual} Quality:\t{val}" for qual, val in qualities.items()]))
-        print(self.picked_selection[["Name"] + [f"{qual}Quality" for qual in qualities.keys()]])
+        # print(self.picked_selection[["Name"] + [f"{qual}Quality" for qual in qualities.keys()]])
 
     def pick_card_or_landscape(self):
         draw_pool = self.create_draw_pool()
@@ -146,7 +146,6 @@ class DataContainer:
     def reroll_card(self, old_card):
         """Removes a card from the kingdom to reroll it."""
         self.rerolled_cards.append(old_card)
-        print(self.picked_selection)
         self.picked_selection = self.picked_selection[self.picked_selection["Name"] != old_card]
         self.pick_card_or_landscape()
         self.sort_and_assess_kingdom()

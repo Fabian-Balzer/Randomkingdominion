@@ -78,7 +78,6 @@ class UIMainWindow(QW.QMainWindow):
             entry["Button"].clicked.connect(partial(self.reroll_card, entry["Name"]))
     
     def reroll_card(self, card_name):
-        print("Hello")
         self.data_container.reroll_card(card_name)
         self.display_kingdom()
 

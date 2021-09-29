@@ -33,7 +33,7 @@ def test_in_supply(df):
     namelist = ["Bat", "Wish", "Horse", "Spoils", "Plunder", "Bustling Village",
                 "Rocks", "Mercenary", "Madman", "Colony", "Platinum", "Teacher",
                 "Champion", "Estate", "Duchy", "Province", "Copper", "Curse",
-                "Silver", "Gold"]
+                "Silver", "Gold", "Potion"]
     series = ((df["Types"].apply(lambda x: do_lists_have_common(x, typelist)) &
               df["Name"].apply(lambda x: x not in ["Page", "Peasant"])) |
               df["Name"].apply(lambda x: x in namelist) |

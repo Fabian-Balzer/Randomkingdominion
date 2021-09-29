@@ -120,9 +120,11 @@ def create_cso_cards(cards):
 
 def create_card_group(card, width, pic_height):
     display_text = get_display_text(card)
+    tooltip = get_tooltip_text(card)
     pic = QW.QLabel()
     pic.setAlignment(QC.Qt.AlignHCenter)
     pic.setWordWrap(True)
+    pic.setToolTip(tooltip)
     pixmap = QG.QPixmap(card["ImagePath"])
     w = min(pixmap.width(),  width)
     h = min(pixmap.height(), pic_height)
@@ -144,3 +146,7 @@ def get_display_text(card):
     coststring =  f" ({card['Cost']})" if pd.notna(card['Cost']) else ""
     return f"{card['Name']}{coststring}\n({card['Set']})"
 
+def get_tooltip_text(card):
+    qualities = ["Draw", "Village", "Trashing"]
+    ttstring = "\n".join([f"{qual} quality: {card[qual +'Quality']}" for qual in qualities])
+    return ttstring

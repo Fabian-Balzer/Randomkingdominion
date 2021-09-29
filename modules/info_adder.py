@@ -54,9 +54,10 @@ def get_trashing_quality(df):
     df.loc[(~df["Trash / Return"].str.lower().apply(lambda x: x in ["self", "self?"])) & (df["Trash / Return"].str.len() != 0), "TrashingQualityTest"] = 10  # The self-trashers are only returned, so we don't want them in here
     for i in range(5):
         df.loc[(df["Trash / Return"].str.contains(str(i))), "TrashingQualityTest"] = i*2
+        df.loc[(df["Exile"].str.contains(str(i))), "TrashingQualityTest"] = i*2
     my_trashers = df[["Name", "TrashingQualityTest"]].to_dict()
     my_trashers = {my_trashers["Name"][i]: my_trashers["TrashingQualityTest"][i] for i in range(len(my_trashers["Name"]))}
-    other_trashers = {"Mint": 5, "Forge": 6, "Count": 5, "Donate": 10, "Monastery": 6, "Sauna": 2}
+    other_trashers = {"Mint": 5, "Forge": 6, "Count": 5, "Donate": 10, "Monastery": 6, "Sauna": 2, "Banish": 5}
     other_trashers = defaultdict(lambda: 0, other_trashers)
     new_data = {name: max(other_trashers[name], my_trashers[name]) for name in sorted(my_trashers.keys())}
     # print(set(df["Trash / Return"]))

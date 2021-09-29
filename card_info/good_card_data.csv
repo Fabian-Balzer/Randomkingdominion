@@ -108,7 +108,7 @@ Philosopher's Stone;Alchemy;['Treasure'];$3P;When you play this, count your deck
 Golem;Alchemy;['Action'];$4P;Reveal cards from your deck until you reveal 2 Action cards other than Golems. Discard the other cards, then play the Action cards in either order.;P1, P1;;;;;;;;;False;False;True;card_pictures/Alchemy/Golem.jpg;0;[''];3;0;0;0;0;0
 Apprentice;Alchemy;['Action'];$5;+1 ActionTrash a card from your hand. +1 Card per $1 it costs. +2 Cards if it has P in its cost.;+1;+X;;;1;;;;;False;False;True;card_pictures/Alchemy/Apprentice.jpg;6;[''];0;0;0;0;0;2
 Possession;Alchemy;['Action'];$6P;"The player to your left takes an extra turn after this one, in which you can see all cards they can and make all decisions for them. Any cards or they would gain on that turn, you gain instead; any cards of theirs that are trashed are set aside and put in their discard pile at end of turn.";;;;;;;;X;;False;False;True;card_pictures/Alchemy/Possession.jpg;0;['Possession'];0;0;0;0;0;0
-Potion;Alchemy;['Treasure'];$4;P;;;;+P;;;;;;False;False;True;card_pictures/Alchemy/Potion.jpg;0;[''];0;0;0;0;0;0
+Potion;Alchemy;['Treasure'];$4;P;;;;+P;;;;;;False;False;False;card_pictures/Alchemy/Potion.jpg;0;[''];0;0;0;0;0;0
 Loan;Prosperity;['Treasure'];$3;$1Reveal cards from your deck until you reveal a Treasure. Discard it or trash it. Discard the other cards.;;;;+$1;1?;;;;;False;False;True;card_pictures/Prosperity/Loan.jpg;0;[''];0;0;0;0;0;2
 Trade Route;Prosperity;['Action'];$3;"+1 BuyTrash a card from your hand. +$1 per Coin token on the Trade Route mat.Setup: Add a Coin token to each Victory Supply pile; move that token to the Trade Route mat when a card is gained from that pile.";;;+1;+$x;1;;;;;False;False;True;card_pictures/Prosperity/Trade_Route.jpg;0;[''];0;0;0;0;0;2
 Watchtower;Prosperity;['Action', 'Reaction'];$3;Draw until you have 6 cards in hand.When you gain a card, you may reveal this from your hand, to either trash that card or put it onto your deck.;;+X;;;;;;;;False;False;True;card_pictures/Prosperity/Watchtower.jpg;5;[''];0;0;0;0;0;0
@@ -147,7 +147,7 @@ Young Witch;Cornucopia;['Action', 'Attack'];$4;"+2 CardsDiscard 2 cards. Each ot
 Harvest;Cornucopia;['Action'];$5;Reveal the top 4 cards of your deck, then discard them. +$1 per differently named card revealed.;;;;+$x;;;;;;False;False;True;card_pictures/Cornucopia/Harvest.jpg;0;[''];0;0;0;0;0;0
 Horn of Plenty;Cornucopia;['Treasure'];$5;When you play this, gain a card costing up to $1 per differently named card you have in play (counting this). If it’s a Victory card, trash this.;;;;;Self?;;;1;;False;False;True;card_pictures/Cornucopia/Horn_of_Plenty.jpg;0;[''];0;0;0;0;0;0
 Hunting Party;Cornucopia;['Action'];$5;+1 Card+1 ActionReveal your hand. Reveal cards from your deck until you reveal one that isn’t a copy of one in your hand. Put it into your hand and discard the rest.;+1;+2;;;;;;;;False;False;True;card_pictures/Cornucopia/Hunting_Party.jpg;4;[''];0;0;0;0;0;0
-Jester;Cornucopia;['Action', 'Attack'];$5;"+$2Each other player discards the top card of their deck. If it’s a Victory card they gain a Curse; otherwise they gain a copy of the discarded card or you do, your choice.";;;;+$2;;1?;1?;;;False;False;True;card_pictures/Cornucopia/Jester.jpg;0;['Topdeck', 'Junker'];0;0;0;0;0;0
+Jester;Cornucopia;['Action', 'Attack'];$5;"+$2Each other player discards the top card of their deck. If it’s a Victory card they gain a Curse; otherwise they gain a copy of the discarded card or you do, your choice.";;;;+$2;;1?;1?;;;False;False;True;card_pictures/Cornucopia/Jester.jpg;0;['Topdeck', 'Junker'];0;0;0;0;0;2
 Fairgrounds;Cornucopia;['Victory'];$6;Worth 2VP per 5 differently named cards you have (round down).;;;;;;;;;XVP;False;False;True;card_pictures/Cornucopia/Fairgrounds.jpg;0;[''];0;0;0;0;0;0
 Bag of Gold;Cornucopia;['Action', 'Prize'];$0*;+1 ActionGain a Gold onto your deck.(This is not in the Supply.);+1;;;;;;;1;;False;False;False;card_pictures/Cornucopia/Bag_of_Gold.jpg;0;[''];0;0;0;0;0;0
 Diadem;Cornucopia;['Treasure', 'Prize'];$0*;$2When you play this, +$1 per unused Action you have (Action, not Action card).(This is not in the Supply.);;;;+$2 +$x;;;;;;False;False;False;card_pictures/Cornucopia/Diadem.jpg;0;[''];0;0;0;0;0;0
@@ -348,7 +348,7 @@ Donate;Empires;['Event'];;After this turn, put all cards from your deck and disc
 Advance;Empires;['Event'];$0;You may trash an Action card from your hand. If you do, gain an Action card costing up to $6.;;;;;1?;;;1;;True;False;False;card_pictures/Empires/Advance.jpg;0;[''];0;0;0;0;0;2
 Delve;Empires;['Event'];$2;+1 BuyGain a Silver.;;;+1;;;;;1;;True;False;False;card_pictures/Empires/Delve.jpg;0;[''];0;0;0;0;0;0
 Tax;Empires;['Event'];$2;Add to a Supply pile.Setup: Add to each Supply pile. When a player buys a card, they take the from its pile.;;;;;;;;;;True;False;False;card_pictures/Empires/Tax.jpg;0;[''];0;0;0;0;0;0
-Banquet;Empires;['Event'];$3;Gain 2 Coppers and a non-Victory card costing up to $5.;;;;;;2 Self?;;3;;True;False;False;card_pictures/Empires/Banquet.jpg;0;[''];0;0;0;0;0;0
+Banquet;Empires;['Event'];$3;Gain 2 Coppers and a non-Victory card costing up to $5.;;;;;;2 Self?;;3;;True;False;False;card_pictures/Empires/Banquet.jpg;0;[''];0;0;0;0;0;4
 Ritual;Empires;['Event'];$4;Gain a Curse. If you do, trash a card from your hand. +1VP per $1 it cost.;;;;;1;;;1;+XVP;True;False;False;card_pictures/Empires/Ritual.jpg;0;[''];0;0;0;0;0;2
 Salt the Earth;Empires;['Event'];$4;+1VPTrash a Victory card from the Supply.;;;;;1;;;;+1VP;True;False;False;card_pictures/Empires/Salt_the_Earth.jpg;0;[''];0;0;0;0;0;2
 Wedding;Empires;['Event'];$4;+1VPGain a Gold.;;;;;;;;1;+1VP;True;False;False;card_pictures/Empires/Wedding.jpg;0;[''];0;0;0;0;0;0
@@ -513,7 +513,7 @@ Scrap;Menagerie;['Action'];$3;"Trash a card from your hand. Choose a different t
 Sheepdog;Menagerie;['Action', 'Reaction'];$3;+2 CardsWhen you gain a card, you may play this from your hand.;;+2;;;;;;;;False;False;True;card_pictures/Menagerie/Sheepdog.jpg;4;[''];0;0;0;0;0;0
 Snowy Village;Menagerie;['Action'];$3;+1 Card+4 Actions+1 BuyIgnore any further +Actions you get this turn.;+4, -X;+1;+1;;;;;;;False;False;True;card_pictures/Menagerie/Snowy_Village.jpg;1;[''];5;0;0;0;0;0
 Stockpile;Menagerie;['Treasure'];$3;$3+1 BuyWhen you play this, Exile it.;;;+1;+$3;;Self;;;;False;False;True;card_pictures/Menagerie/Stockpile.jpg;0;[''];0;0;0;0;0;0
-Bounty Hunter;Menagerie;['Action'];$4;+1 ActionExile a card from your hand. If you didn't have a copy of it in Exile, +$3.;+1;;;+$3?;;1;;;;False;False;True;card_pictures/Menagerie/Bounty_Hunter.jpg;0;[''];0;0;0;0;0;0
+Bounty Hunter;Menagerie;['Action'];$4;+1 ActionExile a card from your hand. If you didn't have a copy of it in Exile, +$3.;+1;;;+$3?;;1;;;;False;False;True;card_pictures/Menagerie/Bounty_Hunter.jpg;0;[''];0;0;0;0;0;2
 Cardinal;Menagerie;['Action', 'Attack'];$4;+$2Each other player reveals the top 2 cards of their deck, Exiles one costing from $3 to $6, and discards the rest.;;;;+$2;;;;;;False;False;True;card_pictures/Menagerie/Cardinal.jpg;0;['Topdeck', 'Exiler'];0;0;0;0;0;0
 Cavalry;Menagerie;['Action'];$4;Gain 2 Horses.When you gain this, +2 Cards, +1 Buy, and if it's your Buy phase return to your Action phase.;;*+2;*+1;;;;;2;;False;False;True;card_pictures/Menagerie/Cavalry.jpg;4;[''];0;0;0;0;0;0
 Groom;Menagerie;['Action'];$4;"Gain a card costing up to $4 If it's an...Action card, gain a Horse;Treasure card, gain a Silver;Victory card, +1 Card and +1 Action.";+1?;+1?;;;;;;1, 1?;;False;False;True;card_pictures/Menagerie/Groom.jpg;0;[''];0;0;0;0;0;0
@@ -523,14 +523,14 @@ Fisherman;Menagerie;['Action'];$5*;+1 Card+1 Action+$1During your turns, if your
 Hunting Lodge;Menagerie;['Action'];$5;+1 Card+2 ActionYou may discard your hand for +5 Cards.;+2;+1, -X+5?;;;;;;;;False;False;True;card_pictures/Menagerie/Hunting_Lodge.jpg;2;[''];3;0;0;0;0;0
 Barge;Menagerie;['Action', 'Duration'];$5;Either now or at the start of your next turn, +3 Cards and +1 Buy.;;+3?, N+3?;+1? , N+1?;;;;;;;False;False;True;card_pictures/Menagerie/Barge.jpg;7;[''];0;0;0;0;0;0
 Coven;Menagerie;['Action', 'Attack'];$5;+1 Action+$2Each other player Exiles a Curse from the Supply. If they can't, they discard their Exiled Curses.;+1;;;+$2;;;1*;;;False;False;True;card_pictures/Menagerie/Coven.jpg;0;['Curser'];0;0;0;0;0;0
-Displace;Menagerie;['Action'];$5;Exile a card from your hand. Gain a differently named card costing up to $2 more than it.;;;;;;1;;1;;False;False;True;card_pictures/Menagerie/Displace.jpg;0;[''];0;0;0;0;0;0
+Displace;Menagerie;['Action'];$5;Exile a card from your hand. Gain a differently named card costing up to $2 more than it.;;;;;;1;;1;;False;False;True;card_pictures/Menagerie/Displace.jpg;0;[''];0;0;0;0;0;2
 Falconer;Menagerie;['Action', 'Reaction'];$5;Gain a card to your hand costing less than this.When any player gains a card with 2 or more types (Action, Attack, etc.), you may play this from your hand.;;;;;;;;1;;False;False;True;card_pictures/Menagerie/Falconer.jpg;0;[''];0;0;0;0;0;0
 Gatekeeper;Menagerie;['Action', 'Duration', 'Attack'];$5;At the start of your next turn, +$3. Until then, when another player gains an Action or Treasure card they don't have an Exiled copy of, they Exile it.;;;;N +$3;;;;;;False;False;True;card_pictures/Menagerie/Gatekeeper.jpg;0;['Exiler'];0;0;0;0;0;0
 Kiln;Menagerie;['Action'];$5;+$2The next time you play a card this turn, you may first gain a copy of it.;;;;+$2;;;;1?;;False;False;True;card_pictures/Menagerie/Kiln.jpg;0;[''];0;0;0;0;0;0
 Livery;Menagerie;['Action'];$5;+$3This turn, when you gain a card costing $4 or more, gain a Horse.;;;;+$3;;;;1?;;False;False;True;card_pictures/Menagerie/Livery.jpg;0;[''];0;0;0;0;0;0
 Mastermind;Menagerie;['Action', 'Duration'];$5;At the start of your next turn, you may play an Action card from your hand three times.;N P3;;;;;;;;;False;False;True;card_pictures/Menagerie/Mastermind.jpg;0;[''];6;0;0;0;0;0
 Paddock;Menagerie;['Action'];$5;+$2Gain 2 Horses.+1 Action per empty Supply pile.;+X;;;+$2;;;;2;;False;False;True;card_pictures/Menagerie/Paddock.jpg;0;[''];3;0;0;0;0;0
-Sanctuary;Menagerie;['Action'];$5;+1 Card+1 Action+1 BuyYou may Exile a card from your hand.;+1;+1;+1;;;1?;;;;False;False;True;card_pictures/Menagerie/Sanctuary.jpg;1;[''];0;0;0;0;0;0
+Sanctuary;Menagerie;['Action'];$5;+1 Card+1 Action+1 BuyYou may Exile a card from your hand.;+1;+1;+1;;;1?;;;;False;False;True;card_pictures/Menagerie/Sanctuary.jpg;1;[''];0;0;0;0;0;2
 Destrier;Menagerie;['Action'];$6*;+2 Cards+1 ActionDuring your turn, this costs $1 less per card you've gained this turn.;+1;+2;;;;;;;;False;False;True;card_pictures/Menagerie/Destrier.jpg;4;[''];0;0;0;0;0;0
 Wayfarer;Menagerie;['Action'];$6*;+3 CardsYou may gain a Silver.This has the same cost as the last other card gained this turn, if any.;;+3;;;;;;1?;;False;False;True;card_pictures/Menagerie/Wayfarer.jpg;6;[''];0;0;0;0;0;0
 Animal Fair;Menagerie;['Action'];$7*;+$4+1 Buy per empty supply pile.Instead of paying this card's cost, you may trash an Action card from your hand.;;;X;+$4;;;;;;False;False;True;card_pictures/Menagerie/Animal_Fair.jpg;0;[''];0;0;0;0;0;0
@@ -542,20 +542,20 @@ Ride;Menagerie;['Event'];$2;Gain a Horse.;;;;;;;;1;;True;False;False;card_pictur
 Toil;Menagerie;['Event'];$2;+1 BuyYou may play an Action card from your hand.;P1?;;+1;;;;;;;True;False;False;card_pictures/Menagerie/Toil.jpg;0;[''];2;0;0;0;0;0
 Enhance;Menagerie;['Event'];$3;You may trash a non-Victory card from your hand, to gain a card costing up to $2 more than it.;;;;;1?;;;1?;;True;False;False;card_pictures/Menagerie/Enhance.jpg;0;[''];0;0;0;0;0;2
 March;Menagerie;['Event'];$3;Look through your discard pile. You may play an Action card from it.;P1?;;;;;;;;;True;False;False;card_pictures/Menagerie/March.jpg;0;[''];1;0;0;0;0;0
-Transport;Menagerie;['Event'];$3;"Choose one: Exile an Action card from the Supply; or put an Action card you have in Exile onto your deck.";;;;;;1?;;;;True;False;False;card_pictures/Menagerie/Transport.jpg;0;[''];0;0;0;0;0;0
+Transport;Menagerie;['Event'];$3;"Choose one: Exile an Action card from the Supply; or put an Action card you have in Exile onto your deck.";;;;;;1?;;;;True;False;False;card_pictures/Menagerie/Transport.jpg;0;[''];0;0;0;0;0;2
 Banish;Menagerie;['Event'];$4;Exile any number of cards with the same name from your hand.;;;;;;X;;;;True;False;False;card_pictures/Menagerie/Banish.jpg;0;[''];0;0;0;0;0;0
 Bargain;Menagerie;['Event'];$4;Gain a non-Victory card costing up to $5. Each other player gains a Horse.;;;;;;;;1;;True;False;False;card_pictures/Menagerie/Bargain.jpg;0;[''];0;0;0;0;0;0
-Invest;Menagerie;['Event'];$4;Exile an Action card from the Supply. While it's in Exile, when another player gains or Invests in a copy of it, +2 Cards.;;;;;;1;;;;True;False;False;card_pictures/Menagerie/Invest.jpg;0;[''];0;0;0;0;0;0
+Invest;Menagerie;['Event'];$4;Exile an Action card from the Supply. While it's in Exile, when another player gains or Invests in a copy of it, +2 Cards.;;;;;;1;;;;True;False;False;card_pictures/Menagerie/Invest.jpg;0;[''];0;0;0;0;0;2
 Seize the Day;Menagerie;['Event'];$4;Once per game: Take an extra turn after this one.;;;;;;;;;;True;False;False;card_pictures/Menagerie/Seize_the_Day.jpg;0;[''];0;0;0;0;0;0
 Commerce;Menagerie;['Event'];$5;Gain a Gold per differently named card you've gained this turn.;;;;;;;;X;;True;False;False;card_pictures/Menagerie/Commerce.jpg;0;[''];0;0;0;0;0;0
 Demand;Menagerie;['Event'];$5;Gain a Horse and a card costing up to $4, both onto your deck.;;;;;;;;2;;True;False;False;card_pictures/Menagerie/Demand.jpg;0;[''];0;0;0;0;0;0
 Stampede;Menagerie;['Event'];$5;If you have 5 or fewer cards in play, gain 5 Horses onto your deck.;;;;;;;;5;;True;False;False;card_pictures/Menagerie/Stampede.jpg;0;[''];0;0;0;0;0;0
 Reap;Menagerie;['Event'];$7;Gain a Gold. Set it aside. If you do, at the start of your next turn, play it.;;;;(N +$3);;;;1;;True;False;False;card_pictures/Menagerie/Reap.jpg;0;[''];0;0;0;0;0;0
-Enclave;Menagerie;['Event'];$8;Gain a Gold. Exile a Duchy from the Supply.;;;;;;1;;1;(+3VP);True;False;False;card_pictures/Menagerie/Enclave.jpg;0;[''];0;0;0;0;0;0
+Enclave;Menagerie;['Event'];$8;Gain a Gold. Exile a Duchy from the Supply.;;;;;;1;;1;(+3VP);True;False;False;card_pictures/Menagerie/Enclave.jpg;0;[''];0;0;0;0;0;2
 Alliance;Menagerie;['Event'];$10;Gain a Province, a Duchy, an Estate, a Gold, a Silver, and a Copper;;;;;;;;6;(+10VP);True;False;False;card_pictures/Menagerie/Alliance.jpg;0;[''];0;0;0;0;0;0
 Populate;Menagerie;['Event'];$10;Gain one card from each Action Supply pile.;;;;;;;;X;;True;False;False;card_pictures/Menagerie/Populate.jpg;0;[''];0;0;0;0;0;0
 Way of the Butterfly;Menagerie;['Way'];;You may return this to its pile to gain a card costing exactly $1 more than it.;;;;;;;;1;;True;False;False;card_pictures/Menagerie/Way_of_the_Butterfly.jpg;0;[''];0;0;0;0;0;0
-Way of the Camel;Menagerie;['Way'];;Exile a Gold from the Supply;;;;;;1;;;;True;False;False;card_pictures/Menagerie/Way_of_the_Camel.jpg;0;[''];0;0;0;0;0;0
+Way of the Camel;Menagerie;['Way'];;Exile a Gold from the Supply;;;;;;1;;;;True;False;False;card_pictures/Menagerie/Way_of_the_Camel.jpg;0;[''];0;0;0;0;0;2
 Way of the Chameleon;Menagerie;['Way'];;"Follow this card's instructions; each time that would give you +Cards this turn, you get +$ instead, and vice-versa.";;-X, +X;;-$x, +$x;;;;;;True;False;False;card_pictures/Menagerie/Way_of_the_Chameleon.jpg;1;[''];0;0;0;0;0;0
 Way of the Frog;Menagerie;['Way'];;+1 ActionWhen you discard this from play this turn, put it onto your deck.;+1;;;;;;;;;True;False;False;card_pictures/Menagerie/Way_of_the_Frog.jpg;0;[''];0;0;0;0;0;0
 Way of the Goat;Menagerie;['Way'];;Trash a card from your hand.;;;;;1;;;;;True;False;False;card_pictures/Menagerie/Way_of_the_Goat.jpg;0;[''];0;0;0;0;0;2
@@ -566,14 +566,14 @@ Way of the Mouse;Menagerie;['Way'];;Play the set-aside card, leaving it there.Se
 Way of the Mule;Menagerie;['Way'];;+1 Action+$1;+1;;;+$1;;;;;;True;False;False;card_pictures/Menagerie/Way_of_the_Mule.jpg;0;[''];0;0;0;0;0;0
 Way of the Otter;Menagerie;['Way'];;+2 Cards;;+2;;;;;;;;True;False;False;card_pictures/Menagerie/Way_of_the_Otter.jpg;4;[''];0;0;0;0;0;0
 Way of the Ox;Menagerie;['Way'];;+2 Actions;+2;;;;;;;;;True;False;False;card_pictures/Menagerie/Way_of_the_Ox.jpg;0;[''];3;0;0;0;0;0
-Way of the Owl;Menagerie;['Way'];;Draw until you have 6 cards in your hand.;;+X;;;;;;;;True;False;False;card_pictures/Menagerie/Way_of_the_Owl.jpg;0;[''];0;0;0;0;0;0
+Way of the Owl;Menagerie;['Way'];;Draw until you have 6 cards in your hand.;;+X;;;;;;;;True;False;False;card_pictures/Menagerie/Way_of_the_Owl.jpg;5;[''];0;0;0;0;0;0
 Way of the Pig;Menagerie;['Way'];;+1 Card+1 Action;+1;+1;;;;;;;;True;False;False;card_pictures/Menagerie/Way_of_the_Pig.jpg;1;[''];0;0;0;0;0;0
 Way of the Rat;Menagerie;['Way'];;You may discard a Treasure to gain a copy of this.;;-1;;;;;;1;;True;False;False;card_pictures/Menagerie/Way_of_the_Rat.jpg;0;[''];0;0;0;0;0;0
 Way of the Seal;Menagerie;['Way'];;+$1This turn, when you gain a card, you may put it onto your deck.;;;;+$1;;;;;;True;False;False;card_pictures/Menagerie/Way_of_the_Seal.jpg;0;[''];0;0;0;0;0;0
 Way of the Sheep;Menagerie;['Way'];;+$2;;;;+$2;;;;;;True;False;False;card_pictures/Menagerie/Way_of_the_Sheep.jpg;0;[''];0;0;0;0;0;0
 Way of the Squirrel;Menagerie;['Way'];;+2 Cards at the end of this turn.;;N +2;;;;;;;;True;False;False;card_pictures/Menagerie/Way_of_the_Squirrel.jpg;4;[''];0;0;0;0;0;0
 Way of the Turtle;Menagerie;['Way'];;Set this aside. If you did, play it at the start of your next turn.;;;;;;;;;;True;False;False;card_pictures/Menagerie/Way_of_the_Turtle.jpg;0;[''];0;0;0;0;0;0
-Way of the Worm;Menagerie;['Way'];;Exile an Estate from the Supply.;;;;;;1;;;(+1VP);True;False;False;card_pictures/Menagerie/Way_of_the_Worm.jpg;0;[''];0;0;0;0;0;0
+Way of the Worm;Menagerie;['Way'];;Exile an Estate from the Supply.;;;;;;1;;;(+1VP);True;False;False;card_pictures/Menagerie/Way_of_the_Worm.jpg;0;[''];0;0;0;0;0;2
 Black Market;Promo;['Action'];$3;+$2 Reveal the top 3 cards of the Black Market deck. Play any number of Treasures from your hand. You may buy one of the revealed cards. Put the rest on the bottom of the Black Market deck in any order.Setup: Make a Black Market deck out of different unused Kingdom cards.;;;;+$2;;;;;;False;False;True;card_pictures/Promo/Black_Market.jpg;0;[''];0;0;0;0;0;0
 Church;Promo;['Action', 'Duration'];$3;+1 ActionSet aside up to 3 cards from your hand face down. At the start of your next turn, put them into your hand, then you may trash a card from your hand.;+1;-0-3, N +0-3;;;N 1?;;;;;False;False;True;card_pictures/Promo/Church.jpg;0;[''];0;0;0;0;0;2
 Dismantle;Promo;['Action'];$4;Trash a card from your hand. If it costs $1 or more, gain a cheaper card and a Gold.;;;;;1;;;2?;;False;False;True;card_pictures/Promo/Dismantle.jpg;0;[''];0;0;0;0;0;2
