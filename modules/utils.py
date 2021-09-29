@@ -115,7 +115,7 @@ def group_widgets(wid_list, text=None, num_rows=1):
     return wid
 
     
-def display_labels(label_dict, layout_dict, name, num_rows=2, size=(150, 320)):
+def display_cards(label_dict, layout_dict, name, num_rows=2, size=(150, 320)):
     for i in reversed(range(layout_dict[f"{name}display"].count())): 
         layout_dict[f"{name}display"].itemAt(i).widget().setParent(None)
     num_items = len(label_dict[f"{name}List"])

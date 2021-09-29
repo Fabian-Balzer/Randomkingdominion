@@ -24,8 +24,8 @@ class WidgetContainer:
         self.layouts["Settings"].addWidget(self.buttons["Randomize"])
 
     def update_card_display(self, kingdom, landscapes):
-        self.labels = cf.create_labels(kingdom, landscapes)
-        utils.display_labels(self.labels, self.layouts, "Kingdom", num_rows=2)
-        utils.display_labels(self.labels, self.layouts, "Landscape", num_rows=1, size=(250, 170))
+        self.cards = cf.create_cards(kingdom, landscapes)
+        utils.display_cards(self.cards, self.layouts, "Kingdom", num_rows=2)
+        utils.display_cards(self.cards, self.layouts, "Landscape", num_rows=1, size=(250, 170))
 
 

@@ -59,6 +59,7 @@ class DataContainer:
         qualities = ["Draw", "Village", "Trashing"]
         self.quality_dict = {f"{quality}Quality": 0 for quality in qualities}  # Dict containing the quality parameters for the kingdom
         self.kingdom_dict = {f"{quality}Quality": 0 for quality in qualities}  # Dict containing information about the kingdom, important during randomization.
+        self.rerolled_cards = []
 
         # self.params.load_sets(set(self.all_cards["Set"]))
         # self.params.load_attack_types(set())
@@ -90,18 +91,22 @@ class DataContainer:
         for arg_name in self.quality_dict.keys():
             spin_dict[arg_name].setValue(self.quality_dict[arg_name])
 
-    def reset_kingdom_dict(self):
+    def reset_for_randomization(self):
+        self.rerolled_cards = []
         for key in self.kingdom_dict.keys():
             self.kingdom_dict[key] = 0
 
     def randomize(self):
-        self.reset_kingdom_dict()
+        self.reset_for_randomization()
         self.selected_cards = self.all_cards[self.all_cards["Set"].apply(lambda set_: set_ in self.selected_sets)]
         print(self.selected_cards)
         self.selected_cards = self.selected_cards[self.selected_cards["IsInSupply"] | self.selected_cards["IsLandscape"]]
         self.picked_selection = self.all_cards.iloc[0:0]
         for i in range(self.num_kingdomcards + self.num_landscapes):
             self.pick_card_or_landscape()
+        self.sort_and_assess_kingdom()
+    
+    def sort_and_assess_kingdom(self):
         self.sort_selection()
         self.kingdom = self.picked_selection[~self.picked_selection["IsLandscape"]]
         self.landscapes = self.picked_selection[self.picked_selection["IsLandscape"]]
@@ -124,6 +129,8 @@ class DataContainer:
             draw_pool = draw_pool[~draw_pool["IsLandscape"]]
         if len(self.picked_selection[~self.picked_selection["IsLandscape"]]) == self.num_kingdomcards:
             draw_pool = draw_pool[draw_pool["IsLandscape"]]
+        if len(draw_pool[draw_pool["Name"].apply(lambda name: name not in self.rerolled_cards)]) > 0:
+            draw_pool = draw_pool[draw_pool["Name"].apply(lambda name: name not in self.rerolled_cards)]
         # Create a dictionary for args that still require fulfilment (i. e. VQ is set to 7-4 if the kingdom already contains a DQ of 4)
         choices = {arg_name: (val - self.kingdom_dict[arg_name]) \
             for arg_name, val  in self.quality_dict.items() if val - self.kingdom_dict[arg_name] > 0}
@@ -135,6 +142,15 @@ class DataContainer:
             if len(draw_pool) == 0:  # If the constraints are too much, do not constrain it.
                 draw_pool = before_narrowing
         return draw_pool
+
+    def reroll_card(self, old_card):
+        """Removes a card from the kingdom to reroll it."""
+        self.rerolled_cards.append(old_card)
+        print(self.picked_selection)
+        self.picked_selection = self.picked_selection[self.picked_selection["Name"] != old_card]
+        self.pick_card_or_landscape()
+        self.sort_and_assess_kingdom()
+
 
     def randomize_brute_force(self):
         try_, max_tries = 1, 200

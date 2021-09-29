@@ -74,13 +74,13 @@ class UIMainWindow(QW.QMainWindow):
     def display_kingdom(self):
         """Updates the kingdom cards"""
         self.widgets.update_card_display(self.data_container.kingdom, self.data_container.landscapes)
-        for entry in self.widgets.labels["KingdomList"] + self.widgets.labels["LandscapeList"]:
-            entry["Button"].clicked.connect(lambda: self.reroll_card(entry["Name"]))
+        for entry in self.widgets.cards["KingdomList"] + self.widgets.cards["LandscapeList"]:
+            entry["Button"].clicked.connect(partial(self.reroll_card, entry["Name"]))
     
     def reroll_card(self, card_name):
         print("Hello")
-        self.data_container.
-        display_kingdom()
+        self.data_container.reroll_card(card_name)
+        self.display_kingdom()
 
 
 def start_program():

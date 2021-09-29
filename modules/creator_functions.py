@@ -97,28 +97,28 @@ def create_gridlayout(parent):
     return lay
 
 
-def create_labels(kingdom, landscapes):
-    label_dict = {}
-    label_dict["KingdomList"] = create_kingdom_labels(kingdom)
-    label_dict["LandscapeList"] = create_kingdom_labels(landscapes)
-    return label_dict
+def create_cards(kingdom, landscapes):
+    card_dict = {}
+    card_dict["KingdomList"] = create_kingdom_cards(kingdom)
+    card_dict["LandscapeList"] = create_kingdom_cards(landscapes)
+    return card_dict
 
 
-def create_kingdom_labels(cards):
+def create_kingdom_cards(cards):
     kingdom = []
     for i, card in cards.iterrows():
-        kingdom.append(create_label_group(card, 150, 250))
+        kingdom.append(create_card_group(card, 150, 250))
     return kingdom
 
 
-def create_cso_labels(cards):
+def create_cso_cards(cards):
     csos = []
     for i, card in cards.iterrows():
-        csos.append(create_label_group(card, 250, 100))
+        csos.append(create_card_group(card, 250, 100))
     return csos
 
 
-def create_label_group(card, width, pic_height):
+def create_card_group(card, width, pic_height):
     display_text = get_display_text(card)
     pic = QW.QLabel()
     pic.setAlignment(QC.Qt.AlignHCenter)
