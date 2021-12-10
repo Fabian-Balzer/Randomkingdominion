@@ -5,14 +5,14 @@ from modules.utils import coolButton, coolCheckBox, group_widgets, coolSpinBox
 import pandas as pd
 
 
-def create_checkboxes(all_sets, all_attack_types):
+def create_checkboxes(all_sets, all_attack_types, button_dict):
     checkbox_dict = {}
-    checkbox_dict["SetDict"], checkbox_dict["SetGroup"] = create_checkbox_group(all_sets, "Sets")
-    checkbox_dict["AttackTypeDict"], checkbox_dict["AttackTypeGroup"] = create_checkbox_group(all_attack_types, "Attack Types")
+    checkbox_dict["SetDict"], checkbox_dict["SetGroup"] = create_checkbox_group(all_sets, "Sets", button_dict)
+    checkbox_dict["AttackTypeDict"], checkbox_dict["AttackTypeGroup"] = create_checkbox_group(all_attack_types, "Attack Types", button_dict)
     return checkbox_dict
 
 
-def create_checkbox_group(names, kind):
+def create_checkbox_group(names, kind, button_dict):
     """Creates a dictionary containing all checkboxes for set selection and a group
     widget containing all of them for display."""
     box_dict = {}
@@ -24,7 +24,9 @@ def create_checkbox_group(names, kind):
     for name, tooltip in zip(names, tooltips):
         checkbox = coolCheckBox(name, tooltip)
         box_dict[name] = checkbox
-    set_list = [box_dict[key] for key in sorted(box_dict.keys())]
+    select_all_button = coolButton(text=f"Select all {kind}")
+    button_dict[f"{kind}SelectionButton"] = select_all_button
+    set_list = [box_dict[key] for key in sorted(box_dict.keys())] + [select_all_button]
     return box_dict, group_widgets(set_list, f"{kind} used for randomization", num_rows=6)
 
 
@@ -64,7 +66,8 @@ def create_layouts(_main):
     layout_dict = {}
     main = create_main_layout(_main)
     layout_dict["Settings"] = create_vboxlayout("Settings", main, 0, 0)
-    layout_dict["Display"] = create_vboxlayout("Kingdom overview", main, 0, 1)
+    layout_dict["Stats"] = create_vboxlayout("Kingdom stats", main, 1, 0)
+    layout_dict["Display"] = create_vboxlayout("Kingdom overview", main, 0, 1, 2, 1)
     layout_dict["Kingdomdisplay"] = create_gridlayout(layout_dict["Display"])
     layout_dict["Landscapedisplay"] = create_gridlayout(layout_dict["Display"])
     layout_dict["Main"] = main
@@ -79,12 +82,12 @@ def create_main_layout(_main):
     return lay
 
 
-def create_vboxlayout(name, parent, row, col):
+def create_vboxlayout(name, parent, row, col, rowstretch=1, colstretch=1):
     wid = QW.QGroupBox(name)
     lay = QW.QVBoxLayout(wid)
     lay.setSpacing(20)
     lay.setContentsMargins(3, 3, 3, 3)
-    parent.addWidget(wid, row, col)
+    parent.addWidget(wid, row, col, rowstretch, colstretch)
     return lay
 
 
@@ -150,3 +153,9 @@ def get_tooltip_text(card):
     qualities = ["Draw", "Village", "Trashing"]
     ttstring = "\n".join([f"{qual} quality: {card[qual +'Quality']}" for qual in qualities])
     return ttstring
+
+def create_labels(qualities):
+    label_dict = {}
+    for qual, val in qualities.items():
+        label_dict[qual] = QW.QLabel(f"Total {qual} Quality:\t{val}")
+    return label_dict

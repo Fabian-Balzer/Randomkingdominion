@@ -14,13 +14,13 @@ DONE Finish Refactoring Widgets
 - Implement permanently stored data
 - Implement kingdom history
 - Show kingdom strength
-- Klick on single cards to exchange them
+DONE Klick on single cards to exchange them
 
 
 ### Card metadata
 - Fix Card Draw Quality for cards with plain draw
 - Fix debt cost
-- Add TrashQuality
+DONE Add TrashQuality
 - Add TrashType (All, Treasure, NoTreasure, Action)
 - Add GainQuality
 - Add GainType (Buys, AllWithCost, Treasure, Action, Trash)

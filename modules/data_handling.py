@@ -56,10 +56,13 @@ class DataContainer:
         self.picked_selection = self.all_cards.iloc[0:0]
         self.num_kingdomcards = 10
         self.num_landscapes = 2
+        self.parameter_dict = {"RequireReaction": False, "AttackType": None}
+        self.amount_dict = {f"{x}Amount": 0 for x in range(2, 8)}
         qualities = ["Draw", "Village", "Trashing"]
         self.quality_dict = {f"{quality}Quality": 0 for quality in qualities}  # Dict containing the quality parameters for the kingdom
         self.kingdom_dict = {f"{quality}Quality": 0 for quality in qualities}  # Dict containing information about the kingdom, important during randomization.
         self.rerolled_cards = []
+        self.kingdom_qualities = {f"{quality}": 0 for quality in qualities}  # Dict containing info about the kingdom
 
         # self.params.load_sets(set(self.all_cards["Set"]))
         # self.params.load_attack_types(set())
@@ -82,6 +85,11 @@ class DataContainer:
         # TODO: Load this from a config file.
         for set_ in ["Menagerie", "Nocturne"]:
             set_dict[set_].setChecked(True)
+
+    def select_or_deselect(self, checkbox_dict, button):
+        pass
+        # if len(self.selected_sets) == 0:
+        #     for checkbox in 
 
     def get_quality_arg(self, arg_name, value):
         self.quality_dict[arg_name] = value
@@ -112,6 +120,7 @@ class DataContainer:
         self.landscapes = self.picked_selection[self.picked_selection["IsLandscape"]]
         qualities = {qual: sum(self.picked_selection[qual + "Quality"]) for qual in ["Draw", "Village", "Trashing"]}
         print("\n".join([f"Total {qual} Quality:\t{val}" for qual, val in qualities.items()]))
+        self.kingdom_qualities = qualities
         # print(self.picked_selection[["Name"] + [f"{qual}Quality" for qual in qualities.keys()]])
 
     def pick_card_or_landscape(self):

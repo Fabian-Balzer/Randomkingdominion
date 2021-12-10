@@ -58,6 +58,8 @@ class UIMainWindow(QW.QMainWindow):
         for set_, checkbox in self.widgets.checkboxes["SetDict"].items():
             # The partial function must be used as lambda functions don't work with iterators
             checkbox.toggled.connect(partial(self.data_container.get_sets, self.widgets.checkboxes["SetDict"]))
+        # self.widgets.buttons["SelectionButton"].clicked.connect(lambda:
+        #     self.data_container.select_or_deselect(self.widgets.checkboxes["SetDict"], self.widgets.buttons["SelectionButton"]))
         # for type_, checkbox in self.widgets.checkboxes["AttackTypeDict"].items():
         #     checkbox.toggled.connect(partial(self.data_container.params.toggle_attack_type, type_))
         for quality_name, spinner in self.widgets.spinners["QualityDict"].items():
@@ -67,13 +69,14 @@ class UIMainWindow(QW.QMainWindow):
         self.data_container.set_sets(self.widgets.checkboxes["SetDict"])
         self.data_container.set_quality_args(self.widgets.spinners["QualityDict"])
 
+
     def randomize(self):
         self.data_container.randomize()
         self.display_kingdom()
 
     def display_kingdom(self):
         """Updates the kingdom cards"""
-        self.widgets.update_card_display(self.data_container.kingdom, self.data_container.landscapes)
+        self.widgets.update_card_display(self.data_container.kingdom, self.data_container.landscapes, self.data_container.kingdom_qualities)
         for entry in self.widgets.cards["KingdomList"] + self.widgets.cards["LandscapeList"]:
             entry["Button"].clicked.connect(partial(self.reroll_card, entry["Name"]))
     
