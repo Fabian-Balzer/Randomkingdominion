@@ -1,6 +1,7 @@
-from bs4 import BeautifulSoup
-import requests
 import os
+
+import requests
+from bs4 import BeautifulSoup
 
 
 def write_image_database(df, dirname="card_pictures"):
@@ -51,6 +52,12 @@ def save_image(impath, card_name):
         for i in range(300, 1000):
             if card_name and f"{i}px" in im["src"]:
                 pic_link = link_base + im["src"]
+                break
+    if pic_link is None:
+        for im in ims:
+            if card_name in im["src"]:
+                pic_link = link_base + im["src"]
+                print(f"Reverting to alternative link for {card_name}")
                 break
     if pic_link is None:
         print(f"No picture matching criteria could be found for {card_name}.")

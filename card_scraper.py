@@ -23,18 +23,20 @@ LICENSE:
 
 Code to read the table data and save it as CSV
 """
+# %%
 
-
-from bs4 import BeautifulSoup
-import requests
-import pandas as pd
 import os
-from modules.write_image_database import write_image_database
+
+import pandas as pd
+import requests
+from bs4 import BeautifulSoup
+
 from modules.add_info_columns import add_info_columns, add_knights_and_castles
+from modules.write_image_database import write_image_database
 
 # Determines wether the program tries to scrape the wiki pages for
 # card and image data or just meddle with existing data
-DOWNLOAD_DATA = not os.path.isfile("card_info/raw_card_data.csv")
+DOWNLOAD_DATA = True  # not os.path.isfile("card_info/raw_card_data.csv")
 
 
 def fix_cost_and_vp(doc):
@@ -68,16 +70,19 @@ def write_dataframe_to_file(df, filename, folder):
         os.makedirs(folder)
     fpath = folder + "/" + filename
     if os.path.isfile(fpath):
-        answer = input(f"The file '{fpath}' already exists.\nDo you want to overwrite (y) or cancel (n)?\n>>> ")
+        answer = input(
+            f"The file '{fpath}' already exists.\nDo you want to overwrite (y) or cancel (n)?\n>>> ")
         while True:
-            if answer is "n":
+            if answer == "n":
                 print("Did not rewrite the file due to your concerns.")
                 return
-            if answer is "y":
+            if answer == "y":
                 break
-            answer = input("Please type y for overwriting or n for cancelling.\n>>> ")
+            answer = input(
+                "Please type y for overwriting or n for cancelling.\n>>> ")
     df.to_csv(fpath, sep=";", index=False)
-    print(f"Successfully wrote the dominion cards to the file '{fpath}' in the current path.")
+    print(
+        f"Successfully wrote the dominion cards to the file '{fpath}' in the current path.")
 
 
 def read_dataframe_from_file(filename, folder):
@@ -85,7 +90,8 @@ def read_dataframe_from_file(filename, folder):
     if os.path.isfile(fpath):
         df = pd.read_csv(fpath, sep=";", header=0)
     else:
-        raise FileNotFoundError(2, "Couldn't find the raw card data file, please download it first.")
+        raise FileNotFoundError(
+            2, "Couldn't find the raw card data file, please download it first.")
     return df
 
 
@@ -96,12 +102,16 @@ def main():
         df["Cost"] = df["Cost"].str.replace("plus", "+")
         df = add_knights_and_castles(df)
         df = write_image_database(df)
-        write_dataframe_to_file(df, filename="raw_card_data.csv", folder="card_info")
-    df = read_dataframe_from_file(filename="raw_card_data.csv", folder="card_info")
+        write_dataframe_to_file(
+            df, filename="raw_card_data.csv", folder="card_info")
+    df = read_dataframe_from_file(
+        filename="raw_card_data.csv", folder="card_info")
     df = add_info_columns(df)
-    write_dataframe_to_file(df, filename="good_card_data.csv", folder="card_info")
+    write_dataframe_to_file(
+        df, filename="good_card_data.csv", folder="card_info")
     return df
 
 
 if __name__ == "__main__":
     df = main()  # For me to inspect it in variable manager
+    print(df[df["Name"] == "Elder"])
