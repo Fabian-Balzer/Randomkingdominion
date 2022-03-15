@@ -21,13 +21,16 @@ LICENSE:
 
 Code to open a GUI Dominion randomizer
 """
+# %%
+
 import sys
-import pandas as pd
+from functools import partial
+
+import PyQt5.QtGui as QG
+import PyQt5.QtWidgets as QW
+
 from modules.containers import WidgetContainer
 from modules.data_handling import DataContainer
-import PyQt5.QtWidgets as QW
-import PyQt5.QtGui as QG
-from functools import partial
 
 
 class UIMainWindow(QW.QMainWindow):
@@ -45,8 +48,8 @@ class UIMainWindow(QW.QMainWindow):
         """
         self.setWindowIcon(QG.QIcon('assets/CoverIcon.png'))
         self.setWindowTitle("Random Kingdominon")
-        height = int(QW.QDesktopWidget().screenGeometry(-1).height()*0.85)
-        width = int(QW.QDesktopWidget().screenGeometry(-1).width()*0.7)
+        height = int(QW.QDesktopWidget().screenGeometry(-1).height() * 0.85)
+        width = int(QW.QDesktopWidget().screenGeometry(-1).width() * 0.7)
         self.setGeometry(0, 0, width, height)
         self.move(20, 20)
         self.widgets = WidgetContainer(self._main, self.data_container)
@@ -55,20 +58,28 @@ class UIMainWindow(QW.QMainWindow):
 
     def connect_buttons(self):
         self.widgets.buttons["Randomize"].clicked.connect(self.randomize)
-        for set_, checkbox in self.widgets.checkboxes["SetDict"].items():
+        self.widgets.buttons["Previous"].clicked.connect(self.select_previous)
+        self.widgets.buttons["Next"].clicked.connect(self.select_next)
+        self.widgets.buttons["PrintKingdom"].clicked.connect(
+            lambda: print(self.data_container.kingdom))
+        for checkbox in self.widgets.checkboxes["SetDict"].values():
             # The partial function must be used as lambda functions don't work with iterators
-            checkbox.toggled.connect(partial(self.data_container.get_sets, self.widgets.checkboxes["SetDict"]))
+            checkbox.toggled.connect(
+                partial(self.data_container.read_expansions, self.widgets.checkboxes["SetDict"]))
         # self.widgets.buttons["SelectionButton"].clicked.connect(lambda:
         #     self.data_container.select_or_deselect(self.widgets.checkboxes["SetDict"], self.widgets.buttons["SelectionButton"]))
         # for type_, checkbox in self.widgets.checkboxes["AttackTypeDict"].items():
         #     checkbox.toggled.connect(partial(self.data_container.params.toggle_attack_type, type_))
-        for quality_name, spinner in self.widgets.spinners["QualityDict"].items():
-            spinner.valueChanged.connect(partial(self.data_container.get_quality_arg, quality_name))
+        for qual, spinner in self.widgets.spinners["QualityDict"].items():
+            spinner.valueChanged.connect(
+                partial(self.data_container.read_quality, qual))
 
     def set_values(self):
-        self.data_container.set_sets(self.widgets.checkboxes["SetDict"])
-        self.data_container.set_quality_args(self.widgets.spinners["QualityDict"])
-
+        for exp in self.data_container.request_dict["expansions"]:
+            self.widgets.checkboxes["SetDict"][exp].setChecked(True)
+        for qual in self.data_container.request_dict["qualities"]:
+            self.widgets.spinners["QualityDict"][qual].setValue(
+                self.data_container.request_dict["qualities"][qual])
 
     def randomize(self):
         self.data_container.randomize()
@@ -76,12 +87,21 @@ class UIMainWindow(QW.QMainWindow):
 
     def display_kingdom(self):
         """Updates the kingdom cards"""
-        self.widgets.update_card_display(self.data_container.kingdom, self.data_container.landscapes, self.data_container.kingdom_qualities)
+        self.widgets.update_card_display(self.data_container.kingdom)
         for entry in self.widgets.cards["KingdomList"] + self.widgets.cards["LandscapeList"]:
-            entry["Button"].clicked.connect(partial(self.reroll_card, entry["Name"]))
-    
+            entry["Button"].clicked.connect(
+                partial(self.reroll_card, entry["Name"]))
+
     def reroll_card(self, card_name):
         self.data_container.reroll_card(card_name)
+        self.display_kingdom()
+
+    def select_previous(self):
+        self.data_container.select_previous()
+        self.display_kingdom()
+
+    def select_next(self):
+        self.data_container.select_next()
         self.display_kingdom()
 
 
