@@ -50,8 +50,8 @@ class RandomParameters:
             type_) if type_ in self.sets else self.sets.add(type_)
 
 
-def filter_sets(df, sets):
-    df = df.loc[df["Set"].apply(lambda x: x in sets)]
+def filter_expansions(df, expansions):
+    df = df.loc[df["Expansion"].apply(lambda x: x in expansions)]
     return df
 
 
@@ -97,7 +97,7 @@ class Kingdom:
 
     def __str__(self):
         s = self.get_kingdom_df().to_string(
-            columns=["Name", "Cost", "Set"], index=False)
+            columns=["Name", "Cost", "Expansion"], index=False)
         s += "\n" + self.qualities.prettify() + "\n"
         s += ", ".join(card for card in self.get_kingdom_df()
                        ["Name"])
@@ -140,8 +140,8 @@ class Kingdom:
 
     def get_draw_pool(self, request_dict):
         # Discard everything not contained in the requested sets
-        pool = self.card_df[self.card_df["Set"].apply(
-            lambda set_: set_ in request_dict["expansions"])]
+        pool = self.card_df[self.card_df["Expansion"].apply(
+            lambda exp: exp in request_dict["expansions"])]
         # Discard all non-supply-cards as we don't need them to draw from
         pool = pool[pool["IsInSupply"] | pool["IsLandscape"]]
         pool = pool[pool["Name"].apply(
@@ -214,7 +214,7 @@ class DataContainer:
     def __init__(self):
         self.all_cards = read_dataframe_from_file(
             filename="good_card_data.csv", folder="card_info")
-        self.all_sets = list(set(self.all_cards["Set"]))
+        self.all_sets = list(set(self.all_cards["Expansion"]))
         self.all_attack_types = self.get_attack_types()
     #     # TODO: Load this from a config file
         self.request_dict = {"expansions": ["Allies"],
@@ -282,6 +282,15 @@ class DataContainer:
     def read_quality(self, qual, val):
         self.request_dict["qualities"][qual] = val
 
+
+def get_expansion_icon(exp):
+    """Returns the image path for the given expansion icon."""
+    base = "assets/icons/expansions/"
+    conversion_dict = {"Base, 1E": "Base_old", "Base, 2E": "Base",
+                       "Intrigue, 1E": "Intrigue_old", "Intrigue, 2E": "Intrigue"}
+    if exp in conversion_dict:
+        exp = conversion_dict[exp]
+    return base + exp.replace(" ", "_") + ".png"
     # def set_quality_args(self, spin_dict):
     #     for arg_name in self.quality_dict.keys():
     #         spin_dict[arg_name].setValue(self.quality_dict[arg_name])

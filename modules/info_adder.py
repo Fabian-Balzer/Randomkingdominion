@@ -29,7 +29,7 @@ def get_draw_quality(df):
             new_data[key] = 0
     custom_values = {"Band of Nomads": 1, "Battle Plan": 3, "Blacksmith": 5, "Broker": 4, "Bustling Village": 1, "Settlers": 1, "Capital City": 2,
                      "Captain": 2, "Cavalry": 5, "Citadel": 2, "Conjurer": 1, "Crop Rotation": 2, "Courtyard": 5, "Crypt": 2, "Demand": 1, "Distant Shore": 3, "Flag": 1, "Garrison": 2, "Goatherd": 2, "Hermit": 2, "Highwayman": 6, "Hireling": 4, "Hunter": 5, "Invest": 1, "Ironmonger": 1, "King's Court": 2, "Lich": 8, "Madman": 8, "Marquis": 7, "Mastermind": 2, "Mountain Folk": 3, "Nobles": 5, "Patrician": 1, "Piazza": 1, "Prince": 3, "Ranger": 6, "Ride": 2, "Royal Galley": 1, "Scholar": 7, "Scrap": 1, "Sibyl": 5, "Sleigh": 2, "Stampede": 4, "Stronghold": 6, "Summon": 1, "Tormentor": 2, "Village Green": 1, "Way of the Chameleon": 2, "Way of the Mole": 2, "Way of the Owl": 5, "Wharf": 8, "Wishing Well": 3,
-                     "Castles": 0, "Knights": 1,
+                     "Castles": 0, "Knights": 1, "Herald": 2,
                      "Augurs": 2, "Wizards": 2, "Forts": 3, "Townsfolk": 4, "Clashes": 4, "Odysseys": 1,
                      "Catapult/Rocks": 0, "Encampment/Plunder": 5, "Gladiator/Fortune": 0, "Sauna/Avanto": 6, "Patrician/Emporium": 1, "Settlers/Bustling Village": 3}
     for key in custom_values:
@@ -106,7 +106,13 @@ def get_trashing_quality(df):
 
 
 def print_attacks(df):
-    print("\n".join([f"{key}: ," for key in df[df["Types"].apply(lambda x: "Attack" in x)]["Name"]])
+    handsize = ["Bureaucrat"]
+    trashing_attack = ["Swindler"]
+    junker = ["Swindler"]
+    deck_order = []
+    turn_worsen = []
+    scoring = []
+    print("\n".join([f'{key}: [""],' for key in df[df["Types"].apply(lambda x: "Attack" in x)]["Name"]]))
 
 
 def main():

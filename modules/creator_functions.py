@@ -8,8 +8,8 @@ from modules.utils import coolButton, coolCheckBox, coolSpinBox, group_widgets
 
 def create_checkboxes(all_sets, all_attack_types, button_dict):
     checkbox_dict = {}
-    checkbox_dict["SetDict"], checkbox_dict["SetGroup"] = create_checkbox_group(
-        all_sets, "Sets", button_dict)
+    checkbox_dict["ExpansionDict"], checkbox_dict["ExpansionGroup"] = create_checkbox_group(
+        all_sets, "Expansions", button_dict)
     checkbox_dict["AttackTypeDict"], checkbox_dict["AttackTypeGroup"] = create_checkbox_group(
         all_attack_types, "Attack Types", button_dict)
     return checkbox_dict
@@ -19,10 +19,10 @@ def create_checkbox_group(names, kind, button_dict):
     """Creates a dictionary containing all checkboxes for set selection and a group
     widget containing all of them for display."""
     box_dict = {}
-    if kind == "Sets":
-        names = [set_ for set_ in names if set_ not in ["Intrigue", "Base"]]
+    if kind == "Expansions":
+        names = [exp for exp in names if exp not in ["Intrigue", "Base"]]
         tooltips = [
-            f"Randomize cards from the {set_} expansion." for set_ in names]
+            f"Randomize cards from the {exp} expansion." for exp in names]
     elif kind == "Attack Types":
         tooltips = [
             f"Require attack of {type_} in selection." for type_ in names]
@@ -31,9 +31,9 @@ def create_checkbox_group(names, kind, button_dict):
         box_dict[name] = checkbox
     select_all_button = coolButton(text=f"Select all {kind}")
     button_dict[f"{kind}SelectionButton"] = select_all_button
-    set_list = [box_dict[key]
-                for key in sorted(box_dict.keys())] + [select_all_button]
-    return box_dict, group_widgets(set_list, f"{kind} used for randomization", num_rows=6)
+    explist = [box_dict[key]
+               for key in sorted(box_dict.keys())] + [select_all_button]
+    return box_dict, group_widgets(explist, f"{kind} used for randomization", num_rows=6)
 
 
 def create_buttons():
@@ -163,7 +163,7 @@ def create_card_group(card, width, pic_height):
 
 def get_display_text(card):
     coststring = f" ({card['Cost']})" if pd.notna(card['Cost']) else ""
-    return f"{card['Name']}{coststring}\n({card['Set']})"
+    return f"{card['Name']}{coststring}\n({card['Expansion']})"
 
 
 def get_tooltip_text(card):

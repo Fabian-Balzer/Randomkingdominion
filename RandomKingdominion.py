@@ -62,10 +62,10 @@ class UIMainWindow(QW.QMainWindow):
         self.widgets.buttons["Next"].clicked.connect(self.select_next)
         self.widgets.buttons["PrintKingdom"].clicked.connect(
             lambda: print(self.data_container.kingdom))
-        for checkbox in self.widgets.checkboxes["SetDict"].values():
+        for checkbox in self.widgets.checkboxes["ExpansionDict"].values():
             # The partial function must be used as lambda functions don't work with iterators
             checkbox.toggled.connect(
-                partial(self.data_container.read_expansions, self.widgets.checkboxes["SetDict"]))
+                partial(self.data_container.read_expansions, self.widgets.checkboxes["ExpansionDict"]))
         # self.widgets.buttons["SelectionButton"].clicked.connect(lambda:
         #     self.data_container.select_or_deselect(self.widgets.checkboxes["SetDict"], self.widgets.buttons["SelectionButton"]))
         # for type_, checkbox in self.widgets.checkboxes["AttackTypeDict"].items():
@@ -76,7 +76,7 @@ class UIMainWindow(QW.QMainWindow):
 
     def set_values(self):
         for exp in self.data_container.request_dict["expansions"]:
-            self.widgets.checkboxes["SetDict"][exp].setChecked(True)
+            self.widgets.checkboxes["ExpansionDict"][exp].setChecked(True)
         for qual in self.data_container.request_dict["qualities"]:
             self.widgets.spinners["QualityDict"][qual].setValue(
                 self.data_container.request_dict["qualities"][qual])

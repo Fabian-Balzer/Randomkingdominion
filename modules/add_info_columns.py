@@ -73,7 +73,7 @@ def get_specific_info(cardname, info_type, default_value):
 def add_split_piles(df):
     pathbase = "card_pictures/Split_Piles/"
     splitpile_dict = {"Castles": {"Name": "Castles",
-                                  "Set": "Empires",
+                                  "Expansion": "Empires",
                                   "Types": "Victory - Castle",
                                   "Cost": "$3*",
                                   "Text": 'Sort the Castle pile by cost, putting the more expensive Castles on the bottom. For a 2-player game, use only one of each Castle. Only the top card of the pile can be gained or bought.',
@@ -82,7 +82,7 @@ def add_split_piles(df):
                                   "IsInSupply": True
                                   },
                       "Knights": {"Name": "Knights",
-                                  "Set": "Dark Ages",
+                                  "Expansion": "Dark Ages",
                                   "Types": "Action - Attack - Knights",
                                   "Cost": "$5*",
                                   "Text": "Shuffle the Knights pile before each game with it. Keep it face down except for the top card, which is the only one that can be bought or gained.",
@@ -94,7 +94,7 @@ def add_split_piles(df):
         first, second = pile.split("/")
         types = "Action - Attack" if pile == "Catapult/Rocks" else "Action"
         splitpile_dict[pile] = {"Name": pile,
-                                "Set": "Empires",
+                                "Expansion": "Empires",
                                 "Types": types,
                                 "Cost": f"${cost}",
                                 "Text": f"This pile starts the game with 5 copies of {first} on top, then 5 copies of {second}. Only the top card of the pile can be gained or bought.",
@@ -110,7 +110,7 @@ def add_split_piles(df):
         cost = df[df["Name"] == cards[0]]["Cost"].to_string(index=False)
         print(cost)
         splitpile_dict[pilename] = {"Name": pilename,
-                                    "Set": "Allies",
+                                    "Expansion": "Allies",
                                     "Types": types,
                                     "Cost": cost,
                                     "Text": text,
@@ -124,7 +124,7 @@ def add_split_piles(df):
         types = "Action - Attack" if pile == "Catapult/Rocks" else "Action"
         expansion = "Empires" if not "Sauna" in pile else "Promo"
         splitpile_dict[pile] = {"Name": pile,
-                                "Set": expansion,
+                                "Expansion": expansion,
                                 "Types": types,
                                 "Cost": f"${cost}",
                                 "Text": f"This pile starts the game with 5 copies of {first} on top, then 5 copies of {second}. Only the top card of the pile can be gained or bought.",

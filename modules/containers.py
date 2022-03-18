@@ -18,7 +18,7 @@ class WidgetContainer:
         self.arrange_widgets()
 
     def arrange_widgets(self):
-        self.layouts["Settings"].addWidget(self.checkboxes["SetGroup"])
+        self.layouts["Settings"].addWidget(self.checkboxes["ExpansionGroup"])
         self.layouts["Settings"].addWidget(self.spinners["QualityGroup"])
         # self.layouts["Settings"].addWidget(self.checkboxes["AttackTypeGroup"])
         self.layouts["Settings"].addStretch()

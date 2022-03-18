@@ -16,8 +16,8 @@ def write_image_database(df, dirname="card_pictures"):
     #     answer = input("Please type y for creating an image db or n for cancelling.\n>>> ")
     if not os.path.exists(dirname):
         os.makedirs(dirname)
-    for set_ in set(df["Set"]):
-        p = f"{dirname}/{set_.replace(', ', '_')}"
+    for exp in set(df["Expansion"]):
+        p = f"{dirname}/{exp.replace(', ', '_')}"
         if not os.path.exists(p):
             os.makedirs(p)
     nums = len(df)
@@ -25,8 +25,8 @@ def write_image_database(df, dirname="card_pictures"):
     impaths = []
     for i, card in df.iterrows():
         cname = card["Name"].replace(' ', '_')
-        set_ = card["Set"].replace(', ', '_')
-        impath = f"{dirname}/{set_}/{cname}.jpg"
+        exp = card["Expansion"].replace(', ', '_')
+        impath = f"{dirname}/{exp}/{cname}.jpg"
         if not os.path.exists(impath):
             save_image(impath, cname)
         impaths.append(impath)
@@ -65,3 +65,30 @@ def save_image(impath, card_name):
     with open(impath, "wb") as f:
         site = requests.get(pic_link)
         f.write(site.content)
+
+def download_icons():
+    """Function to download images from the card symbols page"""
+    sitename = "http://wiki.dominionstrategy.com/index.php/Category:Card_symbols"
+    response = requests.get(sitename)
+    soup = BeautifulSoup(response.text, "html.parser")
+    link_base = "http://wiki.dominionstrategy.com"
+    ims = soup.find_all("img")
+    dirname = "assets/icons/"
+    if not os.path.exists(dirname):
+        os.makedirs(dirname)
+    for image in ims:
+        impath = dirname + image["src"].split("/")[-1]
+        print(f'Downloading {image["src"].split("/")[-1]}')
+        pic_link = link_base + image["src"]
+        if not os.path.exists(impath):
+            with open(impath, "wb") as f:
+                site = requests.get(pic_link)
+                f.write(site.content)
+        # cname = card["Name"].replace(' ', '_')
+        # set_ = card["Expansion"].replace(', ', '_')
+        # impath = f"{dirname}/{set_}/{cname}.jpg"
+        # if not os.path.exists(impath):
+        #     save_image(impath, cname)
+        # impaths.append(impath)
+        # if i % 50 == 0:
+        #     print(f"Currently at {i} of {nums} cards ({cname})")
