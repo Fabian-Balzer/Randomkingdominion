@@ -11,6 +11,7 @@ def do_lists_have_common(l1, l2):
 
 def test_landscape(df):
     """Tests whether the given object is an Event, Project, Way or landmark."""
+    print(df["Types"])
     landscapelist = ["Event", "Project", "Way", "Landmark"]
     series = df["Types"].apply(
         lambda x: do_lists_have_common(x, landscapelist))
@@ -19,7 +20,7 @@ def test_landscape(df):
 
 def test_other(df):
     """Tests whether the given object is a Hex, Boon, State or Artifact"""
-    otherlist = ["Hex", "Boon", "State", "Artifact"]
+    otherlist = ["Hex", "Boon", "State", "Artifact", "Ally"]
     series = df["Types"].apply(lambda x: do_lists_have_common(x, otherlist))
     return series
 
@@ -36,9 +37,12 @@ def test_in_supply(df):
     namelist = ["Bat", "Wish", "Horse", "Spoils", "Plunder", "Bustling Village",
                 "Rocks", "Mercenary", "Madman", "Colony", "Platinum", "Teacher",
                 "Champion", "Estate", "Duchy", "Province", "Copper", "Curse",
-                "Silver", "Gold", "Potion", "Fortune", "Rocks", "Plunder", "Emporium", "Bustling Village"]
+                "Silver", "Gold", "Potion", "Fortune", "Rocks", "Patrician",
+                "Catapult", "Encampment", "Emporium", "Bustling Village",
+                "Settlers", "Gladiator", "Sauna", "Avanto"]
+    still_include = ["Page", "Peasant", "Augurs", "Odysseys", "Townsfolk", "Wizards", "Clashes", "Forts"]
     series = ((df["Types"].apply(lambda x: do_lists_have_common(x, typelist)) &
-              df["Name"].apply(lambda x: x not in ["Page", "Peasant"])) |
+              df["Name"].apply(lambda x: x not in still_include)) |
               df["Name"].apply(lambda x: x in namelist) |
               df["IsLandscape"] |
               df["IsOtherThing"])
@@ -55,36 +59,6 @@ def add_bool_columns(df):
     return df
 
 
-def add_knight_pile(df):
-    knighttext = ('Shuffle the Knights pile before each game with it. '
-                  "Keep it face down except for the top card, which is the only one "
-                  'that can be bought or gained.')
-    keys = ["Name", "Set", "Types", "Cost", "Text", "IsLandscape", "IsOtherThing",
-            "IsInSupply"]
-    values = ["Knights", "Dark Ages", ["Action", "Attack", "Knights"],
-              "$5* ", knighttext, False, False, True]
-    values = [[val] for val in values]
-    my_dict = dict(zip(keys, values))
-    knight_line = pd.DataFrame(my_dict)
-    df = df.append(knight_line, sort=False)
-    return df
-
-
-def add_castle_pile(df):
-    castletext = ('Sort the Castle pile by cost, putting the more '
-                  'expensive Castles on the bottom. For a 2-player game, '
-                  'use only one of each Castle. Only the top card of the pile can be gained or bought.')
-    keys = ["Name", "Set", "Types", "Cost", "Text", "IsLandscape", "IsOtherThing",
-            "IsInSupply"]
-    values = ["Castles", "Empires", ["Victory", "Castle"],
-              "$3* ", castletext, False, False, True]
-    values = [[val] for val in values]
-    my_dict = dict(zip(keys, values))
-    castle_line = pd.DataFrame(my_dict)
-    df = df.append(castle_line, sort=False)
-    return df
-
-
 def get_specific_info(cardname, info_type, default_value):
     """Retrieves the info of info_type stored in the specifics folder."""
     try:
@@ -96,9 +70,74 @@ def get_specific_info(cardname, info_type, default_value):
     return draw_dict[cardname]
 
 
-def add_knights_and_castles(df):
-    df = add_knight_pile(df)
-    df = add_castle_pile(df)
+def add_split_piles(df):
+    pathbase = "card_pictures/Split_Piles/"
+    splitpile_dict = {"Castles": {"Name": "Castles",
+                                  "Set": "Empires",
+                                  "Types": "Victory - Castle",
+                                  "Cost": "$3*",
+                                  "Text": 'Sort the Castle pile by cost, putting the more expensive Castles on the bottom. For a 2-player game, use only one of each Castle. Only the top card of the pile can be gained or bought.',
+                                  "IsLandscape": False,
+                                  "IsOtherThing": False,
+                                  "IsInSupply": True
+                                  },
+                      "Knights": {"Name": "Knights",
+                                  "Set": "Dark Ages",
+                                  "Types": "Action - Attack - Knights",
+                                  "Cost": "$5*",
+                                  "Text": "Shuffle the Knights pile before each game with it. Keep it face down except for the top card, which is the only one that can be bought or gained.",
+                                  "IsLandscape": False,
+                                  "IsOtherThing": False,
+                                  "IsInSupply": True,
+                                  }, }
+    for pile, cost in {"Catapult/Rocks": 3, "Encampment/Plunder": 2, "Gladiator/Fortune": 3, "Sauna/Avanto": 4, "Patrician/Emporium": 2, "Settlers/Bustling Village": 2}.items():
+        first, second = pile.split("/")
+        types = "Action - Attack" if pile == "Catapult/Rocks" else "Action"
+        splitpile_dict[pile] = {"Name": pile,
+                                "Set": "Empires",
+                                "Types": types,
+                                "Cost": f"${cost}",
+                                "Text": f"This pile starts the game with 5 copies of {first} on top, then 5 copies of {second}. Only the top card of the pile can be gained or bought.",
+                                "IsLandscape": False,
+                                "IsOtherThing": False,
+                                "IsInSupply": True
+                                }
+    for pilename, cards in {"Augurs": ["Herb Gatherer", "Acolyte", "Sorceress", "Sybil"], "Wizards": ["Student", "Conjurer", "Sorcerer", "Lich"], "Forts": ["Tent", "Garrison", "Hill Fort", "Stronghold"], "Townsfolk": ["Town Crier", "Blacksmith", "Miller", "Elder"], "Clashes": ["Battle Plan", "Archer", "Warlord", "Territory"], "Odysseys": ["Old Map", "Voyage", "Sunken Treasure", "Distant Shore"]}.items():
+        type_dict = {"Augurs": "Augur", "Wizards": "Wizard",
+                     "Odysseys": "Odyssey", "Clashes": "Clash", "Townsfolk": "Townsfolk", "Forts": "Fort"}
+        types = f"Action - {type_dict[pilename]}"
+        text = f"This pile starts the game with 4 copies each of {', '.join(cards[:3])}, and {cards[3]}, in that order. Only the top card can be gained or bought.",
+        cost = df[df["Name"] == cards[0]]["Cost"].to_string(index=False)
+        print(cost)
+        splitpile_dict[pilename] = {"Name": pilename,
+                                    "Set": "Allies",
+                                    "Types": types,
+                                    "Cost": cost,
+                                    "Text": text,
+                                    "IsLandscape": False,
+                                    "IsOtherThing": False,
+                                    "IsInSupply": True
+                                    }
+
+    for pile, cost in {"Catapult/Rocks": 3, "Encampment/Plunder": 2, "Gladiator/Fortune": 3, "Sauna/Avanto": 4, "Patrician/Emporium": 2, "Settlers/Bustling Village": 2}.items():
+        first, second = pile.split("/")
+        types = "Action - Attack" if pile == "Catapult/Rocks" else "Action"
+        expansion = "Empires" if not "Sauna" in pile else "Promo"
+        splitpile_dict[pile] = {"Name": pile,
+                                "Set": expansion,
+                                "Types": types,
+                                "Cost": f"${cost}",
+                                "Text": f"This pile starts the game with 5 copies of {first} on top, then 5 copies of {second}. Only the top card of the pile can be gained or bought.",
+                                "IsLandscape": False,
+                                "IsOtherThing": False,
+                                "IsInSupply": True
+                                }
+    for pile in splitpile_dict.values():
+        pile["ImagePath"] = pathbase + \
+            pile["Name"].replace("/", "_").replace(" ", "_") + ".jpg"
+        pile_dict = {key: [val] for key, val in pile.items()}
+        pile_line = pd.DataFrame(pile_dict)
+        df = df.append(pile_line, sort=False)
     return df
 
 

@@ -9,3 +9,4 @@
     Cards with no draw have x = 0, cards with weird draw were judged by
     my subjective gut feeling,
     i. e. Scrying Pool has x = 10 while Courtyard has x = 5.
+    Cards that draw at max 1 do not have any draw quality as they don't increase handsize.

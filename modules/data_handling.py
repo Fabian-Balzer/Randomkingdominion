@@ -90,7 +90,7 @@ class Kingdom:
         # They need to be added later.
         self.kingdom_cards = kingdom_cards if kingdom_cards else []
         self.landscapes = landscapes if landscapes else []
-        self.ally = ally if ally else []
+        self.ally = ally if ally else ""
         self.non_supply = []
         self.id = time.time_ns()
         self.history.append(self)
@@ -122,15 +122,21 @@ class Kingdom:
         df = self.get_kingdom_df()
         return df[df["Name"].isin(self.landscapes)]
 
+    def get_ally_df(self):
+        return self.card_df[self.card_df["Types"].apply(lambda x: "Ally" in x)]
+
     def randomize(self, request_dict):
         try:
             draw_pool = self.get_draw_pool(request_dict)
         except EmptyError:
             return
-        while len(self.kingdom_cards + self.landscapes) < request_dict["num_cards"] + request_dict["num_landscapes"]:
+        for _ in range(request_dict["num_cards"] + request_dict["num_landscapes"]):
             pick = self.pick_card_or_landscape(draw_pool, request_dict)
             draw_pool = draw_pool[draw_pool["Name"] != pick]
             self.set_quality_values()
+        # In case just the ally has been rerolled:
+        if self.ally == "" and len(self.get_kingdom_card_df()[self.get_kingdom_card_df()["Types"].apply(lambda x: "Liaison" in x)]) > 0:
+            self.ally = self.get_ally_df().sample(n=1).iloc[0]["Name"]
 
     def get_draw_pool(self, request_dict):
         # Discard everything not contained in the requested sets
@@ -161,6 +167,9 @@ class Kingdom:
             self.landscapes.append(name)
         else:
             self.kingdom_cards.append(name)
+        if self.ally == "" and "Liaison" in pick.iloc[0]["Types"]:
+            print("Hi")
+            self.ally = self.get_ally_df().sample(n=1).iloc[0]["Name"]
         return name
         # TODO: Append Associated cards
 
@@ -208,7 +217,7 @@ class DataContainer:
         self.all_sets = list(set(self.all_cards["Set"]))
         self.all_attack_types = self.get_attack_types()
     #     # TODO: Load this from a config file
-        self.request_dict = {"expansions": ["Menagerie", "Nocturne"],
+        self.request_dict = {"expansions": ["Allies"],
                              "num_cards": 10,
                              "num_landscapes": 2,
                              "qualities": KingdomQualities(default=False,
@@ -241,7 +250,8 @@ class DataContainer:
         kept_landscapes = [
             card for card in self.kingdom.landscapes if card != old_card]
         kept_ally = self.kingdom.ally if old_card != self.kingdom.ally else ""
-        # TODO: Watch out for rerolled Liaisons
+        if len(self.kingdom.get_kingdom_df()[self.kingdom.get_kingdom_df()["Types"].apply(lambda x: "Liaison" in x)]) == 0:
+            kept_ally = ""
         self.kingdom = Kingdom(self.all_cards, kingdom_cards=kept_cards,
                                landscapes=kept_landscapes, ally=kept_ally)
         self.request_dict["rerolled_cards"].append(old_card)
@@ -368,4 +378,5 @@ class CardSubset:
 if __name__ == "__main__":
     a = DataContainer()
     a.randomize()
+    print(a.kingdom)
     c = a.all_cards
