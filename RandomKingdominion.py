@@ -64,10 +64,11 @@ class UIMainWindow(QW.QMainWindow):
             lambda: print(self.data_container.kingdom))
         for checkbox in self.widgets.checkboxes["ExpansionDict"].values():
             # The partial function must be used as lambda functions don't work with iterators
-            checkbox.toggled.connect(
-                partial(self.data_container.read_expansions, self.widgets.checkboxes["ExpansionDict"]))
-        # self.widgets.buttons["SelectionButton"].clicked.connect(lambda:
-        #     self.data_container.select_or_deselect(self.widgets.checkboxes["SetDict"], self.widgets.buttons["SelectionButton"]))
+            checkbox.clicked.connect(checkbox.toggle)
+            checkbox.clicked.connect(
+                partial(self.data_container.read_expansions, self.widgets.checkboxes["ExpansionDict"], self.widgets.buttons["ExpansionsToggle"]))
+        self.widgets.buttons["ExpansionsToggle"].clicked.connect(lambda:
+            self.data_container.toggle_all_expansions(self.widgets.checkboxes["ExpansionDict"], self.widgets.buttons["ExpansionsToggle"]))
         # for type_, checkbox in self.widgets.checkboxes["AttackTypeDict"].items():
         #     checkbox.toggled.connect(partial(self.data_container.params.toggle_attack_type, type_))
         for qual, spinner in self.widgets.spinners["QualityDict"].items():
@@ -119,3 +120,5 @@ def start_program():
 
 if __name__ == "__main__":
     start_program()
+
+# %%

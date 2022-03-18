@@ -1,5 +1,8 @@
+from math import ceil, floor
+
+import PyQt5.QtCore as QC
+import PyQt5.QtGui as QG
 import PyQt5.QtWidgets as QW
-from math import floor, ceil
 
 
 def createHorLayout(widList, stretch=False, spacing=0):
@@ -18,24 +21,24 @@ def createHorLayout(widList, stretch=False, spacing=0):
 
 
 class coolButton(QW.QPushButton):
-    def __init__(self, width=None, text="", tooltip="", enabled=True):
+    def __init__(self, width=None, text="", tooltip="", enabled=True, fontsize="14px"):
         super().__init__()
         self.setText(text)
         self.setToolTip(tooltip)
         self.setEnabled(enabled)
         if width is not None:
             self.setFixedWidth(width)
-        self.setButtonStyle()
+        self.setButtonStyle(fontsize=fontsize)
 
-    def setButtonStyle(self,  backStart="#f6f7fa", backStop="#dadbde",
-                       borderColor="100, 100, 100", bold="", height=20):
+    def setButtonStyle(self, backStart="#f6f7fa", backStop="#dadbde",
+                       borderColor="100, 100, 100", bold="", fontsize="14px", height=20):
         """Sets the background and border color of the button and turns its
         text bold if requested."""
         self.setStyleSheet(
-f"""QPushButton {{height: {height}px; background-color: 
+            f"""QPushButton {{height: {height}px; background-color: 
 qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 {backStart}, stop: 1 {backStop});
 border-style: outset; border-width: 2px; border-radius: 5px; 
-border-color: rgb({borderColor}); font: {bold} 14px; padding: 6px}}
+border-color: rgb({borderColor}); font: {bold} {fontsize}; padding: 6px}}
 QPushButton:hover {{background-color:
 qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop:
 0 rgb(240, 240, 255), stop: 1 rgb(200, 200, 200))}}
@@ -57,6 +60,7 @@ class coolRadioButton(QW.QRadioButton):
         lineText: Text to be already entered. Overrides placeholder.
         placeholder: Text to be displayed by default
         tooltip: optionally create a tooltip for the edit"""
+
     def __init__(self, text=None, tooltip=None, width=50):
         super().__init__()
         self.setText(text)
@@ -107,22 +111,22 @@ def group_widgets(wid_list, text=None, num_rows=1):
     layout = QW.QGridLayout(wid)
     layout.setContentsMargins(5, 0, 5, 5)
     num_items = len(wid_list)
-    num_cols = ceil(num_items/num_rows)
+    num_cols = ceil(num_items / num_rows)
     for i, widget in enumerate(wid_list):
-        row = floor(i/num_cols)
-        col = i - row*num_cols
+        row = floor(i / num_cols)
+        col = i - row * num_cols
         layout.addWidget(widget, row, col)
     return wid
 
-    
+
 def display_cards(label_dict, layout_dict, name, num_rows=2, size=(150, 320)):
-    for i in reversed(range(layout_dict[f"{name}display"].count())): 
+    for i in reversed(range(layout_dict[f"{name}display"].count())):
         layout_dict[f"{name}display"].itemAt(i).widget().setParent(None)
     num_items = len(label_dict[f"{name}List"])
-    num_cols = ceil(num_items/num_rows)
+    num_cols = ceil(num_items / num_rows)
     for i, widget in enumerate(label_dict[f"{name}List"]):
-        row = floor(i/num_cols)
-        col = i - row*num_cols
+        row = floor(i / num_cols)
+        col = i - row * num_cols
         wid = QW.QWidget()
         wid.setFixedSize(*size)
         lay = QW.QVBoxLayout(wid)
@@ -134,7 +138,6 @@ def display_cards(label_dict, layout_dict, name, num_rows=2, size=(150, 320)):
         layout_dict[f"{name}display"].addWidget(wid, row, col)
 
 
-
 class coolCheckBox(QW.QCheckBox):
     """Modified version of QCheckBoxes.
     Creates a QCheckBox with a given text and tooltip.
@@ -143,6 +146,7 @@ class coolCheckBox(QW.QCheckBox):
         tooltip: optionally create a tooltip for the edit
         checked: Bool set to false by default.
     """
+
     def __init__(self, text=None, tooltip=None, checked=False, width=150):
         super().__init__()
         self.setText(text)
@@ -152,8 +156,61 @@ class coolCheckBox(QW.QCheckBox):
             self.setFixedWidth(width)
         self.setStyleSheet("QCheckBox {color: rgb(0, 0, 0); height: 18 px}")
 
+
+class expansionCheckBox(QW.QPushButton):
+    """Modified version of QCheckBoxes.
+    Creates a QCheckBox with a given text and tooltip.
+    params:
+        text: Text to be shown
+        tooltip: optionally create a tooltip for the edit
+        checked: Bool set to false by default.
+    """
+
+    def __init__(self, expansion, tooltip=None, checked=False):
+        super().__init__()
+        self.setFlat(True)
+        icon = get_expansion_icon(expansion)
+        self.setIcon(QG.QIcon(icon))
+        self.setIconSize(QC.QSize(30, 30))
+        # self.setLayoutDirection(QC.Qt.RightToLeft)
+        # self.setLayout(QW.QGridLayout())
+        # label = QW.QLabel(expansion)
+        # label.setAlignment(QC.Qt.AlignRight | QC.Qt.AlignVCenter)
+        # label.setAttribute(QC.Qt.WA_TransparentForMouseEvents)
+        # self.layout().addWidget(label)
+        self.setText(expansion)
+        self.setFixedSize(130, 40)
+        self.setToolTip(tooltip)
+        self.setChecked(checked)
+
+    def toggle(self):
+        self.checked = not self.checked
+        color = "gray" if self.checked else "lightGray"
+        self.setStyleSheet(
+            f"background-color:{color}; border-radius:4px; border:1px solid black;"
+            "QPushButton: {text-align:left}")
+
+    def setChecked(self, check=True):
+        self.checked = not check
+        self.toggle()
         
+    def isChecked(self, check=True):
+        return self.checked
+
+
+def get_expansion_icon(exp):
+    """Returns the image path for the given expansion icon."""
+    base = "assets/icons/expansions/"
+    conversion_dict = {"Base, 1E": "Base_old", "Base, 2E": "Base",
+                       "Intrigue, 1E": "Intrigue_old", "Intrigue, 2E": "Intrigue"}
+    if exp in conversion_dict:
+        exp = conversion_dict[exp]
+    return base + exp.replace(" ", "_") + ".png"
+
+
 # %% The coolSpinBox class and functions for SpinBoxes
+
+
 class coolSpinBox(QW.QSpinBox):
     """Modified version of QSpinBox
     Creates a QSpinBox with a given range and start value
@@ -162,6 +219,7 @@ class coolSpinBox(QW.QSpinBox):
         value: start value. Needs to be in range.
         tooltip: optionally create a tooltip for the edit
     """
+
     def __init__(self, range_=(0, 100), value=50, tooltip=None, width=250):
         super().__init__()
         self.setRange(*range_)

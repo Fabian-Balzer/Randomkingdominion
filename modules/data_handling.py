@@ -168,7 +168,6 @@ class Kingdom:
         else:
             self.kingdom_cards.append(name)
         if self.ally == "" and "Liaison" in pick.iloc[0]["Types"]:
-            print("Hi")
             self.ally = self.get_ally_df().sample(n=1).iloc[0]["Name"]
         return name
         # TODO: Append Associated cards
@@ -226,7 +225,7 @@ class DataContainer:
         self.parameter_dict = {"RequireReaction": False, "AttackType": None}
         self.kingdom = None
 
-    def read_expansions(self, checkbox_exp_dict):
+    def read_expansions(self, checkbox_exp_dict, button):
         """Reads out the currently selected sets and saves them. Also changes the selection."""
         exps = [
             exp for exp, checkbox in checkbox_exp_dict.items() if checkbox.isChecked()]
@@ -237,6 +236,20 @@ class DataContainer:
             if is_in:
                 exps.append(special)
         self.request_dict["expansions"] = exps
+        if all([checkbox.isChecked() for checkbox in checkbox_exp_dict.values()]):
+            button.setText("Deselect all Expansions")
+        else:
+            button.setText("Select all Expansions")
+
+    def toggle_all_expansions(self, checkbox_exp_dict, button):
+        """Reads out the currently selected sets and saves them. Also changes the selection."""
+        if all([checkbox.isChecked() for checkbox in checkbox_exp_dict.values()]):
+            for checkbox in checkbox_exp_dict.values():
+                checkbox.toggle()
+        else: 
+            for checkbox in checkbox_exp_dict.values():
+                checkbox.setChecked(True)
+        self.read_expansions(checkbox_exp_dict, button)
 
     def randomize(self):
         self.request_dict["rerolled_cards"] = []
@@ -282,15 +295,6 @@ class DataContainer:
     def read_quality(self, qual, val):
         self.request_dict["qualities"][qual] = val
 
-
-def get_expansion_icon(exp):
-    """Returns the image path for the given expansion icon."""
-    base = "assets/icons/expansions/"
-    conversion_dict = {"Base, 1E": "Base_old", "Base, 2E": "Base",
-                       "Intrigue, 1E": "Intrigue_old", "Intrigue, 2E": "Intrigue"}
-    if exp in conversion_dict:
-        exp = conversion_dict[exp]
-    return base + exp.replace(" ", "_") + ".png"
     # def set_quality_args(self, spin_dict):
     #     for arg_name in self.quality_dict.keys():
     #         spin_dict[arg_name].setValue(self.quality_dict[arg_name])

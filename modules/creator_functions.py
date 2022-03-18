@@ -3,7 +3,8 @@ import PyQt5.QtCore as QC
 import PyQt5.QtGui as QG
 import PyQt5.QtWidgets as QW
 
-from modules.utils import coolButton, coolCheckBox, coolSpinBox, group_widgets
+from modules.utils import (coolButton, coolCheckBox, coolSpinBox,
+                           expansionCheckBox, group_widgets)
 
 
 def create_checkboxes(all_sets, all_attack_types, button_dict):
@@ -23,14 +24,17 @@ def create_checkbox_group(names, kind, button_dict):
         names = [exp for exp in names if exp not in ["Intrigue", "Base"]]
         tooltips = [
             f"Randomize cards from the {exp} expansion." for exp in names]
+        for name, tooltip in zip(names, tooltips):
+            checkbox = expansionCheckBox(name, tooltip)
+            box_dict[name] = checkbox
     elif kind == "Attack Types":
         tooltips = [
             f"Require attack of {type_} in selection." for type_ in names]
-    for name, tooltip in zip(names, tooltips):
-        checkbox = coolCheckBox(name, tooltip)
-        box_dict[name] = checkbox
-    select_all_button = coolButton(text=f"Select all {kind}")
-    button_dict[f"{kind}SelectionButton"] = select_all_button
+        for name, tooltip in zip(names, tooltips):
+            checkbox = coolCheckBox(name, tooltip)
+            box_dict[name] = checkbox
+    select_all_button = coolButton(text=f"Select all {kind}", fontsize="10px")
+    button_dict[f"{kind}Toggle"] = select_all_button
     explist = [box_dict[key]
                for key in sorted(box_dict.keys())] + [select_all_button]
     return box_dict, group_widgets(explist, f"{kind} used for randomization", num_rows=6)
