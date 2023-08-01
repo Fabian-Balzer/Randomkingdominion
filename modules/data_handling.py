@@ -50,14 +50,22 @@ class RandomParameters:
             type_) if type_ in self.sets else self.sets.add(type_)
 
 
-def filter_expansions(df, expansions):
-    df = df.loc[df["Expansion"].apply(lambda x: x in expansions)]
+def filter_column(df, colname, entries):
+    df = df.loc[df[colname].apply(lambda x: x in entries)]
     return df
+
+def is_in_requested_types(attack_types, requested_att_types):
+    if "" in attack_types:
+        return True
+    for attack_type in attack_types:
+        if not attack_type in requested_att_types:
+            return False
+    return True
 
 
 class KingdomQualities(dict):
     def __init__(self, default=True, *args, **kwargs):
-        defaultkeys = ["Draw", "Village", "Trashing"]
+        defaultkeys = ["Draw", "Village", "Thinning", "Attack", "Interactivity"]
         if default:
             for qual in defaultkeys:
                 self[qual] = 0
@@ -72,7 +80,7 @@ class KingdomQualities(dict):
             self[qual] = 0
 
     def prettify(self):
-        return "\n".join(f"{qual:8} quality:\t{val}" for qual, val in self.items())
+        return "\n".join(f"{qual + ' quality:':20}\t{val}" for qual, val in self.items())
 
 
 class EmptyError(Exception):
@@ -111,7 +119,8 @@ class Kingdom:
     def get_kingdom_df(self):
         df = self.card_df[self.card_df["Name"].isin(
             self.kingdom_cards + self.landscapes + [self.ally])].sort_values(
-            by=["IsInSupply", "IsLandscape", "IsOtherThing", "Cost", "Name"], ascending=[False, False, False, True, True])
+            by=["IsInSupply", "IsLandscape", "IsOtherThing", "Cost", "Name"],
+            ascending=[False, False, False, True, True])
         return df
 
     def get_kingdom_card_df(self):
@@ -122,8 +131,12 @@ class Kingdom:
         df = self.get_kingdom_df()
         return df[df["Name"].isin(self.landscapes)]
 
-    def get_ally_df(self):
+    def get_all_ally_df(self):
         return self.card_df[self.card_df["Types"].apply(lambda x: "Ally" in x)]
+
+    def get_ally_df(self):
+        df = self.get_kingdom_df()
+        return df[df["Types"].apply(lambda x: "Ally" in x)]
 
     def randomize(self, request_dict):
         try:
@@ -136,12 +149,13 @@ class Kingdom:
             self.set_quality_values()
         # In case just the ally has been rerolled:
         if self.ally == "" and len(self.get_kingdom_card_df()[self.get_kingdom_card_df()["Types"].apply(lambda x: "Liaison" in x)]) > 0:
-            self.ally = self.get_ally_df().sample(n=1).iloc[0]["Name"]
+            self.ally = self.get_all_ally_df().sample(n=1).iloc[0]["Name"]
 
     def get_draw_pool(self, request_dict):
         # Discard everything not contained in the requested sets
-        pool = self.card_df[self.card_df["Expansion"].apply(
-            lambda exp: exp in request_dict["expansions"])]
+        pool = filter_column(self.card_df, "Expansion", request_dict["expansions"])
+        pool = pool.loc[pool["AttackType"].apply(lambda x: is_in_requested_types(x, request_dict["attack_types"]))]
+        # pool = filter_column(pool, "AttackType", request_dict["attack_types"])
         # Discard all non-supply-cards as we don't need them to draw from
         pool = pool[pool["IsInSupply"] | pool["IsLandscape"]]
         pool = pool[pool["Name"].apply(
@@ -168,7 +182,7 @@ class Kingdom:
         else:
             self.kingdom_cards.append(name)
         if self.ally == "" and "Liaison" in pick.iloc[0]["Types"]:
-            self.ally = self.get_ally_df().sample(n=1).iloc[0]["Name"]
+            self.ally = self.get_all_ally_df().sample(n=1).iloc[0]["Name"]
         return name
         # TODO: Append Associated cards
 
@@ -212,15 +226,20 @@ class Kingdom:
 class DataContainer:
     def __init__(self):
         self.all_cards = read_dataframe_from_file(
-            filename="good_card_data.csv", folder="card_info")
+            filename="good_card_data.csv", folder="card_info", eval_lists=True)
         self.all_sets = list(set(self.all_cards["Expansion"]))
         self.all_attack_types = self.get_attack_types()
     #     # TODO: Load this from a config file
         self.request_dict = {"expansions": ["Allies"],
+                             "attack_types": ["Handsize", "Scoring", "Junking"],
                              "num_cards": 10,
                              "num_landscapes": 2,
                              "qualities": KingdomQualities(default=False,
-                                                           qual_dict={"Draw": 0, "Village": 5, "Trashing": 2}),
+                                                           qual_dict={"Draw": 1, 
+                                                                      "Village": 1,
+                                                                      "Thinning": 1,
+                                                                      "Attack": 0,
+                                                                      "Interactivity": 2}),
                              "rerolled_cards": []}
         self.parameter_dict = {"RequireReaction": False, "AttackType": None}
         self.kingdom = None
@@ -242,7 +261,6 @@ class DataContainer:
             button.setText("Select all Expansions")
 
     def toggle_all_expansions(self, checkbox_exp_dict, button):
-        """Reads out the currently selected sets and saves them. Also changes the selection."""
         if all([checkbox.isChecked() for checkbox in checkbox_exp_dict.values()]):
             for checkbox in checkbox_exp_dict.values():
                 checkbox.toggle()
@@ -250,6 +268,25 @@ class DataContainer:
             for checkbox in checkbox_exp_dict.values():
                 checkbox.setChecked(True)
         self.read_expansions(checkbox_exp_dict, button)
+
+    def read_attack_types(self, checkbox_att_dict, button):
+        """Reads out the currently selected sets and saves them. Also changes the selection."""
+        atts = [
+            att for att, checkbox in checkbox_att_dict.items() if checkbox.isChecked()]
+        self.request_dict["attack_types"] = atts
+        if all([checkbox.isChecked() for checkbox in checkbox_att_dict.values()]):
+            button.setText("Deselect all attack types")
+        else:
+            button.setText("Select all attack types")
+
+    def toggle_all_attack_types(self, checkbox_att_dict, button):
+        if all([checkbox.isChecked() for checkbox in checkbox_att_dict.values()]):
+            for checkbox in checkbox_att_dict.values():
+                checkbox.toggle()
+        else: 
+            for checkbox in checkbox_att_dict.values():
+                checkbox.setChecked(True)
+        self.read_attack_types(checkbox_att_dict, button)
 
     def randomize(self):
         self.request_dict["rerolled_cards"] = []
@@ -271,8 +308,8 @@ class DataContainer:
         self.kingdom.randomize(self.request_dict)
 
     def get_attack_types(self):
-        all_types = [element.strip("'") for list_ in self.all_cards["AttackType"]
-                     for element in list_.strip('][').split(', ')]
+        all_types = [element for list_ in self.all_cards["AttackType"]
+                     for element in list_]
         set_ = set(all_types)
         set_.discard("")
         return sorted(list(set_))
@@ -386,6 +423,9 @@ class CardSubset:
         landscapes = self.df[self.df["IsLandscape"]]
         pick = landscapes.sample(n=1)
         return pick
+
+def give_card(df, name):
+    return df[df["Name"] == name]
 
 
 if __name__ == "__main__":

@@ -4,15 +4,31 @@ import PyQt5.QtGui as QG
 import PyQt5.QtWidgets as QW
 
 from modules.utils import (coolButton, coolCheckBox, coolSpinBox,
-                           expansionCheckBox, group_widgets)
+                           pictureCheckBox, group_widgets, coolComboBox)
 
 
-def create_checkboxes(all_sets, all_attack_types, button_dict):
+def create_checkboxes(all_expansions, all_attack_types, button_dict):
     checkbox_dict = {}
-    checkbox_dict["ExpansionDict"], checkbox_dict["ExpansionGroup"] = create_checkbox_group(
-        all_sets, "Expansions", button_dict)
-    checkbox_dict["AttackTypeDict"], checkbox_dict["AttackTypeGroup"] = create_checkbox_group(
-        all_attack_types, "Attack Types", button_dict)
+    box_dict = {}
+    names = [exp for exp in all_expansions if exp not in ["Intrigue", "Base"]]
+    tooltips = [f"Randomize cards from the {exp} expansion." for exp in names]
+    for name, tooltip in zip(names, tooltips):
+        checkbox = pictureCheckBox(name, tooltip, expansion=True)
+        box_dict[name] = checkbox
+    button_dict["ExpansionToggle"] = coolButton(text=f"Select all expansions", fontsize="10px")
+    checkbox_dict["ExpansionDict"] = box_dict
+    explist = [box_dict[key] for key in sorted(box_dict.keys())] + [button_dict["ExpansionToggle"]]
+    checkbox_dict["ExpansionGroup"] = group_widgets(explist, f"Expansions used for randomization", num_cols=4)
+    
+    box_dict = {}
+    tooltips = [f"Require attack of {type_} in selection." for type_ in all_attack_types]
+    for name, tooltip in zip(all_attack_types, tooltips):
+        checkbox = pictureCheckBox(name, tooltip, expansion=False)
+        box_dict[name] = checkbox
+    button_dict["AttackTypeToggle"] = coolButton(text=f"Select all attack types", fontsize="10px")
+    checkbox_dict["AttackTypeDict"] = box_dict
+    explist = [box_dict[key] for key in sorted(box_dict.keys())] + [button_dict["AttackTypeToggle"]]
+    checkbox_dict["AttackTypeGroup"] = group_widgets(explist, f"Allowed attack types for randomization", num_cols=4)
     return checkbox_dict
 
 
@@ -24,20 +40,16 @@ def create_checkbox_group(names, kind, button_dict):
         names = [exp for exp in names if exp not in ["Intrigue", "Base"]]
         tooltips = [
             f"Randomize cards from the {exp} expansion." for exp in names]
-        for name, tooltip in zip(names, tooltips):
-            checkbox = expansionCheckBox(name, tooltip)
-            box_dict[name] = checkbox
     elif kind == "Attack Types":
         tooltips = [
             f"Require attack of {type_} in selection." for type_ in names]
-        for name, tooltip in zip(names, tooltips):
-            checkbox = coolCheckBox(name, tooltip)
-            box_dict[name] = checkbox
     select_all_button = coolButton(text=f"Select all {kind}", fontsize="10px")
-    button_dict[f"{kind}Toggle"] = select_all_button
+    refname = "AttackType" if kind == "Attack Types" else kind
+    button_dict[f"{refname}Toggle"] = select_all_button
+    num_rows = 6 if kind == "Expansions" else 2
     explist = [box_dict[key]
                for key in sorted(box_dict.keys())] + [select_all_button]
-    return box_dict, group_widgets(explist, f"{kind} used for randomization", num_rows=6)
+    return box_dict, group_widgets(explist, f"{kind} used for randomization", num_rows=num_rows)
 
 
 def create_buttons():
@@ -48,30 +60,30 @@ def create_buttons():
     button_dict["Next"] = coolButton(text="Next")
     return button_dict
 
+def create_comboboxes():
+    box_dict = {}
+    box_dict["QualityDict"], box_dict["QualityGroup"] = create_combobox_group()
+    return box_dict
 
-def create_spinners():
-    spinner_dict = {}
-    spinner_dict["QualityDict"], spinner_dict["QualityGroup"] = create_spinner_group()
-    return spinner_dict
 
-
-def create_spinner_group():
+def create_combobox_group():
     qual_dict = {}
-    spin_dict = {"Draw": {"Range": (0, 30), "Text": "Draw Quality (max 30):",
-                          "Default": 5, "Tooltip": "What shall be the overall draw quality of the kingdom?", },
-                 "Village": {"Range": (0, 30), "Text": "Village Quality (max 30):",
-                             "Default": 5, "Tooltip": "What shall be the overall village quality of the kingdom?", },
-                 "Trashing": {"Range": (0, 20), "Text": "Trashing Quality (max 20):",
-                              "Default": 5, "Tooltip": "What shall be the overall trashing quality of the kingdom?"}
-                 }
+    possibilities = ["None", "Weak", "Medium", "Strong", "Extra strong"]
     group_list = []
-    for spin_name, vals in spin_dict.items():
-        label = QW.QLabel(vals["Text"])
-        box = coolSpinBox(
-            range_=vals["Range"], value=vals["Default"], tooltip=vals["Tooltip"], width=50)
+    for qual in ["Draw", "Village", "Thinning", "Attack", "Interactivity"]:
+        label = QW.QLabel(f"Minimum {qual.lower()} quality of the kingdom:")
+        tooltip = f"Set the minimum {qual.lower()} quality for the randomized kingdom"
+        box = coolComboBox(possibilities, 1, tooltip=tooltip, width=100)
         subgroup = group_widgets([label, box])
         group_list.append(subgroup)
-        qual_dict[spin_name] = box
+        qual_dict[qual] = box
+    # for other, val in {"AttackStrength": "attack strength", "InteractivityValue": "interactivity value"}.items():
+    #     label = QW.QLabel(f"Minimum {val} of the kingdom:")
+    #     tooltip = f"Set the minimum {val} for the randomized kingdom"
+    #     box = coolComboBox(possibilities, 1, tooltip=tooltip, width=100)
+    #     subgroup = group_widgets([label, box])
+    #     group_list.append(subgroup)
+    #     qual_dict[other] = box
     return qual_dict, group_widgets(group_list, "Parameters used for randomization", num_rows=len(group_list))
 
 
@@ -123,6 +135,8 @@ def create_cards(kingdom):
         kingdom.get_kingdom_card_df())
     card_dict["LandscapeList"] = create_kingdom_cards(
         kingdom.get_landscape_df())
+    card_dict["LandscapeList"] += create_kingdom_cards(
+        kingdom.get_ally_df())
     return card_dict
 
 
@@ -131,13 +145,6 @@ def create_kingdom_cards(cards):
     for _, card in cards.iterrows():
         kingdom.append(create_card_group(card, 150, 250))
     return kingdom
-
-
-def create_cso_cards(cards):
-    csos = []
-    for _, card in cards.iterrows():
-        csos.append(create_card_group(card, 250, 100))
-    return csos
 
 
 def create_card_group(card, width, pic_height):
@@ -171,7 +178,7 @@ def get_display_text(card):
 
 
 def get_tooltip_text(card):
-    qualities = ["Draw", "Village", "Trashing"]
+    qualities = ["Draw", "Village", "Thinning", "Attack", "Interactivity"]
     ttstring = "\n".join(
         [f"{qual} quality: {card[qual +'Quality']}" for qual in qualities])
     return ttstring

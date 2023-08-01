@@ -96,7 +96,7 @@ def create_radio_buttons(group, names, tooltips=None):
     return button_dict
 
 
-def group_widgets(wid_list, text=None, num_rows=1):
+def group_widgets(wid_list, text=None, num_rows=1, num_cols=None):
     """
     Takes a list of widgets and group them in their own GridLayout with an according number of rows
     params:
@@ -111,7 +111,10 @@ def group_widgets(wid_list, text=None, num_rows=1):
     layout = QW.QGridLayout(wid)
     layout.setContentsMargins(5, 0, 5, 5)
     num_items = len(wid_list)
-    num_cols = ceil(num_items / num_rows)
+    if num_cols is None:
+        num_cols = ceil(num_items / num_rows)
+    else:
+        num_rows = ceil(num_items / num_cols)
     for i, widget in enumerate(wid_list):
         row = floor(i / num_cols)
         col = i - row * num_cols
@@ -120,6 +123,7 @@ def group_widgets(wid_list, text=None, num_rows=1):
 
 
 def display_cards(label_dict, layout_dict, name, num_rows=2, size=(150, 320)):
+    # Delete the old display
     for i in reversed(range(layout_dict[f"{name}display"].count())):
         layout_dict[f"{name}display"].itemAt(i).widget().setParent(None)
     num_items = len(label_dict[f"{name}List"])
@@ -157,7 +161,7 @@ class coolCheckBox(QW.QCheckBox):
         self.setStyleSheet("QCheckBox {color: rgb(0, 0, 0); height: 18 px}")
 
 
-class expansionCheckBox(QW.QPushButton):
+class pictureCheckBox(QW.QPushButton):
     """Modified version of QCheckBoxes.
     Creates a QCheckBox with a given text and tooltip.
     params:
@@ -166,10 +170,10 @@ class expansionCheckBox(QW.QPushButton):
         checked: Bool set to false by default.
     """
 
-    def __init__(self, expansion, tooltip=None, checked=False):
+    def __init__(self, text, tooltip=None, checked=False, expansion=True):
         super().__init__()
         self.setFlat(True)
-        icon = get_expansion_icon(expansion)
+        icon = get_expansion_icon(text) if expansion else get_attack_icon(text)
         self.setIcon(QG.QIcon(icon))
         self.setIconSize(QC.QSize(30, 30))
         # self.setLayoutDirection(QC.Qt.RightToLeft)
@@ -178,7 +182,7 @@ class expansionCheckBox(QW.QPushButton):
         # label.setAlignment(QC.Qt.AlignRight | QC.Qt.AlignVCenter)
         # label.setAttribute(QC.Qt.WA_TransparentForMouseEvents)
         # self.layout().addWidget(label)
-        self.setText(expansion)
+        self.setText(text)
         self.setFixedSize(130, 40)
         self.setToolTip(tooltip)
         self.setChecked(checked)
@@ -207,6 +211,11 @@ def get_expansion_icon(exp):
         exp = conversion_dict[exp]
     return base + exp.replace(" ", "_") + ".png"
 
+def get_attack_icon(at):
+    """Returns the image path for the given attack icon."""
+    base = "assets/icons/attack_types/"
+    return base + at + ".png"
+
 
 # %% The coolSpinBox class and functions for SpinBoxes
 
@@ -224,6 +233,27 @@ class coolSpinBox(QW.QSpinBox):
         super().__init__()
         self.setRange(*range_)
         self.setValue(value)
+        self.setToolTip(tooltip)
+        if width:
+            self.setFixedWidth(width)
+        self.setStyleSheet("""QSpinBox {color: rgb(0,0,0); height: 18px;
+                            background: transparent; padding-right: 5px;
+                            /* make room for the arrows */}""")
+                           
+
+class coolComboBox(QW.QComboBox):
+    """Modified version of QSpinBox
+    Creates a QSpinBox with a given range and start value
+    params:
+        range_: range for the Box
+        value: start value. Needs to be in range.
+        tooltip: optionally create a tooltip for the edit
+    """
+
+    def __init__(self, possibilities, index, tooltip=None, width=250):
+        super().__init__()
+        self.addItems(possibilities)
+        self.setCurrentIndex(index)
         self.setToolTip(tooltip)
         if width:
             self.setFixedWidth(width)

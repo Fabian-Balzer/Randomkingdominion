@@ -66,20 +66,35 @@ class UIMainWindow(QW.QMainWindow):
             # The partial function must be used as lambda functions don't work with iterators
             checkbox.clicked.connect(checkbox.toggle)
             checkbox.clicked.connect(
-                partial(self.data_container.read_expansions, self.widgets.checkboxes["ExpansionDict"], self.widgets.buttons["ExpansionsToggle"]))
-        self.widgets.buttons["ExpansionsToggle"].clicked.connect(lambda:
-            self.data_container.toggle_all_expansions(self.widgets.checkboxes["ExpansionDict"], self.widgets.buttons["ExpansionsToggle"]))
+                partial(self.data_container.read_expansions,
+                        self.widgets.checkboxes["ExpansionDict"],
+                        self.widgets.buttons["ExpansionToggle"]))
+        self.widgets.buttons["ExpansionToggle"].clicked.connect(lambda:
+            self.data_container.toggle_all_expansions(self.widgets.checkboxes["ExpansionDict"],
+                                                      self.widgets.buttons["ExpansionToggle"]))
+        for checkbox in self.widgets.checkboxes["AttackTypeDict"].values():
+            # The partial function must be used as lambda functions don't work with iterators
+            checkbox.clicked.connect(checkbox.toggle)
+            checkbox.clicked.connect(
+                partial(self.data_container.read_attack_types,
+                        self.widgets.checkboxes["AttackTypeDict"],
+                        self.widgets.buttons["AttackTypeToggle"]))
+        self.widgets.buttons["AttackTypeToggle"].clicked.connect(lambda:
+            self.data_container.toggle_all_attack_types(self.widgets.checkboxes["AttackTypeDict"],
+                                                      self.widgets.buttons["AttackTypeToggle"]))
         # for type_, checkbox in self.widgets.checkboxes["AttackTypeDict"].items():
         #     checkbox.toggled.connect(partial(self.data_container.params.toggle_attack_type, type_))
-        for qual, spinner in self.widgets.spinners["QualityDict"].items():
-            spinner.valueChanged.connect(
+        for qual, combobox in self.widgets.comboboxes["QualityDict"].items():
+            combobox.currentIndexChanged.connect(
                 partial(self.data_container.read_quality, qual))
 
     def set_values(self):
         for exp in self.data_container.request_dict["expansions"]:
             self.widgets.checkboxes["ExpansionDict"][exp].setChecked(True)
+        for att in self.data_container.request_dict["attack_types"]:
+            self.widgets.checkboxes["AttackTypeDict"][att].setChecked(True)
         for qual in self.data_container.request_dict["qualities"]:
-            self.widgets.spinners["QualityDict"][qual].setValue(
+            self.widgets.comboboxes["QualityDict"][qual].setCurrentIndex(
                 self.data_container.request_dict["qualities"][qual])
 
     def randomize(self):

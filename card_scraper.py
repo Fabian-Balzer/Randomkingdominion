@@ -36,7 +36,7 @@ from modules.write_image_database import write_image_database
 
 # Determines wether the program tries to scrape the wiki pages for
 # card and image data or just meddle with existing data
-DOWNLOAD_DATA = True #not os.path.isfile("card_info/raw_card_data.csv")
+DOWNLOAD_DATA = not os.path.isfile("card_info/raw_card_data.csv")
 
 
 def fix_cost_and_vp(doc):
@@ -85,10 +85,14 @@ def write_dataframe_to_file(df, filename, folder):
         f"Successfully wrote the dominion cards to the file '{fpath}' in the current path.")
 
 
-def read_dataframe_from_file(filename, folder):
+def read_dataframe_from_file(filename, folder, eval_lists=False):
     fpath = folder + "/" + filename
     if os.path.isfile(fpath):
         df = pd.read_csv(fpath, sep=";", header=0)
+        if eval_lists:
+            for colname in "Types", "AttackType":
+                # Make sure we properly handle lists
+                df[colname] = df[colname].apply(eval)
     else:
         raise FileNotFoundError(
             2, "Couldn't find the raw card data file, please download it first.")
@@ -115,4 +119,4 @@ def main():
 
 if __name__ == "__main__":
     df = main()  # For me to inspect it in variable manager
-    print(df[df["Name"] == "Elder"])
+    print(df[df["Name"] == "Elder"]["AttackType"])

@@ -12,14 +12,15 @@ class WidgetContainer:
         self.buttons = cf.create_buttons()
         self.checkboxes = cf.create_checkboxes(
             data_container.all_sets, data_container.all_attack_types, self.buttons)
-        self.spinners = cf.create_spinners()
+        self.comboboxes = cf.create_comboboxes()
         self.layouts = cf.create_layouts(self._main)
         self.labels = cf.create_labels()
         self.arrange_widgets()
 
     def arrange_widgets(self):
         self.layouts["Settings"].addWidget(self.checkboxes["ExpansionGroup"])
-        self.layouts["Settings"].addWidget(self.spinners["QualityGroup"])
+        self.layouts["Settings"].addWidget(self.comboboxes["QualityGroup"])
+        self.layouts["Settings"].addWidget(self.checkboxes["AttackTypeGroup"])
         # self.layouts["Settings"].addWidget(self.checkboxes["AttackTypeGroup"])
         self.layouts["Settings"].addStretch()
         self.layouts["Settings"].addWidget(
