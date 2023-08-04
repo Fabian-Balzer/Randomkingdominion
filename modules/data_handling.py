@@ -7,6 +7,7 @@ from urllib import request
 
 import pandas as pd
 from card_scraper import read_dataframe_from_file
+from modules.constants import RENEWED_EXPANSIONS
 from matplotlib.pyplot import draw
 
 
@@ -36,7 +37,7 @@ class RandomParameters:
 
     def toggle_set(self, set_):
         self.sets.discard(set_) if set_ in self.sets else self.sets.add(set_)
-        for special in ["Base", "Intrigue"]:
+        for special in RENEWED_EXPANSIONS:
             is_in = False
             self.sets.discard(special)
             for current_set in self.sets:
@@ -248,7 +249,7 @@ class DataContainer:
         """Reads out the currently selected sets and saves them. Also changes the selection."""
         exps = [
             exp for exp, checkbox in checkbox_exp_dict.items() if checkbox.isChecked()]
-        for special in ["Base", "Intrigue"]:
+        for special in RENEWED_EXPANSIONS:
             is_in = False
             for current_exp in exps:
                 is_in = is_in or (special in current_exp)

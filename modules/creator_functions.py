@@ -2,15 +2,15 @@ import pandas as pd
 import PyQt5.QtCore as QC
 import PyQt5.QtGui as QG
 import PyQt5.QtWidgets as QW
-
-from modules.utils import (coolButton, coolCheckBox, coolSpinBox,
-                           pictureCheckBox, group_widgets, coolComboBox)
+from modules.constants import RENEWED_EXPANSIONS
+from modules.utils import (coolButton, coolCheckBox, coolComboBox, coolSpinBox,
+                           group_widgets, pictureCheckBox)
 
 
 def create_checkboxes(all_expansions, all_attack_types, button_dict):
     checkbox_dict = {}
     box_dict = {}
-    names = [exp for exp in all_expansions if exp not in ["Intrigue", "Base"]]
+    names = [exp for exp in all_expansions if exp not in RENEWED_EXPANSIONS]
     tooltips = [f"Randomize cards from the {exp} expansion." for exp in names]
     for name, tooltip in zip(names, tooltips):
         checkbox = pictureCheckBox(name, tooltip, expansion=True)
@@ -37,7 +37,7 @@ def create_checkbox_group(names, kind, button_dict):
     widget containing all of them for display."""
     box_dict = {}
     if kind == "Expansions":
-        names = [exp for exp in names if exp not in ["Intrigue", "Base"]]
+        names = [exp for exp in names if exp not in RENEWED_EXPANSIONS]
         tooltips = [
             f"Randomize cards from the {exp} expansion." for exp in names]
     elif kind == "Attack Types":

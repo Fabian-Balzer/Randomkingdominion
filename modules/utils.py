@@ -3,6 +3,7 @@ from math import ceil, floor
 import PyQt5.QtCore as QC
 import PyQt5.QtGui as QG
 import PyQt5.QtWidgets as QW
+from modules.constants import RENEWED_EXPANSIONS
 
 
 def createHorLayout(widList, stretch=False, spacing=0):
@@ -205,8 +206,10 @@ class pictureCheckBox(QW.QPushButton):
 def get_expansion_icon(exp):
     """Returns the image path for the given expansion icon."""
     base = "assets/icons/expansions/"
-    conversion_dict = {"Base, 1E": "Base_old", "Base, 2E": "Base",
-                       "Intrigue, 1E": "Intrigue_old", "Intrigue, 2E": "Intrigue"}
+    conversion_dict = {}
+    for outdated_exp in RENEWED_EXPANSIONS:
+        conversion_dict[outdated_exp + ", 1E"] = outdated_exp + "_old"
+        conversion_dict[outdated_exp + ", 2E"] = outdated_exp
     if exp in conversion_dict:
         exp = conversion_dict[exp]
     return base + exp.replace(" ", "_") + ".png"

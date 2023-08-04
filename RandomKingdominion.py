@@ -42,7 +42,7 @@ class UIMainWindow(QW.QMainWindow):
         self.init_ui()
         self.randomize()  # Start with a random selection
 
-    # %% Initialization methods
+    # - Initialization methods
     def init_ui(self):
         """Contains all the actions needed for intitializing the interface.
         """
