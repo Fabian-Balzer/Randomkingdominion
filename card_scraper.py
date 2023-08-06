@@ -30,9 +30,9 @@ import os
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
-
-from modules.add_info_columns import add_info_columns, add_split_piles
-from modules.write_image_database import write_image_database
+from randomizer_modules.add_info_columns import add_info_columns, add_split_piles
+from randomizer_modules.utils import read_dataframe_from_file, write_dataframe_to_file
+from randomizer_modules.write_image_database import write_image_database
 
 # Determines wether the program tries to scrape the wiki pages for
 # card and image data or just meddle with existing data
@@ -64,43 +64,6 @@ def retrieve_data():
     return df
 
 
-def write_dataframe_to_file(df, filename, folder):
-    """Writes the given dataframe to a file"""
-    if not os.path.exists(folder):
-        os.makedirs(folder)
-    fpath = folder + "/" + filename
-    if os.path.isfile(fpath):
-        answer = input(
-            f"The file '{fpath}' already exists.\nDo you want to overwrite (y) or cancel (n)?\n>>> "
-        )
-        while True:
-            if answer == "n":
-                print("Did not rewrite the file due to your concerns.")
-                return
-            if answer == "y":
-                break
-            answer = input("Please type y for overwriting or n for cancelling.\n>>> ")
-    df.to_csv(fpath, sep=";", index=False)
-    print(
-        f"Successfully wrote the dominion cards to the file '{fpath}' in the current path."
-    )
-
-
-def read_dataframe_from_file(filename, folder, eval_lists=False):
-    fpath = folder + "/" + filename
-    if os.path.isfile(fpath):
-        df = pd.read_csv(fpath, sep=";", header=0)
-        if eval_lists:
-            for colname in "Types", "AttackType":
-                # Make sure we properly handle lists
-                df[colname] = df[colname].apply(eval)
-    else:
-        raise FileNotFoundError(
-            2, "Couldn't find the raw card data file, please download it first."
-        )
-    return df
-
-
 def main():
     if DOWNLOAD_DATA:
         df = retrieve_data()
@@ -108,11 +71,11 @@ def main():
         df["Cost"] = df["Cost"].str.replace("plus", "+")
         df = df.rename(columns={"Set": "Expansion"})
         df = write_image_database(df)
-        write_dataframe_to_file(df, filename="raw_card_data.csv", folder="card_info")
-    df = read_dataframe_from_file(filename="raw_card_data.csv", folder="card_info")
+        write_dataframe_to_file(df, "card_info/raw_card_data.csv")
+    df = read_dataframe_from_file("card_info/raw_card_data.csv")
     df = add_split_piles(df)
     df = add_info_columns(df)
-    write_dataframe_to_file(df, filename="good_card_data.csv", folder="card_info")
+    write_dataframe_to_file(df, "card_info/good_card_data.csv")
     return df
 
 

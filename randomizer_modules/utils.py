@@ -1,16 +1,22 @@
+import os
 from math import ceil, floor
+from typing import Optional
 
+import pandas as pd
 import PyQt5.QtCore as QC
 import PyQt5.QtGui as QG
 import PyQt5.QtWidgets as QW
-from modules.constants import RENEWED_EXPANSIONS
+
+from .constants import RENEWED_EXPANSIONS
 
 
 def createHorLayout(widList, stretch=False, spacing=0):
     """Create horizontal box layout widget containing widgets in widList"""
     wid = QW.QWidget()
-    wid.setStyleSheet("""QWidget {border: 0px solid gray;
-                           border-radius: 0px; padding: 0, 0, 0, 0}""")
+    wid.setStyleSheet(
+        """QWidget {border: 0px solid gray;
+                           border-radius: 0px; padding: 0, 0, 0, 0}"""
+    )
     layout = QW.QHBoxLayout(wid)
     layout.setContentsMargins(0, 0, 0, 0)
     layout.setSpacing(spacing)
@@ -19,6 +25,65 @@ def createHorLayout(widList, stretch=False, spacing=0):
     if stretch:
         layout.addStretch(1)
     return wid
+
+
+def ask_file_overwrite(fpath: str) -> bool:
+    """Prompts the user if there already exists a file at the given fpath
+
+    Parameters
+    ----------
+    fpath : FullFilePath
+        filename and path of the file that is supposed to be written
+
+    Returns
+    -------
+    bool
+        True if the file should be replaced, otherwise False
+    """
+    path, fname = os.path.split(fpath)
+    if not os.path.exists(fpath):
+        print(f"Writing the file '{fpath}'")
+        return True
+    answer = input(
+        f"The file '{fname}' already exists at {path}. Continue and replace it (y/n)?\n>>> "
+    )
+
+    for _ in range(5):
+        if not answer:
+            raise RuntimeError("Stopped execution.")
+        if answer.lower() in ["y", "yes"]:
+            print(f"Overwriting '{fpath}'")
+            return True
+        if answer.lower() in ["n", "no"]:
+            print(f"Skipped writing '{fpath}' as it already existed.")
+            return False
+        answer = input(
+            "Please answer with 'y' (overwrite) or 'n' (skip overwrite)?\n>>> "
+        )
+
+
+def read_dataframe_from_file(fpath: str, eval_lists=False):
+    if os.path.isfile(fpath):
+        df = pd.read_csv(fpath, sep=";", header=0)
+        if eval_lists:
+            for colname in "Types", "AttackType":
+                # Make sure we properly handle lists
+                df[colname] = df[colname].apply(eval)
+    else:
+        raise FileNotFoundError(
+            2, "Couldn't find the raw card data file, please download it first."
+        )
+    return df
+
+
+def write_dataframe_to_file(df: pd.DataFrame, fpath: str):
+    """Writes the given dataframe to a file"""
+    if not ask_file_overwrite(fpath):
+        return
+    df.to_csv(fpath, sep=";", index=False)
+    print(
+        f"Successfully wrote the dominion cards to the file '{fpath}' in the current path."
+    )
 
 
 class coolButton(QW.QPushButton):
@@ -31,8 +96,15 @@ class coolButton(QW.QPushButton):
             self.setFixedWidth(width)
         self.setButtonStyle(fontsize=fontsize)
 
-    def setButtonStyle(self, backStart="#f6f7fa", backStop="#dadbde",
-                       borderColor="100, 100, 100", bold="", fontsize="14px", height=20):
+    def setButtonStyle(
+        self,
+        backStart="#f6f7fa",
+        backStop="#dadbde",
+        borderColor="100, 100, 100",
+        bold="",
+        fontsize="14px",
+        height=20,
+    ):
         """Sets the background and border color of the button and turns its
         text bold if requested."""
         self.setStyleSheet(
@@ -45,7 +117,8 @@ qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop:
 0 rgb(240, 240, 255), stop: 1 rgb(200, 200, 200))}}
 QPushButton:pressed {{background-color:
 qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop:
-0 rgb(200, 200, 200), stop: 1 rgb(140, 140, 140))}}""")
+0 rgb(200, 200, 200), stop: 1 rgb(140, 140, 140))}}"""
+        )
 
     def makeTextBold(self, height=20):
         self.setButtonStyle(bold="bold", height=height)
@@ -67,13 +140,15 @@ class coolRadioButton(QW.QRadioButton):
         self.setText(text)
         self.setToolTip(tooltip)
         self.setMinimumWidth(width)
-        self.setStyleSheet("""QRadioButton {padding: 1px 1px;
+        self.setStyleSheet(
+            """QRadioButton {padding: 1px 1px;
                            color: black; background-color:
                            qlineargradient(x1: 0, y1: 0, 
                            2: 0, y2: 1, stop: 0 #f6f7fa, stop: 1 #dadbde);
                            font: bold 14px} 
                            QRadioButton:checked {color: rgb(0, 0, 150)}
-                           """)
+                           """
+        )
 
 
 def create_radio_buttons(group, names, tooltips=None):
@@ -193,12 +268,13 @@ class pictureCheckBox(QW.QPushButton):
         color = "gray" if self.checked else "lightGray"
         self.setStyleSheet(
             f"background-color:{color}; border-radius:4px; border:1px solid black;"
-            "QPushButton: {text-align:left}")
+            "QPushButton: {text-align:left}"
+        )
 
     def setChecked(self, check=True):
         self.checked = not check
         self.toggle()
-        
+
     def isChecked(self, check=True):
         return self.checked
 
@@ -213,6 +289,7 @@ def get_expansion_icon(exp):
     if exp in conversion_dict:
         exp = conversion_dict[exp]
     return base + exp.replace(" ", "_") + ".png"
+
 
 def get_attack_icon(at):
     """Returns the image path for the given attack icon."""
@@ -239,10 +316,12 @@ class coolSpinBox(QW.QSpinBox):
         self.setToolTip(tooltip)
         if width:
             self.setFixedWidth(width)
-        self.setStyleSheet("""QSpinBox {color: rgb(0,0,0); height: 18px;
+        self.setStyleSheet(
+            """QSpinBox {color: rgb(0,0,0); height: 18px;
                             background: transparent; padding-right: 5px;
-                            /* make room for the arrows */}""")
-                           
+                            /* make room for the arrows */}"""
+        )
+
 
 class coolComboBox(QW.QComboBox):
     """Modified version of QSpinBox
@@ -260,6 +339,8 @@ class coolComboBox(QW.QComboBox):
         self.setToolTip(tooltip)
         if width:
             self.setFixedWidth(width)
-        self.setStyleSheet("""QSpinBox {color: rgb(0,0,0); height: 18px;
+        self.setStyleSheet(
+            """QSpinBox {color: rgb(0,0,0); height: 18px;
                             background: transparent; padding-right: 5px;
-                            /* make room for the arrows */}""")
+                            /* make room for the arrows */}"""
+        )

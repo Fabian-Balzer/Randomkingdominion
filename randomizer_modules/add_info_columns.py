@@ -3,6 +3,21 @@ from collections import defaultdict
 
 import pandas as pd
 
+from .utils import ask_file_overwrite
+
+
+def write_dict_to_json_nicely(new_dict: dict, filepath: str):
+    if not ask_file_overwrite(filepath):
+        return
+    with open(filepath, "w", encoding="utf-8") as f:
+        json.dump(new_dict, f, sort_keys=True, separators=(",\n", ": "))
+
+
+def read_json_dict_from_file(fpath: str) -> dict:
+    with open(fpath, "r", encoding="utf-8") as f:
+        old_dict = json.load(f)
+    return old_dict
+
 
 def do_lists_have_common(l1, l2):
     """Returns a bool wether two lists share at least one common element."""
