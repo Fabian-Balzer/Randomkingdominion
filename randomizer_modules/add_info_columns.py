@@ -3,14 +3,16 @@ from collections import defaultdict
 
 import pandas as pd
 
+from .constants import PATH_CARD_INFO
 from .utils import ask_file_overwrite
 
 
-def write_dict_to_json_nicely(new_dict: dict, filepath: str):
-    if not ask_file_overwrite(filepath):
-        return
-    with open(filepath, "w", encoding="utf-8") as f:
-        json.dump(new_dict, f, sort_keys=True, separators=(",\n", ": "))
+def write_dict_to_json_nicely(
+    new_dict: dict, filepath: str, always_overwrite=False, sort=True
+):
+    if always_overwrite or ask_file_overwrite(filepath):
+        with open(filepath, "w", encoding="utf-8") as f:
+            json.dump(new_dict, f, sort_keys=sort, separators=(",\n", ": "))
 
 
 def read_json_dict_from_file(fpath: str) -> dict:
@@ -132,7 +134,8 @@ def add_bool_columns(df):
 def get_specific_info(cardname, info_type, default_value):
     """Retrieves the info of info_type stored in the specifics folder."""
     try:
-        with open(f"card_info/specifics/{info_type}.json", "r", encoding="utf-8") as f:
+        fpath = PATH_CARD_INFO.joinpath(f"specifics/{info_type}.json")
+        with fpath.open("r") as f:
             data = json.load(f)
             draw_dict = defaultdict(lambda: default_value, data)
     except FileNotFoundError:

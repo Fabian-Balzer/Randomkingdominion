@@ -30,13 +30,14 @@ import os
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
+import randomizer_modules as rm
 from randomizer_modules.add_info_columns import add_info_columns, add_split_piles
 from randomizer_modules.utils import read_dataframe_from_file, write_dataframe_to_file
 from randomizer_modules.write_image_database import write_image_database
 
 # Determines wether the program tries to scrape the wiki pages for
 # card and image data or just meddle with existing data
-DOWNLOAD_DATA = not os.path.isfile("card_info/raw_card_data.csv")
+DOWNLOAD_DATA = not rm.FPATH_RAW_DATA.is_file()
 
 
 def fix_cost_and_vp(doc):
@@ -71,11 +72,11 @@ def main():
         df["Cost"] = df["Cost"].str.replace("plus", "+")
         df = df.rename(columns={"Set": "Expansion"})
         df = write_image_database(df)
-        write_dataframe_to_file(df, "card_info/raw_card_data.csv")
-    df = read_dataframe_from_file("card_info/raw_card_data.csv")
+        write_dataframe_to_file(df, rm.FPATH_RAW_DATA)
+    df = read_dataframe_from_file(rm.FPATH_RAW_DATA)
     df = add_split_piles(df)
     df = add_info_columns(df)
-    write_dataframe_to_file(df, "card_info/good_card_data.csv")
+    write_dataframe_to_file(df, rm.FPATH_CARD_DATA)
     return df
 
 

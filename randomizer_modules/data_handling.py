@@ -8,7 +8,7 @@ from urllib import request
 import pandas as pd
 from matplotlib.pyplot import draw
 
-from .constants import RENEWED_EXPANSIONS
+from .constants import FPATH_CARD_DATA, RENEWED_EXPANSIONS
 from .utils import read_dataframe_from_file
 
 
@@ -251,9 +251,7 @@ class Kingdom:
 
 class DataContainer:
     def __init__(self):
-        self.all_cards = read_dataframe_from_file(
-            "card_info/good_card_data.csv", eval_lists=True
-        )
+        self.all_cards = read_dataframe_from_file(FPATH_CARD_DATA, eval_lists=True)
         self.all_sets = list(set(self.all_cards["Expansion"]))
         self.all_attack_types = self.get_attack_types()
         #     # TODO: Load this from a config file
