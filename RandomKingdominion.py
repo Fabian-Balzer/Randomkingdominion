@@ -28,7 +28,6 @@ from functools import partial
 
 import PyQt5.QtGui as QG
 import PyQt5.QtWidgets as QW
-
 from randomizer_modules.containers import WidgetContainer
 from randomizer_modules.data_handling import DataContainer
 

@@ -42,7 +42,7 @@
   "Haunted Woods": ["Handsize", "Deck order"],
   "Highwayman": ["Turn worsening"],
   "Idol": ["Junking", "Scoring"],
-  "Ill-Gotten Gains": ["Indirect"],
+  "Ill-Gotten Gains": ["Indirect", "Junking", "Scoring"],
   "Jester": ["Junking", "Deck order", "Scoring"],
   "Knights": ["Handsize", "Trashing", "Deck order"],
   "Legionary": ["Handsize"],

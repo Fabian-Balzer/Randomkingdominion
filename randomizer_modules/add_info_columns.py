@@ -3,7 +3,7 @@ from collections import defaultdict
 
 import pandas as pd
 
-from .constants import PATH_CARD_INFO
+from .constants import PATH_CARD_INFO, QUALITIES_AVAILABLE
 from .utils import ask_file_overwrite
 
 
@@ -135,12 +135,13 @@ def get_specific_info(cardname, info_type, default_value):
     """Retrieves the info of info_type stored in the specifics folder."""
     try:
         fpath = PATH_CARD_INFO.joinpath(f"specifics/{info_type}.json")
-        with fpath.open("r") as f:
+        with fpath.open("r", encoding="utf-8") as f:
             data = json.load(f)
-            draw_dict = defaultdict(lambda: default_value, data)
+            quality_dict = defaultdict(lambda: default_value, data)
     except FileNotFoundError:
+        print(f"Couldn't find the {info_type} file, skipped adding that info.")
         return default_value
-    return draw_dict[cardname]
+    return quality_dict[cardname]
 
 
 def add_split_piles(df):
@@ -245,18 +246,10 @@ def add_split_piles(df):
 
 def add_info_columns(df):
     df = add_bool_columns(df)
-    info_types = {
-        "DrawQuality": 0,
-        "AttackType": [],
-        "AttackQuality": 0,
-        "VillageQuality": 0,
-        "AltVPStrength": 0,
-        "GainQuality": 0,
-        "PlusBuys": 0,
-        "CoinValue": 0,
-        "ThinningQuality": 0,
-        "InteractivityQuality": 0,
-    }
+    # Set up the default values:
+    info_types = {f"{qual}Quality": 0 for qual in QUALITIES_AVAILABLE}
+    info_types["AttackType"] = []
+    info_types["ThinningType"] = []
     for info_type, default_value in info_types.items():
         df[info_type] = df["Name"].apply(
             lambda name: get_specific_info(name, info_type, default_value)

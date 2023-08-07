@@ -12,6 +12,7 @@ Things and ideas I am having to improve
 - Implement permanently stored data
 - Implement kingdom history
 - Show kingdom strength from general availability of engine components
+- Write Tests
 
 ### Randomizer options
 
@@ -30,15 +31,11 @@ Things and ideas I am having to improve
 
 ### Card metadata
 
-- Fix Card Draw Quality for cards with plain draw
 - Fix debt cost
-DONE Add TrashingQuality
 - Add TrashType (All, Treasure, NoTreasure, Action)?
 - Add GainQuality
 - Add GainType (Buys, AllWithCost, Treasure, Action, Trash)
-DONE Add VillageQuality (Normal Village has 5, up to 10)
 - Add Associated Cards (Horses, Knights, Castles, Potion etc.)
-- Add AltVPQuality
 - Add CardAmount (i. e. 12 for ports, 50 for coppers etc.)
 - Add DecisionQuality (high for many decisions, low for i.e. Necro or Gardens)
 
@@ -51,3 +48,7 @@ DONE Add VillageQuality (Normal Village has 5, up to 10)
 DONE Finish Refactoring Widgets
 DONE Klick on single cards to exchange them
 DONE Implement 'select all' button for expansions
+DONE Add TrashingQuality
+DONE Add VillageQuality (Normal Village has 5, up to 10)
+DONE Add AltVPQuality
+DONE Card Draw Quality for cards with plain draw

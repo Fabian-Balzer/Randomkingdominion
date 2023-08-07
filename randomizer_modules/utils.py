@@ -66,9 +66,10 @@ def read_dataframe_from_file(fpath: str, eval_lists=False):
     if os.path.isfile(fpath):
         df = pd.read_csv(fpath, sep=";", header=0)
         if eval_lists:
-            for colname in "Types", "AttackType":
-                # Make sure we properly handle lists
-                df[colname] = df[colname].apply(eval)
+            for colname in df.columns:
+                if "Type" in colname:
+                    # Make sure we properly handle lists
+                    df[colname] = df[colname].apply(eval)
     else:
         raise FileNotFoundError(
             2, "Couldn't find the raw card data file, please download it first."
@@ -84,6 +85,26 @@ def write_dataframe_to_file(df: pd.DataFrame, fpath: str):
     print(
         f"Successfully wrote the dominion cards to the file '{fpath}' in the current path."
     )
+
+
+def filter_column(df: pd.DataFrame, colname: str, entries: list[str]) -> pd.DataFrame:
+    """Filters a dataframe for rows where the column is in the provided entries, e.g.
+    for a column containing the expansions ["Base", "Base", "Intrigue"], you
+    could filter with entries=["Intrigue", "Empires"]
+    """
+    df = df.loc[df[colname].apply(lambda x: x in entries)]
+    return df
+
+
+def is_in_requested_types(given_types: list[str], types_to_check: list[str]):
+    """Check if all of the given_types are in the types_to_check.
+    An empty string is always considered to be in the 'types_to_check'"""
+    if "" in given_types:
+        return True
+    for attack_type in given_types:
+        if not attack_type in types_to_check:
+            return False
+    return True
 
 
 class coolButton(QW.QPushButton):
