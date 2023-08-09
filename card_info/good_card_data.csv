@@ -1,4 +1,4 @@
-Name;Expansion;Types;Cost;Text;Actions / Villagers;Cards;Buys;Coins / Coffers;Trash / Return;Exile;Junk;Gain;Victory Points;ImagePath;IsLandscape;IsOtherThing;IsInSupply;AttackQuality;DrawQuality;InteractivityQuality;ThinningQuality;VillageQuality;AltVPQuality;AttackType;ThinningType
+Name;Expansion;Types;Cost;Text;Actions / Villagers;Cards;Buys;Coins / Coffers;Trash / Return;Exile;Junk;Gain;Victory Points;ImagePath;IsLandscape;IsOtherThing;IsInSupply;attack_quality;draw_quality;interactivity_quality;thinning_quality;village_quality;altvp_quality;attack_types;thinning_types
 Cellar;Base;['Action'];$2;+1 ActionDiscard any number of cards, then draw that many.;+1;-X,+X;;;;;;;;card_pictures/Base/Cellar.jpg;False;False;True;0;0;0;0;0;0;[];[]
 Chapel;Base;['Action'];$2;Trash up to 4 cards from your hand.;;;;;0-4;;;;;card_pictures/Base/Chapel.jpg;False;False;True;0;0;0;3;0;0;[];['Any']
 Moat;Base;['Action', 'Reaction'];$2;+2 CardsWhen another player plays an Attack card, you may first reveal this from your hand, to be unaffected by it.;;+2;;;;;;;;card_pictures/Base/Moat.jpg;False;False;True;0;2;1;0;0;0;[];[]

@@ -3,15 +3,17 @@ import PyQt5.QtCore as QC
 import PyQt5.QtGui as QG
 import PyQt5.QtWidgets as QW
 
-from .constants import QUALITIES_AVAILABLE, RENEWED_EXPANSIONS
-from .utils import (
-    coolButton,
-    coolCheckBox,
-    coolComboBox,
-    coolSpinBox,
+from .base_widgets import (
+    CoolButton,
+    CoolCheckBox,
+    CoolComboBox,
+    CoolSpinBox,
+    PictureCheckBox,
     group_widgets,
-    pictureCheckBox,
 )
+from .constants import PATH_MAIN, QUALITIES_AVAILABLE, RENEWED_EXPANSIONS
+from .kingdom import KingdomCardImageWidget
+from .utils import get_attack_icon, get_expansion_icon
 
 
 def create_checkboxes(all_expansions, all_attack_types, button_dict):
@@ -20,9 +22,10 @@ def create_checkboxes(all_expansions, all_attack_types, button_dict):
     names = [exp for exp in all_expansions if exp not in RENEWED_EXPANSIONS]
     tooltips = [f"Randomize cards from the {exp} expansion." for exp in names]
     for name, tooltip in zip(names, tooltips):
-        checkbox = pictureCheckBox(name, tooltip, expansion=True)
+        icon = get_expansion_icon(name)
+        checkbox = PictureCheckBox(name, icon=icon, tooltip=tooltip)
         box_dict[name] = checkbox
-    button_dict["ExpansionToggle"] = coolButton(
+    button_dict["ExpansionToggle"] = CoolButton(
         text="Select all expansions", fontsize="10px"
     )
     checkbox_dict["ExpansionDict"] = box_dict
@@ -38,9 +41,10 @@ def create_checkboxes(all_expansions, all_attack_types, button_dict):
         f"Require attack of {type_} in selection." for type_ in all_attack_types
     ]
     for name, tooltip in zip(all_attack_types, tooltips):
-        checkbox = pictureCheckBox(name, tooltip, expansion=False)
+        icon = get_attack_icon(name)
+        checkbox = PictureCheckBox(name, icon=icon, tooltip=tooltip)
         box_dict[name] = checkbox
-    button_dict["AttackTypeToggle"] = coolButton(
+    button_dict["AttackTypeToggle"] = CoolButton(
         text=f"Select all attack types", fontsize="10px"
     )
     checkbox_dict["AttackTypeDict"] = box_dict
@@ -62,7 +66,7 @@ def create_checkbox_group(names, kind, button_dict):
         tooltips = [f"Randomize cards from the {exp} expansion." for exp in names]
     elif kind == "Attack Types":
         tooltips = [f"Require attack of {type_} in selection." for type_ in names]
-    select_all_button = coolButton(text=f"Select all {kind}", fontsize="10px")
+    select_all_button = CoolButton(text=f"Select all {kind}", fontsize="10px")
     refname = "AttackType" if kind == "Attack Types" else kind
     button_dict[f"{refname}Toggle"] = select_all_button
     num_rows = 6 if kind == "Expansions" else 2
@@ -74,10 +78,10 @@ def create_checkbox_group(names, kind, button_dict):
 
 def create_buttons():
     button_dict = {}
-    button_dict["Randomize"] = coolButton(text="Randomize")
-    button_dict["PrintKingdom"] = coolButton(text="Print the kingdom")
-    button_dict["Previous"] = coolButton(text="Previous")
-    button_dict["Next"] = coolButton(text="Next")
+    button_dict["Randomize"] = CoolButton(text="Randomize")
+    button_dict["PrintKingdom"] = CoolButton(text="Print the kingdom")
+    button_dict["Previous"] = CoolButton(text="Previous")
+    button_dict["Next"] = CoolButton(text="Next")
     return button_dict
 
 
@@ -92,12 +96,13 @@ def create_combobox_group():
     possibilities = ["None", "Weak", "Medium", "Strong", "Extra strong"]
     group_list = []
     for qual in QUALITIES_AVAILABLE:
-        label = QW.QLabel(f"Minimum {qual.lower()} quality of the kingdom:")
-        tooltip = f"Set the minimum {qual.lower()} quality for the randomized kingdom"
-        box = coolComboBox(possibilities, 1, tooltip=tooltip, width=100)
-        subgroup = group_widgets([label, box])
+        qual = qual.lower()
+        label = QW.QLabel(f"Minimum {qual} quality of the kingdom:")
+        tooltip = f"Set the minimum {qual} quality for the randomized kingdom"
+        box = CoolComboBox(possibilities, 1, tooltip=tooltip, width=100)
+        subgroup = group_widgets([label, box], collapsible=False)
         group_list.append(subgroup)
-        qual_dict[qual] = box
+        qual_dict["min_" + qual] = box
     # for other, val in {"AttackStrength": "attack strength", "InteractivityValue": "interactivity value"}.items():
     #     label = QW.QLabel(f"Minimum {val} of the kingdom:")
     #     tooltip = f"Set the minimum {val} for the randomized kingdom"
@@ -110,11 +115,15 @@ def create_combobox_group():
     )
 
 
-def create_layouts(_main):
+def create_layouts(_main) -> dict[str, QW.QWidget]:
     layout_dict = {}
     main = create_main_layout(_main)
-    layout_dict["Settings"] = create_vboxlayout("Settings", main, 0, 0)
-    layout_dict["Stats"] = create_vboxlayout("Kingdom stats", main, 1, 0)
+    layout_dict["Settings"] = create_scroll_vboxlayout(
+        "Settings", main, 0, 0, minwidth=600
+    )
+    stats_layout = create_vboxlayout("Kingdom stats", main, 1, 0)
+    stats_layout.parentWidget().setMaximumHeight(200)
+    layout_dict["Stats"] = stats_layout
     layout_dict["Display"] = create_vboxlayout("Kingdom overview", main, 0, 1, 2, 1)
     layout_dict["Kingdomdisplay"] = create_gridlayout(layout_dict["Display"])
     layout_dict["Landscapedisplay"] = create_gridlayout(layout_dict["Display"])
@@ -122,6 +131,10 @@ def create_layouts(_main):
     layout_dict["RandomizeNavigation"] = QW.QHBoxLayout(
         layout_dict["RandomizeNavigationWid"]
     )
+    main.setRowStretch(0, 1)
+    main.setRowStretch(1, 0)
+    main.setColumnStretch(0, 1)
+    main.setColumnStretch(1, 2)
     layout_dict["Main"] = main
     return layout_dict
 
@@ -137,9 +150,25 @@ def create_main_layout(_main):
 def create_vboxlayout(name, parent, row, col, rowstretch=1, colstretch=1):
     wid = QW.QGroupBox(name)
     lay = QW.QVBoxLayout(wid)
-    lay.setSpacing(20)
+    lay.setSpacing(5)
     lay.setContentsMargins(3, 3, 3, 3)
     parent.addWidget(wid, row, col, rowstretch, colstretch)
+    return lay
+
+
+def create_scroll_vboxlayout(
+    name, parent, row, col, rowstretch=1, colstretch=1, minwidth=300
+):
+    wid = QW.QGroupBox(name)
+    scroll = QW.QScrollArea()
+    scroll.setHorizontalScrollBarPolicy(QC.Qt.ScrollBarAlwaysOff)
+    scroll.setWidgetResizable(True)
+    scroll.setMinimumWidth(minwidth)
+    scroll.setWidget(wid)
+    lay = QW.QVBoxLayout(wid)
+    lay.setSpacing(5)
+    lay.setContentsMargins(3, 3, 3, 3)
+    parent.addWidget(scroll, row, col, rowstretch, colstretch)
     return lay
 
 
@@ -154,16 +183,21 @@ def create_gridlayout(parent):
 
 def create_cards(kingdom):
     card_dict = {}
-    card_dict["KingdomList"] = create_kingdom_cards(kingdom.get_kingdom_card_df())
+    card_dict["KingdomList"] = create_kingdom_cards(
+        kingdom.get_kingdom_card_df(), shortened=True
+    )
     card_dict["LandscapeList"] = create_kingdom_cards(kingdom.get_landscape_df())
     card_dict["LandscapeList"] += create_kingdom_cards(kingdom.get_ally_df())
     return card_dict
 
 
-def create_kingdom_cards(cards):
+def create_kingdom_cards(cards, shortened=False):
     kingdom = []
     for _, card in cards.iterrows():
-        kingdom.append(create_card_group(card, 150, 250))
+        if shortened:
+            kingdom.append(KingdomCardImageWidget(card))
+        else:
+            kingdom.append(create_card_group(card, 150, 250))
     return kingdom
 
 
@@ -174,7 +208,7 @@ def create_card_group(card, width, pic_height):
     pic.setAlignment(QC.Qt.AlignHCenter)
     pic.setWordWrap(True)
     pic.setToolTip(tooltip)
-    pixmap = QG.QPixmap(card["ImagePath"])
+    pixmap = QG.QPixmap(str(PATH_MAIN.joinpath(card["ImagePath"])))
     w = min(pixmap.width(), width)
     h = min(pixmap.height(), pic_height)
     pixmap = pixmap.scaled(
@@ -198,9 +232,8 @@ def get_display_text(card):
 
 
 def get_tooltip_text(card):
-    qualities = ["Draw", "Village", "Thinning", "Attack", "Interactivity"]
     ttstring = "\n".join(
-        [f"{qual} quality: {card[qual +'Quality']}" for qual in qualities]
+        [f"{qual}: {card[qual +'_quality']}" for qual in QUALITIES_AVAILABLE]
     )
     return ttstring
 

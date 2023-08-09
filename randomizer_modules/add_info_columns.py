@@ -247,9 +247,9 @@ def add_split_piles(df):
 def add_info_columns(df):
     df = add_bool_columns(df)
     # Set up the default values:
-    info_types = {f"{qual}Quality": 0 for qual in QUALITIES_AVAILABLE}
-    info_types["AttackType"] = []
-    info_types["ThinningType"] = []
+    info_types = {f"{qual}_quality": 0 for qual in QUALITIES_AVAILABLE}
+    info_types["attack_types"] = []
+    info_types["thinning_types"] = []
     for info_type, default_value in info_types.items():
         df[info_type] = df["Name"].apply(
             lambda name: get_specific_info(name, info_type, default_value)

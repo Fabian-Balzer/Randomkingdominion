@@ -4,12 +4,12 @@ This document briefly explains my thoughts behind the different qualities and as
 
 ## Attacks
 
-### AttackQuality
+### Attack Quality
 
 Basically, any attack will be assigned a quality based on its (clearly subjective) suppressiveness.
 Some cards that do not have the 'Attack' type (like Masquerade, Embargo or Possession) will also be labeled as attacks.
 
-### AttackType
+### Attack Types
 
 In addition to its strength, each of these attacks will be labelled with its AttackType, where I define the following ones:
 
@@ -24,7 +24,7 @@ In addition to its strength, each of these attacks will be labelled with its Att
 
 ## Village
 
-### VillageQuality
+### Village Quality
 
 Villages are a heated target of debate [citation needed], but here I've decided to try to include everything that might enable to play you more than one terminal a turn.
 The three different categories had the following distinctions in mind:
@@ -35,7 +35,7 @@ The three different categories had the following distinctions in mind:
 
 ## Draw
 
-### DrawQuality
+### Draw Quality
 
 Almost everything that can increase your handsize. I think I've excluded virtual draw like Cargo Ship, and also Trickster.
 Cantrips of course don't draw.
@@ -47,7 +47,7 @@ The three categories had the following distinctions in mind:
 
 ## Thinning
 
-### ThinningQuality
+### Thinning Quality
 
 I am deliberately including exiling here, and also remodelers that just improve the quality of the cards in your deck (e.g. Enhance or even Mine).
 The three categories had the following distinctions in mind:
@@ -55,6 +55,9 @@ The three categories had the following distinctions in mind:
 1. Weakish thinning stuff that tends to be somewhat niche such as Acolyte, Improve, Enlarge, or Governor.
 2. All of the trashers and exilers that can thin one card at a time.
 3. Powerful stuff that can get you thin by trashing 2+ cards like Donate, Chapel, Sentry, Peaceful Cult etc.
+
+### Thinning Types
+
 
 ## Interactivity
 

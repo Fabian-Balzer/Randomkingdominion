@@ -1,35 +1,22 @@
 # %%
 
+from functools import reduce
+from typing import Optional
+
+from .config import CustomConfigParser, get_randomizer_config_options
 from .constants import FPATH_CARD_DATA, RENEWED_EXPANSIONS
 from .kingdom import Kingdom, KingdomQualities
 from .utils import read_dataframe_from_file
 
 
 class DataContainer:
-    def __init__(self):
+    def __init__(self, config: Optional[CustomConfigParser] = None):
+        self.config = config if config is not None else get_randomizer_config_options()
         self.all_cards = read_dataframe_from_file(FPATH_CARD_DATA, eval_lists=True)
         self.all_sets = list(set(self.all_cards["Expansion"]))
         self.all_attack_types = self.get_attack_types()
-        #     # TODO: Load this from a config file
-        self.request_dict = {
-            "expansions": ["Plunder"],
-            "attack_types": ["Handsize", "Scoring", "Junking"],
-            "num_cards": 10,
-            "num_landscapes": 2,
-            "qualities": KingdomQualities(
-                default=False,
-                qual_dict={
-                    "Draw": 1,
-                    "Village": 1,
-                    "Thinning": 1,
-                    "Attack": 0,
-                    "Interactivity": 2,
-                    "AltVP": 2,
-                },
-            ),
-            "rerolled_cards": [],
-        }
-        self.parameter_dict = {"RequireReaction": False, "AttackType": None}
+        self.rerolled_cards = []
+        self.parameter_dict = {"RequireReaction": False, "attack_types": None}
         self.kingdom = None
 
     def read_expansions(self, checkbox_exp_dict, button):
@@ -43,7 +30,7 @@ class DataContainer:
                 is_in = is_in or (special in current_exp)
             if is_in:
                 exps.append(special)
-        self.request_dict["expansions"] = exps
+        self.config.set_expansions(exps)
         if all([checkbox.isChecked() for checkbox in checkbox_exp_dict.values()]):
             button.setText("Deselect all Expansions")
         else:
@@ -63,7 +50,7 @@ class DataContainer:
         atts = [
             att for att, checkbox in checkbox_att_dict.items() if checkbox.isChecked()
         ]
-        self.request_dict["attack_types"] = atts
+        self.config.set_special_list("attack_types", atts)
         if all([checkbox.isChecked() for checkbox in checkbox_att_dict.values()]):
             button.setText("Deselect all attack types")
         else:
@@ -79,9 +66,9 @@ class DataContainer:
         self.read_attack_types(checkbox_att_dict, button)
 
     def randomize(self):
-        self.request_dict["rerolled_cards"] = []
-        self.kingdom = Kingdom(self.all_cards)
-        self.kingdom.randomize(self.request_dict)
+        self.rerolled_cards = []
+        self.kingdom = Kingdom(self.all_cards, config=self.config)
+        self.kingdom.randomize(self.rerolled_cards)
 
     def reroll_card(self, old_card):
         """Creates a new card with the old card removed and tries a reroll."""
@@ -101,17 +88,16 @@ class DataContainer:
             kept_ally = ""
         self.kingdom = Kingdom(
             self.all_cards,
+            config=self.config,
             kingdom_cards=kept_cards,
             landscapes=kept_landscapes,
             ally=kept_ally,
         )
-        self.request_dict["rerolled_cards"].append(old_card)
-        self.kingdom.randomize(self.request_dict)
+        self.rerolled_cards.append(old_card)
+        self.kingdom.randomize(self.rerolled_cards)
 
     def get_attack_types(self):
-        all_types = [
-            element for list_ in self.all_cards["AttackType"] for element in list_
-        ]
+        all_types = reduce(lambda x, y: x + y, self.all_cards["attack_types"])
         set_ = set(all_types)
         set_.discard("")
         return sorted(list(set_))
@@ -132,7 +118,7 @@ class DataContainer:
             self.kingdom = self.kingdom.history[index + 1]
 
     def read_quality(self, qual, val):
-        self.request_dict["qualities"][qual] = val
+        self.config.set_quality(qual, val)
 
     # def set_quality_args(self, spin_dict):
     #     for arg_name in self.quality_dict.keys():
