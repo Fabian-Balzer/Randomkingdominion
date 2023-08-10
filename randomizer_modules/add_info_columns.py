@@ -3,7 +3,15 @@ from collections import defaultdict
 
 import pandas as pd
 
-from .constants import PATH_CARD_INFO, QUALITIES_AVAILABLE
+from .constants import (
+    LANDSCAPE_LIST,
+    OTHER_OBJ_LIST,
+    PATH_CARD_INFO,
+    QUALITIES_AVAILABLE,
+    ROTATOR_DICT,
+    SPECIAL_TYPES_AVAILABLE,
+    SPLITPILE_DICT,
+)
 from .utils import ask_file_overwrite
 
 
@@ -28,15 +36,13 @@ def do_lists_have_common(l1, l2):
 
 def test_landscape(df):
     """Tests whether the given object is an Event, Project, Way or landmark."""
-    landscapelist = ["Event", "Project", "Way", "Landmark", "Trait"]
-    series = df["Types"].apply(lambda x: do_lists_have_common(x, landscapelist))
+    series = df["Types"].apply(lambda x: do_lists_have_common(x, LANDSCAPE_LIST))
     return series
 
 
 def test_other(df):
     """Tests whether the given object is a Hex, Boon, State or Artifact"""
-    otherlist = ["Hex", "Boon", "State", "Artifact", "Ally", "Loot"]
-    series = df["Types"].apply(lambda x: do_lists_have_common(x, otherlist))
+    series = df["Types"].apply(lambda x: do_lists_have_common(x, OTHER_OBJ_LIST))
     return series
 
 
@@ -168,35 +174,7 @@ def add_split_piles(df):
             "IsInSupply": True,
         },
     }
-    for pile, cost in {
-        "Catapult/Rocks": 3,
-        "Encampment/Plunder": 2,
-        "Gladiator/Fortune": 3,
-        "Sauna/Avanto": 4,
-        "Patrician/Emporium": 2,
-        "Settlers/Bustling Village": 2,
-    }.items():
-        first, second = pile.split("/")
-        types = "Action - Attack" if pile == "Catapult/Rocks" else "Action"
-        splitpile_dict[pile] = {
-            "Name": pile,
-            "Expansion": "Empires",
-            "Types": types,
-            "Cost": f"${cost}",
-            "Text": f"This pile starts the game with 5 copies of {first} on top, then 5 copies of {second}. Only the top card of the pile can be gained or bought.",
-            "IsLandscape": False,
-            "IsOtherThing": False,
-            "IsInSupply": True,
-        }
-    rotator_dict = {
-        "Augurs": ["Herb Gatherer", "Acolyte", "Sorceress", "Sybil"],
-        "Wizards": ["Student", "Conjurer", "Sorcerer", "Lich"],
-        "Forts": ["Tent", "Garrison", "Hill Fort", "Stronghold"],
-        "Townsfolk": ["Town Crier", "Blacksmith", "Miller", "Elder"],
-        "Clashes": ["Battle Plan", "Archer", "Warlord", "Territory"],
-        "Odysseys": ["Old Map", "Voyage", "Sunken Treasure", "Distant Shore"],
-    }
-    for pilename, cards in rotator_dict.items():
+    for pilename, cards in ROTATOR_DICT.items():
         types = f"Action - {pilename.strip('es')}"
         text = (
             f"This pile starts the game with 4 copies each of {', '.join(cards[:3])}, and {cards[3]}, in that order. Only the top card can be gained or bought.",
@@ -212,15 +190,7 @@ def add_split_piles(df):
             "IsOtherThing": False,
             "IsInSupply": True,
         }
-    ordinary_split_pile_dict = {
-        "Catapult/Rocks": 3,
-        "Encampment/Plunder": 2,
-        "Gladiator/Fortune": 3,
-        "Sauna/Avanto": 4,
-        "Patrician/Emporium": 2,
-        "Settlers/Bustling Village": 2,
-    }
-    for pile, cost in ordinary_split_pile_dict.items():
+    for pile, cost in SPLITPILE_DICT.items():
         first, second = pile.split("/")
         types = "Action - Attack" if pile == "Catapult/Rocks" else "Action"
         expansion = "Empires" if not "Sauna" in pile else "Promo"
@@ -248,8 +218,7 @@ def add_info_columns(df):
     df = add_bool_columns(df)
     # Set up the default values:
     info_types = {f"{qual}_quality": 0 for qual in QUALITIES_AVAILABLE}
-    info_types["attack_types"] = []
-    info_types["thinning_types"] = []
+    info_types |= {f"{types}_types": [] for types in SPECIAL_TYPES_AVAILABLE}
     for info_type, default_value in info_types.items():
         df[info_type] = df["Name"].apply(
             lambda name: get_specific_info(name, info_type, default_value)

@@ -32,7 +32,7 @@ class KingdomQualities(dict):
 
     def prettify(self):
         return "\n".join(
-            f"{qual + ' quality:':20}\t{val}" for qual, val in self.items()
+            f"{qual.capitalize() + ' quality:':20}\t{val}" for qual, val in self.items()
         )
 
 

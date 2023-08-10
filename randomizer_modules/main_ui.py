@@ -38,7 +38,7 @@ class UIMainWindow(QW.QMainWindow):
         self.widgets.buttons["Previous"].clicked.connect(self.select_previous)
         self.widgets.buttons["Next"].clicked.connect(self.select_next)
         self.widgets.buttons["PrintKingdom"].clicked.connect(
-            lambda: print(self.data_container.kingdom)
+            self.copy_kingdom_to_clipboard
         )
         for checkbox in self.widgets.checkboxes["ExpansionDict"].values():
             # The partial function must be used as lambda functions don't work with iterators
@@ -78,6 +78,11 @@ class UIMainWindow(QW.QMainWindow):
             combobox.currentIndexChanged.connect(
                 partial(self.data_container.read_quality, qual)
             )
+
+    def copy_kingdom_to_clipboard(self):
+        """Copy the current kingdom to clipboard"""
+        clipboard = QW.QApplication.clipboard()
+        clipboard.setText(str(self.data_container.kingdom))
 
     def set_values(self):
         for exp in self.config.get_expansions():

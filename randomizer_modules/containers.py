@@ -10,6 +10,7 @@ from .creator_functions import (
     create_labels,
     create_layouts,
 )
+from .kingdom import Kingdom
 from .utils import display_cards
 
 
@@ -39,7 +40,7 @@ class WidgetContainer:
         for label in self.labels.values():
             self.layouts["Stats"].addWidget(label)
 
-    def update_card_display(self, kingdom):
+    def update_card_display(self, kingdom: Kingdom):
         self.cards = create_cards(kingdom)
         display_cards(self.cards, self.layouts, "Kingdom", num_rows=2)
         display_cards(

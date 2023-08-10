@@ -183,9 +183,7 @@ def create_gridlayout(parent):
 
 def create_cards(kingdom):
     card_dict = {}
-    card_dict["KingdomList"] = create_kingdom_cards(
-        kingdom.get_kingdom_card_df(), shortened=True
-    )
+    card_dict["KingdomList"] = create_kingdom_cards(kingdom.get_kingdom_card_df())
     card_dict["LandscapeList"] = create_kingdom_cards(kingdom.get_landscape_df())
     card_dict["LandscapeList"] += create_kingdom_cards(kingdom.get_ally_df())
     return card_dict
@@ -232,8 +230,14 @@ def get_display_text(card):
 
 
 def get_tooltip_text(card):
+    """Display the qualities that are > 0 for the given card"""
+    card_quals = {
+        qual: qualval
+        for qual in QUALITIES_AVAILABLE
+        if (qualval := card[qual + "_quality"]) > 0
+    }
     ttstring = "\n".join(
-        [f"{qual}: {card[qual +'_quality']}" for qual in QUALITIES_AVAILABLE]
+        [f"{qual.capitalize()}: {val}" for qual, val in card_quals.items()]
     )
     return ttstring
 
