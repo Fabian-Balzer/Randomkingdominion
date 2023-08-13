@@ -204,13 +204,26 @@ class QualitySelectionGroupWidget(CollapsibleBox):
         super().__init__(title="Quality parameters", initially_collapsed=False)
 
         lay = QW.QVBoxLayout()
-        self.wid_dict = {}
+        self.wid_dict: dict[str, SingleQualitySelectionWidget] = {}
         for qual in QUALITIES_AVAILABLE:
             wid = SingleQualitySelectionWidget(qual, config)
             self.wid_dict[qual] = wid
             lay.addWidget(wid)
-
+        self.reset_button = self.init_reset_button()
+        lay.addWidget(self.reset_button)
         self.setContentLayout(lay)
+
+    def init_reset_button(self) -> QW.QWidget:
+        # TODO: Maybe implement a master slider to change everything at once?
+        button = CoolButton(text="Reset preferences", width=200)
+        button.clicked.connect(self.on_reset_clicked)
+        return button
+
+    # @QC.pyqtSlot()
+    def on_reset_clicked(self):
+        for wid in self.wid_dict.values():
+            wid.selection_box.setValue(0)
+            wid.set_quality()
 
 
 def create_buttons():

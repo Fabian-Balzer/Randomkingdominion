@@ -7,11 +7,11 @@ Things and ideas I am having to improve
 ### Backend and implementation stuff
 
 - Refactor Data_Container with get and set methods
-- Refactor widget infrastructure (halfway done, see expansion widget)
+- Refactor widget infrastructure (reorder everything for a nicer structure)
 - Refactor how the randomizer picks cards depending on the attributes given
-- Implement 'Revert to recommended settings'
+- Implement 'Revert to recommended settings' +-> The select all/deselect all buttons should be enough.
 - Implement permanent kingdom history of the last 100 kindoms and allow to save kingdoms even more permanently
-- Implement loading kingdoms from csv
+- Implement loading kingdoms from and saving to csv
 - Show kingdom strength from general availability of engine components
 - Write Tests
 
@@ -19,6 +19,7 @@ Things and ideas I am having to improve
 
 - Add options to prioritize an expansion or to choose a subset of expansions
 - Add options to distribute the cost
+- Add options to disable a quality to exclude it from randomization
 - Add options to take other card metadata into account
 - Add options to disable attacks or require reaction
 - Implement picking Trait, Obelisk, Mouse and Bane Cards
