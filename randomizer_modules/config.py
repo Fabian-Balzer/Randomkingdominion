@@ -11,10 +11,17 @@ from .constants import FPATH_RANDOMIZER_CONFIG, RENEWED_EXPANSIONS
 
 
 class CustomConfigParser(ConfigParser):
-    def get_expansions(self) -> list[str]:
+    def get_expansions(self, add_renewed_bases=True) -> list[str]:
         """Turn the internally as string saved expansions into a list."""
         value = self.get("General", "Expansions")
-        return json.loads(value)
+        expansions = json.loads(value)
+        if not add_renewed_bases:
+            return expansions
+        for renewed_exp in RENEWED_EXPANSIONS:
+            # If e.g. Seaside, 2E is selected, also put Seaside in.
+            if any(renewed_exp in exp for exp in expansions):
+                expansions.append(renewed_exp)
+        return expansions
 
     def set_expansions(self, expansions: list[str]):
         """Save the given list of expansions as a string in the config options."""

@@ -1,5 +1,6 @@
 """File containing some convenience widgets."""
 from math import ceil, floor
+from typing import Literal
 
 import pandas as pd
 import PyQt5.QtCore as QC
@@ -11,7 +12,7 @@ from .constants import PATH_ASSETS, PATH_MAIN
 
 class CollapsibleBox(QW.QWidget):
     def __init__(self, title="", parent=None):
-        super(CollapsibleBox, self).__init__(parent)
+        super().__init__(parent)
         self.toggle_button = self._init_toggle_button(title)
         self.toggle_animation = QC.QParallelAnimationGroup(self)
         self.content_area = QW.QScrollArea(maximumHeight=0, minimumHeight=0)
@@ -181,7 +182,9 @@ def create_radio_buttons(group, names, tooltips=None):
     return button_dict
 
 
-def group_widgets(wid_list, text="", num_rows=1, num_cols=None, collapsible=True):
+def group_widgets(
+    wid_list, text="", num_rows=1, num_cols=None, collapsible=True
+) -> QW.QWidget:
     """
     Takes a list of widgets and group them in their own GridLayout with an according number of rows
     params:
@@ -352,7 +355,9 @@ class ImageCutoutWidget(QW.QWidget):
 
         aspect_ratio = image.width() / image.height()
         new_height = int(width / aspect_ratio)
-        resized_image = image.scaled(width, new_height, QC.Qt.KeepAspectRatio)
+        resized_image = image.scaled(
+            width, new_height, QC.Qt.KeepAspectRatio, QC.Qt.SmoothTransformation
+        )
 
         full_height = resized_image.height()
         cutout_bottom = int(full_height * bottom)
@@ -421,25 +426,111 @@ class RerollButton(QW.QLabel):
 class KingdomCardImageWidget(QW.QWidget):
     """Display Name, Picture and Image for the given kingdom card"""
 
-    def __init__(self, card: pd.Series, width=180):
+    def __init__(self, card: pd.Series, width=180, special_text=None):
         super().__init__()
-        impath = str(PATH_MAIN.joinpath(card["ImagePath"]))
-        lay = QW.QVBoxLayout(self)
-        lay.addWidget(ImageCutoutWidget(impath, 0.47, 1, width))
-        lay.addWidget(ImageCutoutWidget(impath, 0.03, 0.11, width))
-        lay.setSpacing(0)
-        lay.setAlignment(QC.Qt.AlignTop)
-        lay.setContentsMargins(0, 0, 0, 0)
-        lay.setSizeConstraint(QW.QVBoxLayout.SetMinimumSize)
-
+        self.is_landscape = card.IsLandscape
+        self.card = card
+        self.real_width = width * 2 if self.is_landscape else width
+        self.impath = str(PATH_MAIN.joinpath(card["ImagePath"]))
+        self.name = card.Name
+        self.box_layout = QW.QVBoxLayout(self)
+        if self.is_landscape:
+            self.real_height = self.display_landscape()
+        else:
+            self.real_height = self.display_card()
+            if special_text:
+                self.overlay_text(special_text)
+        # Adjust the layout
+        self.box_layout.setSpacing(0)
+        self.box_layout.setAlignment(QC.Qt.AlignTop)
+        self.box_layout.setContentsMargins(0, 0, 0, 0)
+        self.box_layout.setSizeConstraint(QW.QVBoxLayout.SetMinimumSize)
         self.setSizePolicy(QW.QSizePolicy.Fixed, QW.QSizePolicy.Fixed)
 
-        # Create a button and add it to a widget
-        button = RerollButton(self)
-        button.move(width - 10 - button.width(), 33)
-        self.reroll_button = button
-        self.name = card.Name
+        self.reroll_button = self.add_reroll_button()
+
         self.setAutoFillBackground(True)
         palette = self.palette()
         palette.setColor(self.backgroundRole(), QC.Qt.black)
         self.setPalette(palette)
+
+    def display_card(self) -> int:
+        """Display the card that this class is based on."""
+        top_part = ImageCutoutWidget(self.impath, 0.47, 1, self.real_width)
+        bottom_part = ImageCutoutWidget(self.impath, 0.03, 0.11, self.real_width)
+        self.box_layout.addWidget(top_part)
+        self.box_layout.addWidget(bottom_part)
+        top_height = top_part.label.pixmap().height()
+        height = top_height + bottom_part.label.pixmap().height()
+
+        # Display the card amount:
+        label = QW.QLabel(str(self.card.CardAmount), self)
+        label.setStyleSheet(
+            "background-color: darkRed; border-radius:5; border-color: black; border-width:2px; border-style: outset"
+        )
+        label.setMargin(2)
+        label.setScaledContents(True)
+        label.setAlignment(QC.Qt.AlignCenter)
+        font = label.font()
+        font.setPointSize(8)
+        label.setFont(font)
+        label.setGeometry(5, top_height - 25, 28, 22)
+        return height
+
+    def display_landscape(self) -> int:
+        """Display the landscape by adding a label to it, displaying the text in a bigger font"""
+        image_wid = ImageCutoutWidget(self.impath, 0.05, 1, self.real_width)
+        self.box_layout.addWidget(image_wid)
+
+        color_dict = {
+            "Way": "rgb(218, 242, 254)",
+            "Event": "rgb(160, 175, 178)",
+            "Ally": "darkYellow",
+            "Landmark": "rgb(73, 156, 96)",
+            "Trait": "rgb(150, 145, 186)",
+            "Project": "rgb(236, 172, 165)",
+        }
+        color = color_dict[self.card.Types[0]]
+        label = QW.QLabel(self.name, self)
+        label.setStyleSheet(
+            f"border-image: url('demo.jpg');\
+                            background-color: {color}; \
+                            border-radius:50"
+        )
+        label.setMargin(8)
+        label.setScaledContents(True)
+        label.setAlignment(QC.Qt.AlignCenter)
+        height = image_wid.label.pixmap().height()
+        font = label.font()
+        font.setPointSize(16)
+        label.setFont(font)
+        label.setGeometry(12, height - 50, self.real_width - 24, 50)
+        self.label = label
+        return height
+
+    def add_reroll_button(self) -> RerollButton:
+        # Create a button and add it to a widget
+        button = RerollButton(self)
+        if self.is_landscape:
+            button.move(20, self.real_height - 50 + 12)
+        else:
+            button.move(self.real_width - 10 - button.width(), 33)
+        return button
+
+    def overlay_text(self, text: Literal["Bane", "Obelisk"]):
+        color_dict = {"Bane": "gray", "Obelisk": "olivegreen"}
+        color = color_dict[text]
+        label = QW.QLabel(text, self)
+        label.setStyleSheet(
+            f"border-image: url('demo.jpg');\
+                            background-color: {color}; \
+                            border-radius:25"
+        )
+        label.setMargin(2)
+        label.setScaledContents(True)
+        label.setAlignment(QC.Qt.AlignCenter)
+
+        font = label.font()
+        font.setPointSize(10)
+        label.setFont(font)
+        label.setGeometry(12, self.real_height - 40, self.real_width - 24, 20)

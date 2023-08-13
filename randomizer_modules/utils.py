@@ -2,6 +2,7 @@ import os
 from math import ceil, floor
 from typing import Optional
 
+import numpy as np
 import pandas as pd
 from PyQt5.QtWidgets import QVBoxLayout, QWidget
 
@@ -48,7 +49,7 @@ def read_dataframe_from_file(fpath: str, eval_lists=False):
         df = pd.read_csv(fpath, sep=";", header=0)
         if eval_lists:
             for colname in df.columns:
-                if "type" in colname:
+                if "type" in colname.lower():
                     # Make sure we properly handle lists
                     df[colname] = df[colname].apply(eval)
     else:
@@ -77,15 +78,19 @@ def filter_column(df: pd.DataFrame, colname: str, entries: list[str]) -> pd.Data
     return df
 
 
-def is_in_requested_types(given_types: list[str], types_to_check: list[str]):
-    """Check if all of the given_types are in the types_to_check.
-    An empty string is always considered to be in the 'types_to_check'"""
-    if "" in given_types:
-        return True
-    for type in given_types:
-        if not type in types_to_check:
-            return False
-    return True
+def get_mask_for_listlike_col_to_contain_any(
+    col: pd.Series, entries: list[str] | str, empty_too=False
+) -> np.ndarray[bool]:
+    """Filters a dataframe column for any intersection with the given list, e.g.
+    if you want to check the types of cards:
+        >>> get_mask_for_listlike_col_to_contain_any(df.Types, ["Attack", "Ally"])
+    would return an array where the Types column includes attacks or allies.
+    This method seems to be faster than most alternatives.
+    """
+    if empty_too:
+        return col.apply(lambda x: any([y in entries for y in x]) or not x)
+
+    return col.apply(lambda x: any([y in entries for y in x]))
 
 
 def display_cards(label_dict, layout_dict, name, num_rows=2, size=(150, 320)):

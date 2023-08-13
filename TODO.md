@@ -7,9 +7,11 @@ Things and ideas I am having to improve
 ### Backend and implementation stuff
 
 - Refactor Data_Container with get and set methods
+- Refactor widget infrastructure (halfway done, see expansion widget)
 - Refactor how the randomizer picks cards depending on the attributes given
 - Implement 'Revert to recommended settings'
-- Implement kingdom history
+- Implement permanent kingdom history of the last 100 kindoms and allow to save kingdoms even more permanently
+- Implemnt loading kingdoms from csv
 - Show kingdom strength from general availability of engine components
 - Write Tests
 
@@ -25,12 +27,13 @@ Things and ideas I am having to improve
 
 - Add sorting options for kingdom (and fix sorting of debt/potion cost cards)
 - Implement showing the whole kingdom to set up (e.g. Wishes, Boons, Loot)
-- Implement Shortened Kingdom View (i.e. only name, picture and cost)
+- Implement Shortened Kingdom View (i.e. only name, picture and cost) with toggle between short and long
 - Implement showing the number of cards in a setup pile
 
 ### Card metadata
 
 - Fix debt cost
+- Fix Harem/Farm picture
 - Add TrashType (All, Treasure, NoTreasure, Action)?
 - Add Associated Cards (Horses, Knights, Castles, Potion etc.)
 - Add DecisionQuality (high for many decisions, low for i.e. Necro or Gardens)

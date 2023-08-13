@@ -5,7 +5,7 @@ from typing import Optional
 
 from .config import CustomConfigParser, get_randomizer_config_options
 from .constants import FPATH_CARD_DATA, RENEWED_EXPANSIONS
-from .kingdom import Kingdom, KingdomQualities
+from .kingdom import Kingdom
 from .utils import read_dataframe_from_file
 
 
@@ -13,37 +13,11 @@ class DataContainer:
     def __init__(self, config: Optional[CustomConfigParser] = None):
         self.config = config if config is not None else get_randomizer_config_options()
         self.all_cards = read_dataframe_from_file(FPATH_CARD_DATA, eval_lists=True)
-        self.all_sets = list(set(self.all_cards["Expansion"]))
+        self.all_expansions = list(set(self.all_cards["Expansion"]))
         self.all_attack_types = self.get_attack_types()
         self.rerolled_cards = []
         self.parameter_dict = {"RequireReaction": False, "attack_types": None}
         self.kingdom = None
-
-    def read_expansions(self, checkbox_exp_dict, button):
-        """Reads out the currently selected sets and saves them. Also changes the selection."""
-        exps = [
-            exp for exp, checkbox in checkbox_exp_dict.items() if checkbox.isChecked()
-        ]
-        for special in RENEWED_EXPANSIONS:
-            is_in = False
-            for current_exp in exps:
-                is_in = is_in or (special in current_exp)
-            if is_in:
-                exps.append(special)
-        self.config.set_expansions(exps)
-        if all([checkbox.isChecked() for checkbox in checkbox_exp_dict.values()]):
-            button.setText("Deselect all Expansions")
-        else:
-            button.setText("Select all Expansions")
-
-    def toggle_all_expansions(self, checkbox_exp_dict, button):
-        if all([checkbox.isChecked() for checkbox in checkbox_exp_dict.values()]):
-            for checkbox in checkbox_exp_dict.values():
-                checkbox.toggle()
-        else:
-            for checkbox in checkbox_exp_dict.values():
-                checkbox.setChecked(True)
-        self.read_expansions(checkbox_exp_dict, button)
 
     def read_attack_types(self, checkbox_att_dict, button):
         """Reads out the currently selected sets and saves them. Also changes the selection."""
@@ -73,6 +47,12 @@ class DataContainer:
     def reroll_card(self, old_card):
         """Creates a new card with the old card removed and tries a reroll."""
         kept_cards = [card for card in self.kingdom.kingdom_cards if card != old_card]
+        if old_card == "Young Witch":
+            kept_cards = [
+                card
+                for card in kept_cards
+                if card != self.kingdom.special_targets["Bane"]
+            ]
         kept_landscapes = [card for card in self.kingdom.landscapes if card != old_card]
         kept_ally = self.kingdom.ally if old_card != self.kingdom.ally else ""
         if (
@@ -175,43 +155,6 @@ def create_supply(kingdom, landscapes):
         ascending=[False, True, True, True, True],
     )
     return supply
-
-
-class CardSubset:
-    def __init__(self, df, already_picked):
-        self.df = df.drop(already_picked.index)
-        self.already_picked = already_picked
-
-    def __len__(self):
-        return len(self.df)
-
-    def filter_requirement(self, req):
-        df = self.df
-        self.df = df.loc(df[req] > 0)
-
-    def filter_cost(self, cost):
-        raise Exception  # unfinished
-        self.df = self.df.loc(df["Cost"] == cost)
-
-    def filter_types(self, types):
-        df = self.df
-        # set().intersect finds the intersection of the two, bool returns False if empty
-        self.df = df.loc(df["Types"].apply(lambda x: types in x))
-
-    def filter_in_supply(self):
-        self.df = self.df[self.df["IsInSupply"]]
-
-    def pick_card(self):
-        self.filter_in_supply()
-        pick = self.df.sample(n=1)
-        return pick
-
-    def pick_landscape(self):
-        if self.already_picked["Types"].apply(lambda types: "Way" in types).any():
-            self.df = self.df[self.df["Types"].apply(lambda types: "Way" not in types)]
-        landscapes = self.df[self.df["IsLandscape"]]
-        pick = landscapes.sample(n=1)
-        return pick
 
 
 def give_card(df, name):

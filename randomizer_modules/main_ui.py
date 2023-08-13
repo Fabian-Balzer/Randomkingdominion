@@ -5,7 +5,7 @@ from PyQt5 import QtGui as QG
 from PyQt5 import QtWidgets as QW
 
 from .config import get_randomizer_config_options
-from .constants import PATH_ASSETS
+from .constants import PATH_ASSETS, RENEWED_EXPANSIONS
 from .containers import WidgetContainer
 from .data_handling import DataContainer
 
@@ -40,22 +40,23 @@ class UIMainWindow(QW.QMainWindow):
         self.widgets.buttons["PrintKingdom"].clicked.connect(
             self.copy_kingdom_to_clipboard
         )
-        for checkbox in self.widgets.checkboxes["ExpansionDict"].values():
-            # The partial function must be used as lambda functions don't work with iterators
-            checkbox.clicked.connect(checkbox.toggle)
-            checkbox.clicked.connect(
-                partial(
-                    self.data_container.read_expansions,
-                    self.widgets.checkboxes["ExpansionDict"],
-                    self.widgets.buttons["ExpansionToggle"],
-                )
-            )
-        self.widgets.buttons["ExpansionToggle"].clicked.connect(
-            lambda: self.data_container.toggle_all_expansions(
-                self.widgets.checkboxes["ExpansionDict"],
-                self.widgets.buttons["ExpansionToggle"],
-            )
-        )
+        self.widgets.expansion_group.connect_to_change_func(self.read_expansions)
+        # for checkbox in self.widgets.checkboxes["ExpansionDict"].values():
+        #     # The partial function must be used as lambda functions don't work with iterators
+        #     checkbox.clicked.connect(checkbox.toggle)
+        #     checkbox.clicked.connect(
+        #         partial(
+        #             self.data_container.read_expansions,
+        #             self.widgets.checkboxes["ExpansionDict"],
+        #             self.widgets.buttons["ExpansionToggle"],
+        #         )
+        #     )
+        # self.widgets.buttons["ExpansionToggle"].clicked.connect(
+        #     lambda: self.data_container.toggle_all_expansions(
+        #         self.widgets.checkboxes["ExpansionDict"],
+        #         self.widgets.buttons["ExpansionToggle"],
+        #     )
+        # )
         for checkbox in self.widgets.checkboxes["AttackTypeDict"].values():
             # The partial function must be used as lambda functions don't work with iterators
             checkbox.clicked.connect(checkbox.toggle)
@@ -85,8 +86,8 @@ class UIMainWindow(QW.QMainWindow):
         clipboard.setText(str(self.data_container.kingdom))
 
     def set_values(self):
-        for exp in self.config.get_expansions():
-            self.widgets.checkboxes["ExpansionDict"][exp].setChecked(True)
+        for exp in self.config.get_expansions(add_renewed_bases=False):
+            self.widgets.expansion_group.widget_dict[exp].setChecked(True)
         for att in self.config.get_special_list("attack_types"):
             self.widgets.checkboxes["AttackTypeDict"][att].setChecked(True)
         for qual in self.config["Qualities"]:
@@ -101,18 +102,11 @@ class UIMainWindow(QW.QMainWindow):
     def display_kingdom(self):
         """Updates the kingdom cards"""
         self.widgets.update_card_display(self.data_container.kingdom)
-        for entry in (
-            self.widgets.cards["KingdomList"] + self.widgets.cards["LandscapeList"]
-        ):
-            if isinstance(entry, dict):
-                button = entry["Button"]
-                name = entry["Name"]
-            else:
-                button = entry.reroll_button
-                name = entry.name
-            button.clicked.connect(partial(self.reroll_card, name))
+        button_dict = self.widgets.kingdom_display.reroll_button_dict
+        for card_name, button in button_dict.items():
+            button.clicked.connect(partial(self.reroll_card, card_name))
 
-    def reroll_card(self, card_name):
+    def reroll_card(self, card_name: str):
         self.data_container.reroll_card(card_name)
         self.display_kingdom()
 
@@ -127,3 +121,8 @@ class UIMainWindow(QW.QMainWindow):
     def closeEvent(self, event):
         self.config.save_to_disk()
         event.accept()
+
+    def read_expansions(self):
+        """Reads out the currently selected sets and saves them. Also changes the selection."""
+        selected_exps = self.widgets.expansion_group.get_names_of_selected()
+        self.config.set_expansions(selected_exps)

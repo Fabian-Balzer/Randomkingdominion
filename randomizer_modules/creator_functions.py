@@ -1,9 +1,13 @@
+from functools import partial
+from math import ceil, floor
+
 import pandas as pd
 import PyQt5.QtCore as QC
 import PyQt5.QtGui as QG
 import PyQt5.QtWidgets as QW
 
 from .base_widgets import (
+    CollapsibleBox,
     CoolButton,
     CoolCheckBox,
     CoolComboBox,
@@ -12,29 +16,93 @@ from .base_widgets import (
     group_widgets,
 )
 from .constants import PATH_MAIN, QUALITIES_AVAILABLE, RENEWED_EXPANSIONS
-from .kingdom import KingdomCardImageWidget
+from .kingdom import KingdomDisplayWidget
 from .utils import get_attack_icon, get_expansion_icon
 
 
-def create_checkboxes(all_expansions, all_attack_types, button_dict):
+class GroupCheckboxButtonContainer(CollapsibleBox):
+    """A widget containing a grouped Checkbox buttons."""
+
+    def __init__(
+        self,
+        names: list[str],
+        description: str,
+        tooltips: list[str] | None = None,
+        num_cols=4,
+    ):
+        super().__init__(title=description)
+        self.description = description
+        names = sorted(names)
+
+        widget_dict: dict[str, PictureCheckBox] = {}
+        for name, tooltip in zip(names, tooltips):
+            icon = get_expansion_icon(name)
+            checkbox = PictureCheckBox(name, icon=icon, tooltip=tooltip)
+            widget_dict[name] = checkbox
+
+        self.widget_dict = widget_dict
+        self.toggle_all_button = CoolButton(text="Select all", fontsize="10px")
+        self.toggle_all_button.clicked.connect(self.toggle_all_checkbox_buttons)
+
+        self._init_layout(num_cols)
+
+    def _init_layout(self, num_cols):
+        layout = QW.QGridLayout(self)
+        layout.setContentsMargins(5, 0, 5, 5)
+        # num_items = len(self.widget_dict) + 1
+        # num_rows = ceil(num_items / num_cols)
+        widget_list = list(self.widget_dict.values()) + [self.toggle_all_button]
+        for i, widget in enumerate(widget_list):
+            row = floor(i / num_cols)
+            col = i - row * num_cols
+            layout.addWidget(widget, row, col)
+        super().setContentLayout(layout)
+
+    def connect_to_change_func(self, func: callable):
+        """Connect all of the buttons to the functions toggling them."""
+        for widget in self.widget_dict.values():
+            widget.clicked.connect(widget.toggle)
+            widget.clicked.connect(func)
+        self.toggle_all_button.clicked.connect(self.set_toggle_button_text)
+        self.toggle_all_button.clicked.connect(func)
+
+    def _are_all_boxes_checked(self) -> bool:
+        return all(checkbox.isChecked() for checkbox in self.widget_dict.values())
+
+    def toggle_all_checkbox_buttons(self):
+        """Collectively toggle all checkbox_buttons in the group."""
+        new_check_value = not self._are_all_boxes_checked()
+        for checkbox in self.widget_dict.values():
+            checkbox.setChecked(new_check_value)
+        self.set_toggle_button_text()
+
+    def set_toggle_button_text(self):
+        """Have the button represent whether to select or deselect everything"""
+        if self._are_all_boxes_checked():
+            self.toggle_all_button.setText("Deslect all")
+        else:
+            self.toggle_all_button.setText("Select all")
+
+    def get_names_of_selected(self) -> list[str]:
+        """Get the names of all checkbox_buttons that are currently selected."""
+        selected_names = [
+            name for name, checkbox in self.widget_dict.items() if checkbox.isChecked()
+        ]
+        return selected_names
+
+
+class ExpansionGroupWidget(GroupCheckboxButtonContainer):
+    """Container for the expansion group."""
+
+    def __init__(self, all_expansions: list[str]):
+        names = [exp for exp in all_expansions if exp not in RENEWED_EXPANSIONS]
+        tooltips = [f"Randomize cards from the {exp} expansion." for exp in names]
+        super().__init__(names, "Expansions", tooltips)
+        self.on_button_pressed()
+
+
+def create_checkboxes(all_attack_types, button_dict):
     checkbox_dict = {}
-    box_dict = {}
-    names = [exp for exp in all_expansions if exp not in RENEWED_EXPANSIONS]
-    tooltips = [f"Randomize cards from the {exp} expansion." for exp in names]
-    for name, tooltip in zip(names, tooltips):
-        icon = get_expansion_icon(name)
-        checkbox = PictureCheckBox(name, icon=icon, tooltip=tooltip)
-        box_dict[name] = checkbox
-    button_dict["ExpansionToggle"] = CoolButton(
-        text="Select all expansions", fontsize="10px"
-    )
-    checkbox_dict["ExpansionDict"] = box_dict
-    explist = [box_dict[key] for key in sorted(box_dict.keys())] + [
-        button_dict["ExpansionToggle"]
-    ]
-    checkbox_dict["ExpansionGroup"] = group_widgets(
-        explist, "Expansions used for randomization", num_cols=4
-    )
 
     box_dict = {}
     tooltips = [
@@ -45,14 +113,14 @@ def create_checkboxes(all_expansions, all_attack_types, button_dict):
         checkbox = PictureCheckBox(name, icon=icon, tooltip=tooltip)
         box_dict[name] = checkbox
     button_dict["AttackTypeToggle"] = CoolButton(
-        text=f"Select all attack types", fontsize="10px"
+        text="Select all attack types", fontsize="10px"
     )
     checkbox_dict["AttackTypeDict"] = box_dict
     explist = [box_dict[key] for key in sorted(box_dict.keys())] + [
         button_dict["AttackTypeToggle"]
     ]
     checkbox_dict["AttackTypeGroup"] = group_widgets(
-        explist, f"Allowed attack types for randomization", num_cols=4
+        explist, "Allowed attack types for randomization", num_cols=4
     )
     return checkbox_dict
 
@@ -115,60 +183,12 @@ def create_combobox_group():
     )
 
 
-def create_layouts(_main) -> dict[str, QW.QWidget]:
-    layout_dict = {}
-    main = create_main_layout(_main)
-    layout_dict["Settings"] = create_scroll_vboxlayout(
-        "Settings", main, 0, 0, minwidth=600
-    )
-    stats_layout = create_vboxlayout("Kingdom stats", main, 1, 0)
-    stats_layout.parentWidget().setMaximumHeight(200)
-    layout_dict["Stats"] = stats_layout
-    layout_dict["Display"] = create_vboxlayout("Kingdom overview", main, 0, 1, 2, 1)
-    layout_dict["Kingdomdisplay"] = create_gridlayout(layout_dict["Display"])
-    layout_dict["Landscapedisplay"] = create_gridlayout(layout_dict["Display"])
-    layout_dict["RandomizeNavigationWid"] = QW.QWidget()
-    layout_dict["RandomizeNavigation"] = QW.QHBoxLayout(
-        layout_dict["RandomizeNavigationWid"]
-    )
-    main.setRowStretch(0, 1)
-    main.setRowStretch(1, 0)
-    main.setColumnStretch(0, 1)
-    main.setColumnStretch(1, 2)
-    layout_dict["Main"] = main
-    return layout_dict
-
-
-def create_main_layout(_main):
-    lay = QW.QGridLayout(_main)
-    wid = QW.QWidget()
-    lay.setContentsMargins(1, 1, 1, 1)
-    lay.addWidget(wid, 0, 0)
-    return lay
-
-
 def create_vboxlayout(name, parent, row, col, rowstretch=1, colstretch=1):
     wid = QW.QGroupBox(name)
     lay = QW.QVBoxLayout(wid)
     lay.setSpacing(5)
     lay.setContentsMargins(3, 3, 3, 3)
     parent.addWidget(wid, row, col, rowstretch, colstretch)
-    return lay
-
-
-def create_scroll_vboxlayout(
-    name, parent, row, col, rowstretch=1, colstretch=1, minwidth=300
-):
-    wid = QW.QGroupBox(name)
-    scroll = QW.QScrollArea()
-    scroll.setHorizontalScrollBarPolicy(QC.Qt.ScrollBarAlwaysOff)
-    scroll.setWidgetResizable(True)
-    scroll.setMinimumWidth(minwidth)
-    scroll.setWidget(wid)
-    lay = QW.QVBoxLayout(wid)
-    lay.setSpacing(5)
-    lay.setContentsMargins(3, 3, 3, 3)
-    parent.addWidget(scroll, row, col, rowstretch, colstretch)
     return lay
 
 
@@ -189,13 +209,10 @@ def create_cards(kingdom):
     return card_dict
 
 
-def create_kingdom_cards(cards, shortened=False):
+def create_kingdom_cards(cards):
     kingdom = []
     for _, card in cards.iterrows():
-        if shortened:
-            kingdom.append(KingdomCardImageWidget(card))
-        else:
-            kingdom.append(create_card_group(card, 150, 250))
+        kingdom.append(create_card_group(card, 150, 250))
     return kingdom
 
 
@@ -240,9 +257,3 @@ def get_tooltip_text(card):
         [f"{qual.capitalize()}: {val}" for qual, val in card_quals.items()]
     )
     return ttstring
-
-
-def create_labels():
-    label_dict = {}
-    label_dict["qualities"] = QW.QLabel("")
-    return label_dict
