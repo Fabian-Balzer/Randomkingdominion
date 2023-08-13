@@ -156,6 +156,8 @@ class Kingdom:
 
     def get_draw_pool(self, rerolled_cards: list[str]):
         # Discard everything not contained in the requested sets
+        if len(self.config.get_expansions()) == 0:
+            raise EmptyError
         pool = filter_column(self.card_df, "Expansion", self.config.get_expansions())
         allowed_types = self.config.get_special_list("attack_types")
         mask = get_mask_for_listlike_col_to_contain_any(

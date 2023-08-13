@@ -11,72 +11,49 @@ from .constants import PATH_ASSETS, PATH_MAIN
 
 
 class CollapsibleBox(QW.QWidget):
-    def __init__(self, title="", parent=None):
+    """A collapsible box with content that can be hidden if desired."""
+
+    def __init__(self, title="", parent=None, initially_collapsed=True):
         super().__init__(parent)
-        self.toggle_button = self._init_toggle_button(title)
-        self.toggle_animation = QC.QParallelAnimationGroup(self)
-        self.content_area = QW.QScrollArea(maximumHeight=0, minimumHeight=0)
-        self.content_area.setSizePolicy(QW.QSizePolicy.Expanding, QW.QSizePolicy.Fixed)
-        self.content_area.setFrameShape(QW.QFrame.NoFrame)
+
+        self.toggle_button = self.init_toggle_button(title)
+        self.content_area = QW.QWidget()
+        self.content_layout = QW.QVBoxLayout(self.content_area)
 
         outer_layout = QW.QVBoxLayout(self)
-        outer_layout.setSpacing(0)
-        outer_layout.setContentsMargins(0, 0, 0, 0)
         outer_layout.addWidget(self.toggle_button)
         outer_layout.addWidget(self.content_area)
+        outer_layout.setSpacing(0)
+        outer_layout.setContentsMargins(0, 0, 0, 0)
 
-        self.toggle_animation.addAnimation(
-            QC.QPropertyAnimation(self, b"minimumHeight")
-        )
-        self.toggle_animation.addAnimation(
-            QC.QPropertyAnimation(self, b"maximumHeight")
-        )
-        self.toggle_animation.addAnimation(
-            QC.QPropertyAnimation(self.content_area, b"maximumHeight")
-        )
+        self.toggle_button.setChecked(initially_collapsed)
+        self.set_collapsed(initially_collapsed)
 
-    def _init_toggle_button(self, title: str):
-        # This button is used to toggle hiding/showing the content of the box
-        button = QW.QToolButton(text=title, checkable=True, checked=False)
+    def init_toggle_button(self, title: str):
+        button = QW.QToolButton(text=title, checkable=True)
         button.setStyleSheet("QToolButton { border: none; }")
         button.setToolButtonStyle(QC.Qt.ToolButtonTextBesideIcon)
         button.setArrowType(QC.Qt.RightArrow)
-        button.pressed.connect(self.on_button_pressed)
+        button.clicked.connect(self.on_button_clicked)
         return button
 
-    @QC.pyqtSlot()
-    def on_button_pressed(self):
-        """Expand or collapse the content view"""
-        checked = self.toggle_button.isChecked()
+    def set_collapsed(self, collapsed: bool):
         self.toggle_button.setArrowType(
-            QC.Qt.DownArrow if not checked else QC.Qt.RightArrow
+            QC.Qt.RightArrow if collapsed else QC.Qt.DownArrow
         )
-        self.toggle_animation.setDirection(
-            QC.QAbstractAnimation.Forward
-            if not checked
-            else QC.QAbstractAnimation.Backward
-        )
-        self.toggle_animation.start()
+        self.content_area.setVisible(not collapsed)
 
-    def setContentLayout(self, layout):
-        """Needs to be called after all widgets have been added."""
-        lay = self.content_area.layout()
-        del lay
-        self.content_area.setLayout(layout)
-        collapsed_height = self.sizeHint().height() - self.content_area.maximumHeight()
-        content_height = layout.sizeHint().height()
-        for i in range(self.toggle_animation.animationCount()):
-            animation = self.toggle_animation.animationAt(i)
-            animation.setDuration(200)
-            animation.setStartValue(collapsed_height)
-            animation.setEndValue(collapsed_height + content_height)
+    @QC.pyqtSlot()
+    def on_button_clicked(self):
+        self.set_collapsed(self.toggle_button.isChecked())
 
-        content_animation = self.toggle_animation.animationAt(
-            self.toggle_animation.animationCount() - 1
-        )
-        content_animation.setDuration(200)
-        content_animation.setStartValue(0)
-        content_animation.setEndValue(content_height)
+    def setContentLayout(self, layout: QW.QWidget):
+        # Clear the existing content layout and add the provided layout
+        while self.content_layout.count():
+            child = self.content_layout.takeAt(0)
+            if child.widget():
+                child.widget().deleteLater()
+        self.content_layout.addLayout(layout)
 
 
 def createHorLayout(widList, stretch=False, spacing=0):
@@ -205,7 +182,7 @@ def group_widgets(
         layout.addWidget(widget, row, col)
     if collapsible:
         wid = CollapsibleBox(text)
-        wid.setContentLayout(layout)
+        wid.setLayout(layout)
     else:
         wid = QW.QGroupBox(text)
         wid.setLayout(layout)
@@ -232,41 +209,48 @@ class CoolCheckBox(QW.QCheckBox):
 
 
 class PictureCheckBox(QW.QPushButton):
-    """Modified version of QCheckBoxes.
-    Creates a QCheckBox with a given text and tooltip.
-    params:
-        text: Text to be shown
-        tooltip: optionally create a tooltip for the edit
-        checked: Bool set to false by default.
-    """
+    """A custom checkbox with a picture in front."""
 
-    def __init__(self, text, icon: str, tooltip=None, checked=False):
+    def __init__(self, text, icon_path: str, tooltip=None, checked=False):
         super().__init__()
         self.setFlat(True)
-        self.setIcon(QG.QIcon(icon))
+
+        self.setIcon(QG.QIcon(icon_path))
         self.setIconSize(QC.QSize(30, 30))
-        # self.setLayoutDirection(QC.Qt.RightToLeft)
-        # self.setLayout(QW.QGridLayout())
-        # label = QW.QLabel(expansion)
-        # label.setAlignment(QC.Qt.AlignRight | QC.Qt.AlignVCenter)
-        # label.setAttribute(QC.Qt.WA_TransparentForMouseEvents)
-        # self.layout().addWidget(label)
         self.setText(text)
         self.setFixedSize(130, 40)
         self.setToolTip(tooltip)
         self.setChecked(checked)
+        # self.icon().actualSize(QC.QSize(30, 30).width)
 
-    def toggle(self):
-        self.checked = not self.checked
-        color = "gray" if self.checked else "lightGray"
-        self.setStyleSheet(
-            f"background-color:{color}; border-radius:4px; border:1px solid black;"
-            "QPushButton: {text-align:left}"
-        )
+        self.set_style()
 
     def setChecked(self, check=True):
         self.checked = not check
         self.toggle()
+
+    def toggle(self):
+        self.checked = not self.checked
+        self.set_style()
+
+    def set_style(self):
+        color = "rgba(108,197,90,0.7)" if self.checked else "lightGray"
+
+        self.setStyleSheet(
+            "QPushButton {"
+            "    text-align: left; /* Align text to the left */"
+            "    padding-left: 5px; /* Adjust the padding to move text to the right */"
+            "    padding-right: 5px; /* Reset padding on the right */"
+            f"background-color:{color}; border-radius:4px; border:1px solid black;"
+            "}"
+            "QPushButton::menu-indicator {"
+            "    image: none; /* Hide the menu indicator */"
+            "}"
+            "QPushButton::icon {"
+            "    position: absolute; /* Position the icon absolutely */"
+            "    left: 0px; /* Adjust the left position of the icon */"
+            "}"
+        )
 
     def isChecked(self, check=True):
         return self.checked

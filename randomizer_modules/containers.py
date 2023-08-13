@@ -1,12 +1,17 @@
+from math import ceil
+from typing import Literal
+
+from matplotlib import cm
 from PyQt5 import QtCore as QC
 from PyQt5 import QtGui as QG
 from PyQt5 import QtWidgets as QW
 
-from .constants import QUALITIES_AVAILABLE
+from .config import CustomConfigParser
+from .constants import PATH_ASSETS, QUALITIES_AVAILABLE
 from .creator_functions import (
+    AttackTypeGroupWidget,
     ExpansionGroupWidget,
     create_buttons,
-    create_checkboxes,
     create_comboboxes,
 )
 from .data_handling import DataContainer
@@ -41,34 +46,103 @@ class ScrollableGroupBox(QW.QGroupBox):
         self.content_layout.addWidget(widget, stretch)
 
 
+class HorizontalBarWidget(QW.QFrame):
+    """A widget to display a horizontal bar with 5 different levels of being 'filled'."""
+
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self._width = 0
+        self._color = QC.Qt.black
+        self.setFrameStyle(QW.QFrame.Box | QW.QFrame.Plain)
+        self.setLineWidth(10)
+        self.setMinimumWidth(120)
+
+    def setValue(self, value: Literal[0, 1, 2, 3, 4]):
+        rgba_tuple = cm.get_cmap("Greens")(
+            value / 4
+        )  # Get RGBA values from the colormap
+        self._color = QG.QColor.fromRgbF(*rgba_tuple[:3])
+        self._width = value
+        self.update()
+
+    def paintEvent(self, event):
+        painter = QG.QPainter(self)
+        painter.setRenderHint(QG.QPainter.Antialiasing)
+
+        # Draw the outer rectangular frame
+        painter.drawRect(0, 0, self.width(), self.height())
+
+        painter.setBrush(self._color)
+        width = int(self._width / 4 * self.width())
+        painter.drawRect(1, 1, width - 2, self.height() - 2)
+
+        # Draw the scale
+        scale_height = 5
+        scale_width = int(self.width() / 4)
+        scale_start_y = self.height() - scale_height
+        for i in range(5):
+            x = i * scale_width
+            painter.drawLine(x, scale_start_y, x, self.height())
+
+
 class SingleQualityDisplay(QW.QWidget):
     """Hosts a picture and a small graph to display the
     given qualities' value for the kingdom."""
 
+    quality_name_dict = {
+        0: "Nonexistent",
+        1: "Weak",
+        2: "Sufficient",
+        3: "Quite good",
+        4: "Fantastic",
+    }
+
     def __init__(self, qual: str):
         super().__init__()
-        # TODO: Introduce picture and a small bar-chart-like label
         self.name = qual
-        self.descriptor_label = QW.QLabel(qual)
+        self.descriptor_image = self.get_quality_icon()
+        self.descriptor_label = QW.QLabel(qual.capitalize())
+        self.descriptor_label.setFixedSize(80, 40)
+        self.bar_wid = HorizontalBarWidget()
+        self.bar_wid.setFixedHeight(30)
         self.value_name_label = QW.QLabel("-")
 
         lay = QW.QHBoxLayout(self)
+        lay.setAlignment(QC.Qt.AlignLeft)
+        lay.setContentsMargins(0, 0, 0, 0)
+        lay.setSpacing(3)
+        lay.addWidget(self.descriptor_image)
         lay.addWidget(self.descriptor_label)
+        lay.addWidget(self.bar_wid)
         lay.addWidget(self.value_name_label)
 
     def set_total_quality_value(self, value: int):
         """Manipulate the state of this widget to set the quality value"""
-        # TODO: Introduce dictionary to give more descriptive names to levels,
-        # and to manipulate the bar chart
-        self.value_name_label.setText(str(value))
+        self.value_name_label.setText(self.quality_name_dict[value])
+        self.bar_wid.setValue(value)
+
+    def get_quality_icon(self):
+        size = 40
+        icon_path = str(PATH_ASSETS.joinpath(f"icons/qualities/{self.name}.jpg"))
+        pic = QW.QLabel()
+        pic.setAlignment(QC.Qt.AlignHCenter)
+        pixmap = QG.QPixmap(icon_path)
+        pixmap = pixmap.scaled(
+            QC.QSize(size, size), QC.Qt.KeepAspectRatio, QC.Qt.SmoothTransformation
+        )
+        pic.setPixmap(pixmap)
+        pic.setFixedSize(size, size)
+        return pic
 
 
-class KingdomStatsDisplay(QW.QWidget):
+class KingdomStatsDisplay(QW.QGroupBox):
     """Contains a grid with a total display for each of the qualities."""
 
     def __init__(self):
-        super().__init__()
-        lay = QW.QGridLayout(self)
+        super().__init__(title="Stat summary")
+        lay = QW.QVBoxLayout(self)
+        lay.setContentsMargins(1, 1, 1, 1)
+        lay.setSpacing(0)
         self.wid_dict: dict[str, SingleQualityDisplay] = {}
         for qual in QUALITIES_AVAILABLE:
             qual_display = SingleQualityDisplay(qual)
@@ -83,12 +157,19 @@ class KingdomStatsDisplay(QW.QWidget):
 class WidgetContainer:
     """Contains the main widgets of the GUI."""
 
-    def __init__(self, _main: QW.QWidget, data_container: DataContainer):
+    def __init__(
+        self,
+        _main: QW.QWidget,
+        data_container: DataContainer,
+        config: CustomConfigParser,
+    ):
         self._main = _main
         self.buttons = create_buttons()
-        self.expansion_group = ExpansionGroupWidget(data_container.all_expansions)
-        self.checkboxes = create_checkboxes(
-            data_container.all_attack_types, self.buttons
+        self.expansion_group = ExpansionGroupWidget(
+            data_container.all_expansions, config
+        )
+        self.attack_type_group = AttackTypeGroupWidget(
+            data_container.all_attack_types, config
         )
         self.comboboxes = create_comboboxes()
         self.main_layout = QW.QHBoxLayout()
@@ -109,7 +190,7 @@ class WidgetContainer:
         scroll_content_wid = ScrollableGroupBox("Settings")
         scroll_content_wid.addWidget(self.expansion_group)
         scroll_content_wid.addWidget(self.comboboxes["QualityGroup"])
-        scroll_content_wid.addWidget(self.checkboxes["AttackTypeGroup"])
+        scroll_content_wid.addWidget(self.attack_type_group)
         scroll_content_wid.content_layout.addStretch()
         scroll_content_wid.setMinimumWidth(600)
         return scroll_content_wid

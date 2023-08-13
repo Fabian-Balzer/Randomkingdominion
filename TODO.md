@@ -29,6 +29,7 @@ Things and ideas I am having to improve
 - Implement showing the whole kingdom to set up (e.g. Wishes, Boons, Loot)
 - Implement Shortened Kingdom View (i.e. only name, picture and cost) with toggle between short and long
 - Implement showing the number of cards in a setup pile
+- Save the UI state in config (for collapsible views)
 
 ### Card metadata
 

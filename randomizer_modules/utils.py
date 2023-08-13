@@ -6,8 +6,6 @@ import numpy as np
 import pandas as pd
 from PyQt5.QtWidgets import QVBoxLayout, QWidget
 
-from .constants import PATH_ASSETS, RENEWED_EXPANSIONS
-
 
 def ask_file_overwrite(fpath: str) -> bool:
     """Prompts the user if there already exists a file at the given fpath
@@ -116,19 +114,8 @@ def display_cards(label_dict, layout_dict, name, num_rows=2, size=(150, 320)):
         layout_dict[f"{name}display"].addWidget(wid, row, col)
 
 
-def get_expansion_icon(exp: str) -> str:
-    """Returns the image path for the given expansion icon."""
-    base = PATH_ASSETS.joinpath("icons/expansions/")
-    conversion_dict = {}
-    for outdated_exp in RENEWED_EXPANSIONS:
-        conversion_dict[outdated_exp + ", 1E"] = outdated_exp + "_old"
-        conversion_dict[outdated_exp + ", 2E"] = outdated_exp
-    if exp in conversion_dict:
-        exp = conversion_dict[exp]
-    return str(base.joinpath(exp.replace(" ", "_") + ".png"))
-
-
-def get_attack_icon(at: str) -> str:
-    """Returns the image path for the given attack icon."""
-    fpath = PATH_ASSETS.joinpath(f"icons/attack_types/{at}.png")
-    return str(fpath)
+def override(func):
+    """
+    Decorator to indicate that a method is overridden.
+    """
+    return func

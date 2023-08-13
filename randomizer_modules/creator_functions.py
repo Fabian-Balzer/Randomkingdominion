@@ -9,15 +9,13 @@ import PyQt5.QtWidgets as QW
 from .base_widgets import (
     CollapsibleBox,
     CoolButton,
-    CoolCheckBox,
     CoolComboBox,
-    CoolSpinBox,
     PictureCheckBox,
     group_widgets,
 )
-from .constants import PATH_MAIN, QUALITIES_AVAILABLE, RENEWED_EXPANSIONS
-from .kingdom import KingdomDisplayWidget
-from .utils import get_attack_icon, get_expansion_icon
+from .config import CustomConfigParser
+from .constants import PATH_ASSETS, PATH_MAIN, QUALITIES_AVAILABLE, RENEWED_EXPANSIONS
+from .utils import override
 
 
 class GroupCheckboxButtonContainer(CollapsibleBox):
@@ -29,15 +27,16 @@ class GroupCheckboxButtonContainer(CollapsibleBox):
         description: str,
         tooltips: list[str] | None = None,
         num_cols=4,
+        initially_collapsed: bool = True,
     ):
-        super().__init__(title=description)
+        super().__init__(title=description, initially_collapsed=initially_collapsed)
         self.description = description
         names = sorted(names)
 
         widget_dict: dict[str, PictureCheckBox] = {}
         for name, tooltip in zip(names, tooltips):
-            icon = get_expansion_icon(name)
-            checkbox = PictureCheckBox(name, icon=icon, tooltip=tooltip)
+            icon_path = self.get_icon_path(name)
+            checkbox = PictureCheckBox(name, icon_path=icon_path, tooltip=tooltip)
             widget_dict[name] = checkbox
 
         self.widget_dict = widget_dict
@@ -45,6 +44,10 @@ class GroupCheckboxButtonContainer(CollapsibleBox):
         self.toggle_all_button.clicked.connect(self.toggle_all_checkbox_buttons)
 
         self._init_layout(num_cols)
+
+    def get_icon_path(self, name: str):
+        """To be overridden"""
+        return str(name)
 
     def _init_layout(self, num_cols):
         layout = QW.QGridLayout(self)
@@ -56,6 +59,7 @@ class GroupCheckboxButtonContainer(CollapsibleBox):
             row = floor(i / num_cols)
             col = i - row * num_cols
             layout.addWidget(widget, row, col)
+        layout.setAlignment(QC.Qt.AlignTop | QC.Qt.AlignLeft)
         super().setContentLayout(layout)
 
     def connect_to_change_func(self, func: callable):
@@ -94,54 +98,65 @@ class GroupCheckboxButtonContainer(CollapsibleBox):
 class ExpansionGroupWidget(GroupCheckboxButtonContainer):
     """Container for the expansion group."""
 
-    def __init__(self, all_expansions: list[str]):
+    def __init__(self, all_expansions: list[str], config: CustomConfigParser):
+        self.config = config
         names = [exp for exp in all_expansions if exp not in RENEWED_EXPANSIONS]
         tooltips = [f"Randomize cards from the {exp} expansion." for exp in names]
-        super().__init__(names, "Expansions", tooltips)
-        self.on_button_pressed()
+        super().__init__(names, "Expansions", tooltips, initially_collapsed=False)
+
+        self._set_initial_values()
+        self.connect_to_change_func(self.update_config_for_expansions)
+
+    def update_config_for_expansions(self):
+        """Reads out the currently selected expansions and saves them. Also changes the selection."""
+        selected_exps = self.get_names_of_selected()
+        self.config.set_expansions(selected_exps)
+
+    def _set_initial_values(self):
+        for exp in self.config.get_expansions(add_renewed_bases=False):
+            self.widget_dict[exp].setChecked(True)
+
+    @override
+    def get_icon_path(self, name: str) -> str:
+        """Returns the image path for the given expansion icon."""
+        base = PATH_ASSETS.joinpath("icons/expansions/")
+        conversion_dict = {}
+        for outdated_exp in RENEWED_EXPANSIONS:
+            conversion_dict[outdated_exp + ", 1E"] = outdated_exp + "_old"
+            conversion_dict[outdated_exp + ", 2E"] = outdated_exp
+        if name in conversion_dict:
+            name = conversion_dict[name]
+        return str(base.joinpath(name.replace(" ", "_") + ".png"))
 
 
-def create_checkboxes(all_attack_types, button_dict):
-    checkbox_dict = {}
+class AttackTypeGroupWidget(GroupCheckboxButtonContainer):
+    """Container for selecting the AttackTypes"""
 
-    box_dict = {}
-    tooltips = [
-        f"Require attack of {type_} in selection." for type_ in all_attack_types
-    ]
-    for name, tooltip in zip(all_attack_types, tooltips):
-        icon = get_attack_icon(name)
-        checkbox = PictureCheckBox(name, icon=icon, tooltip=tooltip)
-        box_dict[name] = checkbox
-    button_dict["AttackTypeToggle"] = CoolButton(
-        text="Select all attack types", fontsize="10px"
-    )
-    checkbox_dict["AttackTypeDict"] = box_dict
-    explist = [box_dict[key] for key in sorted(box_dict.keys())] + [
-        button_dict["AttackTypeToggle"]
-    ]
-    checkbox_dict["AttackTypeGroup"] = group_widgets(
-        explist, "Allowed attack types for randomization", num_cols=4
-    )
-    return checkbox_dict
+    def __init__(self, all_attack_types: list[str], config: CustomConfigParser):
+        self.config = config
+        tooltips = [
+            f"Toggle exclusion of the {type_} attack type."
+            for type_ in all_attack_types
+        ]
+        super().__init__(all_attack_types, "Allowed attack types", tooltips)
 
+        self._set_initial_values()
+        self.connect_to_change_func(self.update_config_for_attack_types)
 
-def create_checkbox_group(names, kind, button_dict):
-    """Creates a dictionary containing all checkboxes for set selection and a group
-    widget containing all of them for display."""
-    box_dict = {}
-    if kind == "Expansions":
-        names = [exp for exp in names if exp not in RENEWED_EXPANSIONS]
-        tooltips = [f"Randomize cards from the {exp} expansion." for exp in names]
-    elif kind == "Attack Types":
-        tooltips = [f"Require attack of {type_} in selection." for type_ in names]
-    select_all_button = CoolButton(text=f"Select all {kind}", fontsize="10px")
-    refname = "AttackType" if kind == "Attack Types" else kind
-    button_dict[f"{refname}Toggle"] = select_all_button
-    num_rows = 6 if kind == "Expansions" else 2
-    explist = [box_dict[key] for key in sorted(box_dict.keys())] + [select_all_button]
-    return box_dict, group_widgets(
-        explist, f"{kind} used for randomization", num_rows=num_rows
-    )
+    def update_config_for_attack_types(self):
+        """Reads out the currently selected sets and saves them. Also changes the selection."""
+        selected_types = self.get_names_of_selected()
+        self.config.set_special_list("attack_types", selected_types)
+
+    def _set_initial_values(self):
+        for exp in self.config.get_special_list("attack_types"):
+            self.widget_dict[exp].setChecked(True)
+
+    @override
+    def get_icon_path(self, name: str) -> str:
+        """Returns the image path for the given attack icon."""
+        fpath = PATH_ASSETS.joinpath(f"icons/attack_types/{name}.png")
+        return str(fpath)
 
 
 def create_buttons():

@@ -19,26 +19,6 @@ class DataContainer:
         self.parameter_dict = {"RequireReaction": False, "attack_types": None}
         self.kingdom = None
 
-    def read_attack_types(self, checkbox_att_dict, button):
-        """Reads out the currently selected sets and saves them. Also changes the selection."""
-        atts = [
-            att for att, checkbox in checkbox_att_dict.items() if checkbox.isChecked()
-        ]
-        self.config.set_special_list("attack_types", atts)
-        if all([checkbox.isChecked() for checkbox in checkbox_att_dict.values()]):
-            button.setText("Deselect all attack types")
-        else:
-            button.setText("Select all attack types")
-
-    def toggle_all_attack_types(self, checkbox_att_dict, button):
-        if all([checkbox.isChecked() for checkbox in checkbox_att_dict.values()]):
-            for checkbox in checkbox_att_dict.values():
-                checkbox.toggle()
-        else:
-            for checkbox in checkbox_att_dict.values():
-                checkbox.setChecked(True)
-        self.read_attack_types(checkbox_att_dict, button)
-
     def randomize(self):
         self.rerolled_cards = []
         self.kingdom = Kingdom(self.all_cards, config=self.config)

@@ -4,6 +4,8 @@ from pathlib import Path
 
 # Expansions with a second edition
 RENEWED_EXPANSIONS = ["Base", "Intrigue", "Seaside", "Hinterlands", "Prosperity"]
+
+
 # Stuff that qualities are available for
 QUALITIES_AVAILABLE = sorted(
     [
@@ -16,6 +18,7 @@ QUALITIES_AVAILABLE = sorted(
         "gain",
     ]
 )
+
 SPECIAL_TYPES_AVAILABLE = sorted(["attack", "thinning", "gain"])
 
 PATH_MODULE = Path(__file__).resolve().parent

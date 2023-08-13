@@ -5,7 +5,7 @@ from PyQt5 import QtGui as QG
 from PyQt5 import QtWidgets as QW
 
 from .config import get_randomizer_config_options
-from .constants import PATH_ASSETS, RENEWED_EXPANSIONS
+from .constants import PATH_ASSETS
 from .containers import WidgetContainer
 from .data_handling import DataContainer
 
@@ -29,7 +29,7 @@ class UIMainWindow(QW.QMainWindow):
         width = int(QW.QDesktopWidget().screenGeometry(-1).width() * 0.7)
         self.setGeometry(0, 0, width, height)
         self.move(20, 20)
-        self.widgets = WidgetContainer(self._main, self.data_container)
+        self.widgets = WidgetContainer(self._main, self.data_container, self.config)
         self.connect_buttons()
         self.set_values()
 
@@ -40,41 +40,6 @@ class UIMainWindow(QW.QMainWindow):
         self.widgets.buttons["PrintKingdom"].clicked.connect(
             self.copy_kingdom_to_clipboard
         )
-        self.widgets.expansion_group.connect_to_change_func(self.read_expansions)
-        # for checkbox in self.widgets.checkboxes["ExpansionDict"].values():
-        #     # The partial function must be used as lambda functions don't work with iterators
-        #     checkbox.clicked.connect(checkbox.toggle)
-        #     checkbox.clicked.connect(
-        #         partial(
-        #             self.data_container.read_expansions,
-        #             self.widgets.checkboxes["ExpansionDict"],
-        #             self.widgets.buttons["ExpansionToggle"],
-        #         )
-        #     )
-        # self.widgets.buttons["ExpansionToggle"].clicked.connect(
-        #     lambda: self.data_container.toggle_all_expansions(
-        #         self.widgets.checkboxes["ExpansionDict"],
-        #         self.widgets.buttons["ExpansionToggle"],
-        #     )
-        # )
-        for checkbox in self.widgets.checkboxes["AttackTypeDict"].values():
-            # The partial function must be used as lambda functions don't work with iterators
-            checkbox.clicked.connect(checkbox.toggle)
-            checkbox.clicked.connect(
-                partial(
-                    self.data_container.read_attack_types,
-                    self.widgets.checkboxes["AttackTypeDict"],
-                    self.widgets.buttons["AttackTypeToggle"],
-                )
-            )
-        self.widgets.buttons["AttackTypeToggle"].clicked.connect(
-            lambda: self.data_container.toggle_all_attack_types(
-                self.widgets.checkboxes["AttackTypeDict"],
-                self.widgets.buttons["AttackTypeToggle"],
-            )
-        )
-        # for type_, checkbox in self.widgets.checkboxes["AttackTypeDict"].items():
-        #     checkbox.toggled.connect(partial(self.data_container.params.toggle_attack_type, type_))
         for qual, combobox in self.widgets.comboboxes["QualityDict"].items():
             combobox.currentIndexChanged.connect(
                 partial(self.data_container.read_quality, qual)
@@ -86,10 +51,6 @@ class UIMainWindow(QW.QMainWindow):
         clipboard.setText(str(self.data_container.kingdom))
 
     def set_values(self):
-        for exp in self.config.get_expansions(add_renewed_bases=False):
-            self.widgets.expansion_group.widget_dict[exp].setChecked(True)
-        for att in self.config.get_special_list("attack_types"):
-            self.widgets.checkboxes["AttackTypeDict"][att].setChecked(True)
         for qual in self.config["Qualities"]:
             self.widgets.comboboxes["QualityDict"][qual].setCurrentIndex(
                 self.config.get_quality(qual)
@@ -121,8 +82,3 @@ class UIMainWindow(QW.QMainWindow):
     def closeEvent(self, event):
         self.config.save_to_disk()
         event.accept()
-
-    def read_expansions(self):
-        """Reads out the currently selected sets and saves them. Also changes the selection."""
-        selected_exps = self.widgets.expansion_group.get_names_of_selected()
-        self.config.set_expansions(selected_exps)
