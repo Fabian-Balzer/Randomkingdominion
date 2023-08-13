@@ -11,7 +11,7 @@ import PyQt5.QtWidgets as QW
 
 from .base_widgets import KingdomCardImageWidget
 from .config import CustomConfigParser
-from .constants import PATH_MAIN, QUALITIES_AVAILABLE, EmptyError
+from .constants import QUALITIES_AVAILABLE, EmptyError
 from .utils import filter_column, get_mask_for_listlike_col_to_contain_any
 
 
@@ -239,7 +239,7 @@ class Kingdom:
         # Create a dictionary for args that still require fulfilment (i. e. VQ is set to 7-4 if the kingdom already contains a VQ of 4)
         choices = {}
         for qual in self.total_qualities:
-            val = self.config.get_quality("min_" + qual) - self.total_qualities[qual]
+            val = self.config.get_quality(qual) - self.total_qualities[qual]
             if val > 0:
                 choices[qual] = val
         if len(choices) > 0:  # pick a quality defining this draw

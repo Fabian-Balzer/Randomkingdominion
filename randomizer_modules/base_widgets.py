@@ -6,8 +6,9 @@ import pandas as pd
 import PyQt5.QtCore as QC
 import PyQt5.QtGui as QG
 import PyQt5.QtWidgets as QW
+from matplotlib import cm
 
-from .constants import PATH_ASSETS, PATH_MAIN
+from .constants import PATH_ASSETS, PATH_MAIN, QUALITIES_AVAILABLE
 
 
 class CollapsibleBox(QW.QWidget):
@@ -437,6 +438,19 @@ class KingdomCardImageWidget(QW.QWidget):
         palette = self.palette()
         palette.setColor(self.backgroundRole(), QC.Qt.black)
         self.setPalette(palette)
+        self._set_tooltip_text()
+
+    def _set_tooltip_text(self):
+        """Display the qualities that are > 0 for the given card"""
+        card_quals = {
+            qual: qualval
+            for qual in QUALITIES_AVAILABLE
+            if (qualval := self.card[qual + "_quality"]) > 0
+        }
+        ttstring = "\n".join(
+            [f"{qual.capitalize()}: {val}" for qual, val in card_quals.items()]
+        )
+        self.setToolTip(ttstring)
 
     def display_card(self) -> int:
         """Display the card that this class is based on."""
@@ -518,3 +532,76 @@ class KingdomCardImageWidget(QW.QWidget):
         font.setPointSize(10)
         label.setFont(font)
         label.setGeometry(12, self.real_height - 40, self.real_width - 24, 20)
+
+
+class QualityIcon(QW.QLabel):
+    """A small icon to display the image for the requested kingdom quality"""
+
+    def __init__(self, qual_name: str, size=40):
+        super().__init__()
+        icon_path = PATH_ASSETS.joinpath(f"icons/qualities/{qual_name}.jpg")
+        assert icon_path.is_file(), f"Couldn't find {qual_name} asset."
+        self.setAlignment(QC.Qt.AlignHCenter)
+        pixmap = QG.QPixmap(str(icon_path))
+        pixmap = pixmap.scaled(
+            QC.QSize(size, size), QC.Qt.KeepAspectRatio, QC.Qt.SmoothTransformation
+        )
+        self.setPixmap(pixmap)
+        self.setFixedSize(size, size)
+
+
+class HorizontalBarWidget(QW.QFrame):
+    """A widget to display a horizontal bar with 5 different levels of being 'filled'."""
+
+    clicked = QC.pyqtSignal(int)
+
+    def __init__(self, parent=None, clickable=False):
+        super().__init__(parent)
+        self._width = 0
+        self._color = QC.Qt.black
+        self.setFrameStyle(QW.QFrame.Box | QW.QFrame.Plain)
+        self.setLineWidth(10)
+        if clickable:
+            self.clicked.connect(self.handle_click)
+
+    def setValue(self, value: Literal[0, 1, 2, 3, 4]):
+        rgba_tuple = cm.get_cmap("Greens")(
+            value / 4
+        )  # Get RGBA values from the colormap
+        self._color = QG.QColor.fromRgbF(*rgba_tuple[:3])
+        self._width = value
+        self.update()
+
+    def getValue(self) -> int:
+        return self._width
+
+    def paintEvent(self, event):
+        painter = QG.QPainter(self)
+        painter.setRenderHint(QG.QPainter.Antialiasing)
+
+        # Draw the outer rectangular frame
+        painter.drawRect(0, 0, self.width(), self.height())
+
+        painter.setBrush(self._color)
+        width = int(self._width / 4 * self.width())
+        painter.drawRect(1, 1, width - 2, self.height() - 2)
+
+        # Draw the scale
+        scale_height = 5
+        scale_width = int(self.width() / 4)
+        scale_start_y = self.height() - scale_height
+        for i in range(5):
+            x = i * scale_width
+            painter.drawLine(x, scale_start_y, x, self.height())
+
+    def mousePressEvent(self, event: QG.QMouseEvent):
+        # Calculate the clicked value based on the click position
+        click_value = int((event.x() + self.width() / 8) / (self.width() / 4))
+        self.clicked.emit(click_value)  # Emit the signal with the clicked value
+
+    def mouseMoveEvent(self, event: QG.QMouseEvent):
+        click_value = int((event.x() + self.width() / 8) / (self.width() / 4))
+        self.clicked.emit(click_value)  # Emit the signal with the clicked value
+
+    def handle_click(self, value):
+        self.setValue(value)

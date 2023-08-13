@@ -10,8 +10,9 @@ from .base_widgets import (
     CollapsibleBox,
     CoolButton,
     CoolComboBox,
+    HorizontalBarWidget,
     PictureCheckBox,
-    group_widgets,
+    QualityIcon,
 )
 from .config import CustomConfigParser
 from .constants import PATH_ASSETS, PATH_MAIN, QUALITIES_AVAILABLE, RENEWED_EXPANSIONS
@@ -159,6 +160,59 @@ class AttackTypeGroupWidget(GroupCheckboxButtonContainer):
         return str(fpath)
 
 
+class SingleQualitySelectionWidget(QW.QWidget):
+    possibilities = ["None", "Weak", "Sufficient", "Strong"]
+
+    def __init__(self, qual: str, config: CustomConfigParser):
+        super().__init__()
+        self.config = config
+        self.qual_name = qual
+
+        icon = QualityIcon(qual)
+
+        label = QW.QLabel(
+            f"{qual.capitalize()}:\nDesired minimum {qual} quality of the kingdom."
+        )
+        tooltip = f"Upon randomization, we will try to achieve at least this amount of {qual} quality in the kingdom."
+        self.selection_box = HorizontalBarWidget(clickable=True)
+        self.selection_box.setToolTip(tooltip)
+        self.selection_box.setFixedSize(80, 20)
+        self.selection_box.clicked.connect(self.set_quality)
+
+        lay = QW.QHBoxLayout(self)
+        lay.setContentsMargins(0, 0, 0, 0)
+        lay.addWidget(icon)
+        lay.addWidget(self.selection_box)
+        lay.addWidget(label)
+
+        self._set_initial_state()
+        # self.box.currentIndexChanged.connect(self.set_quality)
+
+    def _set_initial_state(self):
+        self.selection_box.setValue(self.config.get_quality(self.qual_name))
+        # self.box.setCurrentIndex(self.config.get_quality(self.qual_name))
+
+    @QC.pyqtSlot()
+    def set_quality(self):
+        # value = self.box.currentIndex()
+        value = self.selection_box.getValue()
+        self.config.set_quality(self.qual_name, value)
+
+
+class QualitySelectionGroupWidget(CollapsibleBox):
+    def __init__(self, config: CustomConfigParser):
+        super().__init__(title="Quality parameters", initially_collapsed=False)
+
+        lay = QW.QVBoxLayout()
+        self.wid_dict = {}
+        for qual in QUALITIES_AVAILABLE:
+            wid = SingleQualitySelectionWidget(qual, config)
+            self.wid_dict[qual] = wid
+            lay.addWidget(wid)
+
+        self.setContentLayout(lay)
+
+
 def create_buttons():
     button_dict = {}
     button_dict["Randomize"] = CoolButton(text="Randomize")
@@ -168,70 +222,7 @@ def create_buttons():
     return button_dict
 
 
-def create_comboboxes():
-    box_dict = {}
-    box_dict["QualityDict"], box_dict["QualityGroup"] = create_combobox_group()
-    return box_dict
-
-
-def create_combobox_group():
-    qual_dict = {}
-    possibilities = ["None", "Weak", "Medium", "Strong", "Extra strong"]
-    group_list = []
-    for qual in QUALITIES_AVAILABLE:
-        qual = qual.lower()
-        label = QW.QLabel(f"Minimum {qual} quality of the kingdom:")
-        tooltip = f"Set the minimum {qual} quality for the randomized kingdom"
-        box = CoolComboBox(possibilities, 1, tooltip=tooltip, width=100)
-        subgroup = group_widgets([label, box], collapsible=False)
-        group_list.append(subgroup)
-        qual_dict["min_" + qual] = box
-    # for other, val in {"AttackStrength": "attack strength", "InteractivityValue": "interactivity value"}.items():
-    #     label = QW.QLabel(f"Minimum {val} of the kingdom:")
-    #     tooltip = f"Set the minimum {val} for the randomized kingdom"
-    #     box = coolComboBox(possibilities, 1, tooltip=tooltip, width=100)
-    #     subgroup = group_widgets([label, box])
-    #     group_list.append(subgroup)
-    #     qual_dict[other] = box
-    return qual_dict, group_widgets(
-        group_list, "Parameters used for randomization", num_rows=len(group_list)
-    )
-
-
-def create_vboxlayout(name, parent, row, col, rowstretch=1, colstretch=1):
-    wid = QW.QGroupBox(name)
-    lay = QW.QVBoxLayout(wid)
-    lay.setSpacing(5)
-    lay.setContentsMargins(3, 3, 3, 3)
-    parent.addWidget(wid, row, col, rowstretch, colstretch)
-    return lay
-
-
-def create_gridlayout(parent):
-    wid = QW.QWidget()
-    lay = QW.QGridLayout(wid)
-    lay.setSpacing(20)
-    lay.setContentsMargins(3, 3, 3, 3)
-    parent.addWidget(wid)
-    return lay
-
-
-def create_cards(kingdom):
-    card_dict = {}
-    card_dict["KingdomList"] = create_kingdom_cards(kingdom.get_kingdom_card_df())
-    card_dict["LandscapeList"] = create_kingdom_cards(kingdom.get_landscape_df())
-    card_dict["LandscapeList"] += create_kingdom_cards(kingdom.get_ally_df())
-    return card_dict
-
-
-def create_kingdom_cards(cards):
-    kingdom = []
-    for _, card in cards.iterrows():
-        kingdom.append(create_card_group(card, 150, 250))
-    return kingdom
-
-
-def create_card_group(card, width, pic_height):
+def create_card_group(card, width=150, pic_height=250):
     display_text = get_display_text(card)
     tooltip = get_tooltip_text(card)
     pic = QW.QLabel()

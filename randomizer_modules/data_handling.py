@@ -4,7 +4,7 @@ from functools import reduce
 from typing import Optional
 
 from .config import CustomConfigParser, get_randomizer_config_options
-from .constants import FPATH_CARD_DATA, RENEWED_EXPANSIONS
+from .constants import FPATH_CARD_DATA
 from .kingdom import Kingdom
 from .utils import read_dataframe_from_file
 
@@ -76,56 +76,6 @@ class DataContainer:
         index = self.kingdom.history.index(self.kingdom)
         if index < len(self.kingdom.history) - 1:
             self.kingdom = self.kingdom.history[index + 1]
-
-    def read_quality(self, qual, val):
-        self.config.set_quality(qual, val)
-
-    # def set_quality_args(self, spin_dict):
-    #     for arg_name in self.quality_dict.keys():
-    #         spin_dict[arg_name].setValue(self.quality_dict[arg_name])
-
-    # def randomize_brute_force(self):
-    #     try_, max_tries = 1, 200
-    #     no_good_kingdom = True
-    #     while no_good_kingdom:
-    #         self.kingdom = self.pull_kingdom_cards()
-    #         self.landscapes = self.pull_landscapes()
-    #         self.picked_cards = create_supply(self.kingdom, self.landscapes)
-    #         no_good_kingdom = not self.does_kingdom_fulfill_requirements()
-    #         if try_ > max_tries:
-    #             print("Did not find a kingdom with the necessary requirements")
-    #             break
-    #         try_ += 1
-    #     print(self.picked_cards[["Name", "DrawQuality", "VillageQuality"]])
-    #     print(f"Took me {try_-1} tries to get this kingdom.")
-
-    # def pull_kingdom_cards(self):
-    #     kingdom = self.selected_cards.iloc[0:0]  # empty kingdom
-    #     for pull in range(self.num_kingdomcards):
-    #         subset = CardSubset(self.selected_cards, kingdom)
-    #         if len(subset) == 0:
-    #             break
-    #         new_card = subset.pick_card()
-    #         kingdom = pd.concat([kingdom, new_card])
-    #     return kingdom.sort_values(by=["Cost", "Name"])
-
-    # def pull_landscapes(self):
-    #     landscapes = self.selected_cards.iloc[0:0]  # empty landscapes
-    #     if len(self.selected_cards[self.selected_cards["IsLandscape"]]) > 0:
-    #         for pull in range(self.num_landscapes):
-    #             subset = CardSubset(self.selected_cards, landscapes)
-    #             if len(subset) == 0:
-    #                 break
-    #             new_landscape = subset.pick_landscape()
-    #             landscapes = pd.concat([landscapes, new_landscape])
-    #     return landscapes.sort_values(by=["Cost", "Name"])
-
-    # def does_kingdom_fulfill_requirements(self):
-    #     """Checks wether a given kingdom fulfils the requirements passed."""
-    #     for quality in ["DrawQuality", "VillageQuality"]:
-    #         if sum(self.picked_cards[quality]) < self.quality_dict[quality]:
-    #             return False
-    #     return True
 
 
 def create_supply(kingdom, landscapes):

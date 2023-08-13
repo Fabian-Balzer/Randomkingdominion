@@ -1,18 +1,15 @@
-from math import ceil
-from typing import Literal
-
-from matplotlib import cm
 from PyQt5 import QtCore as QC
 from PyQt5 import QtGui as QG
 from PyQt5 import QtWidgets as QW
 
+from .base_widgets import QualityIcon, HorizontalBarWidget
 from .config import CustomConfigParser
-from .constants import PATH_ASSETS, QUALITIES_AVAILABLE
+from .constants import QUALITIES_AVAILABLE
 from .creator_functions import (
     AttackTypeGroupWidget,
     ExpansionGroupWidget,
+    QualitySelectionGroupWidget,
     create_buttons,
-    create_comboboxes,
 )
 from .data_handling import DataContainer
 from .kingdom import Kingdom, KingdomDisplayWidget
@@ -46,45 +43,6 @@ class ScrollableGroupBox(QW.QGroupBox):
         self.content_layout.addWidget(widget, stretch)
 
 
-class HorizontalBarWidget(QW.QFrame):
-    """A widget to display a horizontal bar with 5 different levels of being 'filled'."""
-
-    def __init__(self, parent=None):
-        super().__init__(parent)
-        self._width = 0
-        self._color = QC.Qt.black
-        self.setFrameStyle(QW.QFrame.Box | QW.QFrame.Plain)
-        self.setLineWidth(10)
-        self.setMinimumWidth(120)
-
-    def setValue(self, value: Literal[0, 1, 2, 3, 4]):
-        rgba_tuple = cm.get_cmap("Greens")(
-            value / 4
-        )  # Get RGBA values from the colormap
-        self._color = QG.QColor.fromRgbF(*rgba_tuple[:3])
-        self._width = value
-        self.update()
-
-    def paintEvent(self, event):
-        painter = QG.QPainter(self)
-        painter.setRenderHint(QG.QPainter.Antialiasing)
-
-        # Draw the outer rectangular frame
-        painter.drawRect(0, 0, self.width(), self.height())
-
-        painter.setBrush(self._color)
-        width = int(self._width / 4 * self.width())
-        painter.drawRect(1, 1, width - 2, self.height() - 2)
-
-        # Draw the scale
-        scale_height = 5
-        scale_width = int(self.width() / 4)
-        scale_start_y = self.height() - scale_height
-        for i in range(5):
-            x = i * scale_width
-            painter.drawLine(x, scale_start_y, x, self.height())
-
-
 class SingleQualityDisplay(QW.QWidget):
     """Hosts a picture and a small graph to display the
     given qualities' value for the kingdom."""
@@ -93,18 +51,18 @@ class SingleQualityDisplay(QW.QWidget):
         0: "Nonexistent",
         1: "Weak",
         2: "Sufficient",
-        3: "Quite good",
+        3: "Really good",
         4: "Fantastic",
     }
 
     def __init__(self, qual: str):
         super().__init__()
         self.name = qual
-        self.descriptor_image = self.get_quality_icon()
+        self.descriptor_image = QualityIcon(self.name)
         self.descriptor_label = QW.QLabel(qual.capitalize())
         self.descriptor_label.setFixedSize(80, 40)
         self.bar_wid = HorizontalBarWidget()
-        self.bar_wid.setFixedHeight(30)
+        self.bar_wid.setFixedSize(150, 30)
         self.value_name_label = QW.QLabel("-")
 
         lay = QW.QHBoxLayout(self)
@@ -120,19 +78,6 @@ class SingleQualityDisplay(QW.QWidget):
         """Manipulate the state of this widget to set the quality value"""
         self.value_name_label.setText(self.quality_name_dict[value])
         self.bar_wid.setValue(value)
-
-    def get_quality_icon(self):
-        size = 40
-        icon_path = str(PATH_ASSETS.joinpath(f"icons/qualities/{self.name}.jpg"))
-        pic = QW.QLabel()
-        pic.setAlignment(QC.Qt.AlignHCenter)
-        pixmap = QG.QPixmap(icon_path)
-        pixmap = pixmap.scaled(
-            QC.QSize(size, size), QC.Qt.KeepAspectRatio, QC.Qt.SmoothTransformation
-        )
-        pic.setPixmap(pixmap)
-        pic.setFixedSize(size, size)
-        return pic
 
 
 class KingdomStatsDisplay(QW.QGroupBox):
@@ -150,6 +95,7 @@ class KingdomStatsDisplay(QW.QGroupBox):
             self.wid_dict[qual] = qual_display
 
     def display_kingdom_stats(self, kingdom: Kingdom):
+        """Update the display given the new kingdom"""
         for qual, val in kingdom.total_qualities.items():
             self.wid_dict[qual].set_total_quality_value(val)
 
@@ -171,7 +117,7 @@ class WidgetContainer:
         self.attack_type_group = AttackTypeGroupWidget(
             data_container.all_attack_types, config
         )
-        self.comboboxes = create_comboboxes()
+        self.quality_selection_group = QualitySelectionGroupWidget(config)
         self.main_layout = QW.QHBoxLayout()
 
         # Create widgets that will be aligned on the left side...
@@ -189,7 +135,7 @@ class WidgetContainer:
     def _init_settings_widget(self) -> QW.QVBoxLayout:
         scroll_content_wid = ScrollableGroupBox("Settings")
         scroll_content_wid.addWidget(self.expansion_group)
-        scroll_content_wid.addWidget(self.comboboxes["QualityGroup"])
+        scroll_content_wid.addWidget(self.quality_selection_group)
         scroll_content_wid.addWidget(self.attack_type_group)
         scroll_content_wid.content_layout.addStretch()
         scroll_content_wid.setMinimumWidth(600)

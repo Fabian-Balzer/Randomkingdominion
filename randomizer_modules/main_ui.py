@@ -11,6 +11,8 @@ from .data_handling import DataContainer
 
 
 class UIMainWindow(QW.QMainWindow):
+    """The main window to host all widgets and data of the GUI."""
+
     def __init__(self):
         super().__init__()
         self._main = QW.QWidget()
@@ -31,7 +33,6 @@ class UIMainWindow(QW.QMainWindow):
         self.move(20, 20)
         self.widgets = WidgetContainer(self._main, self.data_container, self.config)
         self.connect_buttons()
-        self.set_values()
 
     def connect_buttons(self):
         self.widgets.buttons["Randomize"].clicked.connect(self.randomize)
@@ -40,21 +41,11 @@ class UIMainWindow(QW.QMainWindow):
         self.widgets.buttons["PrintKingdom"].clicked.connect(
             self.copy_kingdom_to_clipboard
         )
-        for qual, combobox in self.widgets.comboboxes["QualityDict"].items():
-            combobox.currentIndexChanged.connect(
-                partial(self.data_container.read_quality, qual)
-            )
 
     def copy_kingdom_to_clipboard(self):
         """Copy the current kingdom to clipboard"""
         clipboard = QW.QApplication.clipboard()
         clipboard.setText(str(self.data_container.kingdom))
-
-    def set_values(self):
-        for qual in self.config["Qualities"]:
-            self.widgets.comboboxes["QualityDict"][qual].setCurrentIndex(
-                self.config.get_quality(qual)
-            )
 
     def randomize(self):
         self.data_container.randomize()

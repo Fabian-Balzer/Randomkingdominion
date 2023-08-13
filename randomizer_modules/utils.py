@@ -113,6 +113,7 @@ def display_cards(label_dict, layout_dict, name, num_rows=2, size=(150, 320)):
             lay.addWidget(entry)
         layout_dict[f"{name}display"].addWidget(wid, row, col)
 
+        
 
 def override(func):
     """

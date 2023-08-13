@@ -38,10 +38,10 @@ class CustomConfigParser(ConfigParser):
         self.set("Specialization", option_key, json.dumps(values))
 
     def get_quality(self, qual_name) -> int:
-        return self.getint("Qualities", qual_name)
+        return self.getint("Qualities", "requested_" + qual_name)
 
     def set_quality(self, qual_name: str, value: int):
-        self.set("Qualities", qual_name, str(value))
+        self.set("Qualities", "requested_" + qual_name, str(value))
 
     def save_to_disk(self, fpath=FPATH_RANDOMIZER_CONFIG):
         """Convenience func to store the config options in the config file."""
