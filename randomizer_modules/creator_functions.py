@@ -10,7 +10,8 @@ from .base_widgets import (CollapsibleBox, CoolButton, CoolCheckBox,
                            CustomRangeSlider, CustomSlider,
                            HorizontalBarWidget, PictureCheckBox, QualityIcon)
 from .config import CustomConfigParser
-from .constants import PATH_ASSETS, QUALITIES_AVAILABLE, RENEWED_EXPANSIONS
+from .constants import (ATTACK_TYPE_LIST, EXPANSIONS_LIST, PATH_ASSETS,
+                        QUALITIES_AVAILABLE, RENEWED_EXPANSIONS)
 from .utils import override
 
 
@@ -157,9 +158,9 @@ class ExpansionNumSlider(QW.QWidget):
 class ExpansionGroupWidget(GroupCheckboxButtonContainer):
     """Container for the expansion group."""
 
-    def __init__(self, all_expansions: list[str], config: CustomConfigParser):
+    def __init__(self, config: CustomConfigParser):
         self.config = config
-        names = [exp for exp in all_expansions if exp not in RENEWED_EXPANSIONS]
+        names = [exp for exp in EXPANSIONS_LIST if exp not in RENEWED_EXPANSIONS]
         tooltips = [f"Randomize cards from the {exp} expansion." for exp in names]
         super().__init__(names, "Expansions", tooltips, initially_collapsed=False)
         self.max_expansion_slider = ExpansionNumSlider(config)
@@ -195,13 +196,13 @@ class ExpansionGroupWidget(GroupCheckboxButtonContainer):
 class AttackTypeGroupWidget(GroupCheckboxButtonContainer):
     """Container for selecting the AttackTypes"""
 
-    def __init__(self, all_attack_types: list[str], config: CustomConfigParser):
+    def __init__(self, config: CustomConfigParser):
         self.config = config
         tooltips = [
             f"Toggle exclusion of the {type_} attack type."
-            for type_ in all_attack_types
+            for type_ in ATTACK_TYPE_LIST
         ]
-        super().__init__(all_attack_types, "Allowed attack types", tooltips)
+        super().__init__(ATTACK_TYPE_LIST, "Allowed attack types", tooltips)
 
         self._set_initial_values()
         self.connect_to_change_func(self.update_config_for_attack_types)

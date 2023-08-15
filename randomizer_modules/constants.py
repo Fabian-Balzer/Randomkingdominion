@@ -1,6 +1,15 @@
 """Module containing constants, not to be modified!"""
-import os
+from functools import reduce
 from pathlib import Path
+
+import numpy as np
+
+from .utils import read_dataframe_from_file
+
+
+def get_attack_types(all_cards) -> list[str]:
+    all_types = reduce(lambda x, y: x + y, all_cards["attack_types"])
+    return sorted(list(np.unique(all_types)))
 
 # Expansions with a second edition
 RENEWED_EXPANSIONS = ["Base", "Intrigue", "Seaside", "Hinterlands", "Prosperity"]
@@ -54,6 +63,11 @@ UNIQUEPILE_LIST = ["Castles", "Knights", "Loot"]
 
 LANDSCAPE_LIST = ["Event", "Project", "Way", "Landmark", "Trait"]
 OTHER_OBJ_LIST = ["Hex", "Boon", "State", "Artifact", "Ally", "Loot"]
+
+
+ALL_CARDS = read_dataframe_from_file(FPATH_CARD_DATA, eval_lists=True)
+EXPANSIONS_LIST = list(set(ALL_CARDS["Expansion"]))
+ATTACK_TYPE_LIST = get_attack_types(ALL_CARDS)
 
 
 class EmptyError(Exception):

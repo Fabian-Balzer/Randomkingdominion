@@ -17,7 +17,6 @@ Things and ideas I am having to improve
 
 ### Randomizer options
 
-- Add options to prioritize an expansion or to choose a subset of expansions
 - Add options to distribute the cost
 - Add options to have random numbers of landscapes
 - Add options to take other card metadata into account
@@ -59,3 +58,4 @@ DONE Implement permanently stored data
 DONE Add ThinningType (All, Treasure, NoTreasure, Action)?
 DONE Implement showing the number of cards in a setup pile
 DONE options to disable a quality to exclude it from randomization
+DONE options to prioritize an expansion or to choose a subset of expansions  --> Choose max number of expansions possible

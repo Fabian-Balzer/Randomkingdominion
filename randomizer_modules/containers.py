@@ -5,13 +5,9 @@ from PyQt5 import QtWidgets as QW
 from .base_widgets import HorizontalBarWidget, QualityIcon
 from .config import CustomConfigParser
 from .constants import QUALITIES_AVAILABLE
-from .creator_functions import (
-    GeneralRandomizerSettingsWidget,
-    AttackTypeGroupWidget,
-    ExpansionGroupWidget,
-    QualitySelectionGroupWidget,
-    create_buttons,
-)
+from .creator_functions import (AttackTypeGroupWidget, ExpansionGroupWidget,
+                                GeneralRandomizerSettingsWidget,
+                                QualitySelectionGroupWidget, create_buttons)
 from .data_handling import DataContainer
 from .kingdom import Kingdom
 from .kingdom_display_widget import KingdomDisplayWidget
@@ -114,17 +110,12 @@ class WidgetContainer:
     def __init__(
         self,
         _main: QW.QWidget,
-        data_container: DataContainer,
         config: CustomConfigParser,
     ):
         self._main = _main
         self.buttons = create_buttons()
-        self.expansion_group = ExpansionGroupWidget(
-            data_container.all_expansions, config
-        )
-        self.attack_type_group = AttackTypeGroupWidget(
-            data_container.all_attack_types, config
-        )
+        self.expansion_group = ExpansionGroupWidget(config)
+        self.attack_type_group = AttackTypeGroupWidget(config)
         self.general_settings_group = GeneralRandomizerSettingsWidget(config)
         self.quality_selection_group = QualitySelectionGroupWidget(config)
         self.main_layout = QW.QHBoxLayout()

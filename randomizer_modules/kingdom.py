@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 
 from .config import CustomConfigParser, add_renewed_base_expansions
-from .constants import QUALITIES_AVAILABLE
+from .constants import ALL_CARDS, QUALITIES_AVAILABLE
 from .utils import filter_column, get_mask_for_listlike_col_to_contain_any
 
 
@@ -135,12 +135,11 @@ class Kingdom:
 class KingdomRandomizer:
     """A class that can be used to randomize a kingdom based on the current config settings."""
 
-    def __init__(self, all_cards: pd.DataFrame, config: CustomConfigParser):
-        self.all_cards = all_cards
+    def __init__(self, config: CustomConfigParser):
         self.config = config
         self.rerolled_cards: list[str] = []
         # A DataFrame to contain all cards that have already been selected:
-        self.already_selected_df: pd.DataFrame = all_cards[:0]
+        self.already_selected_df: pd.DataFrame = ALL_CARDS[:0]
         self.initial_draw_pool = self.get_initial_draw_pool()
 
         self.quality_of_selection: dict[str, int] = {
@@ -158,7 +157,7 @@ class KingdomRandomizer:
         cards that are in the supply, and remove all cards with forbidden
         qualities.
         """
-        pool = self.all_cards
+        pool = ALL_CARDS.copy()
         # Reduce the pool to the requested expansions:
         eligible_expansions = self._determine_eligible_expansions()
         pool = filter_column(pool, "Expansion", eligible_expansions)
@@ -184,11 +183,11 @@ class KingdomRandomizer:
     def _determine_eligible_expansions(self) -> list[str]:
         """From all of the expansions the user has selected, sub-select a number
         that corresponds to the one the user has chosen."""
-        all_expansions = self.config.get_expansions(add_renewed_bases=False)
+        user_expansions = self.config.get_expansions(add_renewed_bases=False)
         max_num_expansions = self.config.getint("General", "max_num_expansions")
         if max_num_expansions == 0:
-            return add_renewed_base_expansions(all_expansions)
-        sampled_expansions = random.sample(all_expansions, k=max_num_expansions)
+            return add_renewed_base_expansions(user_expansions)
+        sampled_expansions = random.sample(user_expansions, k=max_num_expansions)
         return add_renewed_base_expansions(sampled_expansions)
 
     def _exclude_forbidden_qualities(self, pool: pd.DataFrame) -> pd.DataFrame:

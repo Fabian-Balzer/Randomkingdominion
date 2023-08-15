@@ -32,7 +32,7 @@ class KingdomDisplayWidget(QW.QWidget):
         main_lay.addWidget(kingdom_display)
 
         # Dictionary to contain buttons to be connected for the rerolling
-        self.reroll_button_dict = {}
+        self.reroll_button_dict: dict[str,QW.QPushButton] = {}
 
         self.is_detailed = False
         self.kingdom = None
