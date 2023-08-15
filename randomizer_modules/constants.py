@@ -11,6 +11,7 @@ def get_attack_types(all_cards) -> list[str]:
     all_types = reduce(lambda x, y: x + y, all_cards["attack_types"])
     return sorted(list(np.unique(all_types)))
 
+
 # Expansions with a second edition
 RENEWED_EXPANSIONS = ["Base", "Intrigue", "Seaside", "Hinterlands", "Prosperity"]
 
@@ -39,6 +40,9 @@ PATH_ASSETS = PATH_MAIN.joinpath("assets")
 FPATH_RAW_DATA = PATH_CARD_INFO.joinpath("raw_card_data.csv")
 FPATH_CARD_DATA = PATH_CARD_INFO.joinpath("good_card_data.csv")
 FPATH_RANDOMIZER_CONFIG = PATH_ASSETS.joinpath("randomization_config.ini")
+
+FPATH_KINGDOMS_RECOMMENDED = PATH_ASSETS.joinpath("kingdoms/recommended.yml")
+FPATH_KINGDOMS_LAST100 = PATH_ASSETS.joinpath("kingdoms/last_100.yml")
 
 
 ROTATOR_DICT = {

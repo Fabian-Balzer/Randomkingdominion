@@ -6,7 +6,7 @@ from PyQt5 import QtWidgets as QW
 from .config import get_randomizer_config_options
 from .constants import PATH_ASSETS
 from .containers import WidgetContainer
-from .kingdom import Kingdom, KingdomRandomizer
+from .kingdom import Kingdom, KingdomManager, KingdomRandomizer
 
 
 class UIMainWindow(QW.QMainWindow):
@@ -18,7 +18,8 @@ class UIMainWindow(QW.QMainWindow):
         self.setCentralWidget(self._main)
         self.config = get_randomizer_config_options()
         self.kingdom_randomizer = KingdomRandomizer(self.config)
-        self.kingdom: Kingdom | None = None
+        self.kingdom_manager = KingdomManager()
+        self.current_kingdom: Kingdom = None
         self.init_ui()
         self.randomize()  # Start with a random selection
 
@@ -45,38 +46,38 @@ class UIMainWindow(QW.QMainWindow):
     def copy_kingdom_to_clipboard(self):
         """Copy the current kingdom to clipboard"""
         clipboard = QW.QApplication.clipboard()
-        clipboard.setText(str(self.kingdom))
-
+        clipboard.setText(str(self.current_kingdom))
 
     def randomize(self):
-        self.kingdom = self.kingdom_randomizer.randomize_new_kingdom()
+        self.current_kingdom = self.kingdom_randomizer.randomize_new_kingdom()
+        self.kingdom_manager.add_kingdom(self.current_kingdom)
         self.display_kingdom()
 
     def reroll_card(self, old_card: str):
         """Creates a new kingdom with the old card removed and tries a reroll."""
-        self.kingdom = self.kingdom_randomizer.reroll_single_card(
-            self.kingdom, old_card
+        self.current_kingdom = self.kingdom_randomizer.reroll_single_card(
+            self.current_kingdom, old_card
         )
+        self.kingdom_manager.add_kingdom(self.current_kingdom)
         self.display_kingdom()
 
     def display_kingdom(self):
         """Updates the kingdom cards"""
-        self.widgets.update_card_display(self.kingdom)
+        self.widgets.update_card_display(self.current_kingdom)
         button_dict = self.widgets.kingdom_display.reroll_button_dict
         for card_name, button in button_dict.items():
             button.clicked.connect(partial(self.reroll_card, card_name))
 
-
     def select_previous(self):
-        index = self.kingdom.history.index(self.kingdom)
+        index = self.kingdom_manager.kingdoms.index(self.current_kingdom)
         if index > 0:
-            self.kingdom = self.kingdom.history[index - 1]
+            self.current_kingdom = self.kingdom_manager.kingdoms[index - 1]
         self.display_kingdom()
 
     def select_next(self):
-        index = self.kingdom.history.index(self.kingdom)
-        if index < len(self.kingdom.history) - 1:
-            self.kingdom = self.kingdom.history[index + 1]
+        index = self.kingdom_manager.kingdoms.index(self.current_kingdom)
+        if index < len(self.kingdom_manager.kingdoms) - 1:
+            self.current_kingdom = self.kingdom_manager.kingdoms[index + 1]
         self.display_kingdom()
 
     def closeEvent(self, event):

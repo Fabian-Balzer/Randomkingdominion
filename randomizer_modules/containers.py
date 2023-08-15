@@ -5,10 +5,13 @@ from PyQt5 import QtWidgets as QW
 from .base_widgets import HorizontalBarWidget, QualityIcon
 from .config import CustomConfigParser
 from .constants import QUALITIES_AVAILABLE
-from .creator_functions import (AttackTypeGroupWidget, ExpansionGroupWidget,
-                                GeneralRandomizerSettingsWidget,
-                                QualitySelectionGroupWidget, create_buttons)
-from .data_handling import DataContainer
+from .creator_functions import (
+    AttackTypeGroupWidget,
+    ExpansionGroupWidget,
+    GeneralRandomizerSettingsWidget,
+    QualitySelectionGroupWidget,
+    create_buttons,
+)
 from .kingdom import Kingdom
 from .kingdom_display_widget import KingdomDisplayWidget
 

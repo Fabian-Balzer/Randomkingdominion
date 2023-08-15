@@ -1,13 +1,21 @@
 """File to contain the KingdomQualities and the Kingdom classes"""
 import random
 import time
+from dataclasses import asdict, dataclass, field
 from functools import reduce
+from uuid import UUID, uuid4
 
 import numpy as np
 import pandas as pd
+import yaml
 
 from .config import CustomConfigParser, add_renewed_base_expansions
-from .constants import ALL_CARDS, QUALITIES_AVAILABLE
+from .constants import (
+    ALL_CARDS,
+    FPATH_KINGDOMS_LAST100,
+    FPATH_KINGDOMS_RECOMMENDED,
+    QUALITIES_AVAILABLE,
+)
 from .utils import filter_column, get_mask_for_listlike_col_to_contain_any
 
 
@@ -40,40 +48,117 @@ def _sort_kingdom(df: pd.DataFrame) -> pd.DataFrame:
     then it is sorted by cost, then by name.
     """
     return df.sort_values(
-        by=["IsInSupply", "IsLandscape", "IsOtherThing", "Cost", "Name"],
-        ascending=[False, False, False, True, True],
+        by=["IsInSupply", "IsLandscape", "IsOtherThing", "Cost"],
+        ascending=[False, False, False, True],
     )
 
 
+def _is_value_not_empty_or_true(val: any) -> bool:
+    """Check whether the given value is not empty, or true if it's a boolean."""
+    if isinstance(val, bool):
+        return val  # If it's false, we want
+    if val is None:
+        return False
+    if isinstance(val, (str, list)):
+        return len(val) != 0
+    return True
+
+
+def _dict_factory_func(attrs: list[tuple[str, str]], ignore_keys: set) -> dict:
+    """Custom dictionary factory function to make sure no unnecessary empty
+    values are saved.
+    This includes all booleans since they are false by default."""
+    return {
+        k: v
+        for (k, v) in attrs
+        if _is_value_not_empty_or_true(v) and k not in ignore_keys
+    }
+
+
+@dataclass
 class Kingdom:
-    """Represents a single static Kingdom."""
+    """Kingdom model similar to Kieranmillar's sets.
+    It has the following attributes:
+        idx : UUID
+            An identifier (random python uuid4)
+        name : str, by default ""
+            The kingdom name, if any
+        cards : list[str]
+            A list of card names
+        use_colonies : bool, by default False
+            A boolean to include Colony and Platinum (optional)
+        use_shelters : bool, by default False
+            A boolean to include Shelters (optional)
+        extras : list[str], by default []
+            An array of extra component names (optional)
+        landscapes : list[str], by default []
+            An array of landscape names (optional)
+        obelisk_pile : str, by default ""
+            The obelisk target, should already be listed in the cards list (optional)
+        bane_pile : str, by default ""
+            Which card is the bane, should already be listed in the cards list (optional)
+        mouse_card : str, by default ""
+            Which card is the Way of the Mouse target, should not be listed in the cards list (optional)
+        druid_boons : list[str], by default []
+            An array of boons, 3 max (optional)
+        traits : list[tuple[str, str]], by default []
+            An array containing a comma separated list with pairs of cards, a trait first then the card it applies to next, both should already be in the cards and landscapes lists (optional)
+        notes : str
+            Any extra notes (optional)
+        expansions : list[str]
+            The expansions needed to recreate this kingdom
+    """
 
-    history = []
+    cards: list[str]
+    name: str = ""
+    landscapes: list[str] = field(default_factory=lambda: [])
+    expansions: list[str] = field(default_factory=lambda: [])
+    use_colonies: bool = False
+    use_shelters: bool = False
+    extras: list[str] = field(default_factory=lambda: [])
+    obelisk_pile: str = ""
+    bane_pile: str = ""
+    mouse_card: str = ""
+    druid_boons: list[str] = field(default_factory=lambda: [])
+    traits: list[list[str, str]] = field(default_factory=lambda: [])
+    notes: str = ""
+    idx: int = field(default_factory=lambda: int(uuid4()))
 
-    def __init__(self, kingdom_df: pd.DataFrame):
-        self.id = time.time_ns()
+    full_kingdom_df: pd.DataFrame = None
+    kingdom_card_df: pd.DataFrame = None
+    kingdom_landscape_df: pd.DataFrame = None
+    total_qualities: dict[str, int] = field(default_factory=lambda: {})
 
-        kingdom_df = _sort_kingdom(kingdom_df)
+    __yaml_ignore__ = {
+        "full_kingdom_df",
+        "kingdom_card_df",
+        "kingdom_landscape_df",
+        "expansions",
+        "extras",
+        "total_qualities",
+    }
 
-        self.full_kingdom_df = kingdom_df
-        is_ally = kingdom_df.Types.apply(lambda x: "Ally" in x)
-        self.kingdom_card_df = kingdom_df[~kingdom_df["IsLandscape"] & ~is_ally]
-        self.landscape_df = kingdom_df[kingdom_df["IsLandscape"] & ~is_ally]
-        self.ally_df = kingdom_df[is_ally]
+    def __post_init__(self):
+        key_list = self.cards + self.landscapes
+        if self.mouse_card != "":
+            key_list += [self.mouse_card]
+        full_kingdom_df = ALL_CARDS.set_index("Name", drop=False).loc[key_list]
+        self.full_kingdom_df = _sort_kingdom(full_kingdom_df)
 
-        self.non_supply: list[str] = []
-        self.total_qualities: dict[str, int] = {qual: 0 for qual in QUALITIES_AVAILABLE}
-        self.set_quality_values()
-        self.history.append(self)
+        self.kingdom_card_df = self.full_kingdom_df[
+            self.full_kingdom_df.Name.apply(lambda x: x in self.cards)
+        ]
+        self.kingdom_landscape_df = self.full_kingdom_df[
+            self.full_kingdom_df.Name.apply(lambda x: x in self.landscapes)
+        ]
+        self._set_quality_values()
 
-        self.special_targets = {
-            "Bane": None,
-            "Obelisk": None,
-            "Mouse": None,
-            "Druid Boons": None,
-        }
+        # TODO: Calculate extra piles necessary for the kingdom.
+        # Also don't forgot to add a df for it?
+        self.expansions = list(np.unique(full_kingdom_df["Expansion"]))
 
-    def __str__(self):
+    def pretty_print(self) -> str:
+        """Return a string describing the most important things about this kingdom"""
         s = self.full_kingdom_df.to_string(
             columns=["Name", "Cost", "Expansion"], index=False
         )
@@ -82,14 +167,19 @@ class Kingdom:
             for qual, val in self.total_qualities.items()
         )
         s += "\n" + quality_summary + "\n"
-        s += "CSV representation:\n\n" + self.get_csv_representation()
+        s += "CSV representation:\n\n" + self.get_csv_repr()
         return s
 
-    def get_csv_representation(self):
+    def get_dict_repr(self) -> dict[str, any]:
+        return asdict(
+            self, dict_factory=lambda x: _dict_factory_func(x, self.__yaml_ignore__)
+        )
+
+    def get_csv_repr(self) -> str:
         """TODO: proper Bane/Trait/Mouse/Druid Boons representation"""
         return ", ".join(card for card in self.full_kingdom_df["Name"])
 
-    def set_quality_values(self):
+    def _set_quality_values(self):
         """Update the quality values for this kingdom by summing them up."""
         for qual in QUALITIES_AVAILABLE:
             val = _get_total_quality(qual, self.full_kingdom_df)
@@ -130,6 +220,37 @@ class Kingdom:
             return ""
         unique_types = np.unique(avail_types)
         return str(sorted(unique_types))
+
+
+class KingdomManager:
+    def __init__(self):
+        self.kingdoms: list[Kingdom] = []
+        self.load_last_100_kingdoms()
+        # self.load_recommended_kingdoms()
+
+    def add_kingdom(self, kingdom: Kingdom):
+        self.kingdoms.append(kingdom)
+        self.save_last_100_kingdoms()
+
+    def load_last_100_kingdoms(self):
+        self.load_kingdoms_from_yaml(FPATH_KINGDOMS_LAST100)
+
+    def load_recommended_kingdoms(self):
+        self.load_kingdoms_from_yaml(FPATH_KINGDOMS_RECOMMENDED)
+
+    def save_last_100_kingdoms(self):
+        self.save_kingdoms_to_yaml(FPATH_KINGDOMS_LAST100)
+
+    def load_kingdoms_from_yaml(self, file_path: str):
+        with open(file_path, "r", encoding="utf-8") as yaml_file:
+            data = yaml.safe_load(yaml_file)
+            if data is not None:
+                self.kingdoms = [Kingdom(**kingdom_data) for kingdom_data in data]
+
+    def save_kingdoms_to_yaml(self, file_path: str):
+        data = [kingdom.get_dict_repr() for kingdom in self.kingdoms]
+        with open(file_path, "w", encoding="utf-8") as yaml_file:
+            yaml.safe_dump(data, yaml_file)
 
 
 class KingdomRandomizer:
@@ -220,34 +341,54 @@ class KingdomRandomizer:
             narrowed_pool = self._get_draw_pool_for_landscape()
             self.savely_pick_from_pool(narrowed_pool)
 
+        extra_arg_dict = {}
+
         # Pick a bane card in case the Young Witch is amongst the picks:
         if "Young Witch" in self.already_selected_df.Name:
             narrowed_pool = self._get_draw_pool_for_card(for_bane=True)
-            bane = self.savely_pick_from_pool(narrowed_pool)
+            bane_pile = self.savely_pick_from_pool(narrowed_pool).Name
+            extra_arg_dict["bane_pile"] = bane_pile
 
         # Pick a Mouse card in case the Young Witch is amongst the picks:
         if "Way of the Mouse" in self.already_selected_df.Name:
             narrowed_pool = self._get_draw_pool_for_card(for_bane=True)
-            mouse_card = self.savely_pick_from_pool(narrowed_pool)
+            mouse_card = self.savely_pick_from_pool(narrowed_pool).Name
+            extra_arg_dict["mouse_card"] = mouse_card
 
         # Pick a bane card in case the Young Witch is amongst the picks:
         if "Obelisk" in self.already_selected_df.Name:
             pool = self.already_selected_df
             pool = pool[pool.Types.apply(lambda x: "Action" in x)]
-            obelisk_card = self.savely_pick_from_pool(pool)
+            obelisk_pile = self.savely_pick_from_pool(pool)
+            extra_arg_dict["obelisk_pile"] = obelisk_pile
 
         # Pick an Ally if necessary:
         if self.does_selection_contain_type("Liaison"):
             narrowed_pool = self._get_draw_pool_for_ally()
             ally = self.savely_pick_from_pool(narrowed_pool)
 
-        # Pick a Trait target if necessary:
+        # Pick Trait targets if necessary:
         if self.does_selection_contain_type("Trait"):
             pool = self.already_selected_df
-            pool = pool[pool.Types.apply(lambda x: "Action" in x or "Treasure" in x)]
-            trait_target = self.savely_pick_from_pool(pool)
+            extra_arg_dict["trait_list"] = []
+            for _, trait in self.get_selection_of_certain_type("Trait").iterrows():
+                pool = pool[
+                    pool.Types.apply(lambda x: "Action" in x or "Treasure" in x)
+                ]
+                trait_target_name = self.savely_pick_from_pool(pool).Name
+                extra_arg_dict["obelisk_pile"].append([trait.Name, trait_target_name])
 
-        return Kingdom(self.already_selected_df)
+        return Kingdom(
+            cards=self.get_card_subset(), landscapes=self.get_landscape_subset()
+        )
+
+    def get_card_subset(self) -> list[str]:
+        df = self.already_selected_df
+        return df[~df["IsLandscape"]].Name.to_list()
+
+    def get_landscape_subset(self) -> list[str]:
+        df = self.already_selected_df
+        return df[df["IsLandscape"]].Name.to_list()
 
     def _determine_landscape_number(self) -> int:
         min_num = self.config.getint("General", "min_num_landscapes")
@@ -317,11 +458,14 @@ class KingdomRandomizer:
                 pool = before_narrowing
         return pool
 
+    def get_selection_of_certain_type(self, card_type: str) -> pd.DataFrame:
+        df = self.already_selected_df
+        return df[df["Types"].apply(lambda x: card_type in x)]
+
     def does_selection_contain_type(self, card_type: str) -> bool:
         """Returns wether the selection already contains at least one card
         with the given type."""
-        df = self.already_selected_df
-        return len(df[df["Types"].apply(lambda x: card_type in x)]) > 0
+        return len(self.get_selection_of_certain_type(card_type)) > 0
 
     def reroll_single_card(self, old_kingdom: Kingdom, card_name: str) -> Kingdom:
         """Take the old kingdom, reroll one card, and return the new one with
@@ -339,7 +483,7 @@ class KingdomRandomizer:
         else:
             narrowed_pool = self._get_draw_pool_for_card()
             self.savely_pick_from_pool(narrowed_pool)
-        return Kingdom(self.already_selected_df)
+        return Kingdom(self.already_selected_df.Name)
 
         # kept_cards = [card for card in self.kingdom.kingdom_cards if card != old_card]
         # if old_card == "Young Witch":

@@ -32,7 +32,7 @@ class KingdomDisplayWidget(QW.QWidget):
         main_lay.addWidget(kingdom_display)
 
         # Dictionary to contain buttons to be connected for the rerolling
-        self.reroll_button_dict: dict[str,QW.QPushButton] = {}
+        self.reroll_button_dict: dict[str, QW.QPushButton] = {}
 
         self.is_detailed = False
         self.kingdom = None
@@ -66,7 +66,6 @@ class KingdomDisplayWidget(QW.QWidget):
 
     def display_kingdom_cards(self, kingdom: Kingdom):
         kingdom_df = kingdom.kingdom_card_df
-        inverted_specialities = {v: k for k, v in kingdom.special_targets.items()}
         num_rows = 2
         num_cols = ceil(len(kingdom_df) / num_rows)
         for row in range(num_rows):
@@ -75,11 +74,7 @@ class KingdomDisplayWidget(QW.QWidget):
                 if index >= len(kingdom_df):
                     continue
                 card = kingdom_df.iloc[index]
-                special_text = (
-                    inverted_specialities[card.Name]
-                    if card.Name in inverted_specialities
-                    else None
-                )
+                special_text = "Bane" if card.Name == kingdom.bane_pile else ""
                 wid = KingdomCardImageWidget(
                     card, special_text=special_text, detailed=self.is_detailed
                 )
@@ -87,7 +82,7 @@ class KingdomDisplayWidget(QW.QWidget):
                 self.grid_layout.addWidget(wid, row, col)
 
     def display_kingdom_landscapes(self, kingdom: Kingdom):
-        kingdom_df = pd.concat([kingdom.landscape_df, kingdom.ally_df])
+        kingdom_df = kingdom.kingdom_landscape_df
 
         num_cols = len(kingdom_df)
         for col in range(num_cols):

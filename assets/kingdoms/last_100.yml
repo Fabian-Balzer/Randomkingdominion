@@ -1,0 +1,95 @@
+- cards:
+  - Catapult/Rocks
+  - Enchantress
+  - Barbarian
+  - Skirmisher
+  - Legionary
+  - Highwayman
+  - Clashes
+  - Augurs
+  - Wizards
+  - Marquis
+  idx: 31240389636375413389533953813182005219
+  landscapes:
+  - Colonnade
+  - Keep
+- cards:
+  - Skirmisher
+  - Clashes
+  - Barbarian
+  - Augurs
+  - Specialist
+  - Innkeeper
+  - Highwayman
+  - Modify
+  - Wizards
+  - Royal Galley
+  idx: 78415815257911518377604675611248671383
+  landscapes:
+  - Summon
+- cards:
+  - Cauldron
+  - Coven
+  - Gatekeeper
+  - Berserker
+  - Margrave
+  - Witch's Hut
+  - Black Cat
+  - Cardinal
+  - Camel Train
+  - Trail
+  idx: 176906312661864229997914964436730198698
+  landscapes:
+  - Way of the Otter
+  - Populate
+- cards:
+  - Witch
+  - Sea Witch
+  - Cutpurse
+  - Corsair
+  - Bandit
+  - Bureaucrat
+  - Militia
+  - Blockade
+  - Monkey
+  - Market
+  idx: 309012227740300267045912701928280125499
+- cards:
+  - Haunted Woods
+  - Swamp Hag
+  - Clerk
+  - Charlatan
+  - Bridge Troll
+  - Rabble
+  - Giant
+  - Relic
+  - Ranger
+  - Magpie
+  idx: 65079073515203198874965553212377547255
+  landscapes:
+  - Raid
+  - Bonfire
+- cards:
+  - Berserker
+  - Vampire
+  - Skulk
+  - Witch's Hut
+  - Cauldron
+  - Raider
+  - Idol
+  - Tormentor
+  - Werewolf
+  - Margrave
+  idx: 233477207922599284228837084470121229388
+- cards:
+  - Idol
+  - Scrying Pool
+  - Familiar
+  - Werewolf
+  - Raider
+  - Tormentor
+  - Vampire
+  - Possession
+  - Skulk
+  - Sacred Grove
+  idx: 33820207098007754412898590769483826461
