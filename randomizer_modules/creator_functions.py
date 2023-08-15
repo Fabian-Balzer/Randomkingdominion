@@ -6,16 +6,11 @@ import PyQt5.QtCore as QC
 import PyQt5.QtGui as QG
 import PyQt5.QtWidgets as QW
 
-from .base_widgets import (
-    CollapsibleBox,
-    CoolButton,
-    CoolComboBox,
-    HorizontalBarWidget,
-    PictureCheckBox,
-    QualityIcon,
-)
+from .base_widgets import (CollapsibleBox, CoolButton, CoolCheckBox,
+                           CustomRangeSlider, CustomSlider,
+                           HorizontalBarWidget, PictureCheckBox, QualityIcon)
 from .config import CustomConfigParser
-from .constants import PATH_ASSETS, PATH_MAIN, QUALITIES_AVAILABLE, RENEWED_EXPANSIONS
+from .constants import PATH_ASSETS, QUALITIES_AVAILABLE, RENEWED_EXPANSIONS
 from .utils import override
 
 
@@ -95,6 +90,69 @@ class GroupCheckboxButtonContainer(CollapsibleBox):
         ]
         return selected_names
 
+class ExpansionNumSlider(QW.QWidget):
+    def __init__(self, config: CustomConfigParser):
+        super().__init__()
+        self.config = config
+
+        # The maximum of the slider
+        self.limiting_num = 5
+
+        self._init_slider_with_labels()
+
+        overarching_layout = QW.QHBoxLayout(self)
+        overarching_layout.setContentsMargins(0, 0, 0, 0)
+        
+        self.display_label = QW.QLabel("")
+        self.display_label.setAlignment(QC.Qt.AlignTop)
+        self.display_label.setFixedWidth(200)
+        overarching_layout.addWidget(self.display_label)
+        overarching_layout.addWidget(self.slider_wid)
+        overarching_layout.addStretch()
+        self._set_initial_value()
+
+    def _set_initial_value(self):
+        num_exp_val =self.config.getint("General", "max_num_expansions")
+        self.slider.setValue(num_exp_val)
+        self.set_max_expansion_num()
+
+    def _init_slider_with_labels(self):
+        self.slider_wid = QW.QWidget()
+        layout = QW.QVBoxLayout(self.slider_wid)
+        layout.setContentsMargins(0, 0, 0, 0)
+
+        self.slider = CustomSlider(0, self.limiting_num)
+        self.slider.setFixedWidth(300)
+        self.slider.valueChanged.connect(self.set_max_expansion_num)
+        self.slider.setTickPosition(QW.QSlider.TicksBelow)
+
+
+        self.labels_widget = QW.QWidget()
+        lay = QW.QHBoxLayout(self.labels_widget)
+        lay.setContentsMargins(0, 0, 3, 0)
+        for tick in range(0, self.limiting_num+1):
+            label_text = str(tick) if tick != 0 else "all"
+            label = QW.QLabel(label_text)
+            label.setAlignment(QC.Qt.AlignCenter)
+            lay.addWidget(label)
+            if tick < self.limiting_num:
+                lay.addItem(
+                    QW.QSpacerItem(
+                        0, 0, QW.QSizePolicy.Expanding, QW.QSizePolicy.Minimum
+                    )
+                )
+        lay.setAlignment(QC.Qt.AlignTop)
+        layout.addWidget(self.slider)
+        layout.addWidget(self.labels_widget)
+
+    def set_max_expansion_num(self):
+        value = self.slider.value()
+        self.config.set("General", "max_num_expansions", str(value))
+        if value == 0:
+            text = "Pick from all expansions"
+        else:
+            text = f"Pick from at max {value} expansions."
+        self.display_label.setText("<b>Maximum expansion number:</b><br>" + text)
 
 class ExpansionGroupWidget(GroupCheckboxButtonContainer):
     """Container for the expansion group."""
@@ -104,6 +162,8 @@ class ExpansionGroupWidget(GroupCheckboxButtonContainer):
         names = [exp for exp in all_expansions if exp not in RENEWED_EXPANSIONS]
         tooltips = [f"Randomize cards from the {exp} expansion." for exp in names]
         super().__init__(names, "Expansions", tooltips, initially_collapsed=False)
+        self.max_expansion_slider = ExpansionNumSlider(config)
+        self.content_layout.addWidget(self.max_expansion_slider)
 
         self._set_initial_values()
         self.connect_to_change_func(self.update_config_for_expansions)
@@ -116,6 +176,8 @@ class ExpansionGroupWidget(GroupCheckboxButtonContainer):
     def _set_initial_values(self):
         for exp in self.config.get_expansions(add_renewed_bases=False):
             self.widget_dict[exp].setChecked(True)
+        self.set_toggle_button_text()
+    
 
     @override
     def get_icon_path(self, name: str) -> str:
@@ -152,6 +214,7 @@ class AttackTypeGroupWidget(GroupCheckboxButtonContainer):
     def _set_initial_values(self):
         for exp in self.config.get_special_list("attack_types"):
             self.widget_dict[exp].setChecked(True)
+        self.set_toggle_button_text()
 
     @override
     def get_icon_path(self, name: str) -> str:
@@ -160,43 +223,131 @@ class AttackTypeGroupWidget(GroupCheckboxButtonContainer):
         return str(fpath)
 
 
+class GeneralRandomizerSettingsWidget(CollapsibleBox):
+    def __init__(self, config: CustomConfigParser):
+        super().__init__(title="General settings", initially_collapsed=False)
+        self.config = config
+
+        lay = QW.QVBoxLayout()
+        lay.setContentsMargins(0, 0, 0, 0)
+
+        self._init_landscape_slider()
+        lay.addWidget(self.landscape_widget)
+        self.setContentLayout(lay)
+        self._set_initial_values()
+
+    def _init_landscape_slider(self):
+        self.landscape_widget = QW.QWidget()
+        lay = QW.QHBoxLayout(self.landscape_widget)
+        lay.setContentsMargins(0, 0, 0, 0)
+
+        self.num_landscapes_range_slider = CustomRangeSlider()
+        self.num_landscapes_range_slider.setFixedWidth(300)
+        self.num_landscapes_label = QW.QLabel("")
+        self.num_landscapes_label.setAlignment(QC.Qt.AlignTop)
+        self.num_landscapes_label.setFixedWidth(200)
+        self.num_landscapes_range_slider.value_changed.connect(
+            self.register_num_landscape_change
+        )
+        lay.addWidget(self.num_landscapes_label)
+        lay.addWidget(self.num_landscapes_range_slider)
+        lay.addStretch()
+        lay.setAlignment(QC.Qt.AlignTop)
+
+    def _set_initial_values(self):
+        """Set the initial state given the state of the config."""
+        min_val = self.config.getint("General", "min_num_landscapes")
+        max_val = self.config.getint("General", "max_num_landscapes")
+        self.num_landscapes_range_slider.set_values(min_val, max_val)
+
+    def register_num_landscape_change(self):
+        """Displays the values of the range-slider in the text label
+        and saves them to config"""
+        min_val, max_val = self.num_landscapes_range_slider.get_values()
+        self.config.set("General", "min_num_landscapes", str(min_val))
+        self.config.set("General", "max_num_landscapes", str(max_val))
+        if min_val == max_val:
+            text = f"Allow exactly {min_val} landscapes."
+        else:
+            text = f"Allow between {min_val} and {max_val} landscapes."
+        self.num_landscapes_label.setText("<b>Landscape amount:</b><br>" + text)
+
+
 class SingleQualitySelectionWidget(QW.QWidget):
-    possibilities = ["None", "Weak", "Sufficient", "Strong"]
+    """One row to set the requested value of the quality, including
+    a slider for flexibility, and a checkbox to exclude the given
+    quality completely.
+
+    Parameters
+    ----------
+    qual : str
+        The quality to display
+    config : CustomConfigParser
+        The ConfigParser to store the data at.
+    """
 
     def __init__(self, qual: str, config: CustomConfigParser):
         super().__init__()
         self.config = config
         self.qual_name = qual
 
-        icon = QualityIcon(qual)
+        self.icon = QualityIcon(qual)
 
-        label = QW.QLabel(
+        self.label = QW.QLabel(
             f"{qual.capitalize()}:\nDesired minimum {qual} quality of the kingdom."
         )
+        # The slider to select the requested quality:
         tooltip = f"Upon randomization, we will try to achieve at least this amount of {qual} quality in the kingdom."
         self.selection_box = HorizontalBarWidget(clickable=True)
         self.selection_box.setToolTip(tooltip)
         self.selection_box.setFixedSize(80, 20)
         self.selection_box.clicked.connect(self.set_quality)
 
+        # The checkbox to exclude this quality:
+        self.forbid_this_box = CoolCheckBox(
+            f"No {qual}",
+            "Completely exclude any card that shows this quality from the draw pool",
+        )
+        self.forbid_this_box.clicked.connect(self.toggle_forbid_quality)
+
         lay = QW.QHBoxLayout(self)
         lay.setContentsMargins(0, 0, 0, 0)
-        lay.addWidget(icon)
+        lay.addWidget(self.icon)
         lay.addWidget(self.selection_box)
-        lay.addWidget(label)
+        lay.addWidget(self.label)
+        lay.addWidget(self.forbid_this_box)
 
         self._set_initial_state()
-        # self.box.currentIndexChanged.connect(self.set_quality)
 
     def _set_initial_state(self):
-        self.selection_box.setValue(self.config.get_quality(self.qual_name))
-        # self.box.setCurrentIndex(self.config.get_quality(self.qual_name))
+        self.selection_box.setValue(self.config.get_requested_quality(self.qual_name))
+        is_disabled = self.config.get_forbidden_quality(self.qual_name)
+        self.forbid_this_box.setChecked(is_disabled)
+        self.selection_box.setDisabled(is_disabled)
+        self.icon.set_overlay_cross(is_disabled)
+        self.label.setDisabled(is_disabled)
 
     @QC.pyqtSlot()
     def set_quality(self):
-        # value = self.box.currentIndex()
+        """Set the desired quality."""
         value = self.selection_box.getValue()
-        self.config.set_quality(self.qual_name, value)
+        self.config.set_requested_quality(self.qual_name, value)
+
+    @QC.pyqtSlot()
+    def toggle_forbid_quality(self):
+        """Handle the toggling of the checkbox and save its value to the config.
+        If it is checked, the selection box is disabled."""
+        new_state = self.forbid_this_box.isChecked()
+        self.selection_box.setDisabled(new_state)
+        self.label.setDisabled(new_state)
+        self.icon.set_overlay_cross(new_state)
+        self.config.set_forbidden_quality(self.qual_name, new_state)
+
+    def reset_state(self):
+        """Reset this widget's state to default values."""
+        self.selection_box.setValue(0)
+        self.forbid_this_box.setChecked(False)
+        self.forbid_this_box.clicked.emit(False)
 
 
 class QualitySelectionGroupWidget(CollapsibleBox):
@@ -214,6 +365,7 @@ class QualitySelectionGroupWidget(CollapsibleBox):
         self.setContentLayout(lay)
 
     def init_reset_button(self) -> QW.QWidget:
+        """Create a button to click on for resetting all values."""
         # TODO: Maybe implement a master slider to change everything at once?
         button = CoolButton(text="Reset preferences", width=200)
         button.clicked.connect(self.on_reset_clicked)
@@ -221,9 +373,9 @@ class QualitySelectionGroupWidget(CollapsibleBox):
 
     # @QC.pyqtSlot()
     def on_reset_clicked(self):
+        """Reset all the QualitySelection widgets."""
         for wid in self.wid_dict.values():
-            wid.selection_box.setValue(0)
-            wid.set_quality()
+            wid.reset_state()
 
 
 def create_buttons():
@@ -233,46 +385,3 @@ def create_buttons():
     button_dict["Previous"] = CoolButton(text="Previous")
     button_dict["Next"] = CoolButton(text="Next")
     return button_dict
-
-
-def create_card_group(card, width=150, pic_height=250):
-    display_text = get_display_text(card)
-    tooltip = get_tooltip_text(card)
-    pic = QW.QLabel()
-    pic.setAlignment(QC.Qt.AlignHCenter)
-    pic.setWordWrap(True)
-    pic.setToolTip(tooltip)
-    pixmap = QG.QPixmap(str(PATH_MAIN.joinpath(card["ImagePath"])))
-    w = min(pixmap.width(), width)
-    h = min(pixmap.height(), pic_height)
-    pixmap = pixmap.scaled(
-        QC.QSize(w, h), QC.Qt.KeepAspectRatio, QC.Qt.SmoothTransformation
-    )
-    pic.setPixmap(pixmap)
-    pic.setFixedSize(width, pic_height)
-    label = QW.QLabel(display_text)
-    label.setAlignment(QC.Qt.AlignHCenter)
-    label.setWordWrap(True)
-    label.setFixedSize(width, 50)
-    button = QW.QPushButton(f"Reroll {card['Name']}")
-    button.setFixedSize(width, 20)
-    attrdict = {"Pic": pic, "Label": label, "Button": button, "Name": card["Name"]}
-    return attrdict
-
-
-def get_display_text(card):
-    coststring = f" ({card['Cost']})" if pd.notna(card["Cost"]) else ""
-    return f"{card['Name']}{coststring}\n({card['Expansion']})"
-
-
-def get_tooltip_text(card):
-    """Display the qualities that are > 0 for the given card"""
-    card_quals = {
-        qual: qualval
-        for qual in QUALITIES_AVAILABLE
-        if (qualval := card[qual + "_quality"]) > 0
-    }
-    ttstring = "\n".join(
-        [f"{qual.capitalize()}: {val}" for qual, val in card_quals.items()]
-    )
-    return ttstring

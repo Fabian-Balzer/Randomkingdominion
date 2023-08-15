@@ -3,9 +3,11 @@
 from functools import reduce
 from typing import Optional
 
+import numpy as np
+
 from .config import CustomConfigParser, get_randomizer_config_options
 from .constants import FPATH_CARD_DATA
-from .kingdom import Kingdom
+from .kingdom import Kingdom, KingdomRandomizer
 from .utils import read_dataframe_from_file
 
 
@@ -15,57 +17,22 @@ class DataContainer:
         self.all_cards = read_dataframe_from_file(FPATH_CARD_DATA, eval_lists=True)
         self.all_expansions = list(set(self.all_cards["Expansion"]))
         self.all_attack_types = self.get_attack_types()
-        self.rerolled_cards = []
-        self.parameter_dict = {"RequireReaction": False, "attack_types": None}
-        self.kingdom = None
+
+        self.kingdom_randomizer = KingdomRandomizer(self.all_cards, self.config)
+        self.kingdom: Kingdom | None = None
 
     def randomize(self):
-        self.rerolled_cards = []
-        self.kingdom = Kingdom(self.all_cards, config=self.config)
-        self.kingdom.randomize(self.rerolled_cards)
+        self.kingdom = self.kingdom_randomizer.randomize_new_kingdom()
 
-    def reroll_card(self, old_card):
+    def reroll_card(self, old_card: str):
         """Creates a new card with the old card removed and tries a reroll."""
-        kept_cards = [card for card in self.kingdom.kingdom_cards if card != old_card]
-        if old_card == "Young Witch":
-            kept_cards = [
-                card
-                for card in kept_cards
-                if card != self.kingdom.special_targets["Bane"]
-            ]
-        kept_landscapes = [card for card in self.kingdom.landscapes if card != old_card]
-        kept_ally = self.kingdom.ally if old_card != self.kingdom.ally else ""
-        if (
-            len(
-                self.kingdom.get_kingdom_df()[
-                    self.kingdom.get_kingdom_df()["Types"].apply(
-                        lambda x: "Liaison" in x
-                    )
-                ]
-            )
-            == 0
-        ):
-            kept_ally = ""
-        self.kingdom = Kingdom(
-            self.all_cards,
-            config=self.config,
-            kingdom_cards=kept_cards,
-            landscapes=kept_landscapes,
-            ally=kept_ally,
+        self.kingdom = self.kingdom_randomizer.reroll_single_card(
+            self.kingdom, old_card
         )
-        self.rerolled_cards.append(old_card)
-        self.kingdom.randomize(self.rerolled_cards)
 
     def get_attack_types(self):
         all_types = reduce(lambda x, y: x + y, self.all_cards["attack_types"])
-        set_ = set(all_types)
-        set_.discard("")
-        return sorted(list(set_))
-
-    def select_or_deselect(self, checkbox_dict, button):
-        pass
-        # if len(self.selected_sets) == 0:
-        #     for checkbox in
+        return sorted(list(np.unique(all_types)))
 
     def select_previous(self):
         index = self.kingdom.history.index(self.kingdom)
@@ -89,10 +56,3 @@ def create_supply(kingdom, landscapes):
 
 def give_card(df, name):
     return df[df["Name"] == name]
-
-
-if __name__ == "__main__":
-    a = DataContainer()
-    a.randomize()
-    print(a.kingdom)
-    c = a.all_cards

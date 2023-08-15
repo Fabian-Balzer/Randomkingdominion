@@ -9,6 +9,7 @@ import PyQt5.QtWidgets as QW
 from matplotlib import cm
 
 from .constants import PATH_ASSETS, PATH_MAIN, QUALITIES_AVAILABLE
+from .utils import override
 
 
 class CollapsibleBox(QW.QWidget):
@@ -96,16 +97,18 @@ class CoolButton(QW.QPushButton):
         """Sets the background and border color of the button and turns its
         text bold if requested."""
         self.setStyleSheet(
-            f"""QPushButton {{height: {height}px; background-color: 
-qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 {backStart}, stop: 1 {backStop});
-border-style: outset; border-width: 2px; border-radius: 5px; 
-border-color: rgb({borderColor}); font: {bold} {fontsize}; padding: 6px}}
-QPushButton:hover {{background-color:
-qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop:
-0 rgb(240, 240, 255), stop: 1 rgb(200, 200, 200))}}
-QPushButton:pressed {{background-color:
-qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop:
-0 rgb(200, 200, 200), stop: 1 rgb(140, 140, 140))}}"""
+            f"""
+            QPushButton {{height: {height}px; background-color: 
+                qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 {backStart}, stop: 1 {backStop});
+                border-style: outset; border-width: 2px; border-radius: 5px; 
+                border-color: rgb({borderColor}); font: {bold} {fontsize}; padding: 6px}}
+                QPushButton:hover {{background-color:
+                qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop:
+                0 rgb(240, 240, 255), stop: 1 rgb(200, 200, 200))}}
+                QPushButton:pressed {{background-color:
+                qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop:
+                0 rgb(200, 200, 200), stop: 1 rgb(140, 140, 140))}}
+    """
         )
 
     def makeTextBold(self, height=20):
@@ -411,11 +414,12 @@ class RerollButton(QW.QLabel):
 class KingdomCardImageWidget(QW.QWidget):
     """Display Name, Picture and Image for the given kingdom card"""
 
-    def __init__(self, card: pd.Series, width=180, special_text=None):
+    def __init__(self, card: pd.Series, width=180, special_text=None, detailed=False):
         super().__init__()
         self.is_landscape = card.IsLandscape
         self.card = card
         self.real_width = width * 2 if self.is_landscape else width
+        self.is_detailed = detailed
         self.impath = str(PATH_MAIN.joinpath(card["ImagePath"]))
         self.name = card.Name
         self.box_layout = QW.QVBoxLayout(self)
@@ -447,13 +451,38 @@ class KingdomCardImageWidget(QW.QWidget):
             for qual in QUALITIES_AVAILABLE
             if (qualval := self.card[qual + "_quality"]) > 0
         }
-        ttstring = "\n".join(
-            [f"{qual.capitalize()}: {val}" for qual, val in card_quals.items()]
-        )
+        qual_strings = [
+            f"{qual.capitalize()}: {val}" for qual, val in card_quals.items()
+        ]
+        ttstring = self.card.Expansion + "\n"
+        ttstring += "\n".join(qual_strings)
         self.setToolTip(ttstring)
+
+    def _get_display_text(self) -> str:
+        card = self.card
+        coststring = f" ({card['Cost']})" if pd.notna(card["Cost"]) else ""
+        return f"{card['Name']}{coststring}\n({card['Expansion']})"
 
     def display_card(self) -> int:
         """Display the card that this class is based on."""
+        if self.is_detailed:
+            pic = QW.QLabel()
+            pic.setAlignment(QC.Qt.AlignHCenter)
+            pic.setWordWrap(True)
+            pixmap = QG.QPixmap(self.impath)
+            self.real_width -= 80
+            w = self.real_width
+            pixmap = pixmap.scaledToWidth(w, QC.Qt.SmoothTransformation)
+            pic.setPixmap(pixmap)
+            pic.setFixedSize(w, pixmap.height())
+            label = QW.QLabel(self._get_display_text())
+            label.setAlignment(QC.Qt.AlignHCenter)
+            label.setWordWrap(True)
+            label.setFixedSize(w, 20)
+            self.box_layout.addWidget(pic)
+            self.box_layout.addWidget(label)
+            return pixmap.height() + 20
+
         top_part = ImageCutoutWidget(self.impath, 0.47, 1, self.real_width)
         bottom_part = ImageCutoutWidget(self.impath, 0.03, 0.11, self.real_width)
         self.box_layout.addWidget(top_part)
@@ -479,6 +508,11 @@ class KingdomCardImageWidget(QW.QWidget):
         """Display the landscape by adding a label to it, displaying the text in a bigger font"""
         image_wid = ImageCutoutWidget(self.impath, 0.05, 1, self.real_width)
         self.box_layout.addWidget(image_wid)
+        height = image_wid.label.pixmap().height()
+        if self.is_detailed:
+            label = QW.QLabel(self.name + self.card.Expansion)
+            self.box_layout.addWidget(label)
+            return height
 
         color_dict = {
             "Way": "rgb(218, 242, 254)",
@@ -498,7 +532,6 @@ class KingdomCardImageWidget(QW.QWidget):
         label.setMargin(8)
         label.setScaledContents(True)
         label.setAlignment(QC.Qt.AlignCenter)
-        height = image_wid.label.pixmap().height()
         font = label.font()
         font.setPointSize(16)
         label.setFont(font)
@@ -546,8 +579,32 @@ class QualityIcon(QW.QLabel):
         pixmap = pixmap.scaled(
             QC.QSize(size, size), QC.Qt.KeepAspectRatio, QC.Qt.SmoothTransformation
         )
+        self.pixmap = pixmap
         self.setPixmap(pixmap)
         self.setFixedSize(size, size)
+        self.overlay_cross = True  # Initialize overlay status
+
+    def set_overlay_cross(self, overlay: bool):
+        self.overlay_cross = overlay
+        self.update()
+
+    def paintEvent(self, event):
+        painter = QG.QPainter(self)
+        painter.drawPixmap(0, 0, self.pixmap)
+        if self.overlay_cross:
+            painter.setRenderHint(QG.QPainter.Antialiasing)
+
+            # Draw a red "x" over the pixmap
+            pen = QG.QPen(QG.QColor(QC.Qt.white))
+            pen.setWidth(5)
+            painter.setPen(pen)
+            painter.drawLine(0, 0, self.width(), self.height())
+            painter.drawLine(0, self.height(), self.width(), 0)
+            pen = QG.QPen(QG.QColor(QC.Qt.darkRed))
+            pen.setWidth(3)
+            painter.setPen(pen)
+            painter.drawLine(0, 0, self.width(), self.height())
+            painter.drawLine(0, self.height(), self.width(), 0)
 
 
 class HorizontalBarWidget(QW.QFrame):
@@ -559,6 +616,8 @@ class HorizontalBarWidget(QW.QFrame):
         super().__init__(parent)
         self._width = 0
         self._color = QC.Qt.black
+        self.is_disabled = False
+
         self.setFrameStyle(QW.QFrame.Box | QW.QFrame.Plain)
         self.setLineWidth(10)
         if clickable:
@@ -568,7 +627,9 @@ class HorizontalBarWidget(QW.QFrame):
         rgba_tuple = cm.get_cmap("Greens")(
             value / 4
         )  # Get RGBA values from the colormap
-        self._color = QG.QColor.fromRgbF(*rgba_tuple[:3])
+        self._color = (
+            QG.QColor.fromRgbF(*rgba_tuple[:3]) if not self.is_disabled else QC.Qt.gray
+        )
         self._width = value
         self.update()
 
@@ -605,3 +666,120 @@ class HorizontalBarWidget(QW.QFrame):
 
     def handle_click(self, value):
         self.setValue(value)
+
+    @override
+    def setDisabled(self, disabled: bool):
+        """Ensure that everything is grayed out properly."""
+        self.is_disabled = disabled
+        self.setValue(self.getValue())
+
+        # Call the original setDisabled method to perform the actual disabling
+        super(QW.QFrame, self).setDisabled(disabled)
+
+
+
+class CustomSlider(QW.QSlider):
+    """Simple horizontal slider going from the min to the max val (including both)."""
+    def __init__(self, min_val: int = 0, max_val: int = 5):
+        super().__init__(QC.Qt.Horizontal)
+        self.setRange(min_val, max_val)
+        self.setFixedHeight(20)
+        self.setTickInterval(1)
+        self.setStyleSheet(
+            """
+            QSlider::handle:horizontal {
+                background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 gray, stop:1 darkGreen);
+                border: .5px solid;
+                width: 10px;
+                }
+            QSlider::handle:vertical { 
+                height: 15px; 
+            }
+    
+            QSlider::handle:horizontal:pressed {
+                background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 darkGreen, stop:1 gray);
+            }
+            """
+        )
+
+class CustomRangeSlider(QW.QWidget):
+    """A range slider that allows the user to set two values where the
+    second one is larger than the first."""
+
+    value_changed = QC.pyqtSignal()
+
+    def __init__(self):
+        super().__init__()
+
+        layout = QW.QVBoxLayout()
+        layout.setContentsMargins(2, 2, 2, 2)
+        layout.setSpacing(0)
+
+        self.slider_max_value = 4
+        self.slider_min = CustomSlider(0, self.slider_max_value)
+        self.slider_min.valueChanged.connect(self.update_values)
+        layout.addWidget(self.slider_min)
+
+        self.slider_max = CustomSlider(0, self.slider_max_value)
+        self.slider_max.valueChanged.connect(self.update_values)
+        self.slider_max.setTickPosition(QW.QSlider.TicksBelow)
+        layout.addWidget(self.slider_max)
+
+        self.labels_widget = QW.QWidget()
+        lay = QW.QHBoxLayout(self.labels_widget)
+        lay.setContentsMargins(3, 0, 3, 0)
+        for tick in range(self.slider_max_value + 1):
+            label = QW.QLabel(str(tick))
+            label.setAlignment(QC.Qt.AlignCenter)
+            lay.addWidget(label)
+            if tick < self.slider_max_value:
+                lay.addItem(
+                    QW.QSpacerItem(
+                        0, 0, QW.QSizePolicy.Expanding, QW.QSizePolicy.Minimum
+                    )
+                )
+
+        layout.addWidget(self.labels_widget)
+        layout.addStretch()
+        self.setLayout(layout)
+
+
+    def set_values(self, min_val: int, max_val: int):
+        """Set the values of the range and update the UI."""
+        assert min_val <= max_val
+        self.slider_max.setValue(max_val)
+        self.slider_min.setValue(min_val)
+        self.update_values()
+
+    def update_values(self):
+        min_val = self.slider_min.value()
+        max_val = self.slider_max.value()
+        if min_val >= max_val:
+            self.slider_max.setValue(min_val)
+        if max_val <= min_val:
+            self.slider_min.setValue(max_val)
+        self.update()  # necessary to have nice painting of the area in between
+        self.value_changed.emit()
+
+    def get_values(self) -> tuple[int, int]:
+        """Get the current values of the sliders as a range of ints"""
+        return self.slider_min.value(), self.slider_max.value()
+
+    def paintEvent(self, event):
+        # Create a painter to highlight the area in between the sliders
+        painter = QG.QPainter(self)
+        painter.setRenderHint(QG.QPainter.Antialiasing)
+
+        # Calculate the positions of the slider handles:
+        s1 = self.slider_min
+        min_pos = s1.pos().x() + int(s1.value() * s1.width() / self.slider_max_value)
+        y1 = int(s1.pos().y() + s1.height() / 2)
+        h1 = int(s1.height() / 2)
+
+        s2 = self.slider_max
+        max_pos = s2.pos().x() + int(s2.value() * s2.width() / self.slider_max_value)
+
+        color_range_rect = min_pos, y1 + 2, max_pos - min_pos, h1 * 2 - 4
+
+        # Draw color range
+        painter.fillRect(*color_range_rect, QC.Qt.darkGreen)

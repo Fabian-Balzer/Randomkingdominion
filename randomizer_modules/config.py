@@ -10,6 +10,17 @@ import numpy as np
 from .constants import FPATH_RANDOMIZER_CONFIG, RENEWED_EXPANSIONS
 
 
+def add_renewed_base_expansions(expansions: list[str]) -> list[str]:
+    """For the given list of expansions (e.g. [Seaside 2E, Base 1E, Menagerie]),
+    add the underlying common expansions.
+    """
+    for renewed_exp in RENEWED_EXPANSIONS:
+        # If e.g. Seaside, 2E is selected, also put Seaside in.
+        if any(renewed_exp in exp for exp in expansions):
+            expansions.append(renewed_exp)
+    return expansions
+
+
 class CustomConfigParser(ConfigParser):
     def get_expansions(self, add_renewed_bases=True) -> list[str]:
         """Turn the internally as string saved expansions into a list."""
@@ -17,11 +28,7 @@ class CustomConfigParser(ConfigParser):
         expansions = json.loads(value)
         if not add_renewed_bases:
             return expansions
-        for renewed_exp in RENEWED_EXPANSIONS:
-            # If e.g. Seaside, 2E is selected, also put Seaside in.
-            if any(renewed_exp in exp for exp in expansions):
-                expansions.append(renewed_exp)
-        return expansions
+        return add_renewed_base_expansions(expansions)
 
     def set_expansions(self, expansions: list[str]):
         """Save the given list of expansions as a string in the config options."""
@@ -37,11 +44,17 @@ class CustomConfigParser(ConfigParser):
         """Save the given list of values as a string in the config options."""
         self.set("Specialization", option_key, json.dumps(values))
 
-    def get_quality(self, qual_name) -> int:
+    def get_requested_quality(self, qual_name: str) -> int:
         return self.getint("Qualities", "requested_" + qual_name)
 
-    def set_quality(self, qual_name: str, value: int):
+    def set_requested_quality(self, qual_name: str, value: int):
         self.set("Qualities", "requested_" + qual_name, str(value))
+
+    def get_forbidden_quality(self, qual_name: str) -> bool:
+        return self.getboolean("Qualities", "forbid_" + qual_name)
+
+    def set_forbidden_quality(self, qual_name: str, value: bool):
+        self.set("Qualities", "forbid_" + qual_name, str(value))
 
     def save_to_disk(self, fpath=FPATH_RANDOMIZER_CONFIG):
         """Convenience func to store the config options in the config file."""

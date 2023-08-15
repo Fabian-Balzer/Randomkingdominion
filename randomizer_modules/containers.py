@@ -2,17 +2,19 @@ from PyQt5 import QtCore as QC
 from PyQt5 import QtGui as QG
 from PyQt5 import QtWidgets as QW
 
-from .base_widgets import QualityIcon, HorizontalBarWidget
+from .base_widgets import HorizontalBarWidget, QualityIcon
 from .config import CustomConfigParser
 from .constants import QUALITIES_AVAILABLE
 from .creator_functions import (
+    GeneralRandomizerSettingsWidget,
     AttackTypeGroupWidget,
     ExpansionGroupWidget,
     QualitySelectionGroupWidget,
     create_buttons,
 )
 from .data_handling import DataContainer
-from .kingdom import Kingdom, KingdomDisplayWidget
+from .kingdom import Kingdom
+from .kingdom_display_widget import KingdomDisplayWidget
 
 
 class ScrollableGroupBox(QW.QGroupBox):
@@ -58,26 +60,32 @@ class SingleQualityDisplay(QW.QWidget):
     def __init__(self, qual: str):
         super().__init__()
         self.name = qual
-        self.descriptor_image = QualityIcon(self.name)
+        self.descriptor_icon = QualityIcon(self.name)
         self.descriptor_label = QW.QLabel(qual.capitalize())
         self.descriptor_label.setFixedSize(80, 40)
         self.bar_wid = HorizontalBarWidget()
         self.bar_wid.setFixedSize(150, 30)
         self.value_name_label = QW.QLabel("-")
+        self.unique_types_label = QW.QLabel("-")
 
         lay = QW.QHBoxLayout(self)
         lay.setAlignment(QC.Qt.AlignLeft)
         lay.setContentsMargins(0, 0, 0, 0)
         lay.setSpacing(3)
-        lay.addWidget(self.descriptor_image)
+        lay.addWidget(self.descriptor_icon)
         lay.addWidget(self.descriptor_label)
         lay.addWidget(self.bar_wid)
         lay.addWidget(self.value_name_label)
+        lay.addWidget(self.unique_types_label)
 
-    def set_total_quality_value(self, value: int):
+    def set_total_quality_value(self, kingdom: Kingdom):
         """Manipulate the state of this widget to set the quality value"""
+        self.setToolTip(kingdom.get_card_string_for_quality(self.name))
+        value = kingdom.total_qualities[self.name]
         self.value_name_label.setText(self.quality_name_dict[value])
         self.bar_wid.setValue(value)
+        self.descriptor_icon.set_overlay_cross(value == 0)
+        self.unique_types_label.setText(kingdom.get_unique_types(self.name))
 
 
 class KingdomStatsDisplay(QW.QGroupBox):
@@ -96,8 +104,8 @@ class KingdomStatsDisplay(QW.QGroupBox):
 
     def display_kingdom_stats(self, kingdom: Kingdom):
         """Update the display given the new kingdom"""
-        for qual, val in kingdom.total_qualities.items():
-            self.wid_dict[qual].set_total_quality_value(val)
+        for qual in QUALITIES_AVAILABLE:
+            self.wid_dict[qual].set_total_quality_value(kingdom)
 
 
 class WidgetContainer:
@@ -117,6 +125,7 @@ class WidgetContainer:
         self.attack_type_group = AttackTypeGroupWidget(
             data_container.all_attack_types, config
         )
+        self.general_settings_group = GeneralRandomizerSettingsWidget(config)
         self.quality_selection_group = QualitySelectionGroupWidget(config)
         self.main_layout = QW.QHBoxLayout()
 
@@ -135,6 +144,7 @@ class WidgetContainer:
     def _init_settings_widget(self) -> QW.QVBoxLayout:
         scroll_content_wid = ScrollableGroupBox("Settings")
         scroll_content_wid.addWidget(self.expansion_group)
+        scroll_content_wid.addWidget(self.general_settings_group)
         scroll_content_wid.addWidget(self.quality_selection_group)
         scroll_content_wid.addWidget(self.attack_type_group)
         scroll_content_wid.content_layout.addStretch()

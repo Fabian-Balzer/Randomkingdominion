@@ -1,17 +1,13 @@
 """File to contain the KingdomQualities and the Kingdom classes"""
 import random
 import time
-from math import ceil
-from typing import Optional
+from functools import reduce
 
 import numpy as np
 import pandas as pd
-import PyQt5.QtCore as QC
-import PyQt5.QtWidgets as QW
 
-from .base_widgets import KingdomCardImageWidget
-from .config import CustomConfigParser
-from .constants import QUALITIES_AVAILABLE, EmptyError
+from .config import CustomConfigParser, add_renewed_base_expansions
+from .constants import QUALITIES_AVAILABLE
 from .utils import filter_column, get_mask_for_listlike_col_to_contain_any
 
 
@@ -39,28 +35,35 @@ def _get_total_quality(qual_name: str, kingdom_df: pd.DataFrame) -> int:
     return _calculate_total_quality(value_list)
 
 
+def _sort_kingdom(df: pd.DataFrame) -> pd.DataFrame:
+    """Sort the kingdom such that the supply cards come first, then the landscapes,
+    then it is sorted by cost, then by name.
+    """
+    return df.sort_values(
+        by=["IsInSupply", "IsLandscape", "IsOtherThing", "Cost", "Name"],
+        ascending=[False, False, False, True, True],
+    )
+
+
 class Kingdom:
-    card_df = None
+    """Represents a single static Kingdom."""
+
     history = []
 
-    def __init__(
-        self,
-        all_cards: pd.DataFrame,
-        config: CustomConfigParser,
-        kingdom_cards: Optional[list[str]] = None,
-        landscapes: Optional[list[str]] = None,
-        ally: str = None,
-    ):
-        self.total_qualities: dict[str, int] = {qual: 0 for qual in QUALITIES_AVAILABLE}
-        self.config = config
-        self.card_df = all_cards
-        # Each kingdom at first does not contain any cards.
-        # They need to be added later.
-        self.kingdom_cards: list[str] = kingdom_cards if kingdom_cards else []
-        self.landscapes: list[str] = landscapes if landscapes else []
-        self.ally = ally if ally else ""
-        self.non_supply: list[str] = []
+    def __init__(self, kingdom_df: pd.DataFrame):
         self.id = time.time_ns()
+
+        kingdom_df = _sort_kingdom(kingdom_df)
+
+        self.full_kingdom_df = kingdom_df
+        is_ally = kingdom_df.Types.apply(lambda x: "Ally" in x)
+        self.kingdom_card_df = kingdom_df[~kingdom_df["IsLandscape"] & ~is_ally]
+        self.landscape_df = kingdom_df[kingdom_df["IsLandscape"] & ~is_ally]
+        self.ally_df = kingdom_df[is_ally]
+
+        self.non_supply: list[str] = []
+        self.total_qualities: dict[str, int] = {qual: 0 for qual in QUALITIES_AVAILABLE}
+        self.set_quality_values()
         self.history.append(self)
 
         self.special_targets = {
@@ -71,7 +74,7 @@ class Kingdom:
         }
 
     def __str__(self):
-        s = self.get_kingdom_df().to_string(
+        s = self.full_kingdom_df.to_string(
             columns=["Name", "Cost", "Expansion"], index=False
         )
         quality_summary = "\n".join(
@@ -84,247 +87,287 @@ class Kingdom:
 
     def get_csv_representation(self):
         """TODO: proper Bane/Trait/Mouse/Druid Boons representation"""
-        return ", ".join(card for card in self.get_kingdom_df()["Name"])
+        return ", ".join(card for card in self.full_kingdom_df["Name"])
 
     def set_quality_values(self):
         """Update the quality values for this kingdom by summing them up."""
         for qual in QUALITIES_AVAILABLE:
-            val = _get_total_quality(qual, self.get_kingdom_df())
+            val = _get_total_quality(qual, self.full_kingdom_df)
             self.total_qualities[qual] = val
 
-    def get_kingdom_df(self) -> pd.DataFrame:
-        """Get a dataframe representing only the kingdom cards/landscapes."""
-        df = self.card_df[
-            self.card_df["Name"].isin(
-                self.kingdom_cards + self.landscapes + [self.ally]
-            )
-        ].sort_values(
-            by=["IsInSupply", "IsLandscape", "IsOtherThing", "Cost", "Name"],
-            ascending=[False, False, False, True, True],
+    def get_card_string_for_quality(self, qual_name: str) -> str:
+        """Get a string to describe which cards contribute to the given
+        quality, and how much they do that.
+
+        Parameters
+        ----------
+        qual_name : str
+            The name of the quality.
+
+        Returns
+        -------
+        str
+            The description containing the cards.
+        """
+        qual_name += "_quality"
+        df = self.full_kingdom_df
+        sub_df = df[df[qual_name] > 0].sort_values(qual_name)
+        return ", ".join(
+            [f"{card.Name} ({card[qual_name]})" for _, card in sub_df.iterrows()]
         )
-        return df
 
-    def get_kingdom_card_df(self) -> pd.DataFrame:
-        """Return the subset of the kingdom containing only the cards."""
-        df = self.get_kingdom_df()
-        return df[df["Name"].isin(self.kingdom_cards)]
+    def get_unique_types(self, type_name: str) -> str:
+        """For the given quality name, return all of the unique types
+        that are part of the kingdom (e.g. all gain types, which might be a list
+        of [Buys, Workshop] etc.)
+        """
+        type_name += "_types"
+        if not type_name in self.full_kingdom_df.columns:
+            return ""
+        df = self.full_kingdom_df
+        avail_types = reduce(lambda x, y: x + y, df[type_name])
+        if len(avail_types) == 0:
+            return ""
+        unique_types = np.unique(avail_types)
+        return str(sorted(unique_types))
 
-    def get_landscape_df(self) -> pd.DataFrame:
-        """Return the subset of the kingdom containing only the landscapes"""
-        df = self.get_kingdom_df()
-        return df[df["Name"].isin(self.landscapes)]
 
-    def get_all_ally_df(self) -> pd.DataFrame:
-        """Retrieve all possible allies"""
-        return self.card_df[self.card_df["Types"].apply(lambda x: "Ally" in x)]
+class KingdomRandomizer:
+    """A class that can be used to randomize a kingdom based on the current config settings."""
 
-    def get_ally_df(self) -> pd.DataFrame:
-        """Get the Ally that was chosen for this kingdom"""
-        df = self.get_kingdom_df()
-        return df[df["Types"].apply(lambda x: "Ally" in x)]
+    def __init__(self, all_cards: pd.DataFrame, config: CustomConfigParser):
+        self.all_cards = all_cards
+        self.config = config
+        self.rerolled_cards: list[str] = []
+        # A DataFrame to contain all cards that have already been selected:
+        self.already_selected_df: pd.DataFrame = all_cards[:0]
+        self.initial_draw_pool = self.get_initial_draw_pool()
 
-    def randomize(self, rerolled_cards: list[str]):
-        """Perform randomization with an attempt to discard all formerly rerolled
-        cards."""
-        try:
-            draw_pool = self.get_draw_pool(rerolled_cards)
-        except EmptyError:
-            return
-        num_objs_to_draw = self.config.getint(
-            "General", "num_cards"
-        ) + self.config.getint("General", "num_landscapes")
-        for _ in range(num_objs_to_draw):
-            new_pick_name = self.pick_card_or_landscape(draw_pool)
-            draw_pool = draw_pool[draw_pool["Name"] != new_pick_name]
-            self.set_quality_values()
-        # Pick a bane card in case the young witch is amongst the picks:
-        if "Young Witch" in self.kingdom_cards:
-            new_pick_name = self.pick_bane_card(draw_pool)
-            draw_pool = draw_pool[draw_pool["Name"] != new_pick_name]
-            self.set_quality_values()
-        # In case just the ally has been rerolled:
-        if (
-            self.ally == ""
-            and len(
-                self.get_kingdom_card_df()[
-                    self.get_kingdom_card_df()["Types"].apply(lambda x: "Liaison" in x)
-                ]
-            )
-            > 0
-        ):
-            self.ally = self.get_all_ally_df().sample(n=1).iloc[0]["Name"]
+        self.quality_of_selection: dict[str, int] = {
+            qual: 0 for qual in QUALITIES_AVAILABLE
+        }
 
-    def get_draw_pool(self, rerolled_cards: list[str]):
-        # Discard everything not contained in the requested sets
-        if len(self.config.get_expansions()) == 0:
-            raise EmptyError
-        pool = filter_column(self.card_df, "Expansion", self.config.get_expansions())
-        allowed_types = self.config.get_special_list("attack_types")
+    def reset(self):
+        self.rerolled_cards: list[str] = []
+        self.already_selected_df = self.already_selected_df[:0]
+
+    def get_initial_draw_pool(self) -> pd.DataFrame:
+        """Create the initial draw pool for the kingdom.
+        This is the overarching one that is used for all of the draws,
+        so here we filter for requested expansions, allowed attack types,
+        cards that are in the supply, and remove all cards with forbidden
+        qualities.
+        """
+        pool = self.all_cards
+        # Reduce the pool to the requested expansions:
+        eligible_expansions = self._determine_eligible_expansions()
+        pool = filter_column(pool, "Expansion", eligible_expansions)
+
+        # Reduce the pool to exclude any attacks that are not wanted
+        _allowed_attack_types = self.config.get_special_list("attack_types")
         mask = get_mask_for_listlike_col_to_contain_any(
-            pool.attack_types, allowed_types, empty_too=True
+            pool.attack_types, _allowed_attack_types, empty_too=True
         )
         pool = pool[mask]
-        # Discard all non-supply-cards as we don't need them to draw from
-        pool = pool[pool["IsInSupply"] | pool["IsLandscape"]]
-        pool = pool[~np.isin(pool.Name, self.kingdom_cards + self.landscapes)]
-        if len(pool) == 0:
-            raise EmptyError
-        # Make sure to not include rerolled cards, but reconsider them if no other cards are left:
-        not_rerolled_mask = ~np.isin(pool.Name, rerolled_cards)
-        if np.sum(not_rerolled_mask) > 0:
-            pool = pool[not_rerolled_mask]
+
+        pool = self._exclude_forbidden_qualities(pool)
+
+        # Discard all non-supply-non-landscape cards as we don't need them to draw from
+        is_ally = pool.Types.apply(lambda x: "Ally" in x)
+        pool = pool[pool["IsInSupply"] | pool["IsLandscape"] | is_ally]
+
+        pool = pool.set_index("Name", drop=False)
+        pool = pool.drop(self.rerolled_cards, errors="ignore")
+        pool = pool.drop(self.already_selected_df.Name, errors="ignore")
         return pool
 
-    def pick_card_or_landscape(self, draw_pool: pd.DataFrame) -> str:
-        """Adds a card or landscape fitting the needs to the picked selection"""
-        narrowed_pool = self.create_narrowed_pool(draw_pool)
-        if len(narrowed_pool) > 0:
-            pick = narrowed_pool.sample(n=1)
-        else:
-            # print("Could not find any more cards/landscapes to draw from.")
-            return ""
-        name = pick.iloc[0]["Name"]
-        if pick.iloc[0]["IsLandscape"]:
-            self.landscapes.append(name)
-        else:
-            self.kingdom_cards.append(name)
-        if self.ally == "" and "Liaison" in pick.iloc[0]["Types"]:
-            self.ally = self.get_all_ally_df().sample(n=1).iloc[0]["Name"]
-        return name
-        # TODO: Append Associated cards
+    def _determine_eligible_expansions(self) -> list[str]:
+        """From all of the expansions the user has selected, sub-select a number
+        that corresponds to the one the user has chosen."""
+        all_expansions = self.config.get_expansions(add_renewed_bases=False)
+        max_num_expansions = self.config.getint("General", "max_num_expansions")
+        if max_num_expansions == 0:
+            return add_renewed_base_expansions(all_expansions)
+        sampled_expansions = random.sample(all_expansions, k=max_num_expansions)
+        return add_renewed_base_expansions(sampled_expansions)
 
-    def pick_bane_card(self, draw_pool: pd.DataFrame) -> str:
-        pool = self.create_narrowed_pool(
-            draw_pool, exclude_picked_quantities=False, cost_limits=["$2", "$3"]
-        )
-        if len(pool) > 0:
-            pick = pool.sample(n=1)
-        else:
-            # print("Could not find any more cards/landscapes to draw from.")
-            return ""
-        name = pick.iloc[0]["Name"]
-        self.kingdom_cards.append(name)
-        self.special_targets["Bane"] = name
-        return name
+    def _exclude_forbidden_qualities(self, pool: pd.DataFrame) -> pd.DataFrame:
+        """Filter the pool to exclude any quality that is not wanted."""
+        for qual in QUALITIES_AVAILABLE:
+            if self.config.get_forbidden_quality(qual):
+                pool = pool[pool[qual + "_quality"] == 0]
+        return pool
 
-    def _limit_pool_to_remaining_requirements(
-        self, draw_pool: pd.DataFrame
+    def _set_quality_values(self):
+        """Update the quality values for the selected dataframe by summing them up."""
+        for qual in QUALITIES_AVAILABLE:
+            val = _get_total_quality(qual, self.already_selected_df)
+            self.quality_of_selection[qual] = val
+
+    def randomize_new_kingdom(self) -> Kingdom:
+        self.reset()
+        if len(self.config.get_expansions()) == 0:
+            return
+
+        self.initial_draw_pool = self.get_initial_draw_pool()
+
+        num_cards = self.config.getint("General", "num_cards")
+        num_landscapes = self._determine_landscape_number()
+
+        for _ in range(num_cards):
+            narrowed_pool = self._get_draw_pool_for_card()
+            self.savely_pick_from_pool(narrowed_pool)
+        for _ in range(num_landscapes):
+            narrowed_pool = self._get_draw_pool_for_landscape()
+            self.savely_pick_from_pool(narrowed_pool)
+
+        # Pick a bane card in case the Young Witch is amongst the picks:
+        if "Young Witch" in self.already_selected_df.Name:
+            narrowed_pool = self._get_draw_pool_for_card(for_bane=True)
+            bane = self.savely_pick_from_pool(narrowed_pool)
+
+        # Pick a Mouse card in case the Young Witch is amongst the picks:
+        if "Way of the Mouse" in self.already_selected_df.Name:
+            narrowed_pool = self._get_draw_pool_for_card(for_bane=True)
+            mouse_card = self.savely_pick_from_pool(narrowed_pool)
+
+        # Pick a bane card in case the Young Witch is amongst the picks:
+        if "Obelisk" in self.already_selected_df.Name:
+            pool = self.already_selected_df
+            pool = pool[pool.Types.apply(lambda x: "Action" in x)]
+            obelisk_card = self.savely_pick_from_pool(pool)
+
+        # Pick an Ally if necessary:
+        if self.does_selection_contain_type("Liaison"):
+            narrowed_pool = self._get_draw_pool_for_ally()
+            ally = self.savely_pick_from_pool(narrowed_pool)
+
+        # Pick a Trait target if necessary:
+        if self.does_selection_contain_type("Trait"):
+            pool = self.already_selected_df
+            pool = pool[pool.Types.apply(lambda x: "Action" in x or "Treasure" in x)]
+            trait_target = self.savely_pick_from_pool(pool)
+
+        return Kingdom(self.already_selected_df)
+
+    def _determine_landscape_number(self) -> int:
+        min_num = self.config.getint("General", "min_num_landscapes")
+        max_num = self.config.getint("General", "max_num_landscapes")
+        return random.randint(min_num, max_num)
+
+    def _get_draw_pool_for_card(self, for_bane=False) -> pd.DataFrame:
+        pool = self.initial_draw_pool
+        pool = pool[~pool["IsLandscape"] & pool["IsInSupply"]]
+        pool = self._narrow_pool_for_parameters(pool)
+        if for_bane:
+            pool = self._reduce_pool_for_cost(pool, ["$2", "$3"])
+        return pool
+
+    def _reduce_pool_for_cost(
+        self, pool: pd.DataFrame, cost_limits: list[str]
     ) -> pd.DataFrame:
-        """Exclude Kingdom cards and landscapes if the requested quantities have already been picked."""
-        if len(self.landscapes) == self.config.getint("General", "num_landscapes"):
-            draw_pool = draw_pool[~draw_pool["IsLandscape"]]
-        # Discard any secondary ways:
-        if self.contains_way():
-            draw_pool = draw_pool[draw_pool["Types"].apply(lambda x: "Way" not in x)]
-        if len(self.kingdom_cards) == self.config.getint("General", "num_cards"):
-            draw_pool = draw_pool[draw_pool["IsLandscape"]]
-        return draw_pool
+        return pool[pool.Cost.isin(cost_limits)]
 
-    def create_narrowed_pool(
-        self,
-        draw_pool: pd.DataFrame,
-        exclude_picked_quantities=True,
-        cost_limits: list[str] | None = None,
-    ):
-        """Creates a pool of cards to pick from.
-        Discards cards that have been rerolled unless this would imply that none are left.
-        """
-        if exclude_picked_quantities:
-            draw_pool = self._limit_pool_to_remaining_requirements(draw_pool)
-        else:
-            draw_pool = draw_pool[~draw_pool["IsLandscape"]]
-        if cost_limits:
-            draw_pool = draw_pool[draw_pool.Cost.isin(cost_limits)]
-        # TODO: Add Rerolled cards in case this leads to nothing
-        # Create a dictionary for args that still require fulfilment (i. e. VQ is set to 7-4 if the kingdom already contains a VQ of 4)
-        choices = {}
-        for qual in self.total_qualities:
-            val = self.config.get_quality(qual) - self.total_qualities[qual]
-            if val > 0:
-                choices[qual] = val
-        if len(choices) > 0:  # pick a quality defining this draw
+    def _get_draw_pool_for_landscape(self) -> pd.DataFrame:
+        pool = self.initial_draw_pool
+        pool = pool[pool["IsLandscape"]]
+        if self.does_selection_contain_type("Way"):
+            pool = pool[pool["Types"].apply(lambda x: "Way" not in x)]
+        pool = self._narrow_pool_for_parameters(pool)
+        return pool
+
+    def _get_draw_pool_for_ally(self) -> pd.DataFrame:
+        pool = self.initial_draw_pool
+        is_ally = pool.Types.apply(lambda x: "Ally" in x)
+        pool = pool[is_ally]
+        pool = self._narrow_pool_for_parameters(pool)
+        return pool
+
+    def savely_pick_from_pool(self, pool: pd.DataFrame):
+        """Add the given pick to the already selected cards."""
+        if len(pool) == 0:
+            return
+        pick = pool.sample(n=1)
+        self.already_selected_df = pd.concat([self.already_selected_df, pick])
+        self._set_quality_values()
+        self.initial_draw_pool = self.initial_draw_pool.drop(pick.Name, errors="ignore")
+        return pick
+
+    def _narrow_pool_for_parameters(self, pool: pd.DataFrame) -> pd.DataFrame:
+        # Create a dictionary for args that still require fulfilment (i. e. VQ is set to 4-2 if the kingdom already contains a VQ of 4)
+        quals_to_pick_from: dict[str, int] = {}
+        for qual, diff_to_desired in self.quality_of_selection.items():
+            if self.config.get_forbidden_quality(qual):
+                continue  # We should not try to access forbidden qualities here.
+            diff_to_desired = self.config.get_requested_quality(qual) - diff_to_desired
+            if diff_to_desired > 0:
+                # Set the difference as the weight for this quality to be picked
+                quals_to_pick_from[qual] = diff_to_desired
+        # Pick a quality that should define the next pick:
+        if len(quals_to_pick_from) > 0:
             # weighting the choices by urgency
-            qual = random.choice([k for k in choices for x in range(choices[k])])
-            min_qual_val = random.randint(1, min(6, choices[qual]))
+            qual = random.choice(
+                [k for k, weight in quals_to_pick_from.items() for _ in range(weight)]
+            )
+            min_qual_val = random.randint(1, min(3, quals_to_pick_from[qual]))
             defining_quality = qual + "_quality"
-            before_narrowing = draw_pool
-            draw_pool = draw_pool[draw_pool[defining_quality] >= min_qual_val]
+            before_narrowing = pool
+            pool = pool[pool[defining_quality] >= min_qual_val]
             # If the constraints are too much, do not constrain it.
-            if len(draw_pool) == 0:
-                draw_pool = before_narrowing
-        return draw_pool
+            if len(pool) == 0:
+                pool = before_narrowing
+        return pool
 
-    def contains_way(self) -> bool:
-        """Returns wether the kingdom already contains a way."""
-        df = self.get_kingdom_df()
-        return len(df[df["Types"].apply(lambda x: "Way" in x)]) > 0
+    def does_selection_contain_type(self, card_type: str) -> bool:
+        """Returns wether the selection already contains at least one card
+        with the given type."""
+        df = self.already_selected_df
+        return len(df[df["Types"].apply(lambda x: card_type in x)]) > 0
 
+    def reroll_single_card(self, old_kingdom: Kingdom, card_name: str) -> Kingdom:
+        """Take the old kingdom, reroll one card, and return the new one with
+        that card rerolled."""
+        self.already_selected_df = old_kingdom.full_kingdom_df
+        self.rerolled_cards.append(card_name)
+        card = self.already_selected_df.loc[card_name]
 
-class KingdomDisplayWidget(QW.QWidget):
-    """Display all the kingdom cards (but not the landscapes) in
-    an array similar to how DomBot provides it.
-    Also hosts the buttons for rerolling which need to be
-    reconnected externally."""
+        self.already_selected_df = self.already_selected_df.drop(card_name)
+        # TODO: Reroll Ally, Bane, or other reroll!
+        self.initial_draw_pool = self.get_initial_draw_pool()
+        if card.IsLandscape:
+            narrowed_pool = self._get_draw_pool_for_landscape()
+            self.savely_pick_from_pool(narrowed_pool)
+        else:
+            narrowed_pool = self._get_draw_pool_for_card()
+            self.savely_pick_from_pool(narrowed_pool)
+        return Kingdom(self.already_selected_df)
 
-    def __init__(self):
-        super().__init__()
-        lay = QW.QGridLayout(self)
-        lay.setContentsMargins(3, 3, 3, 3)
-        lay.setSpacing(0)
-        lay.setAlignment(QC.Qt.AlignTop | QC.Qt.AlignLeft)
-        self.grid_layout = lay
-        self.setAutoFillBackground(True)
-        # palette = self.palette()
-        # palette.setColor(self.backgroundRole(), QC.Qt.black)
-        # self.setPalette(palette)
-
-        # Dictionary to contain buttons to be connected for the rerolling
-        self.reroll_button_dict = {}
-
-    def replace_images(
-        self,
-        kingdom: Kingdom,
-    ):
-        """Resets the widget by clearing the grid layout and displaying
-        the kingdom"""
-        while self.grid_layout.count():
-            item = self.grid_layout.itemAt(0)
-            self.grid_layout.removeItem(item)
-            widget = item.widget()
-            if widget:
-                widget.deleteLater()
-        self.reroll_button_dict = {}
-
-        # Recreate the image grid
-        self.display_kingdom_cards(kingdom)
-        self.display_kingdom_landscapes(kingdom)
-
-    def display_kingdom_cards(self, kingdom: Kingdom):
-        kingdom_df = kingdom.get_kingdom_card_df()
-        inverted_specialities = {v: k for k, v in kingdom.special_targets.items()}
-        num_rows = 2
-        num_cols = ceil(len(kingdom_df) / num_rows)
-        for row in range(num_rows):
-            for col in range(num_cols):
-                index = row * num_cols + col
-                if index >= len(kingdom_df):
-                    continue
-                card = kingdom_df.iloc[index]
-                special_text = (
-                    inverted_specialities[card.Name]
-                    if card.Name in inverted_specialities
-                    else None
-                )
-                wid = KingdomCardImageWidget(card, special_text=special_text)
-                self.reroll_button_dict[card.Name] = wid.reroll_button
-                self.grid_layout.addWidget(wid, row, col)
-
-    def display_kingdom_landscapes(self, kingdom: Kingdom):
-        kingdom_df = kingdom.get_landscape_df()
-
-        num_cols = len(kingdom_df)
-        for col in range(num_cols):
-            landscape = kingdom_df.iloc[col]
-            wid = KingdomCardImageWidget(landscape)
-            self.reroll_button_dict[landscape.Name] = wid.reroll_button
-            self.grid_layout.addWidget(wid, 2, col * 2, 1, 2)
+        # kept_cards = [card for card in self.kingdom.kingdom_cards if card != old_card]
+        # if old_card == "Young Witch":
+        #     kept_cards = [
+        #         card
+        #         for card in kept_cards
+        #         if card != self.kingdom.special_targets["Bane"]
+        #     ]
+        # kept_landscapes = [card for card in self.kingdom.landscapes if card != old_card]
+        # kept_ally = self.kingdom.ally if old_card != self.kingdom.ally else ""
+        # if (
+        #     len(
+        #         self.kingdom.get_kingdom_df()[
+        #             self.kingdom.get_kingdom_df()["Types"].apply(
+        #                 lambda x: "Liaison" in x
+        #             )
+        #         ]
+        #     )
+        #     == 0
+        # ):
+        #     kept_ally = ""
+        # self.kingdom = Kingdom(
+        #     self.all_cards,
+        #     config=self.config,
+        #     kingdom_cards=kept_cards,
+        #     landscapes=kept_landscapes,
+        #     ally=kept_ally,
+        # )
+        # self.rerolled_cards.append(old_card)
+        # self.kingdom.randomize(self.rerolled_cards)

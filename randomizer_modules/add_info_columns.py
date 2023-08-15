@@ -1,5 +1,6 @@
 import json
 from collections import defaultdict
+from functools import reduce
 
 import pandas as pd
 
@@ -127,7 +128,7 @@ def test_in_supply(df):
     return ~series
 
 
-def add_bool_columns(df):
+def add_bool_columns(df: pd.DataFrame) -> pd.DataFrame:
     """Adds some boolean columns and saves the types as a list"""
     df["Types"] = df["Types"].str.split(" - ")
     df["IsLandscape"] = test_landscape(df)
@@ -209,9 +210,91 @@ def add_split_piles(df):
             pathbase + pile["Name"].replace("/", "_").replace(" ", "_") + ".jpg"
         )
         pile_dict = {key: [val] for key, val in pile.items()}
-        pile_line = pd.DataFrame(pile_dict)
-        df = df.append(pile_line, sort=False)
+        df = pd.concat([df, pd.DataFrame(pile_dict)])
     return df
+
+
+def determine_amount(card: pd.Series):
+    if "Loot" in card.Types:
+        return "2"
+    if "State" in card.Types:
+        if card.Name == "Lost in the Woods":
+            return "1"
+        else:
+            return "2*"
+    iscastle = "Castle" in card.Types and not card.Name == "Castles"
+    if iscastle:
+        if card.Name in [
+            "Humble Castle",
+            "Small Castle",
+            "Opulent Castle",
+            "King's Castle",
+        ]:
+            return "1*"
+        else:
+            return "1"
+    isknight = "Knight" in card.Types and not card.Name == "Knights"
+    isartifact = "Artifact" in card.Types
+    isally = "Ally" in card.Types
+    isprize = "Prize" in card.Types
+    iszombie = "Zombie" in card.Name
+    if any(
+        [
+            card.IsLandscape,
+            card.IsOtherThing,
+            isknight,
+            isartifact,
+            isally,
+            isprize,
+            iszombie,
+        ]
+    ):
+        return "1"
+    if "Ruin" in card.Types:
+        return "?"
+    if "Heirloom" in card.Types:
+        return "2*"
+    if "Shelter" in card.Types:
+        return "2*"
+    special_dict = {
+        "Copper": 46,
+        "Silver": 40,
+        "Gold": 30,
+        "Curse": "10*",
+        "Platinum": 12,
+        "Ruins": "10*",
+        "Horse": 30,
+        "Potion": 16,
+        "Teacher": 5,
+        "Peasant": "10*",
+        "Champion": 5,
+        "Will-o'-Wisp": 12,
+        "Wish": 12,
+        "Imp": 12,
+        "Ghost": 5,
+        "Rats": 20,
+        "Ports": 12,
+    }
+    if card.Name in special_dict:
+        return str(special_dict[card.Name])
+    if "Traveller" in card.Types:
+        return "5"
+    if card.Name in ROTATOR_DICT:
+        return "4x4"
+    if card.Name in reduce(lambda x, y: x + y, ROTATOR_DICT.values()):
+        return "4"
+    splitpile_cards = reduce(
+        lambda x, y: x + y, [name.split("/") for name in SPLITPILE_DICT.keys()]
+    )
+    if card.Name in splitpile_cards:
+        return "5"
+    if card.Name in SPLITPILE_DICT:
+        return "2x5"
+    if card.Name in reduce(lambda x, y: x + y, ROTATOR_DICT.values()):
+        return "4"
+    if "Victory" in card.Types:
+        return "8*"
+    return "10"
 
 
 def add_info_columns(df):
@@ -223,4 +306,5 @@ def add_info_columns(df):
         df[info_type] = df["Name"].apply(
             lambda name: get_specific_info(name, info_type, default_value)
         )
+    df["CardAmount"] = df.apply(determine_amount, axis=1)
     return df
