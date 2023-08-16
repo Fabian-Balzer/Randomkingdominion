@@ -1,11 +1,48 @@
 """Module containing constants, not to be modified!"""
+import os
+from dataclasses import dataclass
 from functools import reduce
 from pathlib import Path
 
 import numpy as np
+import pandas as pd
+from matplotlib import colormaps as cm
 
-from .utils import read_dataframe_from_file
 
+@dataclass
+class ColorPalette:
+    """Registry for the colors used"""
+    selected_green = "rgba(108,197,90,0.7)"
+    way = "rgb(218, 242, 254)"
+    event = "rgb(160, 175, 178)"
+    ally = "darkYellow"
+    landmark = "rgb(73, 156, 96)"
+    trait = "rgb(150, 145, 186)"
+    project = "rgb(236, 172, 165)"
+
+    def get_bar_level_color(self, level_value: int):
+        """Return the color for one of the bar values"""
+        assert 0 <= level_value <=4, f"Wrong level value {level_value}"
+        return cm.get_cmap("Greens")(level_value / 4)
+    
+    def get_color_for_type(self, type_name: str):
+        """Return the color for the given type."""
+        return getattr(self, type_name.lower())
+    
+def read_dataframe_from_file(fpath: str, eval_lists=False):
+    """Read a dataframe"""
+    if os.path.isfile(fpath):
+        df = pd.read_csv(fpath, sep=";", header=0)
+        if eval_lists:
+            for colname in df.columns:
+                if "type" in colname.lower():
+                    # Make sure we properly handle lists
+                    df[colname] = df[colname].apply(eval)
+    else:
+        raise FileNotFoundError(
+            2, "Couldn't find the raw card data file, please download it first."
+        )
+    return df
 
 def get_attack_types(all_cards) -> list[str]:
     all_types = reduce(lambda x, y: x + y, all_cards["attack_types"])
@@ -64,14 +101,18 @@ SPLITPILE_DICT = {
 }
 
 UNIQUEPILE_LIST = ["Castles", "Knights", "Loot"]
-
 LANDSCAPE_LIST = ["Event", "Project", "Way", "Landmark", "Trait"]
 OTHER_OBJ_LIST = ["Hex", "Boon", "State", "Artifact", "Ally", "Loot"]
 
 
 ALL_CARDS = read_dataframe_from_file(FPATH_CARD_DATA, eval_lists=True)
-EXPANSIONS_LIST = list(set(ALL_CARDS["Expansion"]))
-ATTACK_TYPE_LIST = get_attack_types(ALL_CARDS)
+ALL_CARDS["IsAlly"] = ALL_CARDS.Types.apply(lambda x: "Ally" in x)
+ALL_CARDS = ALL_CARDS.set_index("Name", drop=False)
+EXPANSIONS_LIST: list[str] = list(set(ALL_CARDS["Expansion"]))
+ATTACK_TYPE_LIST: list[str] = get_attack_types(ALL_CARDS)
+    
+
+COLOR_PALETTE = ColorPalette()
 
 
 class EmptyError(Exception):

@@ -6,35 +6,32 @@ Things and ideas I am having to improve
 
 ### Backend and implementation stuff
 
-- Refactor Data_Container with get and set methods
-- Refactor widget infrastructure (reorder everything for a nicer structure)
-- Refactor how the randomizer picks cards depending on the attributes given
-- Implement 'Revert to recommended settings' --> The select all/deselect all buttons should be enough.
-- Implement permanent kingdom history of the last 100 kindoms and allow to save kingdoms even more permanently
-- Implement loading kingdoms from and saving to csv
-- Show kingdom strength from general availability of engine components
+- Refactor widget infrastructure (reorder everything for a nicer structure -> Only Buttons left)
+- Fix rerolling of single cards (closely connected with required cards list)
 - Write Tests
 
 ### Randomizer options
 
 - Add options to distribute the cost
-- Add options to have random numbers of landscapes
 - Add options to take other card metadata into account
-- Add options to disable attacks or require reaction
-- Implement picking Trait, Obelisk, Mouse and Bane Cards
+- Cards lists:
+  - Introduce Ban lists
+  - Introduce Required Cards lists
+  - Introduce disliked/liked cards?
+- Add options to disable attacks or require reaction or other quirky things
 
 ### UI
 
-- Add sorting options for kingdom (and fix sorting of debt/potion cost cards)
-- Improve the kingdom overview (nicely display the included expansions)
-- Implement showing the whole kingdom to set up (e.g. Wishes, Boons, Loot)
+- Add capability to manipulate name, notes etc. for a given kingdom in the UI
+- Add sorting options for kingdom (Cost as default, but also Card Name and Expansion?)
+- Improve the kingdom overview
+- Implement showing the whole kingdom to set up (e.g. Wishes, Boons, Loot, Ruins)
 - Implement Shortened Kingdom View (i.e. only name, picture and cost) with toggle between short and long
 - Save the UI state in config (for collapsible views)
 
 ### Card metadata
 
 - Fix debt cost
-- Fix Harem/Farm picture
 - Add Associated Cards (Horses, Knights, Castles, Potion etc.)
 - Add DecisionQuality (high for many decisions, low for i.e. Necro or Gardens)
 
@@ -59,3 +56,14 @@ DONE Add ThinningType (All, Treasure, NoTreasure, Action)?
 DONE Implement showing the number of cards in a setup pile
 DONE options to disable a quality to exclude it from randomization
 DONE options to prioritize an expansion or to choose a subset of expansions  --> Choose max number of expansions possible
+DONE ~~Refactored~~ Removed Data_Container ~~with get and set methods~~ and built randomizer class
+DONE Fix Harem/Farm picture: Removed Harem completely
+DONE Implement 'Revert to recommended settings' --> The select all/deselect all buttons should be enough.
+DONE Implement permanent kingdom history of the last 100 kindoms and allow to save kingdoms even more permanently
+DONE Implement loading kingdoms from and saving to ~~csv~~ yaml
+DONE Show kingdom strength from general availability of engine components (is possible with the bars)
+DONE Add options to have random numbers of landscapes
+DONE Implement picking Trait, Obelisk, Mouse and Bane Cards
+DONE Show expansions used for a kingdom separately
+DONE fix sorting of debt/potion cost cards
+DONE Refactor how the randomizer picks cards depending on the attributes given

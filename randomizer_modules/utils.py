@@ -8,6 +8,8 @@ import numpy as np
 import pandas as pd
 from PyQt5.QtWidgets import QVBoxLayout, QWidget
 
+from .constants import PATH_ASSETS, RENEWED_EXPANSIONS
+
 
 def ask_file_overwrite(fpath: str) -> bool:
     """Prompts the user if there already exists a file at the given fpath
@@ -44,19 +46,6 @@ def ask_file_overwrite(fpath: str) -> bool:
         )
 
 
-def read_dataframe_from_file(fpath: str, eval_lists=False):
-    if os.path.isfile(fpath):
-        df = pd.read_csv(fpath, sep=";", header=0)
-        if eval_lists:
-            for colname in df.columns:
-                if "type" in colname.lower():
-                    # Make sure we properly handle lists
-                    df[colname] = df[colname].apply(eval)
-    else:
-        raise FileNotFoundError(
-            2, "Couldn't find the raw card data file, please download it first."
-        )
-    return df
 
 
 def write_dataframe_to_file(df: pd.DataFrame, fpath: str):
@@ -122,3 +111,22 @@ def override(func):
     Decorator to indicate that a method is overridden.
     """
     return func
+
+def get_expansion_icon_path(expansion: str) -> str:
+    """Returns the image path for the given expansion icon."""
+    base = PATH_ASSETS.joinpath("icons/expansions/")
+    conversion_dict = {}
+    for outdated_exp in RENEWED_EXPANSIONS:
+        conversion_dict[outdated_exp + ", 1E"] = outdated_exp + "_old"
+        conversion_dict[outdated_exp + ", 2E"] = outdated_exp
+    if expansion in conversion_dict:
+        expansion = conversion_dict[expansion]
+    return str(base.joinpath(expansion.replace(" ", "_") + ".png"))
+
+def get_row_and_col(index: int, max_columns: int) -> tuple[int, int]:
+    """Calculate the row and column for the given index in a grid with
+    max_columns as the maximum amount of columns."""
+    row = index // max_columns
+    column = index % max_columns
+    return row, column
+

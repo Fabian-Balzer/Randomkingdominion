@@ -10,12 +10,9 @@ import pandas as pd
 import yaml
 
 from .config import CustomConfigParser, add_renewed_base_expansions
-from .constants import (
-    ALL_CARDS,
-    FPATH_KINGDOMS_LAST100,
-    FPATH_KINGDOMS_RECOMMENDED,
-    QUALITIES_AVAILABLE,
-)
+from .constants import (ALL_CARDS, FPATH_KINGDOMS_LAST100,
+                        FPATH_KINGDOMS_RECOMMENDED, QUALITIES_AVAILABLE,
+                        RENEWED_EXPANSIONS)
 from .utils import filter_column, get_mask_for_listlike_col_to_contain_any
 
 
@@ -47,10 +44,13 @@ def _sort_kingdom(df: pd.DataFrame) -> pd.DataFrame:
     """Sort the kingdom such that the supply cards come first, then the landscapes,
     then it is sorted by cost, then by name.
     """
-    return df.sort_values(
-        by=["IsInSupply", "IsLandscape", "IsOtherThing", "Cost"],
-        ascending=[False, False, False, True],
+    df["CostSort"] = df["Cost"].str.replace("$", "Z")  # To ensure Potion and Debt Cost will be ranked first
+    df["NameSort"] = df["Name"]
+    df = df.sort_values(
+        by=["IsInSupply", "IsLandscape", "IsOtherThing", "CostSort", "NameSort"],
+        ascending=[False, False, False, True, True]
     )
+    return df.drop(["NameSort", "CostSort"], axis=1)
 
 
 def _is_value_not_empty_or_true(val: any) -> bool:
@@ -75,6 +75,26 @@ def _dict_factory_func(attrs: list[tuple[str, str]], ignore_keys: set) -> dict:
     }
 
 
+def _get_draw_pool_for_landscape(initial_pool: pd.DataFrame, exclude_ways=False) -> pd.DataFrame:
+    pool = initial_pool[initial_pool["IsLandscape"]]
+    if exclude_ways:
+        pool = pool[pool["Types"].apply(lambda x: "Way" not in x)]
+    return pool
+    
+def _get_draw_pool_for_card(initial_pool: pd.DataFrame, for_bane_or_mouse=False) -> pd.DataFrame:
+    pool = initial_pool[~initial_pool["IsLandscape"] & initial_pool["IsInSupply"]]
+    if for_bane_or_mouse:
+        pool = _reduce_pool_for_cost(pool, ["$2", "$3"])
+    return pool
+
+def _reduce_pool_for_cost(pool: pd.DataFrame, cost_limits: list[str]) -> pd.DataFrame:
+    return pool[pool.Cost.isin(cost_limits)]
+
+
+def _sample_card_from_dataframe(df: pd.DataFrame) -> str:
+    if len(df) == 0:
+        return ""
+    return df.sample(1).iloc[0].Name
 @dataclass
 class Kingdom:
     """Kingdom model similar to Kieranmillar's sets.
@@ -142,7 +162,7 @@ class Kingdom:
         key_list = self.cards + self.landscapes
         if self.mouse_card != "":
             key_list += [self.mouse_card]
-        full_kingdom_df = ALL_CARDS.set_index("Name", drop=False).loc[key_list]
+        full_kingdom_df = ALL_CARDS.loc[key_list]
         self.full_kingdom_df = _sort_kingdom(full_kingdom_df)
 
         self.kingdom_card_df = self.full_kingdom_df[
@@ -155,7 +175,7 @@ class Kingdom:
 
         # TODO: Calculate extra piles necessary for the kingdom.
         # Also don't forgot to add a df for it?
-        self.expansions = list(np.unique(full_kingdom_df["Expansion"]))
+        self.expansions = [exp for exp in np.unique(full_kingdom_df["Expansion"]) if exp not in RENEWED_EXPANSIONS]
 
     def pretty_print(self) -> str:
         """Return a string describing the most important things about this kingdom"""
@@ -221,6 +241,18 @@ class Kingdom:
         unique_types = np.unique(avail_types)
         return str(sorted(unique_types))
 
+    def get_special_card_text(self, card_name: str):
+        """Generate additional attributes for this card."""
+        text_list = []
+        if card_name == self.bane_pile:
+            text_list.append("Bane")
+        if card_name == self.obelisk_pile:
+            text_list.append("Obelisk")
+        for tup in self.traits:
+            if card_name == tup[1]:
+                text_list.append(tup[0])
+        return ",\n".join(text_list)
+
 
 class KingdomManager:
     def __init__(self):
@@ -249,27 +281,142 @@ class KingdomManager:
 
     def save_kingdoms_to_yaml(self, file_path: str):
         data = [kingdom.get_dict_repr() for kingdom in self.kingdoms]
+        yaml_stream = yaml.safe_dump(data)
         with open(file_path, "w", encoding="utf-8") as yaml_file:
-            yaml.safe_dump(data, yaml_file)
+            yaml_file.write(yaml_stream)
 
+@dataclass
+class RandomizedKingdom:
+    """A Kingdom that has yet to be completed for randomization"""
+    num_landscapes: int
+    num_cards: int = 10
+    selected_cards: list[str] = field(default_factory=list)
+    selected_landscapes: list[str] = field(default_factory=list)
+    quality_of_selection: dict[str, int] = field(default_factory=lambda:{qual: 0 for qual in QUALITIES_AVAILABLE})
+    obelisk_pile: str = ""
+    bane_pile: str = ""
+    mouse_card: str = ""
+    druid_boons: list[str] = field(default_factory=lambda: [])
+    traits: list[list[str, str]] = field(default_factory=lambda: [])
+    all_cards_picked = False  # Turned to true once the cards meet the requirement
+    all_landscapes_picked = False  # Turned to true once the num landscapes meet the requirement
+    
+    def _get_full_df(self) -> pd.DataFrame:
+        combined_list = self.selected_cards + self.selected_landscapes
+        if self.mouse_card:
+            combined_list += [self.mouse_card]
+        return ALL_CARDS.loc[combined_list].copy()
 
-class KingdomRandomizer:
-    """A class that can be used to randomize a kingdom based on the current config settings."""
+    def _get_card_df(self)-> pd.DataFrame:
+        return ALL_CARDS.loc[self.selected_cards].copy()
+    
+    def _get_landscape_df(self)-> pd.DataFrame:
+        return ALL_CARDS.loc[self.selected_landscapes].copy()
+        
+    def _set_quality_values(self):
+        """Update the quality values for the selected dataframe by summing them up."""
+        df = self._get_full_df()
+        for qual in QUALITIES_AVAILABLE:
+            val = _get_total_quality(qual, df)
+            self.quality_of_selection[qual] = val
+    
+    def contains_way(self) -> bool:
+        """Checks whether the current selection contains a way."""
+        return np.sum(self._get_landscape_df()["Types"].apply(lambda x: "Way" in x))
 
-    def __init__(self, config: CustomConfigParser):
+    def does_selection_contain_type(self, card_type: str) -> bool:
+        """Returns wether the selection already contains at least one card
+        with the given type."""
+        return len(self.get_selection_of_certain_type(card_type)) > 0
+
+    def get_selection_of_certain_type(self, card_type: str) -> pd.DataFrame:
+        df = self._get_full_df()
+        return df[df["Types"].apply(lambda x: card_type in x)]
+
+    def add_card(self, card_name: str):
+        if card_name == "":
+            return
+        self.selected_cards.append(card_name)
+        self.all_cards_picked = len(self.selected_cards) >= self.num_cards
+        self._set_quality_values()
+
+    def add_landscape(self, landscape_name: str):
+        if landscape_name == "":
+            return
+        self.selected_landscapes.append(landscape_name)
+        self.all_landscapes_picked = len(self.selected_landscapes) >= self.num_landscapes
+        self._set_quality_values()
+
+    def set_bane_card(self, bane_name: str):
+        """Removes any existing old bane card and sets the new one"""
+        if self.bane_pile != "":
+            if bane_name in self.selected_cards:
+                self.selected_cards.remove(bane_name)
+        if bane_name == "":
+            return
+        if bane_name not in self.selected_cards:
+            self.add_card(bane_name)
+        self.bane_pile = bane_name
+
+    def set_mouse_card(self, mouse_name: str):
+        """Removes any existing old mouse card and sets the new one"""
+        if mouse_name == "":
+            return
+        self.mouse_card = mouse_name
+        self._set_quality_values()
+    
+    def pick_traits(self):
+        """Since the cards should all be included in the kingdom already, the
+        traits may be picked."""
+        df = self._get_landscape_df()
+        traits = df[df.Types.apply(lambda x: "Trait" in x)]
+        # Make sure no card is picked by more than one Trait
+        excluded = [trait_tuple[1] for trait_tuple in self.traits]
+        for trait, _ in traits.iterrows():
+            counterpart = self._pick_action_or_treasure(excluded)
+            if counterpart:
+                self.traits.append([trait, counterpart])
+                excluded.append(counterpart)
+
+    def pick_obelisk(self):
+        """Since the cards should all be included in the kingdom already, the
+        obelisk may be picked."""
+        if "Obelisk" in self.selected_landscapes:
+            self.obelisk_pile = self._pick_action()
+
+    def _pick_action_or_treasure(self, excluded: list[str] | None = None) -> str:
+        df = self._get_card_df()
+        subset = df[df.Types.apply(lambda x: "Action" in x or "Treasure" in x)]
+        if excluded:
+            subset = subset[~np.isin(list(subset.Name), excluded)]
+        return _sample_card_from_dataframe(subset)
+
+    def _pick_action(self) -> str:
+        """For the obelisk pile, an Action supply pile must be picked"""
+        df = self._get_card_df()
+        subset = df[df.Types.apply(lambda x: "Action" in x)]
+        return _sample_card_from_dataframe(subset)
+
+    def get_kingdom(self) -> Kingdom:
+        """Construct a proper kingdom out of this one"""
+        return Kingdom(cards=self.selected_cards, 
+                       landscapes=self.selected_landscapes, 
+                       bane_pile=self.bane_pile,
+                       traits=self.traits,
+                       obelisk_pile=self.obelisk_pile,
+                       mouse_card=self.mouse_card)
+
+class PoolContainer:
+    """A class to set up a draw pool from which one can pick new cards.
+    The pool needs to be set up freshly for each new randomization.
+    On a basic level, it containts an initial pool which is a pandas
+    DataFrame"""
+    def __init__(self, config: CustomConfigParser, excluded_csos: list[str] | None = None):
         self.config = config
-        self.rerolled_cards: list[str] = []
-        # A DataFrame to contain all cards that have already been selected:
-        self.already_selected_df: pd.DataFrame = ALL_CARDS[:0]
-        self.initial_draw_pool = self.get_initial_draw_pool()
-
-        self.quality_of_selection: dict[str, int] = {
-            qual: 0 for qual in QUALITIES_AVAILABLE
-        }
-
-    def reset(self):
-        self.rerolled_cards: list[str] = []
-        self.already_selected_df = self.already_selected_df[:0]
+        self.eligible_expansions = self._determine_eligible_expansions()
+        self.main_pool: pd.DataFrame = self.get_initial_draw_pool()
+        if excluded_csos:
+            self.main_pool = self.main_pool.drop(excluded_csos, errors="ignore")
 
     def get_initial_draw_pool(self) -> pd.DataFrame:
         """Create the initial draw pool for the kingdom.
@@ -280,11 +427,10 @@ class KingdomRandomizer:
         """
         pool = ALL_CARDS.copy()
         # Reduce the pool to the requested expansions:
-        eligible_expansions = self._determine_eligible_expansions()
-        pool = filter_column(pool, "Expansion", eligible_expansions)
+        pool = filter_column(pool, "Expansion", self.eligible_expansions)
 
         # Reduce the pool to exclude any attacks that are not wanted
-        _allowed_attack_types = self.config.get_special_list("attack_types")
+        _allowed_attack_types = self.config.getlist("Specialization", "attack_types")
         mask = get_mask_for_listlike_col_to_contain_any(
             pool.attack_types, _allowed_attack_types, empty_too=True
         )
@@ -292,24 +438,9 @@ class KingdomRandomizer:
 
         pool = self._exclude_forbidden_qualities(pool)
 
-        # Discard all non-supply-non-landscape cards as we don't need them to draw from
-        is_ally = pool.Types.apply(lambda x: "Ally" in x)
-        pool = pool[pool["IsInSupply"] | pool["IsLandscape"] | is_ally]
-
-        pool = pool.set_index("Name", drop=False)
-        pool = pool.drop(self.rerolled_cards, errors="ignore")
-        pool = pool.drop(self.already_selected_df.Name, errors="ignore")
+        # Discard all non-supply-non-landscape-non-ally cards as we don't need them to draw from
+        pool = pool[pool["IsInSupply"] | pool["IsLandscape"] | pool["IsAlly"]]
         return pool
-
-    def _determine_eligible_expansions(self) -> list[str]:
-        """From all of the expansions the user has selected, sub-select a number
-        that corresponds to the one the user has chosen."""
-        user_expansions = self.config.get_expansions(add_renewed_bases=False)
-        max_num_expansions = self.config.getint("General", "max_num_expansions")
-        if max_num_expansions == 0:
-            return add_renewed_base_expansions(user_expansions)
-        sampled_expansions = random.sample(user_expansions, k=max_num_expansions)
-        return add_renewed_base_expansions(sampled_expansions)
 
     def _exclude_forbidden_qualities(self, pool: pd.DataFrame) -> pd.DataFrame:
         """Filter the pool to exclude any quality that is not wanted."""
@@ -318,154 +449,167 @@ class KingdomRandomizer:
                 pool = pool[pool[qual + "_quality"] == 0]
         return pool
 
-    def _set_quality_values(self):
-        """Update the quality values for the selected dataframe by summing them up."""
-        for qual in QUALITIES_AVAILABLE:
-            val = _get_total_quality(qual, self.already_selected_df)
-            self.quality_of_selection[qual] = val
+    def _determine_eligible_expansions(self) -> list[str]:
+        """From all of the expansions the user has selected, sub-select a number
+        that corresponds to the one the user has chosen."""
+        user_expansions = self.config.get_expansions(add_renewed_bases=False)
+        max_num_expansions = self.config.getint("General", "max_num_expansions")
+        if max_num_expansions == 0 or max_num_expansions >= len(user_expansions):
+            return add_renewed_base_expansions(user_expansions)
+        sampled_expansions = random.sample(user_expansions, k=max_num_expansions)
+        return add_renewed_base_expansions(sampled_expansions)
+
+    def _narrow_pool_for_quality(self, pool: pd.DataFrame, qualities_so_far: dict[str, int]):
+        """Pick out the most urgent of the qualities and lower the pool size, as long as cards
+        remain afterwards.
+        Otherwise try to reduce for the next most urgent quality, and so on.
+        """
+        unfulfilled_qualities = self._determine_unfulfilled_qualities(qualities_so_far)
+        for qual, diff in unfulfilled_qualities:
+            # If the difference is big, try to sometimes also pick only cards with higher
+            # values in that category
+            minimum_requirement = random.randint(1, min(diff, 3))
+            mask = pool[qual + "_quality"] >= minimum_requirement
+            if np.sum(mask) > 0:
+                return pool[mask]
+        return pool
+
+    def _determine_unfulfilled_qualities(self, qualities_so_far: dict[str, int]) -> list[tuple[str,str]]:
+        """Determine which qualities are needed the most, and return a dictionary
+        that maps the quality names to the amount they are needed.
+
+        Parameters
+        ----------
+        qualities_so_far : dict[str, int]
+            The qualities that are making up the currently randomized kingdom
+
+        Returns
+        -------
+        list[str]
+            A list of the qualities that still need to fulfil their requirements,
+            sorted by their urgency
+        """
+        # Calculate the difference to the required kingdom quality
+        diffs = {qual: self.config.get_requested_quality(qual) - val for qual, val in qualities_so_far.items()}
+        # Exclude all values where the difference is <= 0, because in these cases we do not want to pick for them.
+        # Also, exclude the 
+        diffs = {qual: val for qual, val in diffs.items() if val > 0 and not self.config.get_forbidden_quality(qual)}
+        sorted_quals = sorted(diffs, key=lambda x: diffs[x], reverse=True)
+        return [(qual, diffs[qual]) for qual in sorted_quals]
+
+    def pick_next_card(self, qualities_so_far: dict[str, int], for_bane_or_mouse=False) -> str:
+        pool = _get_draw_pool_for_card(self.main_pool, for_bane_or_mouse)
+        if len(pool) == 0:
+            return ""
+        pool = self._narrow_pool_for_quality(pool, qualities_so_far)
+        pick = _sample_card_from_dataframe(pool)
+        self.main_pool = self.main_pool.drop(pick)
+        return pick
+    
+    def pick_next_landscape(self, qualities_so_far: dict[str, int], exclude_ways: bool) -> str:
+        pool = _get_draw_pool_for_landscape(self.main_pool, exclude_ways)
+        if len(pool) == 0:
+            return ""
+        pool = self._narrow_pool_for_quality(pool, qualities_so_far)
+        pick = _sample_card_from_dataframe(pool)
+        self.main_pool = self.main_pool.drop(pick)
+        return pick
+    
+
+class KingdomRandomizer:
+    """A class that can be used to randomize a kingdom based on the current config settings."""
+
+    def __init__(self, config: CustomConfigParser):
+        self.config = config
+        self.rerolled_csos: list[str] = []
+        self.pc = PoolContainer(self.config)
 
     def randomize_new_kingdom(self) -> Kingdom:
-        self.reset()
-        if len(self.config.get_expansions()) == 0:
+        excluded_csos = self.rerolled_csos
+        self.pc = PoolContainer(self.config, excluded_csos)
+        if len(self.config.get_expansions(False)) == 0:
             return
-
-        self.initial_draw_pool = self.get_initial_draw_pool()
 
         num_cards = self.config.getint("General", "num_cards")
         num_landscapes = self._determine_landscape_number()
+        random_kingdom = RandomizedKingdom(num_landscapes=num_landscapes)
 
         for _ in range(num_cards):
-            narrowed_pool = self._get_draw_pool_for_card()
-            self.savely_pick_from_pool(narrowed_pool)
+            pick = self.pc.pick_next_card(random_kingdom.quality_of_selection)
+            random_kingdom.add_card(pick)
+            if random_kingdom.all_cards_picked:
+                break
         for _ in range(num_landscapes):
-            narrowed_pool = self._get_draw_pool_for_landscape()
-            self.savely_pick_from_pool(narrowed_pool)
+            pick = self.pc.pick_next_landscape(random_kingdom.quality_of_selection, random_kingdom.contains_way())
+            random_kingdom.add_landscape(pick)
+            if random_kingdom.all_landscapes_picked:
+                break
+        # Pick a bane card in case the Young Witch is amongst the picks:
+        if "Young Witch" in random_kingdom.selected_cards:
+            pick = self.pc.pick_next_card(random_kingdom.quality_of_selection, True)
+            random_kingdom.set_bane_card(pick)
+        # Pick a mouse card in case Way of the Mouse is amongst the picks:
+        if "Way of the Mouse" in random_kingdom.selected_landscapes:
+            pick = self.pc.pick_next_card(random_kingdom.quality_of_selection, True)
+            random_kingdom.set_mouse_card(pick)
+        random_kingdom.pick_traits()
+        random_kingdom.pick_obelisk()
+        return random_kingdom.get_kingdom()
 
         extra_arg_dict = {}
 
         # Pick a bane card in case the Young Witch is amongst the picks:
         if "Young Witch" in self.already_selected_df.Name:
-            narrowed_pool = self._get_draw_pool_for_card(for_bane=True)
-            bane_pile = self.savely_pick_from_pool(narrowed_pool).Name
+            bane_pool = self._get_draw_pool_for_card(for_bane=True)
+            bane_pile = self.savely_pick_from_pool(bane_pool)
             extra_arg_dict["bane_pile"] = bane_pile
 
         # Pick a Mouse card in case the Young Witch is amongst the picks:
         if "Way of the Mouse" in self.already_selected_df.Name:
-            narrowed_pool = self._get_draw_pool_for_card(for_bane=True)
-            mouse_card = self.savely_pick_from_pool(narrowed_pool).Name
-            extra_arg_dict["mouse_card"] = mouse_card
+            mouse_pool = self._get_draw_pool_for_card(for_bane=True)
+            if len(mouse_pool) > 0:
+                mouse_card = mouse_pool.sample(n=1).iloc[0].Name
+                extra_arg_dict["mouse_card"] = mouse_card
 
         # Pick a bane card in case the Young Witch is amongst the picks:
         if "Obelisk" in self.already_selected_df.Name:
-            pool = self.already_selected_df
-            pool = pool[pool.Types.apply(lambda x: "Action" in x)]
-            obelisk_pile = self.savely_pick_from_pool(pool)
-            extra_arg_dict["obelisk_pile"] = obelisk_pile
+            obelisk_pool = self.already_selected_df
+            obelisk_pool = obelisk_pool[obelisk_pool.Types.apply(lambda x: "Action" in x)]
+            if len(obelisk_pool) > 0:
+                obelisk_pile = obelisk_pool.sample(n=1).iloc[0].Name
+                extra_arg_dict["obelisk_pile"] = obelisk_pile
 
         # Pick an Ally if necessary:
         if self.does_selection_contain_type("Liaison"):
             narrowed_pool = self._get_draw_pool_for_ally()
-            ally = self.savely_pick_from_pool(narrowed_pool)
+            self.savely_pick_from_pool(narrowed_pool)
 
         # Pick Trait targets if necessary:
         if self.does_selection_contain_type("Trait"):
             pool = self.already_selected_df
-            extra_arg_dict["trait_list"] = []
+            extra_arg_dict["traits"] = []
             for _, trait in self.get_selection_of_certain_type("Trait").iterrows():
                 pool = pool[
                     pool.Types.apply(lambda x: "Action" in x or "Treasure" in x)
                 ]
-                trait_target_name = self.savely_pick_from_pool(pool).Name
-                extra_arg_dict["obelisk_pile"].append([trait.Name, trait_target_name])
+                trait_target_name = pool.sample(n=1).iloc[0].Name
+                extra_arg_dict["traits"].append([trait.Name, trait_target_name])
+                pool = pool.drop(trait_target_name)
 
         return Kingdom(
-            cards=self.get_card_subset(), landscapes=self.get_landscape_subset()
+            cards=self.get_card_subset(), landscapes=self.get_landscape_subset(), **extra_arg_dict
         )
-
-    def get_card_subset(self) -> list[str]:
-        df = self.already_selected_df
-        return df[~df["IsLandscape"]].Name.to_list()
-
-    def get_landscape_subset(self) -> list[str]:
-        df = self.already_selected_df
-        return df[df["IsLandscape"]].Name.to_list()
 
     def _determine_landscape_number(self) -> int:
         min_num = self.config.getint("General", "min_num_landscapes")
         max_num = self.config.getint("General", "max_num_landscapes")
         return random.randint(min_num, max_num)
 
-    def _get_draw_pool_for_card(self, for_bane=False) -> pd.DataFrame:
-        pool = self.initial_draw_pool
-        pool = pool[~pool["IsLandscape"] & pool["IsInSupply"]]
-        pool = self._narrow_pool_for_parameters(pool)
-        if for_bane:
-            pool = self._reduce_pool_for_cost(pool, ["$2", "$3"])
-        return pool
-
-    def _reduce_pool_for_cost(
-        self, pool: pd.DataFrame, cost_limits: list[str]
-    ) -> pd.DataFrame:
-        return pool[pool.Cost.isin(cost_limits)]
-
-    def _get_draw_pool_for_landscape(self) -> pd.DataFrame:
-        pool = self.initial_draw_pool
-        pool = pool[pool["IsLandscape"]]
-        if self.does_selection_contain_type("Way"):
-            pool = pool[pool["Types"].apply(lambda x: "Way" not in x)]
-        pool = self._narrow_pool_for_parameters(pool)
-        return pool
-
     def _get_draw_pool_for_ally(self) -> pd.DataFrame:
         pool = self.initial_draw_pool
-        is_ally = pool.Types.apply(lambda x: "Ally" in x)
-        pool = pool[is_ally]
+        pool = pool[pool["IsAlly"]]
         pool = self._narrow_pool_for_parameters(pool)
         return pool
-
-    def savely_pick_from_pool(self, pool: pd.DataFrame):
-        """Add the given pick to the already selected cards."""
-        if len(pool) == 0:
-            return
-        pick = pool.sample(n=1)
-        self.already_selected_df = pd.concat([self.already_selected_df, pick])
-        self._set_quality_values()
-        self.initial_draw_pool = self.initial_draw_pool.drop(pick.Name, errors="ignore")
-        return pick
-
-    def _narrow_pool_for_parameters(self, pool: pd.DataFrame) -> pd.DataFrame:
-        # Create a dictionary for args that still require fulfilment (i. e. VQ is set to 4-2 if the kingdom already contains a VQ of 4)
-        quals_to_pick_from: dict[str, int] = {}
-        for qual, diff_to_desired in self.quality_of_selection.items():
-            if self.config.get_forbidden_quality(qual):
-                continue  # We should not try to access forbidden qualities here.
-            diff_to_desired = self.config.get_requested_quality(qual) - diff_to_desired
-            if diff_to_desired > 0:
-                # Set the difference as the weight for this quality to be picked
-                quals_to_pick_from[qual] = diff_to_desired
-        # Pick a quality that should define the next pick:
-        if len(quals_to_pick_from) > 0:
-            # weighting the choices by urgency
-            qual = random.choice(
-                [k for k, weight in quals_to_pick_from.items() for _ in range(weight)]
-            )
-            min_qual_val = random.randint(1, min(3, quals_to_pick_from[qual]))
-            defining_quality = qual + "_quality"
-            before_narrowing = pool
-            pool = pool[pool[defining_quality] >= min_qual_val]
-            # If the constraints are too much, do not constrain it.
-            if len(pool) == 0:
-                pool = before_narrowing
-        return pool
-
-    def get_selection_of_certain_type(self, card_type: str) -> pd.DataFrame:
-        df = self.already_selected_df
-        return df[df["Types"].apply(lambda x: card_type in x)]
-
-    def does_selection_contain_type(self, card_type: str) -> bool:
-        """Returns wether the selection already contains at least one card
-        with the given type."""
-        return len(self.get_selection_of_certain_type(card_type)) > 0
 
     def reroll_single_card(self, old_kingdom: Kingdom, card_name: str) -> Kingdom:
         """Take the old kingdom, reroll one card, and return the new one with

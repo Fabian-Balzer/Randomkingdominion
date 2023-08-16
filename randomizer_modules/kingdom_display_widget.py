@@ -6,6 +6,7 @@ import PyQt5.QtWidgets as QW
 
 from .base_widgets import CoolButton, KingdomCardImageWidget
 from .kingdom import Kingdom
+from .utils import get_row_and_col
 
 
 class KingdomDisplayWidget(QW.QWidget):
@@ -66,20 +67,16 @@ class KingdomDisplayWidget(QW.QWidget):
 
     def display_kingdom_cards(self, kingdom: Kingdom):
         kingdom_df = kingdom.kingdom_card_df
-        num_rows = 2
-        num_cols = ceil(len(kingdom_df) / num_rows)
-        for row in range(num_rows):
-            for col in range(num_cols):
-                index = row * num_cols + col
-                if index >= len(kingdom_df):
-                    continue
-                card = kingdom_df.iloc[index]
-                special_text = "Bane" if card.Name == kingdom.bane_pile else ""
-                wid = KingdomCardImageWidget(
-                    card, special_text=special_text, detailed=self.is_detailed
-                )
-                self.reroll_button_dict[card.Name] = wid.reroll_button
-                self.grid_layout.addWidget(wid, row, col)
+        num_cols = ceil(len(kingdom_df)/2)
+        for i, card in kingdom_df.reset_index(drop=True).iterrows():
+            row, col = get_row_and_col(i, num_cols)
+            row = 1-row  # Invert the rows such that the lower cost cards are on the bottom
+            special_text = kingdom.get_special_card_text(card.Name)
+            wid = KingdomCardImageWidget(
+                card, special_text=special_text, detailed=self.is_detailed
+            )
+            self.reroll_button_dict[card.Name] = wid.reroll_button
+            self.grid_layout.addWidget(wid, row, col)
 
     def display_kingdom_landscapes(self, kingdom: Kingdom):
         kingdom_df = kingdom.kingdom_landscape_df

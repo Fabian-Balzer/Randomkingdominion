@@ -12,7 +12,7 @@ from .base_widgets import (CollapsibleBox, CoolButton, CoolCheckBox,
 from .config import CustomConfigParser
 from .constants import (ATTACK_TYPE_LIST, EXPANSIONS_LIST, PATH_ASSETS,
                         QUALITIES_AVAILABLE, RENEWED_EXPANSIONS)
-from .utils import override
+from .utils import get_expansion_icon_path, override
 
 
 class GroupCheckboxButtonContainer(CollapsibleBox):
@@ -183,14 +183,7 @@ class ExpansionGroupWidget(GroupCheckboxButtonContainer):
     @override
     def get_icon_path(self, name: str) -> str:
         """Returns the image path for the given expansion icon."""
-        base = PATH_ASSETS.joinpath("icons/expansions/")
-        conversion_dict = {}
-        for outdated_exp in RENEWED_EXPANSIONS:
-            conversion_dict[outdated_exp + ", 1E"] = outdated_exp + "_old"
-            conversion_dict[outdated_exp + ", 2E"] = outdated_exp
-        if name in conversion_dict:
-            name = conversion_dict[name]
-        return str(base.joinpath(name.replace(" ", "_") + ".png"))
+        return get_expansion_icon_path(name)
 
 
 class AttackTypeGroupWidget(GroupCheckboxButtonContainer):
@@ -210,10 +203,10 @@ class AttackTypeGroupWidget(GroupCheckboxButtonContainer):
     def update_config_for_attack_types(self):
         """Reads out the currently selected sets and saves them. Also changes the selection."""
         selected_types = self.get_names_of_selected()
-        self.config.set_special_list("attack_types", selected_types)
+        self.config.setlist("Specialization", "attack_types", selected_types)
 
     def _set_initial_values(self):
-        for exp in self.config.get_special_list("attack_types"):
+        for exp in self.config.getlist("Specialization", "attack_types"):
             self.widget_dict[exp].setChecked(True)
         self.set_toggle_button_text()
 

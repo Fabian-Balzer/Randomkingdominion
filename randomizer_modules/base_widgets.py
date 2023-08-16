@@ -8,7 +8,8 @@ import PyQt5.QtGui as QG
 import PyQt5.QtWidgets as QW
 from matplotlib import cm
 
-from .constants import PATH_ASSETS, PATH_MAIN, QUALITIES_AVAILABLE
+from .constants import (COLOR_PALETTE, PATH_ASSETS, PATH_MAIN,
+                        QUALITIES_AVAILABLE)
 from .utils import override
 
 
@@ -238,7 +239,7 @@ class PictureCheckBox(QW.QPushButton):
         self.set_style()
 
     def set_style(self):
-        color = "rgba(108,197,90,0.7)" if self.checked else "lightGray"
+        color = COLOR_PALETTE.selected_green if self.checked else "lightGray"
 
         self.setStyleSheet(
             "QPushButton {"
@@ -492,8 +493,11 @@ class KingdomCardImageWidget(QW.QWidget):
 
         # Display the card amount:
         label = QW.QLabel(str(self.card.CardAmount), self)
-        label.setStyleSheet(
-            "background-color: darkRed; border-radius:5; border-color: black; border-width:2px; border-style: outset"
+        label.setStyleSheet(f"""
+                            background-color: {COLOR_PALETTE.selected_green};
+                            border-radius:4;
+                            border-color: black; 
+                            border-width:1px; border-style: outset"""
         )
         label.setMargin(2)
         label.setScaledContents(True)
@@ -501,7 +505,7 @@ class KingdomCardImageWidget(QW.QWidget):
         font = label.font()
         font.setPointSize(8)
         label.setFont(font)
-        label.setGeometry(5, top_height - 25, 28, 22)
+        label.setGeometry(8, 33, 28, 22)
         return height
 
     def display_landscape(self) -> int:
@@ -513,16 +517,7 @@ class KingdomCardImageWidget(QW.QWidget):
             label = QW.QLabel(self.name + self.card.Expansion)
             self.box_layout.addWidget(label)
             return height
-
-        color_dict = {
-            "Way": "rgb(218, 242, 254)",
-            "Event": "rgb(160, 175, 178)",
-            "Ally": "darkYellow",
-            "Landmark": "rgb(73, 156, 96)",
-            "Trait": "rgb(150, 145, 186)",
-            "Project": "rgb(236, 172, 165)",
-        }
-        color = color_dict[self.card.Types[0]]
+        color = COLOR_PALETTE.get_color_for_type(self.card.Types[0])
         label = QW.QLabel(self.name, self)
         label.setStyleSheet(
             f"border-image: url('demo.jpg');\
@@ -550,7 +545,7 @@ class KingdomCardImageWidget(QW.QWidget):
 
     def overlay_text(self, text: Literal["Bane", "Obelisk"]):
         color_dict = {"Bane": "gray", "Obelisk": "olivegreen"}
-        color = color_dict[text]
+        color = "gray"  # color_dict[text]
         label = QW.QLabel(text, self)
         label.setStyleSheet(
             f"border-image: url('demo.jpg');\
@@ -624,11 +619,11 @@ class HorizontalBarWidget(QW.QFrame):
             self.clicked.connect(self.handle_click)
 
     def setValue(self, value: Literal[0, 1, 2, 3, 4]):
-        rgba_tuple = cm.get_cmap("Greens")(
-            value / 4
-        )  # Get RGBA values from the colormap
+        if value == -1:
+            value = 0
+        rgba_tuple = COLOR_PALETTE.get_bar_level_color(value)  # Get RGBA values from the colormap
         self._color = (
-            QG.QColor.fromRgbF(*rgba_tuple[:3]) if not self.is_disabled else QC.Qt.gray
+            QG.QColor.fromRgbF(*rgba_tuple) if not self.is_disabled else QC.Qt.gray
         )
         self._width = value
         self.update()
@@ -665,6 +660,10 @@ class HorizontalBarWidget(QW.QFrame):
         self.clicked.emit(click_value)  # Emit the signal with the clicked value
 
     def handle_click(self, value):
+        if value >= 5:
+            value = 4
+        elif value < 0:
+            value = 0
         self.setValue(value)
 
     @override
@@ -701,6 +700,10 @@ class CustomSlider(QW.QSlider):
             }
             """
         )
+    @override
+    def wheelEvent(self, event):
+        # Do nothing to prevent scrolling from changing the value
+        pass
 
 class CustomRangeSlider(QW.QWidget):
     """A range slider that allows the user to set two values where the

@@ -22,10 +22,19 @@ def add_renewed_base_expansions(expansions: list[str]) -> list[str]:
 
 
 class CustomConfigParser(ConfigParser):
+
+    def getlist(self, section: str, key: str) -> list[str]:
+        """Turn the internally as string saved stuff into a list."""
+        value = self.get(section, key)
+        return json.loads(value)
+
+    def setlist(self, section: str, key: str, listval: list[str]):
+        """Save the given list of values as a string in the config options."""
+        self.set(section, key, json.dumps(listval))
+
     def get_expansions(self, add_renewed_bases=True) -> list[str]:
         """Turn the internally as string saved expansions into a list."""
-        value = self.get("General", "Expansions")
-        expansions = json.loads(value)
+        expansions = self.getlist("General", "Expansions")
         if not add_renewed_bases:
             return expansions
         return add_renewed_base_expansions(expansions)
@@ -33,16 +42,7 @@ class CustomConfigParser(ConfigParser):
     def set_expansions(self, expansions: list[str]):
         """Save the given list of expansions as a string in the config options."""
         filtered = [exp for exp in expansions if exp not in RENEWED_EXPANSIONS]
-        self.set("General", "Expansions", json.dumps(filtered))
-
-    def get_special_list(self, option_key: str) -> list[str]:
-        """Turn the internally as string saved stuff into a list."""
-        value = self.get("Specialization", option_key)
-        return json.loads(value)
-
-    def set_special_list(self, option_key: str, values: list[str]):
-        """Save the given list of values as a string in the config options."""
-        self.set("Specialization", option_key, json.dumps(values))
+        self.setlist("General", "Expansions", filtered)
 
     def get_requested_quality(self, qual_name: str) -> int:
         return self.getint("Qualities", "requested_" + qual_name)
