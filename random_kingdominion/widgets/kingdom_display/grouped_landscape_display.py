@@ -22,11 +22,12 @@ class GroupedLandscapeDisplay(QW.QWidget):
     def set_landscapes(self, kingdom: Kingdom, reroll_func):
         self._reset_layout()
         landscape_df = kingdom.kingdom_landscape_df
-        num_cols = 2 if len(landscape_df) < 5 else 3
+        num_cols = 2
+        width = 240 if len(landscape_df) < 5 else 200
         for i, landscape in landscape_df.reset_index(drop=True).iterrows():
             row, col = get_row_and_col(i, num_cols)
             # TODO: Mouse text
-            wid = SingleLandscapeImageWidget(landscape, reroll_func)
+            wid = SingleLandscapeImageWidget(landscape, reroll_func, width=width)
             self.reroll_button_dict[landscape.Name] = wid.reroll_button
             self.grid_layout.addWidget(wid, row, col)
 

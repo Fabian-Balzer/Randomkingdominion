@@ -20,6 +20,8 @@ class GroupedCardDisplay(QW.QWidget):
         palette.setColor(self.backgroundRole(), QC.Qt.black)
         self.setPalette(palette)
         self.widget_list: list[SingleCardImageWidget] = []
+        self.setSizePolicy(QW.QSizePolicy.Minimum, QW.QSizePolicy.Minimum)
+        self.grid_layout.setSizeConstraint(QW.QGridLayout.SetMinimumSize)
 
     def set_kingdom_cards(self, kingdom: Kingdom, reroll_func: callable):
         self._reset_layout()

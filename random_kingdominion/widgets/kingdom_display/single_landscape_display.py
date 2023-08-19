@@ -14,7 +14,9 @@ from .custom_reroll_button import CustomRerollButton
 class SingleLandscapeImageWidget(QW.QWidget):
     """Display Name, Picture and Image for the given kingdom landscape"""
 
-    def __init__(self, landscape: pd.Series, reroll_func: callable, special_text=None):
+    def __init__(
+        self, landscape: pd.Series, reroll_func: callable, special_text=None, width=200
+    ):
         super().__init__()
         self.impath = str(PATH_MAIN.joinpath(landscape["ImagePath"]))
         self.name = landscape.Name
@@ -24,7 +26,7 @@ class SingleLandscapeImageWidget(QW.QWidget):
         self.box_layout.setAlignment(QC.Qt.AlignTop)
         self.box_layout.setContentsMargins(0, 0, 0, 0)
         self.box_layout.setSizeConstraint(QW.QVBoxLayout.SetMinimumSize)
-        self.setFixedWidth(280)
+        self.setFixedWidth(width)
         pixmap_height = self.display_landscape()
         # Adjust the layout
         self.setSizePolicy(QW.QSizePolicy.Fixed, QW.QSizePolicy.Fixed)
@@ -34,7 +36,7 @@ class SingleLandscapeImageWidget(QW.QWidget):
 
         self.reroll_button = CustomRerollButton(self)
         self.reroll_button.move(
-            self.width() - 20 - self.reroll_button.width(), pixmap_height - 30
+            width - 10 - self.reroll_button.width(), pixmap_height - 28
         )
         self.reroll_button.clicked.connect(partial(reroll_func, self.name))
 
@@ -79,9 +81,9 @@ class SingleLandscapeImageWidget(QW.QWidget):
         label.setScaledContents(True)
         label.setAlignment(QC.Qt.AlignCenter)
         font = label.font()
-        font.setPointSize(12)
+        font.setPointSize(8)
         label.setFont(font)
-        label.setGeometry(12, height - 40, self.width() - 24, 40)
+        label.setGeometry(6, height - 30, self.width() - 12, 30)
         self.label = label
         return height
 

@@ -25,16 +25,19 @@ class KingdomRandomizer:
         pick = self.pool_con.pick_next_card(random_kingdom.quality_of_selection)
         random_kingdom.add_card(pick)
         if pick == "Young Witch":
-            pick = self.pool_con.pick_next_card(
-                random_kingdom.quality_of_selection, True
-            )
-            random_kingdom.set_bane_card(pick)
+            self.pick_bane_card(random_kingdom)
         # TODO: Druid boons
         # Pick an Ally if one of the cards in the Kingdom is a liaison:
         if random_kingdom.contains_liaison() and not random_kingdom.contains_ally():
             pick = self.pool_con.pick_ally(random_kingdom.quality_of_selection)
             # An ally is not different from other landscapes, only picked under different conditions
             random_kingdom.add_landscape(pick)
+
+    def pick_bane_card(self, random_kingdom: RandomizedKingdom):
+        """Pick the bane card."""
+        pick = self.pool_con.pick_next_card(random_kingdom.quality_of_selection, True)
+        random_kingdom.add_card(pick)
+        random_kingdom.set_bane_card(pick)
 
     def pick_new_landscape(self, random_kingdom: RandomizedKingdom):
         """Picks the next landscape and makes sure that WotMouse is taken care of."""
@@ -61,16 +64,12 @@ class KingdomRandomizer:
 
         for _ in range(num_cards):
             self.pick_next_card(random_kingdom)
-            if random_kingdom.all_cards_picked:
-                break
         for _ in range(num_landscapes):
             current_qual = random_kingdom.quality_of_selection
             pick = self.pool_con.pick_next_landscape(
                 current_qual, random_kingdom.contains_way()
             )
             random_kingdom.add_landscape(pick)
-            if random_kingdom.all_landscapes_picked:
-                break
         # Pick Ally in case a Liaison is in the kingdom
         # Pick a mouse card in case Way of the Mouse is amongst the picks:
         return random_kingdom.get_kingdom()
@@ -86,8 +85,11 @@ class KingdomRandomizer:
         self.rerolled_csos.append(cso_name)
         random_kingdom = RandomizedKingdom.from_kingdom(old_kingdom)
         if random_kingdom.contains_card(cso_name):
-            random_kingdom.remove_card(cso_name)
-            self.pick_next_card(random_kingdom)
+            is_bane = random_kingdom.remove_card(cso_name)
+            if is_bane:
+                self.pick_bane_card(random_kingdom)
+            else:
+                self.pick_next_card(random_kingdom)
         elif random_kingdom.contains_landscape(cso_name):
             random_kingdom.remove_landscape(cso_name)
             self.pick_new_landscape(random_kingdom)

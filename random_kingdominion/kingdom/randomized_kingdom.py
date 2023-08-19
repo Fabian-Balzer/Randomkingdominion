@@ -34,10 +34,6 @@ class RandomizedKingdom:
     mouse_card: str = ""
     druid_boons: list[str] = field(default_factory=lambda: [])
     traits: list[list[str, str]] = field(default_factory=lambda: [])
-    all_cards_picked = False  # Turned to true once the cards meet the requirement
-    all_landscapes_picked = (
-        False  # Turned to true once the num landscapes meet the requirement
-    )
 
     @classmethod
     def from_kingdom(cls: RandomizedKingdom, kingdom: Kingdom) -> RandomizedKingdom:
@@ -115,10 +111,9 @@ class RandomizedKingdom:
 
     def add_card(self, card_name: str):
         """Safely adds the given card to this kingdom"""
-        if card_name == "":
+        if card_name == "" or card_name in self._selected_cards:
             return
         self._selected_cards.append(card_name)
-        self.all_cards_picked = len(self._selected_cards) >= self.num_cards
         self._set_quality_values()
 
     def remove_card(self, card_name: str) -> bool:
@@ -132,7 +127,6 @@ class RandomizedKingdom:
         self._selected_cards.remove(card_name)
         if card_name == "Young Witch":
             self.set_bane_card("")
-        self.all_cards_picked = len(self._selected_cards) >= self.num_cards
         self._set_quality_values()
         # Pick new trait if the card was a trait target:
         trait_targets = [trait_tuple[1] for trait_tuple in self.traits]

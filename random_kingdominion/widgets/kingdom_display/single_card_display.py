@@ -5,7 +5,7 @@ import pandas as pd
 import PyQt5.QtCore as QC
 import PyQt5.QtWidgets as QW
 
-from random_kingdominion.constants import PATH_MAIN, QUALITIES_AVAILABLE
+from random_kingdominion.constants import COLOR_PALETTE, PATH_MAIN, QUALITIES_AVAILABLE
 
 from ..basic_widgets import ImageCutoutWidget
 from .card_amount_label import CardAmountLabel
@@ -24,19 +24,19 @@ class SingleCardImageWidget(QW.QWidget):
         self.box_layout.setAlignment(QC.Qt.AlignTop)
         self.box_layout.setContentsMargins(0, 0, 0, 0)
         self.box_layout.setSizeConstraint(QW.QVBoxLayout.SetMinimumSize)
-        self.setFixedWidth(200)
+        self.setFixedWidth(130)
+        self.setSizePolicy(QW.QSizePolicy.Minimum, QW.QSizePolicy.Minimum)
+
         self.im_height = self.display_card()
-        # Adjust the layout
-        self.setSizePolicy(QW.QSizePolicy.Fixed, QW.QSizePolicy.Fixed)
 
         # - Add additional labels and buttons:
         amount_label = CardAmountLabel(card.CardAmount, self)
-        amount_label.setGeometry(8, 33, 28, 22)
+        amount_label.setGeometry(8, 25, 28, 22)
         if special_text:
             self.overlay_text(special_text)
 
         self.reroll_button = CustomRerollButton(self)
-        self.reroll_button.move(self.width() - 10 - self.reroll_button.width(), 33)
+        self.reroll_button.move(self.width() - 5 - self.reroll_button.width(), 25)
         self.reroll_button.clicked.connect(partial(reroll_func, self.name))
 
         # self.setAutoFillBackground(True)
@@ -77,7 +77,7 @@ class SingleCardImageWidget(QW.QWidget):
 
     def overlay_text(self, text: Literal["Bane", "Obelisk"]):
         # color_dict = {"Bane": "gray", "Obelisk": "olivegreen"}
-        color = "gray"  # color_dict[text]
+        color = COLOR_PALETTE.trait
         label = QW.QLabel(text, self)
         label.setStyleSheet(
             f"border-image: url('demo.jpg');\

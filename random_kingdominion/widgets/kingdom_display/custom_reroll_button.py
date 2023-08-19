@@ -1,4 +1,3 @@
-
 import PyQt5.QtCore as QC
 import PyQt5.QtGui as QG
 import PyQt5.QtWidgets as QW
@@ -9,6 +8,7 @@ from random_kingdominion.utils import override
 
 class CustomRerollButton(QW.QLabel):
     """A button used for rerolling a single card."""
+
     clicked = QC.pyqtSignal()
 
     def __init__(self, parent=None):
@@ -26,7 +26,7 @@ class CustomRerollButton(QW.QLabel):
         self.setPixmap(QG.QPixmap(icon_path))
         self.setAlignment(QC.Qt.AlignCenter)
         self.setScaledContents(True)
-        self.setFixedSize(QC.QSize(32, 32))
+        self.setFixedSize(QC.QSize(28, 28))
         self.setCursor(QC.Qt.PointingHandCursor)
 
     @override

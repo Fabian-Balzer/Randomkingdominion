@@ -88,8 +88,10 @@ class Kingdom:
         full_kingdom_df = ALL_CSOS.loc[key_list]
         self.full_kingdom_df = _sort_kingdom(full_kingdom_df)
 
-        self.kingdom_card_df = self.full_kingdom_df.loc[self.cards]
-        self.kingdom_landscape_df = self.full_kingdom_df.loc[self.landscapes]
+        self.kingdom_card_df = _sort_kingdom(self.full_kingdom_df.loc[self.cards])
+        self.kingdom_landscape_df = _sort_kingdom(
+            self.full_kingdom_df.loc[self.landscapes]
+        )
         self._set_quality_values()
 
         # TODO: Calculate extra piles necessary for the kingdom.

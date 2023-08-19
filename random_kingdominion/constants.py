@@ -19,7 +19,7 @@ class ColorPalette:
     selected_green = "rgba(108,197,90,0.7)"
     way = "rgb(218, 242, 254)"
     event = "rgb(160, 175, 178)"
-    ally = "darkYellow"
+    ally = "rgb(218, 196, 155)"
     landmark = "rgb(73, 156, 96)"
     trait = "rgb(150, 145, 186)"
     project = "rgb(236, 172, 165)"

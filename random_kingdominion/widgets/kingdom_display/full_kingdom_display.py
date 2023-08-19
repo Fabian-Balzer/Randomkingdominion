@@ -15,9 +15,9 @@ class FullKingdomDisplay(QW.QWidget):
 
     def __init__(self):
         super().__init__()
-        main_lay = QW.QVBoxLayout(self)
+        main_lay = QW.QHBoxLayout(self)
         main_lay.setContentsMargins(3, 3, 3, 3)
-        main_lay.setSpacing(3)
+        main_lay.setSpacing(0)
         self.card_display = GroupedCardDisplay()
         main_lay.addWidget(self.card_display)
         self.landscape_display = GroupedLandscapeDisplay()
