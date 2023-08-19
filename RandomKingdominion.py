@@ -26,7 +26,7 @@ Code to open a GUI Dominion randomizer
 import sys
 
 import PyQt5.QtWidgets as QW
-from randomizer_modules.main_ui import UIMainWindow
+from random_kingdominion.widgets.main_ui import UIMainWindow
 
 
 def start_program():

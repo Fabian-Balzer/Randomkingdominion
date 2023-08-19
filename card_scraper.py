@@ -30,10 +30,10 @@ import os
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
-import randomizer_modules as rm
-from randomizer_modules.add_info_columns import add_info_columns, add_split_piles
-from randomizer_modules.utils import read_dataframe_from_file, write_dataframe_to_file
-from randomizer_modules.write_image_database import write_image_database
+import random_kingdominion as rm
+from random_kingdominion.utils.data_setup.add_info_columns import add_info_columns, add_split_piles
+from random_kingdominion.utils.utils import read_dataframe_from_file, write_dataframe_to_file
+from random_kingdominion.utils.data_setup.write_image_database import write_image_database
 
 # Determines wether the program tries to scrape the wiki pages for
 # card and image data or just meddle with existing data

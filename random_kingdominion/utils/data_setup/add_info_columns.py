@@ -4,16 +4,14 @@ from functools import reduce
 
 import pandas as pd
 
-from .constants import (
-    LANDSCAPE_LIST,
-    OTHER_OBJ_LIST,
-    PATH_CARD_INFO,
-    QUALITIES_AVAILABLE,
-    ROTATOR_DICT,
-    SPECIAL_TYPES_AVAILABLE,
-    SPLITPILE_DICT,
-)
-from .utils import ask_file_overwrite
+from random_kingdominion.constants import (LANDSCAPE_LIST,
+                                                 OTHER_OBJ_LIST,
+                                                 PATH_CARD_INFO,
+                                                 QUALITIES_AVAILABLE,
+                                                 ROTATOR_DICT,
+                                                 SPECIAL_TYPES_AVAILABLE,
+                                                 SPLITPILE_DICT)
+from random_kingdominion.utils.utils import ask_file_overwrite
 
 
 def write_dict_to_json_nicely(

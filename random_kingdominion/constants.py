@@ -8,10 +8,14 @@ import numpy as np
 import pandas as pd
 from matplotlib import colormaps as cm
 
+from random_kingdominion.cso_frame_utils import get_unique_entries_of_list_column
+from random_kingdominion.cso_series_utils import listlike_contains
 
-@dataclass
+
+@dataclass(frozen=True)
 class ColorPalette:
     """Registry for the colors used"""
+
     selected_green = "rgba(108,197,90,0.7)"
     way = "rgb(218, 242, 254)"
     event = "rgb(160, 175, 178)"
@@ -22,13 +26,14 @@ class ColorPalette:
 
     def get_bar_level_color(self, level_value: int):
         """Return the color for one of the bar values"""
-        assert 0 <= level_value <=4, f"Wrong level value {level_value}"
+        assert 0 <= level_value <= 4, f"Wrong level value {level_value}"
         return cm.get_cmap("Greens")(level_value / 4)
-    
+
     def get_color_for_type(self, type_name: str):
         """Return the color for the given type."""
         return getattr(self, type_name.lower())
-    
+
+
 def read_dataframe_from_file(fpath: str, eval_lists=False):
     """Read a dataframe"""
     if os.path.isfile(fpath):
@@ -43,6 +48,35 @@ def read_dataframe_from_file(fpath: str, eval_lists=False):
             2, "Couldn't find the raw card data file, please download it first."
         )
     return df
+
+
+def _init_main_df():
+    """Sets up the main DataFrame."""
+    category_types = [qual + "_quality" for qual in QUALITIES_AVAILABLE]
+    category_types.append("Expansion")
+    unnecessary_cols = [
+        "Actions / Villagers",
+        "Cards",
+        "Buys",
+        "Coins / Coffers",
+        "Trash / Return",
+        "Exile",
+        "Junk",
+        "Gain",
+        "Victory Points",
+    ]
+    df = (
+        read_dataframe_from_file(FPATH_CARD_DATA, True)
+        .set_index("Name", drop=False)
+        .astype({cat: "category" for cat in category_types})
+        .drop(unnecessary_cols, axis=1)
+    )
+    # Add interesting boolean columns:
+    types_of_interest = ["Ally", "Way", "Liaison"]
+    for type_ in types_of_interest:
+        df["Is" + type_] = listlike_contains(df.Types, type_)
+    return df
+
 
 def get_attack_types(all_cards) -> list[str]:
     all_types = reduce(lambda x, y: x + y, all_cards["attack_types"])
@@ -104,13 +138,12 @@ UNIQUEPILE_LIST = ["Castles", "Knights", "Loot"]
 LANDSCAPE_LIST = ["Event", "Project", "Way", "Landmark", "Trait"]
 OTHER_OBJ_LIST = ["Hex", "Boon", "State", "Artifact", "Ally", "Loot"]
 
+ALL_CSOS = _init_main_df()
+EXPANSION_LIST: list[str] = list(set(ALL_CSOS["Expansion"]))
+ATTACK_TYPE_LIST: list[str] = get_unique_entries_of_list_column(
+    ALL_CSOS, "attack_types"
+)
 
-ALL_CARDS = read_dataframe_from_file(FPATH_CARD_DATA, eval_lists=True)
-ALL_CARDS["IsAlly"] = ALL_CARDS.Types.apply(lambda x: "Ally" in x)
-ALL_CARDS = ALL_CARDS.set_index("Name", drop=False)
-EXPANSIONS_LIST: list[str] = list(set(ALL_CARDS["Expansion"]))
-ATTACK_TYPE_LIST: list[str] = get_attack_types(ALL_CARDS)
-    
 
 COLOR_PALETTE = ColorPalette()
 

@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 import pytest
-import randomizer_modules as rm
+import random_kingdominion as rm
 
 
 @pytest.fixture

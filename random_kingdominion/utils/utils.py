@@ -1,14 +1,8 @@
-from __future__ import annotations
-
 import os
-from math import ceil, floor
-from typing import Optional
 
-import numpy as np
 import pandas as pd
-from PyQt5.QtWidgets import QVBoxLayout, QWidget
 
-from .constants import PATH_ASSETS, RENEWED_EXPANSIONS
+from ..constants import PATH_ASSETS, RENEWED_EXPANSIONS
 
 
 def ask_file_overwrite(fpath: str) -> bool:
@@ -56,60 +50,13 @@ def write_dataframe_to_file(df: pd.DataFrame, fpath: str):
     print(
         f"Successfully wrote the dominion cards to the file '{fpath}' in the current path."
     )
-
-
-def filter_column(df: pd.DataFrame, colname: str, entries: list[str]) -> pd.DataFrame:
-    """Filters a dataframe for rows where the column is in the provided entries, e.g.
-    for a column containing the expansions ["Base", "Base", "Intrigue"], you
-    could filter with entries=["Intrigue", "Empires"]
-    """
-    df = df.loc[df[colname].apply(lambda x: x in entries)]
-    return df
-
-
-def get_mask_for_listlike_col_to_contain_any(
-    col: pd.Series, entries: list[str] | str, empty_too=False
-) -> np.ndarray[bool]:
-    """Filters a dataframe column for any intersection with the given list, e.g.
-    if you want to check the types of cards:
-        >>> get_mask_for_listlike_col_to_contain_any(df.Types, ["Attack", "Ally"])
-    would return an array where the Types column includes attacks or allies.
-    This method seems to be faster than most alternatives.
-    """
-    if empty_too:
-        return col.apply(lambda x: any([y in entries for y in x]) or not x)
-
-    return col.apply(lambda x: any([y in entries for y in x]))
-
-
-def display_cards(label_dict, layout_dict, name, num_rows=2, size=(150, 320)):
-    # Delete the old display
-    for i in reversed(range(layout_dict[f"{name}display"].count())):
-        layout_dict[f"{name}display"].itemAt(i).widget().setParent(None)
-    num_items = len(label_dict[f"{name}List"])
-    num_cols = ceil(num_items / num_rows)
-    for i, widget in enumerate(label_dict[f"{name}List"]):
-        row = floor(i / num_cols)
-        col = i - row * num_cols
-        wid = QWidget()
-        wid.setFixedSize(*size)
-        lay = QVBoxLayout(wid)
-        lay.setContentsMargins(1, 1, 1, 1)
-        entry = label_dict[f"{name}List"][i]
-        if isinstance(entry, dict):
-            lay.addWidget(entry["Button"])
-            lay.addWidget(entry["Pic"])
-            lay.addWidget(entry["Label"])
-        else:
-            lay.addWidget(entry)
-        layout_dict[f"{name}display"].addWidget(wid, row, col)
-
         
 
 def override(func):
     """
     Decorator to indicate that a method is overridden.
     """
+    # pylint: disable=unused-argument,invalid-name,missing-function-docstring
     return func
 
 def get_expansion_icon_path(expansion: str) -> str:

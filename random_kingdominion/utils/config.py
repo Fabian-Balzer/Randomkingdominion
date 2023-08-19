@@ -5,9 +5,7 @@ import json
 from configparser import ConfigParser
 from pathlib import Path
 
-import numpy as np
-
-from .constants import FPATH_RANDOMIZER_CONFIG, RENEWED_EXPANSIONS
+from ..constants import FPATH_RANDOMIZER_CONFIG, RENEWED_EXPANSIONS
 
 
 def add_renewed_base_expansions(expansions: list[str]) -> list[str]:
@@ -22,6 +20,9 @@ def add_renewed_base_expansions(expansions: list[str]) -> list[str]:
 
 
 class CustomConfigParser(ConfigParser):
+    def __init__(self):
+        super().__init__()
+        self.read(FPATH_RANDOMIZER_CONFIG)
 
     def getlist(self, section: str, key: str) -> list[str]:
         """Turn the internally as string saved stuff into a list."""
@@ -63,8 +64,3 @@ class CustomConfigParser(ConfigParser):
         with fpath.open("w", encoding="utf-8") as configfile:
             self.write(configfile)
 
-
-def get_randomizer_config_options() -> CustomConfigParser:
-    config = CustomConfigParser()
-    config.read(FPATH_RANDOMIZER_CONFIG)
-    return config

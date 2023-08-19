@@ -1,5 +1,5 @@
 """Tests for the constants.py file."""
-import randomizer_modules as rm
+import random_kingdominion as rm
 
 
 def test_filenames():

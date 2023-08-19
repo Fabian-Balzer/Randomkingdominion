@@ -3,10 +3,11 @@ from functools import partial
 from PyQt5 import QtGui as QG
 from PyQt5 import QtWidgets as QW
 
-from .config import get_randomizer_config_options
-from .constants import PATH_ASSETS
+from random_kingdominion.constants import PATH_ASSETS
+from random_kingdominion.kingdom import Kingdom, KingdomManager, KingdomRandomizer
+from random_kingdominion.utils import CustomConfigParser
+
 from .containers import WidgetContainer
-from .kingdom import Kingdom, KingdomManager, KingdomRandomizer
 
 
 class UIMainWindow(QW.QMainWindow):
@@ -16,7 +17,7 @@ class UIMainWindow(QW.QMainWindow):
         super().__init__()
         self._main = QW.QWidget()
         self.setCentralWidget(self._main)
-        self.config = get_randomizer_config_options()
+        self.config = CustomConfigParser()
         self.kingdom_randomizer = KingdomRandomizer(self.config)
         self.kingdom_manager = KingdomManager()
         self.current_kingdom: Kingdom = None
@@ -55,7 +56,7 @@ class UIMainWindow(QW.QMainWindow):
 
     def reroll_card(self, old_card: str):
         """Creates a new kingdom with the old card removed and tries a reroll."""
-        self.current_kingdom = self.kingdom_randomizer.reroll_single_card(
+        self.current_kingdom = self.kingdom_randomizer.reroll_single_cso(
             self.current_kingdom, old_card
         )
         self.kingdom_manager.add_kingdom(self.current_kingdom)
@@ -63,10 +64,7 @@ class UIMainWindow(QW.QMainWindow):
 
     def display_kingdom(self):
         """Updates the kingdom cards"""
-        self.widgets.update_card_display(self.current_kingdom)
-        button_dict = self.widgets.kingdom_display.reroll_button_dict
-        for card_name, button in button_dict.items():
-            button.clicked.connect(partial(self.reroll_card, card_name))
+        self.widgets.update_card_display(self.current_kingdom, self.reroll_card)
 
     def select_previous(self):
         index = self.kingdom_manager.kingdoms.index(self.current_kingdom)
