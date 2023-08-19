@@ -88,12 +88,8 @@ class Kingdom:
         full_kingdom_df = ALL_CSOS.loc[key_list]
         self.full_kingdom_df = _sort_kingdom(full_kingdom_df)
 
-        self.kingdom_card_df = self.full_kingdom_df[
-            self.full_kingdom_df.Name.apply(lambda x: x in self.cards)
-        ]
-        self.kingdom_landscape_df = self.full_kingdom_df[
-            self.full_kingdom_df.Name.apply(lambda x: x in self.landscapes)
-        ]
+        self.kingdom_card_df = self.full_kingdom_df.loc[self.cards]
+        self.kingdom_landscape_df = self.full_kingdom_df.loc[self.landscapes]
         self._set_quality_values()
 
         # TODO: Calculate extra piles necessary for the kingdom.
@@ -103,9 +99,9 @@ class Kingdom:
             exp for exp in unique_expansions if exp not in RENEWED_EXPANSIONS
         ]
 
-    def includes_ally(self) -> bool:
-        df = self.kingdom_landscape_df
-        return np.sum(df["Types"].apply(lambda x: "Ally" in x)) > 0
+    def contains_ally(self) -> bool:
+        """Checks whether this kingdom contains an ally"""
+        return np.sum(self.kingdom_landscape_df["IsAlly"]) > 0
 
     def pretty_print(self) -> str:
         """Return a string describing the most important things about this kingdom"""

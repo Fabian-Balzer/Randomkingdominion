@@ -149,3 +149,58 @@ def get_sub_df_listlike_contains_any_or_is_empty(
     contains_any_mask = listlike_contains_any(series, value_list)
     is_empty_mask = listlike_is_empty(series)
     return df[contains_any_mask | is_empty_mask]
+
+
+def get_sub_df_for_landscape(df: pd.DataFrame, exclude_ways=False) -> pd.DataFrame:
+    """Get a subset of the given pool containing only true landscapes (so no Allies)
+
+    Parameters
+    ----------
+    df : pd.DataFrame
+        The dataframe to filter
+    exclude_ways : bool, optional
+        Whether ways should also be excluded, by default False
+
+    Returns
+    -------
+    pd.DataFrame
+        The filtered dataframe
+    """
+    pool = df[df["IsLandscape"]]
+    if exclude_ways:
+        pool = pool[~pool["IsWay"]]
+    return pool
+
+
+def _get_sub_df_for_cost(pool: pd.DataFrame, cost_limits: list[str]) -> pd.DataFrame:
+    return pool[pool.Cost.isin(cost_limits)]
+
+
+def get_sub_df_for_card(df: pd.DataFrame, for_bane_or_mouse=False) -> pd.DataFrame:
+    """Get a subset of the given DataFrame containing only cards that are part of the
+    supply.
+    Can be reduced to cards costing $2 and $3.
+
+    Parameters
+    ----------
+    df : pd.DataFrame
+        The dataframe to filter
+    for_bane_or_mouse : bool, optional
+        Whether the cards should be filtered for ones that cost between $2 and $3,
+            by default False
+
+    Returns
+    -------
+    pd.DataFrame
+        The filtered dataframe
+    """
+    pool = df[~df["IsLandscape"] & df["IsInSupply"]]
+    if for_bane_or_mouse:
+        pool = _get_sub_df_for_cost(pool, ["$2", "$3"])
+    return pool
+
+
+def sample_single_card_from_df(df: pd.DataFrame) -> str:
+    if len(df) == 0:
+        return ""
+    return df.sample(1).iloc[0].Name

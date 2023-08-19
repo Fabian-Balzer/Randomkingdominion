@@ -6,18 +6,15 @@ import pandas as pd
 
 from random_kingdominion.constants import ALL_CSOS, QUALITIES_AVAILABLE
 from random_kingdominion.cso_frame_utils import (
+    get_sub_df_for_card,
+    get_sub_df_for_landscape,
     get_sub_df_listlike_contains_any_or_is_empty,
     get_sub_df_of_categories,
+    sample_single_card_from_df,
 )
 from random_kingdominion.utils.config import (
     CustomConfigParser,
     add_renewed_base_expansions,
-)
-
-from .kingdom_helper_funcs import (
-    _get_draw_pool_for_card,
-    _get_draw_pool_for_landscape,
-    _sample_card_from_dataframe,
 )
 
 
@@ -129,11 +126,11 @@ class PoolContainer:
         self, qualities_so_far: dict[str, int], for_bane_or_mouse=False
     ) -> str:
         """Pick the next card while also considering the required qualities."""
-        pool = _get_draw_pool_for_card(self.main_pool, for_bane_or_mouse)
+        pool = get_sub_df_for_card(self.main_pool, for_bane_or_mouse)
         if len(pool) == 0:
             return ""
         pool = self._narrow_pool_for_quality(pool, qualities_so_far)
-        pick = _sample_card_from_dataframe(pool)
+        pick = sample_single_card_from_df(pool)
         self.main_pool = self.main_pool.drop(pick)
         return pick
 
@@ -141,19 +138,20 @@ class PoolContainer:
         self, qualities_so_far: dict[str, int], exclude_ways: bool
     ) -> str:
         """Pick the next landscape while also considering the required qualities."""
-        pool = _get_draw_pool_for_landscape(self.main_pool, exclude_ways)
+        pool = get_sub_df_for_landscape(self.main_pool, exclude_ways)
         if len(pool) == 0:
             return ""
         pool = self._narrow_pool_for_quality(pool, qualities_so_far)
-        pick = _sample_card_from_dataframe(pool)
+        pick = sample_single_card_from_df(pool)
         self.main_pool = self.main_pool.drop(pick)
         return pick
 
     def pick_ally(self, qualities_so_far: dict[str, int]) -> str:
+        """Pick an ally while also considering the required qualities."""
         pool = self.main_pool[self.main_pool["IsAlly"]]
         if len(pool) == 0:
             return ""
         pool = self._narrow_pool_for_quality(pool, qualities_so_far)
-        pick = _sample_card_from_dataframe(pool)
+        pick = sample_single_card_from_df(pool)
         self.main_pool = self.main_pool.drop(pick)
         return pick

@@ -37,6 +37,7 @@ class KingdomRandomizer:
             random_kingdom.add_landscape(pick)
 
     def pick_new_landscape(self, random_kingdom: RandomizedKingdom):
+        """Picks the next landscape and makes sure that WotMouse is taken care of."""
         pick = self.pool_con.pick_next_landscape(
             random_kingdom.quality_of_selection, random_kingdom.contains_way()
         )
@@ -83,11 +84,11 @@ class KingdomRandomizer:
         """Take the old kingdom, reroll one cso, and return the new one with
         that card rerolled."""
         self.rerolled_csos.append(cso_name)
-        # TODO: Properly handle this.
-        print(cso_name + " is rerolled")
         random_kingdom = RandomizedKingdom.from_kingdom(old_kingdom)
         if random_kingdom.contains_card(cso_name):
             random_kingdom.remove_card(cso_name)
+            self.pick_next_card(random_kingdom)
         elif random_kingdom.contains_landscape(cso_name):
             random_kingdom.remove_landscape(cso_name)
-        return old_kingdom
+            self.pick_new_landscape(random_kingdom)
+        return random_kingdom.get_kingdom()

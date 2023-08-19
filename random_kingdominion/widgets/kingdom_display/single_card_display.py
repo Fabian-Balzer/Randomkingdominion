@@ -25,7 +25,7 @@ class SingleCardImageWidget(QW.QWidget):
         self.box_layout.setContentsMargins(0, 0, 0, 0)
         self.box_layout.setSizeConstraint(QW.QVBoxLayout.SetMinimumSize)
         self.setFixedWidth(200)
-        self.display_card()
+        self.im_height = self.display_card()
         # Adjust the layout
         self.setSizePolicy(QW.QSizePolicy.Fixed, QW.QSizePolicy.Fixed)
 
@@ -65,7 +65,7 @@ class SingleCardImageWidget(QW.QWidget):
         coststring = f" ({card['Cost']})" if pd.notna(card["Cost"]) else ""
         return f"{card['Name']}{coststring}\n({card['Expansion']})"
 
-    def display_card(self):
+    def display_card(self) -> int:
         """Display the card that this class is based on."""
         top_part = ImageCutoutWidget(self.impath, 0.47, 1, self.width())
         bottom_part = ImageCutoutWidget(self.impath, 0.03, 0.11, self.width())
@@ -82,13 +82,16 @@ class SingleCardImageWidget(QW.QWidget):
         label.setStyleSheet(
             f"border-image: url('demo.jpg');\
                             background-color: {color}; \
-                            border-radius:25"
+                            border-radius:5"
         )
-        label.setMargin(2)
+        label.setMargin(1)
         label.setScaledContents(True)
         label.setAlignment(QC.Qt.AlignCenter)
 
         font = label.font()
-        font.setPointSize(10)
+        font.setPointSize(8)
         label.setFont(font)
-        label.setGeometry(12, self.height() - 40, self.width() - 24, 20)
+        label_height = 20 * (text.count("\n") + 1)
+        label.setGeometry(
+            12, self.im_height - 20 - label_height, self.width() - 24, label_height
+        )

@@ -7,9 +7,10 @@ import numpy as np
 import pandas as pd
 
 from random_kingdominion.constants import ALL_CSOS, QUALITIES_AVAILABLE
+from random_kingdominion.cso_frame_utils import sample_single_card_from_df
 
 from .kingdom import Kingdom
-from .kingdom_helper_funcs import _get_total_quality, _sample_card_from_dataframe
+from .kingdom_helper_funcs import _get_total_quality
 
 
 def _qual_dict_factory() -> dict[str, int]:
@@ -42,7 +43,7 @@ class RandomizedKingdom:
     def from_kingdom(cls: RandomizedKingdom, kingdom: Kingdom) -> RandomizedKingdom:
         """Construct an instance of this class from a Kingdom"""
         num_landscapes = len(kingdom.landscapes)
-        if kingdom.includes_ally():
+        if kingdom.contains_ally():
             num_landscapes -= 1
         same_attrs = [
             "obelisk_pile",
@@ -57,11 +58,11 @@ class RandomizedKingdom:
             kingdom,
             dict_factory=lambda x: {k: v for k, v in x if k in same_attrs},
         )
-        instance = cls(num_landscapes=num_landscapes, **attr_dict)
+        instance = RandomizedKingdom(num_landscapes=num_landscapes, **attr_dict)
         for card in kingdom.cards:
             instance.add_card(card)
         for landscape in kingdom.landscapes:
-            instance.add_landscape(landscape)
+            instance.add_landscape(landscape, pick_targets=False)
         return instance
 
     def _get_full_df(self) -> pd.DataFrame:
@@ -85,17 +86,15 @@ class RandomizedKingdom:
 
     def contains_way(self) -> bool:
         """Checks whether the current selection contains a way."""
-        return np.sum(self._get_landscape_df()["Types"].apply(lambda x: "Way" in x)) > 0
+        return np.sum(self._get_landscape_df()["IsWay"]) > 0
 
     def contains_ally(self) -> bool:
-        """Checks whether the current selection contains a way."""
-        return (
-            np.sum(self._get_landscape_df()["Types"].apply(lambda x: "Ally" in x)) > 0
-        )
+        """Checks whether the current selection contains an ally."""
+        return np.sum(self._get_landscape_df()["IsAlly"]) > 0
 
     def contains_liaison(self) -> bool:
         """Checks whether the current selection contains a way."""
-        return np.sum(self._get_card_df()["Types"].apply(lambda x: "Liaison" in x)) > 0
+        return np.sum(self._get_card_df()["IsLiaison"]) > 0
 
     def contains_card(self, card_name: str) -> bool:
         """Check whether a given card is in the cards"""
@@ -135,6 +134,16 @@ class RandomizedKingdom:
             self.set_bane_card("")
         self.all_cards_picked = len(self._selected_cards) >= self.num_cards
         self._set_quality_values()
+        # Pick new trait if the card was a trait target:
+        trait_targets = [trait_tuple[1] for trait_tuple in self.traits]
+        if card_name in trait_targets:
+            index = trait_targets.index(card_name)
+            trait_tup = self.traits[index]
+            self.traits.remove(trait_tup)
+            self._pick_trait_target(trait_tup[0])
+        # Pick new obelisk if the card was the obelisk target:
+        if self.obelisk_pile == card_name:
+            self._pick_obelisk()
         return card_name == self.bane_pile
 
     def remove_landscape(self, landscape_name: str) -> bool:
@@ -156,12 +165,18 @@ class RandomizedKingdom:
         self._set_quality_values()
         return ALL_CSOS.loc[landscape_name].IsAlly
 
-    def add_landscape(self, landscape_name: str):
+    def add_landscape(self, landscape_name: str, pick_targets=True):
         """Safely adds the given landscape to this kingdom"""
         if landscape_name == "":
             return
         self._selected_landscapes.append(landscape_name)
         self._set_quality_values()
+        if not pick_targets:
+            return
+        if landscape_name == "Obelisk":
+            self._pick_obelisk()
+        if self._get_landscape_df().loc[landscape_name]["IsTrait"]:
+            self._pick_trait_target(landscape_name)
 
     def set_bane_card(self, bane_name: str):
         """Removes any existing old bane card and sets the new one"""
@@ -181,20 +196,15 @@ class RandomizedKingdom:
         self.mouse_card = mouse_name
         self._set_quality_values()
 
-    def pick_traits(self):
-        """Since the cards should all be included in the kingdom already, the
-        traits may be picked."""
-        df = self._get_landscape_df()
-        traits = df[df.Types.apply(lambda x: "Trait" in x)]
+    def _pick_trait_target(self, trait_name: str):
+        """Pick the target for the given trait."""
         # Make sure no card is picked by more than one Trait
         excluded = [trait_tuple[1] for trait_tuple in self.traits]
-        for trait, _ in traits.iterrows():
-            counterpart = self._pick_action_or_treasure(excluded)
-            if counterpart:
-                self.traits.append([trait, counterpart])
-                excluded.append(counterpart)
+        counterpart = self._pick_action_or_treasure(excluded)
+        if counterpart:
+            self.traits.append([trait_name, counterpart])
 
-    def pick_obelisk(self):
+    def _pick_obelisk(self):
         """Since the cards should all be included in the kingdom already, the
         obelisk may be picked."""
         if "Obelisk" in self._selected_landscapes:
@@ -202,16 +212,16 @@ class RandomizedKingdom:
 
     def _pick_action_or_treasure(self, excluded: list[str] | None = None) -> str:
         df = self._get_card_df()
-        subset = df[df.Types.apply(lambda x: "Action" in x or "Treasure" in x)]
+        subset = df[df["IsAction"] | df["IsTreasure"]]
         if excluded:
             subset = subset[~np.isin(list(subset.Name), excluded)]
-        return _sample_card_from_dataframe(subset)
+        return sample_single_card_from_df(subset)
 
     def _pick_action(self) -> str:
         """For the obelisk pile, an Action supply pile must be picked"""
         df = self._get_card_df()
-        subset = df[df.Types.apply(lambda x: "Action" in x)]
-        return _sample_card_from_dataframe(subset)
+        subset = df[df["IsAction"]]
+        return sample_single_card_from_df(subset)
 
     def get_kingdom(self) -> Kingdom:
         """Construct a proper kingdom out of this one"""

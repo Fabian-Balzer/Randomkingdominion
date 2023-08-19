@@ -52,8 +52,8 @@ def read_dataframe_from_file(fpath: str, eval_lists=False):
 
 def _init_main_df():
     """Sets up the main DataFrame."""
-    category_types = [qual + "_quality" for qual in QUALITIES_AVAILABLE]
-    category_types.append("Expansion")
+    # category_types = [qual + "_quality" for qual in QUALITIES_AVAILABLE]
+    category_types = ["Expansion"]
     unnecessary_cols = [
         "Actions / Villagers",
         "Cards",
@@ -72,7 +72,7 @@ def _init_main_df():
         .drop(unnecessary_cols, axis=1)
     )
     # Add interesting boolean columns:
-    types_of_interest = ["Ally", "Way", "Liaison"]
+    types_of_interest = ["Ally", "Way", "Liaison", "Trait", "Action", "Treasure"]
     for type_ in types_of_interest:
         df["Is" + type_] = listlike_contains(df.Types, type_)
     return df
