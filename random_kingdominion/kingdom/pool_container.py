@@ -10,7 +10,8 @@ from random_kingdominion.cso_frame_utils import (
     get_sub_df_for_landscape,
     get_sub_df_listlike_contains_any_or_is_empty,
     get_sub_df_of_categories,
-    sample_single_card_from_df,
+    sample_single_cso_from_df,
+    add_weight_column,
 )
 from random_kingdominion.utils.config import (
     CustomConfigParser,
@@ -25,15 +26,15 @@ class PoolContainer:
     DataFrame"""
 
     def __init__(
-        self, config: CustomConfigParser, excluded_csos: list[str] | None = None
+        self, config: CustomConfigParser, rerolled_csos: list[str] | None = None
     ):
+        rerolled_csos = rerolled_csos if rerolled_csos else []
         self.config = config
         self.eligible_expansions = self._determine_eligible_expansions()
-        self.main_pool: pd.DataFrame = self.get_initial_draw_pool()
-        if excluded_csos:
-            self.main_pool = self.main_pool.drop(excluded_csos, errors="ignore")
 
-    def get_initial_draw_pool(self) -> pd.DataFrame:
+        self.main_pool: pd.DataFrame = self.get_initial_draw_pool(rerolled_csos)
+
+    def get_initial_draw_pool(self, rerolled_csos: list[str]) -> pd.DataFrame:
         """Create the initial draw pool for the kingdom.
         This is the overarching one that is used for all of the draws,
         so here we filter for requested expansions, allowed attack types,
@@ -53,6 +54,15 @@ class PoolContainer:
 
         # Discard all non-supply-non-landscape-non-ally cards as we don't need them to draw from
         pool = pool[pool["IsInSupply"] | pool["IsLandscape"] | pool["IsAlly"]]
+
+        # Drop bans and rerolls
+        banned_csos = self.config.getlist("General", "banned_csos")
+        pool = pool.drop(rerolled_csos + banned_csos, errors="ignore")
+
+        # Set the weights to account for liked and disliked cards
+        disliked = self.config.getlist("General", "disliked_csos")
+        liked = self.config.getlist("General", "liked_csos")
+        pool = add_weight_column(pool, disliked, liked)
         return pool
 
     def _exclude_forbidden_qualities(self, pool: pd.DataFrame) -> pd.DataFrame:
@@ -130,7 +140,7 @@ class PoolContainer:
         if len(pool) == 0:
             return ""
         pool = self._narrow_pool_for_quality(pool, qualities_so_far)
-        pick = sample_single_card_from_df(pool)
+        pick = sample_single_cso_from_df(pool)
         self.main_pool = self.main_pool.drop(pick)
         return pick
 
@@ -142,7 +152,7 @@ class PoolContainer:
         if len(pool) == 0:
             return ""
         pool = self._narrow_pool_for_quality(pool, qualities_so_far)
-        pick = sample_single_card_from_df(pool)
+        pick = sample_single_cso_from_df(pool)
         self.main_pool = self.main_pool.drop(pick)
         return pick
 
@@ -152,6 +162,6 @@ class PoolContainer:
         if len(pool) == 0:
             return ""
         pool = self._narrow_pool_for_quality(pool, qualities_so_far)
-        pick = sample_single_card_from_df(pool)
+        pick = sample_single_cso_from_df(pool)
         self.main_pool = self.main_pool.drop(pick)
         return pick

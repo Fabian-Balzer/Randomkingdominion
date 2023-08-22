@@ -1,4 +1,3 @@
-
 import PyQt5.QtCore as QC
 import PyQt5.QtWidgets as QW
 
@@ -18,6 +17,7 @@ class ScrollableGroupBox(QW.QGroupBox):
         super().__init__(title, parent)
 
         layout = QW.QVBoxLayout(self)
+        layout.setContentsMargins(0, 0, 0, 0)
 
         scroll_area = QW.QScrollArea(self)
         layout.addWidget(scroll_area)
@@ -26,13 +26,17 @@ class ScrollableGroupBox(QW.QGroupBox):
         scroll_area.setWidget(scroll_content)
 
         lay = QW.QVBoxLayout(scroll_content)
-        lay.setSpacing(5)
-        lay.setContentsMargins(3, 3, 3, 3)
+        lay.setSpacing(3)
+        lay.setContentsMargins(3, 3, 30, 3)
+
         self.content_layout = lay
 
-        scroll_area.setWidgetResizable(True)
         scroll_area.setVerticalScrollBarPolicy(QC.Qt.ScrollBarAsNeeded)
         scroll_area.setHorizontalScrollBarPolicy(QC.Qt.ScrollBarAlwaysOff)
+        scroll_area.setStyleSheet("QScrollBar:vertical { width: 15px; }")
+
+        # Make the content resizable
+        scroll_area.setWidgetResizable(True)
 
     def addWidget(self, widget: QW.QWidget, stretch: int = 0):
         """Convenience function to add a widget to the main layout of the box.

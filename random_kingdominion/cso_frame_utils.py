@@ -200,7 +200,30 @@ def get_sub_df_for_card(df: pd.DataFrame, for_bane_or_mouse=False) -> pd.DataFra
     return pool
 
 
-def sample_single_card_from_df(df: pd.DataFrame) -> str:
+def sample_single_cso_from_df(df: pd.DataFrame) -> str:
+    """Samples the next CSO from the given DataFrame while
+    respecting the weight situation."""
     if len(df) == 0:
         return ""
-    return df.sample(1).iloc[0].Name
+    weights = df["CSOWeight"] if "CSOWeight" in df.columns else None
+    return df.sample(1, weights=weights).iloc[0].Name
+
+
+def _get_weight_for_cso(name: str, disliked: list[str], liked: list[str]) -> float:
+    if name in disliked:
+        return 0.5
+    if name in liked:
+        return 2
+    return 1
+
+
+def add_weight_column(
+    df: pd.DataFrame, disliked: list[str], liked: list[str]
+) -> pd.DataFrame:
+    """Adds a weight column to the given DataFrame by taking the liked and
+    disliked list into consideration.
+    """
+    df["CSOWeight"] = df["Name"].apply(
+        lambda name: _get_weight_for_cso(name, disliked, liked)
+    )
+    return df

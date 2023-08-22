@@ -1,6 +1,7 @@
-
 import PyQt5.QtCore as QC
 import PyQt5.QtWidgets as QW
+
+from random_kingdominion.utils import clear_layout
 
 
 class CollapsibleBox(QW.QWidget):
@@ -42,8 +43,5 @@ class CollapsibleBox(QW.QWidget):
 
     def setContentLayout(self, layout: QW.QWidget):
         # Clear the existing content layout and add the provided layout
-        while self.content_layout.count():
-            child = self.content_layout.takeAt(0)
-            if child.widget():
-                child.widget().deleteLater()
+        clear_layout(self.content_layout)
         self.content_layout.addLayout(layout)

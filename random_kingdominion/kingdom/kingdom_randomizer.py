@@ -53,14 +53,16 @@ class KingdomRandomizer:
 
     def randomize_new_kingdom(self) -> Kingdom:
         """Create a completely fresh randomized kingdom."""
-        excluded_csos = self.rerolled_csos
-        self.pool_con = PoolContainer(self.config, excluded_csos)
+        self.pool_con = PoolContainer(self.config, self.rerolled_csos)
         if len(self.config.get_expansions(False)) == 0:
             return
 
         num_cards = self.config.getint("General", "num_cards")
         num_landscapes = self._determine_landscape_number()
         random_kingdom = RandomizedKingdom(num_landscapes=num_landscapes)
+
+        # TODO: Implement required CSOs
+        required_csos = self.config.getlist("General", "required_csos")
 
         for _ in range(num_cards):
             self.pick_next_card(random_kingdom)

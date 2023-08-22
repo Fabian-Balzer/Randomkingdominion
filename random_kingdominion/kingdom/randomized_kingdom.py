@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 
 from random_kingdominion.constants import ALL_CSOS, QUALITIES_AVAILABLE
-from random_kingdominion.cso_frame_utils import sample_single_card_from_df
+from random_kingdominion.cso_frame_utils import sample_single_cso_from_df
 
 from .kingdom import Kingdom
 from .kingdom_helper_funcs import _get_total_quality
@@ -209,13 +209,13 @@ class RandomizedKingdom:
         subset = df[df["IsAction"] | df["IsTreasure"]]
         if excluded:
             subset = subset[~np.isin(list(subset.Name), excluded)]
-        return sample_single_card_from_df(subset)
+        return sample_single_cso_from_df(subset)
 
     def _pick_action(self) -> str:
         """For the obelisk pile, an Action supply pile must be picked"""
         df = self._get_card_df()
         subset = df[df["IsAction"]]
-        return sample_single_card_from_df(subset)
+        return sample_single_cso_from_df(subset)
 
     def get_kingdom(self) -> Kingdom:
         """Construct a proper kingdom out of this one"""

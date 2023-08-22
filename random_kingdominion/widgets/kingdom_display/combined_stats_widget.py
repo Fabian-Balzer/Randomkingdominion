@@ -5,6 +5,7 @@ import PyQt5.QtWidgets as QW
 from random_kingdominion.constants import COLOR_PALETTE, QUALITIES_AVAILABLE
 from random_kingdominion.kingdom import Kingdom
 from random_kingdominion.utils import get_expansion_icon_path, get_row_and_col
+from random_kingdominion.utils import clear_layout
 
 from .single_quality_display import SingleQualityDisplay
 
@@ -66,10 +67,7 @@ class KingdomExpansionGroupWidget(QW.QGroupBox):
 
     def set_expansions(self, kingdom: Kingdom):
         """Set the expansion display to the ones of the current kingdom"""
-        while self.main_layout.count():
-            child = self.main_layout.takeAt(0)
-            if child.widget():
-                child.widget().deleteLater()
+        clear_layout(self.main_layout)
         for i, expansion in enumerate(sorted(kingdom.expansions)):
             row, col = get_row_and_col(i, max_columns=2)
             wid = ExpansionIcon(expansion)

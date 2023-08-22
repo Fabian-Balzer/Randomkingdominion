@@ -5,6 +5,7 @@ import PyQt5.QtWidgets as QW
 
 from random_kingdominion.kingdom import Kingdom, KingdomRandomizer
 from random_kingdominion.utils import get_row_and_col
+from random_kingdominion.utils import clear_layout
 
 from .single_card_display import SingleCardImageWidget
 
@@ -38,9 +39,10 @@ class GroupedCardDisplay(QW.QWidget):
 
     def _reset_layout(self):
         self.widget_list = []
-        while self.grid_layout.count():
-            item = self.grid_layout.itemAt(0)
-            self.grid_layout.removeItem(item)
-            widget = item.widget()
-            if widget:
-                widget.deleteLater()
+        clear_layout(self.grid_layout)
+        # while self.grid_layout.count():
+        #     item = self.grid_layout.itemAt(0)
+        #     self.grid_layout.removeItem(item)
+        #     widget = item.widget()
+        #     if widget:
+        #         widget.deleteLater()

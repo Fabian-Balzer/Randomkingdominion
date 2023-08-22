@@ -1,13 +1,12 @@
 # TODOS
 
-Things and ideas I am having to improve 
+Things and ideas I am having to improve
 
 ## General
 
 ### Backend and implementation stuff
 
 - Refactor widget infrastructure (reorder everything for a nicer structure -> Only Buttons left)
-- Fix rerolling of single cards (closely connected with required cards list)
 - Write Tests
 
 ### Randomizer options
@@ -26,7 +25,7 @@ Things and ideas I am having to improve
 - Add sorting options for kingdom (Cost as default, but also Card Name and Expansion?)
 - Improve the kingdom overview
 - Implement showing the whole kingdom to set up (e.g. Wishes, Boons, Loot, Ruins)
-- Implement Shortened Kingdom View (i.e. only name, picture and cost) with toggle between short and long
+- Add possibility of clicking on a single card/landscape to get full screen view
 - Save the UI state in config (for collapsible views)
 
 ### Card metadata
@@ -67,3 +66,5 @@ DONE Implement picking Trait, Obelisk, Mouse and Bane Cards
 DONE Show expansions used for a kingdom separately
 DONE fix sorting of debt/potion cost cards
 DONE Refactor how the randomizer picks cards depending on the attributes given
+DONE Make rerolling single csos possible again
+DONE Implement Shortened Kingdom View (i.e. only name, picture and cost)

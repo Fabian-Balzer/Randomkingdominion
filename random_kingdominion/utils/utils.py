@@ -1,6 +1,7 @@
 import os
 
 import pandas as pd
+import PyQt5.QtWidgets as QW
 
 from ..constants import PATH_ASSETS, RENEWED_EXPANSIONS
 
@@ -40,8 +41,6 @@ def ask_file_overwrite(fpath: str) -> bool:
         )
 
 
-
-
 def write_dataframe_to_file(df: pd.DataFrame, fpath: str):
     """Writes the given dataframe to a file"""
     if not ask_file_overwrite(fpath):
@@ -50,7 +49,7 @@ def write_dataframe_to_file(df: pd.DataFrame, fpath: str):
     print(
         f"Successfully wrote the dominion cards to the file '{fpath}' in the current path."
     )
-        
+
 
 def override(func):
     """
@@ -58,6 +57,7 @@ def override(func):
     """
     # pylint: disable=unused-argument,invalid-name,missing-function-docstring
     return func
+
 
 def get_expansion_icon_path(expansion: str) -> str:
     """Returns the image path for the given expansion icon."""
@@ -70,6 +70,7 @@ def get_expansion_icon_path(expansion: str) -> str:
         expansion = conversion_dict[expansion]
     return str(base.joinpath(expansion.replace(" ", "_") + ".png"))
 
+
 def get_row_and_col(index: int, max_columns: int) -> tuple[int, int]:
     """Calculate the row and column for the given index in a grid with
     max_columns as the maximum amount of columns."""
@@ -77,3 +78,16 @@ def get_row_and_col(index: int, max_columns: int) -> tuple[int, int]:
     column = index % max_columns
     return row, column
 
+
+def clear_layout(layout: QW.QLayout):
+    """Clear the given layout (remove all its children in a safe way)
+
+    Parameters
+    ----------
+    layout : QW.QLayout
+        The layout to be cleared
+    """
+    while layout.count():
+        child = layout.takeAt(0)
+        if child.widget():
+            child.widget().deleteLater()

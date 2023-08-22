@@ -1,25 +1,40 @@
-
 import PyQt5.QtCore as QC
 import PyQt5.QtWidgets as QW
 
 from random_kingdominion import CustomConfigParser
 
 from ..basic_widgets import CollapsibleBox, CustomRangeSlider
+from .single_csolist_selection import SingleCSOListSelectionWidget
 
 
 class GeneralSettingsWidget(CollapsibleBox):
     """A widget to display the general settings, which includes
     tweaking the number of landscapes
     """
+
     def __init__(self, config: CustomConfigParser):
         super().__init__(title="General settings", initially_collapsed=False)
         self.config = config
 
         lay = QW.QVBoxLayout()
-        lay.setContentsMargins(0, 0, 0, 0)
+        lay.setContentsMargins(0, 0, 10, 0)
 
         self._init_landscape_slider()
         lay.addWidget(self.landscape_widget)
+        self.banned_selection_widget = SingleCSOListSelectionWidget(
+            "Banned CSOs", config
+        )
+        self.disliked_selection_widget = SingleCSOListSelectionWidget(
+            "Disliked CSOs", config
+        )
+        self.liked_selection_widget = SingleCSOListSelectionWidget("Liked CSOs", config)
+        self.required_selection_widget = SingleCSOListSelectionWidget(
+            "Required CSOs", config
+        )
+        lay.addWidget(self.banned_selection_widget)
+        lay.addWidget(self.disliked_selection_widget)
+        lay.addWidget(self.liked_selection_widget)
+        lay.addWidget(self.required_selection_widget)
         self.setContentLayout(lay)
         self._set_initial_values()
 

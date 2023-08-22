@@ -8,12 +8,21 @@ from .image_cutout_widget import ImageCutoutWidget
 from .picture_check_box import PictureCheckBox
 from .quality_icon import QualityIcon
 from .scrollable_group_box import ScrollableGroupBox
+from .text_validation_submission_widget import TextValidationSubmissionWidget
 
-__all__ = ["CollapsibleBox", "CustomButton",
-           "CustomCheckBox", "CustomRangeSlider",
-           "CustomSlider", "HorizontalBarWidget",
-           "ImageCutoutWidget", "PictureCheckBox",
-           "QualityIcon", "ScrollableGroupBox"]
+__all__ = [
+    "CollapsibleBox",
+    "CustomButton",
+    "CustomCheckBox",
+    "CustomRangeSlider",
+    "CustomSlider",
+    "HorizontalBarWidget",
+    "ImageCutoutWidget",
+    "PictureCheckBox",
+    "QualityIcon",
+    "ScrollableGroupBox",
+    "TextValidationSubmissionWidget",
+]
 
 # Some unused subclasses which might be handy later:
 
@@ -33,9 +42,9 @@ __all__ = ["CollapsibleBox", "CustomButton",
 #         self.setStyleSheet(
 #             """QRadioButton {padding: 1px 1px;
 #                            color: black; background-color:
-#                            qlineargradient(x1: 0, y1: 0, 
+#                            qlineargradient(x1: 0, y1: 0,
 #                            2: 0, y2: 1, stop: 0 #f6f7fa, stop: 1 #dadbde);
-#                            font: bold 14px} 
+#                            font: bold 14px}
 #                            QRadioButton:checked {color: rgb(0, 0, 150)}
 #                            """
 #         )
