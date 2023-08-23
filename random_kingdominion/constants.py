@@ -7,7 +7,6 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 from matplotlib import colormaps as cm
-
 from random_kingdominion.cso_frame_utils import get_unique_entries_of_list_column
 from random_kingdominion.cso_series_utils import listlike_contains
 
@@ -65,20 +64,30 @@ def _init_main_df():
         "Gain",
         "Victory Points",
     ]
+    df = read_dataframe_from_file(FPATH_CARD_DATA, True)
+    df["index_name"] = df["Name"].str.lower().str.replace(" ", "_").str.replace("'", "")
     df = (
-        read_dataframe_from_file(FPATH_CARD_DATA, True)
-        .set_index("Name", drop=False)
+        df.set_index("index_name")
         .astype({cat: "category" for cat in category_types})
         .drop(unnecessary_cols, axis=1)
     )
     # Add interesting boolean columns:
-    types_of_interest = ["Ally", "Way", "Liaison", "Trait", "Action", "Treasure"]
+    types_of_interest = [
+        "Ally",
+        "Way",
+        "Liaison",
+        "Trait",
+        "Action",
+        "Treasure",
+        "Boon",
+    ]
     for type_ in types_of_interest:
         df["Is" + type_] = listlike_contains(df.Types, type_)
     return df
 
 
 def get_attack_types(all_cards) -> list[str]:
+    """Gather the existing AttackTypes from the given dataframe."""
     all_types = reduce(lambda x, y: x + y, all_cards["attack_types"])
     return sorted(list(np.unique(all_types)))
 

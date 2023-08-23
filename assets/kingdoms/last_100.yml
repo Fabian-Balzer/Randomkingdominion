@@ -1,2106 +1,396 @@
 - cards:
-  - Catapult/Rocks
-  - Enchantress
-  - Barbarian
-  - Skirmisher
-  - Legionary
-  - Highwayman
-  - Clashes
-  - Augurs
-  - Wizards
-  - Marquis
-  idx: 31240389636375413389533953813182005219
-  landscapes:
-  - Colonnade
-  - Keep
-- cards:
-  - Skirmisher
-  - Clashes
-  - Barbarian
-  - Augurs
-  - Specialist
-  - Innkeeper
-  - Highwayman
-  - Modify
-  - Wizards
-  - Royal Galley
-  idx: 78415815257911518377604675611248671383
-  landscapes:
-  - Summon
-- cards:
-  - Cauldron
-  - Coven
-  - Gatekeeper
-  - Berserker
-  - Margrave
-  - Witch's Hut
-  - Black Cat
-  - Cardinal
-  - Camel Train
-  - Trail
-  idx: 176906312661864229997914964436730198698
-  landscapes:
-  - Way of the Otter
-  - Populate
-- cards:
-  - Witch
-  - Sea Witch
-  - Cutpurse
-  - Corsair
-  - Bandit
-  - Bureaucrat
-  - Militia
-  - Blockade
-  - Monkey
-  - Market
-  idx: 309012227740300267045912701928280125499
-- cards:
-  - Haunted Woods
-  - Swamp Hag
-  - Clerk
-  - Charlatan
-  - Bridge Troll
-  - Rabble
-  - Giant
-  - Relic
-  - Ranger
-  - Magpie
-  idx: 65079073515203198874965553212377547255
-  landscapes:
-  - Raid
-  - Bonfire
-- cards:
-  - Berserker
-  - Vampire
-  - Skulk
-  - Witch's Hut
-  - Cauldron
-  - Raider
-  - Idol
-  - Tormentor
-  - Werewolf
-  - Margrave
-  idx: 233477207922599284228837084470121229388
-- cards:
-  - Idol
-  - Scrying Pool
-  - Familiar
-  - Werewolf
-  - Raider
-  - Tormentor
-  - Vampire
-  - Possession
-  - Skulk
-  - Sacred Grove
-  idx: 33820207098007754412898590769483826461
-- cards:
-  - Spices
-  - Tiara
-  - Berserker
-  - Carpenter
-  - Explorer
-  - Possession
-  - Soothsayer
-  - Worker's Village
-  - Villa
-  - Stowaway
-  idx: 24101735410652232990217406450673908432
-  landscapes:
-  - Inherited
-  - Palace
-  - Way of the Sheep
-  - Exploration
-- cards:
-  - Spices
-  - Tiara
-  - Berserker
-  - Carpenter
-  - Explorer
-  - Possession
-  - Soothsayer
-  - Worker's Village
-  - Villa
-  - Stowaway
-  idx: 24101735410652232990217406450673908432
-  landscapes:
-  - Inherited
-  - Palace
-  - Way of the Sheep
-  - Exploration
-- cards:
-  - Specialist
-  - Develop
-  - Supplies
-  - Secret Cave
-  - Bridge
-  - Contraband
-  - Duplicate
-  - Loan
-  - Governor
-  - Duchess
-  idx: 164239413236542765741625278776886848936
-  landscapes:
-  - Keep
-  - Way of the Mule
-  - Wolf Den
-  - Prosper
-- cards:
-  - Catapult/Rocks
-  - Charm
-  - Hamlet
-  - Search
-  - Galleria
-  - Pickaxe
-  - Expand
-  - Swamp Shacks
-  - University
-  - Berserker
-  idx: 241536589748526240466059815401157069128
-  landscapes:
-  - Toil
-  - Tower
-  - Way of the Sheep
-  - Looting
-- cards:
-  - Catapult/Rocks
-  - Charm
-  - Hamlet
-  - Search
-  - Galleria
-  - Pickaxe
-  - Expand
-  - Swamp Shacks
-  - University
-  - Berserker
-  idx: 165356656495925555692719618450327628414
-  landscapes:
-  - Tower
-  - Way of the Sheep
-  - Looting
-  - Rush
-- cards:
-  - Catapult/Rocks
-  - Charm
-  - Hamlet
-  - Search
-  - Galleria
-  - Pickaxe
-  - Expand
-  - Swamp Shacks
-  - University
-  - Berserker
-  idx: 200201037324743997134019557398002417881
-  landscapes:
-  - Tower
-  - Way of the Sheep
-  - Rush
-  - Travelling Fair
-- cards:
-  - Catapult/Rocks
-  - Charm
-  - Hamlet
-  - Search
-  - Galleria
-  - Pickaxe
-  - Expand
-  - Swamp Shacks
-  - University
-  - Berserker
-  idx: 84373148507986996707737176352512534026
-  landscapes:
-  - Tower
-  - Way of the Sheep
-  - Travelling Fair
-  - Summon
-- cards:
-  - Catapult/Rocks
-  - Charm
-  - Hamlet
-  - Search
-  - Galleria
-  - Pickaxe
-  - Expand
-  - Swamp Shacks
-  - University
-  - Berserker
-  idx: 238079435213820926313442767714240345498
-  landscapes:
-  - Tower
-  - Way of the Sheep
-  - Summon
-  - Gamble
-- cards:
-  - Catapult/Rocks
-  - Charm
-  - Hamlet
-  - Search
-  - Galleria
-  - Pickaxe
-  - Expand
-  - Swamp Shacks
-  - University
-  - Berserker
-  idx: 117293191202329431234145758349962471118
-  landscapes:
-  - Tower
-  - Way of the Sheep
-  - Gamble
-  - Bonfire
-- cards:
-  - Catapult/Rocks
-  - Charm
-  - Hamlet
-  - Search
-  - Galleria
-  - Pickaxe
-  - Expand
-  - Swamp Shacks
-  - University
-  - Berserker
-  idx: 191944881774530119100354314879273085959
-  landscapes:
-  - Tower
-  - Way of the Sheep
-  - Bonfire
-  - Aqueduct
-- cards:
-  - Catapult/Rocks
-  - Charm
-  - Hamlet
-  - Search
-  - Galleria
-  - Pickaxe
-  - Expand
-  - Swamp Shacks
-  - University
-  - Berserker
-  idx: 7383621745584305485554006793617881149
-  landscapes:
-  - Tower
-  - Way of the Sheep
-  - Bonfire
-  - Journey
-- cards:
-  - Catapult/Rocks
-  - Charm
-  - Hamlet
-  - Search
-  - Galleria
-  - Pickaxe
-  - Expand
-  - Swamp Shacks
-  - University
-  - Berserker
-  idx: 142313942545803698024937183454116116475
-  landscapes:
-  - Tower
-  - Way of the Sheep
-  - Bonfire
-  - Delay
-- cards:
-  - Catapult/Rocks
-  - Charm
-  - Hamlet
-  - Search
-  - Galleria
-  - Pickaxe
-  - Expand
-  - Swamp Shacks
-  - University
-  - Berserker
-  idx: 214607907204499578212311768670996659039
-  landscapes:
-  - Tower
-  - Way of the Sheep
-  - Bonfire
-  - Citadel
-- cards:
-  - Catapult/Rocks
-  - Charm
-  - Hamlet
-  - Search
-  - Galleria
-  - Pickaxe
-  - Expand
-  - Swamp Shacks
-  - University
-  - Berserker
-  idx: 204481348382993125786265609111715421390
-  landscapes:
-  - Tower
-  - Way of the Sheep
-  - Bonfire
-  - Tomb
-- cards:
-  - Catapult/Rocks
-  - Charm
-  - Hamlet
-  - Search
-  - Galleria
-  - Pickaxe
-  - Expand
-  - Swamp Shacks
-  - University
-  - Berserker
-  idx: 260915334872053152474746962820156342696
-  landscapes:
-  - Tower
-  - Way of the Sheep
-  - Bonfire
-  - Delve
-- cards:
-  - Catapult/Rocks
-  - Charm
-  - Hamlet
-  - Search
-  - Galleria
-  - Pickaxe
-  - Expand
-  - Swamp Shacks
-  - University
-  - Berserker
-  idx: 309355770921322080773168409673165154771
-  landscapes:
-  - Tower
-  - Way of the Sheep
-  - Bonfire
-  - Pathfinding
-- cards:
-  - Catapult/Rocks
-  - Charm
-  - Hamlet
-  - Search
-  - Galleria
-  - Pickaxe
-  - Expand
-  - Swamp Shacks
-  - University
-  - Berserker
-  idx: 80409404242867668002861111409783799234
-  landscapes:
-  - Tower
-  - Way of the Sheep
-  - Bonfire
-  - Barracks
-- cards:
-  - Search
-  - Sack of Loot
-  - Rope
-  - Enlarge
-  - Tools
-  - Silver Mine
-  - Pickaxe
-  - Buried Treasure
-  - Wealthy Village
-  - Quartermaster
-  idx: 128852555045134766457776498434117087128
-  landscapes:
-  - Avoid
-  - Cursed
-  - Peril
-  - Maelstrom
-  traits:
-  - - Cursed
-    - Pickaxe
-- cards:
-  - Jewelled Egg
-  - Wealthy Village
-  - Buried Treasure
-  - Tools
-  - Enlarge
-  - Quartermaster
-  - Sack of Loot
-  - Rope
-  - Grotto
-  - First Mate
-  idx: 114528096064133917390774431261362924759
-  landscapes:
-  - Bury
-  - Pious
-  - Rich
-  - Prosper
-  traits:
-  - - Pious
-    - Wealthy Village
-  - - Rich
-    - Quartermaster
-- cards:
-  - Jewelled Egg
-  - Wealthy Village
-  - Buried Treasure
-  - Tools
-  - Enlarge
-  - Quartermaster
-  - Sack of Loot
-  - Rope
-  - Grotto
-  - First Mate
-  idx: 177216614736653904174191405080460180498
-  landscapes:
-  - Bury
-  - Pious
-  - Prosper
-  - Inspiring
-  traits:
-  - - Pious
-    - Wealthy Village
-  - - Pious
-    - Rope
-  - - Rich
-    - Tools
-  - - Inspiring
-    - First Mate
-- cards:
-  - Abundance
-  - Buried Treasure
-  - Rope
-  - Jewelled Egg
-  - Tools
-  - Enlarge
-  - Wealthy Village
-  - Sack of Loot
-  - Frigate
-  - Crew
-  idx: 143277494720588124640082264079597350928
-  landscapes:
-  - Invasion
-  - Maelstrom
-  - Mirror
-  - Cheap
-  traits:
-  - - Cheap
-    - Wealthy Village
-- cards:
-  - Abundance
-  - Buried Treasure
-  - Rope
-  - Jewelled Egg
-  - Tools
-  - Enlarge
-  - Wealthy Village
-  - Sack of Loot
-  - Frigate
-  - Crew
-  idx: 186590008732851973877590534280382005130
-  landscapes:
-  - Invasion
-  - Maelstrom
-  - Mirror
-  - Peril
-- cards:
-  - Abundance
-  - Buried Treasure
-  - Rope
-  - Jewelled Egg
-  - Tools
-  - Enlarge
-  - Wealthy Village
-  - Sack of Loot
-  - Frigate
-  - Crew
-  idx: 249194273610711679210419851667195709461
-  landscapes:
-  - Maelstrom
-  - Mirror
-  - Peril
-  - Scrounge
-- cards:
-  - Abundance
-  - Buried Treasure
-  - Rope
-  - Jewelled Egg
-  - Tools
-  - Enlarge
-  - Wealthy Village
-  - Sack of Loot
-  - Frigate
-  - Crew
-  idx: 183671123742357604718428712360772167293
-  landscapes:
-  - Mirror
-  - Peril
-  - Scrounge
-  - Fawning
-  traits:
-  - - Fawning
-    - Tools
-- cards:
-  - Silver Mine
-  - Jewelled Egg
-  - Pickaxe
-  - Mining Road
-  - Tools
-  - Quartermaster
-  - Wealthy Village
-  - Search
-  - Sack of Loot
-  - Maroon
-  idx: 317014915479590860125086243556488390368
-  landscapes:
-  - Nearby
-  - Maelstrom
-  - Inspiring
-  - Prosper
-  traits:
-  - - Nearby
-    - Maroon
-  - - Inspiring
-    - Wealthy Village
-- cards:
-  - Silver Mine
-  - Jewelled Egg
-  - Pickaxe
-  - Mining Road
-  - Tools
-  - Quartermaster
-  - Wealthy Village
-  - Search
-  - Sack of Loot
-  - Maroon
-  idx: 171089917486507565894206775298099886668
-  landscapes:
-  - Nearby
-  - Inspiring
-  - Prosper
-  - Patient
-  traits:
-  - - Nearby
-    - Maroon
-  - - Inspiring
-    - Wealthy Village
-  - - Patient
-    - Silver Mine
-- cards:
-  - Silver Mine
-  - Jewelled Egg
-  - Pickaxe
-  - Mining Road
-  - Tools
-  - Quartermaster
-  - Wealthy Village
-  - Search
-  - Sack of Loot
-  - Maroon
-  idx: 117764907709559596813934459828111536765
-  landscapes:
-  - Nearby
-  - Inspiring
-  - Patient
-  - Tireless
-  traits:
-  - - Nearby
-    - Maroon
-  - - Inspiring
-    - Wealthy Village
-  - - Patient
-    - Silver Mine
-  - - Tireless
-    - Sack of Loot
-- cards:
-  - Silver Mine
-  - Jewelled Egg
-  - Pickaxe
-  - Mining Road
-  - Tools
-  - Quartermaster
-  - Wealthy Village
-  - Search
-  - Sack of Loot
-  - Maroon
-  idx: 35880778568588126939868852062416769053
-  landscapes:
-  - Nearby
-  - Inspiring
-  - Patient
-  - Prepare
-  traits:
-  - - Nearby
-    - Maroon
-  - - Inspiring
-    - Wealthy Village
-  - - Patient
-    - Silver Mine
-- cards:
-  - Longship
-  - Abundance
-  - Shaman
-  - Rope
-  - Jewelled Egg
-  - Silver Mine
-  - Wealthy Village
-  - Tools
-  - Sack of Loot
-  - Quartermaster
-  idx: 187385631052037838317230537158898730543
-  landscapes:
-  - Rush
-  - Journey
-  - Foray
-  - Reckless
-  traits:
-  - - Reckless
-    - Silver Mine
-- cards:
-  - Abundance
-  - Pickaxe
-  - Silver Mine
-  - Wealthy Village
-  - Tools
-  - Enlarge
-  - Buried Treasure
-  - Sack of Loot
-  - Shaman
-  - Jewelled Egg
-  idx: 142247706807669221189455481586496359371
-  landscapes:
-  - Foray
-  - Fated
-  - Cheap
-  - Tireless
-  traits:
-  - - Fated
-    - Buried Treasure
-  - - Cheap
-    - Silver Mine
-  - - Tireless
-    - Enlarge
-- cards:
-  - Sack of Loot
-  - Jewelled Egg
-  - Mining Road
-  - Abundance
-  - Pickaxe
-  - Silver Mine
-  - Buried Treasure
-  - Rope
-  - Figurine
-  - Shaman
-  idx: 28921066305701958216756879080818085565
-  landscapes:
-  - Reckless
-  - Cursed
-  - Prosper
-  - Shy
-  traits:
-  - - Reckless
-    - Jewelled Egg
-  - - Cursed
-    - Mining Road
-  - - Shy
-    - Silver Mine
-- cards:
-  - Rope
-  - Sack of Loot
-  - Mining Road
-  - Search
-  - Shaman
-  - Tools
-  - Wealthy Village
-  - Abundance
-  - Quartermaster
-  - Longship
-  idx: 179747435600042802743946162512693994304
-  landscapes:
-  - Fated
-  - Pious
-  - Cheap
-  - Shy
-  traits:
-  - - Fated
-    - Rope
-  - - Pious
-    - Wealthy Village
-  - - Cheap
-    - Search
-  - - Shy
-    - Quartermaster
-- cards:
-  - Quartermaster
-  - Pickaxe
-  - Mining Road
-  - Rope
-  - Sack of Loot
-  - Buried Treasure
-  - Wealthy Village
-  - Jewelled Egg
-  - Grotto
-  - Shaman
-  idx: 121204172692596912424469780579021420552
-  landscapes:
-  - Looting
-  - Cursed
-  - Patient
-  - Reckless
-  traits:
-  - - Cursed
-    - Pickaxe
-  - - Patient
-    - Wealthy Village
-  - - Reckless
-    - Shaman
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 208095320680540605820848417624764996971
-  landscapes:
-  - Battlefield
-  - Museum
-  - Triumphal Arch
-  - Peril
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 105117060877479384911099866530878571878
-  landscapes:
-  - Battlefield
-  - Museum
-  - Triumphal Arch
-  - Shy
-  traits:
-  - - Shy
-    - Charm
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 196266260846214812312610258756815076865
-  landscapes:
-  - Battlefield
-  - Triumphal Arch
-  - Shy
-  - Cursed
-  traits:
-  - - Shy
-    - Charm
-  - - Cursed
-    - Enlarge
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 282332181816311416018090244372912519358
-  landscapes:
-  - Triumphal Arch
-  - Shy
-  - Cursed
-  - Tomb
-  traits:
-  - - Shy
-    - Charm
-  - - Cursed
-    - Enlarge
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 3975654356361564505375067385850850493
-  landscapes:
-  - Shy
-  - Cursed
-  - Tomb
-  - Cheap
-  traits:
-  - - Shy
-    - Charm
-  - - Cursed
-    - Enlarge
-  - - Cheap
-    - City Quarter
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 298360991838524150824931155846869466653
-  landscapes:
-  - Cursed
-  - Tomb
-  - Cheap
-  - Arena
-  traits:
-  - - Cursed
-    - Enlarge
-  - - Cheap
-    - City Quarter
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 76186926867022336886306611038371059429
-  landscapes:
-  - Tomb
-  - Cheap
-  - Arena
-  - Pious
-  traits:
-  - - Cheap
-    - City Quarter
-  - - Pious
-    - Villa
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 292456464351625473886330216562451103286
-  landscapes:
-  - Cheap
-  - Arena
-  - Pious
-  - Avoid
-  traits:
-  - - Cheap
-    - City Quarter
-  - - Pious
-    - Villa
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 277809893471862093910956489606658952528
-  landscapes:
-  - Arena
-  - Pious
-  - Avoid
-  - Nearby
-  traits:
-  - - Pious
-    - Villa
-  - - Nearby
-    - Silver Mine
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 47418961743740985486996852862315800890
-  landscapes:
-  - Arena
-  - Avoid
-  - Nearby
-  - Salt the Earth
-  traits:
-  - - Nearby
-    - Silver Mine
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 102942969554487034954702424294466589812
-  landscapes:
-  - Arena
-  - Nearby
-  - Salt the Earth
-  - Banquet
-  traits:
-  - - Nearby
-    - Silver Mine
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 79685803088979800091369069418746711535
-  landscapes:
-  - Arena
-  - Salt the Earth
-  - Banquet
-  - Delve
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 89907714335600058171859837944063324769
-  landscapes:
-  - Arena
-  - Banquet
-  - Delve
-  - Rich
-  traits:
-  - - Rich
-    - Villa
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 127149025748874023459936205629468271818
-  landscapes:
-  - Arena
-  - Delve
-  - Rich
-  - Tireless
-  traits:
-  - - Rich
-    - Villa
-  - - Tireless
-    - Charm
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 249789651319705576488216464132527161561
-  landscapes:
-  - Delve
-  - Rich
-  - Tireless
-  - Scrounge
-  traits:
-  - - Rich
-    - Villa
-  - - Tireless
-    - Charm
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 65592162177287589072342816152354698248
-  landscapes:
-  - Rich
-  - Tireless
-  - Scrounge
-  - Labyrinth
-  traits:
-  - - Rich
-    - Villa
-  - - Tireless
-    - Charm
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 323150738822108629608675989505735512882
-  landscapes:
-  - Rich
-  - Tireless
-  - Labyrinth
-  - Friendly
-  traits:
-  - - Rich
-    - Villa
-  - - Tireless
-    - Charm
-  - - Friendly
-    - Catapult/Rocks
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 221171919588915738136054119673740743295
-  landscapes:
-  - Tireless
-  - Labyrinth
-  - Friendly
-  - Baths
-  traits:
-  - - Tireless
-    - Charm
-  - - Friendly
-    - Catapult/Rocks
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 189401069828999115974171980324954997362
-  landscapes:
-  - Labyrinth
-  - Friendly
-  - Baths
-  - Foray
-  traits:
-  - - Friendly
-    - Catapult/Rocks
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 206666962193264877636432797867857587211
-  landscapes:
-  - Friendly
-  - Baths
-  - Foray
-  - Invasion
-  traits:
-  - - Friendly
-    - Catapult/Rocks
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 301599019943857979927465316496339586175
-  landscapes:
-  - Baths
-  - Foray
-  - Invasion
-  - Wedding
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 136115789804137085371431534600152239780
-  landscapes:
-  - Foray
-  - Invasion
-  - Wedding
-  - Dominate
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 197434986031934800480684889533024220117
-  landscapes:
-  - Invasion
-  - Wedding
-  - Dominate
-  - Basilica
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 288634962857631848956592700598711091288
-  landscapes:
-  - Wedding
-  - Dominate
-  - Basilica
-  - Rush
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 218084804271238554379890005813315605928
-  landscapes:
-  - Dominate
-  - Basilica
-  - Rush
-  - Aqueduct
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 24767307390910259212254371113223428513
-  landscapes:
-  - Basilica
-  - Rush
-  - Aqueduct
-  - Mountain Pass
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 33083240604257911674397158942335970479
-  landscapes:
-  - Basilica
-  - Aqueduct
-  - Mountain Pass
-  - Keep
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 96900501471575366065772562632583529759
-  landscapes:
-  - Aqueduct
-  - Mountain Pass
-  - Keep
-  - Obelisk
-  obelisk_pile: Trickster
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 205300985435968052993472906451489910280
-  landscapes:
-  - Mountain Pass
-  - Keep
-  - Obelisk
-  - Wolf Den
-  obelisk_pile: Trickster
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 308998705469116365787142814096788401398
-  landscapes:
-  - Keep
-  - Obelisk
-  - Wolf Den
-  - Inherited
-  obelisk_pile: Trickster
-  traits:
-  - - Inherited
-    - Charm
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 95203091845302229306108893305171159058
-  landscapes:
-  - Obelisk
-  - Wolf Den
-  - Inherited
-  - Journey
-  obelisk_pile: Trickster
-  traits:
-  - - Inherited
-    - Charm
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 328290750704697886995377861941385415481
-  landscapes:
-  - Obelisk
-  - Wolf Den
-  - Inherited
-  - Hasty
-  obelisk_pile: Trickster
-  traits:
-  - - Inherited
-    - Charm
-  - - Hasty
-    - Villa
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 25186377380034052928558824038148598912
-  landscapes:
-  - Obelisk
-  - Wolf Den
-  - Inherited
-  - Prepare
-  obelisk_pile: Trickster
-  traits:
-  - - Inherited
-    - Charm
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 156666054740872751375441274383101102795
-  landscapes:
-  - Obelisk
-  - Wolf Den
-  - Inherited
-  - Fountain
-  obelisk_pile: Trickster
-  traits:
-  - - Inherited
-    - Charm
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 255085137905123138318309800126630180068
-  landscapes:
-  - Obelisk
-  - Wolf Den
-  - Inherited
-  - Orchard
-  obelisk_pile: Trickster
-  traits:
-  - - Inherited
-    - Charm
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 139965424919888665971479405124785054197
-  landscapes:
-  - Obelisk
-  - Wolf Den
-  - Inherited
-  - Triumph
-  obelisk_pile: Trickster
-  traits:
-  - - Inherited
-    - Charm
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 163129385703114410821334911226560862361
-  landscapes:
-  - Obelisk
-  - Wolf Den
-  - Inherited
-  - Ritual
-  obelisk_pile: Trickster
-  traits:
-  - - Inherited
-    - Charm
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 201578785715949073291783959396691520937
-  landscapes:
-  - Obelisk
-  - Wolf Den
-  - Inherited
-  - Deliver
-  obelisk_pile: Trickster
-  traits:
-  - - Inherited
-    - Charm
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 177034454477109174589206709963494829478
-  landscapes:
-  - Obelisk
-  - Wolf Den
-  - Inherited
-  - Mirror
-  obelisk_pile: Trickster
-  traits:
-  - - Inherited
-    - Charm
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 219125687414634084600940092540721178073
-  landscapes:
-  - Obelisk
-  - Wolf Den
-  - Inherited
-  - Palace
-  obelisk_pile: Trickster
-  traits:
-  - - Inherited
-    - Charm
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 281927582333592577896496803193974837652
-  landscapes:
-  - Obelisk
-  - Wolf Den
-  - Inherited
-  - Fated
-  obelisk_pile: Trickster
-  traits:
-  - - Inherited
-    - Charm
-  - - Fated
-    - Wealthy Village
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 280448375507995526826314217448320723250
-  landscapes:
-  - Obelisk
-  - Wolf Den
-  - Inherited
-  - Tax
-  obelisk_pile: Trickster
-  traits:
-  - - Inherited
-    - Charm
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 181239415508440191729528925228092458508
-  landscapes:
-  - Obelisk
-  - Wolf Den
-  - Inherited
-  - Conquest
-  obelisk_pile: Trickster
-  traits:
-  - - Inherited
-    - Charm
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 45745316786426111677299024971640483029
-  landscapes:
-  - Obelisk
-  - Wolf Den
-  - Inherited
-  - Patient
-  obelisk_pile: Trickster
-  traits:
-  - - Inherited
-    - Charm
-  - - Patient
-    - Buried Treasure
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 70625016598588630813133421152984327259
-  landscapes:
-  - Obelisk
-  - Inherited
-  - Patient
-  - Bury
-  obelisk_pile: Trickster
-  traits:
-  - - Inherited
-    - Charm
-  - - Patient
-    - Buried Treasure
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 289244810053034592644914804008680686030
-  landscapes:
-  - Obelisk
-  - Inherited
-  - Patient
-  - Annex
-  obelisk_pile: Trickster
-  traits:
-  - - Inherited
-    - Charm
-  - - Patient
-    - Buried Treasure
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 216591193400592362462168385973922813395
-  landscapes:
-  - Obelisk
-  - Inherited
-  - Patient
-  - Launch
-  obelisk_pile: Trickster
-  traits:
-  - - Inherited
-    - Charm
-  - - Patient
-    - Buried Treasure
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 240014400208498430718367837057986708152
-  landscapes:
-  - Obelisk
-  - Inherited
-  - Patient
-  - Wall
-  obelisk_pile: Trickster
-  traits:
-  - - Inherited
-    - Charm
-  - - Patient
-    - Buried Treasure
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 212463937076474705379390220139815344754
-  landscapes:
-  - Obelisk
-  - Inherited
-  - Patient
-  - Maelstrom
-  obelisk_pile: Trickster
-  traits:
-  - - Inherited
-    - Charm
-  - - Patient
-    - Buried Treasure
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 96795843580296001306951610210018959676
-  landscapes:
-  - Obelisk
-  - Inherited
-  - Patient
-  - Looting
-  obelisk_pile: Trickster
-  traits:
-  - - Inherited
-    - Charm
-  - - Patient
-    - Buried Treasure
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 33620337950576020080790131321407050724
-  landscapes:
-  - Obelisk
-  - Inherited
-  - Patient
-  - Fawning
-  obelisk_pile: Trickster
-  traits:
-  - - Inherited
-    - Charm
-  - - Patient
-    - Buried Treasure
-  - - Fawning
-    - Wealthy Village
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 254741295083233030531511127508993570604
-  landscapes:
-  - Obelisk
-  - Inherited
-  - Patient
-  - Tower
-  obelisk_pile: Trickster
-  traits:
-  - - Inherited
-    - Charm
-  - - Patient
-    - Buried Treasure
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 66818934132914046711359195684248024253
-  landscapes:
-  - Obelisk
-  - Inherited
-  - Patient
-  - Inspiring
-  obelisk_pile: Trickster
-  traits:
-  - - Inherited
-    - Charm
-  - - Patient
-    - Buried Treasure
-  - - Inspiring
-    - Villa
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 235764817266297075272203077407749221006
-  landscapes:
-  - Obelisk
-  - Inherited
-  - Patient
-  - Defiled Shrine
-  obelisk_pile: Trickster
-  traits:
-  - - Inherited
-    - Charm
-  - - Patient
-    - Buried Treasure
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 4183071045282107618450467885657722961
-  landscapes:
-  - Obelisk
-  - Inherited
-  - Patient
-  - Bandit Fort
-  obelisk_pile: Trickster
-  traits:
-  - - Inherited
-    - Charm
-  - - Patient
-    - Buried Treasure
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 59584494562204987656564552611663408144
-  landscapes:
-  - Obelisk
-  - Inherited
-  - Patient
-  - Windfall
-  obelisk_pile: Trickster
-  traits:
-  - - Inherited
-    - Charm
-  - - Patient
-    - Buried Treasure
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 216366777321027793653244847328556063681
-  landscapes:
-  - Obelisk
-  - Inherited
-  - Patient
-  - Reckless
-  obelisk_pile: Trickster
-  traits:
-  - - Inherited
-    - Charm
-  - - Patient
-    - Buried Treasure
-  - - Reckless
-    - Catapult/Rocks
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 250245900750897141245615965529415184197
-  landscapes:
-  - Obelisk
-  - Inherited
-  - Patient
-  - Prosper
-  obelisk_pile: Trickster
-  traits:
-  - - Inherited
-    - Charm
-  - - Patient
-    - Buried Treasure
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 292580117913646657298044257782366255146
-  landscapes:
-  - Obelisk
-  - Inherited
-  - Patient
-  - Donate
-  obelisk_pile: Trickster
-  traits:
-  - - Inherited
-    - Charm
-  - - Patient
-    - Buried Treasure
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 107135516164039829441473523081941404222
-  landscapes:
-  - Obelisk
-  - Inherited
-  - Patient
-  - Advance
-  obelisk_pile: Trickster
-  traits:
-  - - Inherited
-    - Charm
-  - - Patient
-    - Buried Treasure
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 297689222997429154171657920312624043981
-  landscapes:
-  - Obelisk
-  - Inherited
-  - Patient
-  - Colonnade
-  obelisk_pile: Trickster
-  traits:
-  - - Inherited
-    - Charm
-  - - Patient
-    - Buried Treasure
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 262178567576867114830155511360494931899
-  landscapes:
-  - Obelisk
-  - Inherited
-  - Patient
-  obelisk_pile: Trickster
-  traits:
-  - - Inherited
-    - Charm
-  - - Patient
-    - Buried Treasure
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 140940183258668341324843435431381325700
-  landscapes:
-  - Obelisk
-  - Patient
-  obelisk_pile: Trickster
-  traits:
-  - - Patient
-    - Buried Treasure
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Trickster
-  idx: 244794926931326446602130082769711338462
-  landscapes:
-  - Obelisk
-  obelisk_pile: Trickster
-- cards:
-  - Buried Treasure
-  - Catapult/Rocks
-  - Villa
-  - Charm
-  - Silver Mine
-  - Forum
-  - Wealthy Village
-  - Enlarge
-  - City Quarter
-  - Wild Hunt
-  idx: 88142653109653610360174721120453731504
-  landscapes:
-  - Obelisk
-  obelisk_pile: Trickster
+  - charm
+  - enlarge
+  - farmers_market
+  - kings_cache
+  - pickaxe
+  - pilgrim
+  - quartermaster
+  - royal_blacksmith
+  - sacrifice
+  - villa
+  idx: 192337806559172754417979335324046791214
+  landscapes:
+  - arena
+  - inspiring
+  - maelstrom
+  - triumph
+  traits:
+  - - inspiring
+    - royal_blacksmith
+- cards:
+  - charm
+  - enlarge
+  - farmers_market
+  - kings_cache
+  - pickaxe
+  - pilgrim
+  - quartermaster
+  - royal_blacksmith
+  - sacrifice
+  - villa
+  idx: 197604657139396816195699667890850359787
+  landscapes:
+  - arena
+  - inspiring
+  - maelstrom
+  - triumph
+  traits:
+  - - inspiring
+    - royal_blacksmith
+- cards:
+  - charm
+  - enlarge
+  - farmers_market
+  - kings_cache
+  - pickaxe
+  - pilgrim
+  - quartermaster
+  - royal_blacksmith
+  - sacrifice
+  - villa
+  idx: 330041165578041116819214727222021991291
+  landscapes:
+  - arena
+  - inspiring
+  - maelstrom
+  - triumph
+  traits:
+  - - inspiring
+    - royal_blacksmith
+- cards:
+  - charm
+  - enlarge
+  - farmers_market
+  - kings_cache
+  - pickaxe
+  - pilgrim
+  - quartermaster
+  - royal_blacksmith
+  - sacrifice
+  - villa
+  idx: 107594019604148782577583111288979717050
+  landscapes:
+  - arena
+  - inspiring
+  - maelstrom
+  - triumph
+  traits:
+  - - inspiring
+    - royal_blacksmith
+- cards:
+  - charm
+  - enlarge
+  - farmers_market
+  - kings_cache
+  - pickaxe
+  - pilgrim
+  - quartermaster
+  - royal_blacksmith
+  - sacrifice
+  - villa
+  idx: 69809462513728128878489198178198223611
+  landscapes:
+  - arena
+  - inspiring
+  - maelstrom
+  - triumph
+  traits:
+  - - inspiring
+    - royal_blacksmith
+- cards:
+  - charm
+  - enlarge
+  - farmers_market
+  - kings_cache
+  - pickaxe
+  - pilgrim
+  - quartermaster
+  - royal_blacksmith
+  - sacrifice
+  - villa
+  idx: 20240189075316319465390527991331485704
+  landscapes:
+  - arena
+  - inspiring
+  - maelstrom
+  - triumph
+  traits:
+  - - inspiring
+    - royal_blacksmith
+- cards:
+  - abundance
+  - buried_treasure
+  - capital
+  - charm
+  - crew
+  - enchantress
+  - figurine
+  - harbor_village
+  - rope
+  - temple
+  idx: 220306461807558335663002642312520216590
+  landscapes:
+  - aqueduct
+  - peril
+  - rich
+  - ritual
+  traits:
+  - - rich
+    - capital
+- cards:
+  - abundance
+  - buried_treasure
+  - capital
+  - charm
+  - crew
+  - enchantress
+  - figurine
+  - harbor_village
+  - rope
+  - temple
+  idx: 173615689167035237122405724231734671167
+  landscapes:
+  - aqueduct
+  - peril
+  - rich
+  - ritual
+  traits:
+  - - rich
+    - capital
+- cards:
+  - abundance
+  - buried_treasure
+  - capital
+  - catapult/rocks
+  - gladiator/fortune
+  - jewelled_egg
+  - pickaxe
+  - search
+  - silver_mine
+  - wealthy_village
+  idx: 196511199046588848837967286757111670189
+  landscapes:
+  - inspiring
+  - ritual
+  - salt_the_earth
+  - windfall
+  traits:
+  - - inspiring
+    - catapult/rocks
+- cards:
+  - abundance
+  - buried_treasure
+  - capital
+  - catapult/rocks
+  - gladiator/fortune
+  - jewelled_egg
+  - pickaxe
+  - search
+  - silver_mine
+  - wealthy_village
+  idx: 332486681350111188313233401892645674011
+  landscapes:
+  - inspiring
+  - ritual
+  - salt_the_earth
+  - windfall
+  traits:
+  - - inspiring
+    - catapult/rocks
+- cards:
+  - abundance
+  - buried_treasure
+  - capital
+  - enlarge
+  - forum
+  - pickaxe
+  - quartermaster
+  - rope
+  - secluded_shrine
+  - tools
+  idx: 100305898208325467469877612468981725190
+  landscapes:
+  - delve
+  - mirror
+  - museum
+  - patient
+  traits:
+  - - patient
+    - tools
+- cards:
+  - abundance
+  - buried_treasure
+  - capital
+  - enlarge
+  - forum
+  - pickaxe
+  - quartermaster
+  - rope
+  - secluded_shrine
+  - tools
+  idx: 296099637102860394298521742999658685116
+  landscapes:
+  - delve
+  - mirror
+  - museum
+  - patient
+  traits:
+  - - patient
+    - tools
+- cards:
+  - abundance
+  - city_quarter
+  - farmers_market
+  - jewelled_egg
+  - mining_road
+  - rope
+  - sack_of_loot
+  - shaman
+  - wealthy_village
+  - wild_hunt
+  idx: 134563204226008962937498797465835228645
+  landscapes:
+  - baths
+  - conquest
+  - delve
+  - labyrinth
+- cards:
+  - abundance
+  - city_quarter
+  - farmers_market
+  - jewelled_egg
+  - mining_road
+  - rope
+  - sack_of_loot
+  - shaman
+  - wealthy_village
+  - wild_hunt
+  idx: 183503287263045651592488583214661143708
+  landscapes:
+  - baths
+  - conquest
+  - delve
+  - labyrinth
+- cards:
+  - buried_treasure
+  - capital
+  - charm
+  - crown
+  - flagship
+  - jewelled_egg
+  - pendant
+  - pilgrim
+  - stowaway
+  - wild_hunt
+  idx: 22298334639034896672817576520770905948
+  landscapes:
+  - basilica
+  - baths
+  - rush
+  - tireless
+  traits:
+  - - tireless
+    - jewelled_egg
+- cards:
+  - buried_treasure
+  - capital
+  - charm
+  - crown
+  - flagship
+  - jewelled_egg
+  - pendant
+  - pilgrim
+  - stowaway
+  - wild_hunt
+  idx: 120660952829395384538802816021931855374
+  landscapes:
+  - basilica
+  - baths
+  - rush
+  - tireless
+  traits:
+  - - tireless
+    - jewelled_egg
+- cards:
+  - capital
+  - cutthroat
+  - encampment/plunder
+  - engineer
+  - farmers_market
+  - mining_road
+  - patrician/emporium
+  - quartermaster
+  - rope
+  - search
+  idx: 284721408767989154368389160328579041687
+  landscapes:
+  - deliver
+  - keep
+  - shy
+  - wedding
+  traits:
+  - - shy
+    - patrician/emporium
+- cards:
+  - buried_treasure
+  - capital
+  - cutthroat
+  - encampment/plunder
+  - farmers_market
+  - mining_road
+  - patrician/emporium
+  - quartermaster
+  - rope
+  - search
+  idx: 150675899478901646432570226451510367219
+  landscapes:
+  - deliver
+  - keep
+  - shy
+  - wedding
+  traits:
+  - - shy
+    - patrician/emporium
+- cards:
+  - buried_treasure
+  - capital
+  - cutthroat
+  - farmers_market
+  - mining_road
+  - overlord
+  - patrician/emporium
+  - quartermaster
+  - rope
+  - search
+  idx: 176387356803618136248339972373192934297
+  landscapes:
+  - deliver
+  - keep
+  - shy
+  - wedding
+  traits:
+  - - shy
+    - patrician/emporium
+- cards:
+  - charm
+  - cutthroat
+  - gladiator/fortune
+  - mining_road
+  - quartermaster
+  - search
+  - siren
+  - tools
+  - villa
+  - wealthy_village
+  idx: 145503960992855755598422825305909432661
+  landscapes:
+  - friendly
+  - peril
+  - shy
+  - tax
+  traits:
+  - - friendly
+    - villa
+  - - shy
+    - gladiator/fortune

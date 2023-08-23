@@ -1,19 +1,25 @@
 """File for the KingdomManager class."""
 
 import yaml
-
-from random_kingdominion.constants import (FPATH_KINGDOMS_LAST100,
-                                          FPATH_KINGDOMS_RECOMMENDED)
+from random_kingdominion.constants import (
+    FPATH_KINGDOMS_LAST100,
+    FPATH_KINGDOMS_RECOMMENDED,
+)
 
 from .kingdom import Kingdom
 
 
 class KingdomManager:
     """A Manager to keep track of the kingdoms currently loaded."""
+
     def __init__(self):
         self.kingdoms: list[Kingdom] = []
         self.load_last_100_kingdoms()
         # self.load_recommended_kingdoms()
+
+    def get_kindom_by_id(self, kingdom_id: int) -> Kingdom | None:
+        """Try to recover the given kingdom by its ID."""
+        return next(filter(lambda x: x.idx == kingdom_id, self.kingdoms), None)
 
     def add_kingdom(self, kingdom: Kingdom):
         self.kingdoms.append(kingdom)

@@ -1,6 +1,5 @@
 import PyQt5.QtCore as QC
 import PyQt5.QtWidgets as QW
-
 from random_kingdominion.kingdom import Kingdom
 from random_kingdominion.utils import clear_layout, get_row_and_col
 
@@ -24,7 +23,7 @@ class GroupedLandscapeDisplay(QW.QWidget):
         landscape_df = kingdom.kingdom_landscape_df
         num_cols = 2
         width = 240 if len(landscape_df) < 5 else 200
-        for i, landscape in landscape_df.reset_index(drop=True).iterrows():
+        for i, (_, landscape) in enumerate(landscape_df.iterrows()):
             row, col = get_row_and_col(i, num_cols)
             # TODO: Mouse text
             wid = SingleLandscapeImageWidget(landscape, reroll_func, width=width)

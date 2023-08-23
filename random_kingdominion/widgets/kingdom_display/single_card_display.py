@@ -37,13 +37,7 @@ class SingleCardImageWidget(QW.QWidget):
 
         self.reroll_button = CustomRerollButton(self)
         self.reroll_button.move(self.width() - 5 - self.reroll_button.width(), 25)
-        self.reroll_button.clicked.connect(partial(reroll_func, self.name))
-
-        # self.setAutoFillBackground(True)
-        # palette = self.palette()
-        # palette.setColor(self.backgroundRole(), QC.Qt.black)
-        # self.setPalette(palette)
-        # self._set_tooltip_text()
+        self.reroll_button.clicked.connect(partial(reroll_func, card.name))
 
     # TODO: Do this differently, e.g. in a card container.
     def _set_tooltip_text(self):

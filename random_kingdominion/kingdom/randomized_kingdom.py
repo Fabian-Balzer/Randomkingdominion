@@ -208,7 +208,7 @@ class RandomizedKingdom:
         df = self._get_card_df()
         subset = df[df["IsAction"] | df["IsTreasure"]]
         if excluded:
-            subset = subset[~np.isin(list(subset.Name), excluded)]
+            subset = subset[~np.isin(subset.index.to_list(), excluded)]
         return sample_single_cso_from_df(subset)
 
     def _pick_action(self) -> str:

@@ -62,3 +62,16 @@ def _dict_factory_func(attrs: list[tuple[str, str]], ignore_keys: set) -> dict:
         for (k, v) in attrs
         if _is_value_not_empty_or_true(v) and k not in ignore_keys
     }
+
+
+def sanitize_cso_name(name: str) -> str:
+    """Return a sanitized version of the name of the cso."""
+    return name.lower().strip().replace(" ", "_").replace("'", "")
+
+
+def sanitize_cso_list(cso_list: list[str], sort=True) -> list[str]:
+    """Sanitize each cso in a list of csos."""
+    san_list = [sanitize_cso_name(cso) for cso in cso_list]
+    if sort:
+        return sorted(san_list)
+    return san_list

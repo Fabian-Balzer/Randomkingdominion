@@ -4,7 +4,6 @@ from typing import Literal
 import pandas as pd
 import PyQt5.QtCore as QC
 import PyQt5.QtWidgets as QW
-
 from random_kingdominion.constants import COLOR_PALETTE, PATH_MAIN, QUALITIES_AVAILABLE
 
 from ..basic_widgets import ImageCutoutWidget
@@ -38,7 +37,7 @@ class SingleLandscapeImageWidget(QW.QWidget):
         self.reroll_button.move(
             width - 10 - self.reroll_button.width(), pixmap_height - 28
         )
-        self.reroll_button.clicked.connect(partial(reroll_func, self.name))
+        self.reroll_button.clicked.connect(partial(reroll_func, landscape.name))
 
         # self.setAutoFillBackground(True)
         # palette = self.palette()

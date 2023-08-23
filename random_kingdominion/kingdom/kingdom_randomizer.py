@@ -95,4 +95,9 @@ class KingdomRandomizer:
         elif random_kingdom.contains_landscape(cso_name):
             random_kingdom.remove_landscape(cso_name)
             self.pick_new_landscape(random_kingdom)
+        else:
+            print(
+                f"Something went wrong on the reroll: Couldn't find {cso_name} in the old kingdom."
+            )
+
         return random_kingdom.get_kingdom()

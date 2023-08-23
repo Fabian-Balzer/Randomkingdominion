@@ -12,6 +12,18 @@ from .cso_series_utils import (
 )
 
 
+def add_column(
+    df: pd.DataFrame, column_name: str, values: pd.Series | Sequence
+) -> pd.DataFrame:
+    """Adds a column to the dataframe (to be used with the pipe functionality).
+    Example usage:
+        >>> new_df = df.pipe(add_column, 'C', [7, 8, 9])
+    """
+    new_df = df.copy()  # Create a copy of the original DataFrame
+    new_df[column_name] = values  # Add the new column
+    return new_df
+
+
 def get_unique_entries_of_list_column(df: pd.DataFrame, colname: str) -> list[str]:
     """Combine all unique entries of a list column (such as attack type)"""
     all_entries = reduce(lambda x, y: x + y, df[colname])
@@ -206,7 +218,7 @@ def sample_single_cso_from_df(df: pd.DataFrame) -> str:
     if len(df) == 0:
         return ""
     weights = df["CSOWeight"] if "CSOWeight" in df.columns else None
-    return df.sample(1, weights=weights).iloc[0].Name
+    return df.sample(1, weights=weights).index[0]
 
 
 def _get_weight_for_cso(name: str, disliked: list[str], liked: list[str]) -> float:
@@ -223,7 +235,7 @@ def add_weight_column(
     """Adds a weight column to the given DataFrame by taking the liked and
     disliked list into consideration.
     """
-    df["CSOWeight"] = df["Name"].apply(
+    df["CSOWeight"] = df.index.map(
         lambda name: _get_weight_for_cso(name, disliked, liked)
     )
     return df
