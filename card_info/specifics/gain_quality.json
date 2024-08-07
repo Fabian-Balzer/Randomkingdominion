@@ -136,9 +136,11 @@
   "Jewels": 2,
   "Kiln": 1,
   "League of Shopkeepers": 1,
+  "Ferryman": 1,
   "Leprechaun": 2,
   "Lich": 1,
   "Livery": 1,
+  "Farrier": 2,
   "Locusts": 1,
   "Looting": 1,
   "Lurker": 2,
@@ -254,6 +256,7 @@
   "Tools": 2,
   "Tormentor": 1,
   "Tournament": 1,
+  "Joust": 2,
   "Town": 2,
   "Town Crier": 1,
   "Townsfolk": 1,
@@ -296,5 +299,12 @@
   "Woodworkers' Guild": 1,
   "Worker's Village": 3,
   "Workshop": 2,
-  "Zombie Mason": 1
+  "Zombie Mason": 1,
+  "River Shrine": 1,
+  "Panic": 2,
+  "Kind Emperor": 2,
+  "Fishmonger": 2,
+  "Growth": 1,
+  "Flourishing Trades": 3,
+  "Continue": 1
 }

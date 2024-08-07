@@ -20,6 +20,7 @@
   "Clerk": 2,
   "Corsair": 2,
   "Coven": 2,
+  "Footpad": 2,
   "Cultist": 3,
   "Cursed Village": 0,
   "Cutpurse": 2,
@@ -104,5 +105,6 @@
   "Witch": 3,
   "Witch's Hut": 2,
   "Wizards": 1,
-  "Young Witch": 1
+  "Young Witch": 1,
+  "Ninja": 2
 }

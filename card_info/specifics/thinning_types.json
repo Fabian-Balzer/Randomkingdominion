@@ -20,6 +20,7 @@
   "Catapult/Rocks": ["Any"],
   "Cathedral": ["Any"],
   "Cemetery": ["Any"],
+  "Infirmary": ["Any"],
   "Chapel": ["Any"],
   "Church": ["Any"],
   "Count": ["Any"],
@@ -66,6 +67,7 @@
   "Modify": ["Any", "Remodel"],
   "Monastery": ["Any"],
   "Moneylender": ["Copper"],
+  "Necromancer": ["Any", "Remodel*", "Action"],
   "Peaceful Cult": ["Any"],
   "Pickaxe": ["Any"],
   "Pious": ["Any"],
@@ -123,5 +125,8 @@
   "Wizards": ["Any"],
   "Woodworkers' Guild": ["Action", "Remodel"],
   "Zombie Apprentice": ["Any"],
-  "Zombie Mason": ["Any", "Remodel"]
+  "Zombie Mason": ["Any", "Remodel"],
+  "River Shrine": ["Any"],
+  "Enlightenment": ["Treasure"],
+  "Mountain Shrine": ["Any"]
 }
