@@ -104,5 +104,6 @@
   "Witch's Hut": ["Junking", "Scoring"],
   "Wizards": ["Junking", "Scoring"],
   "Young Witch": ["Junking", "Scoring"],
-  "Ninja": ["Handsize"]
+  "Ninja": ["Handsize"],
+  "Sickness": ["Handsize", "Junking", "Scoring", "Indirect"]
 }

@@ -306,5 +306,9 @@
   "Fishmonger": 2,
   "Growth": 1,
   "Flourishing Trades": 3,
-  "Continue": 1
+  "Continue": 1,
+  "Change": 1,
+  "Gold Mine": 2,
+  "Gather": 2,
+  "Sickness": 1
 }

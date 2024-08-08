@@ -308,5 +308,9 @@
   "Fishmonger": ["Buys"],
   "Growth": ["Haggling"],
   "Flourishing Trades": ["Buys"],
-  "Continue": ["Workshop"]
+  "Continue": ["Workshop"],
+  "Change": ["Remodel"],
+  "Gold Mine": ["Buys", "Specific"],
+  "Gather": ["Specific"],
+  "Sickness": ["Specific"]
 }

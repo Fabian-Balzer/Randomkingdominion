@@ -123,5 +123,6 @@
   "Rapid Expansion": ["Special", "On-gain"],
   "Daimyo": ["Throne"],
   "Continue": ["Single", "On-gain"],
-  "Practice": ["Throne"]
+  "Practice": ["Throne"],
+  "Great Leader": ["Special"]
 }

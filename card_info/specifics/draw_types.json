@@ -189,5 +189,6 @@
   "Mountain Shrine": ["Moat*"],
   "Daimyo": ["Special"],
   "Artist": ["Lab*"],
-  "Continue": ["Special"]
+  "Continue": ["Special"],
+  "Root Cellar": ["Lab"]
 }

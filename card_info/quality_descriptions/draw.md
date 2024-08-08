@@ -1,17 +1,18 @@
 
 ## <div style="display: flex; align-items: center;"><img src="../../assets/icons/qualities/draw.jpg" alt="Draw icon" width="50"> <span style="margin-left: 10px;">Draw</span></div>
 
+Draw is almost anything that can increase your handsize. I think I've excluded virtual draw like Cargo Ship and Trickster though.
+Cantrips of course also don't draw by themselves.
+
 ### Draw Quality
 
-Almost anything that can increase your handsize. I think I've excluded virtual draw like Cargo Ship, and also Trickster.
-Cantrips of course don't draw.
-The three categories had the following distinctions in mind:
+The three stages that are assigned had the following distinctions in mind:
 
 1. Stuff that draws you once in a while or is just kinda weak, e.g. Settlers/BV, Ride, Summon and the likes. Capital City and Way of the Cameleon can also draw given things that generate $. Also, the weaker Moat-like things are in this category, as they require a good Village to be viable.
 2. Lab- and Smithy-like things.
 3. Very few things that draw a lot just on their own, e.g. Hunting Grounds, Council Room, or Scrying Pool.
 
-### Draw types
+### Draw Types
 
 I have tried to provide the different archetypes, marking the ones that are somewhat deviating from the normal one with a \*, and some that do even more with a +.
 

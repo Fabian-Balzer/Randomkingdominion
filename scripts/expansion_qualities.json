@@ -1,0 +1,218 @@
+{
+  "Adventures": {
+    "village": 2.42,
+    "draw": 2.2,
+    "thinning": 1.685,
+    "gain": 2.595,
+    "attack": 1.715,
+    "altvp": 1.365,
+    "interactivity": 2.35
+  },
+  "Alchemy": {
+    "village": 1.96,
+    "draw": 3.335,
+    "thinning": 1.825,
+    "gain": 1.97,
+    "attack": 3.695,
+    "altvp": 2.63,
+    "interactivity": 1.985
+  },
+  "Allies": {
+    "village": 2.03,
+    "draw": 2.475,
+    "thinning": 2.2,
+    "gain": 2.71,
+    "attack": 1.845,
+    "altvp": 1.07,
+    "interactivity": 2.94
+  },
+  "Base, 1E": {
+    "village": 1.675,
+    "draw": 2.35,
+    "thinning": 1.995,
+    "gain": 2.22,
+    "attack": 2.2,
+    "altvp": 0.77,
+    "interactivity": 2.325
+  },
+  "Base, 2E": {
+    "village": 1.57,
+    "draw": 2.22,
+    "thinning": 2.7,
+    "gain": 2.575,
+    "attack": 1.84,
+    "altvp": 0.85,
+    "interactivity": 1.935
+  },
+  "Cornucopia & Guilds, 2E": {
+    "village": 2.085,
+    "draw": 2.38,
+    "thinning": 2.005,
+    "gain": 3.06,
+    "attack": 1.685,
+    "altvp": 1.165,
+    "interactivity": 2.61
+  },
+  "Cornucopia, 1E": {
+    "village": 1.89,
+    "draw": 1.94,
+    "thinning": 2.31,
+    "gain": 2.75,
+    "attack": 1.745,
+    "altvp": 1.795,
+    "interactivity": 3.79
+  },
+  "Dark Ages": {
+    "village": 2.015,
+    "draw": 1.89,
+    "thinning": 2.345,
+    "gain": 2.615,
+    "attack": 2.21,
+    "altvp": 0.685,
+    "interactivity": 2.62
+  },
+  "Empires": {
+    "village": 2.185,
+    "draw": 2.305,
+    "thinning": 2.195,
+    "gain": 2.675,
+    "attack": 2.215,
+    "altvp": 2.915,
+    "interactivity": 3.315
+  },
+  "Fully Random": {
+    "village": 1.945,
+    "draw": 2.135,
+    "thinning": 2.1,
+    "gain": 2.655,
+    "attack": 1.745,
+    "altvp": 1.255,
+    "interactivity": 2.635
+  },
+  "Guilds, 1E": {
+    "village": 1.9,
+    "draw": 1.955,
+    "thinning": 2.715,
+    "gain": 3.19,
+    "attack": 1.73,
+    "altvp": 0.75,
+    "interactivity": 2.38
+  },
+  "Hinterlands, 1E": {
+    "village": 1.425,
+    "draw": 1.68,
+    "thinning": 1.815,
+    "gain": 2.3,
+    "attack": 1.5,
+    "altvp": 1.68,
+    "interactivity": 2.03
+  },
+  "Hinterlands, 2E": {
+    "village": 1.635,
+    "draw": 1.79,
+    "thinning": 1.8,
+    "gain": 2.845,
+    "attack": 2.275,
+    "altvp": 1.51,
+    "interactivity": 2.07
+  },
+  "Intrigue, 1E": {
+    "village": 1.725,
+    "draw": 1.99,
+    "thinning": 2.24,
+    "gain": 2.545,
+    "attack": 2.555,
+    "altvp": 1.845,
+    "interactivity": 3.06
+  },
+  "Intrigue, 2E": {
+    "village": 1.695,
+    "draw": 2.225,
+    "thinning": 2.36,
+    "gain": 2.885,
+    "attack": 2.275,
+    "altvp": 1.78,
+    "interactivity": 2.585
+  },
+  "Menagerie": {
+    "village": 2.655,
+    "draw": 2.545,
+    "thinning": 1.89,
+    "gain": 3.03,
+    "attack": 1.555,
+    "altvp": 0.565,
+    "interactivity": 2.95
+  },
+  "Nocturne": {
+    "village": 1.76,
+    "draw": 2.085,
+    "thinning": 2.005,
+    "gain": 2.65,
+    "attack": 1.655,
+    "altvp": 1.03,
+    "interactivity": 2.615
+  },
+  "Plunder": {
+    "village": 1.835,
+    "draw": 2.025,
+    "thinning": 2.17,
+    "gain": 2.26,
+    "attack": 1.725,
+    "altvp": 0.53,
+    "interactivity": 2.02
+  },
+  "Promo": {
+    "village": 2.0,
+    "draw": 2.7,
+    "thinning": 2.0,
+    "gain": 2.0,
+    "attack": 0.91,
+    "altvp": 0.91,
+    "interactivity": 2.91
+  },
+  "Prosperity, 1E": {
+    "village": 1.96,
+    "draw": 1.435,
+    "thinning": 2.535,
+    "gain": 2.545,
+    "attack": 2.035,
+    "altvp": 2.125,
+    "interactivity": 2.245
+  },
+  "Prosperity, 2E": {
+    "village": 2.005,
+    "draw": 1.62,
+    "thinning": 2.705,
+    "gain": 2.72,
+    "attack": 1.57,
+    "altvp": 2.29,
+    "interactivity": 2.42
+  },
+  "Renaissance": {
+    "village": 2.51,
+    "draw": 2.615,
+    "thinning": 2.425,
+    "gain": 2.835,
+    "attack": 1.07,
+    "altvp": 0.375,
+    "interactivity": 2.625
+  },
+  "Seaside, 1E": {
+    "village": 1.645,
+    "draw": 1.885,
+    "thinning": 2.145,
+    "gain": 2.165,
+    "attack": 2.59,
+    "altvp": 1.28,
+    "interactivity": 2.515
+  },
+  "Seaside, 2E": {
+    "village": 1.535,
+    "draw": 2.25,
+    "thinning": 1.8,
+    "gain": 2.435,
+    "attack": 2.225,
+    "altvp": 0.985,
+    "interactivity": 2.58
+  }
+}

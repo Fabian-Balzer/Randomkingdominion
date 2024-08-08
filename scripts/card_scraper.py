@@ -25,19 +25,24 @@ Code to read the table data and save it as CSV
 """
 # %%
 
-import os
+import sys
 
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
-import random_kingdominion as rm
-from random_kingdominion.utils.data_setup.add_info_columns import add_info_columns, add_split_piles
-from random_kingdominion.utils.utils import read_dataframe_from_file, write_dataframe_to_file
-from random_kingdominion.utils.data_setup.write_image_database import write_image_database
 
-# Determines wether the program tries to scrape the wiki pages for
-# card and image data or just meddle with existing data
-DOWNLOAD_DATA = not rm.FPATH_RAW_DATA.is_file()
+sys.path.append("..")
+
+import random_kingdominion as rk
+from random_kingdominion.constants import read_dataframe_from_file
+from random_kingdominion.utils.data_setup.add_info_columns import (
+    add_quality_info_columns,
+    add_split_piles,
+)
+from random_kingdominion.utils.data_setup.write_image_database import (
+    write_image_database,
+)
+from random_kingdominion.utils.utils import ask_yes_now, write_dataframe_to_file
 
 
 def fix_cost_and_vp(doc):
@@ -60,23 +65,24 @@ def retrieve_data():
     card_table = soup.find("table", {"class": table_class})
     fix_cost_and_vp(card_table)
     # print(card_table.find('span', {"class": "coin-icon"}))
-    htmlstring = str(card_table)
+    # Remove the non-breaking spaces, turning them into regular spaces:
+    htmlstring = str(card_table).replace(" ", " ")
     df = pd.read_html(htmlstring, encoding="utf-8")[0]
     return df
 
 
 def main():
-    if DOWNLOAD_DATA:
+    if ask_yes_now("Do you want to try to download the card data from the wiki?"):
         df = retrieve_data()
         df["Cost"] = df["Cost"].str.replace("star", "*")
         df["Cost"] = df["Cost"].str.replace("plus", "+")
         df = df.rename(columns={"Set": "Expansion"})
         df = write_image_database(df)
-        write_dataframe_to_file(df, rm.FPATH_RAW_DATA)
-    df = read_dataframe_from_file(rm.FPATH_RAW_DATA)
+        write_dataframe_to_file(df, rk.FPATH_RAW_DATA)
+    df = read_dataframe_from_file(rk.FPATH_RAW_DATA)
     df = add_split_piles(df)
-    df = add_info_columns(df)
-    write_dataframe_to_file(df, rm.FPATH_CARD_DATA)
+    df = add_quality_info_columns(df)
+    write_dataframe_to_file(df, rk.FPATH_CARD_DATA)
     return df
 
 
