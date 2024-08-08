@@ -1,4 +1,5 @@
 """File to contain the KingdomQualities and the Kingdom classes"""
+
 from __future__ import annotations
 
 from dataclasses import asdict, dataclass, field
@@ -31,12 +32,13 @@ class RandomizedKingdom:
     use_shelters: bool = False
     obelisk_pile: str = ""
     bane_pile: str = ""
+    ferryman_pile: str = ""
     mouse_card: str = ""
     druid_boons: list[str] = field(default_factory=lambda: [])
-    traits: list[list[str, str]] = field(default_factory=lambda: [])
+    traits: list[list[str]] = field(default_factory=lambda: [])
 
     @classmethod
-    def from_kingdom(cls: RandomizedKingdom, kingdom: Kingdom) -> RandomizedKingdom:
+    def from_kingdom(cls, kingdom: Kingdom) -> RandomizedKingdom:
         """Construct an instance of this class from a Kingdom"""
         num_landscapes = len(kingdom.landscapes)
         if kingdom.contains_ally():
@@ -44,6 +46,7 @@ class RandomizedKingdom:
         same_attrs = [
             "obelisk_pile",
             "bane_pile",
+            "ferryman_pile",
             "mouse_card",
             "druid_boons",
             "traits",
@@ -65,6 +68,8 @@ class RandomizedKingdom:
         combined_list = self._selected_cards + self._selected_landscapes
         if self.mouse_card:
             combined_list += [self.mouse_card]
+        if self.ferryman_pile:
+            combined_list += [self.ferryman_pile]
         return ALL_CSOS.loc[combined_list].copy()
 
     def _get_card_df(self) -> pd.DataFrame:
@@ -89,8 +94,16 @@ class RandomizedKingdom:
         return np.sum(self._get_landscape_df()["IsAlly"]) > 0
 
     def contains_liaison(self) -> bool:
-        """Checks whether the current selection contains a way."""
+        """Checks whether the current selection contains a liaison."""
         return np.sum(self._get_card_df()["IsLiaison"]) > 0
+
+    def contains_prophecy(self) -> bool:
+        """Checks whether the current selection contains a Prophecy."""
+        return np.sum(self._get_landscape_df()["IsProphecy"]) > 0
+
+    def contains_omen(self) -> bool:
+        """Checks whether the current selection contains an Omen."""
+        return np.sum(self._get_card_df()["IsOmen"]) > 0
 
     def contains_card(self, card_name: str) -> bool:
         """Check whether a given card is in the cards"""
@@ -116,17 +129,31 @@ class RandomizedKingdom:
         self._selected_cards.append(card_name)
         self._set_quality_values()
 
-    def remove_card(self, card_name: str) -> bool:
+    def remove_card_and_test_if_bane(self, card_name: str) -> bool:
         """Safely removes the given card from the selection
         and returns whether a new bane pile is needed.
         Afterwards you should check whether there is still a Liaison in the kingdom,
         and remove the Ally if necessary.
         """
         if not self.contains_card(card_name):
-            return
+            return False
         self._selected_cards.remove(card_name)
-        if card_name == "Young Witch":
+        if card_name == "young_witch":
             self.set_bane_card("")
+        if card_name == "ferryman":
+            self.set_ferryman_card("")
+        # Remove Ally if card was the only Liaison:
+        if not self.contains_liaison() and self.contains_ally():
+            ally_name = self._get_landscape_df()[
+                self._get_landscape_df()["IsAlly"]
+            ].index.values[0]
+            self._selected_landscapes.remove(ally_name)
+        # Remove Prophecy if card was the only Omen:
+        if not self.contains_omen() and self.contains_prophecy():
+            prophecy_name = self._get_landscape_df()[
+                self._get_landscape_df()["IsProphecy"]
+            ].index.values[0]
+            self._selected_landscapes.remove(prophecy_name)
         self._set_quality_values()
         # Pick new trait if the card was a trait target:
         trait_targets = [trait_tuple[1] for trait_tuple in self.traits]
@@ -140,13 +167,13 @@ class RandomizedKingdom:
             self._pick_obelisk()
         return card_name == self.bane_pile
 
-    def remove_landscape(self, landscape_name: str) -> bool:
+    def remove_landscape_and_return_types(self, landscape_name: str) -> list[str]:
         """Safely removes the given landscape from the selection, along with
         associated values such as Obelisk, Mouse, and Trait stuff.
         Returns whether a new Ally must be picked.
         """
         if not self.contains_landscape(landscape_name) or landscape_name == "":
-            return
+            return []
         self._selected_landscapes.remove(landscape_name)
         traits = [trait_tuple[0] for trait_tuple in self.traits]
         if landscape_name in traits:
@@ -157,7 +184,7 @@ class RandomizedKingdom:
         elif landscape_name == "Obelisk":
             self.obelisk_pile = ""
         self._set_quality_values()
-        return ALL_CSOS.loc[landscape_name].IsAlly
+        return ALL_CSOS.loc[landscape_name]["Types"]  # type: ignore
 
     def add_landscape(self, landscape_name: str, pick_targets=True):
         """Safely adds the given landscape to this kingdom"""
@@ -185,6 +212,12 @@ class RandomizedKingdom:
             self.add_card(bane_name)
         self._set_quality_values()
 
+    def set_ferryman_card(self, card_name: str):
+        """Removes any existing ferryman card and sets the new one"""
+        print(f"Picked {card_name}")
+        self.ferryman_pile = card_name
+        self._set_quality_values()
+
     def set_mouse_card(self, mouse_name: str):
         """Removes any existing old mouse card and sets the new one"""
         self.mouse_card = mouse_name
@@ -205,6 +238,7 @@ class RandomizedKingdom:
             self.obelisk_pile = self._pick_action()
 
     def _pick_action_or_treasure(self, excluded: list[str] | None = None) -> str:
+        """For Traits, only Actions or Treasures can be picked."""
         df = self._get_card_df()
         subset = df[df["IsAction"] | df["IsTreasure"]]
         if excluded:
@@ -217,6 +251,15 @@ class RandomizedKingdom:
         subset = df[df["IsAction"]]
         return sample_single_cso_from_df(subset)
 
+    def finish_randomization(self):
+        """Take care of picking Trait/Obelisk targets in case that hasn't been done."""
+        if self.contains_landscape("Obelisk") and not self.obelisk_pile:
+            self._pick_obelisk()
+        landscapes = self._get_landscape_df()
+        for trait in landscapes[landscapes["IsTrait"]]["Name"].tolist():
+            if trait not in [t[0] for t in self.traits]:
+                self._pick_trait_target(trait)
+
     def get_kingdom(self) -> Kingdom:
         """Construct a proper kingdom out of this one"""
         return Kingdom(
@@ -226,4 +269,8 @@ class RandomizedKingdom:
             traits=self.traits,
             obelisk_pile=self.obelisk_pile,
             mouse_card=self.mouse_card,
+            ferryman_pile=self.ferryman_pile,
+            druid_boons=self.druid_boons,
+            use_colonies=self.use_colonies,
+            use_shelters=self.use_shelters,
         )

@@ -5,7 +5,7 @@ import pandas as pd
 import PyQt5.QtCore as QC
 import PyQt5.QtWidgets as QW
 
-from random_kingdominion.constants import COLOR_PALETTE, PATH_MAIN, QUALITIES_AVAILABLE
+from random_kingdominion.constants import COLOR_PALETTE, QUALITIES_AVAILABLE, PATH_CARD_PICS
 
 from ..basic_widgets import ImageCutoutWidget
 from .card_amount_label import CardAmountLabel
@@ -17,7 +17,7 @@ class SingleCardImageWidget(QW.QWidget):
 
     def __init__(self, card: pd.Series, reroll_func: callable, special_text=None):
         super().__init__()
-        self.impath = str(PATH_MAIN.joinpath(card["ImagePath"]))
+        self.impath = str(PATH_CARD_PICS.joinpath(card["ImagePath"]))
         self.name = card.Name
         self.box_layout = QW.QVBoxLayout(self)
         self.box_layout.setSpacing(0)

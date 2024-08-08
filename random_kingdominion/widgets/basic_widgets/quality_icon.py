@@ -1,10 +1,8 @@
-
 import PyQt5.QtCore as QC
 import PyQt5.QtGui as QG
 import PyQt5.QtWidgets as QW
 
-from random_kingdominion.constants import PATH_ASSETS
-from random_kingdominion.utils import override
+from random_kingdominion.utils import override, get_quality_icon_fpath
 
 
 class QualityIcon(QW.QLabel):
@@ -20,7 +18,7 @@ class QualityIcon(QW.QLabel):
 
     def __init__(self, qual_name: str, size=40):
         super().__init__()
-        icon_path = PATH_ASSETS.joinpath(f"icons/qualities/{qual_name}.jpg")
+        icon_path = get_quality_icon_fpath(qual_name)
         assert icon_path.is_file(), f"Couldn't find {qual_name} asset."
         self.setAlignment(QC.Qt.AlignHCenter)
         pixmap = QG.QPixmap(str(icon_path))

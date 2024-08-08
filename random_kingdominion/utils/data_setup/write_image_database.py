@@ -2,34 +2,28 @@ import os
 
 import requests
 from bs4 import BeautifulSoup
+from ...constants import PATH_CARD_PICS
+from pathlib import Path
 
 
-def write_image_database(df, dirname="card_pictures"):
-    # answer = input(f"\nDo you want to scrape the Wiki to create an image database?\n"
-    #     f"This may take some time. Please write (y) or cancel (n).\n>>> ")
-    # while True:
-    #     if answer is "n":
-    #         print("Did not download an image database due to your concerns.")
-    #         return
-    #     if answer is "y":
-    #         break
-    #     answer = input("Please type y for creating an image db or n for cancelling.\n>>> ")
-    if not os.path.exists(dirname):
-        os.makedirs(dirname)
+def write_image_database(df):
+    if not PATH_CARD_PICS.exists():
+        PATH_CARD_PICS.mkdir()
     for exp in set(df["Expansion"]):
-        p = f"{dirname}/{exp.replace(', ', '_')}"
-        if not os.path.exists(p):
-            os.makedirs(p)
+        p = PATH_CARD_PICS.joinpath(exp)
+        if not p.exists():
+            p.mkdir()
     nums = len(df)
     print("Starting to download pictures, this might take a while")
     impaths = []
     for i, card in df.iterrows():
-        cname = card["Name"].replace(' ', '_')
-        exp = card["Expansion"].replace(', ', '_')
-        impath = f"{dirname}/{exp}/{cname}.jpg"
-        if not os.path.exists(impath):
+        cname = card["Name"].replace(" ", "_")
+        exp = card["Expansion"].replace(", ", "_")
+        impathname = f"{exp}/{cname}.jpg"
+        impath = PATH_CARD_PICS.joinpath(impathname)
+        if not impath.exists():
             save_image(impath, cname)
-        impaths.append(impath)
+        impaths.append(impathname)
         if i % 50 == 0:
             print(f"Currently at {i} of {nums} cards ({cname})")
     df["ImagePath"] = impaths
@@ -37,7 +31,7 @@ def write_image_database(df, dirname="card_pictures"):
     return df
 
 
-def save_image(impath, card_name):
+def save_image(impath: Path, card_name):
     """Search the wiki for the pic url of card_name and save a picture in
     impath"""
     link_base = "http://wiki.dominionstrategy.com"
@@ -65,6 +59,7 @@ def save_image(impath, card_name):
     with open(impath, "wb") as f:
         site = requests.get(pic_link)
         f.write(site.content)
+
 
 def download_icons():
     """Function to download images from the card symbols page"""

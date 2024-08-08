@@ -1,4 +1,5 @@
 """A module with a bunch of handy static methods to manipulate Dataframes"""
+
 from functools import reduce
 from typing import Sequence
 
@@ -163,7 +164,7 @@ def get_sub_df_listlike_contains_any_or_is_empty(
     return df[contains_any_mask | is_empty_mask]
 
 
-def get_sub_df_for_landscape(df: pd.DataFrame, exclude_ways=False) -> pd.DataFrame:
+def get_sub_df_for_true_landscape(df: pd.DataFrame, exclude_ways=False) -> pd.DataFrame:
     """Get a subset of the given pool containing only true landscapes (so no Allies)
 
     Parameters
@@ -221,21 +222,33 @@ def sample_single_cso_from_df(df: pd.DataFrame) -> str:
     return df.sample(1, weights=weights).index[0]
 
 
-def _get_weight_for_cso(name: str, disliked: list[str], liked: list[str]) -> float:
+def _get_weight_for_cso(
+    name: str,
+    disliked: list[str],
+    liked: list[str],
+    dislike_weight=0.5,
+    like_weight=2.0,
+) -> float:
     if name in disliked:
-        return 0.5
+        return dislike_weight
     if name in liked:
-        return 2
+        return like_weight
     return 1
 
 
 def add_weight_column(
-    df: pd.DataFrame, disliked: list[str], liked: list[str]
+    df: pd.DataFrame,
+    disliked: list[str],
+    liked: list[str],
+    dislike_weight=0.5,
+    like_weight=2.0,
 ) -> pd.DataFrame:
     """Adds a weight column to the given DataFrame by taking the liked and
     disliked list into consideration.
     """
     df["CSOWeight"] = df.index.map(
-        lambda name: _get_weight_for_cso(name, disliked, liked)
+        lambda name: _get_weight_for_cso(
+            name, disliked, liked, dislike_weight, like_weight
+        )
     )
     return df

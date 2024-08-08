@@ -1,17 +1,23 @@
 """File to contain the PoolContainer class necessary for randomization"""
+
 import random
 
 import numpy as np
 import pandas as pd
 
-from random_kingdominion.constants import ALL_CSOS, QUALITIES_AVAILABLE
+from random_kingdominion.constants import (
+    ALL_CSOS,
+    QUALITIES_AVAILABLE,
+    CARD_TYPES_AVAILABLE,
+)
 from random_kingdominion.cso_frame_utils import (
+    add_weight_column,
     get_sub_df_for_card,
-    get_sub_df_for_landscape,
+    get_sub_df_for_true_landscape,
     get_sub_df_listlike_contains_any_or_is_empty,
     get_sub_df_of_categories,
+    listlike_contains_any,
     sample_single_cso_from_df,
-    add_weight_column,
 )
 from random_kingdominion.utils.config import (
     CustomConfigParser,
@@ -50,10 +56,24 @@ class PoolContainer:
             pool, "attack_types", _allowed_attack_types
         )
 
+        # Reduce the pool to exclude any landscapes that are not wanted
+        _allowed_landscapes = self.config.getlist("General", "allowed_landscape_types")
+        pool = pool[
+            ~pool["IsLandscape"]
+            | listlike_contains_any(pool["Types"], _allowed_landscapes)
+        ]
+        _excluded_card_types = self.config.getlist(
+            "Specialization", "excluded_card_types"
+        )
+        pool = pool[
+            pool["IsLandscape"]
+            | ~listlike_contains_any(pool["Types"], _excluded_card_types)
+        ]
+
         pool = self._exclude_forbidden_qualities(pool)
 
         # Discard all non-supply-non-landscape-non-ally cards as we don't need them to draw from
-        pool = pool[pool["IsInSupply"] | pool["IsLandscape"] | pool["IsAlly"]]
+        pool = pool[pool["IsInSupply"] | pool["IsExtendedLandscape"]]
 
         # Drop bans and rerolls
         banned_csos = self.config.getlist("General", "banned_csos")
@@ -62,7 +82,9 @@ class PoolContainer:
         # Set the weights to account for liked and disliked cards
         disliked = self.config.getlist("General", "disliked_csos")
         liked = self.config.getlist("General", "liked_csos")
-        pool = add_weight_column(pool, disliked, liked)
+        dislike_weight = self.config.getfloat("General", "dislike_factor")
+        like_weight = self.config.getfloat("General", "like_factor")
+        pool = add_weight_column(pool, disliked, liked, dislike_weight, like_weight)
         return pool
 
     def _exclude_forbidden_qualities(self, pool: pd.DataFrame) -> pd.DataFrame:
@@ -148,7 +170,7 @@ class PoolContainer:
         self, qualities_so_far: dict[str, int], exclude_ways: bool
     ) -> str:
         """Pick the next landscape while also considering the required qualities."""
-        pool = get_sub_df_for_landscape(self.main_pool, exclude_ways)
+        pool = get_sub_df_for_true_landscape(self.main_pool, exclude_ways)
         if len(pool) == 0:
             return ""
         pool = self._narrow_pool_for_quality(pool, qualities_so_far)
@@ -159,6 +181,16 @@ class PoolContainer:
     def pick_ally(self, qualities_so_far: dict[str, int]) -> str:
         """Pick an ally while also considering the required qualities."""
         pool = self.main_pool[self.main_pool["IsAlly"]]
+        if len(pool) == 0:
+            return ""
+        pool = self._narrow_pool_for_quality(pool, qualities_so_far)
+        pick = sample_single_cso_from_df(pool)
+        self.main_pool = self.main_pool.drop(pick)
+        return pick
+
+    def pick_prophecy(self, qualities_so_far: dict[str, int]) -> str:
+        """Pick a prophecy while also considering the required qualities."""
+        pool = self.main_pool[self.main_pool["IsProphecy"]]
         if len(pool) == 0:
             return ""
         pool = self._narrow_pool_for_quality(pool, qualities_so_far)

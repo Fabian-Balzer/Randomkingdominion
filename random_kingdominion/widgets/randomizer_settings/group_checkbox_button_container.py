@@ -1,5 +1,5 @@
-
 from math import floor
+from typing import Callable
 
 import PyQt5.QtCore as QC
 import PyQt5.QtWidgets as QW
@@ -51,7 +51,7 @@ class GroupCheckboxButtonContainer(CollapsibleBox):
         layout.setAlignment(QC.Qt.AlignTop | QC.Qt.AlignLeft)
         super().setContentLayout(layout)
 
-    def connect_to_change_func(self, func: callable):
+    def connect_to_change_func(self, func: Callable):
         """Connect all of the buttons to the functions toggling them."""
         for widget in self.widget_dict.values():
             widget.clicked.connect(widget.toggle)

@@ -1,9 +1,46 @@
 """Helper functions needed for kingdom creation and manipulation."""
+
+from typing import Any
+
 import numpy as np
 import pandas as pd
 
 
 def _calculate_total_quality(values: list[int]) -> int:
+    """Calculate the total quality value of a list of integers.
+    The total quality value is a number between 0 and 4 that represents the overall quality
+    of a list of integers, which is at least the maximum of the values in the list.
+    The total quality value is iteratively calculated as follows:
+    - 0: If the list is empty, or if the maximum value is 0.
+    - 1: If the maximum value is 1.
+    - 2: If the maximum value is 2, or if there are at least four 1s.
+    - 3: If the maximum value is 3, or if there are at least three 2s (also, four 1s count as a 2).
+    - 4: If the maximum value is 4, or if there are at least two 3s (also, three 2s count as a 3).
+
+    Parameters
+    ----------
+    values : list[int]
+        A list of integers to be evaluated.
+
+    Returns
+    -------
+        int
+        The total quality value of the list.
+
+    Examples
+    --------
+    >>> _calculate_total_quality([1, 2, 3, 4, 4])
+    4
+    >>> _calculate_total_quality([1, 1, 1, 1, 2])
+    3
+    >>> _calculate_total_quality([1, 1, 1, 1, 1])
+    2
+    >>> _calculate_total_quality([3, 1, 1, 1, 1, 1])
+    3
+    """
+    # Remove all zeros from the list
+    values = [val for val in values if val != 0]
+
     # Initialize array with zeros representing 0, 1, 2, 3, 4
     counts = np.zeros(5)
 
@@ -17,9 +54,7 @@ def _calculate_total_quality(values: list[int]) -> int:
         counts[i + 1] += counts[i] // (5 - i)
 
     # Look where the first nonzero value sits.
-    total_quality_value = np.nonzero(counts)[0][-1]
-
-    return total_quality_value
+    return np.nonzero(counts)[0][-1] if np.any(counts) else 0
 
 
 def _get_total_quality(qual_name: str, kingdom_df: pd.DataFrame) -> int:
@@ -27,7 +62,7 @@ def _get_total_quality(qual_name: str, kingdom_df: pd.DataFrame) -> int:
     return _calculate_total_quality(value_list)
 
 
-def _sort_kingdom(df: pd.DataFrame) -> pd.DataFrame:
+def sort_kingdom(df: pd.DataFrame) -> pd.DataFrame:
     """Sort the kingdom such that the supply cards come first, then the landscapes,
     then it is sorted by cost, then by name.
     """
@@ -35,13 +70,20 @@ def _sort_kingdom(df: pd.DataFrame) -> pd.DataFrame:
     df["CostSort"] = df["Cost"].str.replace("$", "Z")
     df["NameSort"] = df["Name"]
     df = df.sort_values(
-        by=["IsInSupply", "IsLandscape", "IsOtherThing", "CostSort", "NameSort"],
-        ascending=[False, False, False, True, True],
+        by=[
+            "IsInSupply",
+            "IsLandscape",
+            "IsExtendedLandscape",
+            "IsOtherThing",
+            "CostSort",
+            "NameSort",
+        ],
+        ascending=[False, False, False, False, True, True],
     )
     return df.drop(["NameSort", "CostSort"], axis=1)
 
 
-def _is_value_not_empty_or_true(val: any) -> bool:
+def _is_value_not_empty_or_true(val: Any) -> bool:
     """Check whether the given value is not empty, or true if it's a boolean."""
     if isinstance(val, bool):
         return val  # If it's false, we want
@@ -66,7 +108,10 @@ def _dict_factory_func(attrs: list[tuple[str, str]], ignore_keys: set) -> dict:
 
 def sanitize_cso_name(name: str) -> str:
     """Return a sanitized version of the name of the cso."""
-    return name.lower().strip().replace(" ", "_").replace("'", "")
+    name = name.lower().strip().replace(" ", "_").replace("'", "").replace("’", "")
+    if name == "harem" or name == "farm":
+        return "harem_farm"
+    return name
 
 
 def sanitize_cso_list(cso_list: list[str], sort=True) -> list[str]:

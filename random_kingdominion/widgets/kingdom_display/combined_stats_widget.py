@@ -1,10 +1,17 @@
 import PyQt5.QtCore as QC
 import PyQt5.QtGui as QG
 import PyQt5.QtWidgets as QW
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
+from matplotlib.figure import Figure
+from matplotlib import pyplot as plt
 
 from random_kingdominion.constants import COLOR_PALETTE, QUALITIES_AVAILABLE
 from random_kingdominion.kingdom import Kingdom
-from random_kingdominion.utils import get_expansion_icon_path, get_row_and_col
+from random_kingdominion.utils import (
+    get_expansion_icon_path,
+    get_row_and_col,
+    plot_normalized_polygon,
+)
 from random_kingdominion.utils import clear_layout
 
 from .single_quality_display import SingleQualityDisplay
@@ -21,7 +28,8 @@ class ExpansionIcon(QW.QWidget):
         layout.setContentsMargins(1, 1, 1, 1)
         layout.setSpacing(1)
         pixmap = QG.QPixmap(icon_path)
-        aspect_ratio = pixmap.width() / pixmap.height()
+        aspect_ratio = pixmap.width() / max(1, pixmap.height())
+        aspect_ratio = aspect_ratio if aspect_ratio != 0 else 1
         target_width = 30
         target_height = int(target_width / aspect_ratio)
         pixmap = pixmap.scaled(
@@ -92,6 +100,13 @@ class KingdomStatsDisplay(QW.QGroupBox):
             qual_display = SingleQualityDisplay(qual)
             lay.addWidget(qual_display)
             self.quality_wid_dict[qual] = qual_display
+
+        # Add a matplotlib figure canvas to display the distribution:
+        self.fig, self.ax = plt.subplots(figsize=(8, 8), subplot_kw=dict(polar=True))
+
+        self.figure_canvas = FigureCanvas(self.fig)
+        self.figure_canvas.setFixedSize(300, 300)
+        lay.addWidget(self.figure_canvas)
         lay.addStretch()
 
         right_part_widget = QW.QWidget()
@@ -108,3 +123,6 @@ class KingdomStatsDisplay(QW.QGroupBox):
         for qual in QUALITIES_AVAILABLE:
             self.quality_wid_dict[qual].set_total_quality_value(kingdom)
         self.expansion_widget.set_expansions(kingdom)
+        self.ax.clear()
+        plot_normalized_polygon(kingdom.total_qualities, self.ax)  # type: ignore
+        self.figure_canvas.draw()

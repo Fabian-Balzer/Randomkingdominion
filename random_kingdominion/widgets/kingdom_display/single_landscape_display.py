@@ -4,7 +4,11 @@ from typing import Literal
 import pandas as pd
 import PyQt5.QtCore as QC
 import PyQt5.QtWidgets as QW
-from random_kingdominion.constants import COLOR_PALETTE, PATH_MAIN, QUALITIES_AVAILABLE
+from random_kingdominion.constants import (
+    COLOR_PALETTE,
+    PATH_CARD_PICS,
+    QUALITIES_AVAILABLE,
+)
 
 from ..basic_widgets import ImageCutoutWidget
 from .custom_reroll_button import CustomRerollButton
@@ -17,7 +21,7 @@ class SingleLandscapeImageWidget(QW.QWidget):
         self, landscape: pd.Series, reroll_func: callable, special_text=None, width=200
     ):
         super().__init__()
-        self.impath = str(PATH_MAIN.joinpath(landscape["ImagePath"]))
+        self.impath = str(PATH_CARD_PICS.joinpath(landscape["ImagePath"]))
         self.name = landscape.Name
         self.landscape = landscape
         self.box_layout = QW.QVBoxLayout(self)

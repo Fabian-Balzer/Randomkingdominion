@@ -26,13 +26,14 @@ class CSOSelectionDisplay(QW.QWidget):
     def set_displayed_csos(self, cso_list: list[str]):
         clear_layout(self.grid_layout)
         num_cols = 5
-        for i, cso_name in enumerate(cso_list):
+        csos = ALL_CSOS.loc[cso_list]
+        for i, (_, cso) in enumerate(csos.iterrows()):
             row, col = get_row_and_col(i, num_cols)
             # TODO: Make this a picture with an x to remove
-            button = CustomButton(width=100, text=cso_name)
-            clickfunc = partial(self.removeButtonPressed.emit, cso_name)
+            button = CustomButton(width=100, text=cso.Name)
+            clickfunc = partial(self.removeButtonPressed.emit, cso.name)
             button.clicked.connect(clickfunc)
-            self.remove_button_dict[cso_name] = button
+            self.remove_button_dict[cso.name] = button
             self.grid_layout.addWidget(button, row, col)
 
 
@@ -66,8 +67,8 @@ class SingleCSOListSelectionWidget(QW.QGroupBox):
         self.cso_display.set_displayed_csos(self.current_selection)
         self.selection_textbox.set_allowed_terms(self._get_allowed_terms())
 
-    def _get_allowed_terms(self) -> list[str]:
-        mask = ALL_CSOS.IsInSupply | ALL_CSOS.IsAlly | ALL_CSOS.IsLandscape
-        all_names = set(ALL_CSOS[mask].Name)
+    def _get_allowed_terms(self) -> set[str]:
+        mask = ALL_CSOS.IsInSupply | ALL_CSOS["IsExtendedLandscape"]
+        all_names = set(ALL_CSOS[mask].index)
         allowed_terms = all_names.difference(set(self.current_selection))
         return allowed_terms

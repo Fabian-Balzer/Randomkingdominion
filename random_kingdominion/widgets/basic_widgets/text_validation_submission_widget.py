@@ -1,9 +1,10 @@
-from typing import Sequence
+from typing import Iterable
 
 import PyQt5.QtCore as QC
 import PyQt5.QtGui as QG
 import PyQt5.QtWidgets as QW
 
+from random_kingdominion.kingdom import sanitize_cso_name
 from random_kingdominion.utils import override
 
 
@@ -49,7 +50,7 @@ class TextValidationSubmissionWidget(QW.QWidget):
         self._adjust_text_edit_height()
 
         # Set up the autocomplete:
-        self._allowed_autocompletes = {}
+        self._allowed_autocompletes = set()
 
         # Create a custom tooltip-like widget for autocompletion
         self.autocomplete_tooltip = AutocompleteTooltip(self.text_edit)
@@ -75,7 +76,7 @@ class TextValidationSubmissionWidget(QW.QWidget):
             "Enter a comma-separated list of cards. Press tab for auto-completion."
         )
 
-    def set_allowed_terms(self, term_list: Sequence[str]):
+    def set_allowed_terms(self, term_list: Iterable[str]):
         """Externally set the allowed terms for the autocomplete (e.g. a list of
         CSO names)
         """
@@ -116,7 +117,7 @@ class TextValidationSubmissionWidget(QW.QWidget):
         """Return the word currently under the cursor in the TextEdit-"""
         cursor = self.text_edit.textCursor()
         cursor.movePosition(QG.QTextCursor.StartOfWord, QG.QTextCursor.KeepAnchor)
-        # Get the current word the cursor is in
+        # TODO: Here I need to pick up the sanitized word that's currently selected!
         return cursor.selectedText().strip()
 
     def _get_autocomplete_words(self, wordstart: str) -> list[str]:
@@ -169,9 +170,9 @@ class TextValidationSubmissionWidget(QW.QWidget):
 
     def _get_csv_values(self) -> list[str]:
         text = self.text_edit.toPlainText().strip(", ")
-        inputs = [card.strip().title().replace("_", " ") for card in text.split(",")]
+        inputs = [sanitize_cso_name(card) for card in text.split(",")]
         return inputs
 
     def _is_text_valid(self) -> bool:
         inputs = self._get_csv_values()
-        return set(self._allowed_autocompletes).issuperset(set(inputs))
+        return self._allowed_autocompletes.issuperset(set(inputs))

@@ -16,7 +16,7 @@ from .randomizer_settings import (
 def create_buttons():
     button_dict = {}
     button_dict["Randomize"] = CustomButton(text="Randomize")
-    button_dict["PrintKingdom"] = CustomButton(text="Print the kingdom")
+    button_dict["CopyKingdomToClipboard"] = CustomButton(text="To clipboard")
     button_dict["Previous"] = CustomButton(text="Previous")
     button_dict["Next"] = CustomButton(text="Next")
     return button_dict
@@ -62,10 +62,11 @@ class WidgetContainer:
 
     def _init_navigation_widget(self) -> QW.QHBoxLayout:
         wid = QW.QWidget()
-        lay = QW.QHBoxLayout(wid)
-        lay.addWidget(self.buttons["Previous"])
-        lay.addWidget(self.buttons["Randomize"])
-        lay.addWidget(self.buttons["Next"])
+        lay = QW.QGridLayout(wid)
+        lay.addWidget(self.buttons["Previous"], 0, 0)
+        lay.addWidget(self.buttons["Randomize"], 0, 1)
+        lay.addWidget(self.buttons["Next"], 0, 2)
+        lay.addWidget(self.buttons["CopyKingdomToClipboard"], 1, 0, 1, 3)
         return wid
 
     def _init_leftside_widget(self) -> QW.QVBoxLayout:

@@ -4,13 +4,16 @@ from functools import reduce
 
 import pandas as pd
 
-from random_kingdominion.constants import (LANDSCAPE_LIST,
-                                                 OTHER_OBJ_LIST,
-                                                 PATH_CARD_INFO,
-                                                 QUALITIES_AVAILABLE,
-                                                 ROTATOR_DICT,
-                                                 SPECIAL_TYPES_AVAILABLE,
-                                                 SPLITPILE_DICT)
+from random_kingdominion.constants import (
+    EXTENDED_LANDSCAPE_LIST,
+    LANDSCAPE_LIST,
+    OTHER_OBJ_LIST,
+    PATH_CARD_INFO,
+    QUALITIES_AVAILABLE,
+    ROTATOR_DICT,
+    SPECIAL_QUAL_TYPES_AVAILABLE,
+    SPLITPILE_DICT,
+)
 from random_kingdominion.utils.utils import ask_file_overwrite
 
 
@@ -39,6 +42,14 @@ def test_landscape(df):
     return series
 
 
+def test_extended_landscape(df):
+    """Tests whether the given object is an Event, Project, Way or landmark."""
+    series = df["Types"].apply(
+        lambda x: do_lists_have_common(x, EXTENDED_LANDSCAPE_LIST)
+    )
+    return series
+
+
 def test_other(df):
     """Tests whether the given object is a Hex, Boon, State or Artifact"""
     series = df["Types"].apply(lambda x: do_lists_have_common(x, OTHER_OBJ_LIST))
@@ -51,12 +62,14 @@ def test_in_supply(df):
         spirits, heirlooms, prizes, Spoils, Ruins, Shelters, Knights,
         Mercenary, Bat, Wish, Horse, Plunder, Bustling Village, Rocks,
         Travellers (except page and peasant), Zombies, Allies, Split Piles,
-        Rotating split piles"""
+        Rotating split piles, Prophecies
+    """
     typelist = [
         "Traveller",
         "Spirit",
         "Heirloom",
         "Prize",
+        "Reward",
         "Ruins",
         "Zombie",
         "Knight",
@@ -69,6 +82,7 @@ def test_in_supply(df):
         "Clash",
         "Fort",
         "Ally",
+        "Prophecy",
     ]
     namelist = [
         "Bat",
@@ -120,7 +134,7 @@ def test_in_supply(df):
             & df["Name"].apply(lambda x: x not in still_include)
         )
         | df["Name"].apply(lambda x: x in namelist)
-        | df["IsLandscape"]
+        | df["IsExtendedLandscape"]
         | df["IsOtherThing"]
     )
     return ~series
@@ -130,6 +144,7 @@ def add_bool_columns(df: pd.DataFrame) -> pd.DataFrame:
     """Adds some boolean columns and saves the types as a list"""
     df["Types"] = df["Types"].str.split(" - ")
     df["IsLandscape"] = test_landscape(df)
+    df["IsExtendedLandscape"] = test_extended_landscape(df)
     df["IsOtherThing"] = test_other(df)
     df["IsInSupply"] = test_in_supply(df)
     # df["IsCantrip"] = test_cantrip(df)
@@ -150,7 +165,6 @@ def get_specific_info(cardname, info_type, default_value):
 
 
 def add_split_piles(df):
-    pathbase = "card_pictures/Split_Piles/"
     splitpile_dict = {
         "Castles": {
             "Name": "Castles",
@@ -205,7 +219,7 @@ def add_split_piles(df):
         }
     for pile in splitpile_dict.values():
         pile["ImagePath"] = (
-            pathbase + pile["Name"].replace("/", "_").replace(" ", "_") + ".jpg"
+            "Split_Piles/" + pile["Name"].replace("/", "_").replace(" ", "_") + ".jpg"
         )
         pile_dict = {key: [val] for key, val in pile.items()}
         df = pd.concat([df, pd.DataFrame(pile_dict)])
@@ -234,17 +248,19 @@ def determine_amount(card: pd.Series):
     isknight = "Knight" in card.Types and not card.Name == "Knights"
     isartifact = "Artifact" in card.Types
     isally = "Ally" in card.Types
-    isprize = "Prize" in card.Types
+    isprize = ("Prize" in card.Types) or ("Reward" in card.Types)
+    isProphecy = "Prophecy" in card.Types
     iszombie = "Zombie" in card.Name
     if any(
         [
-            card.IsLandscape,
+            card.IsExtendedLandscape,
             card.IsOtherThing,
             isknight,
             isartifact,
             isally,
             isprize,
             iszombie,
+            isProphecy,
         ]
     ):
         return "1"
@@ -295,11 +311,11 @@ def determine_amount(card: pd.Series):
     return "10"
 
 
-def add_info_columns(df):
+def add_quality_info_columns(df):
     df = add_bool_columns(df)
     # Set up the default values:
     info_types = {f"{qual}_quality": 0 for qual in QUALITIES_AVAILABLE}
-    info_types |= {f"{types}_types": [] for types in SPECIAL_TYPES_AVAILABLE}
+    info_types |= {f"{types}_types": [] for types in SPECIAL_QUAL_TYPES_AVAILABLE}
     for info_type, default_value in info_types.items():
         df[info_type] = df["Name"].apply(
             lambda name: get_specific_info(name, info_type, default_value)

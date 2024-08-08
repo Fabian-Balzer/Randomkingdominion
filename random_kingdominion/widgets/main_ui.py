@@ -18,8 +18,8 @@ class UIMainWindow(QW.QMainWindow):
         self.setCentralWidget(self._main)
         self.config = CustomConfigParser()
         self.kingdom_randomizer = KingdomRandomizer(self.config)
-        self.kingdom_manager = KingdomManager()
-        self.current_kingdom: Kingdom = None
+        self.kingdom_manager = KingdomManager(load_last=True)
+        self.current_kingdom: Kingdom
         self.init_ui()
         self.randomize()  # Start with a random selection
 
@@ -39,14 +39,13 @@ class UIMainWindow(QW.QMainWindow):
         self.widgets.buttons["Randomize"].clicked.connect(self.randomize)
         self.widgets.buttons["Previous"].clicked.connect(self.select_previous)
         self.widgets.buttons["Next"].clicked.connect(self.select_next)
-        self.widgets.buttons["PrintKingdom"].clicked.connect(
+        self.widgets.buttons["CopyKingdomToClipboard"].clicked.connect(
             self.copy_kingdom_to_clipboard
         )
 
     def copy_kingdom_to_clipboard(self):
         """Copy the current kingdom to clipboard"""
-        clipboard = QW.QApplication.clipboard()
-        clipboard.setText(str(self.current_kingdom))
+        self.current_kingdom.copy_to_clipboard()
 
     def randomize(self):
         self.current_kingdom = self.kingdom_randomizer.randomize_new_kingdom()

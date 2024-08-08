@@ -1,4 +1,3 @@
-
 import PyQt5.QtCore as QC
 import PyQt5.QtWidgets as QW
 
@@ -47,4 +46,4 @@ class SingleQualityDisplay(QW.QWidget):
         self.value_name_label.setText(self.quality_name_dict[value])
         self.bar_wid.setValue(value)
         self.descriptor_icon.set_overlay_cross(value == 0)
-        self.unique_types_label.setText(kingdom.get_unique_types(self.name))
+        self.unique_types_label.setText(kingdom.get_unique_qualtypes(self.name))

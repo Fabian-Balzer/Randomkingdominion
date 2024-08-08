@@ -1,4 +1,3 @@
-
 import PyQt5.QtCore as QC
 import PyQt5.QtGui as QG
 import PyQt5.QtWidgets as QW
@@ -20,6 +19,7 @@ class ImageCutoutWidget(QW.QWidget):
     round_edges : bool, optional
         whether the edges of the image should be rounded, by default True
     """
+
     def __init__(
         self,
         impath: str,
@@ -54,7 +54,7 @@ class ImageCutoutWidget(QW.QWidget):
         if image.isNull():
             return
 
-        aspect_ratio = image.width() / image.height()
+        aspect_ratio = image.width() / max(1, image.height())
         new_height = int(width / aspect_ratio)
         resized_image = image.scaled(
             width, new_height, QC.Qt.KeepAspectRatio, QC.Qt.SmoothTransformation

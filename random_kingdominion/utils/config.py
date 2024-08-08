@@ -1,11 +1,14 @@
 """Functions to load from and save stuff to the config file."""
 
-
 import json
 from configparser import ConfigParser
 from pathlib import Path
 
-from ..constants import FPATH_RANDOMIZER_CONFIG, RENEWED_EXPANSIONS
+from ..constants import (
+    FPATH_RANDOMIZER_CONFIG,
+    FPATH_RANDOMIZER_CONFIG_DEFAULTS,
+    RENEWED_EXPANSIONS,
+)
 
 
 def add_renewed_base_expansions(expansions: list[str]) -> list[str]:
@@ -20,13 +23,40 @@ def add_renewed_base_expansions(expansions: list[str]) -> list[str]:
 
 
 class CustomConfigParser(ConfigParser):
-    def __init__(self):
-        super().__init__()
-        self.read(FPATH_RANDOMIZER_CONFIG)
+    """A config parser to reflect the options."""
 
-    def getlist(self, section: str, key: str) -> list[str]:
+    def __init__(self, load_default=False, skip_load=False):
+        super().__init__()
+        if skip_load:
+            return
+        fpath = (
+            FPATH_RANDOMIZER_CONFIG_DEFAULTS
+            if load_default
+            else FPATH_RANDOMIZER_CONFIG
+        )
+        self.read(fpath)
+
+    @classmethod
+    def from_dict(cls, config_dict: dict):
+        """Create a config parser from a dictionary."""
+        config = cls(skip_load=True)
+        for section, options in config_dict.items():
+            config.add_section(section)
+            for key, value in options.items():
+                config.set(section, key, value)
+        return config
+
+    @classmethod
+    def from_json(cls, json_str: str):
+        """Create a config parser from a JSON string."""
+        return cls.from_dict(json.loads(json_str))
+
+    def getlist(
+        self, section: str, key: str, fallback: list | None = None
+    ) -> list[str]:
         """Turn the internally as string saved stuff into a list."""
-        value = self.get(section, key)
+        fallback_val = "[]" if fallback is None else str(fallback)
+        value = self.get(section, key, fallback=fallback_val)
         return json.loads(value)
 
     def setlist(self, section: str, key: str, listval: list[str]):
@@ -64,3 +94,13 @@ class CustomConfigParser(ConfigParser):
         with fpath.open("w", encoding="utf-8") as configfile:
             self.write(configfile)
 
+    def to_dict(self) -> dict:
+        """Convert the config to a dictionary."""
+        return {
+            section: {key: self.get(section, key) for key in self[section]}
+            for section in self.sections()
+        }
+
+    def to_json(self) -> str:
+        """Convert the config to a JSON string."""
+        return json.dumps(self.to_dict(), indent=4)

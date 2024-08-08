@@ -1,5 +1,3 @@
-
-
 from random_kingdominion import CustomConfigParser
 from random_kingdominion.constants import ATTACK_TYPE_LIST, PATH_ASSETS
 from random_kingdominion.utils import override
