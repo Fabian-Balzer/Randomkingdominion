@@ -190,5 +190,13 @@
   "Daimyo": ["Special"],
   "Artist": ["Lab*"],
   "Continue": ["Special"],
-  "Root Cellar": ["Lab"]
+  "Root Cellar": ["Lab"],
+  "Divine Wind": ["Special"],
+  "Aristocrat": ["Smithy"],
+  "Imperial Envoy": ["Smithy"],
+  "Litter": ["Lab"],
+  "Rice Broker": ["On-trash"],
+  "Ronin": ["DTX"],
+  "Foresight": ["Special"],
+  "Biding Time": ["Special"]
 }

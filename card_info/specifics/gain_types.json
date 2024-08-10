@@ -312,5 +312,16 @@
   "Change": ["Remodel"],
   "Gold Mine": ["Buys", "Specific"],
   "Gather": ["Specific"],
-  "Sickness": ["Specific"]
+  "Sickness": ["Specific"],
+  "Kitsune": ["Specific"],
+  "Rice": ["Buys"],
+  "Kintsugi": ["Remodel*"],
+  "Divine Wind": ["Special"],
+  "Aristocrat": ["Buys"],
+  "Craftsman": ["Workshop"],
+  "Imperial Envoy": ["Buys"],
+  "Tanuki": ["Remodel"],
+  "Receive Tribute": ["Specific"],
+  "Bureaucracy": ["Specific"],
+  "Good Harvest": ["Buys"]
 }

@@ -120,7 +120,7 @@
   "Upgrade": ["Any", "Remodel"],
   "Urchin": ["Any"],
   "Vampire": ["Any", "Remodel"],
-  "War": ["Any"],
+  "War": ["Any*"],
   "Way of the Goat": ["Any"],
   "Wizards": ["Any"],
   "Woodworkers' Guild": ["Action", "Remodel"],
@@ -128,5 +128,11 @@
   "Zombie Mason": ["Any", "Remodel"],
   "River Shrine": ["Any"],
   "Enlightenment": ["Treasure"],
-  "Mountain Shrine": ["Any"]
+  "Mountain Shrine": ["Any"],
+  "Kintsugi": ["Any", "Remodel*"],
+  "Divine Wind": ["Any*"],
+  "Rice Broker": ["Any"],
+  "Tanuki": ["Any", "Remodel"],
+  "Asceticism": ["Any"],
+  "Sea Trade": ["Any"]
 }

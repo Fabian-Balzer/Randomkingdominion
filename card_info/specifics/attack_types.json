@@ -105,5 +105,10 @@
   "Wizards": ["Junking", "Scoring"],
   "Young Witch": ["Junking", "Scoring"],
   "Ninja": ["Handsize"],
-  "Sickness": ["Handsize", "Junking", "Scoring", "Indirect"]
+  "Sickness": ["Handsize", "Junking", "Scoring", "Indirect"],
+  "Kitsune": ["Junking", "Scoring"],
+  "Divine Wind": ["Indirect"],
+  "Samurai": ["Handsize"],
+  "Snake Witch": ["Junking", "Scoring"],
+  "Harsh Winter": ["Indirect"]
 }

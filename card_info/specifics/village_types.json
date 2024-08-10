@@ -124,5 +124,9 @@
   "Daimyo": ["Throne"],
   "Continue": ["Single", "On-gain"],
   "Practice": ["Throne"],
-  "Great Leader": ["Special"]
+  "Great Leader": ["Special"],
+  "Kitsune": ["Handsize-decreasing"],
+  "Divine Wind": ["Special"],
+  "Aristocrat": ["Handsize-neutral", "Handsize-decreasing"],
+  "Litter": ["Handsize-neutral"]
 }
