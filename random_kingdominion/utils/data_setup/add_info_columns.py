@@ -321,4 +321,6 @@ def add_quality_info_columns(df):
             lambda name: get_specific_info(name, info_type, default_value)
         )
     df["CardAmount"] = df.apply(determine_amount, axis=1)
+    link_base = "https://wiki.dominionstrategy.com/index.php/"
+    df["WikiLink"] = df["Name"].str.replace(" ", "_").apply(lambda x: link_base + x)
     return df

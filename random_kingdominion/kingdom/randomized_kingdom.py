@@ -33,6 +33,7 @@ class RandomizedKingdom:
     obelisk_pile: str = ""
     bane_pile: str = ""
     ferryman_pile: str = ""
+    riverboat_card: str = ""
     mouse_card: str = ""
     druid_boons: list[str] = field(default_factory=lambda: [])
     traits: list[list[str]] = field(default_factory=lambda: [])
@@ -47,6 +48,7 @@ class RandomizedKingdom:
             "obelisk_pile",
             "bane_pile",
             "ferryman_pile",
+            "riverboat_card",
             "mouse_card",
             "druid_boons",
             "traits",
@@ -70,6 +72,10 @@ class RandomizedKingdom:
             combined_list += [self.mouse_card]
         if self.ferryman_pile:
             combined_list += [self.ferryman_pile]
+        if self.riverboat_card:
+            combined_list += [self.riverboat_card]
+        if self.druid_boons:
+            combined_list += self.druid_boons
         return ALL_CSOS.loc[combined_list].copy()
 
     def _get_card_df(self) -> pd.DataFrame:
@@ -142,6 +148,10 @@ class RandomizedKingdom:
             self.set_bane_card("")
         if card_name == "ferryman":
             self.set_ferryman_card("")
+        if card_name == "riverboat":
+            self.set_riverboat_card("")
+        if card_name == "druid":
+            self.set_druid_boons([])
         # Remove Ally if card was the only Liaison:
         if not self.contains_liaison() and self.contains_ally():
             ally_name = self._get_landscape_df()[
@@ -214,8 +224,17 @@ class RandomizedKingdom:
 
     def set_ferryman_card(self, card_name: str):
         """Removes any existing ferryman card and sets the new one"""
-        print(f"Picked {card_name}")
         self.ferryman_pile = card_name
+        self._set_quality_values()
+
+    def set_riverboat_card(self, card_name: str):
+        """Removes any existing riverboat card and sets the new one"""
+        self.riverboat_card = card_name
+        self._set_quality_values()
+
+    def set_druid_boons(self, boons: list[str]):
+        """Removes existing boons and sets the new ones."""
+        self.druid_boons = boons
         self._set_quality_values()
 
     def set_mouse_card(self, mouse_name: str):
@@ -268,8 +287,9 @@ class RandomizedKingdom:
             bane_pile=self.bane_pile,
             traits=self.traits,
             obelisk_pile=self.obelisk_pile,
-            mouse_card=self.mouse_card,
             ferryman_pile=self.ferryman_pile,
+            riverboat_card=self.riverboat_card,
+            mouse_card=self.mouse_card,
             druid_boons=self.druid_boons,
             use_colonies=self.use_colonies,
             use_shelters=self.use_shelters,

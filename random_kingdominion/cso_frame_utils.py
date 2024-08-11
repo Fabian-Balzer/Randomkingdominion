@@ -1,8 +1,7 @@
 """A module with a bunch of handy static methods to manipulate Dataframes"""
 
 from functools import reduce
-from typing import Sequence
-
+from typing import Sequence, Literal
 import numpy as np
 import pandas as pd
 
@@ -189,7 +188,12 @@ def _get_sub_df_for_cost(pool: pd.DataFrame, cost_limits: list[str]) -> pd.DataF
     return pool[pool.Cost.isin(cost_limits)]
 
 
-def get_sub_df_for_card(df: pd.DataFrame, for_bane_or_mouse=False) -> pd.DataFrame:
+def get_sub_df_for_card(
+    df: pd.DataFrame,
+    special_card_to_pick_for: (
+        Literal["ferryman", "way_of_the_mouse", "young_witch", "riverboat"] | None
+    ) = None,
+) -> pd.DataFrame:
     """Get a subset of the given DataFrame containing only cards that are part of the
     supply.
     Can be reduced to cards costing $2 and $3.
@@ -198,9 +202,9 @@ def get_sub_df_for_card(df: pd.DataFrame, for_bane_or_mouse=False) -> pd.DataFra
     ----------
     df : pd.DataFrame
         The dataframe to filter
-    for_bane_or_mouse : bool, optional
-        Whether the cards should be filtered for ones that cost between $2 and $3,
-            by default False
+    special_card_to_pick_for : Literal["ferryman", "way_of_the_mouse", "young_witch", "riverboat"], optional
+        Whether the cards should be filtered to be eligible for the given special pick,
+            by default None
 
     Returns
     -------
@@ -208,8 +212,17 @@ def get_sub_df_for_card(df: pd.DataFrame, for_bane_or_mouse=False) -> pd.DataFra
         The filtered dataframe
     """
     pool = df[~df["IsLandscape"] & df["IsInSupply"]]
-    if for_bane_or_mouse:
+    if special_card_to_pick_for == "young_witch":
         pool = _get_sub_df_for_cost(pool, ["$2", "$3"])
+    elif special_card_to_pick_for == "ferryman":
+        pool = _get_sub_df_for_cost(pool, ["$3", "$4"])
+    elif special_card_to_pick_for == "way_of_the_mouse":
+        pool = _get_sub_df_for_cost(pool, ["$2", "$3"])
+        pool = pool[listlike_contains(pool["Types"], "Action")]
+    elif special_card_to_pick_for == "riverboat":
+        pool = _get_sub_df_for_cost(pool, ["$5"])
+        pool = pool[listlike_contains(pool["Types"], "Action")]
+        pool = pool[~listlike_contains(pool["Types"], "Duration")]
     return pool
 
 

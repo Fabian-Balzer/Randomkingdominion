@@ -83,6 +83,7 @@ def _init_main_df():
         "Action",
         "Treasure",
         "Boon",
+        "Hex",
         "Omen",
         "Prophecy",
     ]

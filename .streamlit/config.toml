@@ -1,0 +1,8 @@
+[deprecation]
+showPyplotGlobalUse = false
+
+[server]
+enableStaticServing = true
+
+[runner]
+enforceSerializableSessionState = true

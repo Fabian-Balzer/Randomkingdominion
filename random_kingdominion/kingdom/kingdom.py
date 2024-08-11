@@ -49,7 +49,13 @@ class Kingdom:
         obelisk_pile : str, by default ""
             The obelisk target, should already be listed in the cards list (optional)
         bane_pile : str, by default ""
-            Which card is the bane, should already be listed in the cards list (optional)
+            Which card costing $2 or $3 is the bane, should already be listed in the cards list (optional)
+        ferryman_pile : str, by default ""
+            Which card costing $3 or $4 is chosen by Ferryman
+            (optional)
+        riverboat_card : str, by default ""
+            Which Non-Duration Action is chosen to be the Riverboat card
+            (optional)
         mouse_card : str, by default ""
             Which card is the Way of the Mouse target,
             should not be contained in the cards list (optional)
@@ -74,6 +80,7 @@ class Kingdom:
     obelisk_pile: str = ""
     bane_pile: str = ""
     ferryman_pile: str = ""
+    riverboat_card: str = ""
     mouse_card: str = ""
     druid_boons: list[str] = field(default_factory=list)
     traits: list[list[str]] = field(default_factory=list)
@@ -140,8 +147,9 @@ class Kingdom:
         if bane_pile != "":
             cso_list += [bane_pile]
         obelisk_pile = sanitize_cso_name(special_dict["obelisk"])
-        mouse_card = sanitize_cso_name(special_dict["way_of_the_mouse"])
         ferryman_pile = sanitize_cso_name(special_dict["ferryman"])
+        riverboat_card = sanitize_cso_name(special_dict["riverboat"])
+        mouse_card = sanitize_cso_name(special_dict["way_of_the_mouse"])
 
         split_piles = [cso for cso in ALL_CSOS.index if "/" in cso]
         # Replace the split pile representation (e.g. gladiator will be replaced by gladiator/fortune)
@@ -173,11 +181,12 @@ class Kingdom:
             use_colonies=use_colonies,
             use_shelters=use_shelters,
             bane_pile=bane_pile,
+            obelisk_pile=obelisk_pile,
+            ferryman_pile=ferryman_pile,
+            riverboat_card=riverboat_card,
+            mouse_card=mouse_card,
             druid_boons=druid_boons,
             traits=traits,
-            obelisk_pile=obelisk_pile,
-            mouse_card=mouse_card,
-            ferryman_pile=ferryman_pile,
             notes=note_str,
         )
 
@@ -194,19 +203,25 @@ class Kingdom:
         self.druid_boons = sanitize_cso_list(self.druid_boons)
         self.obelisk_pile = sanitize_cso_name(self.obelisk_pile)
         self.ferryman_pile = sanitize_cso_name(self.ferryman_pile)
+        self.riverboat_card = sanitize_cso_name(self.riverboat_card)
         self.traits = sorted(
             [sanitize_cso_list(trait_tup, sort=False) for trait_tup in self.traits]
         )
+        # The following three are non-supply
         if self.ferryman_pile in self.cards:
             self.cards.remove(self.ferryman_pile)
+        if self.riverboat_card in self.cards:
+            self.cards.remove(self.riverboat_card)
         if self.mouse_card in self.cards:
             self.cards.remove(self.mouse_card)
         assert all([trait_tup[0] in self.landscapes for trait_tup in self.traits])
         key_list = self.cards + self.landscapes
-        if self.mouse_card != "":
-            key_list.append(self.mouse_card)
         if self.ferryman_pile != "":
             key_list.append(self.ferryman_pile)
+        if self.riverboat_card != "":
+            key_list.append(self.riverboat_card)
+        if self.mouse_card != "":
+            key_list.append(self.mouse_card)
         if self.use_colonies:
             key_list.append("colony")
             key_list.append("platinum")
@@ -253,17 +268,24 @@ class Kingdom:
 
     @property
     def ferryman_obj(self) -> pd.Series | None:
-        """Return the ferryman card as a pandas series."""
+        """Return the ferryman pile card as a pandas series."""
         if self.ferryman_pile == "":
             return None
         return ALL_CSOS.loc[self.ferryman_pile]
 
     @property
     def bane_obj(self) -> pd.Series | None:
-        """Return the ferryman card as a pandas series."""
+        """Return the bane pile card as a pandas series."""
         if self.bane_pile == "":
             return None
         return ALL_CSOS.loc[self.bane_pile]
+
+    @property
+    def riverboat_obj(self) -> pd.Series | None:
+        """Return the riverboat card as a pandas series."""
+        if self.riverboat_card == "":
+            return None
+        return ALL_CSOS.loc[self.riverboat_card]
 
     @property
     def mouse_obj(self) -> pd.Series | None:
@@ -289,6 +311,8 @@ class Kingdom:
             special_dict["obelisk"] = ALL_CSOS.loc[self.obelisk_pile].Name
         if self.ferryman_pile:
             special_dict["ferryman"] = ALL_CSOS.loc[self.ferryman_pile].Name
+        if self.riverboat_card:
+            special_dict["riverboat"] = ALL_CSOS.loc[self.riverboat_card].Name
         if self.mouse_card:
             special_dict["way_of_the_mouse"] = ALL_CSOS.loc[self.mouse_card].Name
         for trait, target in self.traits:
@@ -390,6 +414,8 @@ class Kingdom:
             text_list.append("Obelisk")
         if card_name == self.ferryman_pile:
             text_list.append("Ferryman")
+        if card_name == self.riverboat_card:
+            text_list.append("Riverboat")
         if card_name == self.mouse_card:
             text_list.append("Mouse")
         for tup in self.traits:

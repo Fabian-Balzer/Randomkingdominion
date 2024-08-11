@@ -4,6 +4,7 @@ import random
 
 import numpy as np
 import pandas as pd
+from typing import Literal
 
 from random_kingdominion.constants import (
     ALL_CSOS,
@@ -155,10 +156,14 @@ class PoolContainer:
         return [(qual, diffs[qual]) for qual in sorted_quals]
 
     def pick_next_card(
-        self, qualities_so_far: dict[str, int], for_bane_or_mouse=False
+        self,
+        qualities_so_far: dict[str, int],
+        special_card_to_pick_for: (
+            Literal["ferryman", "way_of_the_mouse", "young_witch", "riverboat"] | None
+        ) = None,
     ) -> str:
         """Pick the next card while also considering the required qualities."""
-        pool = get_sub_df_for_card(self.main_pool, for_bane_or_mouse)
+        pool = get_sub_df_for_card(self.main_pool, special_card_to_pick_for)
         if len(pool) == 0:
             return ""
         pool = self._narrow_pool_for_quality(pool, qualities_so_far)

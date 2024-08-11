@@ -11,6 +11,7 @@ from random_kingdominion.single_cso_utils import (
 )
 from random_kingdominion.utils.config import CustomConfigParser
 
+from ..constants import ALL_CSOS
 from .kingdom import Kingdom
 from .pool_container import PoolContainer
 from .randomized_kingdom import RandomizedKingdom
@@ -26,19 +27,29 @@ class KingdomRandomizer:
         self.pool_con = PoolContainer(self.config)
 
     def pick_next_card(
-        self, random_kingdom: RandomizedKingdom, pick: str | None = None
+        self,
+        random_kingdom: RandomizedKingdom,
+        pick: str | None = None,
+        add_to_cards=True,
     ):
         """Picks the next card and makes sure that the Young Witch target and
         Allies are taken care of.
+
+        If not specified, the card is picked randomly from the current pool.
+        If add_to_cards is False, the card is not added to the kingdom cards (relevant for Ferryman and Riverboat)
         """
         if pick is None:
             pick = self.pool_con.pick_next_card(random_kingdom.quality_of_selection)
-        random_kingdom.add_card(pick)
+        if add_to_cards:
+            random_kingdom.add_card(pick)
         if pick == "young_witch":
             self.pick_bane_card(random_kingdom)
-        if pick == "ferryman":
+        elif pick == "ferryman":
             self.pick_ferryman_card(random_kingdom)
-        # TODO: Druid boons
+        elif pick == "riverboat":
+            self.pick_riverboat_card(random_kingdom)
+        elif pick == "druid":
+            self.pick_druid_boons(random_kingdom)
         # Pick an Ally if one of the cards in the Kingdom is a liaison:
         if random_kingdom.contains_liaison() and not random_kingdom.contains_ally():
             pick = self.pool_con.pick_ally(random_kingdom.quality_of_selection)
@@ -53,15 +64,33 @@ class KingdomRandomizer:
 
     def pick_bane_card(self, random_kingdom: RandomizedKingdom):
         """Pick the bane card."""
-        pick = self.pool_con.pick_next_card(random_kingdom.quality_of_selection, True)
-        random_kingdom.add_card(pick)
-        random_kingdom.set_bane_card(pick)
-        print("selected bane card", pick)
+        bane = self.pool_con.pick_next_card(
+            random_kingdom.quality_of_selection, "young_witch"
+        )
+        self.pick_next_card(random_kingdom, bane)
+        random_kingdom.set_bane_card(bane)
 
     def pick_ferryman_card(self, random_kingdom: RandomizedKingdom):
         """Pick the bane card."""
-        pick = self.pool_con.pick_next_card(random_kingdom.quality_of_selection, True)
-        random_kingdom.set_ferryman_card(pick)
+        ferryman = self.pool_con.pick_next_card(
+            random_kingdom.quality_of_selection, "ferryman"
+        )
+        self.pick_next_card(random_kingdom, ferryman, add_to_cards=False)
+        random_kingdom.set_ferryman_card(ferryman)
+
+    def pick_riverboat_card(self, random_kingdom: RandomizedKingdom):
+        """Pick the card associated with riverboat."""
+        riverboat = self.pool_con.pick_next_card(
+            random_kingdom.quality_of_selection, "riverboat"
+        )
+        self.pick_next_card(random_kingdom, riverboat, add_to_cards=False)
+        random_kingdom.set_riverboat_card(riverboat)
+
+    def pick_druid_boons(self, random_kingdom: RandomizedKingdom):
+        """Pick the card associated with riverboat."""
+        boons = ALL_CSOS[ALL_CSOS["IsBoon"]].index.to_list()
+        selected_boons = random.sample(boons, 3)
+        random_kingdom.set_druid_boons(selected_boons)
 
     def pick_next_landscape(
         self, random_kingdom: RandomizedKingdom, pick: str | None = None
@@ -73,10 +102,11 @@ class KingdomRandomizer:
             )
         random_kingdom.add_landscape(pick)
         if pick == "way_of_the_mouse":
-            pick = self.pool_con.pick_next_card(
-                random_kingdom.quality_of_selection, True
+            mouse = self.pool_con.pick_next_card(
+                random_kingdom.quality_of_selection, "way_of_the_mouse"
             )
-            random_kingdom.set_mouse_card(pick)
+            self.pick_next_card(random_kingdom, mouse, add_to_cards=False)
+            random_kingdom.set_mouse_card(mouse)
 
     def randomize_new_kingdom(self) -> Kingdom:
         """Create a completely fresh randomized kingdom."""

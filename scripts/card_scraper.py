@@ -52,7 +52,10 @@ def fix_cost_and_vp(doc):
     for pic in pics:
         alt_price = pic.find("img")["alt"]
         pic.string = alt_price
-    return pics
+    debts = doc.find_all("span", {"class": "debt-icon"})
+    for debt in debts:
+        alt_price = debt.find("img")["alt"]
+        debt.string = " " + alt_price
 
 
 def retrieve_data():
@@ -74,9 +77,9 @@ def retrieve_data():
 def main():
     if ask_yes_now("Do you want to try to download the card data from the wiki?"):
         df = retrieve_data()
-        df["Cost"] = df["Cost"].str.replace("star", "*")
-        df["Cost"] = df["Cost"].str.replace("plus", "+")
         df = df.rename(columns={"Set": "Expansion"})
+        df["Name"] = df["Name"].str.replace("200px", "")
+        df["Name"] = df["Name"].str.replace("320px", "")
         df = write_image_database(df)
         write_dataframe_to_file(df, rk.FPATH_RAW_DATA)
     df = read_dataframe_from_file(rk.FPATH_RAW_DATA)
