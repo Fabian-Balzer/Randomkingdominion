@@ -53,10 +53,10 @@ EMOJI_DICT = {
 SHORT_DESCS = {
     "village": "...play more than one terminal per turn.",
     "draw": "...increase your handsize.",
-    "thinning": "...remove cards from the deck.",
+    "thinning": "...remove cards from your deck.",
     "gain": "...gain more than one card per turn.",
     "attack": "...attack other players, directly or indirectly.",
-    "altvp": "...give access to VP in alternative ways than just Provinces/Duchies/Estates.",
+    "altvp": "...give access to VP in alternative ways than just Provinces/Duchies/Estates (therefore includes Cursing).",
     "interactivity": "...foster player interactions.",
 }
 

@@ -159,6 +159,11 @@ ROTATOR_DICT = {
     "Odysseys": ["Old Map", "Voyage", "Sunken Treasure", "Distant Shore"],
 }
 
+UNIQUEPILE_LIST = ["Castles", "Knights", "Loot"]
+LANDSCAPE_LIST = ["Event", "Project", "Way", "Landmark", "Trait"]
+EXTENDED_LANDSCAPE_LIST = LANDSCAPE_LIST + ["Ally", "Prophecy"]
+OTHER_OBJ_LIST = ["Hex", "Boon", "State", "Artifact", "Loot"]
+
 SPLITPILE_DICT = {
     "Catapult/Rocks": 3,
     "Encampment/Plunder": 2,
@@ -167,11 +172,20 @@ SPLITPILE_DICT = {
     "Patrician/Emporium": 2,
     "Settlers/Bustling Village": 2,
 }
-
-UNIQUEPILE_LIST = ["Castles", "Knights", "Loot"]
-LANDSCAPE_LIST = ["Event", "Project", "Way", "Landmark", "Trait"]
-EXTENDED_LANDSCAPE_LIST = LANDSCAPE_LIST + ["Ally", "Prophecy"]
-OTHER_OBJ_LIST = ["Hex", "Boon", "State", "Artifact", "Loot"]
+"""Tracks the different split piles, including their costs, as they do not exist in the list of cards."""
+SPLITPILE_CARDS = [c for key in SPLITPILE_DICT.keys() for c in key.split("/")]
+"""The cards of splitpiles that are 5 cards each."""
+SPLIT_CARD_TYPES = [
+    "Castle",
+    "Knight",
+    "Augur",
+    "Wizard",
+    "Townsfolk",
+    "Odyssey",
+    "Fort",
+    "Clash",
+]
+"""All card types that denote split piles"""
 
 CARD_TYPES_AVAILABLE = [
     "Action",
@@ -192,6 +206,7 @@ CARD_TYPES_AVAILABLE = [
     "Omen",
     "Shadow",
 ]
+"""Most of the available Card Types, excluding special split pile types, zombies and travellers"""
 
 
 MECHANICS = [

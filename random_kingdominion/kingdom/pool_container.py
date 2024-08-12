@@ -1,29 +1,38 @@
 """File to contain the PoolContainer class necessary for randomization"""
 
 import random
+from typing import Literal
 
 import numpy as np
 import pandas as pd
-from typing import Literal
 
-from random_kingdominion.constants import (
-    ALL_CSOS,
-    QUALITIES_AVAILABLE,
-    CARD_TYPES_AVAILABLE,
-)
-from random_kingdominion.cso_frame_utils import (
+from ..constants import ALL_CSOS, QUALITIES_AVAILABLE, SPLIT_CARD_TYPES, SPLITPILE_DICT
+from ..cso_frame_utils import (
     add_weight_column,
-    get_sub_df_for_card,
+    get_sub_df_for_special_card,
     get_sub_df_for_true_landscape,
     get_sub_df_listlike_contains_any_or_is_empty,
     get_sub_df_of_categories,
     listlike_contains_any,
     sample_single_cso_from_df,
 )
-from random_kingdominion.utils.config import (
-    CustomConfigParser,
-    add_renewed_base_expansions,
-)
+from ..kingdom import sanitize_cso_name
+from ..utils.config import CustomConfigParser, add_renewed_base_expansions
+
+
+def _get_split_pile_ancestor(card_key: str) -> str:
+    obj = ALL_CSOS.loc[card_key]
+    if obj["IsInSupply"] or obj["IsExtendedLandscape"]:
+        return ""
+    for key in [sanitize_cso_name(k) for k in SPLITPILE_DICT]:
+        # e.g. encampment in encampment/plunder
+        if card_key in key:
+            return key
+    for type_ in SPLIT_CARD_TYPES:
+        if type_ in obj["Types"]:
+            type_map = {"Townsfolk": "Townsfolk", "Clashes": "Clashes"}
+            return type_map.get(type_, type_ + "s")
+    return ""
 
 
 class PoolContainer:
@@ -124,7 +133,7 @@ class PoolContainer:
 
     def _get_unfulfilled_qualities(
         self, qualities_so_far: dict[str, int]
-    ) -> list[tuple[str, str]]:
+    ) -> list[tuple[str, int]]:
         """Determine which qualities are needed the most, and return a dictionary
         that maps the quality names to the amount they are needed.
 
@@ -159,16 +168,26 @@ class PoolContainer:
         self,
         qualities_so_far: dict[str, int],
         special_card_to_pick_for: (
-            Literal["ferryman", "way_of_the_mouse", "young_witch", "riverboat"] | None
+            Literal[
+                "ferryman",
+                "way_of_the_mouse",
+                "young_witch",
+                "riverboat",
+                "approaching_army",
+            ]
+            | None
         ) = None,
     ) -> str:
         """Pick the next card while also considering the required qualities."""
-        pool = get_sub_df_for_card(self.main_pool, special_card_to_pick_for)
+        pool = get_sub_df_for_special_card(self.main_pool, special_card_to_pick_for)
         if len(pool) == 0:
             return ""
         pool = self._narrow_pool_for_quality(pool, qualities_so_far)
         pick = sample_single_cso_from_df(pool)
         self.main_pool = self.main_pool.drop(pick)
+        if special_card_to_pick_for in ["way_of_the_mouse", "riverboat"]:
+            if (ancestor := _get_split_pile_ancestor(pick)) != "":
+                self.main_pool.drop(ancestor)
         return pick
 
     def pick_next_landscape(

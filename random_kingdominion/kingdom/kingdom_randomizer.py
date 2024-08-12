@@ -7,12 +7,13 @@ import random
 from random_kingdominion.single_cso_utils import (
     is_card,
     is_cso_in_expansions,
-    is_landscape_or_ally,
+    is_extended_landscape,
 )
 from random_kingdominion.utils.config import CustomConfigParser
 
 from ..constants import ALL_CSOS
 from .kingdom import Kingdom
+from .kingdom_helper_funcs import sanitize_cso_list
 from .pool_container import PoolContainer
 from .randomized_kingdom import RandomizedKingdom
 
@@ -21,8 +22,10 @@ class KingdomRandomizer:
     """A class that can be used to randomize a kingdom based on the current config settings,
     keeping track of the rerolled cards."""
 
-    def __init__(self, config: CustomConfigParser):
-        self.config = config
+    def __init__(self, config: CustomConfigParser | None = None):
+        self.config = (
+            config if config is not None else CustomConfigParser(load_default=True)
+        )
         self.rerolled_csos: list[str] = []
         self.pool_con = PoolContainer(self.config)
 
@@ -92,6 +95,14 @@ class KingdomRandomizer:
         selected_boons = random.sample(boons, 3)
         random_kingdom.set_druid_boons(selected_boons)
 
+    def pick_mouse_card(self, random_kingdom: RandomizedKingdom):
+        """Pick the card for Way of the Mouse."""
+        mouse = self.pool_con.pick_next_card(
+            random_kingdom.quality_of_selection, "way_of_the_mouse"
+        )
+        self.pick_next_card(random_kingdom, mouse, add_to_cards=False)
+        random_kingdom.set_mouse_card(mouse)
+
     def pick_next_landscape(
         self, random_kingdom: RandomizedKingdom, pick: str | None = None
     ):
@@ -102,11 +113,7 @@ class KingdomRandomizer:
             )
         random_kingdom.add_landscape(pick)
         if pick == "way_of_the_mouse":
-            mouse = self.pool_con.pick_next_card(
-                random_kingdom.quality_of_selection, "way_of_the_mouse"
-            )
-            self.pick_next_card(random_kingdom, mouse, add_to_cards=False)
-            random_kingdom.set_mouse_card(mouse)
+            self.pick_mouse_card(random_kingdom)
 
     def randomize_new_kingdom(self) -> Kingdom:
         """Create a completely fresh randomized kingdom."""
@@ -146,7 +153,7 @@ class KingdomRandomizer:
             "General", "allow_required_csos_of_other_exps"
         )
         added_cards, added_landscapes = 0, 0
-        for cso in required_csos:
+        for cso in sanitize_cso_list(required_csos):
             if not allow_required_csos_of_other_exps and not is_cso_in_expansions(
                 cso, expansions
             ):
@@ -154,7 +161,7 @@ class KingdomRandomizer:
             if is_card(cso):
                 self.pick_next_card(random_kingdom, cso)
                 added_cards += 1
-            elif is_landscape_or_ally(cso):
+            elif is_extended_landscape(cso):
                 self.pick_next_landscape(random_kingdom, cso)
                 added_landscapes += 1
             else:
@@ -186,6 +193,15 @@ class KingdomRandomizer:
                 random_kingdom.add_landscape(pick)
             else:
                 self.pick_next_landscape(random_kingdom)
+        elif random_kingdom.riverboat_card == cso_name:
+            random_kingdom.remove_card_and_test_if_bane(cso_name)
+            self.pick_riverboat_card(random_kingdom)
+        elif random_kingdom.ferryman_pile == cso_name:
+            random_kingdom.remove_card_and_test_if_bane(cso_name)
+            self.pick_ferryman_card(random_kingdom)
+        elif random_kingdom.mouse_card == cso_name:
+            random_kingdom.remove_card_and_test_if_bane(cso_name)
+            self.pick_mouse_card(random_kingdom)
         else:
             print(
                 f"Something went wrong on the reroll: Couldn't find {cso_name} in the old kingdom."

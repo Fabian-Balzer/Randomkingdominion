@@ -60,16 +60,3 @@ This project has no affiliation with either party. Card images were taken from t
 """
 
 st.write(final_text)
-
-cols = st.columns([0.1, 0.5])
-with cols[0]:
-    rk.display_card_image(rk.ALL_CSOS.iloc[0])
-    if st.button(
-        "Reroll",
-        on_click=lambda c=rk.ALL_CSOS.iloc[0]["Name"]: rk.reroll_cso(
-            rk.sanitize_cso_name(c)
-        ),
-        key=f"reroll_{rk.ALL_CSOS.iloc[0]['Name']}",
-        use_container_width=True,
-    ):
-        st.rerun()

@@ -1,7 +1,8 @@
 """A module with a bunch of handy static methods to manipulate Dataframes"""
 
 from functools import reduce
-from typing import Sequence, Literal
+from typing import Literal, Sequence
+
 import numpy as np
 import pandas as pd
 
@@ -46,23 +47,6 @@ def contains_type(df: pd.DataFrame, type_name: str) -> bool:
     return np.sum(listlike_contains(df["Types"], type_name)) > 0
 
 
-def get_sub_df_for_type(df: pd.DataFrame, type_name: str) -> pd.DataFrame:
-    """Filter the cards for their types columns to contain the given type name,
-    e.g. get_sub_df_for_type("Attack") would return all cards with the attack
-    type.
-    """
-    return listlike_contains(df["Types"], type_name)
-
-
-def get_sub_df_for_types(df: pd.DataFrame, type_names: list[str]) -> pd.DataFrame:
-    """Filter the cards for their types columns to contain any of the given type
-    names,
-    e.g. get_sub_df_for_type("Attack") would return all cards with the attack
-    type.
-    """
-    return df[listlike_contains_any(df["Types"], type_names)]
-
-
 def get_sub_df_with_csos(df: pd.DataFrame, csos: list[str]) -> pd.DataFrame:
     """Acquire a subset of the DataFrame which only includes the given csos."""
     return df.loc[csos]
@@ -97,25 +81,6 @@ def get_sub_df_of_categories(
     could filter with categories=["Intrigue", "Empires"].
     """
     return df[df[colname].isin(categories)]
-
-
-def get_sub_df_listlike_contains(df: pd.DataFrame, colname: str, value) -> pd.DataFrame:
-    """Filters the dataframe for all entries where the list entries in the
-    given column contain the value
-
-    Parameters
-    ----------
-    colname : str
-        The name of the column
-    value : Type of list entries
-        The value to filter for
-
-    Returns
-    -------
-    pd.DataFrame
-        Filtered dataframe
-    """
-    return df[listlike_contains(df[colname], value)]
 
 
 def get_sub_df_listlike_contains_any(
@@ -188,10 +153,17 @@ def _get_sub_df_for_cost(pool: pd.DataFrame, cost_limits: list[str]) -> pd.DataF
     return pool[pool.Cost.isin(cost_limits)]
 
 
-def get_sub_df_for_card(
+def get_sub_df_for_special_card(
     df: pd.DataFrame,
     special_card_to_pick_for: (
-        Literal["ferryman", "way_of_the_mouse", "young_witch", "riverboat"] | None
+        Literal[
+            "ferryman",
+            "way_of_the_mouse",
+            "young_witch",
+            "riverboat",
+            "approaching_army",
+        ]
+        | None
     ) = None,
 ) -> pd.DataFrame:
     """Get a subset of the given DataFrame containing only cards that are part of the
@@ -211,18 +183,53 @@ def get_sub_df_for_card(
     pd.DataFrame
         The filtered dataframe
     """
-    pool = df[~df["IsLandscape"] & df["IsInSupply"]]
+    pool = df[df["IsInSupply"]]
     if special_card_to_pick_for == "young_witch":
-        pool = _get_sub_df_for_cost(pool, ["$2", "$3"])
+        pool = _get_sub_df_for_cost(pool, ["$2", "$3", "$2+", "$3+"])
+        return pool
     elif special_card_to_pick_for == "ferryman":
-        pool = _get_sub_df_for_cost(pool, ["$3", "$4"])
-    elif special_card_to_pick_for == "way_of_the_mouse":
-        pool = _get_sub_df_for_cost(pool, ["$2", "$3"])
+        banned_for_ferryman = ["Young Witch", "Riverboat"]
+        pool = _get_sub_df_for_cost(pool, ["$3", "$4", "$3+", "$4+"])
+        pool = pool[~np.in1d(pool["Name"], banned_for_ferryman)]
+        return pool
+    elif special_card_to_pick_for == "approaching_army":
+        pool = pool[listlike_contains(pool["Types"], "Attack")]
+        return pool
+    # In the case of mouse or riverboat, we are picking single cards rather
+    # than piles, such that single Knights etc. can also be part.
+    pool = df[df["IsRealSupplyCard"]]
+    if special_card_to_pick_for == "way_of_the_mouse":
+        # Ban useless cards, and also cards that just have effects that mirror other ways as you might as well play with these.
+        banned_for_mouse = [
+            "Tent",  # Sheep
+            "Battle Plan",  # might be Pig without attacks
+            "Sheepdog",  # Otter
+            "Farmer's Market",  # No place to gather tokens, only + Buy
+            "Aristocrat",  # Does nothing
+            "Riverboat",  # Too annoying to consider
+            "Ratcatcher",  # Pig
+            "Guide",  # Pig
+            "Watchtower",  # Owl
+            "Page",  # Pig
+            "Peasant",  # Monkey
+            "Faithful Hound",  # Otter
+            "Pixie",  # Pig
+            "Lackeys",  # Otter
+            "Snake Witch",  # Pig (?)
+            "Fishmonger",  # Monkey
+            "Embargo",  # Sheep
+            "Moat",  # Otter
+            "Black Cat",  # Otter
+        ]
+        pool = _get_sub_df_for_cost(pool, ["$2", "$3", "$2+", "$3+"])
         pool = pool[listlike_contains(pool["Types"], "Action")]
+        pool = pool[~np.in1d(pool["Name"], banned_for_mouse)]
     elif special_card_to_pick_for == "riverboat":
-        pool = _get_sub_df_for_cost(pool, ["$5"])
+        banned_for_riverboat = ["Royal Carriage", "Ferryman", "Distant Lands"]
+        pool = _get_sub_df_for_cost(pool, ["$5", "$5*"])
         pool = pool[listlike_contains(pool["Types"], "Action")]
         pool = pool[~listlike_contains(pool["Types"], "Duration")]
+        pool = pool[~np.in1d(pool["Name"], banned_for_riverboat)]
     return pool
 
 
@@ -263,5 +270,12 @@ def add_weight_column(
         lambda name: _get_weight_for_cso(
             name, disliked, liked, dislike_weight, like_weight
         )
+    )
+    # Give single knights lower chances to appear. This should only be relevant for Riverboat for now.
+    df["CSOWeight"] = df.apply(
+        lambda row: (
+            row["CSOWeight"] if "Knight" not in row["Types"] else row["CSOWeight"] / 9
+        ),
+        axis=1,
     )
     return df

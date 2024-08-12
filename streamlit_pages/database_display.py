@@ -1,4 +1,3 @@
-
 import numpy as np
 import pandas as pd
 import streamlit as st
@@ -93,7 +92,11 @@ with st.container(border=True):
         with cols[1]:
             is_card = st.checkbox("Require CSOs to be cards", value=False)
         with cols[2]:
-            is_landscape = st.checkbox("Require CSOs to be landscapes", value=False)
+            is_landscape = st.checkbox(
+                "Require CSOs to be exteneded landscapes",
+                value=False,
+                help=f"Filter for extended landscapes (i.e. {','.join(rk.EXTENDED_LANDSCAPE_LIST)})",
+            )
         st.session_state["landscape_is_checked"] = is_landscape
     INVERT_MASK = st.checkbox(
         "Invert filters", value=False, help="Invert all applied filters."
@@ -120,7 +123,7 @@ def filter_full_df_for_options(df: pd.DataFrame) -> pd.DataFrame:
     if in_supply:
         filter_mask &= df["IsInSupply"]
     if is_card:
-        filter_mask &= ~df["IsExtendedLandscape"]
+        filter_mask &= df["IsRealSupplyCard"]
     if is_landscape:
         filter_mask &= df["IsExtendedLandscape"]
     if cso_types and not disable_cso_filtering:

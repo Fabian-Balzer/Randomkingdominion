@@ -127,31 +127,7 @@ def add_kingdom_info_to_plot(ax: Axes, kingdom: "Kingdom"):
                 bbox=bbox,
             )
             offset += 0.05
-    card_names = kingdom.kingdom_card_df["Name"].tolist()
-    card_text = "Cards:\n " + "\n ".join([c for c in sorted(card_names)])
-    if kingdom.ferryman_obj is not None:
-        card_text = card_text.replace(
-            "Ferryman", f"Ferryman (Extra: {kingdom.ferryman_obj['Name']})"
-        )
-    if kingdom.bane_obj is not None:
-        card_text = card_text.replace(
-            "Young Witch", f"Young Witch (Bane: {kingdom.bane_obj['Name']})"
-        )
-    if len(kingdom.landscapes) > 0:
-        landscape_names = kingdom.kingdom_landscape_df["Name"].tolist()
-        card_text += "\nLandscapes:\n " + "\n ".join(
-            [c for c in sorted(landscape_names)]
-        )
-    if kingdom.mouse_obj is not None:
-        card_text = card_text.replace(
-            "Way Of The Mouse", f"Way Of The >>>{kingdom.mouse_obj['Name']}<<<"
-        )
-    card_text = card_text.replace("Obelisk", f"Obelisk ({kingdom.obelisk_pile})")
-    card_text = card_text.replace("Druid", f"Druid ({', '.join(kingdom.druid_boons)})")
-    if kingdom.use_shelters:
-        card_text += "\nUse Shelters"
-    if kingdom.use_colonies:
-        card_text += "\nUse Colonies/Platinum"
+    card_text = kingdom.card_and_landscape_text
     ax.text(
         1.1,
         0.95,

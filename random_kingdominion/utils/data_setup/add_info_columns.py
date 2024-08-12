@@ -2,8 +2,10 @@ import json
 from collections import defaultdict
 from functools import reduce
 
+import numpy as np
 import pandas as pd
 
+from random_kingdominion import listlike_contains_any
 from random_kingdominion.constants import (
     EXTENDED_LANDSCAPE_LIST,
     LANDSCAPE_LIST,
@@ -12,6 +14,8 @@ from random_kingdominion.constants import (
     QUALITIES_AVAILABLE,
     ROTATOR_DICT,
     SPECIAL_QUAL_TYPES_AVAILABLE,
+    SPLIT_CARD_TYPES,
+    SPLITPILE_CARDS,
     SPLITPILE_DICT,
 )
 from random_kingdominion.utils.utils import ask_file_overwrite
@@ -60,7 +64,7 @@ def test_in_supply(df):
     """Creates a mask of all cards that are not kingdom cards.
     These things are:
         spirits, heirlooms, prizes, Spoils, Ruins, Shelters, Knights,
-        Mercenary, Bat, Wish, Horse, Plunder, Bustling Village, Rocks,
+        Mercenary, Bat, Wish, Horse,
         Travellers (except page and peasant), Zombies, Allies, Split Piles,
         Rotating split piles, Prophecies
     """
@@ -72,52 +76,31 @@ def test_in_supply(df):
         "Reward",
         "Ruins",
         "Zombie",
-        "Knight",
         "Shelter",
-        "Castle",
-        "Augur",
-        "Odyssey",
-        "Townsfolk",
-        "Wizard",
-        "Clash",
-        "Fort",
-        "Ally",
-        "Prophecy",
     ]
+    typelist += SPLIT_CARD_TYPES
+    # Some cards that are explicitly not part of the kingdom supply
     namelist = [
         "Bat",
         "Wish",
         "Horse",
         "Spoils",
-        "Plunder",
-        "Bustling Village",
-        "Rocks",
         "Mercenary",
         "Madman",
-        "Colony",
-        "Platinum",
         "Teacher",
         "Champion",
-        "Estate",
+        "Estate",  # You could argue about the base cards, but this makes randomization easier.
         "Duchy",
         "Province",
-        "Copper",
+        "Colony",
         "Curse",
+        "Copper",
         "Silver",
         "Gold",
+        "Platinum",
         "Potion",
-        "Fortune",
-        "Rocks",
-        "Patrician",
-        "Catapult",
-        "Encampment",
-        "Emporium",
-        "Bustling Village",
-        "Settlers",
-        "Gladiator",
-        "Sauna",
-        "Avanto",
-    ]
+    ] + SPLITPILE_CARDS
+    # Knights and Castles as piles have a differing type from their instances
     still_include = [
         "Page",
         "Peasant",
@@ -140,6 +123,22 @@ def test_in_supply(df):
     return ~series
 
 
+def test_real_supply_card(df: pd.DataFrame):
+    split_headers = list(ROTATOR_DICT.keys()) + list(SPLITPILE_DICT.keys())
+    is_no_split_header = ~np.in1d(df["Name"], split_headers)
+    # Splitpile cards are not part of the supply, but still cards
+    is_part_of_split = np.in1d(df["Name"], SPLITPILE_CARDS) | listlike_contains_any(
+        df["Types"], SPLIT_CARD_TYPES
+    )
+    series = (
+        ~df["IsExtendedLandscape"]
+        & ~df["IsOtherThing"]
+        & (df["IsInSupply"] | is_part_of_split)
+        & is_no_split_header
+    )
+    return series
+
+
 def add_bool_columns(df: pd.DataFrame) -> pd.DataFrame:
     """Adds some boolean columns and saves the types as a list"""
     df["Types"] = df["Types"].str.split(" - ")
@@ -147,6 +146,7 @@ def add_bool_columns(df: pd.DataFrame) -> pd.DataFrame:
     df["IsExtendedLandscape"] = test_extended_landscape(df)
     df["IsOtherThing"] = test_other(df)
     df["IsInSupply"] = test_in_supply(df)
+    df["IsRealSupplyCard"] = test_real_supply_card(df)
     # df["IsCantrip"] = test_cantrip(df)
     return df
 

@@ -76,7 +76,7 @@ MAIN_DF = load_main_df()
 def get_cached_unique_types():
     unique_types = set()
     MAIN_DF["Types"].apply(lambda x: unique_types.update(x))
-    return list(unique_types)
+    return sorted(unique_types)
 
 
 @st.cache_data

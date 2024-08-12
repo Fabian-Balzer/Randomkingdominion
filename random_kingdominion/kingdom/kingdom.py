@@ -28,6 +28,10 @@ from .kingdom_helper_funcs import (
 )
 
 
+def get_cso_name(cso_key: str) -> str:
+    return ALL_CSOS["Name"].to_dict().get(cso_key, "NOT FOUND")
+
+
 @dataclass(order=True)
 class Kingdom:
     """Kingdom model similar to Kieranmillar's sets.
@@ -86,7 +90,7 @@ class Kingdom:
     traits: list[list[str]] = field(default_factory=list)
 
     name: str = ""
-    notes: str = ""
+    notes: str = field(default="", compare=False)
     idx: int = field(default_factory=lambda: int(uuid4()), compare=False)
 
     # TODO: Find a more lightweight way to do this as it causes load times > 1 sec for > 100 kingdoms
@@ -163,11 +167,19 @@ class Kingdom:
         csos = ALL_CSOS.loc[avail_csos]
         # if len(unrecognized_csos) > 0:
         #     print(f"Could not recognize the following terms: {unrecognized_csos}")
-        cards = csos[~csos["IsExtendedLandscape"] & csos["IsInSupply"]]
+        cards = csos[csos["IsInSupply"]]
         landscapes = csos[csos["IsExtendedLandscape"]]
         traits = []
-        for trait, _ in csos[csos["IsTrait"]].iterrows():
-            traits.append([trait, special_dict[trait]])  # type: ignore
+        for trait, _ in landscapes[landscapes["IsTrait"]].iterrows():
+            target: str = sanitize_cso_name(special_dict[trait])  # type: ignore
+            if target not in ALL_CSOS[ALL_CSOS["IsInSupply"]].index:
+                unrecognized_csos.append(target)
+            else:
+                traits.append([trait, target])
+        if len(traits) > 0:
+            cards = pd.concat(
+                [cards, ALL_CSOS.loc[[t[1] for t in traits if t[1] not in cards.index]]]
+            )
 
         note_str = ""
         if len(unrecognized_csos) > 0:
@@ -267,32 +279,53 @@ class Kingdom:
         return len(self.expansions) == 0
 
     @property
-    def ferryman_obj(self) -> pd.Series | None:
-        """Return the ferryman pile card as a pandas series."""
-        if self.ferryman_pile == "":
-            return None
-        return ALL_CSOS.loc[self.ferryman_pile]
+    def trait_dict(self) -> dict[str, str]:
+        """Mapping of traits to their targets"""
+        return {t[0]: t[1] for t in self.traits}
 
     @property
-    def bane_obj(self) -> pd.Series | None:
-        """Return the bane pile card as a pandas series."""
-        if self.bane_pile == "":
-            return None
-        return ALL_CSOS.loc[self.bane_pile]
+    def card_and_landscape_text(self) -> str:
+        """A description of all cards and landscapes in this kingdom."""
+        card_names = [self.get_corrected_cso_name(c) for c in self.cards]
+        landscape_names = [self.get_corrected_cso_name(c) for c in self.landscapes]
+        card_text = "Cards:\n\t" + "\n\t".join(card_names)
+        if len(self.landscapes) > 0:
+            card_text += "\nLandscapes:\n\t" + "\n\t".join(landscape_names)
+        if self.use_shelters:
+            card_text += "\nUse Shelters"
+        if self.use_colonies:
+            card_text += "\nUse Colonies/Platinum"
+        return card_text.replace("\t", "  ")
 
-    @property
-    def riverboat_obj(self) -> pd.Series | None:
-        """Return the riverboat card as a pandas series."""
-        if self.riverboat_card == "":
-            return None
-        return ALL_CSOS.loc[self.riverboat_card]
-
-    @property
-    def mouse_obj(self) -> pd.Series | None:
-        """Return the ferryman card as a pandas series."""
-        if self.mouse_card == "":
-            return None
-        return ALL_CSOS.loc[self.mouse_card]
+    def get_corrected_cso_name(self, cso_key: str) -> str:
+        """Provides the cso text for the given card key and adds special information
+        provided by the kingdom (like bane, mouse, etc...)."""
+        if cso_key == "ferryman":
+            return f"Ferryman (Extra: {get_cso_name(self.ferryman_pile)})"
+        if cso_key == "young_witch":
+            return f"Young Witch (Bane: {get_cso_name(self.bane_pile)})"
+        if cso_key == "riverboat":
+            return f"Riverboat (As: {get_cso_name(self.riverboat_card)})"
+        if cso_key == "way_of_the_mouse":
+            return f"Way of the {get_cso_name(self.mouse_card)} [Mouse]"
+        if cso_key == "obelisk":
+            return f"Obelisk (On: {get_cso_name(self.obelisk_pile)})"
+        if cso_key == "druid":
+            return f"Druid (With: {', '.join(get_cso_name(boon) for boon in self.druid_boons)})"
+        cso_obj = ALL_CSOS.loc[cso_key]
+        cso_name: str = cso_obj["Name"]  # type: ignore
+        if cso_key in [t[0] for t in self.traits]:
+            target = [t[1] for t in self.traits if t[0] == cso_key][0]
+            return f"{cso_name} (On: {get_cso_name(target)})"
+        # Do the same thing the other way round:
+        if cso_key == self.bane_pile:
+            return f"{cso_name} >>>Bane<<<"
+        if cso_key == self.obelisk_pile:
+            return f"{cso_name} >>>Obelisk<<<"
+        if cso_key in [t[1] for t in self.traits]:
+            trait = [t[0] for t in self.traits if t[1] == cso_key][0]
+            return f"{cso_name} >>>{get_cso_name(trait)}<<<"
+        return cso_name
 
     def get_dombot_csv_string(self) -> str:
         """Construct a comma-separated string that can be fed to DomBot to generate
@@ -302,27 +335,25 @@ class Kingdom:
         cards = [card.split("/")[0] for card in self.cards]
         special_dict = {}
         if self.bane_pile:
-            special_dict["young_witch"] = ALL_CSOS.loc[self.bane_pile].Name
-            cards.remove(self.bane_pile)
+            special_dict["young_witch"] = get_cso_name(self.bane_pile)
         if self.druid_boons:
             boon_str = ", ".join([ALL_CSOS.loc[boon].Name for boon in self.druid_boons])
             special_dict["druid"] = boon_str
         if self.obelisk_pile:
-            special_dict["obelisk"] = ALL_CSOS.loc[self.obelisk_pile].Name
+            special_dict["obelisk"] = get_cso_name(self.obelisk_pile)
         if self.ferryman_pile:
-            special_dict["ferryman"] = ALL_CSOS.loc[self.ferryman_pile].Name
+            special_dict["ferryman"] = get_cso_name(self.ferryman_pile)
         if self.riverboat_card:
-            special_dict["riverboat"] = ALL_CSOS.loc[self.riverboat_card].Name
+            special_dict["riverboat"] = get_cso_name(self.riverboat_card)
         if self.mouse_card:
-            special_dict["way_of_the_mouse"] = ALL_CSOS.loc[self.mouse_card].Name
+            special_dict["way_of_the_mouse"] = get_cso_name(self.mouse_card)
         for trait, target in self.traits:
-            special_dict[trait] = ALL_CSOS.loc[target].Name
+            special_dict[trait] = get_cso_name(target)
         special_dict = defaultdict(
             lambda: "", {key: f" ({val})" for key, val in special_dict.items()}
         )
         proper_strings = [
-            ALL_CSOS.loc[cso].Name + special_dict[cso]
-            for cso in cards + self.landscapes
+            get_cso_name(cso) + special_dict[cso] for cso in cards + self.landscapes
         ]
         proper_strings.append("Shelters" if self.use_shelters else "No Shelters")
         proper_strings.append("Colonies" if self.use_colonies else "No Colonies")
