@@ -4,7 +4,13 @@ from pathlib import Path
 import pandas as pd
 import PyQt5.QtWidgets as QW
 
-from ..constants import PATH_ASSETS, RENEWED_EXPANSIONS
+from ..constants import (
+    ALL_CSOS,
+    PATH_ASSETS,
+    QUALITIES_AVAILABLE,
+    RENEWED_EXPANSIONS,
+    SPECIAL_QUAL_TYPES_AVAILABLE,
+)
 
 
 def copy_to_clipboard(text: str):
@@ -132,3 +138,17 @@ def invert_dict(d: dict) -> dict:
         d
     ), "The values of the dictionary are not unique."
     return {v: k for k, v in d.items()}
+
+
+def get_cso_quality_description(cso_key: str) -> str:
+    """Return the qualities that are > 0 for the given card in a string."""
+    cso = ALL_CSOS.loc[cso_key]
+    qual_strings = []
+    for qual in QUALITIES_AVAILABLE:
+        if (qualval := cso[qual + "_quality"]) == 0:
+            continue
+        qual_string = f"<i>{qual.capitalize()}</i>:<br>&emsp;{qualval}"
+        if qual in SPECIAL_QUAL_TYPES_AVAILABLE:
+            qual_string += f" ({', '.join(cso[qual + '_types'])})"
+        qual_strings.append(qual_string)
+    return "<br>".join(qual_strings)

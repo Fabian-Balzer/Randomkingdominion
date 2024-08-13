@@ -92,12 +92,6 @@ def _init_main_df():
     return df
 
 
-def get_attack_types(all_cards) -> list[str]:
-    """Gather the existing AttackTypes from the given dataframe."""
-    all_types = reduce(lambda x, y: x + y, all_cards["attack_types"])
-    return sorted(list(np.unique(all_types)))
-
-
 # Expansions with a second edition
 RENEWED_EXPANSIONS = [
     "Base",
@@ -136,8 +130,8 @@ SPECIAL_QUAL_TYPES_AVAILABLE = sorted(["attack", "thinning", "gain", "draw", "vi
 PATH_MODULE = Path(__file__).resolve().parent
 PATH_MAIN = PATH_MODULE.parent
 PATH_CARD_INFO = PATH_MAIN.joinpath("card_info")
-PATH_CARD_PICS = PATH_MAIN.joinpath("card_pictures")
-PATH_ASSETS = PATH_MAIN.joinpath("assets")
+PATH_CARD_PICS = PATH_MAIN.joinpath("static/card_pictures")
+PATH_ASSETS = PATH_MAIN.joinpath("static")
 
 FPATH_RAW_DATA = PATH_CARD_INFO.joinpath("raw_card_data.csv")
 FPATH_CARD_DATA = PATH_CARD_INFO.joinpath("good_card_data.csv")
@@ -277,9 +271,11 @@ EXPANSION_LIST: list[str] = [
 ]
 """All expansions as a list."""
 
-ATTACK_TYPE_LIST: list[str] = get_unique_entries_of_list_column(
-    ALL_CSOS, "attack_types"
-)
+SPECIAL_QUAL_TYPES_AVAILABLE = {
+    qual: get_unique_entries_of_list_column(ALL_CSOS, f"{qual}_types")
+    for qual in sorted(["attack", "thinning", "gain", "draw", "village"])
+}
+"""The qualities for which typization is available, mapped to all available types."""
 ALL_CARDS = ALL_CSOS[
     ALL_CSOS["IsInSupply"] & ~ALL_CSOS["IsExtendedLandscape"]
 ].index.to_list()

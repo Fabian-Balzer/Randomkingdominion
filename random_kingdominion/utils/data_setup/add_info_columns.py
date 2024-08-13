@@ -123,17 +123,35 @@ def test_in_supply(df):
     return ~series
 
 
+def _get_single_parent(card_name: str, card_types: list[str]) -> str:
+    for parent, children in ROTATOR_DICT.items():
+        if card_name in children:
+            return parent
+    for parent in SPLITPILE_DICT:
+        if card_name in parent.split("/"):
+            return parent
+    if "Knight" in card_types:
+        return "Knights"
+    if "Castle" in card_types:
+        return "Castles"
+    return ""
+
+
+def add_parent_column(df: pd.DataFrame):
+    df["ParentPile"] = df.apply(
+        lambda x: _get_single_parent(x["Name"], x["Types"]), axis=1
+    )
+    return df
+
+
 def test_real_supply_card(df: pd.DataFrame):
     split_headers = list(ROTATOR_DICT.keys()) + list(SPLITPILE_DICT.keys())
+    # Splitpile cards are not part of the supply, but still cards, while their headers are not.
     is_no_split_header = ~np.in1d(df["Name"], split_headers)
-    # Splitpile cards are not part of the supply, but still cards
-    is_part_of_split = np.in1d(df["Name"], SPLITPILE_CARDS) | listlike_contains_any(
-        df["Types"], SPLIT_CARD_TYPES
-    )
     series = (
         ~df["IsExtendedLandscape"]
         & ~df["IsOtherThing"]
-        & (df["IsInSupply"] | is_part_of_split)
+        & (df["IsInSupply"] | df["IsPartOfSplitPile"])
         & is_no_split_header
     )
     return series
@@ -146,6 +164,7 @@ def add_bool_columns(df: pd.DataFrame) -> pd.DataFrame:
     df["IsExtendedLandscape"] = test_extended_landscape(df)
     df["IsOtherThing"] = test_other(df)
     df["IsInSupply"] = test_in_supply(df)
+    df["IsPartOfSplitPile"] = df["ParentPile"] != ""
     df["IsRealSupplyCard"] = test_real_supply_card(df)
     # df["IsCantrip"] = test_cantrip(df)
     return df
@@ -312,6 +331,7 @@ def determine_amount(card: pd.Series):
 
 
 def add_quality_info_columns(df):
+    df = add_parent_column(df)
     df = add_bool_columns(df)
     # Set up the default values:
     info_types = {f"{qual}_quality": 0 for qual in QUALITIES_AVAILABLE}

@@ -6,33 +6,23 @@ from typing import Literal
 import numpy as np
 import pandas as pd
 
-from ..constants import ALL_CSOS, QUALITIES_AVAILABLE, SPLIT_CARD_TYPES, SPLITPILE_DICT
+from ..constants import (
+    ALL_CSOS,
+    QUALITIES_AVAILABLE,
+    SPECIAL_QUAL_TYPES_AVAILABLE,
+    SPLIT_CARD_TYPES,
+    SPLITPILE_DICT,
+)
 from ..cso_frame_utils import (
     add_weight_column,
     get_sub_df_for_special_card,
     get_sub_df_for_true_landscape,
-    get_sub_df_listlike_contains_any_or_is_empty,
     get_sub_df_of_categories,
     listlike_contains_any,
     sample_single_cso_from_df,
 )
 from ..kingdom import sanitize_cso_name
 from ..utils.config import CustomConfigParser, add_renewed_base_expansions
-
-
-def _get_split_pile_ancestor(card_key: str) -> str:
-    obj = ALL_CSOS.loc[card_key]
-    if obj["IsInSupply"] or obj["IsExtendedLandscape"]:
-        return ""
-    for key in [sanitize_cso_name(k) for k in SPLITPILE_DICT]:
-        # e.g. encampment in encampment/plunder
-        if card_key in key:
-            return key
-    for type_ in SPLIT_CARD_TYPES:
-        if type_ in obj["Types"]:
-            type_map = {"Townsfolk": "Townsfolk", "Clashes": "Clashes"}
-            return type_map.get(type_, type_ + "s")
-    return ""
 
 
 class PoolContainer:
@@ -50,7 +40,9 @@ class PoolContainer:
 
         self.main_pool: pd.DataFrame = self.get_initial_draw_pool(rerolled_csos)
 
-    def get_initial_draw_pool(self, rerolled_csos: list[str]) -> pd.DataFrame:
+    def get_initial_draw_pool(
+        self, rerolled_csos: list[str], ignore_expansions: bool = False
+    ) -> pd.DataFrame:
         """Create the initial draw pool for the kingdom.
         This is the overarching one that is used for all of the draws,
         so here we filter for requested expansions, allowed attack types,
@@ -58,16 +50,21 @@ class PoolContainer:
         qualities.
         """
         # Reduce the complete pool to the requested expansions:
-        pool = get_sub_df_of_categories(ALL_CSOS, "Expansion", self.eligible_expansions)
-
-        # Reduce the pool to exclude any attacks that are not wanted
-        _allowed_attack_types = self.config.getlist("Specialization", "attack_types")
-        pool = get_sub_df_listlike_contains_any_or_is_empty(
-            pool, "attack_types", _allowed_attack_types
+        pool = (
+            get_sub_df_of_categories(ALL_CSOS, "Expansion", self.eligible_expansions)
+            if not ignore_expansions
+            else ALL_CSOS.copy()
         )
 
+        # Reduce the pool to exclude any sorts of qualities that are not wanted
+        for qual in SPECIAL_QUAL_TYPES_AVAILABLE:
+            excluded_types = self.config.getlist("Qualities", f"forbidden_{qual}_types")
+            pool = pool[~listlike_contains_any(pool[qual + "_types"], excluded_types)]
+
         # Reduce the pool to exclude any landscapes that are not wanted
-        _allowed_landscapes = self.config.getlist("General", "allowed_landscape_types")
+        _allowed_landscapes = self.config.getlist(
+            "Landscapes", "allowed_landscape_types"
+        )
         pool = pool[
             ~pool["IsLandscape"]
             | listlike_contains_any(pool["Types"], _allowed_landscapes)
@@ -108,7 +105,7 @@ class PoolContainer:
         """From all of the expansions the user has selected, sub-select a number
         that corresponds to the one the user has chosen."""
         user_expansions = self.config.get_expansions(add_renewed_bases=False)
-        max_num_expansions = self.config.getint("General", "max_num_expansions")
+        max_num_expansions = self.config.getint("Expansions", "max_num_expansions")
         if max_num_expansions == 0 or max_num_expansions >= len(user_expansions):
             return add_renewed_base_expansions(user_expansions)
         sampled_expansions = random.sample(user_expansions, k=max_num_expansions)
@@ -186,8 +183,11 @@ class PoolContainer:
         pick = sample_single_cso_from_df(pool)
         self.main_pool = self.main_pool.drop(pick)
         if special_card_to_pick_for in ["way_of_the_mouse", "riverboat"]:
-            if (ancestor := _get_split_pile_ancestor(pick)) != "":
-                self.main_pool.drop(ancestor)
+            if (ancestor := ALL_CSOS.loc[pick]["ParentPile"]) != "":
+                try:
+                    self.main_pool.drop(ancestor)  # type: ignore
+                except KeyError:
+                    pass
         return pick
 
     def pick_next_landscape(
@@ -205,19 +205,56 @@ class PoolContainer:
     def pick_ally(self, qualities_so_far: dict[str, int]) -> str:
         """Pick an ally while also considering the required qualities."""
         pool = self.main_pool[self.main_pool["IsAlly"]]
+        # Pick an ally from the complete pool if otherwise not possible
         if len(pool) == 0:
-            return ""
+            pool = self.get_initial_draw_pool(rerolled_csos=[], ignore_expansions=True)
+            pool = pool[pool["IsAlly"]]
         pool = self._narrow_pool_for_quality(pool, qualities_so_far)
         pick = sample_single_cso_from_df(pool)
-        self.main_pool = self.main_pool.drop(pick)
+        try:
+            self.main_pool = self.main_pool.drop(pick)
+        except KeyError:
+            pass
+        return pick
+
+    def pick_liaison(self, qualities_so_far: dict[str, int]) -> str:
+        """Pick a liaison while also considering the required qualities."""
+        pool = self.main_pool[self.main_pool["IsLiaison"]]
+        if len(pool) == 0:
+            pool = self.get_initial_draw_pool(rerolled_csos=[], ignore_expansions=True)
+            pool = pool[pool["IsLiaison"]]
+        pool = self._narrow_pool_for_quality(pool, qualities_so_far)
+        pick = sample_single_cso_from_df(pool)
+        try:
+            self.main_pool = self.main_pool.drop(pick)
+        except KeyError:
+            pass
         return pick
 
     def pick_prophecy(self, qualities_so_far: dict[str, int]) -> str:
         """Pick a prophecy while also considering the required qualities."""
         pool = self.main_pool[self.main_pool["IsProphecy"]]
         if len(pool) == 0:
-            return ""
+            pool = self.get_initial_draw_pool(rerolled_csos=[], ignore_expansions=True)
+            pool = pool[pool["IsProphecy"]]
         pool = self._narrow_pool_for_quality(pool, qualities_so_far)
         pick = sample_single_cso_from_df(pool)
-        self.main_pool = self.main_pool.drop(pick)
+        try:
+            self.main_pool = self.main_pool.drop(pick)
+        except KeyError:
+            pass
+        return pick
+
+    def pick_omen(self, qualities_so_far: dict[str, int]) -> str:
+        """Pick an omen while also considering the required qualities."""
+        pool = self.main_pool[self.main_pool["IsOmen"]]
+        if len(pool) == 0:
+            pool = self.get_initial_draw_pool(rerolled_csos=[], ignore_expansions=True)
+            pool = pool[pool["IsOmen"]]
+        pool = self._narrow_pool_for_quality(pool, qualities_so_far)
+        pick = sample_single_cso_from_df(pool)
+        try:
+            self.main_pool = self.main_pool.drop(pick)
+        except KeyError:
+            pass
         return pick

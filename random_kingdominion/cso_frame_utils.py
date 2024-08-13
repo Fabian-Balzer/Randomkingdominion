@@ -193,11 +193,17 @@ def get_sub_df_for_special_card(
         pool = pool[~np.in1d(pool["Name"], banned_for_ferryman)]
         return pool
     elif special_card_to_pick_for == "approaching_army":
+        banned_for_army = [
+            "Young Witch"
+        ]  # Don't want to deal with the annoyances of that stuff xD
         pool = pool[listlike_contains(pool["Types"], "Attack")]
+        pool = pool[~np.in1d(pool["Name"], banned_for_army)]
         return pool
     # In the case of mouse or riverboat, we are picking single cards rather
     # than piles, such that single Knights etc. can also be part.
-    pool = df[df["IsRealSupplyCard"]]
+    pool = df[
+        df["IsRealSupplyCard"]
+    ]  # TODO: Filter stuff where the parent is already in the pool
     if special_card_to_pick_for == "way_of_the_mouse":
         # Ban useless cards, and also cards that just have effects that mirror other ways as you might as well play with these.
         banned_for_mouse = [

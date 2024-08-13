@@ -63,6 +63,8 @@ class Kingdom:
         mouse_card : str, by default ""
             Which card is the Way of the Mouse target,
             should not be contained in the cards list (optional)
+        army_pile : str, by default ""
+            Which card is the target for the Approaching Army pile (optional)
         druid_boons : list[str], by default []
             An array of boons, 3 max (optional)
         traits : list[tuple[str, str]], by default []
@@ -86,6 +88,7 @@ class Kingdom:
     ferryman_pile: str = ""
     riverboat_card: str = ""
     mouse_card: str = ""
+    army_pile: str = ""
     druid_boons: list[str] = field(default_factory=list)
     traits: list[list[str]] = field(default_factory=list)
 
@@ -153,15 +156,16 @@ class Kingdom:
         obelisk_pile = sanitize_cso_name(special_dict["obelisk"])
         ferryman_pile = sanitize_cso_name(special_dict["ferryman"])
         riverboat_card = sanitize_cso_name(special_dict["riverboat"])
+        army_pile = sanitize_cso_name(special_dict["approaching_army"])
         mouse_card = sanitize_cso_name(special_dict["way_of_the_mouse"])
 
-        split_piles = [cso for cso in ALL_CSOS.index if "/" in cso]
-        # Replace the split pile representation (e.g. gladiator will be replaced by gladiator/fortune)
-        cso_list = [
-            next(filter(lambda entry: cso in entry.split("/"), split_piles), cso)
-            for cso in cso_list
-        ]
+        # Replace the split pile thingies:
         avail_csos = [cso for cso in cso_list if cso in ALL_CSOS.index]
+        avail_csos += [
+            sanitize_cso_name(cso["ParentPile"])  # type: ignore
+            for cso_key in avail_csos
+            if (cso := ALL_CSOS.loc[cso_key])["IsPartOfSplitPile"]
+        ]
         unrecognized_csos = [cso for cso in cso_list if cso not in ALL_CSOS.index]
         avail_csos = np.unique(avail_csos)
         csos = ALL_CSOS.loc[avail_csos]
@@ -198,6 +202,7 @@ class Kingdom:
             riverboat_card=riverboat_card,
             mouse_card=mouse_card,
             druid_boons=druid_boons,
+            army_pile=army_pile,
             traits=traits,
             notes=note_str,
         )
@@ -213,6 +218,7 @@ class Kingdom:
         self.mouse_card = sanitize_cso_name(self.mouse_card)
         self.bane_pile = sanitize_cso_name(self.bane_pile)
         self.druid_boons = sanitize_cso_list(self.druid_boons)
+        self.army_pile = sanitize_cso_name(self.army_pile)
         self.obelisk_pile = sanitize_cso_name(self.obelisk_pile)
         self.ferryman_pile = sanitize_cso_name(self.ferryman_pile)
         self.riverboat_card = sanitize_cso_name(self.riverboat_card)
@@ -286,8 +292,8 @@ class Kingdom:
     @property
     def card_and_landscape_text(self) -> str:
         """A description of all cards and landscapes in this kingdom."""
-        card_names = [self.get_corrected_cso_name(c) for c in self.cards]
-        landscape_names = [self.get_corrected_cso_name(c) for c in self.landscapes]
+        card_names = [self.get_cso_name_with_extra(c) for c in self.cards]
+        landscape_names = [self.get_cso_name_with_extra(c) for c in self.landscapes]
         card_text = "Cards:\n\t" + "\n\t".join(card_names)
         if len(self.landscapes) > 0:
             card_text += "\nLandscapes:\n\t" + "\n\t".join(landscape_names)
@@ -297,35 +303,44 @@ class Kingdom:
             card_text += "\nUse Colonies/Platinum"
         return card_text.replace("\t", "  ")
 
-    def get_corrected_cso_name(self, cso_key: str) -> str:
+    def get_cso_name_with_extra(self, cso_key: str) -> str:
+        """Get the name of the card or landscape with the extra information."""
+        return get_cso_name(cso_key) + self._get_cso_extras(cso_key)
+
+    def _get_cso_extras(self, cso_key: str) -> str:
         """Provides the cso text for the given card key and adds special information
         provided by the kingdom (like bane, mouse, etc...)."""
+        text = ""
         if cso_key == "ferryman":
-            return f"Ferryman (Extra: {get_cso_name(self.ferryman_pile)})"
-        if cso_key == "young_witch":
-            return f"Young Witch (Bane: {get_cso_name(self.bane_pile)})"
-        if cso_key == "riverboat":
-            return f"Riverboat (As: {get_cso_name(self.riverboat_card)})"
-        if cso_key == "way_of_the_mouse":
-            return f"Way of the {get_cso_name(self.mouse_card)} [Mouse]"
-        if cso_key == "obelisk":
-            return f"Obelisk (On: {get_cso_name(self.obelisk_pile)})"
-        if cso_key == "druid":
-            return f"Druid (With: {', '.join(get_cso_name(boon) for boon in self.druid_boons)})"
-        cso_obj = ALL_CSOS.loc[cso_key]
-        cso_name: str = cso_obj["Name"]  # type: ignore
+            text += f" (Extra: {get_cso_name(self.ferryman_pile)})"
+        elif cso_key == "young_witch":
+            text += f" (Bane: {get_cso_name(self.bane_pile)})"
+        elif cso_key == "approaching_army":
+            text += f" (Attack: {get_cso_name(self.army_pile)})"
+        elif cso_key == "riverboat":
+            text += f" (As: {get_cso_name(self.riverboat_card)})"
+        elif cso_key == "way_of_the_mouse":
+            text += f"/{get_cso_name(self.mouse_card)}"
+        elif cso_key == "obelisk":
+            text += f" (On: {get_cso_name(self.obelisk_pile)})"
+        elif cso_key == "druid":
+            text += (
+                f" (With: {', '.join(get_cso_name(boon) for boon in self.druid_boons)})"
+            )
         if cso_key in [t[0] for t in self.traits]:
             target = [t[1] for t in self.traits if t[0] == cso_key][0]
-            return f"{cso_name} (On: {get_cso_name(target)})"
+            text += f" (On: {get_cso_name(target)})"
         # Do the same thing the other way round:
         if cso_key == self.bane_pile:
-            return f"{cso_name} >>>Bane<<<"
+            text += f" >>>Bane<<<"
+        if cso_key == self.army_pile:
+            text += f" >>>For Approaching Army<<<"
         if cso_key == self.obelisk_pile:
-            return f"{cso_name} >>>Obelisk<<<"
+            text += f" >>>Obelisk<<<"
         if cso_key in [t[1] for t in self.traits]:
             trait = [t[0] for t in self.traits if t[1] == cso_key][0]
-            return f"{cso_name} >>>{get_cso_name(trait)}<<<"
-        return cso_name
+            text += f" >>>{get_cso_name(trait)}<<<"
+        return text
 
     def get_dombot_csv_string(self) -> str:
         """Construct a comma-separated string that can be fed to DomBot to generate
@@ -336,6 +351,8 @@ class Kingdom:
         special_dict = {}
         if self.bane_pile:
             special_dict["young_witch"] = get_cso_name(self.bane_pile)
+        if self.army_pile:
+            special_dict["approaching_army"] = get_cso_name(self.army_pile)
         if self.druid_boons:
             boon_str = ", ".join([ALL_CSOS.loc[boon].Name for boon in self.druid_boons])
             special_dict["druid"] = boon_str
@@ -441,6 +458,8 @@ class Kingdom:
         text_list = []
         if card_name == self.bane_pile:
             text_list.append("Bane")
+        if card_name == self.army_pile:
+            text_list.append("Army attack")
         if card_name == self.obelisk_pile:
             text_list.append("Obelisk")
         if card_name == self.ferryman_pile:

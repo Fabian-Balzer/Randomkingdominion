@@ -18,11 +18,14 @@ def build_landscape_option_selection():
         "Here you may allow/disable certain landscape types. To disable Allies or Prophecies, put Liaisons/Omens in the excluded Mechanics."
     )
     landscape_list = ["Event", "Landmark", "Project", "Trait", "Way"]
-    type_default = config.getlist("General", "allowed_landscape_types")
+    type_default = config.getlist("Landscapes", "allowed_landscape_types")
     st.multiselect(
         "Allowed landscape types",
         landscape_list,
         default=type_default,
         key="allowed_landscape_types",
         placeholder="Select allowed landscape types",
+    )
+    st.write(
+        "In the future, I plan to add the option to force certain landscapes for each slot, and maybe differentiate the events by expansion."
     )

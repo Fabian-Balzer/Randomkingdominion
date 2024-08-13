@@ -1,5 +1,5 @@
 from random_kingdominion import CustomConfigParser
-from random_kingdominion.constants import ATTACK_TYPE_LIST, PATH_ASSETS
+from random_kingdominion.constants import SPECIAL_QUAL_TYPES_AVAILABLE, PATH_ASSETS
 from random_kingdominion.utils import override
 
 from .group_checkbox_button_container import GroupCheckboxButtonContainer
@@ -12,9 +12,11 @@ class AttackTypeGroupWidget(GroupCheckboxButtonContainer):
         self.config = config
         tooltips = [
             f"Toggle exclusion of the {type_} attack type."
-            for type_ in ATTACK_TYPE_LIST
+            for type_ in SPECIAL_QUAL_TYPES_AVAILABLE["attack"]
         ]
-        super().__init__(ATTACK_TYPE_LIST, "Allowed attack types", tooltips)
+        super().__init__(
+            SPECIAL_QUAL_TYPES_AVAILABLE["attack"], "Allowed attack types", tooltips
+        )
 
         self._set_initial_values()
         self.connect_to_change_func(self.update_config_for_attack_types)

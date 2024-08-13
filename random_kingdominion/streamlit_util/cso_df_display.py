@@ -75,9 +75,9 @@ def get_col_config() -> dict[str, dict]:
 def get_column_order() -> list[str]:
     return [
         "Name",
-        "Expansion",
-        "Types",
         "Cost",
+        "Types",
+        "Expansion",
         "village_quality",
         "draw_quality",
         "thinning_quality",

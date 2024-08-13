@@ -1,3 +1,5 @@
+import numpy as np
+
 import random_kingdominion as rk
 
 
@@ -16,7 +18,7 @@ def test_kingdom_readout_and_printout_compatability():
     example_5 = "Black Cat, Conquest, Crucible, Enchantress, Gladiator, Gondola, Longship, Moneylender, No Colonies, No Shelters, Pooka, Treasure Map, Vassal, Way of the Mouse (Menagerie)"
     example_6 = "black_cat, enchantress, gladiator, vassal, crucible, gondola, moneylender, treasure_map, longship, pooka, way_of_the_mouse:menagerie, conquest -m NoColonies, NoShelters"
     # Extra complicated kingdom to test Ferryman, Necromancer, Hunter, Way of the Mouse and Young Witch
-    example_7 = "Baths, Caravan, Charm, City Quarter, Ferryman (Dungeon), Fishing Village, Innkeeper, Lost City, Inherited(Necromancer), No Colonies, No Shelters, Pixie, Riverboat (Hunter), Way of the Mouse (Sleigh), Young Witch (Fishing Village)"
+    example_7 = "Baths, Caravan, Charm, City Quarter, Ferryman (Dungeon), Fishing Village, Innkeeper, Lost City, Inherited(Necromancer), No Colonies, No Shelters, Pixie, Riverboat (Hunter), Way of the Mouse (Sleigh), Young Witch (Fishing Village), Approaching Army (Swindler)"
 
     for example in [
         example_1,
@@ -193,3 +195,126 @@ def test_obelisk():
     assert (
         kingdom.obelisk_pile in new_kingdom.cards
     ), "Old obelisk target has accidentally been removed"
+
+
+def test_approaching_army():
+    """Test whether an army card is forced in after specifying approaching army."""
+    config = rk.CustomConfigParser(load_default=True)
+    config.setlist("General", "required_csos", ["approaching_army"])
+    randomizer = rk.KingdomRandomizer(config)
+    kingdom = randomizer.randomize_new_kingdom()
+    assert (
+        "approaching_army" in kingdom.landscapes
+    ), "approaching_army has not been chosen correctly"
+    assert kingdom.army_pile != "", "No army card has been chosen"
+    assert kingdom.army_pile in kingdom.cards, "Army pile not part of kingdom"
+    # First, reroll the army pile:
+    new_kingdom = randomizer.reroll_single_cso(kingdom, kingdom.army_pile)
+    assert new_kingdom.army_pile != ""
+    assert new_kingdom.army_pile in new_kingdom.cards
+    assert kingdom.army_pile not in new_kingdom.cards
+    # Now, we can reroll army and see if everything has been removed correctly
+    new_kingdom = randomizer.reroll_single_cso(kingdom, "approaching_army")
+    assert new_kingdom.army_pile == ""
+    assert kingdom.army_pile not in new_kingdom.cards
+    assert "approaching_army" not in new_kingdom.landscapes
+
+
+def test_ally_addition_and_removal():
+    """Test whether an ally is properly added and removed given the existence of liaisons."""
+    config = rk.CustomConfigParser(load_default=True)
+    config.set("General", "allow_required_csos_of_other_exps", "True")
+    config.set_expansions(["Base, 2E"])
+    config.setlist("General", "required_csos", ["underling"])
+    randomizer = rk.KingdomRandomizer(config)
+    kingdom = randomizer.randomize_new_kingdom()
+    assert "underling" in kingdom.cards, "Underling has not been chosen correctly"
+    assert kingdom.contains_ally(), "No Ally chosen"
+    # First, reroll the ally:
+    ally = kingdom.landscapes[0]  # Should be the only landscape
+    new_kingdom = randomizer.reroll_single_cso(kingdom, ally)
+    assert new_kingdom.contains_ally()
+    assert ally not in new_kingdom.landscapes
+    # Now, reroll the underling
+    new_kingdom = randomizer.reroll_single_cso(kingdom, "underling")
+    assert "underling" not in new_kingdom.cards
+    assert not new_kingdom.contains_ally()
+
+    # Randomize another kingdom with two liaisons, reroll one of them and check if the ally is still there
+    config = rk.CustomConfigParser(load_default=True)
+    config.set("General", "allow_required_csos_of_other_exps", "True")
+    config.set_expansions(["Base, 2E"])
+    config.setlist("General", "required_csos", ["underling", "sycophant"])
+    randomizer = rk.KingdomRandomizer(config)
+    kingdom = randomizer.randomize_new_kingdom()
+    new_kingdom = randomizer.reroll_single_cso(kingdom, "underling")
+    assert new_kingdom.contains_ally()
+
+
+def test_liaison_addition_and_removal():
+    """Test whether a liaison is properly added and removed given the existence of an ally."""
+    config = rk.CustomConfigParser(load_default=True)
+    config.set("General", "allow_required_csos_of_other_exps", "True")
+    config.set_expansions(["Base, 2E"])
+    config.setlist("General", "required_csos", ["league_of_bankers"])
+    randomizer = rk.KingdomRandomizer(config)
+    kingdom = randomizer.randomize_new_kingdom()
+    assert (
+        "league_of_bankers" in kingdom.landscapes
+    ), "Ally has not been chosen correctly"
+    assert np.sum(kingdom.kingdom_card_df["IsLiaison"]) > 0, "No liaison chosen"
+    # First, reroll the ally:
+    new_kingdom = randomizer.reroll_single_cso(kingdom, "league_of_bankers")
+    assert new_kingdom.contains_ally()
+    assert "league_of_bankers" not in new_kingdom.landscapes
+    # Now, reroll the liaison
+    df = kingdom.kingdom_card_df
+    liaison = df[df["IsLiaison"]].index[0]
+    new_kingdom = randomizer.reroll_single_cso(kingdom, liaison)
+    assert liaison not in new_kingdom.cards
+    assert not new_kingdom.contains_ally()
+
+
+def test_prophecy_addition_and_removal():
+    """Test whether a prophecy is properly added and removed given the existence of omen."""
+    config = rk.CustomConfigParser(load_default=True)
+    config.set("General", "allow_required_csos_of_other_exps", "True")
+    config.set_expansions(["Base, 2E"])
+    config.setlist("General", "required_csos", ["tea_house"])
+    randomizer = rk.KingdomRandomizer(config)
+    kingdom = randomizer.randomize_new_kingdom()
+    assert "tea_house" in kingdom.cards, "tea_house has not been chosen correctly"
+    assert kingdom.contains_prophecy(), "No Prophecy chosen"
+    # First, reroll the ally:
+    prophecy = kingdom.landscapes[0]  # Should be the only landscape
+    new_kingdom = randomizer.reroll_single_cso(kingdom, prophecy)
+    assert new_kingdom.contains_prophecy()
+    assert prophecy not in new_kingdom.landscapes
+    # Now, reroll the tea_house
+    new_kingdom = randomizer.reroll_single_cso(kingdom, "tea_house")
+    assert "tea_house" not in new_kingdom.cards
+    assert not new_kingdom.contains_prophecy()
+
+
+def test_omen_addition_and_removal():
+    """Test whether a omen is properly added and removed given the existence of a prophecy."""
+    config = rk.CustomConfigParser(load_default=True)
+    config.set("General", "allow_required_csos_of_other_exps", "True")
+    config.set_expansions(["Base, 2E"])
+    config.setlist("General", "required_csos", ["approaching_army"])
+    randomizer = rk.KingdomRandomizer(config)
+    kingdom = randomizer.randomize_new_kingdom()
+    assert (
+        "approaching_army" in kingdom.landscapes
+    ), "Prophecy has not been chosen correctly"
+    assert np.sum(kingdom.kingdom_card_df["IsOmen"]) > 0, "No omen chosen"
+    # First, reroll the ally:
+    new_kingdom = randomizer.reroll_single_cso(kingdom, "approaching_army")
+    assert new_kingdom.contains_prophecy()
+    assert "approaching_army" not in new_kingdom.landscapes
+    # Now, reroll the omen
+    df = kingdom.kingdom_card_df
+    omen = df[df["IsOmen"]].index[0]
+    new_kingdom = randomizer.reroll_single_cso(kingdom, omen)
+    assert omen not in new_kingdom.cards
+    assert not new_kingdom.contains_prophecy()

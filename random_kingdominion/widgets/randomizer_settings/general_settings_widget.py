@@ -58,16 +58,16 @@ class GeneralSettingsWidget(CollapsibleBox):
 
     def _set_initial_values(self):
         """Set the initial state given the state of the config."""
-        min_val = self.config.getint("General", "min_num_landscapes")
-        max_val = self.config.getint("General", "max_num_landscapes")
+        min_val = self.config.getint("Landscapes", "min_num_landscapes")
+        max_val = self.config.getint("Landscapes", "max_num_landscapes")
         self.num_landscapes_range_slider.set_values(min_val, max_val)
 
     def register_num_landscape_change(self):
         """Displays the values of the range-slider in the text label
         and saves them to config"""
         min_val, max_val = self.num_landscapes_range_slider.get_values()
-        self.config.set("General", "min_num_landscapes", str(min_val))
-        self.config.set("General", "max_num_landscapes", str(max_val))
+        self.config.set("Landscapes", "min_num_landscapes", str(min_val))
+        self.config.set("Landscapes", "max_num_landscapes", str(max_val))
         if min_val == max_val:
             text = f"Allow exactly {min_val} landscapes."
         else:

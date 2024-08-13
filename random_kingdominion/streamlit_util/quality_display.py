@@ -6,8 +6,11 @@ from .cso_df_display import display_stylysed_cso_df
 from .helpers import img_to_html
 
 
-def _get_qual_image_html(qual: str, size: int = 70):
-    return img_to_html(STATIC_FPATH.joinpath(f"icons/qualities/{qual}.jpg"), size=size)
+def get_qual_image_html(qual: str, size: int | None = None):
+    img = img_to_html(STATIC_FPATH.joinpath(f"icons/qualities/{qual}.jpg"))
+    if size is not None:
+        img = img.replace("auto", f"{size}px")
+    return img
 
 
 def build_quality_page(qual: str):
@@ -16,7 +19,7 @@ def build_quality_page(qual: str):
     with fpath.open() as f:
         desc_lines = f.readlines()
     qual_string = qual.capitalize().replace("Altvp", "Alternative VP")
-    header = f"# {_get_qual_image_html(qual)} {qual_string}"
+    header = f"# {get_qual_image_html(qual)} {qual_string}"
     st.write(header, unsafe_allow_html=True)
     desc_lines = [line for line in desc_lines if not line.startswith("## ")]
     desc = "".join(desc_lines).replace("##", "#")
@@ -72,7 +75,7 @@ def get_quality_page_navigation(qual: str):
 
 def construct_short_qual_desc(qual: str) -> str:
     link = f'<a href="{qual}_qual" target="_self">{qual.capitalize()}</a>'
-    return f"{_get_qual_image_html(qual, 40)} **{link}**: {SHORT_DESCS[qual]}"
+    return f"{get_qual_image_html(qual, 30)} **{link}**: {SHORT_DESCS[qual]}"
     # st.page_link(
     #     f"streamlit_pages/qualities/{qual}.py",
     #     label=f"{header}{SHORT_DESCS[qual]}",

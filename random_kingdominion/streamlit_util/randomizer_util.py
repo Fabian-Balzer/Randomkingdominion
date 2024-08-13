@@ -1,6 +1,8 @@
+from datetime import datetime, timedelta
+
 import streamlit as st
 
-from ..constants import QUALITIES_AVAILABLE
+from ..constants import QUALITIES_AVAILABLE, SPECIAL_QUAL_TYPES_AVAILABLE
 from ..kingdom import Kingdom, KingdomRandomizer, sanitize_cso_list
 from ..utils import CustomConfigParser
 from .constants import ALL_EXPANSIONS, COOKIES, LIKE_BAN_OPTIONS
@@ -8,11 +10,14 @@ from .constants import ALL_EXPANSIONS, COOKIES, LIKE_BAN_OPTIONS
 
 def load_config():
     """Load the config from the session state."""
-    if not COOKIES.get("cookie_consent") and "config" not in st.session_state:
+    print(f"Cookie consent: {COOKIES.get('cookie_consent')}")
+    print(f"Config in cookies: {COOKIES.get('config')}")
+    if COOKIES.get("cookie_consent") is None and "config" not in st.session_state:
         st.session_state["config"] = CustomConfigParser(load_default=True).to_json()
     elif "config" not in st.session_state:
         if saved_config := COOKIES.get("config"):
             st.session_state["config"] = saved_config
+            print(f"Loaded config from cookies: {saved_config}")
         else:
             st.session_state["config"] = CustomConfigParser(load_default=True).to_json()
     return CustomConfigParser.from_json(st.session_state["config"])
@@ -22,19 +27,19 @@ def save_config() -> CustomConfigParser:
     """Read the session state values into the config and save it to the session state."""
     config = load_config()
     config.set(
-        "General", "max_num_expansions", str(st.session_state["max_num_expansions"])
+        "Expansions", "max_num_expansions", str(st.session_state["max_num_expansions"])
     )
     config.set_expansions(
         [exp for exp in ALL_EXPANSIONS if st.session_state[f"{exp} enabled"]]
     )
     config.set(
-        "General", "min_num_landscapes", str(st.session_state["landscape range"][0])
+        "Landscapes", "min_num_landscapes", str(st.session_state["landscape range"][0])
     )
     config.set(
-        "General", "max_num_landscapes", str(st.session_state["landscape range"][1])
+        "Landscapes", "max_num_landscapes", str(st.session_state["landscape range"][1])
     )
     config.setlist(
-        "General",
+        "Landscapes",
         "allowed_landscape_types",
         st.session_state["allowed_landscape_types"],
     )
@@ -58,12 +63,24 @@ def save_config() -> CustomConfigParser:
     )
 
     for quality in QUALITIES_AVAILABLE:
-        config.set_requested_quality(quality, st.session_state[f"{quality} count"])
-        config.set_forbidden_quality(
-            quality, st.session_state[f"disable {quality} selection"]
+        config.set_requested_quality(
+            quality, st.session_state.get(f"{quality} count", 0)
         )
+        config.set_forbidden_quality(
+            quality, st.session_state.get(f"disable {quality} selection", False)
+        )
+        if quality in SPECIAL_QUAL_TYPES_AVAILABLE:
+            config.setlist(
+                "Qualities",
+                f"forbidden_{quality}_types",
+                st.session_state.get(f"forbidden_{quality}_types", []),
+            )
     if COOKIES.get("cookie_consent"):
-        COOKIES.set("config", config.to_json())
+        COOKIES.set(
+            "config",
+            config.to_json(),
+            expires=datetime.now() + timedelta(days=365),
+        )
     st.session_state["config"] = config.to_json()
     return config
 

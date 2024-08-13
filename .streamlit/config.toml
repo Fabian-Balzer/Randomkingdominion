@@ -1,8 +1,13 @@
-[deprecation]
-showPyplotGlobalUse = false
 
 [server]
 enableStaticServing = true
 
 [runner]
 enforceSerializableSessionState = true
+
+[theme]
+primaryColor = "#388E3C"
+backgroundColor = "#333333"
+secondaryBackgroundColor = "#555555"
+textColor = "#FFFFFF"
+font = "sans serif"

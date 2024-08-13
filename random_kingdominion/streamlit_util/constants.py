@@ -1,8 +1,15 @@
-from .helpers import get_cached_expansions
-import streamlit as st
 from pathlib import Path
 
+import streamlit as st
 from streamlit_cookies_controller import CookieController
+
+from ..constants import EXPANSION_LIST, RENEWED_EXPANSIONS
+
+
+@st.cache_data
+def get_cached_expansions():
+    return [exp for exp in EXPANSION_LIST if exp not in RENEWED_EXPANSIONS]
+
 
 COOKIES = CookieController()
 

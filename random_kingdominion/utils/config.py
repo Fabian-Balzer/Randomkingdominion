@@ -65,7 +65,7 @@ class CustomConfigParser(ConfigParser):
 
     def get_expansions(self, add_renewed_bases=True) -> list[str]:
         """Turn the internally as string saved expansions into a list."""
-        expansions = self.getlist("General", "Expansions")
+        expansions = self.getlist("Expansions", "Expansions")
         if not add_renewed_bases:
             return expansions
         return add_renewed_base_expansions(expansions)
@@ -73,7 +73,7 @@ class CustomConfigParser(ConfigParser):
     def set_expansions(self, expansions: list[str]):
         """Save the given list of expansions as a string in the config options."""
         filtered = [exp for exp in expansions if exp not in RENEWED_EXPANSIONS]
-        self.setlist("General", "Expansions", filtered)
+        self.setlist("Expansions", "Expansions", filtered)
 
     def get_requested_quality(self, qual_name: str) -> int:
         return self.getint("Qualities", "requested_" + qual_name)

@@ -46,9 +46,9 @@ class KingdomRandomizer:
         if add_to_cards:
             random_kingdom.add_card(pick)
         if pick == "young_witch":
-            self.pick_bane_card(random_kingdom)
+            self.pick_bane_pile(random_kingdom)
         elif pick == "ferryman":
-            self.pick_ferryman_card(random_kingdom)
+            self.pick_ferryman_pile(random_kingdom)
         elif pick == "riverboat":
             self.pick_riverboat_card(random_kingdom)
         elif pick == "druid":
@@ -65,21 +65,29 @@ class KingdomRandomizer:
             # Except that it doesn't count towards the landscape number.
             random_kingdom.add_landscape(pick)
 
-    def pick_bane_card(self, random_kingdom: RandomizedKingdom):
+    def pick_bane_pile(self, random_kingdom: RandomizedKingdom):
         """Pick the bane card."""
         bane = self.pool_con.pick_next_card(
             random_kingdom.quality_of_selection, "young_witch"
         )
         self.pick_next_card(random_kingdom, bane)
-        random_kingdom.set_bane_card(bane)
+        random_kingdom.set_bane_pile(bane)
 
-    def pick_ferryman_card(self, random_kingdom: RandomizedKingdom):
-        """Pick the bane card."""
+    def pick_army_pile(self, random_kingdom: RandomizedKingdom):
+        """Pick the army pile."""
+        army = self.pool_con.pick_next_card(
+            random_kingdom.quality_of_selection, "approaching_army"
+        )
+        self.pick_next_card(random_kingdom, army)
+        random_kingdom.set_army_pile(army)
+
+    def pick_ferryman_pile(self, random_kingdom: RandomizedKingdom):
+        """Pick the ferryman pile."""
         ferryman = self.pool_con.pick_next_card(
             random_kingdom.quality_of_selection, "ferryman"
         )
         self.pick_next_card(random_kingdom, ferryman, add_to_cards=False)
-        random_kingdom.set_ferryman_card(ferryman)
+        random_kingdom.set_ferryman_pile(ferryman)
 
     def pick_riverboat_card(self, random_kingdom: RandomizedKingdom):
         """Pick the card associated with riverboat."""
@@ -114,6 +122,22 @@ class KingdomRandomizer:
         random_kingdom.add_landscape(pick)
         if pick == "way_of_the_mouse":
             self.pick_mouse_card(random_kingdom)
+        elif pick == "approaching_army":
+            self.pick_army_pile(random_kingdom)
+        if pick == "":
+            return
+        cso = ALL_CSOS.loc[pick]
+        # If an ally is picked, pick a liaison if there is none in the kingdom.
+        # Should only happen if the ally is directly set.
+        if cso["IsAlly"]:
+            pick = self.pool_con.pick_liaison(random_kingdom.quality_of_selection)
+            self.pick_next_card(random_kingdom, pick)
+            print(f"Picking {pick}")
+        # If a prophecy is picked, pick an omen if there is none in the kingdom.
+        # Should only happen if the prophecy is directly set.
+        if cso["IsProphecy"]:
+            pick = self.pool_con.pick_omen(random_kingdom.quality_of_selection)
+            self.pick_next_card(random_kingdom, pick)
 
     def randomize_new_kingdom(self) -> Kingdom:
         """Create a completely fresh randomized kingdom."""
@@ -169,8 +193,8 @@ class KingdomRandomizer:
         return random_kingdom, added_cards, added_landscapes
 
     def _determine_landscape_number(self) -> int:
-        min_num = self.config.getint("General", "min_num_landscapes")
-        max_num = self.config.getint("General", "max_num_landscapes")
+        min_num = self.config.getint("Landscapes", "min_num_landscapes")
+        max_num = self.config.getint("Landscapes", "max_num_landscapes")
         return random.randint(min_num, max_num)
 
     def reroll_single_cso(self, old_kingdom: Kingdom, cso_name: str) -> Kingdom:
@@ -179,28 +203,31 @@ class KingdomRandomizer:
         self.rerolled_csos.append(cso_name)
         random_kingdom = RandomizedKingdom.from_kingdom(old_kingdom)
         if random_kingdom.contains_card(cso_name):
-            is_bane = random_kingdom.remove_card_and_test_if_bane(cso_name)
-            if is_bane:
-                self.pick_bane_card(random_kingdom)
+            bane_army = random_kingdom.remove_card_and_test_bane_army(cso_name)
+            if bane_army["bane"]:
+                self.pick_bane_pile(random_kingdom)
+            elif bane_army["army"]:
+                self.pick_army_pile(random_kingdom)
             else:
                 self.pick_next_card(random_kingdom)
         elif random_kingdom.contains_landscape(cso_name):
-            if "Ally" in random_kingdom.remove_landscape_and_return_types(cso_name):
+            removed_types = random_kingdom.remove_landscape_and_return_types(cso_name)
+            if "Ally" in removed_types:
                 pick = self.pool_con.pick_ally(random_kingdom.quality_of_selection)
                 random_kingdom.add_landscape(pick)
-            if "Prophecy" in random_kingdom.remove_landscape_and_return_types(cso_name):
+            elif "Prophecy" in removed_types:
                 pick = self.pool_con.pick_prophecy(random_kingdom.quality_of_selection)
                 random_kingdom.add_landscape(pick)
             else:
                 self.pick_next_landscape(random_kingdom)
         elif random_kingdom.riverboat_card == cso_name:
-            random_kingdom.remove_card_and_test_if_bane(cso_name)
+            random_kingdom.remove_card_and_test_bane_army(cso_name)
             self.pick_riverboat_card(random_kingdom)
         elif random_kingdom.ferryman_pile == cso_name:
-            random_kingdom.remove_card_and_test_if_bane(cso_name)
-            self.pick_ferryman_card(random_kingdom)
+            random_kingdom.remove_card_and_test_bane_army(cso_name)
+            self.pick_ferryman_pile(random_kingdom)
         elif random_kingdom.mouse_card == cso_name:
-            random_kingdom.remove_card_and_test_if_bane(cso_name)
+            random_kingdom.remove_card_and_test_bane_army(cso_name)
             self.pick_mouse_card(random_kingdom)
         else:
             print(

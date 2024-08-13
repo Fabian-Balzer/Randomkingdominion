@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import asdict, dataclass, field
+from typing import Literal
 
 import numpy as np
 import pandas as pd
@@ -32,6 +33,7 @@ class RandomizedKingdom:
     use_shelters: bool = False
     obelisk_pile: str = ""
     bane_pile: str = ""
+    army_pile: str = ""
     ferryman_pile: str = ""
     riverboat_card: str = ""
     mouse_card: str = ""
@@ -50,6 +52,7 @@ class RandomizedKingdom:
             "obelisk_pile",
             "bane_pile",
             "ferryman_pile",
+            "army_pile",
             "riverboat_card",
             "mouse_card",
             "druid_boons",
@@ -142,18 +145,20 @@ class RandomizedKingdom:
         self._selected_cards.append(card_name)
         self._set_quality_values()
 
-    def remove_card_and_test_if_bane(self, card_name: str) -> bool:
+    def remove_card_and_test_bane_army(
+        self, card_name: str
+    ) -> dict[Literal["bane", "army"], bool]:
         """Safely removes the given card from the selection
-        and returns whether a new bane pile is needed.
+        and returns whether a new bane or army pile is needed.
         Afterwards you should check whether there is still a Liaison in the kingdom,
         and remove the Ally if necessary.
         """
         if self.contains_card(card_name):
             self._selected_cards.remove(card_name)
         if card_name == "young_witch":
-            self.set_bane_card("")
+            self.set_bane_pile("")
         if card_name == "ferryman":
-            self.set_ferryman_card("")
+            self.set_ferryman_pile("")
         if card_name == "riverboat":
             self.set_riverboat_card("")
         if card_name == "druid":
@@ -181,7 +186,10 @@ class RandomizedKingdom:
         # Pick new obelisk if the card was the obelisk target:
         if self.obelisk_pile == card_name:
             self._pick_obelisk()
-        return card_name == self.bane_pile
+        return {
+            "bane": card_name == self.bane_pile,
+            "army": card_name == self.army_pile,
+        }
 
     def remove_landscape_and_return_types(self, landscape_name: str) -> list[str]:
         """Safely removes the given landscape from the selection, along with
@@ -199,6 +207,8 @@ class RandomizedKingdom:
             self.set_mouse_card("")
         elif landscape_name == "obelisk":
             self.obelisk_pile = ""
+        elif landscape_name == "approaching_army":
+            self.set_army_pile("")
         self._set_quality_values()
         return ALL_CSOS.loc[landscape_name]["Types"]  # type: ignore
 
@@ -215,11 +225,11 @@ class RandomizedKingdom:
         if self._get_landscape_df().loc[landscape_name]["IsTrait"]:
             self._pick_trait_target(landscape_name)
 
-    def set_bane_card(self, bane_name: str):
+    def set_bane_pile(self, bane_name: str):
         """Removes any existing old bane card and sets the new one"""
         if self.bane_pile != "":
             if self.bane_pile in self._selected_cards:
-                self.remove_card_and_test_if_bane(self.bane_pile)
+                self.remove_card_and_test_bane_army(self.bane_pile)
         self.bane_pile = bane_name
         self._set_quality_values()
         if bane_name == "":
@@ -228,7 +238,20 @@ class RandomizedKingdom:
             self.add_card(bane_name)
         self._set_quality_values()
 
-    def set_ferryman_card(self, card_name: str):
+    def set_army_pile(self, army_name: str):
+        """Removes any existing old approaching army pile and sets the new one"""
+        if self.army_pile != "":
+            if self.army_pile in self._selected_cards:
+                self.remove_card_and_test_bane_army(self.army_pile)
+        self.army_pile = army_name
+        self._set_quality_values()
+        if army_name == "":
+            return
+        if army_name not in self._selected_cards:
+            self.add_card(army_name)
+        self._set_quality_values()
+
+    def set_ferryman_pile(self, card_name: str):
         """Removes any existing ferryman card and sets the new one"""
         self.ferryman_pile = card_name
         self._set_quality_values()
@@ -294,6 +317,7 @@ class RandomizedKingdom:
             cards=self._selected_cards,
             landscapes=self._selected_landscapes,
             bane_pile=self.bane_pile,
+            army_pile=self.army_pile,
             traits=self.traits,
             obelisk_pile=self.obelisk_pile,
             ferryman_pile=self.ferryman_pile,

@@ -12,11 +12,7 @@ Things and ideas I am having to improve
 ### Randomizer options
 
 - Add options to distribute the cost
-- Add options to take other card metadata into account
-- Cards lists:
-  - Introduce Ban lists
-  - Introduce Required Cards lists
-  - Introduce disliked/liked cards?
+- Add options to take card mechanics
 - Add options to disable attacks or require reaction or other quirky things
 
 ### UI
@@ -36,10 +32,14 @@ Things and ideas I am having to improve
 
 ### Misc
 
-- Fix DomBot print command (split piles don't work, banes don't work etc)
 
 ## Finished :party:!
 
+DONE Fix DomBot print command (split piles don't work, banes don't work etc)
+DONE Cards lists:
+  DONE Introduce Ban lists
+  DONE Introduce Required Cards lists
+  DONE Introduce disliked/liked cards?
 DONE Finish Refactoring Widgets
 DONE Klick on single cards to exchange them
 DONE Implement 'select all' button for expansions

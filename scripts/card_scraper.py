@@ -50,12 +50,14 @@ def fix_cost_and_vp(doc):
     reading it. Thus, we modify it a little to only have the alt value."""
     pics = doc.find_all("span", {"class": "coin-icon"})
     for pic in pics:
-        alt_price = pic.find("img")["alt"]
-        pic.string = alt_price
+        if pic.find("img") is not None:
+            alt_price = pic.find("img")["alt"]
+            pic.string = alt_price
     debts = doc.find_all("span", {"class": "debt-icon"})
     for debt in debts:
-        alt_price = debt.find("img")["alt"]
-        debt.string = " " + alt_price
+        if debt.find("img") is not None:
+            alt_price = debt.find("img")["alt"]
+            debt.string = " " + alt_price
 
 
 def retrieve_data():

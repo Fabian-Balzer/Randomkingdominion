@@ -97,7 +97,7 @@ def build_exp_row(exp: str):
 @st.fragment
 def _build_exp_num_row():
     val = max(
-        1, load_config().getint("General", "max_num_expansions", fallback=NUM_EXPS)
+        1, load_config().getint("Expansions", "max_num_expansions", fallback=NUM_EXPS)
     )
     st.number_input(
         "Max. number of expansions",
