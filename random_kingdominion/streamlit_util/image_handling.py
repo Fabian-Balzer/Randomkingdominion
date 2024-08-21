@@ -130,6 +130,7 @@ def display_image_with_tooltip(
         </a>"""
     cursor_str = "cursor: pointer;" if link_url is not None else ""
     # Define HTML and CSS for the tooltip
+    tooltip_html = f'<span class="tooltiptext">{tooltip}</span>' if tooltip else ""
     html_content = f"""
     <style>
     .tooltip {{
@@ -163,7 +164,7 @@ def display_image_with_tooltip(
 
     <div class="tooltip">
         {img_html}
-    <span class="tooltiptext">{tooltip}</span>
+    {tooltip_html}
     </div>
     """
 
