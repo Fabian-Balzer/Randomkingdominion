@@ -3,4 +3,4 @@ streamlit-cookies-controller
 pandas
 numpy
 matplotlib
-yaml
+PyYAML

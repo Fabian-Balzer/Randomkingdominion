@@ -6,7 +6,6 @@ from .plotting import add_kingdom_info_to_plot, plot_normalized_polygon
 from .utils import (
     ask_file_overwrite,
     ask_yes_now,
-    clear_layout,
     copy_to_clipboard,
     get_cso_quality_description,
     get_expansion_icon_path,
@@ -33,5 +32,4 @@ __all__ = [
     "plot_normalized_polygon",
     "CustomConfigParser",
     "add_kingdom_info_to_plot",
-    "clear_layout",
 ]
