@@ -219,6 +219,4 @@ def build_expansion_selection():
             with col:
                 display_exp_image(exp, icon_size=20, tooltip=exp)
 
-    st.warning(
-        "Sorry for this selection looking absolutely atrocious, streamlit doesn't really let you customize checkboxes. I wasted way too much time trying to improve it, for now I'll leave it be."
-    )
+    st.info("I'll try to improve the looks of this in the future.")

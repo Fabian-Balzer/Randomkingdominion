@@ -6,8 +6,11 @@ st.title("Kingdom Oracle")
 
 cols = st.columns([0.8, 0.2])
 with cols[0]:
-    st.write(
-        "This page allows you to input a kingdom to visualize its engine qualities.\\\n Be aware that this is a very superficial view of the kingdom and does not take into account special card interactions, and that some of my takes on individual cards' qualities might seem weird at first."
+    st.info(
+        "This page allows you to easily input a kingdom to visualize its engine qualities and take a more detailed look on its cards. The resulting plot also shows any extra components you'd need to set up the kingdom in its physical form."
+    )
+    st.warning(
+        "Be aware that this is a very superficial view of the kingdom and does not take into account special card interactions, and that some of my takes on individual cards' qualities might seem weird at first."
     )
 with cols[1]:
     st.page_link(

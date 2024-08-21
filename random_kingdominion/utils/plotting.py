@@ -135,6 +135,15 @@ def add_kingdom_info_to_plot(ax: Axes, kingdom: "Kingdom"):
         fontdict=dict(font="monospace"),
         bbox=bbox,
     )
+    ax.text(
+        0,
+        -0.05 - offset - 0.05,
+        f"Generated using randomkingdominion.streamlit.app/oracle",
+        transform=ax.transAxes,
+        va="top",
+        fontdict=dict(font="monospace", size=6),
+        bbox=bbox | dict(facecolor="lightgray", edgecolor="none"),
+    )
 
     card_text = kingdom.card_and_landscape_text
     ax.text(
