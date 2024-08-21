@@ -4,9 +4,9 @@ import PyQt5.QtCore as QC
 import PyQt5.QtGui as QG
 import PyQt5.QtWidgets as QW
 
-from random_kingdominion.constants import ALL_CSOS
-from random_kingdominion.utils import CustomConfigParser, clear_layout, get_row_and_col
-from random_kingdominion.widgets.basic_widgets import (
+from ...constants import ALL_CSOS
+from ...utils import CustomConfigParser, clear_layout, get_row_and_col
+from ...widgets.basic_widgets import (
     CustomButton,
     TextValidationSubmissionWidget,
 )

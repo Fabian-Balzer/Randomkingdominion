@@ -4,7 +4,7 @@ from typing import Literal
 import pandas as pd
 import PyQt5.QtCore as QC
 import PyQt5.QtWidgets as QW
-from random_kingdominion.constants import (
+from ...constants import (
     COLOR_PALETTE,
     PATH_CARD_PICS,
     QUALITIES_AVAILABLE,

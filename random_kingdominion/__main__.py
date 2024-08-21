@@ -2,14 +2,16 @@ import argparse
 
 
 import sys
-import PyQt5.QtWidgets as QW
-from .widgets import UIMainWindow
 
 
 def start_gui():
     """A function to include everything needed to start the application"""
     # Check whether there is already a running QApplication (e.g. if running
     # from an IDE). This setup prevents crashes for the next run:
+
+    import PyQt5.QtWidgets as QW
+    from .widgets import UIMainWindow
+
     qapp = QW.QApplication.instance()
     if not qapp:
         qapp = QW.QApplication(sys.argv)

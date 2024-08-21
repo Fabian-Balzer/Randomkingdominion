@@ -1,9 +1,8 @@
-
 import PyQt5.QtCore as QC
 import PyQt5.QtGui as QG
 import PyQt5.QtWidgets as QW
 
-from random_kingdominion.utils import override
+from ...utils import override
 
 from .custom_slider import CustomSlider
 
@@ -48,7 +47,6 @@ class CustomRangeSlider(QW.QWidget):
         layout.addWidget(self.labels_widget)
         layout.addStretch()
         self.setLayout(layout)
-
 
     def set_values(self, min_val: int, max_val: int):
         """Set the values of the range and update the UI."""

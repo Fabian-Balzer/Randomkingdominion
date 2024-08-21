@@ -12,12 +12,12 @@ from uuid import uuid4
 import numpy as np
 import pandas as pd
 
-from random_kingdominion.constants import (
+from ..constants import (
     ALL_CSOS,
     QUALITIES_AVAILABLE,
     RENEWED_EXPANSIONS,
 )
-from random_kingdominion.utils.utils import copy_to_clipboard
+from ..utils.utils import copy_to_clipboard
 
 from .kingdom_helper_funcs import (
     _dict_factory_func,

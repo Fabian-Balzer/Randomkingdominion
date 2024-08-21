@@ -1,7 +1,7 @@
 from PyQt5 import QtWidgets as QW
 
-from random_kingdominion.kingdom import Kingdom, KingdomRandomizer
-from random_kingdominion.utils.config import CustomConfigParser
+from ..kingdom import Kingdom
+from ..utils.config import CustomConfigParser
 
 from .basic_widgets import CustomButton, ScrollableGroupBox
 from .kingdom_display import FullKingdomDisplay, KingdomStatsDisplay

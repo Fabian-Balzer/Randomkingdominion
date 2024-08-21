@@ -1,15 +1,15 @@
-
 import PyQt5.QtWidgets as QW
 
-from random_kingdominion import CustomConfigParser
-from random_kingdominion.constants import QUALITIES_AVAILABLE
+from ...utils import CustomConfigParser
+from ...constants import QUALITIES_AVAILABLE
 
 from ..basic_widgets import CollapsibleBox, CustomButton
 from .single_quality_selection_widget import SingleQualitySelectionWidget
 
 
 class QualitySelectionGroupWidget(CollapsibleBox):
-    """Hosts the group from which one can """
+    """Hosts the group from which one can"""
+
     def __init__(self, config: CustomConfigParser):
         super().__init__(title="Quality parameters", initially_collapsed=False)
 

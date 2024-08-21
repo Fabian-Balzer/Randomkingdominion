@@ -10,8 +10,6 @@ from ..constants import (
     ALL_CSOS,
     QUALITIES_AVAILABLE,
     SPECIAL_QUAL_TYPES_AVAILABLE,
-    SPLIT_CARD_TYPES,
-    SPLITPILE_DICT,
 )
 from ..cso_frame_utils import (
     add_weight_column,

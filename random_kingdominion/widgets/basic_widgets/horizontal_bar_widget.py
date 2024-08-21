@@ -5,8 +5,8 @@ import PyQt5.QtCore as QC
 import PyQt5.QtGui as QG
 import PyQt5.QtWidgets as QW
 
-from random_kingdominion.constants import COLOR_PALETTE
-from random_kingdominion.utils import override
+from ...constants import COLOR_PALETTE
+from ...utils import override
 
 
 class HorizontalBarWidget(QW.QFrame):

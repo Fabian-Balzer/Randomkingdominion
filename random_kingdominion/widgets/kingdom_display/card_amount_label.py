@@ -1,7 +1,7 @@
 import PyQt5.QtCore as QC
 import PyQt5.QtWidgets as QW
 
-from random_kingdominion.constants import COLOR_PALETTE
+from ...constants import COLOR_PALETTE
 
 
 class CardAmountLabel(QW.QLabel):

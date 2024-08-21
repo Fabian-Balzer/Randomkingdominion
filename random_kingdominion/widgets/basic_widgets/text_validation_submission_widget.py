@@ -4,8 +4,8 @@ import PyQt5.QtCore as QC
 import PyQt5.QtGui as QG
 import PyQt5.QtWidgets as QW
 
-from random_kingdominion.kingdom import sanitize_cso_name
-from random_kingdominion.utils import override
+from ...kingdom import sanitize_cso_name
+from ...utils import override
 
 
 class AutocompleteTooltip(QW.QWidget):

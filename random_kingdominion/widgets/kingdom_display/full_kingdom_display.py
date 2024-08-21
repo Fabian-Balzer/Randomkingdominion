@@ -1,6 +1,6 @@
 import PyQt5.QtWidgets as QW
 
-from random_kingdominion.kingdom import Kingdom, KingdomRandomizer
+from ...kingdom import Kingdom, KingdomRandomizer
 
 from .grouped_card_display import GroupedCardDisplay
 from .grouped_landscape_display import GroupedLandscapeDisplay

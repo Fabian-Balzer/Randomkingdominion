@@ -1,7 +1,7 @@
 import PyQt5.QtCore as QC
 import PyQt5.QtWidgets as QW
-from random_kingdominion.kingdom import Kingdom
-from random_kingdominion.utils import clear_layout, get_row_and_col
+from ...kingdom import Kingdom
+from ...utils import clear_layout, get_row_and_col
 
 from .single_landscape_display import SingleLandscapeImageWidget
 

@@ -5,7 +5,7 @@ import pandas as pd
 import PyQt5.QtCore as QC
 import PyQt5.QtWidgets as QW
 
-from random_kingdominion.constants import COLOR_PALETTE, QUALITIES_AVAILABLE, PATH_CARD_PICS
+from ...constants import COLOR_PALETTE, QUALITIES_AVAILABLE, PATH_CARD_PICS
 
 from ..basic_widgets import ImageCutoutWidget
 from .card_amount_label import CardAmountLabel

@@ -1,7 +1,7 @@
 import PyQt5.QtCore as QC
 import PyQt5.QtWidgets as QW
 
-from random_kingdominion.utils import clear_layout
+from ...utils import clear_layout
 
 
 class CollapsibleBox(QW.QWidget):

@@ -1,7 +1,5 @@
-from random_kingdominion import CustomConfigParser
-from random_kingdominion.constants import SPECIAL_QUAL_TYPES_AVAILABLE, PATH_ASSETS
-from random_kingdominion.utils import override
-
+from ...constants import PATH_ASSETS, SPECIAL_QUAL_TYPES_AVAILABLE
+from ...utils import CustomConfigParser, override
 from .group_checkbox_button_container import GroupCheckboxButtonContainer
 
 

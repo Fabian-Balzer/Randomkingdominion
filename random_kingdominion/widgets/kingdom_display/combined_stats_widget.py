@@ -5,14 +5,14 @@ from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
 from matplotlib import pyplot as plt
 
-from random_kingdominion.constants import COLOR_PALETTE, QUALITIES_AVAILABLE
-from random_kingdominion.kingdom import Kingdom
-from random_kingdominion.utils import (
+from ...constants import COLOR_PALETTE, QUALITIES_AVAILABLE
+from ...kingdom import Kingdom
+from ...utils import (
     get_expansion_icon_path,
     get_row_and_col,
     plot_normalized_polygon,
 )
-from random_kingdominion.utils import clear_layout
+from ...utils import clear_layout
 
 from .single_quality_display import SingleQualityDisplay
 

@@ -1,6 +1,5 @@
-from random_kingdominion import CustomConfigParser
-from random_kingdominion.constants import EXPANSION_LIST, RENEWED_EXPANSIONS
-from random_kingdominion.utils import get_expansion_icon_path, override
+from ...constants import EXPANSION_LIST, RENEWED_EXPANSIONS
+from ...utils import get_expansion_icon_path, override, CustomConfigParser
 
 from .expansion_number_slider import ExpansionNumSlider
 from .group_checkbox_button_container import GroupCheckboxButtonContainer

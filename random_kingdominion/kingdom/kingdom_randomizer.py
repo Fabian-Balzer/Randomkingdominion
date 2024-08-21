@@ -4,12 +4,12 @@ from __future__ import annotations
 
 import random
 
-from random_kingdominion.single_cso_utils import (
+from ..single_cso_utils import (
     is_card,
     is_cso_in_expansions,
     is_extended_landscape,
 )
-from random_kingdominion.utils.config import CustomConfigParser
+from ..utils.config import CustomConfigParser
 
 from ..constants import ALL_CSOS
 from .kingdom import Kingdom

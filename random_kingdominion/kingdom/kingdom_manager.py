@@ -5,7 +5,7 @@ from typing import Any
 
 import yaml
 
-from random_kingdominion.constants import (
+from ..constants import (
     FPATH_KINGDOMS_LAST100,
     FPATH_KINGDOMS_RECOMMENDED,
 )

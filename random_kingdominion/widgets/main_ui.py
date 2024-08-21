@@ -2,9 +2,9 @@ from functools import partial
 
 from PyQt5 import QtGui as QG
 from PyQt5 import QtWidgets as QW
-from random_kingdominion.constants import PATH_ASSETS
-from random_kingdominion.kingdom import Kingdom, KingdomManager, KingdomRandomizer
-from random_kingdominion.utils import CustomConfigParser
+from ..constants import PATH_ASSETS
+from ..kingdom import Kingdom, KingdomManager, KingdomRandomizer
+from ..utils import CustomConfigParser
 
 from .containers import WidgetContainer
 

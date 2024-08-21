@@ -1,7 +1,7 @@
 import PyQt5.QtCore as QC
 import PyQt5.QtWidgets as QW
 
-from random_kingdominion.kingdom import Kingdom
+from ...kingdom import Kingdom
 
 from ..basic_widgets import HorizontalBarWidget, QualityIcon
 

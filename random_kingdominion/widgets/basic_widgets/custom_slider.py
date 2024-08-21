@@ -3,11 +3,12 @@
 import PyQt5.QtCore as QC
 import PyQt5.QtWidgets as QW
 
-from random_kingdominion.utils.utils import override
+from ...utils import override
 
 
 class CustomSlider(QW.QSlider):
     """Simple horizontal slider going from the min to the max val (including both)."""
+
     def __init__(self, min_val: int = 0, max_val: int = 5):
         super().__init__(QC.Qt.Horizontal)
         self.setRange(min_val, max_val)
@@ -29,6 +30,7 @@ class CustomSlider(QW.QSlider):
             }
             """
         )
+
     @override
     def wheelEvent(self, event):
         # Do nothing to prevent scrolling from changing the value

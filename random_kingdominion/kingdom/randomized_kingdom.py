@@ -8,8 +8,8 @@ from typing import Literal
 import numpy as np
 import pandas as pd
 
-from random_kingdominion.constants import ALL_CSOS, QUALITIES_AVAILABLE
-from random_kingdominion.cso_frame_utils import sample_single_cso_from_df
+from ..constants import ALL_CSOS, QUALITIES_AVAILABLE
+from ..cso_frame_utils import sample_single_cso_from_df
 
 from ..utils.config import CustomConfigParser
 from .kingdom import Kingdom

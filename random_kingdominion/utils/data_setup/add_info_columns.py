@@ -5,8 +5,7 @@ from functools import reduce
 import numpy as np
 import pandas as pd
 
-from random_kingdominion import listlike_contains_any
-from random_kingdominion.constants import (
+from ...constants import (
     COFFER_GIVERS,
     DEBT_INDUCERS,
     EXTENDED_LANDSCAPE_LIST,
@@ -15,12 +14,11 @@ from random_kingdominion.constants import (
     PATH_CARD_INFO,
     QUALITIES_AVAILABLE,
     ROTATOR_DICT,
-    SPECIAL_QUAL_TYPES_AVAILABLE,
     SPLIT_CARD_TYPES,
     SPLITPILE_CARDS,
     SPLITPILE_DICT,
 )
-from random_kingdominion.utils.utils import ask_file_overwrite
+from ...utils.utils import ask_file_overwrite
 
 
 def write_dict_to_json_nicely(

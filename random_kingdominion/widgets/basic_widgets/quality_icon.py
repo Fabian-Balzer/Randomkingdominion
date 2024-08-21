@@ -2,7 +2,7 @@ import PyQt5.QtCore as QC
 import PyQt5.QtGui as QG
 import PyQt5.QtWidgets as QW
 
-from random_kingdominion.utils import override, get_quality_icon_fpath
+from ...utils import override, get_quality_icon_fpath
 
 
 class QualityIcon(QW.QLabel):
