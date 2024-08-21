@@ -5,6 +5,7 @@ from PIL import Image
 
 from ...utils import get_expansion_icon_path
 from ..constants import ALL_EXPANSIONS, NUM_EXPS
+from ..image_handling import display_image_with_tooltip
 from ..randomizer_util import load_config
 
 
@@ -13,20 +14,20 @@ def _select_non_1e():
         st.session_state[f"{exp} enabled"] = "1E" not in exp
 
 
-def display_exp_image(exp: str):
+def display_exp_image(exp: str, icon_size: int = 30, tooltip: str = ""):
 
     # Green background if enabled, red if disabled
     bg_color = (
         (50, 255, 50, 100) if st.session_state[f"{exp} enabled"] else (255, 50, 50, 100)
     )
-    icon_size = 30
 
     fpath = "./static/" + get_expansion_icon_path(exp, relative_only=True)
     im = Image.open(fpath).convert("RGBA").resize((icon_size, icon_size))
     bg = Image.new("RGBA", im.size, bg_color)
     # Paste the original image onto the background
     im = Image.alpha_composite(bg, im)
-    st.image(im, width=icon_size)
+
+    display_image_with_tooltip(im, tooltip)
 
     # A try to set it up as a nice checkbox, but doesn't work as I cannot interact with session_state....
     # checkbox_id = f"{exp} enabled"
@@ -74,10 +75,10 @@ def display_exp_image(exp: str):
     # st.markdown(md_text, unsafe_allow_html=True)
 
 
-def build_exp_row(exp: str):
+def build_exp_checkbox(exp: str):
     """Build a single row to display an expansion and its weights."""
     configured_expansions = load_config().get_expansions()
-    with st.container(border=True, height=80):
+    with st.container(border=True):
         col1, col2 = st.columns([0.7, 0.3])
         with col1:
             st.checkbox(
@@ -169,10 +170,21 @@ def get_currently_selected_expansions() -> list[str]:
 
 
 def _build_selection_grid():
+    # st.multiselect(
+    #     "Selected Expansions",
+    #     options=ALL_EXPANSIONS,
+    #     default=selected_expansions,
+    #     key="expansionSelectForFilter",
+    #     help="Select the expansions you want to include in the filtered results.",
+    # )
+    # st.write(
+    #     "Currently not selected: "
+    #     + ", ".join([exp for exp in ALL_EXPANSIONS if exp not in selected_expansions])
+    # )
+    selected_expansions = get_currently_selected_expansions()
     col_num = 5
     row_num = ceil(NUM_EXPS / col_num)
     cols = st.columns(col_num)
-    selected_expansions = get_currently_selected_expansions()
     if st.session_state.get("Exp move deselected", True):
         unsel = [exp for exp in ALL_EXPANSIONS if exp not in selected_expansions]
         sorted_expansions = selected_expansions + unsel
@@ -182,18 +194,31 @@ def _build_selection_grid():
         exp_subset = sorted_expansions[start:stop]
         with col:
             for exp in exp_subset:
-                build_exp_row(exp)
+                build_exp_checkbox(exp)
 
 
 @st.fragment
 def build_expansion_selection():
     st.write(
-        "Select the expansions you want to include in the randomization. Sorry for this selection looking absolutely atrocious, streamlit doesn't really let you customize checkboxes..."
+        "Select the expansions you want to include in the randomization. You can also set the maximum number of expansions to randomize from."
     )
     _build_exp_num_row()
     with st.expander("Individual Selection", expanded=False):
         _build_toggle_row()
         _build_sorting_options()
         _build_selection_grid()
-    if len(get_currently_selected_expansions()) == 0:
+    current_exps = get_currently_selected_expansions()
+    if len(current_exps) == 0:
         st.warning("No expansions selected! Please select at least one expansion.")
+    else:
+        with st.container(border=True):
+            st.write("Current selection")
+            cols = st.columns(len(current_exps))
+            st.write(" ")
+        for col, exp in zip(cols, current_exps):
+            with col:
+                display_exp_image(exp, icon_size=20, tooltip=exp)
+
+    st.warning(
+        "Sorry for this selection looking absolutely atrocious, streamlit doesn't really let you customize checkboxes. I wasted way too much time trying to improve it, for now I'll leave it be."
+    )

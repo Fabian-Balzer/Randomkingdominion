@@ -24,7 +24,7 @@ def colorize(val):
 
 
 def get_stylized_df(df: pd.DataFrame) -> pd.DataFrame:
-    styled_df = df.style.applymap(colorize)  # type: ignore
+    styled_df = df.style.map(colorize)  # type: ignore
     return styled_df
 
 
@@ -96,7 +96,7 @@ def get_column_order() -> list[str]:
         "gain_types",
         "attack_types",
         "altvp_types",
-        "AssociatedCSOs",
+        "Extra Components",
         "IsLandscape",
         "IsOtherThing",
         "IsInSupply",
