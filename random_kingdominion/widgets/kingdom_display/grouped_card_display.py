@@ -3,7 +3,9 @@ from math import ceil
 import PyQt5.QtCore as QC
 import PyQt5.QtWidgets as QW
 from ...kingdom import Kingdom
-from ...utils import clear_layout, get_row_and_col
+from ...utils import get_row_and_col
+
+from ..qt_util import clear_layout
 
 from .single_card_display import SingleCardImageWidget
 

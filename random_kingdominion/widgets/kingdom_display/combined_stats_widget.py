@@ -12,7 +12,8 @@ from ...utils import (
     get_row_and_col,
     plot_normalized_polygon,
 )
-from ...utils import clear_layout
+from ..qt_util import clear_layout
+
 
 from .single_quality_display import SingleQualityDisplay
 

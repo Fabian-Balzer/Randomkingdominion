@@ -1,15 +1,12 @@
 from functools import partial
 
 import PyQt5.QtCore as QC
-import PyQt5.QtGui as QG
 import PyQt5.QtWidgets as QW
 
 from ...constants import ALL_CSOS
-from ...utils import CustomConfigParser, clear_layout, get_row_and_col
-from ...widgets.basic_widgets import (
-    CustomButton,
-    TextValidationSubmissionWidget,
-)
+from ...utils import CustomConfigParser, get_row_and_col
+from ...widgets.basic_widgets import CustomButton, TextValidationSubmissionWidget
+from ..qt_util import clear_layout
 
 
 class CSOSelectionDisplay(QW.QWidget):

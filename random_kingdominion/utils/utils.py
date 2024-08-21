@@ -2,7 +2,6 @@ import os
 from pathlib import Path
 
 import pandas as pd
-import PyQt5.QtWidgets as QW
 
 from ..constants import (
     ALL_CSOS,
@@ -111,20 +110,6 @@ def get_row_and_col(index: int, max_columns: int) -> tuple[int, int]:
     row = index // max_columns
     column = index % max_columns
     return row, column
-
-
-def clear_layout(layout: QW.QLayout):
-    """Clear the given layout (remove all its children in a safe way)
-
-    Parameters
-    ----------
-    layout : QW.QLayout
-        The layout to be cleared
-    """
-    while layout.count():
-        child = layout.takeAt(0)
-        if child.widget():
-            child.widget().deleteLater()
 
 
 def get_quality_icon_fpath(quality_name: str) -> Path:
