@@ -12,7 +12,8 @@ from .quality_options import build_quality_selection
 def build_randomization_options():
     """Build the randomization options."""
 
-    with st.expander("Randomization options", expanded=False):
+    with st.container(border=True):
+        st.write("### Randomization Options")
         TABS = st.tabs(
             ["Expansions", "Mechanics", "Landscapes", "Engine Qualities", "Likes/Bans"]
         )

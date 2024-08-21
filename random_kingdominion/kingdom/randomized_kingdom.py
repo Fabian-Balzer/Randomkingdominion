@@ -11,6 +11,7 @@ import pandas as pd
 from random_kingdominion.constants import ALL_CSOS, QUALITIES_AVAILABLE
 from random_kingdominion.cso_frame_utils import sample_single_cso_from_df
 
+from ..utils.config import CustomConfigParser
 from .kingdom import Kingdom
 from .kingdom_helper_funcs import _get_total_quality
 
@@ -275,6 +276,12 @@ class RandomizedKingdom:
         """Pick the target for the given trait."""
         # Make sure no card is picked by more than one Trait
         excluded = [trait_tuple[1] for trait_tuple in self.traits]
+        if trait_name == "cheap":
+            excluded += ["transmute"]
+        if trait_name == "hasty":
+            excluded += ["buried_treasure"]
+        if trait_name == "fated":
+            excluded += ["stash"]
         counterpart = self._pick_action_or_treasure(excluded)
         if counterpart:
             self.traits.append([trait_name, counterpart])
@@ -302,7 +309,49 @@ class RandomizedKingdom:
             return ""
         return sample_single_cso_from_df(subset)
 
-    def finish_randomization(self):
+    def _determine_colony_usage(self, config: CustomConfigParser):
+        """Determine whether Colonies should be used."""
+        use_prosp_method = config.getboolean(
+            "Specialization", "use_prosperity_for_colony", fallback=True
+        )
+        col_prob = config.getfloat("Specialization", "colony_probability", fallback=0.0)
+        if use_prosp_method:
+            if len(self._selected_cards) == 0:
+                self.use_colonies = False
+                return
+            expansions = self._get_card_df()["Expansion"].tolist()
+            prosp_count = len(
+                [exp for exp in expansions if "prosperity" in exp.lower()]
+            )
+            col_prob = prosp_count / len(self._selected_cards)
+        if col_prob == 0:
+            self.use_colonies = False
+            return
+        # If colony usage has been specified before, then keep it.
+        self.use_colonies = self.use_colonies or np.random.rand() < col_prob
+
+    def _determine_shelter_usage(self, config: CustomConfigParser):
+        """Determine whether Shelters should be used."""
+        use_dark_ages_method = config.getboolean(
+            "Specialization", "use_dark_ages_for_shelters", fallback=True
+        )
+        shelter_prob = config.getfloat(
+            "Specialization", "shelter_probability", fallback=0.0
+        )
+        if use_dark_ages_method:
+            if len(self._selected_cards) == 0:
+                self.use_shelters = False
+                return
+            expansions = self._get_card_df()["Expansion"].tolist()
+            da_count = len([exp for exp in expansions if exp == "Dark Ages"])
+            shelter_prob = da_count / len(self._selected_cards)
+        if shelter_prob == 0:
+            self.use_shelters = False
+            return
+        # If colony usage has been specified before, then keep it.
+        self.use_shelters = self.use_shelters or np.random.rand() < shelter_prob
+
+    def finish_randomization(self, config: CustomConfigParser):
         """Take care of picking Trait/Obelisk targets in case that hasn't been done."""
         if self.contains_landscape("obelisk") and not self.obelisk_pile:
             self._pick_obelisk()
@@ -310,6 +359,8 @@ class RandomizedKingdom:
         for trait in landscapes[landscapes["IsTrait"]]["Name"].tolist():
             if trait not in [t[0] for t in self.traits]:
                 self._pick_trait_target(trait)
+        self._determine_colony_usage(config)
+        self._determine_shelter_usage(config)
 
     def get_kingdom(self) -> Kingdom:
         """Construct a proper kingdom out of this one"""

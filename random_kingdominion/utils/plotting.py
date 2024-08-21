@@ -114,19 +114,28 @@ def add_kingdom_info_to_plot(ax: Axes, kingdom: "Kingdom"):
     )
     offset = 0
     for qual in kingdom.total_qualities:
-        if (types := kingdom.get_unique_qualtypes(qual)) != "":
-            types = [t.strip("' ") for t in types.strip("[]").split(",")]
-            text = f"{qual.capitalize() + ':':10s}{', '.join(sorted(types))}"
-            ax.text(
-                0,
-                -0.05 - offset,
-                text,
-                transform=ax.transAxes,
-                fontdict=dict(font="monospace"),
-                va="top",
-                bbox=bbox,
-            )
-            offset += 0.05
+        if qual == "interactivity":
+            continue
+        ax.text(
+            0,
+            -0.05 - offset,
+            kingdom.get_qualtype_string(qual),
+            transform=ax.transAxes,
+            fontdict=dict(font="monospace"),
+            va="top",
+            bbox=bbox,
+        )
+        offset += 0.05
+    ax.text(
+        0,
+        -0.05 - offset,
+        kingdom.get_component_string(),
+        transform=ax.transAxes,
+        va="top",
+        fontdict=dict(font="monospace"),
+        bbox=bbox,
+    )
+
     card_text = kingdom.card_and_landscape_text
     ax.text(
         1.1,

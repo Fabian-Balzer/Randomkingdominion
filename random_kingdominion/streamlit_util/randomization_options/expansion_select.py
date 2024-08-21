@@ -114,12 +114,7 @@ def _toggle_all_expansions(value: bool):
         st.session_state[f"{exp} enabled"] = value
 
 
-@st.fragment
-def build_expansion_selection():
-    st.write(
-        "Select the expansions you want to include in the randomization. Sorry for this selection looking absolutely atrocious, streamlit doesn't really let you customize checkboxes..."
-    )
-    _build_exp_num_row()
+def _build_toggle_row():
     cols = st.columns(3)
     with cols[0]:
         st.button(
@@ -139,6 +134,9 @@ def build_expansion_selection():
             on_click=_select_non_1e,
             use_container_width=True,
         )
+
+
+def _build_sorting_options():
     cols = st.columns(3)
     with cols[0]:
         st.write("Sorting options")
@@ -154,24 +152,30 @@ def build_expansion_selection():
     with cols[2]:
         st.checkbox("Move deselected", True, key="Exp move deselected")
 
-    col_num = 5
-    row_num = ceil(NUM_EXPS / col_num)
-    cols = st.columns(col_num)
+
+def get_currently_selected_expansions() -> list[str]:
+    """Retrieve the expansions that are currently selected by the user."""
     sorted_expansions = (
         sorted(ALL_EXPANSIONS)
         if st.session_state["Exp sorting"] == "Alphabetical"
         else ALL_EXPANSIONS
     )
-    if st.session_state.get("Exp move deselected", True):
+    configured_expansions = load_config().get_expansions()
+    return [
+        exp
+        for exp in sorted_expansions
+        if st.session_state.get(f"{exp} enabled", exp in configured_expansions)
+    ]
 
-        configured_expansions = load_config().get_expansions()
-        sel = [
-            exp
-            for exp in sorted_expansions
-            if st.session_state.get(f"{exp} enabled", exp in configured_expansions)
-        ]
-        unsel = [exp for exp in sorted_expansions if exp not in sel]
-        sorted_expansions = sel + unsel
+
+def _build_selection_grid():
+    col_num = 5
+    row_num = ceil(NUM_EXPS / col_num)
+    cols = st.columns(col_num)
+    selected_expansions = get_currently_selected_expansions()
+    if st.session_state.get("Exp move deselected", True):
+        unsel = [exp for exp in ALL_EXPANSIONS if exp not in selected_expansions]
+        sorted_expansions = selected_expansions + unsel
     for i, col in enumerate(cols):
         start = i * row_num
         stop = min((i + 1) * row_num, NUM_EXPS)
@@ -179,3 +183,17 @@ def build_expansion_selection():
         with col:
             for exp in exp_subset:
                 build_exp_row(exp)
+
+
+@st.fragment
+def build_expansion_selection():
+    st.write(
+        "Select the expansions you want to include in the randomization. Sorry for this selection looking absolutely atrocious, streamlit doesn't really let you customize checkboxes..."
+    )
+    _build_exp_num_row()
+    with st.expander("Individual Selection", expanded=False):
+        _build_toggle_row()
+        _build_sorting_options()
+        _build_selection_grid()
+    if len(get_currently_selected_expansions()) == 0:
+        st.warning("No expansions selected! Please select at least one expansion.")

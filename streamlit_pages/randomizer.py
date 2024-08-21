@@ -9,6 +9,7 @@ import random_kingdominion as rk
 
 st.title("RandomKingDominion - Randomizer")
 
+
 cols = st.columns([0.7, 0.3])
 with cols[0]:
     st.write(
@@ -48,46 +49,14 @@ HISTORY = load_history()
 # )
 
 
+if "randomized_kingdom" in st.session_state:
+    rk.display_current_kingdom()
+
 rk.build_randomization_options()
 
 if st.button(
-    label="Randomize Kingdom with the selected options! 🔀",
+    label="🔀 Randomize new Kingdom with the options selected above!",
     use_container_width=True,
     on_click=rk.randomize_kingdom,
 ):
     st.rerun()
-
-if "randomized_kingdom" not in st.session_state:
-    rk.randomize_kingdom()
-
-
-@st.fragment
-def _build_clipboard_button():
-    csv_str = rk.Kingdom.from_dombot_csv_string(
-        st.session_state["randomized_kingdom"]
-    ).get_dombot_csv_string()
-    st.button(
-        "🔼To clipboard",
-        help="Copy the kingdom's DomBot string to your clipboard",
-        on_click=lambda: rk.copy_to_clipboard(csv_str),
-        use_container_width=True,
-    )
-
-
-cols = st.columns([0.85, 0.15])
-with cols[0]:
-    st.write(
-        rk.Kingdom.from_dombot_csv_string(
-            st.session_state["randomized_kingdom"]
-        ).get_dombot_csv_string()
-    )
-with cols[1]:
-    _build_clipboard_button()
-
-rk.display_current_kingdom()
-
-# import numpy as np
-
-# for cost in np.unique(rk.ALL_CSOS["Cost"].fillna("$1")):
-#     html = get_cost_html(cost)
-#     st.write(f"{html} {cost}", unsafe_allow_html=True)

@@ -162,9 +162,11 @@ class KingdomRandomizer:
                 current_qual, random_kingdom.contains_way()
             )
             random_kingdom.add_landscape(pick)
-        random_kingdom.finish_randomization()
+        shelter_prob = self.config.getfloat("Specialization", "shelter_probability")
+        col_plat_prob = self.config.getfloat("Specialization", "colony_probability")
         # Pick Ally in case a Liaison is in the kingdom
         # Pick a mouse card in case Way of the Mouse is amongst the picks:
+        random_kingdom.finish_randomization(self.config)
         return random_kingdom.get_kingdom()
 
     def add_required_csos(

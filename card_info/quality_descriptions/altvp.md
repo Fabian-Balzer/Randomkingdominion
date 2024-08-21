@@ -13,4 +13,11 @@ The three quality values had the following distinctions in mind:
 
 ### Alternative VP Types
 
-Since most alt-vp cards are quite unique, I haven't tried to further categorize them, although it might make sense to filter out cursing attacks sometimes. Oh well.
+I've identified the following types of Alt-VP for the CSOs:
+
+- **Scaling**: The VP scale with the amount of certain cards, e.g. Gardens, Vineyards, Fairgrounds, Orchard, or Feodum.
+- **Plain**: You get what you've signed up for, e.g. Mill, Nobles, or Tunnel.
+- **VP Chips**: These CSOs enable you to acquire those shiny VP chips. Go get 'em!
+- **Trashing**: These CSOs can trash cards of your opponents; sometimes, they might hit Duchies or even Provinces. Not the most convincing, but hey, you should be aware of that.
+- **Cursing**: These CSOs allow you to gain a lead in VP by Cursing your opponents. Also not super powerful to rely on, but oh well.
+- **Special**: Anything I couldn't directly assign to one of those categories, like Wolf Den or Divine Wind.

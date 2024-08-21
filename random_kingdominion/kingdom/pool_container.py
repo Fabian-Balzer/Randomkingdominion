@@ -55,8 +55,10 @@ class PoolContainer:
             if not ignore_expansions
             else ALL_CSOS.copy()
         )
+        if len(pool) == 0:
+            return pool
 
-        # Reduce the pool to exclude any sorts of qualities that are not wanted
+        # Reduce the pool to exclude any sorts of quality types that are not wanted
         for qual in SPECIAL_QUAL_TYPES_AVAILABLE:
             excluded_types = self.config.getlist("Qualities", f"forbidden_{qual}_types")
             pool = pool[~listlike_contains_any(pool[qual + "_types"], excluded_types)]
@@ -176,7 +178,10 @@ class PoolContainer:
         ) = None,
     ) -> str:
         """Pick the next card while also considering the required qualities."""
-        pool = get_sub_df_for_special_card(self.main_pool, special_card_to_pick_for)
+        try:
+            pool = get_sub_df_for_special_card(self.main_pool, special_card_to_pick_for)
+        except KeyError:
+            return ""
         if len(pool) == 0:
             return ""
         pool = self._narrow_pool_for_quality(pool, qualities_so_far)

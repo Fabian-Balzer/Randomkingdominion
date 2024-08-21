@@ -157,6 +157,8 @@ class Kingdom:
         ferryman_pile = sanitize_cso_name(special_dict["ferryman"])
         riverboat_card = sanitize_cso_name(special_dict["riverboat"])
         army_pile = sanitize_cso_name(special_dict["approaching_army"])
+        if army_pile != "":
+            cso_list += [army_pile]
         mouse_card = sanitize_cso_name(special_dict["way_of_the_mouse"])
 
         # Replace the split pile thingies:
@@ -438,20 +440,45 @@ class Kingdom:
             [f"{card.Name} ({card[qual_name]})" for _, card in sub_df.iterrows()]
         )
 
-    def get_unique_qualtypes(self, type_name: str) -> str:
+    def get_unique_qualtypes(self, qual: str) -> dict[str, int]:
         """For the given quality name, return all of the unique types
         that are part of the kingdom (e.g. all gain types, which might be a list
         of [Buys, Workshop] etc.)
         """
-        type_name += "_types"
-        if not type_name in self.full_kingdom_df.columns:
-            return ""
+        qual += "_types"
+        if not qual in self.full_kingdom_df.columns:
+            return {}
         df = self.full_kingdom_df
-        avail_types = reduce(lambda x, y: x + y, df[type_name])
+        avail_types = reduce(lambda x, y: x + y, df[qual])
         if len(avail_types) == 0:
-            return ""
-        unique_types = np.unique(avail_types)
-        return str(sorted(unique_types))
+            return {}
+        unique_types, counts = np.unique(avail_types, return_counts=True)
+        return {t: c for t, c in zip(unique_types, counts)}
+
+    def get_qualtype_string(self, qual: str) -> str:
+        text = f"{qual.capitalize() + ':':10s}"
+        if len((types := self.get_unique_qualtypes(qual))) > 0:
+            types = [
+                k if types[k] == 1 else f"{k} [x{types[k]}]"
+                for k in sorted(types.keys())
+            ]
+            text += ", ".join(sorted(types))
+        else:
+            text += "-"
+        return text
+
+    def get_component_string(self) -> str:
+        """Retrieve the string describing the extra components and csos needed for this kingdom."""
+        comp = self.full_kingdom_df["Extra Components"].tolist()
+        excluded = ["Trash mat"]
+        unzipped = [cso for cso_list in comp for cso in cso_list if cso not in excluded]
+        uni_comp = list(np.unique(unzipped))
+        if self.use_shelters:
+            uni_comp.append("Shelters")
+        if self.use_colonies:
+            uni_comp.append("Colonies/Platinum")
+        text = "EXTRAS:   "
+        return text + ", ".join(uni_comp) if len(uni_comp) > 0 else "None needed"
 
     def get_special_card_text(self, card_name: str):
         """Get text for cards that are somewhat special."""

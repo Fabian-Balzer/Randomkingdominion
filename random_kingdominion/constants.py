@@ -42,7 +42,7 @@ def read_dataframe_from_file(fpath: str | Path, eval_lists=False):
         df = pd.read_csv(fpath, sep=";", header=0)
         if eval_lists:
             for colname in df.columns:
-                if "type" in colname.lower():
+                if "type" in colname.lower() or colname == "Extra Components":
                     # Make sure we properly handle lists
                     df[colname] = df[colname].apply(eval)
     else:
@@ -271,9 +271,44 @@ EXPANSION_LIST: list[str] = [
 ]
 """All expansions as a list."""
 
+DEBT_INDUCERS = [
+    "Root Cellar",
+    "Craftsman",
+    "Change",
+    "Gold Mine",
+    "Imperial Envoy",
+    "Litter",
+    "Credit",
+    "Harsh Winter",
+    "Tax",
+    "Mountain Pass",
+    "Capital",
+    "Gladiator/Fortune",
+]
+COFFER_GIVERS = [
+    "Candlestick Maker",
+    "Plaza",
+    "Merchant Guild",
+    "Baker",
+    "Butcher",
+    "Joust",
+    "Huge Turnip",
+    "Footpad",
+    "Ducat",
+    "Patron",
+    "Silk Merchant",
+    "Swashbuckler",
+    "Spices",
+    "Villain",
+    "Pageant",
+    "Guildhall",
+    "Exploration",
+]
+
 SPECIAL_QUAL_TYPES_AVAILABLE = {
     qual: get_unique_entries_of_list_column(ALL_CSOS, f"{qual}_types")
-    for qual in sorted(["attack", "thinning", "gain", "draw", "village"])
+    for qual in QUALITIES_AVAILABLE
+    if qual != "interactivity"
 }
 """The qualities for which typization is available, mapped to all available types."""
 ALL_CARDS = ALL_CSOS[

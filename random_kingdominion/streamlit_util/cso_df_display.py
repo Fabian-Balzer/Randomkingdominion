@@ -69,6 +69,11 @@ def get_col_config() -> dict[str, dict]:
         "width": 50,
         "help": "Whether this CSO in the supply of a kingdom",
     }
+    col_config["Extra Components"] = {
+        "label": "Extra Components",
+        "width": 100,
+        "help": "The components needed to play with this CSO",
+    }
     return col_config
 
 
@@ -90,6 +95,8 @@ def get_column_order() -> list[str]:
         "thinning_types",
         "gain_types",
         "attack_types",
+        "altvp_types",
+        "AssociatedCSOs",
         "IsLandscape",
         "IsOtherThing",
         "IsInSupply",

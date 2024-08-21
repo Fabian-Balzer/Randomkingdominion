@@ -1,6 +1,5 @@
 streamlit
 streamlit-cookies-controller
-st_tabs
 pandas
 numpy
 matplotlib

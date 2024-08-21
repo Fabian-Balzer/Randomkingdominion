@@ -5,7 +5,7 @@ import streamlit as st
 from PIL import ImageOps
 
 from ..kingdom import Kingdom, sanitize_cso_name
-from ..utils import get_cso_quality_description, invert_dict
+from ..utils import copy_to_clipboard, get_cso_quality_description, invert_dict
 from .cso_df_display import display_stylysed_cso_df
 from .image_handling import (
     crop_img_by_percentage,
@@ -16,6 +16,19 @@ from .image_handling import (
 )
 from .plot_display import display_kingdom_plot
 from .randomizer_util import reroll_cso, reroll_selected_csos
+
+
+@st.fragment
+def _build_clipboard_button():
+    csv_str = Kingdom.from_dombot_csv_string(
+        st.session_state["randomized_kingdom"]
+    ).get_dombot_csv_string()
+    st.button(
+        "🔼To clipboard",
+        help="Copy the kingdom's DomBot string to your clipboard",
+        on_click=lambda: copy_to_clipboard(csv_str),
+        use_container_width=True,
+    )
 
 
 def display_cso_image(cso: pd.Series, kingdom: Kingdom, full_image: bool = False):
@@ -157,13 +170,29 @@ def display_full_kingdom_images(k: Kingdom, show_reroll=True):
                 _build_single_reroll_button(ls["Name"])
 
 
+def build_csv_display():
+    with st.expander("Descriptive string", expanded=False):
+        cols = st.columns([0.85, 0.15])
+        st.write(
+            "You can copy this to your clipboard, and paste it into the interface of your preferred digital Dominion client. Should work both for [Dominion Online](https://dominion.games/) and the [TGG implementation](https://store.steampowered.com/app/1131620/Dominion/).",
+            unsafe_allow_html=True,
+        )
+    with cols[0]:
+        st.write(
+            Kingdom.from_dombot_csv_string(
+                st.session_state["randomized_kingdom"]
+            ).get_dombot_csv_string()
+        )
+    with cols[1]:
+        _build_clipboard_button()
+
+
 def display_kingdom(k: Kingdom, show_reroll=True):
     df = k.full_kingdom_df.set_index("Name")
     tabs = st.tabs(["Compact View", "Data View", "Plot View"])
     with tabs[0]:
-        with st.expander("Kingdom Image Display", expanded=False):
-            display_full_kingdom_images(k, show_reroll=show_reroll)
-        cols = st.columns(2)
+        with st.expander("Shortened Info", expanded=False):
+            cols = st.columns(2)
         with cols[0]:
             display_stylysed_cso_df(
                 df[["Expansion", "Cost"]],
@@ -171,9 +200,11 @@ def display_kingdom(k: Kingdom, show_reroll=True):
                 use_container_width=True,
             )
             if show_reroll:
-                _build_reroll_selection_button("Reroll all")
+                _build_reroll_selection_button("Reroll selection")
         with cols[1]:
             display_kingdom_plot(k)
+        with st.expander("Kingdom Image Display", expanded=True):
+            display_full_kingdom_images(k, show_reroll=show_reroll)
     with tabs[1]:
         # Don't add reroll here as it can lead to confusing behavior between the two tabs
         display_stylysed_cso_df(df)
@@ -181,9 +212,11 @@ def display_kingdom(k: Kingdom, show_reroll=True):
         with st.columns([0.2, 0.5, 0.2])[1]:
             with st.container(border=True):
                 display_kingdom_plot(k)
+    build_csv_display()
 
 
-@st.fragment
 def display_current_kingdom():
     k = Kingdom.from_dombot_csv_string(st.session_state["randomized_kingdom"])
-    display_kingdom(k)
+    with st.container(border=True):
+        st.write("### Current Kingdom")
+        display_kingdom(k)
