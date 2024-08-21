@@ -141,7 +141,7 @@ def add_kingdom_info_to_plot(ax: Axes, kingdom: "Kingdom"):
         f"Generated using randomkingdominion.streamlit.app/oracle",
         transform=ax.transAxes,
         va="top",
-        fontdict=dict(font="monospace", size=6),
+        fontdict=dict(font="monospace", size=7),
         bbox=bbox | dict(facecolor="lightgray", edgecolor="none"),
     )
 
