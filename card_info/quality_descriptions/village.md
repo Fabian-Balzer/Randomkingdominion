@@ -8,7 +8,7 @@ I've excluded Patron and Sculptor.
 
 The three different quality values had the following distinctions in mind:
 
-1. Bad Villages that barely deserve this name due to their one-shot nature (e.g. Necropolis) or are usually finicky to set up, such as Sauna/Avanto, Scepter or Prince.
+1. Bad Villages that barely deserve this name due to their once-per-turn nature (e.g. Necropolis) or are usually finicky to set up, such as Sauna/Avanto, Scepter or Prince.
 2. Solid Villages that usually say +2 Actions, and most Throne variants.
 3. Incredible Villages that can make it so you almost won't need to think about Actions for the rest of the game (e.g. Champion), and also strong villages like Port or Recruiter.
 
