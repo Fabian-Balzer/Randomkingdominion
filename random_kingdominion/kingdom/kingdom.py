@@ -12,13 +12,8 @@ from uuid import uuid4
 import numpy as np
 import pandas as pd
 
-from ..constants import (
-    ALL_CSOS,
-    QUALITIES_AVAILABLE,
-    RENEWED_EXPANSIONS,
-)
+from ..constants import ALL_CSOS, QUALITIES_AVAILABLE, RENEWED_EXPANSIONS
 from ..utils.utils import copy_to_clipboard
-
 from .kingdom_helper_funcs import (
     _dict_factory_func,
     _get_total_quality,
@@ -478,7 +473,7 @@ class Kingdom:
         if self.use_colonies:
             uni_comp.append("Colonies/Platinum")
         text = "EXTRAS:   "
-        return text + ", ".join(uni_comp) if len(uni_comp) > 0 else "None needed"
+        return text + (", ".join(uni_comp) if len(uni_comp) > 0 else "None needed")
 
     def get_special_card_text(self, card_name: str):
         """Get text for cards that are somewhat special."""

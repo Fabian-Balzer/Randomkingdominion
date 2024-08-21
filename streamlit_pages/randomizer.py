@@ -1,9 +1,4 @@
-from math import ceil
-
-import matplotlib.pyplot as plt
 import streamlit as st
-from matplotlib.backends.backend_agg import RendererAgg
-from PIL import Image
 
 import random_kingdominion as rk
 

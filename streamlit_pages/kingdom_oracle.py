@@ -1,10 +1,6 @@
-import matplotlib.pyplot as plt
 import streamlit as st
-from matplotlib.backends.backend_agg import RendererAgg
 
 import random_kingdominion as rk
-
-_lock = RendererAgg.lock
 
 st.title("Kingdom Oracle")
 
@@ -39,4 +35,4 @@ if kingdom.notes != "" and "['']" not in kingdom.notes:
 if kingdom.is_empty:
     st.write("No kingdom selected")
 else:
-    rk.display_kingdom(kingdom, show_reroll=False)
+    rk.display_kingdom(kingdom, is_randomizer_view=False)

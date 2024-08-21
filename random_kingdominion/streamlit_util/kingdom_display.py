@@ -174,7 +174,7 @@ def build_csv_display():
     with st.expander("Descriptive string", expanded=False):
         cols = st.columns([0.85, 0.15])
         st.write(
-            "You can copy this to your clipboard, and paste it into the interface of your preferred digital Dominion client. Should work both for [Dominion Online](https://dominion.games/) and the [TGG implementation](https://store.steampowered.com/app/1131620/Dominion/).",
+            "You can copy this to your clipboard and paste it into the interface of your preferred digital Dominion client.\\\nShould work both for [Dominion Online](https://dominion.games/) and the [TGG implementation](https://store.steampowered.com/app/1131620/Dominion/).",
             unsafe_allow_html=True,
         )
     with cols[0]:
@@ -187,7 +187,7 @@ def build_csv_display():
         _build_clipboard_button()
 
 
-def display_kingdom(k: Kingdom, show_reroll=True):
+def display_kingdom(k: Kingdom, is_randomizer_view=True):
     df = k.full_kingdom_df.set_index("Name")
     tabs = st.tabs(["Compact View", "Data View", "Plot View"])
     with tabs[0]:
@@ -196,15 +196,15 @@ def display_kingdom(k: Kingdom, show_reroll=True):
         with cols[0]:
             display_stylysed_cso_df(
                 df[["Expansion", "Cost"]],
-                with_reroll=show_reroll,
+                with_reroll=is_randomizer_view,
                 use_container_width=True,
             )
-            if show_reroll:
+            if is_randomizer_view:
                 _build_reroll_selection_button("Reroll selection")
         with cols[1]:
             display_kingdom_plot(k)
         with st.expander("Kingdom Image Display", expanded=True):
-            display_full_kingdom_images(k, show_reroll=show_reroll)
+            display_full_kingdom_images(k, show_reroll=is_randomizer_view)
     with tabs[1]:
         # Don't add reroll here as it can lead to confusing behavior between the two tabs
         display_stylysed_cso_df(df)
@@ -212,7 +212,8 @@ def display_kingdom(k: Kingdom, show_reroll=True):
         with st.columns([0.2, 0.5, 0.2])[1]:
             with st.container(border=True):
                 display_kingdom_plot(k)
-    build_csv_display()
+    if is_randomizer_view:
+        build_csv_display()
 
 
 def display_current_kingdom():
