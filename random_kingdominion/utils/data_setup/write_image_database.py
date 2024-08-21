@@ -1,7 +1,6 @@
 import os
 
 import requests
-from bs4 import BeautifulSoup
 from ...constants import PATH_CARD_PICS
 from pathlib import Path
 
@@ -33,7 +32,15 @@ def write_image_database(df):
 
 def save_image(impath: Path, card_name):
     """Search the wiki for the pic url of card_name and save a picture in
-    impath"""
+    impath.
+    """
+    try:
+        from bs4 import BeautifulSoup
+    except ImportError:
+        print(
+            "BeautifulSoup is not installed. Please install it with 'pip install beautifulsoup4'."
+        )
+        return
     link_base = "http://wiki.dominionstrategy.com"
     sitename = link_base + f"/index.php/File:{card_name}.jpg"
     response = requests.get(sitename)
@@ -63,8 +70,16 @@ def save_image(impath: Path, card_name):
 
 def download_icons():
     """Function to download images from the card symbols page"""
+    try:
+        from bs4 import BeautifulSoup
+    except ImportError:
+        print(
+            "BeautifulSoup is not installed. Please install it with 'pip install beautifulsoup4'."
+        )
+        return
     sitename = "http://wiki.dominionstrategy.com/index.php/Category:Card_symbols"
     response = requests.get(sitename)
+
     soup = BeautifulSoup(response.text, "html.parser")
     link_base = "http://wiki.dominionstrategy.com"
     ims = soup.find_all("img")
