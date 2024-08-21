@@ -81,7 +81,8 @@ final_text = """
 ### Affiliations
 
 Dominion is a game by Donald X. Vaccarino and published by Rio Grande Games.
-This project has no affiliation with either party. Card images were taken from the Dominion Strategy Wiki.
+This project has no affiliation with either party.\\
+Card images were taken from the Dominion Strategy Wiki and might be outdated (let me know!).
 """
 
 st.write(final_text)

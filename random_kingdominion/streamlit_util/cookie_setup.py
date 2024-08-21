@@ -28,7 +28,7 @@ def disallow_cookies():
 
 def build_cookie_options():
     """Build the cookie options"""
-
+    return
     if not COOKIES.get("cookie_consent"):
         st.sidebar.write(
             "This app can use cookies to save your randomizer configuration."

@@ -13,7 +13,8 @@ def load_config():
     if COOKIES.get("cookie_consent") is None and "config" not in st.session_state:
         st.session_state["config"] = CustomConfigParser(load_default=True).to_json()
     elif "config" not in st.session_state:
-        if saved_config := COOKIES.get("config"):
+        # TODO: Figure out how to set non-global cookies
+        if False and (saved_config := COOKIES.get("config")):
             st.session_state["config"] = saved_config
             print(type(saved_config))
             print(f"Loaded config from cookies: {saved_config}")
