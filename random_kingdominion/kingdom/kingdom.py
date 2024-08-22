@@ -207,7 +207,10 @@ class Kingdom:
     @classmethod
     def from_dict(cls, kingdom_dict: dict[str, Any]) -> Kingdom:
         """Construct a kingdom from a dictionary."""
-        return Kingdom(**kingdom_dict)
+        sanitized_dict = {
+            k: v for k, v in kingdom_dict.items() if k in cls.__dataclass_fields__
+        }
+        return Kingdom(**sanitized_dict)
 
     def __post_init__(self):
         self.cards = sanitize_cso_list(self.cards)
@@ -219,8 +222,12 @@ class Kingdom:
         self.obelisk_pile = sanitize_cso_name(self.obelisk_pile)
         self.ferryman_pile = sanitize_cso_name(self.ferryman_pile)
         self.riverboat_card = sanitize_cso_name(self.riverboat_card)
-        self.traits = sorted(
-            [sanitize_cso_list(trait_tup, sort=False) for trait_tup in self.traits]
+        self.traits = (
+            []
+            if isinstance(self.traits, float)
+            else sorted(
+                [sanitize_cso_list(trait_tup, sort=False) for trait_tup in self.traits]
+            )
         )
         # The following three are non-supply
         if self.ferryman_pile in self.cards:
@@ -271,7 +278,7 @@ class Kingdom:
                     exps_to_add.append(added_exp)
                 exps_to_remove.append(exp)
         self.expansions = [
-            exp
+            str(exp)
             for exp in np.unique(unique_expansions.tolist() + exps_to_add)
             if exp not in exps_to_remove
         ]

@@ -108,6 +108,8 @@ def _dict_factory_func(attrs: list[tuple[str, str]], ignore_keys: set) -> dict:
 
 def sanitize_cso_name(name: str) -> str:
     """Return a sanitized version of the name of the cso."""
+    if isinstance(name, float):
+        return ""
     name = name.lower().strip().replace(" ", "_").replace("'", "").replace("’", "")
     if name == "harem" or name == "farm":
         return "harem_farm"
@@ -116,6 +118,8 @@ def sanitize_cso_name(name: str) -> str:
 
 def sanitize_cso_list(cso_list: list[str], sort=True) -> list[str]:
     """Sanitize each cso in a list of csos."""
+    if isinstance(cso_list, float):
+        return []
     san_list = [sanitize_cso_name(cso) for cso in cso_list]
     if sort:
         return sorted(san_list)

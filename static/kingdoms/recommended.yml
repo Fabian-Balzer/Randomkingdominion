@@ -1,3847 +1,4195 @@
 - cards:
-  - Cellar
-  - Moat
-  - Merchant
-  - Village
-  - Workshop
-  - Militia
-  - Remodel
-  - Smithy
-  - Market
-  - Mine
+  - cellar
+  - market
+  - merchant
+  - militia
+  - mine
+  - moat
+  - remodel
+  - smithy
+  - village
+  - workshop
   idx: 0
   name: First Game
 - cards:
-  - Chapel
-  - Workshop
-  - Bureaucrat
-  - Gardens
-  - Throne Room
-  - Bandit
-  - Festival
-  - Sentry
-  - Witch
-  - Artisan
+  - artisan
+  - bandit
+  - bureaucrat
+  - chapel
+  - festival
+  - gardens
+  - sentry
+  - throne_room
+  - witch
+  - workshop
   idx: 1
   name: Size Distortion
 - cards:
-  - Harbinger
-  - Vassal
-  - Village
-  - Bureaucrat
-  - Moneylender
-  - Council Room
-  - Festival
-  - Laboratory
-  - Sentry
-  - Artisan
+  - artisan
+  - bureaucrat
+  - council_room
+  - festival
+  - harbinger
+  - laboratory
+  - moneylender
+  - sentry
+  - vassal
+  - village
   idx: 2
   name: Deck Top
 - cards:
-  - Cellar
-  - Harbinger
-  - Gardens
-  - Militia
-  - Poacher
-  - Smithy
-  - Throne Room
-  - Council Room
-  - Festival
-  - Library
+  - cellar
+  - council_room
+  - festival
+  - gardens
+  - harbinger
+  - library
+  - militia
+  - poacher
+  - smithy
+  - throne_room
   idx: 3
   name: Sleight of Hand
 - cards:
-  - Cellar
-  - Moat
-  - Merchant
-  - Moneylender
-  - Poacher
-  - Remodel
-  - Market
-  - Mine
-  - Witch
-  - Artisan
+  - artisan
+  - cellar
+  - market
+  - merchant
+  - mine
+  - moat
+  - moneylender
+  - poacher
+  - remodel
+  - witch
   idx: 4
   name: Improvements
 - cards:
-  - Chapel
-  - Harbinger
-  - Merchant
-  - Vassal
-  - Bureaucrat
-  - Moneylender
-  - Throne Room
-  - Bandit
-  - Laboratory
-  - Mine
+  - bandit
+  - bureaucrat
+  - chapel
+  - harbinger
+  - laboratory
+  - merchant
+  - mine
+  - moneylender
+  - throne_room
+  - vassal
   idx: 5
   name: Silver & Gold
 - cards:
-  - Cellar
-  - Vassal
-  - Festival
-  - Library
-  - Sentry
-  - Pawn
-  - Diplomat
-  - Courtier
-  - Minion
-  - Nobles
+  - cellar
+  - courtier
+  - diplomat
+  - festival
+  - library
+  - minion
+  - nobles
+  - pawn
+  - sentry
+  - vassal
   idx: 6
   name: Underlings
 - cards:
-  - Workshop
-  - Militia
-  - Council Room
-  - Market
-  - Artisan
-  - Shanty Town
-  - Bridge
-  - Mill
-  - Mining Village
-  - Patrol
+  - artisan
+  - bridge
+  - council_room
+  - market
+  - militia
+  - mill
+  - mining_village
+  - patrol
+  - shanty_town
+  - workshop
   idx: 7
   name: Grand Scheme
 - cards:
-  - Village
-  - Remodel
-  - Throne Room
-  - Bandit
-  - Mine
-  - Lurker
-  - Swindler
-  - Diplomat
-  - Replace
-  - Farm
+  - bandit
+  - diplomat
+  - harem_farm
+  - lurker
+  - mine
+  - remodel
+  - replace
+  - swindler
+  - throne_room
+  - village
   idx: 8
   name: Deconstruction
 - cards:
-  - Cellar
-  - Vassal
-  - Village
-  - Council Room
-  - Artisan
-  - Lookout
-  - Monkey
-  - Cutpurse
-  - Treasure Map
-  - Sea Witch
+  - artisan
+  - cellar
+  - council_room
+  - cutpurse
+  - lookout
+  - monkey
+  - sea_witch
+  - treasure_map
+  - vassal
+  - village
   idx: 9
   name: Reach for Tomorrow
 - cards:
-  - Harbinger
-  - Workshop
-  - Militia
-  - Remodel
-  - Festival
-  - Sea Chart
-  - Caravan
-  - Outpost
-  - Pirate
-  - Treasury
+  - caravan
+  - festival
+  - harbinger
+  - militia
+  - outpost
+  - pirate
+  - remodel
+  - sea_chart
+  - treasury
+  - workshop
   idx: 10
   name: Repetition
 - cards:
-  - Cellar
-  - Gardens
-  - Throne Room
-  - Bandit
-  - Council Room
-  - Laboratory
-  - University
-  - Familiar
-  - Apprentice
-  - Possession
+  - apprentice
+  - bandit
+  - cellar
+  - council_room
+  - familiar
+  - gardens
+  - laboratory
+  - possession
+  - throne_room
+  - university
   idx: 11
   name: Forbidden Arts
 - cards:
-  - Cellar
-  - Militia
-  - Poacher
-  - Smithy
-  - Festival
-  - Transmute
-  - Herbalist
-  - Apothecary
-  - Alchemist
-  - Golem
+  - alchemist
+  - apothecary
+  - cellar
+  - festival
+  - golem
+  - herbalist
+  - militia
+  - poacher
+  - smithy
+  - transmute
   idx: 12
   name: Potion Mixers
 - cards:
-  - Moat
-  - Vassal
-  - Bureaucrat
-  - Remodel
-  - Market
-  - Witch
-  - University
-  - Alchemist
-  - Philosopher's Stone
-  - Golem
+  - alchemist
+  - bureaucrat
+  - golem
+  - market
+  - moat
+  - philosophers_stone
+  - remodel
+  - university
+  - vassal
+  - witch
   idx: 13
   name: Chemistry Lesson
 - cards:
-  - Harbinger
-  - Moneylender
-  - Laboratory
-  - Mine
-  - Artisan
-  - Tiara
-  - Crystal Ball
-  - Mint
-  - Grand Market
-  - Bank
+  - artisan
+  - bank
+  - crystal_ball
+  - grand_market
+  - harbinger
+  - laboratory
+  - mine
+  - mint
+  - moneylender
+  - tiara
   idx: 14
   name: Biggest Money
   use_colonies: true
 - cards:
-  - Moat
-  - Merchant
-  - Village
-  - Bureaucrat
-  - Council Room
-  - Collection
-  - Rabble
-  - Vault
-  - Expand
-  - King's Court
+  - bureaucrat
+  - collection
+  - council_room
+  - expand
+  - kings_court
+  - merchant
+  - moat
+  - rabble
+  - vault
+  - village
   idx: 15
   name: The King's Army
   use_colonies: true
 - cards:
-  - Cellar
-  - Workshop
-  - Moneylender
-  - Throne Room
-  - Library
-  - Oasis
-  - Nomads
-  - Trail
-  - Berserker
-  - Highway
+  - berserker
+  - cellar
+  - highway
+  - library
+  - moneylender
+  - nomads
+  - oasis
+  - throne_room
+  - trail
+  - workshop
   idx: 17
   name: Happy Trails
 - cards:
-  - Vassal
-  - Remodel
-  - Festival
-  - Laboratory
-  - Sentry
-  - Crossroads
-  - Fool's Gold
-  - Guard Dog
-  - Souk
-  - Witch's Hut
+  - crossroads
+  - festival
+  - fools_gold
+  - guard_dog
+  - laboratory
+  - remodel
+  - sentry
+  - souk
+  - vassal
+  - witchs_hut
   idx: 18
   name: Adventures Abroad
 - cards:
-  - Cellar
-  - Workshop
-  - Moneylender
-  - Throne Room
-  - Witch
-  - Poor House
-  - Hermit
-  - Wandering Minstrel
-  - Mystic
-  - Hunting Grounds
+  - cellar
+  - hermit
+  - hunting_grounds
+  - moneylender
+  - mystic
+  - poor_house
+  - throne_room
+  - wandering_minstrel
+  - witch
+  - workshop
   idx: 19
   name: High and Low
   use_shelters: true
 - cards:
-  - Gardens
-  - Remodel
-  - Festival
-  - Laboratory
-  - Library
-  - Squire
-  - Rats
-  - Scavenger
-  - Knights
-  - Altar
+  - altar
+  - festival
+  - gardens
+  - knights
+  - laboratory
+  - library
+  - rats
+  - remodel
+  - scavenger
+  - squire
   idx: 20
   name: Chivalry and Revelry
   use_shelters: true
 - cards:
-  - Cellar
-  - Militia
-  - Moneylender
-  - Smithy
-  - Festival
-  - Menagerie
-  - Tournament
-  - Harvest
-  - Horn of Plenty
-  - Hunting Party
+  - cellar
+  - ferryman
+  - festival
+  - horn_of_plenty
+  - hunting_party
+  - joust
+  - menagerie
+  - militia
+  - moneylender
+  - smithy
+  ferryman_pile: farrier
   idx: 21
   name: Bounty of the Hunt
-- cards:
-  - Merchant
-  - Bureaucrat
-  - Poacher
-  - Throne Room
-  - Laboratory
-  - Hamlet
-  - Fortune Teller
-  - Remake
-  - Horn of Plenty
-  - Jester
-  idx: 22
-  name: Bad Omens
-- bane_pile: Merchant
+  notes: Farrier is not a legal choice for Ferryman, this is an error. Donald X suggests
+    to play with it like this anyway.
+- idx: 22
+- idx: 23
+- idx: 24
+- idx: 25
+- bane_pile: vassal
   cards:
-  - Merchant
-  - Workshop
-  - Remodel
-  - Laboratory
-  - Market
-  - Artisan
-  - Farming Village
-  - Horse Traders
-  - Young Witch
-  - Jester
-  - Fairgrounds
-  idx: 23
-  name: The Jester's Workshop
-- cards:
-  - Cellar
-  - Workshop
-  - Moneylender
-  - Laboratory
-  - Festival
-  - Stonemason
-  - Advisor
-  - Baker
-  - Journeyman
-  - Merchant Guild
-  idx: 24
-  name: Arts and Crafts
-- cards:
-  - Village
-  - Militia
-  - Moneylender
-  - Gardens
-  - Bandit
-  - Candlestick Maker
-  - Doctor
-  - Butcher
-  - Baker
-  - Soothsayer
-  idx: 25
-  name: Clean Living
-- cards:
-  - Merchant
-  - Remodel
-  - Library
-  - Market
-  - Sentry
-  - Candlestick Maker
-  - Masterpiece
-  - Plaza
-  - Taxman
-  - Herald
+  - candlestick_maker
+  - footpad
+  - library
+  - market
+  - merchant
+  - plaza
+  - remake
+  - remodel
+  - sentry
+  - vassal
+  - young_witch
   idx: 26
   name: Gilding the Lily
 - cards:
-  - Merchant
-  - Workshop
-  - Militia
-  - Throne Room
-  - Market
-  - Dungeon
-  - Gear
-  - Guide
-  - Miser
-  - Lost City
+  - dungeon
+  - gear
+  - guide
+  - lost_city
+  - market
+  - merchant
+  - militia
+  - miser
+  - throne_room
+  - workshop
   idx: 27
   landscapes:
-  - Training
+  - training
   name: Level Up
 - cards:
-  - Bureaucrat
-  - Gardens
-  - Moneylender
-  - Bandit
-  - Witch
-  - Amulet
-  - Duplicate
-  - Messenger
-  - Giant
-  - Treasure Trove
+  - amulet
+  - bandit
+  - bureaucrat
+  - duplicate
+  - gardens
+  - giant
+  - messenger
+  - moneylender
+  - treasure_trove
+  - witch
   idx: 28
   landscapes:
-  - Bonfire
-  - Raid
+  - bonfire
+  - raid
   name: Son of Size Distortion
 - cards:
-  - Cellar
-  - Village
-  - Workshop
-  - Remodel
-  - Library
-  - Overlord
-  - Enchantress
-  - Temple
-  - Forum
-  - Legionary
+  - cellar
+  - enchantress
+  - forum
+  - legionary
+  - library
+  - overlord
+  - remodel
+  - temple
+  - village
+  - workshop
   idx: 29
   landscapes:
-  - Orchard
-  - Windfall
+  - orchard
+  - windfall
   name: Everything in Moderation
 - cards:
-  - Bureaucrat
-  - Gardens
-  - Moneylender
-  - Laboratory
-  - Market
-  - Patrician/Emporium
-  - Catapult/Rocks
-  - Farmers' Market
-  - Charm
-  - Groundskeeper
+  - bureaucrat
+  - catapult/rocks
+  - charm
+  - farmers_market
+  - gardens
+  - groundskeeper
+  - laboratory
+  - market
+  - moneylender
+  - patrician/emporium
   idx: 30
   landscapes:
-  - Aqueduct
-  - Conquest
+  - aqueduct
+  - conquest
   name: Silver Bullets
 - cards:
-  - Gardens
-  - Poacher
-  - Smithy
-  - Bandit
-  - Mine
-  - Druid
-  - Ghost Town
-  - Night Watchman
-  - Exorcist
-  - Idol
+  - bandit
+  - druid
+  - exorcist
+  - gardens
+  - ghost_town
+  - idol
+  - mine
+  - night_watchman
+  - poacher
+  - smithy
   druid_boons:
-  - The Earth's Gift
-  - The Flame's Gift
-  - The Forest's Gift
+  - the_earths_gift
+  - the_flames_gift
+  - the_forests_gift
   idx: 31
   name: Night Shift
 - cards:
-  - Cellar
-  - Harbinger
-  - Merchant
-  - Moneylender
-  - Market
-  - Bard
-  - Conclave
-  - Devil's Workshop
-  - Cursed Village
-  - Tragic Hero
+  - bard
+  - cellar
+  - conclave
+  - cursed_village
+  - devils_workshop
+  - harbinger
+  - market
+  - merchant
+  - moneylender
+  - tragic_hero
   idx: 32
   name: Idle Hands
 - cards:
-  - Merchant
-  - Vassal
-  - Smithy
-  - Market
-  - Mine
-  - Acting Troupe
-  - Cargo Ship
-  - Recruiter
-  - Seer
-  - Treasurer
+  - acting_troupe
+  - cargo_ship
+  - market
+  - merchant
+  - mine
+  - recruiter
+  - seer
+  - smithy
+  - treasurer
+  - vassal
   idx: 33
   landscapes:
-  - Road Network
+  - road_network
   name: It Takes a Villager
 - cards:
-  - Cellar
-  - Harbinger
-  - Workshop
-  - Remodel
-  - Festival
-  - Lackeys
-  - Flag Bearer
-  - Scholar
-  - Swashbuckler
-  - Villain
+  - cellar
+  - festival
+  - flag_bearer
+  - harbinger
+  - lackeys
+  - remodel
+  - scholar
+  - swashbuckler
+  - villain
+  - workshop
   idx: 34
   landscapes:
-  - Barracks
-  - Pageant
+  - barracks
+  - pageant
   name: Capture the Flag
 - cards:
-  - Cellar
-  - Village
-  - Market
-  - Mine
-  - Artisan
-  - Supplies
-  - Stockpile
-  - Barge
-  - Paddock
-  - Destrier
+  - artisan
+  - barge
+  - cellar
+  - destrier
+  - market
+  - mine
+  - paddock
+  - stockpile
+  - supplies
+  - village
   idx: 35
   landscapes:
-  - Stampede
-  - Way of the Seal
+  - stampede
+  - way_of_the_seal
   name: Pony Express
 - cards:
-  - Moat
-  - Harbinger
-  - Merchant
-  - Gardens
-  - Bandit
-  - Black Cat
-  - Scrap
-  - Snowy Village
-  - Displace
-  - Sanctuary
+  - bandit
+  - black_cat
+  - displace
+  - gardens
+  - harbinger
+  - merchant
+  - moat
+  - sanctuary
+  - scrap
+  - snowy_village
   idx: 36
   landscapes:
-  - Toil
-  - Way of the Mole
+  - toil
+  - way_of_the_mole
   name: Garden of Cats
 - cards:
-  - Harbinger
-  - Vassal
-  - Gardens
-  - Remodel
-  - Market
-  - Sycophant
-  - Odysseys
-  - Broker
-  - Capital City
-  - Galleria
+  - broker
+  - capital_city
+  - galleria
+  - gardens
+  - harbinger
+  - market
+  - odysseys
+  - remodel
+  - sycophant
+  - vassal
   idx: 37
   landscapes:
-  - Crafters' Guild
+  - crafters_guild
   name: Allies for Beginners
 - cards:
-  - Moat
-  - Merchant
-  - Moneylender
-  - Bandit
-  - Laboratory
-  - Clashes
-  - Royal Galley
-  - Town
-  - Emissary
-  - Guildmaster
+  - bandit
+  - clashes
+  - emissary
+  - guildmaster
+  - laboratory
+  - merchant
+  - moat
+  - moneylender
+  - royal_galley
+  - town
   idx: 38
   landscapes:
-  - League of Shopkeepers
+  - league_of_shopkeepers
   name: Warring Shopkeepers
 - cards:
-  - Masquerade
-  - Baron
-  - Ironworks
-  - Mill
-  - Courtier
-  - Duke
-  - Patrol
-  - Replace
-  - Farm
-  - Nobles
+  - baron
+  - courtier
+  - duke
+  - harem_farm
+  - ironworks
+  - masquerade
+  - mill
+  - nobles
+  - patrol
+  - replace
   idx: 39
   name: Victory Dance
 - cards:
-  - Lurker
-  - Pawn
-  - Steward
-  - Swindler
-  - Conspirator
-  - Ironworks
-  - Mining Village
-  - Secret Passage
-  - Torturer
-  - Trading Post
+  - conspirator
+  - ironworks
+  - lurker
+  - mining_village
+  - pawn
+  - secret_passage
+  - steward
+  - swindler
+  - torturer
+  - trading_post
   idx: 40
   name: The Plot Thickens
 - cards:
-  - Courtyard
-  - Shanty Town
-  - Wishing Well
-  - Baron
-  - Conspirator
-  - Diplomat
-  - Secret Passage
-  - Duke
-  - Torturer
-  - Upgrade
+  - baron
+  - conspirator
+  - courtyard
+  - diplomat
+  - duke
+  - secret_passage
+  - shanty_town
+  - torturer
+  - upgrade
+  - wishing_well
   idx: 41
   name: Best Wishes
 - cards:
-  - Swindler
-  - Wishing Well
-  - Diplomat
-  - Secret Passage
-  - Courtier
-  - Lookout
-  - Monkey
-  - Tide Pools
-  - Treasure Map
-  - Bazaar
+  - bazaar
+  - courtier
+  - diplomat
+  - lookout
+  - monkey
+  - secret_passage
+  - swindler
+  - tide_pools
+  - treasure_map
+  - wishing_well
   idx: 42
   name: A Star to Steer By
 - cards:
-  - Pawn
-  - Shanty Town
-  - Patrol
-  - Replace
-  - Trading Post
-  - Lighthouse
-  - Sea Chart
-  - Cutpurse
-  - Island
-  - Wharf
+  - cutpurse
+  - island
+  - lighthouse
+  - patrol
+  - pawn
+  - replace
+  - sea_chart
+  - shanty_town
+  - trading_post
+  - wharf
   idx: 43
   name: Shore Patrol
 - cards:
-  - Pawn
-  - Steward
-  - Conspirator
-  - Mill
-  - Minion
-  - Transmute
-  - Vineyard
-  - Scrying Pool
-  - Golem
-  - Possession
+  - conspirator
+  - golem
+  - mill
+  - minion
+  - pawn
+  - possession
+  - scrying_pool
+  - steward
+  - transmute
+  - vineyard
   idx: 44
   name: Servants
 - cards:
-  - Masquerade
-  - Shanty Town
-  - Bridge
-  - Minion
-  - Torturer
-  - Nobles
-  - Herbalist
-  - University
-  - Familiar
-  - Philosopher's Stone
+  - bridge
+  - familiar
+  - herbalist
+  - masquerade
+  - minion
+  - nobles
+  - philosophers_stone
+  - shanty_town
+  - torturer
+  - university
   idx: 45
   name: Secret Research
 - cards:
-  - Lurker
-  - Wishing Well
-  - Baron
-  - Ironworks
-  - Trading Post
-  - Nobles
-  - Apothecary
-  - Scrying Pool
-  - Golem
-  - Apprentice
+  - apothecary
+  - apprentice
+  - baron
+  - golem
+  - ironworks
+  - lurker
+  - nobles
+  - scrying_pool
+  - trading_post
+  - wishing_well
   idx: 46
   name: Pools, Tools and Fools
 - cards:
-  - Pawn
-  - Shanty Town
-  - Baron
-  - Upgrade
-  - Farm
-  - Bishop
-  - Monument
-  - Collection
-  - Magnate
-  - Peddler
+  - baron
+  - bishop
+  - collection
+  - harem_farm
+  - magnate
+  - monument
+  - pawn
+  - peddler
+  - shanty_town
+  - upgrade
   idx: 47
   name: Paths to Victory
   use_colonies: true
+- idx: 48
 - cards:
-  - Wishing Well
-  - Baron
-  - Mining Village
-  - Patrol
-  - Upgrade
-  - Tiara
-  - Bank
-  - Expand
-  - Forge
-  - King's Court
+  - bank
+  - baron
+  - expand
+  - forge
+  - kings_court
+  - mining_village
+  - patrol
+  - tiara
+  - upgrade
+  - wishing_well
   idx: 49
   name: Lucky Seven
   use_colonies: true
 - cards:
-  - Pawn
-  - Shanty Town
-  - Patrol
-  - Replace
-  - Torturer
-  - Tunnel
-  - Jack of All Trades
-  - Weaver
-  - Cartographer
-  - Wheelwright
+  - cartographer
+  - jack_of_all_trades
+  - patrol
+  - pawn
+  - replace
+  - shanty_town
+  - torturer
+  - tunnel
+  - weaver
+  - wheelwright
   idx: 50
   name: Money for Nothing
 - cards:
-  - Masquerade
-  - Conspirator
-  - Duke
-  - Upgrade
-  - Farm
-  - Guard Dog
-  - Scheme
-  - Trail
-  - Inn
-  - Wheelwright
+  - conspirator
+  - duke
+  - guard_dog
+  - harem_farm
+  - inn
+  - masquerade
+  - scheme
+  - trail
+  - upgrade
+  - wheelwright
   idx: 51
   name: The Duke's Ball
 - cards:
-  - Wishing Well
-  - Baron
-  - Conspirator
-  - Secret Passage
-  - Nobles
-  - Vagrant
-  - Armory
-  - Ironmonger
-  - Mystic
-  - Rebuild
+  - armory
+  - baron
+  - conspirator
+  - ironmonger
+  - mystic
+  - nobles
+  - rebuild
+  - secret_passage
+  - vagrant
+  - wishing_well
   idx: 52
   name: Prophecy
   use_shelters: true
 - cards:
-  - Swindler
-  - Diplomat
-  - Torturer
-  - Upgrade
-  - Farm
-  - Beggar
-  - Squire
-  - Urchin
-  - Marauder
-  - Rogue
+  - beggar
+  - diplomat
+  - harem_farm
+  - marauder
+  - rogue
+  - squire
+  - swindler
+  - torturer
+  - upgrade
+  - urchin
   idx: 53
   name: Invasion
   use_shelters: true
-- cards:
-  - Pawn
-  - Steward
-  - Swindler
-  - Minion
-  - Nobles
-  - Farming Village
-  - Horse Traders
-  - Harvest
-  - Hunting Party
-  - Jester
-  idx: 54
-  name: Last Laughs
-- bane_pile: Wishing Well
+- idx: 54
+- bane_pile: wishing_well
   cards:
-  - Courtyard
-  - Wishing Well
-  - Diplomat
-  - Mining Village
-  - Courtier
-  - Replace
-  - Remake
-  - Tournament
-  - Young Witch
-  - Horn of Plenty
-  - Fairgrounds
+  - courtier
+  - courtyard
+  - diplomat
+  - fairgrounds
+  - horn_of_plenty
+  - joust
+  - mining_village
+  - remake
+  - replace
+  - wishing_well
+  - young_witch
   idx: 55
   name: The Spice of Life
+- idx: 56
+- idx: 57
 - cards:
-  - Pawn
-  - Conspirator
-  - Secret Passage
-  - Duke
-  - Farm
-  - Hamlet
-  - Fortune Teller
-  - Remake
-  - Tournament
-  - Hunting Party
-  idx: 56
-  name: Small Victories
-- cards:
-  - Courtyard
-  - Wishing Well
-  - Replace
-  - Farm
-  - Nobles
-  - Doctor
-  - Masterpiece
-  - Advisor
-  - Plaza
-  - Baker
-  idx: 57
-  name: Name That Card
-- cards:
-  - Masquerade
-  - Conspirator
-  - Mill
-  - Secret Passage
-  - Nobles
-  - Stonemason
-  - Herald
-  - Butcher
-  - Journeyman
-  - Soothsayer
+  - butcher
+  - conspirator
+  - herald
+  - journeyman
+  - masquerade
+  - mill
+  - nobles
+  - secret_passage
+  - soothsayer
+  - stonemason
   idx: 58
   name: Tricks of the Trade
+- idx: 59
 - cards:
-  - Pawn
-  - Bridge
-  - Mining Village
-  - Duke
-  - Upgrade
-  - Candlestick Maker
-  - Masterpiece
-  - Taxman
-  - Butcher
-  - Merchant Guild
-  idx: 59
-  name: Decision, Decisions
-- cards:
-  - Swindler
-  - Conspirator
-  - Courtier
-  - Farm
-  - Nobles
-  - Page
-  - Raze
-  - Duplicate
-  - Bridge Troll
-  - Royal Carriage
+  - bridge_troll
+  - conspirator
+  - courtier
+  - duplicate
+  - harem_farm
+  - nobles
+  - page
+  - raze
+  - royal_carriage
+  - swindler
   idx: 60
   landscapes:
-  - Pilgrimage
+  - pilgrimage
   name: Royalty Factory
 - cards:
-  - Pawn
-  - Shanty Town
-  - Steward
-  - Bridge
-  - Upgrade
-  - Gear
-  - Transmogrify
-  - Artificer
-  - Distant Lands
-  - Wine Merchant
+  - artificer
+  - bridge
+  - distant_lands
+  - gear
+  - pawn
+  - shanty_town
+  - steward
+  - transmogrify
+  - upgrade
+  - wine_merchant
   idx: 61
   landscapes:
-  - Ball
-  - Borrow
+  - ball
+  - borrow
   name: Masters of Finance
 - cards:
-  - Baron
-  - Bridge
-  - Ironworks
-  - Torturer
-  - Farm
-  - Settlers/Bustling Village
-  - Castles
-  - Enchantress
-  - Sacrifice
-  - Crown
+  - baron
+  - bridge
+  - castles
+  - crown
+  - enchantress
+  - harem_farm
+  - ironworks
+  - sacrifice
+  - settlers/bustling_village
+  - torturer
   idx: 62
   landscapes:
-  - Arena
-  - Banquet
+  - arena
+  - banquet
   name: Delicious Torture
 - cards:
-  - Pawn
-  - Masquerade
-  - Mining Village
-  - Trading Post
-  - Nobles
-  - Engineer
-  - Catapult/Rocks
-  - Archive
-  - Capital
-  - Forum
+  - archive
+  - capital
+  - catapult/rocks
+  - engineer
+  - forum
+  - masquerade
+  - mining_village
+  - nobles
+  - pawn
+  - trading_post
   idx: 63
   landscapes:
-  - Salt the Earth
-  - Wolf Den
+  - salt_the_earth
+  - wolf_den
   name: Buddy System
 - cards:
-  - Bridge
-  - Conspirator
-  - Mill
-  - Secret Passage
-  - Nobles
-  - Faithful Hound
-  - Conclave
-  - Shepherd
-  - Cobbler
-  - Tragic Hero
+  - bridge
+  - cobbler
+  - conclave
+  - conspirator
+  - faithful_hound
+  - mill
+  - nobles
+  - secret_passage
+  - shepherd
+  - tragic_hero
   idx: 64
   name: Shadowy Figures
 - cards:
-  - Lurker
-  - Swindler
-  - Mining Village
-  - Courtier
-  - Upgrade
-  - Monastery
-  - Leprechaun
-  - Necromancer
-  - Tormentor
-  - Werewolf
+  - courtier
+  - leprechaun
+  - lurker
+  - mining_village
+  - monastery
+  - necromancer
+  - swindler
+  - tormentor
+  - upgrade
+  - werewolf
   idx: 65
   name: Impending Doom
 - cards:
-  - Lurker
-  - Swindler
-  - Ironworks
-  - Patrol
-  - Upgrade
-  - Experiment
-  - Flag Bearer
-  - Patron
-  - Silk Merchant
-  - Recruiter
+  - experiment
+  - flag_bearer
+  - ironworks
+  - lurker
+  - patrol
+  - patron
+  - recruiter
+  - silk_merchant
+  - swindler
+  - upgrade
   idx: 66
   landscapes:
-  - Citadel
+  - citadel
   name: Memento Mori
 - cards:
-  - Steward
-  - Mining Village
-  - Courtier
-  - Replace
-  - Nobles
-  - Acting Troupe
-  - Inventor
-  - Research
-  - Scepter
-  - Scholar
+  - acting_troupe
+  - courtier
+  - inventor
+  - mining_village
+  - nobles
+  - replace
+  - research
+  - scepter
+  - scholar
+  - steward
   idx: 67
   landscapes:
-  - Fleet
-  - Sinister Plot
+  - fleet
+  - sinister_plot
   name: Clockwork Court
 - cards:
-  - Pawn
-  - Mill
-  - Torturer
-  - Upgrade
-  - Nobles
-  - Camel Train
-  - Goatherd
-  - Sheepdog
-  - Cavalry
-  - Paddock
+  - camel_train
+  - cavalry
+  - goatherd
+  - mill
+  - nobles
+  - paddock
+  - pawn
+  - sheepdog
+  - torturer
+  - upgrade
   idx: 68
   landscapes:
-  - Commerce
-  - Way of the Horse
+  - commerce
+  - way_of_the_horse
   name: Dog & Pony Show
 - cards:
-  - Courtyard
-  - Lurker
-  - Wishing Well
-  - Diplomat
-  - Replace
-  - Scrap
-  - Bounty Hunter
-  - Coven
-  - Hunting Lodge
-  - Animal Fair
+  - animal_fair
+  - bounty_hunter
+  - courtyard
+  - coven
+  - diplomat
+  - hunting_lodge
+  - lurker
+  - replace
+  - scrap
+  - wishing_well
   idx: 69
   landscapes:
-  - Populate
-  - Way of the Squirrel
+  - populate
+  - way_of_the_squirrel
   name: Explosions
 - cards:
-  - Lurker
-  - Steward
-  - Secret Passage
-  - Courtier
-  - Nobles
-  - Townsfolk
-  - Broker
-  - Courier
-  - Contract
-  - Hunter
+  - broker
+  - contract
+  - courier
+  - courtier
+  - hunter
+  - lurker
+  - nobles
+  - secret_passage
+  - steward
+  - townsfolk
   idx: 70
   landscapes:
-  - Circle of Witches
+  - circle_of_witches
   name: Dark Dealings
 - cards:
-  - Pawn
-  - Baron
-  - Conspirator
-  - Patrol
-  - Replace
-  - Merchant Camp
-  - Underling
-  - Wizards
-  - Innkeeper
-  - Swap
+  - baron
+  - conspirator
+  - innkeeper
+  - merchant_camp
+  - patrol
+  - pawn
+  - replace
+  - swap
+  - underling
+  - wizards
   idx: 71
   landscapes:
-  - Plateau Shepherds
+  - plateau_shepherds
   name: Pawns and Underlings
 - cards:
-  - Haven
-  - Lookout
-  - Warehouse
-  - Blockade
-  - Caravan
-  - Island
-  - Bazaar
-  - Corsair
-  - Pirate
-  - Wharf
+  - bazaar
+  - blockade
+  - caravan
+  - corsair
+  - haven
+  - island
+  - lookout
+  - pirate
+  - warehouse
+  - wharf
   idx: 72
   name: High Seas
 - cards:
-  - Lighthouse
-  - Astrolabe
-  - Fishing Village
-  - Monkey
-  - Sea Chart
-  - Cutpurse
-  - Sailor
-  - Treasure Map
-  - Outpost
-  - Tactician
+  - astrolabe
+  - cutpurse
+  - fishing_village
+  - lighthouse
+  - monkey
+  - outpost
+  - sailor
+  - sea_chart
+  - tactician
+  - treasure_map
   idx: 73
   name: Buried Treasure
 - cards:
-  - Haven
-  - Sea Chart
-  - Warehouse
-  - Sailor
-  - Sea Witch
-  - Vineyard
-  - Herbalist
-  - Familiar
-  - Philosopher's Stone
-  - Apprentice
+  - apprentice
+  - familiar
+  - haven
+  - herbalist
+  - philosophers_stone
+  - sailor
+  - sea_chart
+  - sea_witch
+  - vineyard
+  - warehouse
   idx: 74
   name: Gummed Up
 - cards:
-  - Fishing Village
-  - Lookout
-  - Outpost
-  - Tactician
-  - Wharf
-  - Bishop
-  - Quarry
-  - City
-  - Grand Market
-  - King's Court
+  - bishop
+  - city
+  - fishing_village
+  - grand_market
+  - kings_court
+  - lookout
+  - outpost
+  - quarry
+  - tactician
+  - wharf
   idx: 75
   name: Exploding Kingdom
   use_colonies: true
 - cards:
-  - Native Village
-  - Astrolabe
-  - Monkey
-  - Corsair
-  - Treasury
-  - Investment
-  - Charlatan
-  - Magnate
-  - Mint
-  - Hoard
+  - astrolabe
+  - charlatan
+  - corsair
+  - hoard
+  - investment
+  - magnate
+  - mint
+  - monkey
+  - native_village
+  - treasury
   idx: 76
   name: Pirate Bay
   use_colonies: true
 - cards:
-  - Lookout
-  - Warehouse
-  - Cutpurse
-  - Island
-  - Merchant Ship
-  - Crossroads
-  - Cartographer
-  - Souk
-  - Stables
-  - Farmland
+  - cartographer
+  - crossroads
+  - cutpurse
+  - farmland
+  - island
+  - lookout
+  - merchant_ship
+  - souk
+  - stables
+  - warehouse
   idx: 77
   name: Travelers
 - cards:
-  - Smugglers
-  - Blockade
-  - Caravan
-  - Sailor
-  - Bazaar
-  - Guard Dog
-  - Nomads
-  - Berserker
-  - Cauldron
-  - Wheelwright
+  - bazaar
+  - berserker
+  - blockade
+  - caravan
+  - cauldron
+  - guard_dog
+  - nomads
+  - sailor
+  - smugglers
+  - wheelwright
   idx: 78
   name: Runners
 - cards:
-  - Native Village
-  - Salvager
-  - Treasure Map
-  - Corsair
-  - Treasury
-  - Hermit
-  - Rats
-  - Scavenger
-  - Count
-  - Graverobber
+  - corsair
+  - count
+  - graverobber
+  - hermit
+  - native_village
+  - rats
+  - salvager
+  - scavenger
+  - treasure_map
+  - treasury
   idx: 79
   name: Watery Graves
   use_shelters: true
 - cards:
-  - Haven
-  - Lighthouse
-  - Fishing Village
-  - Warehouse
-  - Island
-  - Poor House
-  - Vagrant
-  - Forager
-  - Armory
-  - Band of Misfits
+  - armory
+  - band_of_misfits
+  - fishing_village
+  - forager
+  - haven
+  - island
+  - lighthouse
+  - poor_house
+  - vagrant
+  - warehouse
   idx: 80
   name: Peasants
   use_shelters: true
 - cards:
-  - Fishing Village
-  - Smugglers
-  - Blockade
-  - Tide Pools
-  - Merchant Ship
-  - Fortune Teller
-  - Farming Village
-  - Harvest
-  - Hunting Party
-  - Fairgrounds
+  - blockade
+  - fairgrounds
+  - farmhands
+  - farrier
+  - fishing_village
+  - footpad
+  - hunting_party
+  - monkey
+  - smugglers
+  - tide_pools
   idx: 81
-  name: Collector
+  name: Collecting
 - cards:
-  - Native Village
-  - Sea Chart
-  - Island
-  - Salvager
-  - Treasury
-  - Stonemason
-  - Advisor
-  - Plaza
-  - Baker
-  - Merchant Guild
+  - advisor
+  - baker
+  - island
+  - merchant_guild
+  - native_village
+  - plaza
+  - salvager
+  - sea_chart
+  - stonemason
+  - treasury
   idx: 82
   name: Island Builder
 - cards:
-  - Astrolabe
-  - Fishing Village
-  - Caravan
-  - Sailor
-  - Merchant Ship
-  - Page
-  - Amulet
-  - Dungeon
-  - Haunted Woods
-  - Swamp Hag
+  - amulet
+  - astrolabe
+  - caravan
+  - dungeon
+  - fishing_village
+  - haunted_woods
+  - merchant_ship
+  - page
+  - sailor
+  - swamp_hag
   idx: 83
   landscapes:
-  - Mission
+  - mission
   name: Prince of Orange
 - cards:
-  - Haven
-  - Smugglers
-  - Blockade
-  - Sailor
-  - Salvager
-  - Caravan Guard
-  - Messenger
-  - Bridge Troll
-  - Lost City
-  - Hireling
+  - blockade
+  - bridge_troll
+  - caravan_guard
+  - haven
+  - hireling
+  - lost_city
+  - messenger
+  - sailor
+  - salvager
+  - smugglers
   idx: 84
   landscapes:
-  - Expedition
-  - Quest
+  - expedition
+  - quest
   name: Gifts and Mathoms
 - cards:
-  - Smugglers
-  - Warehouse
-  - Salvager
-  - Tactician
-  - Wharf
-  - Encampment/Plunder
-  - Castles
-  - Chariot Race
-  - Enchantress
-  - Gladiator/Fortune
+  - castles
+  - chariot_race
+  - encampment/plunder
+  - enchantress
+  - gladiator/fortune
+  - salvager
+  - smugglers
+  - tactician
+  - warehouse
+  - wharf
   idx: 85
   landscapes:
-  - Tax
-  - Wall
+  - tax
+  - wall
   name: Boxed In
 - cards:
-  - Haven
-  - Native Village
-  - Corsair
-  - Pirate
-  - Sea Witch
-  - Overlord
-  - Farmers' Market
-  - Temple
-  - Archive
-  - Wild Hunt
+  - archive
+  - corsair
+  - farmers_market
+  - haven
+  - native_village
+  - overlord
+  - pirate
+  - sea_witch
+  - temple
+  - wild_hunt
   idx: 86
   landscapes:
-  - Delve
-  - Fountain
+  - delve
+  - fountain
   name: King of the Sea
 - cards:
-  - Caravan
-  - Sailor
-  - Corsair
-  - Merchant Ship
-  - Tactician
-  - Ghost Town
-  - Secret Cave
-  - Cobbler
-  - Den of Sin
-  - Raider
+  - caravan
+  - cobbler
+  - corsair
+  - den_of_sin
+  - ghost_town
+  - merchant_ship
+  - raider
+  - sailor
+  - secret_cave
+  - tactician
   idx: 87
   name: The New Black
 - cards:
-  - Monkey
-  - Salvager
-  - Tide Pools
-  - Bazaar
-  - Pirate
-  - Tracker
-  - Blessed Village
-  - Cemetery
-  - Idol
-  - Tragic Hero
+  - bazaar
+  - blessed_village
+  - cemetery
+  - idol
+  - monkey
+  - pirate
+  - salvager
+  - tide_pools
+  - tracker
+  - tragic_hero
   idx: 88
   name: Forbidden Isle
 - cards:
-  - Smugglers
-  - Blockade
-  - Island
-  - Outpost
-  - Wharf
-  - Lackeys
-  - Acting Troupe
-  - Cargo Ship
-  - Research
-  - Spices
+  - acting_troupe
+  - blockade
+  - cargo_ship
+  - island
+  - lackeys
+  - outpost
+  - research
+  - smugglers
+  - spices
+  - wharf
   idx: 89
   landscapes:
-  - Innovation
+  - innovation
   name: Free Shipping
 - cards:
-  - Native Village
-  - Astrolabe
-  - Caravan
-  - Salvager
-  - Treasure Map
-  - Border Guard
-  - Flag Bearer
-  - Inventor
-  - Sculptor
-  - Swashbuckler
+  - astrolabe
+  - border_guard
+  - caravan
+  - flag_bearer
+  - inventor
+  - native_village
+  - salvager
+  - sculptor
+  - swashbuckler
+  - treasure_map
   idx: 90
   landscapes:
-  - Crop Rotation
-  - Silos
+  - crop_rotation
+  - silos
   name: Digging For Treasure
 - cards:
-  - Lighthouse
-  - Fishing Village
-  - Caravan
-  - Tide Pools
-  - Pirate
-  - Sheepdog
-  - Groom
-  - Coven
-  - Barge
-  - Animal Fair
+  - animal_fair
+  - barge
+  - caravan
+  - coven
+  - fishing_village
+  - groom
+  - lighthouse
+  - pirate
+  - sheepdog
+  - tide_pools
   idx: 91
   landscapes:
-  - Invest
-  - Way of the Goat
+  - invest
+  - way_of_the_goat
   name: Innsmouth
 - cards:
-  - Astrolabe
-  - Warehouse
-  - Tide Pools
-  - Outpost
-  - Tactician
-  - Sleigh
-  - Bounty Hunter
-  - Cavalry
-  - Village Green
-  - Falconer
+  - astrolabe
+  - bounty_hunter
+  - cavalry
+  - falconer
+  - outpost
+  - sleigh
+  - tactician
+  - tide_pools
+  - village_green
+  - warehouse
   idx: 92
   landscapes:
-  - Alliance
-  - Way of the Monkey
+  - alliance
+  - way_of_the_monkey
   name: Ruritania
 - cards:
-  - Native Village
-  - Warehouse
-  - Cutpurse
-  - Sea Witch
-  - Tactician
-  - Odysseys
-  - Sentinel
-  - Royal Galley
-  - Guildmaster
-  - Highwayman
+  - cutpurse
+  - guildmaster
+  - highwayman
+  - native_village
+  - odysseys
+  - royal_galley
+  - sea_witch
+  - sentinel
+  - tactician
+  - warehouse
   idx: 93
   landscapes:
-  - Cave Dwellers
+  - cave_dwellers
   name: Forward Thinking
 - cards:
-  - Haven
-  - Lookout
-  - Treasure Map
-  - Outpost
-  - Treasury
-  - Forts
-  - Town
-  - Emissary
-  - Swap
-  - Marquis
+  - emissary
+  - forts
+  - haven
+  - lookout
+  - marquis
+  - outpost
+  - swap
+  - town
+  - treasure_map
+  - treasury
   idx: 94
   landscapes:
-  - Market Towns
+  - market_towns
   name: Treasure Hunt
+- idx: 95
 - cards:
-  - Vineyard
-  - University
-  - Familiar
-  - Apprentice
-  - Anvil
-  - Bishop
-  - Worker's Village
-  - Charlatan
-  - Mint
-  - Peddler
+  - anvil
+  - apprentice
+  - bishop
+  - charlatan
+  - familiar
+  - mint
+  - peddler
+  - university
+  - vineyard
+  - workers_village
   idx: 96
   name: Lower Learning
   use_colonies: true
+- idx: 97
 - cards:
-  - Vineyard
-  - University
-  - Familiar
-  - Golem
-  - Apprentice
-  - Guard Dog
-  - Nomads
-  - Highway
-  - Margrave
-  - Farmland
+  - apprentice
+  - familiar
+  - farmland
+  - golem
+  - guard_dog
+  - highway
+  - margrave
+  - nomads
+  - university
+  - vineyard
   idx: 98
   name: Wine Country
 - cards:
-  - Transmute
-  - Vineyard
-  - Scrying Pool
-  - Apprentice
-  - Market Square
-  - Armory
-  - Feodum
-  - Rats
-  - Wandering Minstrel
-  - Cultist
+  - apprentice
+  - armory
+  - cultist
+  - feodum
+  - market_square
+  - rats
+  - scrying_pool
+  - transmute
+  - vineyard
+  - wandering_minstrel
   idx: 99
   name: Infestations
   use_shelters: true
 - cards:
-  - Apothecary
-  - Herbalist
-  - University
-  - Golem
-  - Beggar
-  - Forager
-  - Ironmonger
-  - Catacombs
-  - Counterfeit
-  - Pillage
+  - apothecary
+  - beggar
+  - catacombs
+  - counterfeit
+  - forager
+  - golem
+  - herbalist
+  - ironmonger
+  - pillage
+  - university
   idx: 100
   name: Lamentations
   use_shelters: true
 - cards:
-  - University
-  - Alchemist
-  - Familiar
-  - Philosopher's Stone
-  - Golem
-  - Menagerie
-  - Horse Traders
-  - Remake
-  - Harvest
-  - Jester
+  - apothecary
+  - candlestick_maker
+  - carnival
+  - familiar
+  - golem
+  - herald
+  - infirmary
+  - jester
+  - menagerie
+  - university
   idx: 101
   name: Clown College
-- bane_pile: Herbalist
-  cards:
-  - Transmute
-  - Vineyard
-  - Apothecary
-  - Herbalist
-  - Scrying Pool
-  - Apprentice
-  - Hamlet
-  - Young Witch
-  - Horn of Plenty
-  - Hunting Party
-  - Fairgrounds
-  idx: 102
-  name: Wine & Dine
+- idx: 102
+- idx: 103
+- idx: 104
 - cards:
-  - Scrying Pool
-  - University
-  - Philosopher's Stone
-  - Golem
-  - Apprentice
-  - Stonemason
-  - Masterpiece
-  - Herald
-  - Butcher
-  - Merchant Guild
-  idx: 103
-  name: Illuminati
-- cards:
-  - Transmute
-  - Vineyard
-  - Herbalist
-  - Alchemist
-  - Familiar
-  - Candlestick Maker
-  - Doctor
-  - Plaza
-  - Baker
-  - Soothsayer
-  idx: 104
-  name: Tonics & Toxins
-- cards:
-  - Transmute
-  - Vineyard
-  - Scrying Pool
-  - University
-  - Apprentice
-  - Magpie
-  - Messenger
-  - Port
-  - Royal Carriage
-  - Treasure Trove
+  - apprentice
+  - magpie
+  - messenger
+  - port
+  - royal_carriage
+  - scrying_pool
+  - transmute
+  - treasure_trove
+  - university
+  - vineyard
   idx: 105
   landscapes:
-  - Plan
+  - plan
   name: Haste Potion
 - cards:
-  - Apothecary
-  - Herbalist
-  - Familiar
-  - Philosopher's Stone
-  - Golem
-  - Peasant
-  - Ratcatcher
-  - Amulet
-  - Caravan Guard
-  - Bridge Troll
+  - amulet
+  - apothecary
+  - bridge_troll
+  - caravan_guard
+  - familiar
+  - golem
+  - herbalist
+  - peasant
+  - philosophers_stone
+  - ratcatcher
   idx: 106
   landscapes:
-  - Save
-  - Trade
+  - save
+  - trade
   name: Cursecatchers
 - cards:
-  - Transmute
-  - Apothecary
-  - Herbalist
-  - University
-  - Apprentice
-  - City Quarter
-  - Encampment/Plunder
-  - Enchantress
-  - Farmers' Market
-  - Crown
+  - apothecary
+  - apprentice
+  - city_quarter
+  - crown
+  - encampment/plunder
+  - enchantress
+  - farmers_market
+  - herbalist
+  - transmute
+  - university
   idx: 107
   landscapes:
-  - Colonnade
-  - Museum
+  - colonnade
+  - museum
   name: Collectors
 - cards:
-  - Transmute
-  - Vineyard
-  - Alchemist
-  - Apprentice
-  - Tracker
-  - Bard
-  - Blessed Village
-  - Cemetery
-  - Skulk
-  - Sacred Grove
+  - alchemist
+  - apprentice
+  - bard
+  - blessed_village
+  - cemetery
+  - sacred_grove
+  - skulk
+  - tracker
+  - transmute
+  - vineyard
   idx: 108
   name: Nightmare Fuel
 - cards:
-  - Apothecary
-  - Scrying Pool
-  - Alchemist
-  - Golem
-  - Lackeys
-  - Cargo Ship
-  - Improve
-  - Patron
-  - Silk Merchant
-  - Sculptor
+  - alchemist
+  - apothecary
+  - cargo_ship
+  - golem
+  - improve
+  - lackeys
+  - patron
+  - scrying_pool
+  - sculptor
+  - silk_merchant
   idx: 109
   landscapes:
-  - Cathedral
+  - cathedral
   name: Peek-a-Boo
 - cards:
-  - Transmute
-  - Vineyard
-  - University
-  - Snowy Village
-  - Cavalry
-  - Coven
-  - Hunting Lodge
-  - Kiln
-  - Livery
-  - Wayfarer
+  - cavalry
+  - coven
+  - hunting_lodge
+  - kiln
+  - livery
+  - snowy_village
+  - transmute
+  - university
+  - vineyard
+  - wayfarer
   idx: 110
   landscapes:
-  - Delay
-  - Way of the Owl
+  - delay
+  - way_of_the_owl
   name: Class of 20
 - cards:
-  - Scrying Pool
-  - Alchemist
-  - Golem
-  - Apprentice
-  - Importer
-  - Merchant Camp
-  - Wizards
-  - Barbarian
-  - Galleria
-  - Modify
+  - alchemist
+  - apprentice
+  - barbarian
+  - galleria
+  - golem
+  - importer
+  - merchant_camp
+  - modify
+  - scrying_pool
+  - wizards
   idx: 111
   landscapes:
-  - Coastal Haven
+  - coastal_haven
   name: Recursion
 - cards:
-  - Watchtower
-  - Clerk
-  - Monument
-  - Tiara
-  - Worker's Village
-  - Crystal Ball
-  - Magnate
-  - Rabble
-  - Bank
-  - Expand
+  - bank
+  - clerk
+  - crystal_ball
+  - expand
+  - magnate
+  - monument
+  - rabble
+  - tiara
+  - watchtower
+  - workers_village
   idx: 112
   name: Beginners
   use_colonies: true
 - cards:
-  - Bishop
-  - Tiara
-  - Worker's Village
-  - City
-  - Collection
-  - War Chest
-  - Vault
-  - Hoard
-  - Forge
-  - Peddler
+  - bishop
+  - city
+  - collection
+  - forge
+  - hoard
+  - peddler
+  - tiara
+  - vault
+  - war_chest
+  - workers_village
   idx: 113
   name: Friendly Interactive
   use_colonies: true
+- idx: 114
 - cards:
-  - Watchtower
-  - Bishop
-  - Mint
-  - Hoard
-  - Expand
-  - Oasis
-  - Trail
-  - Berserker
-  - Cauldron
-  - Haggler
+  - berserker
+  - bishop
+  - cauldron
+  - expand
+  - haggler
+  - hoard
+  - mint
+  - oasis
+  - trail
+  - watchtower
   idx: 115
   name: Instant Gratification
   use_colonies: true
 - cards:
-  - Clerk
-  - Monument
-  - Tiara
-  - Crystal Ball
-  - Bank
-  - Fool's Gold
-  - Develop
-  - Guard Dog
-  - Cauldron
-  - Inn
+  - bank
+  - cauldron
+  - clerk
+  - crystal_ball
+  - develop
+  - fools_gold
+  - guard_dog
+  - inn
+  - monument
+  - tiara
   idx: 116
   name: Treasure Trove
   use_colonies: true
 - cards:
-  - Anvil
-  - City
-  - Crystal Ball
-  - Magnate
-  - War Chest
-  - Squire
-  - Forager
-  - Market Square
-  - Counterfeit
-  - Pillage
+  - anvil
+  - city
+  - counterfeit
+  - crystal_ball
+  - forager
+  - magnate
+  - market_square
+  - pillage
+  - squire
+  - war_chest
   idx: 117
   name: One Man's Trash
   use_colonies: true
   use_shelters: true
 - cards:
-  - Watchtower
-  - Quarry
-  - Collection
-  - Hoard
-  - Forge
-  - Squire
-  - Marauder
-  - Procession
-  - Bandit Camp
-  - Rogue
+  - bandit_camp
+  - collection
+  - forge
+  - hoard
+  - marauder
+  - procession
+  - quarry
+  - rogue
+  - squire
+  - watchtower
   idx: 118
   name: Honor Among Thieves
   use_colonies: true
   use_shelters: true
 - cards:
-  - Clerk
-  - Crystal Ball
-  - Magnate
-  - Hoard
-  - Forge
-  - Farming Village
-  - Remake
-  - Tournament
-  - Horn of Plenty
-  - Jester
+  - clerk
+  - crystal_ball
+  - farmhands
+  - forge
+  - hoard
+  - horn_of_plenty
+  - jester
+  - joust
+  - magnate
+  - remake
   idx: 119
   name: Detours
   use_colonies: true
 - cards:
-  - Quarry
-  - Charlatan
-  - City
-  - Grand Market
-  - Expand
-  - Candlestick Maker
-  - Baker
-  - Butcher
-  - Merchant Guild
-  - Soothsayer
+  - baker
+  - butcher
+  - candlestick_maker
+  - charlatan
+  - city
+  - expand
+  - grand_market
+  - merchant_guild
+  - quarry
+  - soothsayer
   idx: 120
   name: Quarrymen
   use_colonies: true
+- idx: 121
+- idx: 122
 - cards:
-  - Bishop
-  - Monument
-  - Collection
-  - Magnate
-  - Vault
-  - Coin of the Realm
-  - Dungeon
-  - Messenger
-  - Port
-  - Relic
+  - bishop
+  - coin_of_the_realm
+  - collection
+  - dungeon
+  - magnate
+  - messenger
+  - monument
+  - port
+  - relic
+  - vault
   idx: 123
   landscapes:
-  - Inheritance
+  - inheritance
   name: Last Will and Monument
   use_colonies: true
 - cards:
-  - War Chest
-  - Hoard
-  - Expand
-  - King's Court
-  - Peddler
-  - Miser
-  - Distant Lands
-  - Giant
-  - Storyteller
-  - Hireling
+  - distant_lands
+  - expand
+  - giant
+  - hireling
+  - hoard
+  - kings_court
+  - miser
+  - peddler
+  - storyteller
+  - war_chest
   idx: 124
   landscapes:
-  - Ball
-  - Ferry
+  - ball
+  - ferry
   name: Think Big
   use_colonies: true
 - cards:
-  - Investment
-  - Tiara
-  - Grand Market
-  - Bank
-  - Forge
-  - Royal Blacksmith
-  - Patrician/Emporium
-  - Gladiator/Fortune
-  - Villa
-  - Capital
+  - bank
+  - capital
+  - forge
+  - gladiator/fortune
+  - grand_market
+  - investment
+  - patrician/emporium
+  - royal_blacksmith
+  - tiara
+  - villa
   idx: 125
   landscapes:
-  - Dominate
-  - Obelisk
+  - dominate
+  - obelisk
   name: Big Time
   notes: Obelisk randomly assigned
   use_colonies: true
 - cards:
-  - Anvil
-  - Collection
-  - Mint
-  - War Chest
-  - Peddler
-  - City Quarter
-  - Encampment/Plunder
-  - Chariot Race
-  - Groundskeeper
-  - Wild Hunt
+  - anvil
+  - chariot_race
+  - city_quarter
+  - collection
+  - encampment/plunder
+  - groundskeeper
+  - mint
+  - peddler
+  - war_chest
+  - wild_hunt
   idx: 126
   landscapes:
-  - Basilica
-  - Palace
+  - basilica
+  - palace
   name: Gilded Gates
   use_colonies: true
 - cards:
-  - Investment
-  - Tiara
-  - Charlatan
-  - Crystal Ball
-  - War Chest
-  - Guardian
-  - Night Watchman
-  - Crypt
-  - Vampire
-  - Raider
+  - charlatan
+  - crypt
+  - crystal_ball
+  - guardian
+  - investment
+  - night_watchman
+  - raider
+  - tiara
+  - vampire
+  - war_chest
   idx: 127
   name: Treasures of the Night
   use_colonies: true
 - cards:
-  - Anvil
-  - Watchtower
-  - Bishop
-  - Clerk
-  - Peddler
-  - Druid
-  - Blessed Village
-  - Cemetery
-  - Tormentor
-  - Tragic Hero
+  - anvil
+  - bishop
+  - blessed_village
+  - cemetery
+  - clerk
+  - druid
+  - peddler
+  - tormentor
+  - tragic_hero
+  - watchtower
   druid_boons:
-  - The Swamp's Gift
-  - The River's Gift
-  - The Forest's Gift
+  - the_forests_gift
+  - the_rivers_gift
+  - the_swamps_gift
   idx: 128
   name: Day at the Races
   use_colonies: true
 - cards:
-  - Watchtower
-  - Monument
-  - Worker's Village
-  - Charlatan
-  - Vault
-  - Cargo Ship
-  - Priest
-  - Old Witch
-  - Scepter
-  - Scholar
+  - cargo_ship
+  - charlatan
+  - monument
+  - old_witch
+  - priest
+  - scepter
+  - scholar
+  - vault
+  - watchtower
+  - workers_village
   idx: 129
   landscapes:
-  - Academy
+  - academy
   name: Dreamers of Dreams
   use_colonies: true
 - cards:
-  - Investment
-  - City
-  - Rabble
-  - Grand Market
-  - Bank
-  - Hideout
-  - Patron
-  - Research
-  - Treasurer
-  - Villain
+  - bank
+  - city
+  - grand_market
+  - hideout
+  - investment
+  - patron
+  - rabble
+  - research
+  - treasurer
+  - villain
   idx: 130
   landscapes:
-  - Capitalism
-  - Citadel
+  - capitalism
+  - citadel
   name: Movers and Shakers
   use_colonies: true
 - cards:
-  - Anvil
-  - Worker's Village
-  - Mint
-  - Grand Market
-  - Peddler
-  - Supplies
-  - Displace
-  - Fisherman
-  - Destrier
-  - Wayfarer
+  - anvil
+  - destrier
+  - displace
+  - fisherman
+  - grand_market
+  - mint
+  - peddler
+  - supplies
+  - wayfarer
+  - workers_village
   idx: 131
   landscapes:
-  - Desperation
-  - Way of the Frog
+  - desperation
+  - way_of_the_frog
   name: Limited Time Offer
   use_colonies: true
 - cards:
-  - Clerk
-  - Monument
-  - Quarry
-  - City
-  - War Chest
-  - Camel Train
-  - Hunting Lodge
-  - Mastermind
-  - Paddock
-  - Animal Fair
+  - animal_fair
+  - camel_train
+  - city
+  - clerk
+  - hunting_lodge
+  - mastermind
+  - monument
+  - paddock
+  - quarry
+  - war_chest
   idx: 132
   landscapes:
-  - Reap
-  - Way of the Otter
+  - reap
+  - way_of_the_otter
   name: Otter Chaos
   use_colonies: true
 - cards:
-  - Anvil
-  - Quarry
-  - Rabble
-  - Expand
-  - King's Court
-  - Bauble
-  - Augurs
-  - Importer
-  - Carpenter
-  - Capital City
+  - anvil
+  - augurs
+  - bauble
+  - capital_city
+  - carpenter
+  - expand
+  - importer
+  - kings_court
+  - quarry
+  - rabble
   idx: 133
   landscapes:
-  - Family of Inventors
+  - family_of_inventors
   name: Inventing Mania
   use_colonies: true
 - cards:
-  - Clerk
-  - Investment
-  - City
-  - Vault
-  - Bank
-  - Sycophant
-  - Odysseys
-  - Broker
-  - Town
-  - Marquis
+  - bank
+  - broker
+  - city
+  - clerk
+  - investment
+  - marquis
+  - odysseys
+  - sycophant
+  - town
+  - vault
   idx: 134
   landscapes:
-  - League of Bankers
+  - league_of_bankers
   name: Bank of Toadies
   use_colonies: true
 - cards:
-  - Crossroads
-  - Develop
-  - Oasis
-  - Jack of All Trades
-  - Nomads
-  - Spice Merchant
-  - Weaver
-  - Cartographer
-  - Margrave
-  - Stables
+  - cartographer
+  - crossroads
+  - develop
+  - jack_of_all_trades
+  - margrave
+  - nomads
+  - oasis
+  - spice_merchant
+  - stables
+  - weaver
   idx: 135
   name: Introduction
+- idx: 136
 - cards:
-  - Fool's Gold
-  - Scheme
-  - Trader
-  - Trail
-  - Cauldron
-  - Haggler
-  - Highway
-  - Souk
-  - Wheelwright
-  - Border Village
+  - border_village
+  - cauldron
+  - fools_gold
+  - haggler
+  - highway
+  - scheme
+  - souk
+  - trader
+  - trail
+  - wheelwright
   idx: 137
   name: Bargains
+- idx: 138
 - cards:
-  - Fool's Gold
-  - Develop
-  - Weaver
-  - Cartographer
-  - Witch's Hut
-  - Feodum
-  - Fortress
-  - Wandering Minstrel
-  - Catacombs
-  - Count
+  - cartographer
+  - catacombs
+  - count
+  - develop
+  - feodum
+  - fools_gold
+  - fortress
+  - wandering_minstrel
+  - weaver
+  - witchs_hut
   idx: 139
   name: Far From Home
   use_shelters: true
 - cards:
-  - Oasis
-  - Scheme
-  - Nomads
-  - Spice Merchant
-  - Highway
-  - Poor House
-  - Storeroom
-  - Ironmonger
-  - Catacombs
-  - Altar
+  - altar
+  - catacombs
+  - highway
+  - ironmonger
+  - nomads
+  - oasis
+  - poor_house
+  - scheme
+  - spice_merchant
+  - storeroom
   idx: 140
   name: Expeditions
   use_shelters: true
 - cards:
-  - Fool's Gold
-  - Trail
-  - Tunnel
-  - Weaver
-  - Witch's Hut
-  - Hamlet
-  - Horse Traders
-  - Tournament
-  - Horn of Plenty
-  - Jester
+  - farrier
+  - ferryman
+  - fools_gold
+  - hamlet
+  - horn_of_plenty
+  - joust
+  - trail
+  - tunnel
+  - weaver
+  - witchs_hut
+  ferryman_pile: guard_dog
   idx: 141
   name: Blue Harvest
-- cards:
-  - Develop
-  - Trader
-  - Cauldron
-  - Stables
-  - Border Village
-  - Stonemason
-  - Masterpiece
-  - Herald
-  - Butcher
-  - Soothsayer
+- idx: 142
+- bane_pile: oasis
+  cards:
+  - border_village
+  - butcher
+  - cauldron
+  - develop
+  - herald
+  - oasis
+  - soothsayer
+  - stables
+  - stonemason
+  - trader
+  - young_witch
   idx: 143
   name: Exchanges
+- idx: 144
 - cards:
-  - Guard Dog
-  - Spice Merchant
-  - Trader
-  - Berserker
-  - Haggler
-  - Page
-  - Port
-  - Haunted Woods
-  - Lost City
-  - Wine Merchant
+  - berserker
+  - guard_dog
+  - haggler
+  - haunted_woods
+  - lost_city
+  - page
+  - port
+  - spice_merchant
+  - trader
+  - wine_merchant
   idx: 145
   landscapes:
-  - Raid
+  - raid
   name: Traders and Raiders
 - cards:
-  - Crossroads
-  - Trail
-  - Cartographer
-  - Highway
-  - Inn
-  - Guide
-  - Ranger
-  - Bridge Troll
-  - Distant Lands
-  - Giant
+  - bridge_troll
+  - cartographer
+  - crossroads
+  - distant_lands
+  - giant
+  - guide
+  - highway
+  - inn
+  - ranger
+  - trail
   idx: 146
   landscapes:
-  - Expedition
-  - Inheritance
+  - expedition
+  - inheritance
   name: Journeys
 - cards:
-  - Cauldron
-  - Haggler
-  - Stables
-  - Wheelwright
-  - Border Village
-  - Patrician/Emporium
-  - Catapult/Rocks
-  - Enchantress
-  - Villa
-  - Forum
+  - border_village
+  - catapult/rocks
+  - cauldron
+  - enchantress
+  - forum
+  - haggler
+  - patrician/emporium
+  - stables
+  - villa
+  - wheelwright
   idx: 147
   landscapes:
-  - Donate
-  - Labyrinth
+  - donate
+  - labyrinth
   name: Simple Plans
 - cards:
-  - Tunnel
-  - Spice Merchant
-  - Highway
-  - Stables
-  - Farmland
-  - Engineer
-  - Encampment/Plunder
-  - Castles
-  - Charm
-  - Legionary
+  - castles
+  - charm
+  - encampment/plunder
+  - engineer
+  - farmland
+  - highway
+  - legionary
+  - spice_merchant
+  - stables
+  - tunnel
   idx: 148
   landscapes:
-  - Battlefield
-  - Fountain
+  - battlefield
+  - fountain
   name: Expansion
 - cards:
-  - Oasis
-  - Scheme
-  - Cartographer
-  - Inn
-  - Souk
-  - Druid
-  - Faithful Hound
-  - Conclave
-  - Cobbler
-  - Werewolf
+  - cartographer
+  - cobbler
+  - conclave
+  - druid
+  - faithful_hound
+  - inn
+  - oasis
+  - scheme
+  - souk
+  - werewolf
   druid_boons:
-  - The Mountain's Gift
-  - The Sky's Gift
-  - The Sun's Gift
+  - the_mountains_gift
+  - the_skys_gift
+  - the_suns_gift
   idx: 149
   name: Search Party
 - cards:
-  - Crossroads
-  - Oasis
-  - Tunnel
-  - Weaver
-  - Farmland
-  - Leprechaun
-  - Secret Cave
-  - Shepherd
-  - Crypt
-  - Pooka
+  - crossroads
+  - crypt
+  - farmland
+  - leprechaun
+  - oasis
+  - pooka
+  - secret_cave
+  - shepherd
+  - tunnel
+  - weaver
   idx: 150
   name: Counting Sheep
 - cards:
-  - Develop
-  - Guard Dog
-  - Spice Merchant
-  - Haggler
-  - Witch's Hut
-  - Lackeys
-  - Flag Bearer
-  - Mountain Village
-  - Silk Merchant
-  - Spices
+  - develop
+  - flag_bearer
+  - guard_dog
+  - haggler
+  - lackeys
+  - mountain_village
+  - silk_merchant
+  - spice_merchant
+  - spices
+  - witchs_hut
   idx: 151
   landscapes:
-  - Silos
+  - silos
   name: Sweetened Deals
 - cards:
-  - Oasis
-  - Trader
-  - Berserker
-  - Souk
-  - Border Village
-  - Ducat
-  - Patron
-  - Scepter
-  - Seer
-  - Swashbuckler
+  - berserker
+  - border_village
+  - ducat
+  - oasis
+  - patron
+  - scepter
+  - seer
+  - souk
+  - swashbuckler
+  - trader
   idx: 152
   landscapes:
-  - Barracks
-  - Guildhall
+  - barracks
+  - guildhall
   name: A Penny Saved
 - cards:
-  - Tunnel
-  - Trader
-  - Trail
-  - Weaver
-  - Witch's Hut
-  - Black Cat
-  - Sleigh
-  - Sheepdog
-  - Village Green
-  - Falconer
+  - black_cat
+  - falconer
+  - sheepdog
+  - sleigh
+  - trader
+  - trail
+  - tunnel
+  - village_green
+  - weaver
+  - witchs_hut
   idx: 153
   landscapes:
-  - Banish
-  - Way of the Turtle
+  - banish
+  - way_of_the_turtle
   name: Big Blue
 - cards:
-  - Develop
-  - Nomads
-  - Stables
-  - Wheelwright
-  - Farmland
-  - Supplies
-  - Cardinal
-  - Hostelry
-  - Livery
-  - Mastermind
+  - cardinal
+  - develop
+  - farmland
+  - hostelry
+  - livery
+  - mastermind
+  - nomads
+  - stables
+  - supplies
+  - wheelwright
   idx: 154
   landscapes:
-  - Gamble
-  - Way of the Mouse
-  mouse_card: Crossroads
+  - gamble
+  - way_of_the_mouse
+  mouse_card: crossroads
   name: Intersection
 - cards:
-  - Tunnel
-  - Jack of All Trades
-  - Trail
-  - Haggler
-  - Margrave
-  - Bauble
-  - Carpenter
-  - Innkeeper
-  - Capital City
-  - Contract
+  - bauble
+  - capital_city
+  - carpenter
+  - contract
+  - haggler
+  - innkeeper
+  - jack_of_all_trades
+  - margrave
+  - trail
+  - tunnel
   idx: 155
   landscapes:
-  - Fellowship of Scribes
+  - fellowship_of_scribes
   name: Longest Tunnel
 - cards:
-  - Crossroads
-  - Spice Merchant
-  - Highway
-  - Inn
-  - Border Village
-  - Townsfolk
-  - Underling
-  - Barbarian
-  - Highwayman
-  - Specialist
+  - barbarian
+  - border_village
+  - crossroads
+  - highway
+  - highwayman
+  - inn
+  - specialist
+  - spice_merchant
+  - townsfolk
+  - underling
   idx: 156
   landscapes:
-  - Order of Masons
+  - order_of_masons
   name: Expertise
 - cards:
-  - Forager
-  - Market Square
-  - Armory
-  - Fortress
-  - Procession
-  - Band of Misfits
-  - Catacombs
-  - Cultist
-  - Knights
-  - Hunting Grounds
+  - armory
+  - band_of_misfits
+  - catacombs
+  - cultist
+  - forager
+  - fortress
+  - hunting_grounds
+  - knights
+  - market_square
+  - procession
   idx: 157
   name: Grim Parade
   use_shelters: true
 - cards:
-  - Vagrant
-  - Sage
-  - Storeroom
-  - Rats
-  - Scavenger
-  - Bandit Camp
-  - Graverobber
-  - Junk Dealer
-  - Mystic
-  - Pillage
+  - bandit_camp
+  - graverobber
+  - junk_dealer
+  - mystic
+  - pillage
+  - rats
+  - sage
+  - scavenger
+  - storeroom
+  - vagrant
   idx: 158
   name: Chess With Death
   use_shelters: true
 - cards:
-  - Hermit
-  - Fortress
-  - Band of Misfits
-  - Cultist
-  - Junk Dealer
-  - Hamlet
-  - Menagerie
-  - Knights
-  - Horn of Plenty
-  - Fairgrounds
+  - cultist
+  - death_cart
+  - fairgrounds
+  - ferryman
+  - hamlet
+  - hermit
+  - horn_of_plenty
+  - junk_dealer
+  - knights
+  - menagerie
+  ferryman_pile: fortress
   idx: 159
   name: Dark Carnival
   use_shelters: true
+- idx: 160
 - cards:
-  - Death Cart
-  - Marauder
-  - Bandit Camp
-  - Counterfeit
-  - Pillage
-  - Sage
-  - Remake
-  - Tournament
-  - Harvest
-  - Hunting Party
-  idx: 160
-  name: To the Victor
-  use_shelters: true
-- cards:
-  - Ironmonger
-  - Procession
-  - Marauder
-  - Rogue
-  - Hunting Grounds
-  - Candlestick Maker
-  - Stonemason
-  - Advisor
-  - Plaza
-  - Baker
+  - advisor
+  - farrier
+  - hunting_grounds
+  - ironmonger
+  - marauder
+  - plaza
+  - procession
+  - rogue
+  - shop
+  - stonemason
   idx: 161
   name: Stoneground
   use_shelters: true
+- idx: 162
 - cards:
-  - Poor House
-  - Market Square
-  - Feodum
-  - Fortress
-  - Knights
-  - Doctor
-  - Taxman
-  - Butcher
-  - Journeyman
-  - Merchant Guild
-  idx: 162
-  name: Class Struggle
-  use_shelters: true
-- cards:
-  - Marauder
-  - Procession
-  - Wandering Minstrel
-  - Graverobber
-  - Rogue
-  - Peasant
-  - Amulet
-  - Caravan Guard
-  - Relic
-  - Hireling
+  - amulet
+  - caravan_guard
+  - graverobber
+  - hireling
+  - marauder
+  - peasant
+  - procession
+  - relic
+  - rogue
+  - wandering_minstrel
   idx: 163
   landscapes:
-  - Alms
+  - alms
   name: Cemetery Polka
   use_shelters: true
 - cards:
-  - Death Cart
-  - Fortress
-  - Rats
-  - Cultist
-  - Knights
-  - Ratcatcher
-  - Raze
-  - Dungeon
-  - Transmogrify
-  - Haunted Woods
+  - cultist
+  - death_cart
+  - dungeon
+  - fortress
+  - haunted_woods
+  - knights
+  - ratcatcher
+  - rats
+  - raze
+  - transmogrify
   idx: 164
   landscapes:
-  - Lost Arts
-  - Pathfinding
+  - lost_arts
+  - pathfinding
   name: Groovy Decay
   use_shelters: true
 - cards:
-  - Storeroom
-  - Death Cart
-  - Fortress
-  - Rats
-  - Pillage
-  - City Quarter
-  - Castles
-  - Chariot Race
-  - Sacrifice
-  - Legionary
+  - castles
+  - chariot_race
+  - city_quarter
+  - death_cart
+  - fortress
+  - legionary
+  - pillage
+  - rats
+  - sacrifice
+  - storeroom
   idx: 165
   landscapes:
-  - Advance
-  - Tomb
+  - advance
+  - tomb
   name: Tomb of the Rat King
   use_shelters: true
 - cards:
-  - Market Square
-  - Procession
-  - Bandit Camp
-  - Catacombs
-  - Hunting Grounds
-  - Engineer
-  - Capital
-  - Charm
-  - Groundskeeper
-  - Legionary
+  - bandit_camp
+  - capital
+  - catacombs
+  - charm
+  - engineer
+  - groundskeeper
+  - hunting_grounds
+  - legionary
+  - market_square
+  - procession
   idx: 166
   landscapes:
-  - Defiled Shrine
-  - Triumph
+  - defiled_shrine
+  - triumph
   name: Triumph of the Bandit King
   use_shelters: true
 - cards:
-  - Squire
-  - Hermit
-  - Feodum
-  - Ironmonger
-  - Rogue
-  - Patrician/Emporium
-  - Settlers/Bustling Village
-  - Catapult/Rocks
-  - Archive
-  - Crown
+  - archive
+  - catapult/rocks
+  - crown
+  - feodum
+  - hermit
+  - ironmonger
+  - patrician/emporium
+  - rogue
+  - settlers/bustling_village
+  - squire
   idx: 167
   landscapes:
-  - Museum
-  - Ritual
+  - museum
+  - ritual
   name: The Squire's Ritual
   use_shelters: true
 - cards:
-  - Squire
-  - Forager
-  - Market Square
-  - Armory
-  - Graverobber
-  - Cemetery
-  - Necromancer
-  - Skulk
-  - Cursed Village
-  - Tormentor
+  - armory
+  - cemetery
+  - cursed_village
+  - forager
+  - graverobber
+  - market_square
+  - necromancer
+  - skulk
+  - squire
+  - tormentor
   idx: 168
   name: Grave Matters
   use_shelters: true
 - cards:
-  - Hermit
-  - Fortress
-  - Rats
-  - Catacombs
-  - Count
-  - Tracker
-  - Changeling
-  - Devil's Workshop
-  - Sacred Grove
-  - Vampire
+  - catacombs
+  - changeling
+  - count
+  - devils_workshop
+  - fortress
+  - hermit
+  - rats
+  - sacred_grove
+  - tracker
+  - vampire
   idx: 169
   name: Rats and Bats
   use_shelters: true
 - cards:
-  - Hermit
-  - Sage
-  - Procession
-  - Wandering Minstrel
-  - Mystic
-  - Border Guard
-  - Patron
-  - Silk Merchant
-  - Seer
-  - Swashbuckler
+  - border_guard
+  - hermit
+  - mystic
+  - patron
+  - procession
+  - sage
+  - seer
+  - silk_merchant
+  - swashbuckler
+  - wandering_minstrel
   idx: 170
   landscapes:
-  - Star Chart
+  - star_chart
   name: Stargazing
   use_shelters: true
 - cards:
-  - Rats
-  - Count
-  - Counterfeit
-  - Cultist
-  - Graverobber
-  - Lackeys
-  - Improve
-  - Flag Bearer
-  - Mountain Village
-  - Research
+  - count
+  - counterfeit
+  - cultist
+  - flag_bearer
+  - graverobber
+  - improve
+  - lackeys
+  - mountain_village
+  - rats
+  - research
   idx: 171
   landscapes:
-  - Crop Rotation
-  - Sewers
+  - crop_rotation
+  - sewers
   name: Sewer Rats
   use_shelters: true
 - cards:
-  - Beggar
-  - Market Square
-  - Fortress
-  - Catacombs
-  - Altar
-  - Goatherd
-  - Cardinal
-  - Falconer
-  - Hunting Lodge
-  - Animal Fair
+  - altar
+  - animal_fair
+  - beggar
+  - cardinal
+  - catacombs
+  - falconer
+  - fortress
+  - goatherd
+  - hunting_lodge
+  - market_square
   idx: 172
   landscapes:
-  - Ride
-  - Way of the Camel
+  - ride
+  - way_of_the_camel
   name: Friendly Carnage
   use_shelters: true
 - cards:
-  - Squire
-  - Sage
-  - Rats
-  - Pillage
-  - Hunting Grounds
-  - Camel Train
-  - Scrap
-  - Displace
-  - Paddock
-  - Destrier
+  - camel_train
+  - destrier
+  - displace
+  - hunting_grounds
+  - paddock
+  - pillage
+  - rats
+  - sage
+  - scrap
+  - squire
   idx: 173
   landscapes:
-  - Bargain
-  - Way of the Butterfly
+  - bargain
+  - way_of_the_butterfly
   name: Gift Horses
   use_shelters: true
 - cards:
-  - Poor House
-  - Beggar
-  - Forager
-  - Bandit Camp
-  - Graverobber
-  - Wizards
-  - Broker
-  - Barbarian
-  - Contract
-  - Highwayman
+  - bandit_camp
+  - barbarian
+  - beggar
+  - broker
+  - contract
+  - forager
+  - graverobber
+  - highwayman
+  - poor_house
+  - wizards
   idx: 174
   landscapes:
-  - Cave Dwellers
+  - cave_dwellers
   name: Grave Business
   use_shelters: true
 - cards:
-  - Squire
-  - Death Cart
-  - Rats
-  - Count
-  - Knights
-  - Townsfolk
-  - Importer
-  - Emissary
-  - Skirmisher
-  - Swap
+  - count
+  - death_cart
+  - emissary
+  - importer
+  - knights
+  - rats
+  - skirmisher
+  - squire
+  - swap
+  - townsfolk
   idx: 175
   landscapes:
-  - Desert Guides
+  - desert_guides
   name: Rat Traders
   use_shelters: true
 - cards:
-  - Candlestick Maker
-  - Doctor
-  - Fortune Teller
-  - Advisor
-  - Farming Village
-  - Horse Traders
-  - Taxman
-  - Jester
-  - Soothsayer
-  - Fairgrounds
+  - advisor
+  - candlestick_maker
+  - carnival
+  - fairgrounds
+  - farmhands
+  - horn_of_plenty
+  - infirmary
+  - jester
+  - merchant_guild
+  - soothsayer
   idx: 176
   name: Misfortune
 - cards:
-  - Stonemason
-  - Masterpiece
-  - Menagerie
-  - Farming Village
-  - Herald
-  - Remake
-  - Tournament
-  - Baker
-  - Harvest
-  - Journeyman
+  - baker
+  - farrier
+  - hamlet
+  - herald
+  - hunting_party
+  - joust
+  - menagerie
+  - remake
+  - shop
+  - stonemason
   idx: 177
   name: Baking Contest
 - cards:
-  - Menagerie
-  - Farming Village
-  - Horse Traders
-  - Jester
-  - Fairgrounds
-  - Page
-  - Miser
-  - Ranger
-  - Artificer
-  - Relic
+  - artificer
+  - carnival
+  - farmhands
+  - footpad
+  - menagerie
+  - miser
+  - page
+  - ranger
+  - relic
+  - shop
   idx: 178
   landscapes:
-  - Travelling Fair
+  - travelling_fair
   name: The Hero's Return
-- bane_pile: Guide
+- idx: 179
+- idx: 180
+- bane_pile: coin_of_the_realm
   cards:
-  - Hamlet
-  - Fortune Teller
-  - Tournament
-  - Young Witch
-  - Horn of Plenty
-  - Peasant
-  - Guide
-  - Transmogrify
-  - Storyteller
-  - Swamp Hag
-  - Wine Merchant
-  idx: 179
-  landscapes:
-  - Ferry
-  - Seaway
-  name: Seacraft and Witchcraft
-- cards:
-  - Stonemason
-  - Doctor
-  - Masterpiece
-  - Merchant Guild
-  - Soothsayer
-  - Gear
-  - Magpie
-  - Miser
-  - Artificer
-  - Storyteller
-  idx: 180
-  landscapes:
-  - Lost Arts
-  name: Spendthrift
-- cards:
-  - Candlestick Maker
-  - Advisor
-  - Herald
-  - Butcher
-  - Journeyman
-  - Coin of the Realm
-  - Ratcatcher
-  - Guide
-  - Duplicate
-  - Royal Carriage
+  - advisor
+  - coin_of_the_realm
+  - duplicate
+  - guide
+  - herald
+  - journeyman
+  - merchant_guild
+  - ratcatcher
+  - royal_carriage
+  - transmogrify
+  - young_witch
   idx: 181
   landscapes:
-  - Pathfinding
-  - Save
+  - pathfinding
+  - save
   name: Queen of Tan
 - cards:
-  - Menagerie
-  - Horse Traders
-  - Tournament
-  - Jester
-  - Fairgrounds
-  - Overlord
-  - Settlers/Bustling Village
-  - Sacrifice
-  - Villa
-  - Wild Hunt
+  - ferryman
+  - groundskeeper
+  - jester
+  - menagerie
+  - overlord
+  - remake
+  - sacrifice
+  - settlers/bustling_village
+  - shop
+  - wild_hunt
+  ferryman_pile: villa
   idx: 182
   landscapes:
-  - Annex
-  - Colonnade
+  - annex
+  - colonnade
   name: Zookeepers
 - cards:
-  - Doctor
-  - Herald
-  - Baker
-  - Butcher
-  - Soothsayer
-  - Engineer
-  - City Quarter
-  - Royal Blacksmith
-  - Castles
-  - Gladiator/Fortune
+  - baker
+  - carnival
+  - castles
+  - city_quarter
+  - engineer
+  - gladiator/fortune
+  - herald
+  - infirmary
+  - royal_blacksmith
+  - soothsayer
   idx: 183
   landscapes:
-  - Baths
-  - Mountain Pass
+  - baths
+  - mountain_pass
   name: Cash Flow
 - cards:
-  - Fortune Teller
-  - Farming Village
-  - Baker
-  - Merchant Guild
-  - Fairgrounds
-  - Monastery
-  - Pixie
-  - Devil's Workshop
-  - Exorcist
-  - Shepherd
+  - baker
+  - carnival
+  - devils_workshop
+  - exorcist
+  - fairgrounds
+  - farmhands
+  - merchant_guild
+  - monastery
+  - pixie
+  - shepherd
   idx: 184
   name: The Endless Fair
-- cards:
-  - Doctor
-  - Masterpiece
-  - Herald
-  - Harvest
-  - Jester
-  - Faithful Hound
-  - Changeling
-  - Fool
-  - Blessed Village
-  - Sacred Grove
+- bane_pile: leprechaun
+  cards:
+  - blessed_village
+  - carnival
+  - changeling
+  - faithful_hound
+  - infirmary
+  - jester
+  - leprechaun
+  - sacred_grove
+  - secret_cave
+  - shop
+  - young_witch
   idx: 185
   name: Happy Chaos
 - cards:
-  - Stonemason
-  - Herald
-  - Horse Traders
-  - Horn of Plenty
-  - Jester
-  - Ducat
-  - Experiment
-  - Hideout
-  - Sculptor
-  - Seer
+  - ducat
+  - experiment
+  - farrier
+  - ferryman
+  - hideout
+  - horn_of_plenty
+  - jester
+  - sculptor
+  - seer
+  - stonemason
+  ferryman_pile: mountain_village
   idx: 186
   landscapes:
-  - Canal
+  - canal
   name: Combo Corner
 - cards:
-  - Menagerie
-  - Plaza
-  - Baker
-  - Butcher
-  - Merchant Guild
-  - Priest
-  - Recruiter
-  - Spices
-  - Swashbuckler
-  - Treasurer
+  - baker
+  - butcher
+  - farrier
+  - merchant_guild
+  - plaza
+  - priest
+  - recruiter
+  - spices
+  - swashbuckler
+  - treasurer
   idx: 187
   landscapes:
-  - City Gate
-  - Star Chart
+  - city_gate
+  - star_chart
   name: Filling the Coffers
 - cards:
-  - Hamlet
-  - Taxman
-  - Jester
-  - Journeyman
-  - Fairgrounds
-  - Scrap
-  - Stockpile
-  - Hostelry
-  - Gatekeeper
-  - Livery
+  - farmhands
+  - footpad
+  - gatekeeper
+  - hamlet
+  - hostelry
+  - infirmary
+  - journeyman
+  - livery
+  - scrap
+  - stockpile
   idx: 188
   landscapes:
-  - Enclave
-  - Way of the Mule
+  - enclave
+  - way_of_the_mule
   name: Living in Exile
 - cards:
-  - Menagerie
-  - Horse Traders
-  - Tournament
-  - Butcher
-  - Hunting Party
-  - Black Cat
-  - Camel Train
-  - Bounty Hunter
-  - Village Green
-  - Mastermind
+  - black_cat
+  - bounty_hunter
+  - butcher
+  - camel_train
+  - carnival
+  - hamlet
+  - hunting_party
+  - joust
+  - mastermind
+  - village_green
   idx: 189
   landscapes:
-  - Pursue
-  - Way of the Rat
+  - pursue
+  - way_of_the_rat
   name: Thrill of the Hunt
 - cards:
-  - Menagerie
-  - Advisor
-  - Plaza
-  - Hunting Party
-  - Fairgrounds
-  - Clashes
-  - Forts
-  - Sentinel
-  - Contract
-  - Galleria
+  - advisor
+  - clashes
+  - contract
+  - fairgrounds
+  - forts
+  - galleria
+  - hunting_party
+  - plaza
+  - sentinel
+  - shop
   idx: 190
   landscapes:
-  - Woodworkers' Guild
+  - woodworkers_guild
   name: Huge Collections
 - cards:
-  - Candlestick Maker
-  - Farming Village
-  - Baker
-  - Jester
-  - Journeyman
-  - Augurs
-  - Sentinel
-  - Innkeeper
-  - Royal Galley
-  - Emissary
+  - augurs
+  - baker
+  - candlestick_maker
+  - emissary
+  - farmhands
+  - footpad
+  - innkeeper
+  - journeyman
+  - royal_galley
+  - sentinel
   idx: 191
   landscapes:
-  - Forest Dwellers
+  - forest_dwellers
   name: Forest Scouts
 - cards:
-  - Ratcatcher
-  - Amulet
-  - Dungeon
-  - Duplicate
-  - Port
-  - Ranger
-  - Distant Lands
-  - Giant
-  - Treasure Trove
-  - Hireling
+  - amulet
+  - distant_lands
+  - dungeon
+  - duplicate
+  - giant
+  - hireling
+  - port
+  - ranger
+  - ratcatcher
+  - treasure_trove
   idx: 192
   landscapes:
-  - Scouting Party
+  - scouting_party
   name: Gentle Intro
 - cards:
-  - Coin of the Realm
-  - Peasant
-  - Raze
-  - Caravan Guard
-  - Magpie
-  - Transmogrify
-  - Haunted Woods
-  - Lost City
-  - Swamp Hag
-  - Wine Merchant
+  - caravan_guard
+  - coin_of_the_realm
+  - haunted_woods
+  - lost_city
+  - magpie
+  - peasant
+  - raze
+  - swamp_hag
+  - transmogrify
+  - wine_merchant
   idx: 193
   landscapes:
-  - Mission
-  - Plan
+  - mission
+  - plan
   name: Expert Intro
 - cards:
-  - Coin of the Realm
-  - Page
-  - Relic
-  - Treasure Trove
-  - Wine Merchant
-  - Catapult/Rocks
-  - Farmers' Market
-  - Capital
-  - Charm
-  - Crown
+  - capital
+  - catapult/rocks
+  - charm
+  - coin_of_the_realm
+  - crown
+  - farmers_market
+  - page
+  - relic
+  - treasure_trove
+  - wine_merchant
   idx: 194
   landscapes:
-  - Banquet
-  - Keep
+  - banquet
+  - keep
   name: Area Control
 - cards:
-  - Peasant
-  - Dungeon
-  - Duplicate
-  - Transmogrify
-  - Hireling
-  - Royal Blacksmith
-  - Encampment/Plunder
-  - Temple
-  - Villa
-  - Archive
+  - archive
+  - dungeon
+  - duplicate
+  - encampment/plunder
+  - hireling
+  - peasant
+  - royal_blacksmith
+  - temple
+  - transmogrify
+  - villa
   idx: 195
   landscapes:
-  - Bandit Fort
-  - Mission
+  - bandit_fort
+  - mission
   name: No Money No Problems
 - cards:
-  - Ratcatcher
-  - Messenger
-  - Bridge Troll
-  - Giant
-  - Storyteller
-  - Guardian
-  - Pixie
-  - Conclave
-  - Vampire
-  - Werewolf
+  - bridge_troll
+  - conclave
+  - giant
+  - guardian
+  - messenger
+  - pixie
+  - ratcatcher
+  - storyteller
+  - vampire
+  - werewolf
   idx: 196
   landscapes:
-  - Quest
+  - quest
   name: Monster Mash
 - cards:
-  - Caravan Guard
-  - Guide
-  - Ranger
-  - Haunted Woods
-  - Hireling
-  - Druid
-  - Tracker
-  - Fool
-  - Blessed Village
-  - Sacred Grove
+  - blessed_village
+  - caravan_guard
+  - druid
+  - fool
+  - guide
+  - haunted_woods
+  - hireling
+  - ranger
+  - sacred_grove
+  - tracker
   druid_boons:
-  - The Sky's Gift
-  - The Field's Gift
-  - The Sea's Gift
+  - the_fields_gift
+  - the_seas_gift
+  - the_skys_gift
   idx: 197
   landscapes:
-  - Pilgrimage
+  - pilgrimage
   name: Lost in the Woods
 - cards:
-  - Raze
-  - Ranger
-  - Transmogrify
-  - Swamp Hag
-  - Hireling
-  - Experiment
-  - Improve
-  - Silk Merchant
-  - Recruiter
-  - Seer
+  - experiment
+  - hireling
+  - improve
+  - ranger
+  - raze
+  - recruiter
+  - seer
+  - silk_merchant
+  - swamp_hag
+  - transmogrify
   idx: 198
   landscapes:
-  - Piazza
-  - Training
+  - piazza
+  - training
   name: Progress
 - cards:
-  - Duplicate
-  - Distant Lands
-  - Haunted Woods
-  - Royal Carriage
-  - Storyteller
-  - Lackeys
-  - Acting Troupe
-  - Priest
-  - Sculptor
-  - Spices
+  - acting_troupe
+  - distant_lands
+  - duplicate
+  - haunted_woods
+  - lackeys
+  - priest
+  - royal_carriage
+  - sculptor
+  - spices
+  - storyteller
   idx: 199
   landscapes:
-  - Ferry
-  - Innovation
+  - ferry
+  - innovation
   name: Once Upon a Time
 - cards:
-  - Ratcatcher
-  - Magpie
-  - Ranger
-  - Relic
-  - Royal Carriage
-  - Sleigh
-  - Stockpile
-  - Displace
-  - Falconer
-  - Destrier
+  - destrier
+  - displace
+  - falconer
+  - magpie
+  - ranger
+  - ratcatcher
+  - relic
+  - royal_carriage
+  - sleigh
+  - stockpile
   idx: 200
   landscapes:
-  - Pilgrimage
-  - Way of the Ox
+  - pilgrimage
+  - way_of_the_ox
   name: Horse Feathers
 - cards:
-  - Raze
-  - Amulet
-  - Caravan Guard
-  - Dungeon
-  - Giant
-  - Groom
-  - Village Green
-  - Barge
-  - Gatekeeper
-  - Mastermind
+  - amulet
+  - barge
+  - caravan_guard
+  - dungeon
+  - gatekeeper
+  - giant
+  - groom
+  - mastermind
+  - raze
+  - village_green
   idx: 201
   landscapes:
-  - Mission
-  - Toil
+  - mission
+  - toil
   name: Sooner or Later
 - cards:
-  - Duplicate
-  - Miser
-  - Artificer
-  - Lost City
-  - Treasure Trove
-  - Bauble
-  - Augurs
-  - Innkeeper
-  - Modify
-  - Specialist
+  - artificer
+  - augurs
+  - bauble
+  - duplicate
+  - innkeeper
+  - lost_city
+  - miser
+  - modify
+  - specialist
+  - treasure_trove
   idx: 202
   landscapes:
-  - Mission
-  - Gang of Pickpockets
+  - gang_of_pickpockets
+  - mission
   name: Adventures in Pickpocketing
 - cards:
-  - Caravan Guard
-  - Gear
-  - Port
-  - Transmogrify
-  - Haunted Woods
-  - Sycophant
-  - Forts
-  - Sentinel
-  - Skirmisher
-  - Marquis
+  - caravan_guard
+  - forts
+  - gear
+  - haunted_woods
+  - marquis
+  - port
+  - sentinel
+  - skirmisher
+  - sycophant
+  - transmogrify
   idx: 203
   landscapes:
-  - Seaway
-  - Market Towns
+  - market_towns
+  - seaway
   name: Future Perfect
 - cards:
-  - Engineer
-  - City Quarter
-  - Patrician/Emporium
-  - Castles
-  - Chariot Race
-  - Farmers' Market
-  - Sacrifice
-  - Villa
-  - Forum
-  - Legionary
+  - castles
+  - chariot_race
+  - city_quarter
+  - engineer
+  - farmers_market
+  - forum
+  - legionary
+  - patrician/emporium
+  - sacrifice
+  - villa
   idx: 204
   landscapes:
-  - Tower
-  - Wedding
+  - tower
+  - wedding
   name: Basic Intro
 - cards:
-  - Royal Blacksmith
-  - Settlers/Bustling Village
-  - Catapult/Rocks
-  - Enchantress
-  - Gladiator/Fortune
-  - Temple
-  - Archive
-  - Capital
-  - Crown
-  - Groundskeeper
+  - archive
+  - capital
+  - catapult/rocks
+  - crown
+  - enchantress
+  - gladiator/fortune
+  - groundskeeper
+  - royal_blacksmith
+  - settlers/bustling_village
+  - temple
   idx: 205
   landscapes:
-  - Arena
-  - Triumphal Arch
+  - arena
+  - triumphal_arch
   name: Advanced Intro
 - cards:
-  - Engineer
-  - Castles
-  - Catapult/Rocks
-  - Temple
-  - Archive
-  - Changeling
-  - Fool
-  - Cemetery
-  - Exorcist
-  - Shepherd
+  - archive
+  - castles
+  - catapult/rocks
+  - cemetery
+  - changeling
+  - engineer
+  - exorcist
+  - fool
+  - shepherd
+  - temple
   idx: 206
   landscapes:
-  - Tomb
+  - tomb
   name: Luftschloss
 - cards:
-  - Settlers/Bustling Village
-  - Chariot Race
-  - Sacrifice
-  - Forum
-  - Groundskeeper
-  - Faithful Hound
-  - Pixie
-  - Ghost Town
-  - Skulk
-  - Pooka
+  - chariot_race
+  - faithful_hound
+  - forum
+  - ghost_town
+  - groundskeeper
+  - pixie
+  - pooka
+  - sacrifice
+  - settlers/bustling_village
+  - skulk
   idx: 207
   landscapes:
-  - Banquet
+  - banquet
   name: Pooka Pranks
 - cards:
-  - City Quarter
-  - Farmers' Market
-  - Sacrifice
-  - Groundskeeper
-  - Wild Hunt
-  - Cargo Ship
-  - Experiment
-  - Mountain Village
-  - Priest
-  - Sculptor
+  - cargo_ship
+  - city_quarter
+  - experiment
+  - farmers_market
+  - groundskeeper
+  - mountain_village
+  - priest
+  - sacrifice
+  - sculptor
+  - wild_hunt
   idx: 208
   landscapes:
-  - Battlefield
-  - Exploration
+  - battlefield
+  - exploration
   name: Exploring the City
 - cards:
-  - Patrician/Emporium
-  - Chariot Race
-  - Enchantress
-  - Gladiator/Fortune
-  - Villa
-  - Acting Troupe
-  - Improve
-  - Flag Bearer
-  - Old Witch
-  - Scepter
+  - acting_troupe
+  - chariot_race
+  - enchantress
+  - flag_bearer
+  - gladiator/fortune
+  - improve
+  - old_witch
+  - patrician/emporium
+  - scepter
+  - villa
   idx: 209
   landscapes:
-  - Ritual
-  - Sewers
+  - ritual
+  - sewers
   name: Navigating the Sewers
 - cards:
-  - Engineer
-  - City Quarter
-  - Catapult/Rocks
-  - Villa
-  - Crown
-  - Sleigh
-  - Stockpile
-  - Cavalry
-  - Wayfarer
-  - Animal Fair
+  - animal_fair
+  - catapult/rocks
+  - cavalry
+  - city_quarter
+  - crown
+  - engineer
+  - sleigh
+  - stockpile
+  - villa
+  - wayfarer
   idx: 210
   landscapes:
-  - Advance
-  - Way of the Pig
+  - advance
+  - way_of_the_pig
   name: No Money Down
 - cards:
-  - Overlord
-  - Settlers/Bustling Village
-  - Enchantress
-  - Sacrifice
-  - Wild Hunt
-  - Camel Train
-  - Snowy Village
-  - Fisherman
-  - Gatekeeper
-  - Sanctuary
+  - camel_train
+  - enchantress
+  - fisherman
+  - gatekeeper
+  - overlord
+  - sacrifice
+  - sanctuary
+  - settlers/bustling_village
+  - snowy_village
+  - wild_hunt
   idx: 211
   landscapes:
-  - Transport
-  - Triumphal Arch
+  - transport
+  - triumphal_arch
   name: Detours and Shortcuts
 - cards:
-  - City Quarter
-  - Settlers/Bustling Village
-  - Enchantress
-  - Farmers' Market
-  - Wild Hunt
-  - Sycophant
-  - Forts
-  - Contract
-  - Specialist
-  - Swap
+  - city_quarter
+  - contract
+  - enchantress
+  - farmers_market
+  - forts
+  - settlers/bustling_village
+  - specialist
+  - swap
+  - sycophant
+  - wild_hunt
   idx: 212
   landscapes:
-  - Orchard
-  - Island Folk
+  - island_folk
+  - orchard
   name: Island Empire
 - cards:
-  - Patrician/Emporium
-  - Castles
-  - Catapult/Rocks
-  - Charm
-  - Crown
-  - Clashes
-  - Importer
-  - Carpenter
-  - Capital City
-  - Hunter
+  - capital_city
+  - carpenter
+  - castles
+  - catapult/rocks
+  - charm
+  - clashes
+  - crown
+  - hunter
+  - importer
+  - patrician/emporium
   idx: 213
   landscapes:
-  - Triumph
-  - Trappers' Lodge
+  - trappers_lodge
+  - triumph
   name: Castle Wars
 - cards:
-  - Faithful Hound
-  - Monastery
-  - Fool
-  - Night Watchman
-  - Blessed Village
-  - Shepherd
-  - Cobbler
-  - Den of Sin
-  - Tormentor
-  - Tragic Hero
+  - blessed_village
+  - cobbler
+  - den_of_sin
+  - faithful_hound
+  - fool
+  - monastery
+  - night_watchman
+  - shepherd
+  - tormentor
+  - tragic_hero
   idx: 214
   name: Dusk
 - cards:
-  - Druid
-  - Leprechaun
-  - Secret Cave
-  - Conclave
-  - Devil's Workshop
-  - Exorcist
-  - Crypt
-  - Cursed Village
-  - Pooka
-  - Raider
+  - conclave
+  - crypt
+  - cursed_village
+  - devils_workshop
+  - druid
+  - exorcist
+  - leprechaun
+  - pooka
+  - raider
+  - secret_cave
   druid_boons:
-  - The Swamp's Gift
-  - The Flame's Gift
-  - The Wind's Gift
+  - the_flames_gift
+  - the_swamps_gift
+  - the_winds_gift
   idx: 215
   name: Midnight
 - cards:
-  - Monastery
-  - Devil's Workshop
-  - Shepherd
-  - Skulk
-  - Tragic Hero
-  - Experiment
-  - Mountain Village
-  - Research
-  - Old Witch
-  - Spices
+  - devils_workshop
+  - experiment
+  - monastery
+  - mountain_village
+  - old_witch
+  - research
+  - shepherd
+  - skulk
+  - spices
+  - tragic_hero
   idx: 216
   landscapes:
-  - Exploration
+  - exploration
   name: Becoming a Monster
 - cards:
-  - Faithful Hound
-  - Secret Cave
-  - Blessed Village
-  - Crypt
-  - Sacred Grove
-  - Border Guard
-  - Cargo Ship
-  - Scholar
-  - Sculptor
-  - Villain
+  - blessed_village
+  - border_guard
+  - cargo_ship
+  - crypt
+  - faithful_hound
+  - sacred_grove
+  - scholar
+  - sculptor
+  - secret_cave
+  - villain
   idx: 217
   landscapes:
-  - Cathedral
-  - Piazza
+  - cathedral
+  - piazza
   name: True Believers
 - cards:
-  - Monastery
-  - Devil's Workshop
-  - Exorcist
-  - Skulk
-  - Cobbler
-  - Supplies
-  - Sheepdog
-  - Hostelry
-  - Barge
-  - Falconer
+  - barge
+  - cobbler
+  - devils_workshop
+  - exorcist
+  - falconer
+  - hostelry
+  - monastery
+  - sheepdog
+  - skulk
+  - supplies
   idx: 218
   landscapes:
-  - Seize the Day
-  - Way of the Sheep
+  - seize_the_day
+  - way_of_the_sheep
   name: Seize the Night
 - cards:
-  - Faithful Hound
-  - Pixie
-  - Shepherd
-  - Pooka
-  - Sacred Grove
-  - Black Cat
-  - Goatherd
-  - Groom
-  - Hunting Lodge
-  - Kiln
+  - black_cat
+  - faithful_hound
+  - goatherd
+  - groom
+  - hunting_lodge
+  - kiln
+  - pixie
+  - pooka
+  - sacred_grove
+  - shepherd
   idx: 219
   landscapes:
-  - Enhance
-  - Way of the Chameleon
+  - enhance
+  - way_of_the_chameleon
   name: Animal Crackers
 - cards:
-  - Faithful Hound
-  - Conclave
-  - Necromancer
-  - Den of Sin
-  - Idol
-  - Bauble
-  - Sycophant
-  - Augurs
-  - Carpenter
-  - Hunter
+  - augurs
+  - bauble
+  - carpenter
+  - conclave
+  - den_of_sin
+  - faithful_hound
+  - hunter
+  - idol
+  - necromancer
+  - sycophant
   idx: 220
   landscapes:
-  - Peaceful Cult
+  - peaceful_cult
   name: Love and Death
 - cards:
-  - Tracker
-  - Leprechaun
-  - Blessed Village
-  - Skulk
-  - Tormentor
-  - Wizards
-  - Courier
-  - Royal Galley
-  - Hunter
-  - Swap
+  - blessed_village
+  - courier
+  - hunter
+  - leprechaun
+  - royal_galley
+  - skulk
+  - swap
+  - tormentor
+  - tracker
+  - wizards
   idx: 221
   landscapes:
-  - Woodworkers' Guild
+  - woodworkers_guild
   name: Play it Again Sam
 - cards:
-  - Lackeys
-  - Acting Troupe
-  - Experiment
-  - Improve
-  - Flag Bearer
-  - Hideout
-  - Inventor
-  - Old Witch
-  - Seer
-  - Treasurer
+  - acting_troupe
+  - experiment
+  - flag_bearer
+  - hideout
+  - improve
+  - inventor
+  - lackeys
+  - old_witch
+  - seer
+  - treasurer
   idx: 222
   landscapes:
-  - Fair
+  - fair
   name: Overture
 - cards:
-  - Border Guard
-  - Ducat
-  - Cargo Ship
-  - Mountain Village
-  - Priest
-  - Silk Merchant
-  - Recruiter
-  - Sculptor
-  - Swashbuckler
-  - Villain
+  - border_guard
+  - cargo_ship
+  - ducat
+  - mountain_village
+  - priest
+  - recruiter
+  - sculptor
+  - silk_merchant
+  - swashbuckler
+  - villain
   idx: 223
   landscapes:
-  - Citadel
-  - Star Chart
+  - citadel
+  - star_chart
   name: Prelude
 - cards:
-  - Ducat
-  - Priest
-  - Recruiter
-  - Scepter
-  - Swashbuckler
-  - Goatherd
-  - Cavalry
-  - Coven
-  - Displace
-  - Fisherman
+  - cavalry
+  - coven
+  - displace
+  - ducat
+  - fisherman
+  - goatherd
+  - priest
+  - recruiter
+  - scepter
+  - swashbuckler
   idx: 224
   landscapes:
-  - Sinister Plot
-  - Way of the Turtle
+  - sinister_plot
+  - way_of_the_turtle
   name: Biding Time
 - cards:
-  - Border Guard
-  - Flag Bearer
-  - Patron
-  - Silk Merchant
-  - Spices
-  - Cardinal
-  - Groom
-  - Kiln
-  - Livery
-  - Wayfarer
+  - border_guard
+  - cardinal
+  - flag_bearer
+  - groom
+  - kiln
+  - livery
+  - patron
+  - silk_merchant
+  - spices
+  - wayfarer
   idx: 225
   landscapes:
-  - Academy
-  - Demand
+  - academy
+  - demand
   name: Villager Madness
 - cards:
-  - Experiment
-  - Mountain Village
-  - Patron
-  - Spices
-  - Treasurer
-  - Townsfolk
-  - Importer
-  - Wizards
-  - Courier
-  - Modify
+  - courier
+  - experiment
+  - importer
+  - modify
+  - mountain_village
+  - patron
+  - spices
+  - townsfolk
+  - treasurer
+  - wizards
   idx: 226
   landscapes:
-  - Exploration
-  - Band of Nomads
+  - band_of_nomads
+  - exploration
   name: Production Line
 - cards:
-  - Acting Troupe
-  - Inventor
-  - Research
-  - Old Witch
-  - Villain
-  - Odysseys
-  - Underling
-  - Capital City
-  - Galleria
-  - Specialist
+  - acting_troupe
+  - capital_city
+  - galleria
+  - inventor
+  - odysseys
+  - old_witch
+  - research
+  - specialist
+  - underling
+  - villain
   idx: 227
   landscapes:
-  - Sinister Plot
-  - Fellowship of Scribes
+  - fellowship_of_scribes
+  - sinister_plot
   name: Age of Scribes
 - cards:
-  - Supplies
-  - Goatherd
-  - Scrap
-  - Sheepdog
-  - Hostelry
-  - Barge
-  - Livery
-  - Paddock
-  - Destrier
-  - Animal Fair
+  - animal_fair
+  - barge
+  - destrier
+  - goatherd
+  - hostelry
+  - livery
+  - paddock
+  - scrap
+  - sheepdog
+  - supplies
   idx: 228
   landscapes:
-  - Enhance
-  - Way of the Sheep
+  - enhance
+  - way_of_the_sheep
   name: Intro to Horses
 - cards:
-  - Black Cat
-  - Camel Train
-  - Snowy Village
-  - Stockpile
-  - Bounty Hunter
-  - Cardinal
-  - Falconer
-  - Mastermind
-  - Sanctuary
-  - Wayfarer
+  - black_cat
+  - bounty_hunter
+  - camel_train
+  - cardinal
+  - falconer
+  - mastermind
+  - sanctuary
+  - snowy_village
+  - stockpile
+  - wayfarer
   idx: 229
   landscapes:
-  - March
-  - Way of the Worm
+  - march
+  - way_of_the_worm
   name: Intro to Exile
 - cards:
-  - Black Cat
-  - Bounty Hunter
-  - Hostelry
-  - Hunting Lodge
-  - Animal Fair
-  - Merchant Camp
-  - Wizards
-  - Town
-  - Barbarian
-  - Marquis
+  - animal_fair
+  - barbarian
+  - black_cat
+  - bounty_hunter
+  - hostelry
+  - hunting_lodge
+  - marquis
+  - merchant_camp
+  - town
+  - wizards
   idx: 230
   landscapes:
-  - Way of the Owl
-  - Architects' Guild
+  - architects_guild
+  - way_of_the_owl
   name: Wise Owls
 - cards:
-  - Supplies
-  - Scrap
-  - Snowy Village
-  - Barge
-  - Coven
-  - Forts
-  - Broker
-  - Courier
-  - Guildmaster
-  - Skirmisher
+  - barge
+  - broker
+  - courier
+  - coven
+  - forts
+  - guildmaster
+  - scrap
+  - skirmisher
+  - snowy_village
+  - supplies
   idx: 231
   landscapes:
-  - Toil
-  - Mountain Folk
+  - mountain_folk
+  - toil
   name: Mountain Kings
 - cards:
-  - Bauble
-  - Townsfolk
-  - Merchant Camp
-  - Courier
-  - Innkeeper
-  - Royal Galley
-  - Highwayman
-  - Hunter
-  - Modify
-  - Marquis
+  - bauble
+  - courier
+  - highwayman
+  - hunter
+  - innkeeper
+  - marquis
+  - merchant_camp
+  - modify
+  - royal_galley
+  - townsfolk
   idx: 232
   landscapes:
-  - City-state
+  - city-state
   name: Decisions Decisions
 - cards:
-  - Augurs
-  - Sentinel
-  - Underling
-  - Carpenter
-  - Town
-  - Barbarian
-  - Emissary
-  - Galleria
-  - Skirmisher
-  - Specialist
+  - augurs
+  - barbarian
+  - carpenter
+  - emissary
+  - galleria
+  - sentinel
+  - skirmisher
+  - specialist
+  - town
+  - underling
   idx: 233
   landscapes:
-  - Order of Astrologers
+  - order_of_astrologers
   name: Foresight
 - cards:
-  - Jewelled Egg
-  - Secluded Shrine
-  - Abundance
-  - Crucible
-  - Fortune Hunter
-  - Landing Party
-  - First Mate
-  - Mining Road
-  - Silver Mine
-  - Wealthy Village
+  - abundance
+  - crucible
+  - first_mate
+  - fortune_hunter
+  - jewelled_egg
+  - landing_party
+  - mining_road
+  - secluded_shrine
+  - silver_mine
+  - wealthy_village
   idx: 234
   landscapes:
-  - Hasty
+  - hasty
   name: Flotsam
   traits:
-  - - Hasty
-    - First Mate
+  - - hasty
+    - first_mate
 - cards:
-  - Grotto
-  - Search
-  - Siren
-  - Stowaway
-  - Gondola
-  - Crew
-  - Cutthroat
-  - Longship
-  - Pickaxe
-  - Quartermaster
+  - crew
+  - cutthroat
+  - gondola
+  - grotto
+  - longship
+  - pickaxe
+  - quartermaster
+  - search
+  - siren
+  - stowaway
   idx: 235
   landscapes:
-  - Pious
-  - Prepare
+  - pious
+  - prepare
   name: Jetsam
   traits:
-  - - Pious
-    - Grotto
+  - - pious
+    - grotto
 - cards:
-  - Cellar
-  - Moat
-  - Vassal
-  - Market
-  - Mine
-  - Harbor Village
-  - Maroon
-  - Frigate
-  - Pilgrim
-  - Sack of Loot
+  - cellar
+  - frigate
+  - harbor_village
+  - market
+  - maroon
+  - mine
+  - moat
+  - pilgrim
+  - sack_of_loot
+  - vassal
   idx: 236
   landscapes:
-  - Tireless
+  - tireless
   name: Basic Looting
   traits:
-  - - Tireless
-    - Harbor Village
+  - - tireless
+    - harbor_village
 - cards:
-  - Bureaucrat
-  - Moneylender
-  - Remodel
-  - Festival
-  - Artisan
-  - Shaman
-  - Flagship
-  - Gondola
-  - Buried Treasure
-  - First Mate
+  - artisan
+  - bureaucrat
+  - buried_treasure
+  - festival
+  - first_mate
+  - flagship
+  - gondola
+  - moneylender
+  - remodel
+  - shaman
   idx: 237
   landscapes:
-  - Cursed
-  - Maelstrom
+  - cursed
+  - maelstrom
   name: Voodoo
   traits:
-  - - Cursed
-    - Festival
+  - - cursed
+    - festival
 - cards:
-  - Mining Village
-  - Courtier
-  - Replace
-  - Farm
-  - Nobles
-  - Jewelled Egg
-  - Mapmaker
-  - Maroon
-  - Buried Treasure
-  - Quartermaster
+  - buried_treasure
+  - courtier
+  - harem_farm
+  - jewelled_egg
+  - mapmaker
+  - maroon
+  - mining_village
+  - nobles
+  - quartermaster
+  - replace
   idx: 238
   landscapes:
-  - Reckless
+  - reckless
   name: Breaking Eggs
   traits:
-  - - Reckless
-    - Maroon
+  - - reckless
+    - maroon
 - cards:
-  - Pawn
-  - Wishing Well
-  - Conspirator
-  - Mill
-  - Secret Passage
-  - Fortune Hunter
-  - Cutthroat
-  - Pendant
-  - Pilgrim
-  - Wealthy Village
+  - conspirator
+  - cutthroat
+  - fortune_hunter
+  - mill
+  - pawn
+  - pendant
+  - pilgrim
+  - secret_passage
+  - wealthy_village
+  - wishing_well
   idx: 239
   landscapes:
-  - Avoid
-  - Friendly
+  - avoid
+  - friendly
   name: Landlubbers
   traits:
-  - - Friendly
-    - Conspirator
+  - - friendly
+    - conspirator
 - cards:
-  - Astrolabe
-  - Fishing Village
-  - Caravan
-  - Sailor
-  - Sea Witch
-  - Cage
-  - Cabin Boy
-  - Rope
-  - Enlarge
-  - Frigate
+  - astrolabe
+  - cabin_boy
+  - cage
+  - caravan
+  - enlarge
+  - fishing_village
+  - frigate
+  - rope
+  - sailor
+  - sea_witch
   idx: 240
   landscapes:
-  - Cheap
+  - cheap
   name: Wine-dark Seas
   traits:
-  - - Cheap
-    - Frigate
+  - - cheap
+    - frigate
 - cards:
-  - Lookout
-  - Sea Chart
-  - Island
-  - Treasure Map
-  - Corsair
-  - Stowaway
-  - Abundance
-  - Buried Treasure
-  - Crew
-  - Longship
+  - abundance
+  - buried_treasure
+  - corsair
+  - crew
+  - island
+  - longship
+  - lookout
+  - sea_chart
+  - stowaway
+  - treasure_map
   idx: 241
   landscapes:
-  - Inherited
-  - Launch
+  - inherited
+  - launch
   name: Treasure Island
   traits:
-  - - Inherited
-    - Treasure Map
+  - - inherited
+    - treasure_map
 - cards:
-  - Transmute
-  - Apothecary
-  - Alchemist
-  - Golem
-  - Jewelled Egg
-  - Flagship
-  - Swamp Shacks
-  - Tools
-  - Mining Road
-  - Trickster
+  - alchemist
+  - apothecary
+  - flagship
+  - golem
+  - jewelled_egg
+  - mining_road
+  - swamp_shacks
+  - tools
+  - transmute
+  - trickster
   idx: 242
   landscapes:
-  - Cursed
-  - Deliver
+  - cursed
+  - deliver
   name: Special Delivery
   traits:
-  - - Cursed
-    - Golem
+  - - cursed
+    - golem
 - cards:
-  - Investment
-  - Tiara
-  - Crystal Ball
-  - War Chest
-  - Bank
-  - Jewelled Egg
-  - Rope
-  - Figurine
-  - Silver Mine
-  - King's Cache
+  - bank
+  - crystal_ball
+  - figurine
+  - investment
+  - jewelled_egg
+  - kings_cache
+  - rope
+  - silver_mine
+  - tiara
+  - war_chest
   idx: 243
   landscapes:
-  - Fated
+  - fated
   name: Pretty Trinkets
   traits:
-  - - Fated
-    - Rope
+  - - fated
+    - rope
   use_colonies: true
 - cards:
-  - Anvil
-  - Bishop
-  - Clerk
-  - Worker's Village
-  - Magnate
-  - Cage
-  - Stowaway
-  - Swamp Shacks
-  - Mining Road
-  - Pendant
+  - anvil
+  - bishop
+  - cage
+  - clerk
+  - magnate
+  - mining_road
+  - pendant
+  - stowaway
+  - swamp_shacks
+  - workers_village
   idx: 244
   landscapes:
-  - Fawning
-  - Looting
+  - fawning
+  - looting
   name: Buying Happiness
   traits:
-  - - Fawning
-    - Magnate
+  - - fawning
+    - magnate
   use_colonies: true
 - cards:
-  - Oasis
-  - Nomads
-  - Weaver
-  - Haggler
-  - Souk
-  - Grotto
-  - Harbor Village
-  - Mapmaker
-  - Enlarge
-  - Pendant
+  - enlarge
+  - grotto
+  - haggler
+  - harbor_village
+  - mapmaker
+  - nomads
+  - oasis
+  - pendant
+  - souk
+  - weaver
   idx: 245
   landscapes:
-  - Reckless
+  - reckless
   name: Desert Dreams
   traits:
-  - - Reckless
-    - Nomads
+  - - reckless
+    - nomads
 - cards:
-  - Fool's Gold
-  - Scheme
-  - Berserker
-  - Cauldron
-  - Stables
-  - Cabin Boy
-  - Crucible
-  - Crew
-  - Frigate
-  - Wealthy Village
+  - berserker
+  - cabin_boy
+  - cauldron
+  - crew
+  - crucible
+  - fools_gold
+  - frigate
+  - scheme
+  - stables
+  - wealthy_village
   idx: 246
   landscapes:
-  - Rich
-  - Scrounge
+  - rich
+  - scrounge
   name: Viking Schemes
   traits:
-  - - Rich
-    - Berserker
+  - - rich
+    - berserker
 - cards:
-  - Poor House
-  - Squire
-  - Vagrant
-  - Death Cart
-  - Rats
-  - Search
-  - Shaman
-  - Maroon
-  - Rope
-  - First Mate
+  - death_cart
+  - first_mate
+  - maroon
+  - poor_house
+  - rats
+  - rope
+  - search
+  - shaman
+  - squire
+  - vagrant
   idx: 247
   landscapes:
-  - Inherited
+  - inherited
   name: Dad's Rats
   traits:
-  - - Inherited
-    - Rats
+  - - inherited
+    - rats
   use_shelters: true
 - cards:
-  - Forager
-  - Storeroom
-  - Ironmonger
-  - Counterfeit
-  - Pillage
-  - Grotto
-  - Cutthroat
-  - Enlarge
-  - Trickster
-  - King's Cache
+  - counterfeit
+  - cutthroat
+  - enlarge
+  - forager
+  - grotto
+  - ironmonger
+  - kings_cache
+  - pillage
+  - storeroom
+  - trickster
   idx: 248
   landscapes:
-  - Invasion
-  - Tireless
+  - invasion
+  - tireless
   name: Ravagers
   traits:
-  - - Tireless
-    - Forager
+  - - tireless
+    - forager
   use_shelters: true
 - cards:
-  - Stonemason
-  - Doctor
-  - Herald
-  - Soothsayer
-  - Fairgrounds
-  - Cabin Boy
-  - Flagship
-  - Fortune Hunter
-  - Pendant
-  - Pickaxe
+  - cabin_boy
+  - fairgrounds
+  - flagship
+  - fortune_hunter
+  - herald
+  - infirmary
+  - pendant
+  - pickaxe
+  - soothsayer
+  - stonemason
   idx: 249
   landscapes:
-  - Inspiring
+  - inspiring
   name: Of Heralds and Hunters
   traits:
-  - - Inspiring
-    - Fortune Hunter
+  - - inspiring
+    - fortune_hunter
 - cards:
-  - Hamlet
-  - Menagerie
-  - Baker
-  - Horn of Plenty
-  - Merchant Guild
-  - Cage
-  - Taskmaster
-  - Swamp Shacks
-  - Tools
-  - Pilgrim
+  - baker
+  - cage
+  - hamlet
+  - horn_of_plenty
+  - menagerie
+  - merchant_guild
+  - pilgrim
+  - swamp_shacks
+  - taskmaster
+  - tools
   idx: 250
   landscapes:
-  - Journey
-  - Patient
+  - journey
+  - patient
   name: Through the Swamp
   traits:
-  - - Patient
-    - Pilgrim
+  - - patient
+    - pilgrim
 - cards:
-  - Ratcatcher
-  - Port
-  - Artificer
-  - Distant Lands
-  - Treasure Trove
-  - Search
-  - Fortune Hunter
-  - Mapmaker
-  - Figurine
-  - First Mate
+  - artificer
+  - distant_lands
+  - figurine
+  - first_mate
+  - fortune_hunter
+  - mapmaker
+  - port
+  - ratcatcher
+  - search
+  - treasure_trove
   idx: 251
   landscapes:
-  - Ferry
-  - Patient
+  - ferry
+  - patient
   name: Set Sail
   traits:
-  - - Patient
-    - Artificer
+  - - patient
+    - artificer
 - cards:
-  - Coin of the Realm
-  - Gear
-  - Haunted Woods
-  - Wine Merchant
-  - Hireling
-  - Secluded Shrine
-  - Stowaway
-  - Swamp Shacks
-  - Tools
-  - Quartermaster
+  - coin_of_the_realm
+  - gear
+  - haunted_woods
+  - hireling
+  - quartermaster
+  - secluded_shrine
+  - stowaway
+  - swamp_shacks
+  - tools
+  - wine_merchant
   idx: 252
   landscapes:
-  - Rush
-  - Shy
+  - rush
+  - shy
   name: Rush Job
   traits:
-  - - Shy
-    - Wine Merchant
+  - - shy
+    - wine_merchant
 - cards:
-  - City Quarter
-  - Patrician/Emporium
-  - Farmers' Market
-  - Groundskeeper
-  - Wild Hunt
-  - Taskmaster
-  - Abundance
-  - Crucible
-  - Tools
-  - Frigate
+  - abundance
+  - city_quarter
+  - crucible
+  - farmers_market
+  - frigate
+  - groundskeeper
+  - patrician/emporium
+  - taskmaster
+  - tools
+  - wild_hunt
   idx: 253
   landscapes:
-  - Museum
-  - Nearby
+  - museum
+  - nearby
   name: City Builders
   traits:
-  - - Nearby
-    - Patrician/Emporium
+  - - nearby
+    - patrician/emporium
 - cards:
-  - Enchantress
-  - Gladiator/Fortune
-  - Sacrifice
-  - Charm
-  - Crown
-  - Landing Party
-  - Rope
-  - Figurine
-  - Mining Road
-  - Wealthy Village
+  - charm
+  - crown
+  - enchantress
+  - figurine
+  - gladiator/fortune
+  - landing_party
+  - mining_road
+  - rope
+  - sacrifice
+  - wealthy_village
   idx: 254
   landscapes:
-  - Friendly
-  - Prosper
+  - friendly
+  - prosper
   name: Plenty
   traits:
-  - - Friendly
-    - Figurine
+  - - friendly
+    - figurine
 - cards:
-  - Faithful Hound
-  - Blessed Village
-  - Crypt
-  - Tragic Hero
-  - Werewolf
-  - Taskmaster
-  - Cabin Boy
-  - Figurine
-  - Pendant
-  - Sack of Loot
+  - blessed_village
+  - cabin_boy
+  - crypt
+  - faithful_hound
+  - figurine
+  - pendant
+  - sack_of_loot
+  - taskmaster
+  - tragic_hero
+  - werewolf
   idx: 255
   landscapes:
-  - Pious
+  - pious
   name: Night of the Loot
   traits:
-  - - Pious
-    - Taskmaster
+  - - pious
+    - taskmaster
 - cards:
-  - Tracker
-  - Ghost Town
-  - Devil's Workshop
-  - Skulk
-  - Idol
-  - Secluded Shrine
-  - Cutthroat
-  - Longship
-  - Pilgrim
-  - "King's Cache"
+  - cutthroat
+  - devils_workshop
+  - ghost_town
+  - idol
+  - kings_cache
+  - longship
+  - pilgrim
+  - secluded_shrine
+  - skulk
+  - tracker
   idx: 256
   landscapes:
-  - Foray
-  - Hasty
+  - foray
+  - hasty
   name: Skeleton Isle
   traits:
-  - - Hasty
-    - Idol
+  - - hasty
+    - idol
 - cards:
-  - Acting Troupe
-  - Experiment
-  - Patron
-  - Scholar
-  - Swashbuckler
-  - Jewelled Egg
-  - Search
-  - Shaman
-  - Frigate
-  - Pickaxe
+  - acting_troupe
+  - experiment
+  - frigate
+  - jewelled_egg
+  - patron
+  - pickaxe
+  - scholar
+  - search
+  - shaman
+  - swashbuckler
   idx: 257
   landscapes:
-  - Cathedral
-  - Inspiring
+  - cathedral
+  - inspiring
   name: Circle of Life
   traits:
-  - - Inspiring
-    - Scholar
+  - - inspiring
+    - scholar
 - cards:
-  - Border Guard
-  - Cargo Ship
-  - Flag Bearer
-  - Seer
-  - Spices
-  - Taskmaster
-  - Crucible
-  - Gondola
-  - Quartermaster
-  - Trickster
+  - border_guard
+  - cargo_ship
+  - crucible
+  - flag_bearer
+  - gondola
+  - quartermaster
+  - seer
+  - spices
+  - taskmaster
+  - trickster
   idx: 258
   landscapes:
-  - Fated
-  - Mirror
+  - fated
+  - mirror
   name: Mirror Masters
   traits:
-  - - Fated
-    - Spices
+  - - fated
+    - spices
 - cards:
-  - Supplies
-  - Snowy Village
-  - Barge
-  - Gatekeeper
-  - Kiln
-  - Secluded Shrine
-  - Gondola
-  - Landing Party
-  - Mapmaker
-  - Silver Mine
+  - barge
+  - gatekeeper
+  - gondola
+  - kiln
+  - landing_party
+  - mapmaker
+  - secluded_shrine
+  - silver_mine
+  - snowy_village
+  - supplies
   idx: 259
   landscapes:
-  - Cheap
-  - Way of the Squirrel
+  - cheap
+  - way_of_the_squirrel
   name: Going Home
   traits:
-  - - Cheap
-    - Gatekeeper
+  - - cheap
+    - gatekeeper
 - cards:
-  - Camel Train
-  - Sheepdog
-  - Mastermind
-  - Sanctuary
-  - Animal Fair
-  - Grotto
-  - Siren
-  - Harbor Village
-  - Enlarge
-  - Sack of Loot
+  - animal_fair
+  - camel_train
+  - enlarge
+  - grotto
+  - harbor_village
+  - mastermind
+  - sack_of_loot
+  - sanctuary
+  - sheepdog
+  - siren
   idx: 260
   landscapes:
-  - Nearby
-  - Peril
+  - nearby
+  - peril
   name: Going Big
   traits:
-  - - Nearby
-    - Animal Fair
+  - - nearby
+    - animal_fair
 - cards:
-  - Sycophant
-  - Forts
-  - Broker
-  - Innkeeper
-  - Modify
-  - Shaman
-  - Flagship
-  - Harbor Village
-  - Crew
-  - Sack of Loot
+  - broker
+  - crew
+  - flagship
+  - forts
+  - harbor_village
+  - innkeeper
+  - modify
+  - sack_of_loot
+  - shaman
+  - sycophant
   idx: 261
   landscapes:
-  - Cave Dwellers
-  - Fawning
+  - cave_dwellers
+  - fawning
   name: Shipmates
   traits:
-  - - Fawning
-    - Sycophant
+  - - fawning
+    - sycophant
 - cards:
-  - Merchant Camp
-  - Odysseys
-  - Courier
-  - Highwayman
-  - Skirmisher
-  - Abundance
-  - Landing Party
-  - Maroon
-  - Buried Treasure
-  - King's Cache
+  - abundance
+  - buried_treasure
+  - courier
+  - highwayman
+  - kings_cache
+  - landing_party
+  - maroon
+  - merchant_camp
+  - odysseys
+  - skirmisher
   idx: 262
   landscapes:
-  - Bury
-  - Shy
+  - bury
+  - shy
   name: Buried and Sunk
   traits:
-  - - Shy
-    - Merchant Camp
+  - - shy
+    - merchant_camp
+- cards:
+  - alley
+  - artist
+  - craftsman
+  - fishmonger
+  - litter
+  - rice
+  - river_shrine
+  - rustic_village
+  - samurai
+  - tea_house
+  idx: 263
+  landscapes:
+  - progress
+  name: Heading East
+- cards:
+  - aristocrat
+  - change
+  - daimyo
+  - gold_mine
+  - imperial_envoy
+  - kitsune
+  - mountain_shrine
+  - ninja
+  - rice_broker
+  - ronin
+  idx: 264
+  landscapes:
+  - kind_emperor
+  - practice
+  name: Dawn of an Era
+- cards:
+  - artisan
+  - gold_mine
+  - harbinger
+  - mountain_shrine
+  - riverboat
+  - root_cellar
+  - smithy
+  - tanuki
+  - throne_room
+  - workshop
+  idx: 265
+  landscapes:
+  - rapid_expansion
+  name: Spring Forward
+  riverboat_card: market
+- cards:
+  - bureaucrat
+  - cellar
+  - change
+  - craftsman
+  - festival
+  - merchant
+  - poacher
+  - poet
+  - ronin
+  - snake_witch
+  idx: 266
+  landscapes:
+  - gather
+  - panic
+  name: Money to Burn
+- cards:
+  - artist
+  - conspirator
+  - courtier
+  - gold_mine
+  - ironworks
+  - lurker
+  - mountain_shrine
+  - riverboat
+  - ronin
+  - wishing_well
+  idx: 267
+  landscapes:
+  - enlightenment
+  name: Solving the Puzzle
+  riverboat_card: upgrade
+- cards:
+  - baron
+  - craftsman
+  - diplomat
+  - duke
+  - ninja
+  - secret_passage
+  - shanty_town
+  - snake_witch
+  - tanuki
+  - tea_house
+  idx: 268
+  landscapes:
+  - amass
+  - harsh_winter
+  name: Cold Calculation
+- cards:
+  - alley
+  - blockade
+  - corsair
+  - kitsune
+  - ninja
+  - outpost
+  - rice_broker
+  - riverboat
+  - salvager
+  - sea_chart
+  - treasure_map
+  idx: 269
+  landscapes:
+  - approaching_army
+  name: Invasion Fleet
+  riverboat_card: bazaar
+- cards:
+  - caravan
+  - craftsman
+  - haven
+  - imperial_envoy
+  - pirate
+  - rice
+  - river_shrine
+  - sea_witch
+  - snake_witch
+  - tide_pools
+  idx: 270
+  landscapes:
+  - great_leader
+  - kintsugi
+  name: Island People
+- cards:
+  - alchemist
+  - fishmonger
+  - golem
+  - imperial_envoy
+  - riverboat
+  - root_cellar
+  - rustic_village
+  - samurai
+  - university
+  - vineyard
+  idx: 271
+  landscapes:
+  - progress
+  name: Fast Track
+  riverboat_card: apprentice
+- cards:
+  - alley
+  - apothecary
+  - aristocrat
+  - change
+  - familiar
+  - herbalist
+  - kitsune
+  - litter
+  - ninja
+  - transmute
+  idx: 272
+  landscapes:
+  - biding_time
+  - receive_tribute
+  name: Lazy Mischief
+- cards:
+  - anvil
+  - collection
+  - craftsman
+  - crystal_ball
+  - grand_market
+  - litter
+  - river_shrine
+  - riverboat
+  - root_cellar
+  - war_chest
+  idx: 273
+  landscapes:
+  - flourishing_trade
+  name: River Trade
+  riverboat_card: city
+  use_colonies: true
+- cards:
+  - aristocrat
+  - bank
+  - change
+  - imperial_envoy
+  - investment
+  - magnate
+  - ninja
+  - quarry
+  - rustic_village
+  - watchtower
+  idx: 274
+  landscapes:
+  - continue
+  - good_harvest
+  name: Autumn Harvest
+  use_colonies: true
+- cards:
+  - advisor
+  - baker
+  - change
+  - daimyo
+  - farrier
+  - gold_mine
+  - hunting_party
+  - jester
+  - snake_witch
+  - tea_house
+  idx: 275
+  landscapes:
+  - harsh_winter
+  name: Winter Solstice
+- cards:
+  - alley
+  - artist
+  - carnival
+  - farmhands
+  - fishmonger
+  - horn_of_plenty
+  - infirmary
+  - poet
+  - shop
+  - tanuki
+  idx: 276
+  landscapes:
+  - gather
+  - rapid_expansion
+  name: From the Shadows
+- cards:
+  - alley
+  - cauldron
+  - haggler
+  - oasis
+  - ronin
+  - rustic_village
+  - samurai
+  - scheme
+  - snake_witch
+  - weaver
+  idx: 277
+  landscapes:
+  - progress
+  name: Swift Hands
+- cards:
+  - border_village
+  - craftsman
+  - crossroads
+  - imperial_envoy
+  - river_shrine
+  - riverboat
+  - spice_merchant
+  - tanuki
+  - tunnel
+  - wheelwright
+  idx: 278
+  landscapes:
+  - bureaucracy
+  - foresight
+  name: Paperwork
+  riverboat_card: witchs_hut
+- cards:
+  - aristocrat
+  - catacombs
+  - fishmonger
+  - litter
+  - mountain_shrine
+  - procession
+  - rice_broker
+  - rogue
+  - scavenger
+  - vagrant
+  idx: 279
+  landscapes:
+  - sickness
+  name: Pandemic
+  use_shelters: true
+- cards:
+  - armory
+  - forager
+  - hermit
+  - hunting_grounds
+  - knights
+  - poet
+  - rice
+  - ronin
+  - samurai
+  - snake_witch
+  - squire
+  idx: 280
+  landscapes:
+  - approaching_army
+  - asceticism
+  name: Distant Hordes
+  use_shelters: true
+- cards:
+  - amulet
+  - caravan_guard
+  - guide
+  - hireling
+  - imperial_envoy
+  - litter
+  - miser
+  - poet
+  - ronin
+  - tanuki
+  idx: 281
+  landscapes:
+  - ball
+  - flourishing_trade
+  name: Wanderers
+- cards:
+  - aristocrat
+  - artificer
+  - artist
+  - distant_lands
+  - dungeon
+  - duplicate
+  - kitsune
+  - page
+  - root_cellar
+  - samurai
+  idx: 282
+  landscapes:
+  - biding_time
+  - kintsugi
+  name: Hero's Journey
+- cards:
+  - aristocrat
+  - capital
+  - castles
+  - change
+  - city_quarter
+  - forum
+  - patrician/emporium
+  - rice
+  - river_shrine
+  - snake_witch
+  idx: 283
+  landscapes:
+  - kind_emperor
+  - museum
+  name: Summer Castles
+- cards:
+  - artist
+  - chariot_race
+  - charm
+  - crown
+  - kitsune
+  - mountain_shrine
+  - overlord
+  - rice_broker
+  - root_cellar
+  - temple
+  idx: 284
+  landscapes:
+  - divine_wind
+  - sea_trade
+  name: Swept Clean
+- cards:
+  - alley
+  - blessed_village
+  - cursed_village
+  - daimyo
+  - devils_workshop
+  - faithful_hound
+  - rice
+  - samurai
+  - shepherd
+  - tea_house
+  idx: 285
+  landscapes:
+  - growth
+  name: Priceless Rice
+- cards:
+  - artist
+  - changeling
+  - conclave
+  - gold_mine
+  - litter
+  - river_shrine
+  - sacred_grove
+  - skulk
+  - tanuki
+  - werewolf
+  idx: 286
+  landscapes:
+  - amass
+  - sickness
+  name: Dark Corners
+- cards:
+  - alley
+  - ducat
+  - experiment
+  - gold_mine
+  - hideout
+  - kitsune
+  - rice_broker
+  - riverboat
+  - scholar
+  - treasurer
+  idx: 287
+  landscapes:
+  - bureaucracy
+  - guildhall
+  name: Mountain of Money
+  riverboat_card: seer
+- cards:
+  - border_guard
+  - cargo_ship
+  - change
+  - daimyo
+  - inventor
+  - ninja
+  - patron
+  - poet
+  - sculptor
+  - tea_house
+  idx: 288
+  landscapes:
+  - divine_wind
+  - receive_tribute
+  name: Fresh Start
+- cards:
+  - animal_fair
+  - aristocrat
+  - artist
+  - camel_train
+  - destrier
+  - fishmonger
+  - livery
+  - poet
+  - samurai
+  - wayfarer
+  idx: 289
+  landscapes:
+  - enlightenment
+  - way_of_the_ox
+  name: Become the Ox
+- cards:
+  - alley
+  - bounty_hunter
+  - coven
+  - craftsman
+  - daimyo
+  - paddock
+  - ronin
+  - rustic_village
+  - sleigh
+  - supplies
+  idx: 290
+  landscapes:
+  - panic
+  - sea_trade
+  name: Alternatives
+- cards:
+  - augurs
+  - contract
+  - courier
+  - daimyo
+  - fishmonger
+  - hunter
+  - rice_broker
+  - riverboat
+  - rustic_village
+  - swap
+  idx: 291
+  landscapes:
+  - crafters_guild
+  - enlightenment
+  name: Expert Traders
+  riverboat_card: barbarian
+- cards:
+  - aristocrat
+  - capital_city
+  - clashes
+  - craftsman
+  - fishmonger
+  - innkeeper
+  - marquis
+  - skirmisher
+  - snake_witch
+  - tea_house
+  idx: 292
+  landscapes:
+  - credit
+  - rapid_expansion
+  name: Feverish Crafting
+- cards:
+  - first_mate
+  - flagship
+  - gold_mine
+  - kings_cache
+  - ninja
+  - pendant
+  - poet
+  - rice_broker
+  - tanuki
+  - taskmaster
+  idx: 293
+  landscapes:
+  - growth
+  - prosper
+  name: Buried in Booty
+- cards:
+  - cabin_boy
+  - cutthroat
+  - daimyo
+  - jewelled_egg
+  - litter
+  - pilgrim
+  - rice
+  - river_shrine
+  - root_cellar
+  - tools
+  idx: 294
+  landscapes:
+  - credit
+  - good_harvest
+  name: Shiny Things

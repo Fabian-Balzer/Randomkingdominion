@@ -3,13 +3,10 @@
 from pathlib import Path
 from typing import Any
 
+import pandas as pd
 import yaml
 
-from ..constants import (
-    FPATH_KINGDOMS_LAST100,
-    FPATH_KINGDOMS_RECOMMENDED,
-)
-
+from ..constants import FPATH_KINGDOMS_LAST100, FPATH_KINGDOMS_RECOMMENDED
 from .kingdom import Kingdom
 
 
@@ -24,6 +21,16 @@ class KingdomManager:
             self.load_last_100_kingdoms()
         # self.load_recommended_kingdoms()
 
+    def __len__(self):
+        return len(self.kingdoms)
+
+    def load_expansions(self):
+        for kingdom in self.kingdoms:
+            try:
+                kingdom["expansions"] = Kingdom.from_dict(kingdom).expansions
+            except TypeError:
+                pass
+
     @classmethod
     def from_yaml(cls, yaml_str: str, max_amount=None) -> "KingdomManager":
         """Create a KingdomManager from a yaml file."""
@@ -33,14 +40,27 @@ class KingdomManager:
             kingdom_manager.kingdoms = [kingdom_data for kingdom_data in data]
         return kingdom_manager
 
-    def __len__(self):
-        return len(self.kingdoms)
-
     @property
     def yaml_repr(self):
         return yaml.safe_dump(self.kingdoms)
 
-    def get_kindom_by_id(self, kingdom_id: int) -> Kingdom | None:
+    @property
+    def dataframe_repr(self) -> pd.DataFrame:
+        """Return the kingdoms as a DataFrame."""
+        return pd.DataFrame(self.kingdoms).set_index("idx")
+
+    def get_kingdom_by_name(self, kingdom_name: str) -> Kingdom | None:
+        """Try to recover the given kingdom by its name."""
+        if kingdom_name == "":
+            return None
+        kingdom_info = next(
+            filter(lambda x: x.get("name", "") == kingdom_name, self.kingdoms), None
+        )
+        if kingdom_info is None:
+            return None
+        return Kingdom.from_dict(kingdom_info)
+
+    def get_kingdom_by_id(self, kingdom_id: int) -> Kingdom | None:
         """Try to recover the given kingdom by its ID."""
         kingdom_info = next(
             filter(lambda x: x["idx"] == kingdom_id, self.kingdoms), None
@@ -63,13 +83,16 @@ class KingdomManager:
     def save_last_100_kingdoms(self):
         if not self.in_last_kingdom_mode:
             print("Skipped saving last 100 kingdoms as not started in lastKingdomMode")
+            return
         self.save_kingdoms_to_yaml(FPATH_KINGDOMS_LAST100)
 
     def load_kingdoms_from_yaml(self, file_path: str | Path):
         with open(file_path, "r", encoding="utf-8") as yaml_file:
             data = yaml.safe_load(yaml_file)
             if data is not None:
-                self.kingdoms = [kingdom_data for kingdom_data in data]
+                self.kingdoms = [
+                    kingdom_data for kingdom_data in data if "cards" in kingdom_data
+                ]
 
     def save_kingdoms_to_yaml(self, file_path: str | Path):
         with open(file_path, "w", encoding="utf-8") as yaml_file:

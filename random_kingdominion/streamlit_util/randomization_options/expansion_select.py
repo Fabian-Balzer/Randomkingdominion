@@ -219,4 +219,4 @@ def build_expansion_selection():
             with col:
                 display_exp_image(exp, icon_size=20, tooltip=exp)
 
-    st.info("I'll try to improve the looks of this in the future.")
+    # st.info("I'll try to improve the looks of this in the future.")

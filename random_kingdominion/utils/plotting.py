@@ -6,7 +6,7 @@ from matplotlib.axes import Axes
 from matplotlib.offsetbox import AnnotationBbox, OffsetImage
 from PIL import Image
 
-from ..utils.utils import get_quality_icon_fpath
+from ..utils.utils import get_quality_icon_fpath, get_version
 
 if TYPE_CHECKING:
     from ..kingdom import Kingdom
@@ -135,10 +135,13 @@ def add_kingdom_info_to_plot(ax: Axes, kingdom: "Kingdom"):
         fontdict=dict(font="monospace"),
         bbox=bbox,
     )
+    watermark = (
+        "Generated with randomkingdominion.streamlit.app/oracle, v. " + get_version()
+    )
     ax.text(
         0,
         -0.05 - offset - 0.05,
-        f"Generated using randomkingdominion.streamlit.app/oracle",
+        watermark,
         transform=ax.transAxes,
         va="top",
         fontdict=dict(font="monospace", size=7),
@@ -169,4 +172,7 @@ def add_kingdom_info_to_plot(ax: Axes, kingdom: "Kingdom"):
         fontdict=dict(font="monospace"),
         bbox=bbox,
     )
-    ax.set_title(f"Kingdom Overview {kingdom.name}", y=1.01)
+    title = "Kingdom Overview"
+    if kingdom.name != "":
+        title += f": {kingdom.name}"
+    ax.set_title(title, y=1.01)

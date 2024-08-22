@@ -2,6 +2,7 @@ import os
 from pathlib import Path
 
 import pandas as pd
+import yaml
 
 from ..constants import (
     ALL_CSOS,
@@ -10,6 +11,50 @@ from ..constants import (
     RENEWED_EXPANSIONS,
     SPECIAL_QUAL_TYPES_AVAILABLE,
 )
+
+
+def get_version() -> str:
+    """Return the version of the package."""
+    return max(get_changelog().keys()).split(" ")[0]
+
+
+def get_changelog() -> dict[str, list[str]]:
+    """Return the changelog of the package, mapping the version to the changes."""
+    with PATH_ASSETS.parent.joinpath("changelog.yaml").open("r") as f:
+        yaml_data = yaml.safe_load(f.read())
+    log = {k: v for dict_entry in yaml_data for k, v in dict_entry.items()}
+    return {k: v if isinstance(v, list) else [v] for k, v in log.items()}
+
+
+def copy_to_clipboard_pyperclip(text: str):
+    """Copy text to clipboard, compatible with desktop and web environments."""
+    import pyperclip
+    import streamlit as st
+    import streamlit.components.v1 as components
+
+    try:
+        # Try using pyperclip for desktop environments
+        pyperclip.copy(text)
+        st.toast("Text copied to clipboard!", icon="📋")
+    except pyperclip.PyperclipException:
+        # Fallback to JavaScript for web environments
+        components.html(
+            f"""
+            <script>
+                function copyToClipboard(text) {{
+                    const el = document.createElement('textarea');
+                    el.value = text;
+                    document.body.appendChild(el);
+                    el.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(el);
+                }}
+                copyToClipboard("{text}");
+            </script>
+        """,
+            height=0,
+        )
+        st.toast("Tried to copy text to clipboard", icon="📋")
 
 
 def copy_to_clipboard(text: str):

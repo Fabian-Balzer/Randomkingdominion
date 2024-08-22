@@ -4,3 +4,4 @@ pandas
 numpy
 matplotlib
 PyYAML
+st-copy-to-clipboard

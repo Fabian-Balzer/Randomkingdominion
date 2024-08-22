@@ -7,16 +7,20 @@ from .utils import (
     ask_file_overwrite,
     ask_yes_now,
     copy_to_clipboard,
+    get_changelog,
     get_cso_quality_description,
     get_expansion_icon_path,
     get_quality_icon_fpath,
     get_row_and_col,
+    get_version,
     invert_dict,
     override,
     write_dataframe_to_file,
 )
 
 __all__ = [
+    "get_version",
+    "get_changelog",
     "add_quality_info_columns",
     "write_image_database",
     "invert_dict",

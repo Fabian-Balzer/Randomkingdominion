@@ -13,4 +13,5 @@ except ImportError as e:
 try:
     from .widgets import *
 except ImportError as e:
-    print(f"Couldn't locate valid PyQt installation ({e})")
+    # print(f"Couldn't locate valid PyQt installation ({e})")
+    pass

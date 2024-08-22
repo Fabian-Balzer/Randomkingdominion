@@ -1,0 +1,10 @@
+- 1.1.0 (2024-08-22):
+  - Added regex filtering options for card database
+  - Added type amount filtering option
+  - Updated recommended kingdoms
+  - Added recommended kingdoms to the oracle page
+  - Added version and changelog system
+  - Unified streamlit headers for the pages, reworded some of them for clarity
+  - Fixed bug where the dombot string couldn't be copied to clipboard
+  - Fixed minor quality issues and wrong extra components for cards
+- 1.0.0 (2024-08-21): Initial release with basic randomizer, card database and oracle page implemented, as well as descriptions of the qualities
