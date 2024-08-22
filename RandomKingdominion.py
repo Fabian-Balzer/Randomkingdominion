@@ -41,16 +41,16 @@ pg = st.navigation(
                 icon="🔀",
             ),
             st.Page(
-                "streamlit_pages/database_display.py",
-                title="Card Overview",
-                url_path="cso_overview",
-                icon="📂",
-            ),
-            st.Page(
                 "streamlit_pages/kingdom_oracle.py",
                 title="Kingdom Oracle",
                 url_path="oracle",
                 icon="💥",
+            ),
+            st.Page(
+                "streamlit_pages/database_display.py",
+                title="CSO Database",
+                url_path="cso_overview",
+                icon="📂",
             ),
             st.Page(
                 "streamlit_pages/about.py",
