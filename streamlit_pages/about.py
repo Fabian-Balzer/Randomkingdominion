@@ -4,18 +4,15 @@ import streamlit as st
 
 import random_kingdominion as rk
 
-st.title("About this page")
+rk.build_page_header(
+    "About this page",
+    "Here, I'll try to shed some light on the ideas concerning my approach to the randomizer, the individual and kingdom-wide CSO (short for Card-Shaped Object, including landscapes) qualities.",
+)
 
 
 qual_desc = "\n  - ".join(
     [rk.construct_short_qual_desc(qual) for qual in rk.QUALITIES_AVAILABLE]
 )
-st.info(
-    f"""
-Here, I'll try to shed some light on the ideas concerning my approach to the randomizer, the individual and kingdom-wide CSO (short for Card-Shaped Object, including landscapes) qualities.
-"""
-)
-
 cso_qual_text = f"""A core concept underlying the randomizer and my kingdom assessment is the idea of CSO qualities. These qualities are a way to quantify the strength of a CSO considering a certain main Dominion engine aspect. The qualities are normalized to a scale from 0 to 3, where 0 is the non-existence and 3 is the best a CSO can have.\\
 The aspects I have come up with are the ability to...
   - {qual_desc}
@@ -53,8 +50,15 @@ oracle_text = """The kingdom oracle allows you to easily input a kingdom to visu
 with st.expander("Kingdom Oracle", expanded=False):
     st.write(oracle_text)
 
+with st.expander("CSO Database", expanded=False):
+    st.write(
+        "The CSO Database page provides an overview of all CSOs I have identified and their qualities. You can filter and sort the CSOs by their properties and qualities, and also search for specific CSOs. The page also includes a detailed view of each CSO."
+    )
+
 future_development_text = """
 In the future, the following features might find their way into the randomizer:
+- **Cookies**:
+    - Save your preferences for future visits, and maybe download the configuration as well as the generated kingdoms.
 - **Themes**:
   - Allow for the inclusion of certain themes or mechanics, such as "extra turn enablers" or "cost reducers".
 - **Pastable CSO names**:
@@ -69,6 +73,12 @@ In the future, the following features might find their way into the randomizer:
 
 with st.expander("Future Development", expanded=False):
     st.write(future_development_text)
+
+with st.expander("Changelog", expanded=False):
+    log = rk.get_changelog()
+    for version, changes in log.items():
+        st.write(f"#### Version {version}")
+        st.write("- " + "\n- ".join(changes))
 
 feedback_text = """
 I hope you enjoy this randomizer and find it useful for your Dominion games.\\

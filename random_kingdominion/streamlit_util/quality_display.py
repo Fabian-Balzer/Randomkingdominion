@@ -3,7 +3,7 @@ import streamlit as st
 from ..constants import PATH_ASSETS, QUALITIES_AVAILABLE
 from .constants import ALL_CACHED_CSOS, STATIC_FPATH
 from .cso_df_display import display_stylysed_cso_df
-from .helpers import img_to_html
+from .helpers import build_page_header, img_to_html
 
 
 def get_qual_image_html(qual: str, size: int | None = None):
@@ -19,8 +19,14 @@ def build_quality_page(qual: str):
     with fpath.open() as f:
         desc_lines = f.readlines()
     qual_string = qual.capitalize().replace("Altvp", "Alternative VP")
-    header = f"# {get_qual_image_html(qual)} {qual_string}"
-    st.write(header, unsafe_allow_html=True)
+    desc = f"The {qual_string} quality is one of the core engine qualities of Dominion Card-Shaped Objects (CSOs) I have identified, and is used both to randomize and to visualize kingdoms (see the *randomizer* or the *oracle*). This page provides a brief explanation as well as a summary of all CSOs with that quality."
+    if qual == "interactivity":
+        desc = desc.replace("core engine qualities", "qualities")
+    build_page_header(
+        f"{get_qual_image_html(qual)} {qual_string}",
+        desc,
+        "Look here for a general overview of what this website offers.",
+    )
     desc_lines = [line for line in desc_lines if not line.startswith("## ")]
     desc = "".join(desc_lines).replace("##", "#")
     parts = desc.split("##")

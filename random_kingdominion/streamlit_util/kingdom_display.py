@@ -3,9 +3,10 @@ from math import ceil
 import pandas as pd
 import streamlit as st
 from PIL import ImageOps
+from st_copy_to_clipboard import st_copy_to_clipboard
 
 from ..kingdom import Kingdom, sanitize_cso_name
-from ..utils import copy_to_clipboard, get_cso_quality_description, invert_dict
+from ..utils import get_cso_quality_description, invert_dict
 from .cso_df_display import display_stylysed_cso_df
 from .image_handling import (
     crop_img_by_percentage,
@@ -23,12 +24,18 @@ def _build_clipboard_button():
     csv_str = Kingdom.from_dombot_csv_string(
         st.session_state["randomized_kingdom"]
     ).get_dombot_csv_string()
-    st.button(
-        "🔼To clipboard",
-        help="Copy the kingdom's DomBot string to your clipboard",
-        on_click=lambda: copy_to_clipboard(csv_str),
-        use_container_width=True,
+    st_copy_to_clipboard(
+        csv_str,
+        before_copy_label="📋Copy to clipboard",
+        after_copy_label="Copied! Ready to be pasted in your favorite client.",
+        key="kingdom_clipboard_button",
     )
+    # st.button(
+    #     "🔼To clipboard",
+    #     help="Copy the kingdom's DomBot string to your clipboard",
+    #     on_click=lambda: copy_to_clipboard(csv_str),
+    #     use_container_width=True,
+    # )
 
 
 def display_cso_image(cso: pd.Series, kingdom: Kingdom, full_image: bool = False):
@@ -171,18 +178,18 @@ def display_full_kingdom_images(k: Kingdom, show_reroll=True):
 
 
 def build_csv_display():
-    with st.expander("Descriptive string", expanded=False):
-        cols = st.columns([0.85, 0.15])
-        st.write(
-            "You can copy this to your clipboard and paste it into the interface of your preferred digital Dominion client.\\\nShould work both for [Dominion Online](https://dominion.games/) and the [TGG implementation](https://store.steampowered.com/app/1131620/Dominion/).",
-            unsafe_allow_html=True,
-        )
+    cols = st.columns([0.85, 0.15], vertical_alignment="top")
     with cols[0]:
-        st.write(
-            Kingdom.from_dombot_csv_string(
-                st.session_state["randomized_kingdom"]
-            ).get_dombot_csv_string()
-        )
+        with st.expander("Descriptive string", expanded=False):
+            st.code(
+                Kingdom.from_dombot_csv_string(
+                    st.session_state["randomized_kingdom"]
+                ).get_dombot_csv_string()
+            )
+            st.write(
+                "You can copy this to your clipboard and paste it into the interface of your preferred digital Dominion client.\\\nShould work both for [Dominion Online](https://dominion.games/) and the [TGG implementation](https://store.steampowered.com/app/1131620/Dominion/).",
+                unsafe_allow_html=True,
+            )
     with cols[1]:
         _build_clipboard_button()
 
@@ -199,7 +206,7 @@ def display_kingdom(k: Kingdom, is_randomizer_view=True):
                 cols = st.columns(2)
                 with cols[0]:
                     display_stylysed_cso_df(
-                        df[["Expansion", "Cost"]],
+                        df[["ImagePath", "Expansion", "Cost"]],
                         with_reroll=is_randomizer_view,
                         use_container_width=True,
                     )
@@ -208,7 +215,10 @@ def display_kingdom(k: Kingdom, is_randomizer_view=True):
                 with cols[1]:
                     display_kingdom_plot(k)
             else:
-                display_kingdom_plot(k)
+                display_kingdom_plot(k, with_border=True)
+                st.info(
+                    "*Hint: Hover over the images below to directly see the individual card's qualities.*"
+                )
         with st.expander("Kingdom Image Display", expanded=True):
             display_full_kingdom_images(k, show_reroll=is_randomizer_view)
     with tabs[1]:
@@ -216,9 +226,7 @@ def display_kingdom(k: Kingdom, is_randomizer_view=True):
         display_stylysed_cso_df(df)
     if is_randomizer_view:
         with tabs[2]:
-            with st.columns([0.2, 0.5, 0.2])[1]:
-                with st.container(border=True):
-                    display_kingdom_plot(k)
+            display_kingdom_plot(k, with_border=True)
         build_csv_display()
 
 

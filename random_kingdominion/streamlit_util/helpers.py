@@ -1,8 +1,50 @@
-from .image_handling import img_to_html
-import streamlit as st
 import re
 
+import streamlit as st
+
 from ..constants import ALL_CSOS
+from .image_handling import img_to_html
+
+
+def toggle_showing_info():
+    st.session_state["show_further_info"] = not st.session_state.get(
+        "show_further_info", False
+    )
+
+
+@st.fragment
+def _build_page_info(desc: str, link_help: str = ""):
+    if link_help == "":
+        st.info(desc)
+        return
+    cols = st.columns([0.9, 0.1], vertical_alignment="top")
+    with cols[0]:
+        st.info(desc)
+    with cols[1]:
+        st.page_link(
+            "streamlit_pages/about.py",
+            label="More details",
+            icon="❓",
+            use_container_width=True,
+            help=link_help,
+        )
+
+
+def build_page_header(title: str, desc: str, link_help: str = ""):
+    """Build the header of a page with a title, description, and a button to show more info which reveals the description."""
+    cols = st.columns([0.9, 0.1], vertical_alignment="top")
+    with cols[0]:
+        st.write("# " + title, unsafe_allow_html=True)
+    button_text = "➖\tℹ️" if st.session_state.get("show_further_info") else "➕\tℹ️"
+    cols[1].button(
+        button_text,
+        on_click=toggle_showing_info,
+        use_container_width=True,
+        key="show_more_info",
+        help="Show more info about the page.",
+    )
+    if st.session_state.get("show_further_info", False):
+        _build_page_info(desc, link_help)
 
 
 def extract_and_convert(value):
