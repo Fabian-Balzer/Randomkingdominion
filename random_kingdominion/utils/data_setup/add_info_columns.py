@@ -147,7 +147,7 @@ def add_parent_column(df: pd.DataFrame):
 def test_real_supply_card(df: pd.DataFrame):
     split_headers = list(ROTATOR_DICT.keys()) + list(SPLITPILE_DICT.keys())
     # Splitpile cards are not part of the supply, but still cards, while their headers are not.
-    is_no_split_header = ~np.in1d(df["Name"], split_headers)
+    is_no_split_header = ~np.isin(df["Name"], split_headers)
     series = (
         ~df["IsExtendedLandscape"]
         & ~df["IsOtherThing"]
@@ -481,11 +481,44 @@ def _determine_extra_components(cso: pd.Series) -> list[str]:
     if name in special:
         extra_components += special[name]
     # Trashers that have no trashing quality but might populate the trash:
-    other_trashers = ["Pillage", "Spell Scroll", "Ritual", "Lurker", "Peril"]
+    other_trashers = [
+        "Feast",
+        "Lurker",
+        "Mining Village",
+        "Embargo",
+        "Horn of Plenty",
+        "Pillage",
+        "Procession",
+        "Engineer",
+        "Ritual",
+        "Gladiator",
+        "Gladiator/Fortune",
+        "Salt the Earth",
+        "Farmers' Market",
+        "Castles",
+        "Changeling",
+        "Secret Cave",
+        "Tragic Hero",
+        "Magic Lamp",
+        "Locusts",
+        "War",
+        "Acting Troupe",
+        "Old Witch",
+        "Siren",
+        "Search",
+        "Cabin Boy",
+        "Spell Scroll",
+        "Peril",
+        "Black Market",
+    ]
     if (
         "Exile" not in cso["thinning_types"]
         and cso["thinning_quality"] > 0
         or name in other_trashers
+        or "Trashing" in cso["attack_types"]
+        or "Fate" in cso_types
+        or "Doom" in cso_types
+        or "Loots" in extra_components
     ):
         extra_components.append("Trash mat")
     return sorted(extra_components)
@@ -494,7 +527,7 @@ def _determine_extra_components(cso: pd.Series) -> list[str]:
 def add_extra_components(df: pd.DataFrame) -> pd.DataFrame:
     """Adds which CSOs and extra components are associated with each card."""
     df["Extra Components"] = df.apply(_determine_extra_components, axis=1)
-    df["has_extra_components"] = df["Extra Components"].apply(lambda x: len(x) > 0)
+    df["HasExtraComponents"] = df["Extra Components"].apply(lambda x: len(x) > 0)
     return df
 
 

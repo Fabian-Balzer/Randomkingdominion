@@ -20,6 +20,7 @@
   "Catapult/Rocks": ["Any"],
   "Cathedral": ["Any"],
   "Cemetery": ["Any"],
+  "Change": ["Any", "Remodel"],
   "Infirmary": ["Any"],
   "Chapel": ["Any"],
   "Church": ["Any"],
