@@ -20,16 +20,21 @@ def load_recommended():
 
 df = load_recommended()
 
-with st.expander("Choose from recommended kingdoms", expanded=False):
+with st.expander("Select recommended kingdom to visualize", expanded=False):
     exps = [
         exp for exp in rk.get_cached_expansions() if "1E" not in exp and exp != "Promo"
     ]
-    exp_filters = st.multiselect("Allowed expansions", exps)
-    df = df[
-        df["expansions"]
-        .fillna("")
-        .apply(lambda x: any([exp in x for exp in exp_filters]))
-    ]
+    exp_filters = st.multiselect(
+        "Allowed expansions",
+        exps,
+        placeholder="Choose expansions to filter the recommended sets for",
+    )
+    if len(exp_filters) > 0:
+        df = df[
+            df["expansions"]
+            .fillna("")
+            .apply(lambda x: any([exp in x for exp in exp_filters]))
+        ]
     df["name_with_exps"] = (
         df["name"] + " (" + df["expansions"].fillna("").str.join(", ") + ")"
     )
