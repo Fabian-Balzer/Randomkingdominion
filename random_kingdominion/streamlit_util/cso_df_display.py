@@ -57,7 +57,7 @@ def get_col_config() -> dict[str, dict]:
     col_config["IsExtendedLandscape"] = {
         "label": "Landscape",
         "width": 50,
-        "help": "Whether this CSO is a landscape",
+        "help": "Whether this CSO is an extended landscape (including Allies/Prophecies)",
     }
     col_config["IsOtherThing"] = {
         "label": "Other Thing",
@@ -74,12 +74,33 @@ def get_col_config() -> dict[str, dict]:
         "width": 100,
         "help": "The components needed to play with this CSO",
     }
+    col_config["Text"] = {
+        "label": "CSO Text",
+        "width": 150,
+        "help": "The text of the CSO, might be not perfectly formatted.",
+    }
+    col_config["Image"] = st.column_config.ImageColumn(  # type: ignore
+        "Image",
+        help="The image of the CSO",
+    )
+    col_config["Cost"] = {
+        "label": "Cost",
+        "help": "How much the CSO costs",
+    }
+    col_config["Types"] = {
+        "label": "Types",
+        "help": "The types of the CSO",
+    }
+    col_config["Expansion"] = {
+        "label": "Expansion",
+        "help": "The expansion the CSO is from",
+    }
     return col_config
 
 
 def get_column_order() -> list[str]:
     return [
-        "Name",
+        "Image",
         "Cost",
         "Types",
         "Expansion",
@@ -97,7 +118,8 @@ def get_column_order() -> list[str]:
         "attack_types",
         "altvp_types",
         "Extra Components",
-        "IsLandscape",
+        "Text",
+        "IsExtendedLandscape",
         "IsOtherThing",
         "IsInSupply",
     ]
@@ -108,6 +130,8 @@ def display_stylysed_cso_df(df: pd.DataFrame, with_reroll=False, **kwargs):
     df = df.copy()
     if with_reroll:
         df["Reroll?"] = np.zeros(len(df), dtype=bool)
+    if "ImagePath" in df.columns:
+        df["Image"] = df["ImagePath"].apply(lambda x: "app/static/card_pictures/" + x)
     styled_df = get_stylized_df(df)
     col_config = get_col_config()
     if with_reroll:
@@ -118,9 +142,9 @@ def display_stylysed_cso_df(df: pd.DataFrame, with_reroll=False, **kwargs):
         )
         data = st.data_editor(  # type: ignore
             styled_df,
-            column_order=["Reroll?"] + get_column_order(),
+            column_order=get_column_order() + ["Reroll?"],
             column_config=col_config,  # type: ignore
-            disabled=get_column_order(),
+            disabled=get_column_order() + ["Name"],
             **kwargs,
         )
         st.session_state["CSOsToReroll"] = {
