@@ -1,0 +1,43 @@
+2024-8-25: black_cat, goatherd, vassal, remake, workers_village, bazaar, footpad, merchant_guild, pirate, forge, cathedral, pious(forge)
+2024-8-24: lackeys, castles, change, harbor_village, berserker, falconer, gold_mine, joust, market, modify, pageant, bandit_fort
+2024-8-23: forager, investment, ironmonger, rats, band_of_misfits, city, collection, mystic, war_chest, bank, colonies
+2024-8-22: sycophant, forts, bridge, ironworks, barbarian, courtier, skirmisher, specialist, farm, marquis, market_towns
+2024-8-21: augurs, clashes, watchtower, wizards, broker, carpenter, investment, modify, skirmisher, swap, band_of_nomads
+2024-8-20: bauble, sycophant, underling, wizards, innkeeper, royal_galley, emissary, galleria, guildmaster, highwayman, circle_of_witches
+2024-8-19: chapel, crossroads, merchant, oasis, tunnel, workshop, gardens, militia, bandit, sentry
+2024-8-18: develop, forts, capital, count, laboratory, paddock, sanctuary, swap, hireling, peddler, journey, way_of_the_squirrel
+2024-8-17: candlestick_maker, faithful_hound, fishmonger, cavalry, cemetery, nomads, poet, graverobber, tormentor, grand_market, travelling_fair, bureaucracy, shelters
+2024-8-16: hamlet, haven, craftsman, lookout, sea_chart, poet, tide_pools, jester, merchant_ship, sea_witch, asceticism, approaching_army(ninja)
+2024-8-15: daimyo, black_cat, sleigh, scrap, snowy_village, rustic_village, kiln, paddock, rice_broker, tanuki, enlightenment, alliance
+2024-8-14: snake_witch, aristocrat, craftsman, sage, rats, wandering_minstrel, junk_dealer, mystic, samurai, rice, kintsugi
+2024-8-13: mountain_shrine, artist, craftsman, root_cellar, alley, imperial_envoy, rice_broker, ronin, samurai, rice, asceticism, biding_time
+2024-8-12: cellar, craftsman, harbinger, village, moneylender, poacher, throne_room, bandit, litter, market, amass, kintsugi
+2024-8-11: market_square, fortress, salvager, market, outpost, pickaxe, tormentor, wine_merchant, border_village, expand, wall, triumph
+2024-8-10: mountain_shrine, daimyo, moat, harbinger, village, workshop, gardens, poet, gold_mine, ronin, panic
+2024-8-9: hamlet, raze, guide, magpie, messenger, distant_lands, giant, royal_carriage, storyteller, treasure_trove, raid, save
+2024-8-8: merchant_camp, odysseys, royal_galley, town, barbarian, charlatan, contract, emissary, hunter, skirmisher, trappers_lodge
+2024-8-7: coin_of_the_realm, courtyard, page, caravan_guard, dungeon, gear, magpie, secret_passage, storyteller, hireling, inheritance
+2024-8-6: watchtower, bishop, investment, monument, workers_village, city, crystal_ball, vault, war_chest, expand, colonies
+2024-8-5: shaman, secluded_shrine, siren, vassal, harbor_village, enlarge, figurine, frigate, sack_of_loot, kings_cache, deliver, friendly(kings_cache)
+2024-8-4: engineer, sleigh, castles, sage, sheepdog, swindler, marauder, sailor, highway, mint, avoid, way_of_the_horse
+2024-8-3: clashes, odysseys, mountain_village, necromancer, remodel, distant_lands, horn_of_plenty, pirate, recruiter, hoard, inherited(mountain_village)
+2024-8-2: courtyard, shanty_town, steward, ironworks, mill, plaza, butcher, highway, merchant_guild, trading_post
+2024-8-1: candlestick_maker, fools_gold, stonemason, develop, oasis, nomads, journeyman, soothsayer, stables, witchs_hut
+2024-7-31: watchtower, clerk, tiara, workers_village, carnival, horn_of_plenty, jester, joust, rabble, vault, colonies
+2024-7-30: stowaway, gondola, harbor_village, cutthroat, figurine, frigate, longship, pickaxe, sack_of_loot, kings_cache, inspiring(stowaway), scrounge
+2024-7-29: moneylender, port, ranger, remodel, smithy, artificer, distant_lands, lost_city, royal_carriage, witch, lost_arts, expedition
+2024-7-28: squire, amulet, tunnel, familiar, flagship, gardens, necromancer, sacrifice, spice_merchant, trading_post, cheap(sacrifice), raid
+2024-7-27: guardian, peasant, changeling, vassal, infirmary, knights, mine, pendant, pilgrim, scholar, scouting_party, alms
+2024-7-26: scrying_pool, develop, tunnel, apprentice, cauldron, haggler, highway, journeyman, merchant_guild, farmland
+2024-7-25: ducat, herbalist, scrying_pool, experiment, improve, inventor, silk_merchant, recruiter, sculptor, swashbuckler, academy, piazza
+2024-7-24: crossroads, scheme, patron, weaver, highway, old_witch, scholar, sculptor, stables, villain
+2024-7-23: haven, monkey, blockade, sailor, bazaar, merchant_ship, outpost, sea_witch, treasury, wharf
+2024-7-22: chapel, courtyard, merchant, baron, gardens, militia, remodel, secret_passage, festival, upgrade
+2024-7-21: black_cat, lurker, augurs, watchtower, necromancer, sailor, trader, baker, trading_post, fairgrounds, wall, windfall
+2024-7-20: engineer, camel_train, sentinel, advisor, bishop, mill, sacrifice, baker, knights, royal_carriage, mission, way_of_the_sheep
+2024-7-19: vineyard, townsfolk, clashes, merchant_camp, cavalry, apprentice, hunting_lodge, swap, marquis, animal_fair, toil, way_of_the_turtle
+2024-7-18: haven, shaman, smugglers, landing_party, maroon, cutthroat, quartermaster, tactician, treasury, wharf, rush, nearby(wharf)
+2024-7-17: fools_gold, apothecary, guard_dog, philosophers_stone, trader, apprentice, margrave, souk, stables, wheelwright
+2024-7-16: page, raze, caravan_guard, duplicate, port, ranger, artificer, distant_lands, giant, relic, save, lost_arts
+2024-7-15: amulet, merchant, port, smithy, artificer, bandit, distant_lands, market, relic, hireling, bonfire, borrow
+2024-7-14: improve, oasis, wishing_well, crucible, procession, sailor, cartographer, collection, mine, fairgrounds, wedding, guildhall

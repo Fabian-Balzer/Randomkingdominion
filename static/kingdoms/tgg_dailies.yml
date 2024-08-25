@@ -1,4 +1,800 @@
 - cards:
+  - bazaar
+  - black_cat
+  - footpad
+  - forge
+  - goatherd
+  - merchant_guild
+  - pirate
+  - remake
+  - vassal
+  - workers_village
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Menagerie
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
+  idx: 10793345656720054769209485599419233410
+  landscapes:
+  - cathedral
+  - pious
+  name: 2024-8-25
+  traits:
+  - - pious
+    - forge
+- cards:
+  - berserker
+  - castles
+  - change
+  - falconer
+  - gold_mine
+  - harbor_village
+  - joust
+  - lackeys
+  - market
+  - modify
+  expansions:
+  - Allies
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Plunder
+  - Renaissance
+  - Rising Sun
+  idx: 171180973588687622918624336063196535196
+  landscapes:
+  - bandit_fort
+  - pageant
+  name: 2024-8-24
+- cards:
+  - band_of_misfits
+  - bank
+  - city
+  - collection
+  - forager
+  - investment
+  - ironmonger
+  - mystic
+  - rats
+  - war_chest
+  expansions:
+  - Dark Ages
+  - Prosperity, 2E
+  idx: 68715540766033669432543229437186294245
+  name: 2024-8-23
+  use_colonies: true
+- cards:
+  - barbarian
+  - bridge
+  - courtier
+  - forts
+  - harem_farm
+  - ironworks
+  - marquis
+  - skirmisher
+  - specialist
+  - sycophant
+  expansions:
+  - Allies
+  - Intrigue, 2E
+  idx: 262292928514810305959011523701678886872
+  landscapes:
+  - market_towns
+  name: 2024-8-22
+- cards:
+  - augurs
+  - broker
+  - carpenter
+  - clashes
+  - investment
+  - modify
+  - skirmisher
+  - swap
+  - watchtower
+  - wizards
+  expansions:
+  - Allies
+  - Prosperity, 2E
+  idx: 228861410521101001439744713372900593882
+  landscapes:
+  - band_of_nomads
+  name: 2024-8-21
+- cards:
+  - bauble
+  - emissary
+  - galleria
+  - guildmaster
+  - highwayman
+  - innkeeper
+  - royal_galley
+  - sycophant
+  - underling
+  - wizards
+  expansions:
+  - Allies
+  idx: 166325958650394989761340234220162084569
+  landscapes:
+  - circle_of_witches
+  name: 2024-8-20
+- cards:
+  - bandit
+  - chapel
+  - crossroads
+  - gardens
+  - merchant
+  - militia
+  - oasis
+  - sentry
+  - tunnel
+  - workshop
+  expansions:
+  - Base, 2E
+  - Hinterlands, 2E
+  idx: 298036535365105735590169346606074762219
+  name: 2024-8-19
+- cards:
+  - capital
+  - count
+  - develop
+  - forts
+  - hireling
+  - laboratory
+  - paddock
+  - peddler
+  - sanctuary
+  - swap
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Plunder
+  - Prosperity, 2E
+  idx: 249626310412848568229455856263712831438
+  landscapes:
+  - journey
+  - way_of_the_squirrel
+  name: 2024-8-18
+- cards:
+  - candlestick_maker
+  - cavalry
+  - cemetery
+  - faithful_hound
+  - fishmonger
+  - grand_market
+  - graverobber
+  - nomads
+  - poet
+  - tormentor
+  expansions:
+  - Adventures
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Prosperity, 2E
+  - Rising Sun
+  idx: 65718762811673610527126544124969407275
+  landscapes:
+  - bureaucracy
+  - travelling_fair
+  name: 2024-8-17
+  use_shelters: true
+- army_pile: ninja
+  cards:
+  - craftsman
+  - hamlet
+  - haven
+  - jester
+  - lookout
+  - merchant_ship
+  - ninja
+  - poet
+  - sea_chart
+  - sea_witch
+  - tide_pools
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Rising Sun
+  - Seaside, 2E
+  idx: 62570993361077202707853021670170945674
+  landscapes:
+  - approaching_army
+  - asceticism
+  name: 2024-8-16
+- cards:
+  - black_cat
+  - daimyo
+  - kiln
+  - paddock
+  - rice_broker
+  - rustic_village
+  - scrap
+  - sleigh
+  - snowy_village
+  - tanuki
+  expansions:
+  - Menagerie
+  - Rising Sun
+  idx: 144436605437577452777899452310818688675
+  landscapes:
+  - alliance
+  - enlightenment
+  name: 2024-8-15
+- cards:
+  - aristocrat
+  - craftsman
+  - junk_dealer
+  - mystic
+  - rats
+  - rice
+  - sage
+  - samurai
+  - snake_witch
+  - wandering_minstrel
+  expansions:
+  - Dark Ages
+  - Rising Sun
+  idx: 53119940380642637083368524925683547706
+  landscapes:
+  - kintsugi
+  name: 2024-8-14
+- cards:
+  - alley
+  - artist
+  - craftsman
+  - imperial_envoy
+  - mountain_shrine
+  - rice
+  - rice_broker
+  - ronin
+  - root_cellar
+  - samurai
+  expansions:
+  - Rising Sun
+  idx: 166191483605877604853460230845404604844
+  landscapes:
+  - asceticism
+  - biding_time
+  name: 2024-8-13
+- cards:
+  - bandit
+  - cellar
+  - craftsman
+  - harbinger
+  - litter
+  - market
+  - moneylender
+  - poacher
+  - throne_room
+  - village
+  expansions:
+  - Base, 2E
+  - Rising Sun
+  idx: 213129695673887108599552338886740545542
+  landscapes:
+  - amass
+  - kintsugi
+  name: 2024-8-12
+- cards:
+  - border_village
+  - expand
+  - fortress
+  - market
+  - market_square
+  - outpost
+  - pickaxe
+  - salvager
+  - tormentor
+  - wine_merchant
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Seaside, 2E
+  idx: 128849157813194927962929711626487148948
+  landscapes:
+  - triumph
+  - wall
+  name: 2024-8-11
+- cards:
+  - daimyo
+  - gardens
+  - gold_mine
+  - harbinger
+  - moat
+  - mountain_shrine
+  - poet
+  - ronin
+  - village
+  - workshop
+  expansions:
+  - Base, 2E
+  - Rising Sun
+  idx: 182847711433270938109224649600262829970
+  landscapes:
+  - panic
+  name: 2024-8-10
+- cards:
+  - distant_lands
+  - giant
+  - guide
+  - hamlet
+  - magpie
+  - messenger
+  - raze
+  - royal_carriage
+  - storyteller
+  - treasure_trove
+  expansions:
+  - Adventures
+  - Cornucopia & Guilds, 2E
+  idx: 305459087092973303672491554400032820484
+  landscapes:
+  - raid
+  - save
+  name: 2024-8-9
+- cards:
+  - barbarian
+  - charlatan
+  - contract
+  - emissary
+  - hunter
+  - merchant_camp
+  - odysseys
+  - royal_galley
+  - skirmisher
+  - town
+  expansions:
+  - Allies
+  - Prosperity, 2E
+  idx: 171348344370582154488902173463205998261
+  landscapes:
+  - trappers_lodge
+  name: 2024-8-8
+- cards:
+  - caravan_guard
+  - coin_of_the_realm
+  - courtyard
+  - dungeon
+  - gear
+  - hireling
+  - magpie
+  - page
+  - secret_passage
+  - storyteller
+  expansions:
+  - Adventures
+  - Intrigue, 2E
+  idx: 166948801382060191677225542142298577968
+  landscapes:
+  - inheritance
+  name: 2024-8-7
+- cards:
+  - bishop
+  - city
+  - crystal_ball
+  - expand
+  - investment
+  - monument
+  - vault
+  - war_chest
+  - watchtower
+  - workers_village
+  expansions:
+  - Prosperity, 2E
+  idx: 59349829751735254122249533760981133600
+  name: 2024-8-6
+  use_colonies: true
+- cards:
+  - enlarge
+  - figurine
+  - frigate
+  - harbor_village
+  - kings_cache
+  - sack_of_loot
+  - secluded_shrine
+  - shaman
+  - siren
+  - vassal
+  expansions:
+  - Base, 2E
+  - Plunder
+  idx: 114604344186042087650246681440827420454
+  landscapes:
+  - deliver
+  - friendly
+  name: 2024-8-5
+  traits:
+  - - friendly
+    - kings_cache
+- cards:
+  - castles
+  - engineer
+  - highway
+  - marauder
+  - mint
+  - sage
+  - sailor
+  - sheepdog
+  - sleigh
+  - swindler
+  expansions:
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
+  - Prosperity, 2E
+  - Seaside, 2E
+  idx: 204866017276510719063177423135709645709
+  landscapes:
+  - avoid
+  - way_of_the_horse
+  name: 2024-8-4
+- cards:
+  - clashes
+  - distant_lands
+  - hoard
+  - horn_of_plenty
+  - mountain_village
+  - necromancer
+  - odysseys
+  - pirate
+  - recruiter
+  - remodel
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
+  idx: 37206895839186865847307946968691077579
+  landscapes:
+  - inherited
+  name: 2024-8-3
+  traits:
+  - - inherited
+    - mountain_village
+- cards:
+  - butcher
+  - courtyard
+  - highway
+  - ironworks
+  - merchant_guild
+  - mill
+  - plaza
+  - shanty_town
+  - steward
+  - trading_post
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  idx: 54276306398919815198733579894387463227
+  name: 2024-8-2
+- cards:
+  - candlestick_maker
+  - develop
+  - fools_gold
+  - journeyman
+  - nomads
+  - oasis
+  - soothsayer
+  - stables
+  - stonemason
+  - witchs_hut
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Hinterlands, 2E
+  idx: 296008429921231552100101106285254734758
+  name: 2024-8-1
+- cards:
+  - carnival
+  - clerk
+  - horn_of_plenty
+  - jester
+  - joust
+  - rabble
+  - tiara
+  - vault
+  - watchtower
+  - workers_village
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Prosperity, 2E
+  idx: 183276411033422928678116908954869138381
+  name: 2024-7-31
+  use_colonies: true
+- cards:
+  - cutthroat
+  - figurine
+  - frigate
+  - gondola
+  - harbor_village
+  - kings_cache
+  - longship
+  - pickaxe
+  - sack_of_loot
+  - stowaway
+  expansions:
+  - Plunder
+  idx: 36923144477314892069760518771784102739
+  landscapes:
+  - inspiring
+  - scrounge
+  name: 2024-7-30
+  traits:
+  - - inspiring
+    - stowaway
+- cards:
+  - artificer
+  - distant_lands
+  - lost_city
+  - moneylender
+  - port
+  - ranger
+  - remodel
+  - royal_carriage
+  - smithy
+  - witch
+  expansions:
+  - Adventures
+  - Base, 2E
+  idx: 272057239732891693245251910481721191567
+  landscapes:
+  - expedition
+  - lost_arts
+  name: 2024-7-29
+- cards:
+  - amulet
+  - familiar
+  - flagship
+  - gardens
+  - necromancer
+  - sacrifice
+  - spice_merchant
+  - squire
+  - trading_post
+  - tunnel
+  expansions:
+  - Adventures
+  - Alchemy
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Nocturne
+  - Plunder
+  idx: 304478189887034525924200347688657109440
+  landscapes:
+  - cheap
+  - raid
+  name: 2024-7-28
+  traits:
+  - - cheap
+    - sacrifice
+- cards:
+  - changeling
+  - guardian
+  - infirmary
+  - knights
+  - mine
+  - peasant
+  - pendant
+  - pilgrim
+  - scholar
+  - vassal
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Nocturne
+  - Plunder
+  - Renaissance
+  idx: 83492188449376737398936269915297237871
+  landscapes:
+  - alms
+  - scouting_party
+  name: 2024-7-27
+- cards:
+  - apprentice
+  - cauldron
+  - develop
+  - farmland
+  - haggler
+  - highway
+  - journeyman
+  - merchant_guild
+  - scrying_pool
+  - tunnel
+  expansions:
+  - Alchemy
+  - Cornucopia & Guilds, 2E
+  - Hinterlands, 2E
+  idx: 191413764060538873565907728624201206814
+  name: 2024-7-26
+- cards:
+  - ducat
+  - experiment
+  - herbalist
+  - improve
+  - inventor
+  - recruiter
+  - scrying_pool
+  - sculptor
+  - silk_merchant
+  - swashbuckler
+  expansions:
+  - Alchemy
+  - Renaissance
+  idx: 150123114136627119460732428143797928851
+  landscapes:
+  - academy
+  - piazza
+  name: 2024-7-25
+- cards:
+  - crossroads
+  - highway
+  - old_witch
+  - patron
+  - scheme
+  - scholar
+  - sculptor
+  - stables
+  - villain
+  - weaver
+  expansions:
+  - Hinterlands, 2E
+  - Renaissance
+  idx: 215305545972138140670313250657925423501
+  name: 2024-7-24
+- cards:
+  - bazaar
+  - blockade
+  - haven
+  - merchant_ship
+  - monkey
+  - outpost
+  - sailor
+  - sea_witch
+  - treasury
+  - wharf
+  expansions:
+  - Seaside, 2E
+  idx: 99563800498360529592963291426810478589
+  name: 2024-7-23
+- cards:
+  - baron
+  - chapel
+  - courtyard
+  - festival
+  - gardens
+  - merchant
+  - militia
+  - remodel
+  - secret_passage
+  - upgrade
+  expansions:
+  - Base, 2E
+  - Intrigue, 2E
+  idx: 21968161280281857750075705614928507138
+  name: 2024-7-22
+- cards:
+  - augurs
+  - baker
+  - black_cat
+  - fairgrounds
+  - lurker
+  - necromancer
+  - sailor
+  - trader
+  - trading_post
+  - watchtower
+  expansions:
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Prosperity, 2E
+  - Seaside, 2E
+  idx: 33453317440171922829113538697080348538
+  landscapes:
+  - wall
+  - windfall
+  name: 2024-7-21
+- cards:
+  - advisor
+  - baker
+  - bishop
+  - camel_train
+  - engineer
+  - knights
+  - mill
+  - royal_carriage
+  - sacrifice
+  - sentinel
+  expansions:
+  - Adventures
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Prosperity, 2E
+  idx: 249323609062291996691493866352526419171
+  landscapes:
+  - mission
+  - way_of_the_sheep
+  name: 2024-7-20
+- cards:
+  - animal_fair
+  - apprentice
+  - cavalry
+  - clashes
+  - hunting_lodge
+  - marquis
+  - merchant_camp
+  - swap
+  - townsfolk
+  - vineyard
+  expansions:
+  - Alchemy
+  - Allies
+  - Menagerie
+  idx: 335407355646610252746271398746166324993
+  landscapes:
+  - toil
+  - way_of_the_turtle
+  name: 2024-7-19
+- cards:
+  - cutthroat
+  - haven
+  - landing_party
+  - maroon
+  - quartermaster
+  - shaman
+  - smugglers
+  - tactician
+  - treasury
+  - wharf
+  expansions:
+  - Plunder
+  - Seaside, 2E
+  idx: 7794312899038047138097210399751281983
+  landscapes:
+  - nearby
+  - rush
+  name: 2024-7-18
+  traits:
+  - - nearby
+    - wharf
+- cards:
   - apothecary
   - apprentice
   - fools_gold
@@ -9,8 +805,11 @@
   - stables
   - trader
   - wheelwright
+  expansions:
+  - Alchemy
+  - Hinterlands, 2E
   idx: 337713683047333424977554180227145447104
-  name: 7/17/24
+  name: 2024-7-17
 - cards:
   - artificer
   - caravan_guard
@@ -22,11 +821,13 @@
   - ranger
   - raze
   - relic
+  expansions:
+  - Adventures
   idx: 70621625931594718060349135631035773316
   landscapes:
   - lost_arts
   - save
-  name: 7/16/24
+  name: 2024-7-16
 - cards:
   - amulet
   - artificer
@@ -38,11 +839,14 @@
   - port
   - relic
   - smithy
+  expansions:
+  - Adventures
+  - Base, 2E
   idx: 26764958346335754473546243447325555797
   landscapes:
   - bonfire
   - borrow
-  name: 7/15/24
+  name: 2024-7-15
 - cards:
   - cartographer
   - collection
@@ -54,11 +858,22 @@
   - procession
   - sailor
   - wishing_well
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
   idx: 238628587323854087358235326665299583868
   landscapes:
   - guildhall
   - wedding
-  name: 7/14/24
+  name: 2024-7-14
 - cards:
   - chapel
   - enchantress
@@ -70,11 +885,20 @@
   - swamp_shacks
   - vampire
   - wharf
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Nocturne
+  - Plunder
+  - Seaside, 2E
   idx: 312729236751330351573038780583709641897
   landscapes:
   - circle_of_witches
   - orchard
-  name: 7/13/24
+  name: 2024-7-13
 - cards:
   - harbinger
   - merchant
@@ -86,11 +910,15 @@
   - scrap
   - shanty_town
   - trading_post
+  expansions:
+  - Base, 2E
+  - Intrigue, 2E
+  - Menagerie
   idx: 236513077039755385925263874445187289983
   landscapes:
   - pursue
   - way_of_the_mule
-  name: 7/12/24
+  name: 2024-7-12
 - cards:
   - cobbler
   - druid
@@ -102,8 +930,15 @@
   - tracker
   - werewolf
   - workers_village
+  druid_boons:
+  - The Sun's Gift
+  - The Moon's Gift
+  - The Flame's Gift
+  expansions:
+  - Nocturne
+  - Prosperity, 2E
   idx: 174184981059778697577364041705126374323
-  name: 7/11/24
+  name: 2024-7-11
 - cards:
   - farmland
   - jack_of_all_trades
@@ -115,11 +950,14 @@
   - spices
   - stables
   - tunnel
+  expansions:
+  - Hinterlands, 2E
+  - Renaissance
   idx: 216920894324285783639174271526842902888
   landscapes:
   - barracks
   - exploration
-  name: 7/10/24
+  name: 2024-7-10
 - cards:
   - armory
   - band_of_misfits
@@ -131,8 +969,11 @@
   - scavenger
   - vagrant
   - wandering_minstrel
+  expansions:
+  - Dark Ages
   idx: 176574084915122380309260526779366785418
-  name: 7/9/24
+  name: 2024-7-9
+  use_shelters: true
 - cards:
   - artisan
   - bandit
@@ -144,8 +985,11 @@
   - stonemason
   - vassal
   - village
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
   idx: 182436575872507060335054596254609389871
-  name: 7/8/24
+  name: 2024-7-8
 - cards:
   - band_of_misfits
   - buried_treasure
@@ -157,10 +1001,19 @@
   - modify
   - oasis
   - pillage
+  expansions:
+  - Allies
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Hinterlands, 2E
+  - Menagerie
+  - Plunder
+  - Renaissance
   idx: 110204041092333275822239967408867125541
   landscapes:
   - way_of_the_squirrel
-  name: 7/7/24
+  name: 2024-7-7
 - cards:
   - altar
   - bank
@@ -172,11 +1025,18 @@
   - rabble
   - secret_passage
   - wayfarer
+  expansions:
+  - Dark Ages
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
   idx: 59264905004350099613827846411797118674
   landscapes:
   - desperation
   - journey
-  name: 7/6/24
+  name: 2024-7-6
 - cards:
   - black_cat
   - fortress
@@ -188,11 +1048,16 @@
   - stockpile
   - treasurer
   - vagrant
+  expansions:
+  - Dark Ages
+  - Menagerie
+  - Renaissance
   idx: 206457551711236849821388520942135708375
   landscapes:
   - invest
   - way_of_the_squirrel
-  name: 7/5/24
+  name: 2024-7-5
+  use_shelters: true
 - cards:
   - armory
   - band_of_misfits
@@ -204,12 +1069,19 @@
   - tools
   - vagrant
   - wealthy_village
+  expansions:
+  - Dark Ages
+  - Plunder
   idx: 294093491831454419772861687655272517099
   landscapes:
   - fawning
   - inherited
-  name: 7/4/24
-  notes: Inherited trait for Wealthy Village; Fawning trait for Cage
+  name: 2024-7-4
+  traits:
+  - - fawning
+    - cage
+  - - inherited
+    - wealthy_village
 - cards:
   - city_quarter
   - cobbler
@@ -221,11 +1093,14 @@
   - night_watchman
   - pooka
   - villa
+  expansions:
+  - Empires
+  - Nocturne
   idx: 306380466199732931008495972635715357320
   landscapes:
   - arena
   - mountain_pass
-  name: 7/3/24
+  name: 2024-7-3
 - cards:
   - astrolabe
   - caravan
@@ -237,8 +1112,10 @@
   - smugglers
   - treasury
   - wharf
+  expansions:
+  - Seaside, 2E
   idx: 29272732835791662023029974784719829925
-  name: 7/2/24
+  name: 2024-7-2
 - cards:
   - black_cat
   - camel_train
@@ -250,11 +1127,14 @@
   - snowy_village
   - village_green
   - wayfarer
+  expansions:
+  - Base, 2E
+  - Menagerie
   idx: 310443108755694173509573716232151333745
   landscapes:
   - ride
   - way_of_the_chameleon
-  name: 7/1/24
+  name: 2024-7-1
 - cards:
   - artisan
   - devils_workshop
@@ -266,15 +1146,26 @@
   - royal_galley
   - scheme
   - trading_post
+  expansions:
+  - Allies
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Prosperity, 2E
+  - Renaissance
   idx: 204540703552477163239640089913123483102
   landscapes:
   - cave_dwellers
   - sewers
   - way_of_the_goat
-  name: 6/30/24
+  name: 2024-6-30
 - cards:
   - bounty_hunter
-  - catapult
+  - catapult/rocks
   - charlatan
   - hostelry
   - jack_of_all_trades
@@ -283,11 +1174,20 @@
   - monument
   - priest
   - secret_cave
+  expansions:
+  - Adventures
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
   idx: 86455451276539348230743399618555176163
   landscapes:
   - bonfire
   - commerce
-  name: 6/29/24
+  name: 2024-6-29
 - cards:
   - conspirator
   - farmland
@@ -299,8 +1199,12 @@
   - university
   - wishing_well
   - witchs_hut
+  expansions:
+  - Alchemy
+  - Hinterlands, 2E
+  - Intrigue, 2E
   idx: 74772789873907042759468641280865214251
-  name: 6/28/24
+  name: 2024-6-28
 - cards:
   - berserker
   - magpie
@@ -312,11 +1216,14 @@
   - wheelwright
   - wine_merchant
   - witchs_hut
+  expansions:
+  - Adventures
+  - Hinterlands, 2E
   idx: 213284506183454939524945380710972164724
   landscapes:
   - ball
   - training
-  name: 6/27/24
+  name: 2024-6-27
 - cards:
   - courtier
   - duke
@@ -328,24 +1235,29 @@
   - shop
   - steward
   - wishing_well
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Intrigue, 2E
   idx: 85585271695201746429986488888925472103
-  name: 6/26/24
+  name: 2024-6-26
 - cards:
   - archive
   - capital
   - castles
   - chariot_race
   - crown
-  - encampment
+  - encampment/plunder
   - farmers_market
-  - patrician
-  - settlers
+  - patrician/emporium
+  - settlers/bustling_village
   - temple
+  expansions:
+  - Empires
   idx: 28846408872977122645689085167472844275
   landscapes:
   - banquet
   - triumph
-  name: 6/25/24
+  name: 2024-6-25
 - cards:
   - alchemist
   - artisan
@@ -357,8 +1269,11 @@
   - vassal
   - vineyard
   - workshop
+  expansions:
+  - Alchemy
+  - Base, 2E
   idx: 235850794154099737394305914299213936020
-  name: 6/24/24
+  name: 2024-6-24
 - cards:
   - altar
   - bazaar
@@ -370,12 +1285,24 @@
   - pixie
   - scrying_pool
   - spice_merchant
+  expansions:
+  - Adventures
+  - Alchemy
+  - Allies
+  - Dark Ages
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Seaside, 2E
   idx: 75721334765758867559003400533398779962
   landscapes:
   - rich
   - rush
-  name: 6/23/24
-  notes: Rich trait for Altar
+  name: 2024-6-23
+  traits:
+  - - rich
+    - altar
 - cards:
   - alchemist
   - candlestick_maker
@@ -387,12 +1314,23 @@
   - longship
   - rogue
   - tide_pools
+  expansions:
+  - Alchemy
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Nocturne
+  - Plunder
+  - Renaissance
+  - Seaside, 2E
   idx: 166172960926851392444585433113808942488
   landscapes:
   - capitalism
   - wedding
-  name: 6/22/24
-- cards:
+  name: 2024-6-22
+- bane_pile: guide
+  cards:
   - guide
   - haunted_woods
   - hireling
@@ -401,13 +1339,18 @@
   - magpie
   - mining_village
   - miser
+  - relic
   - patrol
   - young_witch
+  expansions:
+  - Adventures
+  - Cornucopia & Guilds, 2E
+  - Intrigue, 2E
   idx: 148707551402009779738379350572495892946
   landscapes:
   - lost_arts
   - raid
-  name: 6/21/24
+  name: 2024-6-21
 - cards:
   - apprentice
   - chariot_race
@@ -417,13 +1360,16 @@
   - golem
   - groundskeeper
   - sacrifice
-  - settlers
+  - settlers/bustling_village
   - university
+  expansions:
+  - Alchemy
+  - Empires
   idx: 340234848117584998093054377928482035042
   landscapes:
   - conquest
   - tower
-  name: 6/20/24
+  name: 2024-6-20
 - cards:
   - amulet
   - bauble
@@ -435,12 +1381,15 @@
   - messenger
   - royal_galley
   - transmogrify
+  expansions:
+  - Adventures
+  - Allies
   idx: 91617329814969562313659635031534133401
   landscapes:
   - desert_guides
   - ferry
   - scouting_party
-  name: 6/19/24
+  name: 2024-6-19
 - cards:
   - capital_city
   - contract
@@ -452,10 +1401,12 @@
   - townsfolk
   - underling
   - wizards
+  expansions:
+  - Allies
   idx: 39305927832036748059291376645605433810
   landscapes:
   - order_of_astrologers
-  name: 6/18/24
+  name: 2024-6-18
 - cards:
   - bureaucrat
   - expand
@@ -467,8 +1418,11 @@
   - remodel
   - village
   - watchtower
+  expansions:
+  - Base, 2E
+  - Prosperity, 2E
   idx: 10160369827105345803235437570610765263
-  name: 6/17/24
+  name: 2024-6-17
 - cards:
   - abundance
   - bandit_camp
@@ -480,11 +1434,19 @@
   - pilgrim
   - souk
   - transmogrify
+  expansions:
+  - Adventures
+  - Allies
+  - Dark Ages
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
   idx: 193622716502901501793297368576303900548
   landscapes:
   - deliver
   - way_of_the_chameleon
-  name: 6/16/24
+  name: 2024-6-16
 - cards:
   - bank
   - capital
@@ -496,11 +1458,25 @@
   - mint
   - necromancer
   - trading_post
+  druid_boons:
+  - the_seas_gift
+  - the_winds_gift
+  - the_earths_gift
+  expansions:
+  - Adventures
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Seaside, 2E
   idx: 299544247132507772775406820929533139655
   landscapes:
   - battlefield
   - way_of_the_worm
-  name: 6/15/24
+  name: 2024-6-15
 - cards:
   - advisor
   - altar
@@ -512,10 +1488,14 @@
   - mystic
   - stonemason
   - sycophant
+  expansions:
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
   idx: 28510746013555106035896659910762175126
   landscapes:
   - cave_dwellers
-  name: 6/14/24
+  name: 2024-6-14
 - cards:
   - cauldron
   - conclave
@@ -527,8 +1507,11 @@
   - tunnel
   - weaver
   - witchs_hut
+  expansions:
+  - Hinterlands, 2E
+  - Nocturne
   idx: 4016661320779299388476613444349290923
-  name: 6/13/24
+  name: 2024-6-13
 - cards:
   - apprentice
   - capital_city
@@ -540,8 +1523,11 @@
   - sentinel
   - townsfolk
   - vineyard
+  expansions:
+  - Alchemy
+  - Allies
   idx: 323774640844709397616578704105379714630
-  name: 6/12/24
+  name: 2024-6-12
 - cards:
   - cauldron
   - fools_gold
@@ -553,8 +1539,10 @@
   - souk
   - trader
   - weaver
+  expansions:
+  - Hinterlands, 2E
   idx: 96165908115423623427481709764241836582
-  name: 6/11/24
+  name: 2024-6-11
 - cards:
   - bandit
   - bureaucrat
@@ -566,8 +1554,11 @@
   - philosophers_stone
   - village
   - vineyard
+  expansions:
+  - Alchemy
+  - Base, 2E
   idx: 142581616921155152740547590933334202176
-  name: 6/10/24
+  name: 2024-6-10
 - cards:
   - frigate
   - ghost_town
@@ -579,11 +1570,20 @@
   - sage
   - scavenger
   - vault
+  expansions:
+  - Dark Ages
+  - Empires
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
   idx: 1198469864451439373494780608578074452
   landscapes:
   - crop_rotation
   - pursue
-  name: 6/9/24
+  name: 2024-6-9
+  use_shelters: true
 - cards:
   - catacombs
   - courtier
@@ -595,11 +1595,20 @@
   - scholar
   - scrap
   - snowy_village
+  expansions:
+  - Adventures
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
+  - Renaissance
+  - Seaside, 2E
   idx: 126140163035138097205510516603251532926
   landscapes:
   - seize_the_day
   - way_of_the_frog
-  name: 6/8/24
+  name: 2024-6-8
 - cards:
   - augurs
   - count
@@ -611,8 +1620,12 @@
   - sentry
   - skirmisher
   - swap
+  expansions:
+  - Allies
+  - Base, 2E
+  - Dark Ages
   idx: 47687486371521461380809548608426129802
-  name: 6/7/24
+  name: 2024-6-7
 - cards:
   - astrolabe
   - border_village
@@ -624,8 +1637,11 @@
   - weaver
   - wharf
   - witchs_hut
+  expansions:
+  - Hinterlands, 2E
+  - Seaside, 2E
   idx: 114578657483899204145588660079315652912
-  name: 6/6/24
+  name: 2024-6-6
 - cards:
   - bard
   - bazaar
@@ -637,8 +1653,11 @@
   - sea_witch
   - tormentor
   - werewolf
+  expansions:
+  - Nocturne
+  - Seaside, 2E
   idx: 215390028410035572697581856505733487568
-  name: 6/5/24
+  name: 2024-6-5
 - cards:
   - cartographer
   - develop
@@ -650,8 +1669,10 @@
   - scheme
   - trader
   - trail
+  expansions:
+  - Hinterlands, 2E
   idx: 243510902548738663508007688447757109394
-  name: 6/4/24
+  name: 2024-6-4
 - cards:
   - cellar
   - chapel
@@ -663,8 +1684,11 @@
   - sailor
   - sentry
   - throne_room
+  expansions:
+  - Base, 2E
+  - Seaside, 2E
   idx: 61326820419023359064414417848139647453
-  name: 6/3/24
+  name: 2024-6-3
 - cards:
   - collection
   - counterfeit
@@ -676,11 +1700,24 @@
   - remodel
   - shepherd
   - silk_merchant
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Dark Ages
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
   idx: 80270685454431748328465157294753911058
   landscapes:
   - inheritance
   - ride
-  name: 6/2/24
+  name: 2024-6-2
+  use_colonies: true
+  use_shelters: true
 - cards:
   - black_cat
   - cardinal
@@ -692,10 +1729,16 @@
   - stockpile
   - sycophant
   - vault
+  expansions:
+  - Adventures
+  - Allies
+  - Menagerie
+  - Prosperity, 2E
+  - Renaissance
   idx: 276811609319491433856758172728321942822
   landscapes:
   - coastal_haven
-  name: 6/1/24
+  name: 2024-6-1
 - cards:
   - capital_city
   - clashes
@@ -707,10 +1750,15 @@
   - torturer
   - town
   - workers_village
+  expansions:
+  - Allies
+  - Intrigue, 2E
+  - Prosperity, 2E
   idx: 187988301165658321825769839642137805342
   landscapes:
   - trappers_lodge
-  name: 5/31/24
+  name: 2024-5-31
+  use_colonies: true
 - cards:
   - baker
   - bridge
@@ -722,8 +1770,11 @@
   - replace
   - secret_passage
   - steward
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Intrigue, 2E
   idx: 166842664992570759597253746150607834478
-  name: 5/30/24
+  name: 2024-5-30
 - cards:
   - bard
   - blessed_village
@@ -735,8 +1786,11 @@
   - torturer
   - upgrade
   - vampire
+  expansions:
+  - Intrigue, 2E
+  - Nocturne
   idx: 167778711352656777615069896874808296204
-  name: 5/29/24
+  name: 2024-5-29
 - cards:
   - bazaar
   - blockade
@@ -748,8 +1802,10 @@
   - sea_witch
   - tactician
   - tide_pools
+  expansions:
+  - Seaside, 2E
   idx: 85370376429528904950403304884904419181
-  name: 5/28/24
+  name: 2024-5-28
 - cards:
   - bureaucrat
   - courtyard
@@ -761,8 +1817,11 @@
   - mining_village
   - moat
   - moneylender
+  expansions:
+  - Base, 2E
+  - Intrigue, 2E
   idx: 2107259128584264116220860511806769125
-  name: 5/27/24
+  name: 2024-5-27
 - cards:
   - altar
   - catacombs
@@ -770,15 +1829,22 @@
   - fortune_hunter
   - junk_dealer
   - lackeys
-  - patrician
+  - patrician/emporium
   - patrol
   - scepter
   - temple
+  expansions:
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
+  - Renaissance
   idx: 63251850227532021647178659571583211187
   landscapes:
   - mirror
   - scrounge
-  name: 5/26/24
+  name: 2024-5-26
 - cards:
   - advisor
   - bureaucrat
@@ -790,14 +1856,23 @@
   - militia
   - secret_passage
   - torturer
+  expansions:
+  - Allies
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  ferryman_pile: importer
   idx: 251854153145996319658060310444396913036
   landscapes:
   - band_of_nomads
   - way_of_the_seal
-  name: 5/25/24
+  name: 2024-5-25
 - cards:
   - cellar
-  - encampment
+  - encampment/plunder
   - festival
   - forum
   - harbinger
@@ -806,11 +1881,15 @@
   - sentry
   - university
   - village
+  expansions:
+  - Alchemy
+  - Base, 2E
+  - Empires
   idx: 137467223166749083431687753720745624062
   landscapes:
   - annex
   - aqueduct
-  name: 5/24/24
+  name: 2024-5-24
 - cards:
   - bridge_troll
   - coin_of_the_realm
@@ -822,11 +1901,14 @@
   - royal_carriage
   - scepter
   - spices
+  expansions:
+  - Adventures
+  - Renaissance
   idx: 307480952361974357720524223298787526547
   landscapes:
   - academy
   - capitalism
-  name: 5/23/24
+  name: 2024-5-23
 - cards:
   - apothecary
   - archive
@@ -835,14 +1917,17 @@
   - forum
   - herbalist
   - legionary
-  - patrician
+  - patrician/emporium
   - philosophers_stone
   - university
+  expansions:
+  - Alchemy
+  - Empires
   idx: 252149884646113286188863695127417438361
   landscapes:
   - triumph
   - triumphal_arch
-  name: 5/22/24
+  name: 2024-5-22
 - cards:
   - acting_troupe
   - border_guard
@@ -854,11 +1939,13 @@
   - seer
   - spices
   - treasurer
+  expansions:
+  - Renaissance
   idx: 259260749803317355259398334181620355147
   landscapes:
   - citadel
   - crop_rotation
-  name: 5/21/24
+  name: 2024-5-21
 - cards:
   - cellar
   - harbinger
@@ -870,8 +1957,11 @@
   - throne_room
   - vassal
   - village
+  expansions:
+  - Base, 2E
+  - Hinterlands, 2E
   idx: 107921082018868618620738946109218278926
-  name: 5/20/24
+  name: 2024-5-20
 - cards:
   - conspirator
   - contract
@@ -883,12 +1973,23 @@
   - rebuild
   - snowy_village
   - souk
+  expansions:
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
+  - Renaissance
   idx: 283365518218582608219680464343002827049
   landscapes:
   - band_of_nomads
   - friendly
-  name: 5/19/24
-  notes: Friendly trait for Falconer
+  name: 2024-5-19
+  traits:
+  - - friendly
+    - falconer
 - cards:
   - baker
   - develop
@@ -900,12 +2001,22 @@
   - peasant
   - royal_galley
   - sycophant
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
   idx: 135779450468883231587867634674051836506
   landscapes:
   - alliance
   - circle_of_witches
   - palace
-  name: 5/18/24
+  name: 2024-5-18
 - cards:
   - barbarian
   - castles
@@ -917,12 +2028,16 @@
   - temple
   - villa
   - wild_hunt
+  expansions:
+  - Allies
+  - Empires
+  - Seaside, 2E
   idx: 305106895848055385147875940674622708011
   landscapes:
   - aqueduct
   - order_of_astrologers
   - wolf_den
-  name: 5/17/24
+  name: 2024-5-17
 - cards:
   - conclave
   - crypt
@@ -934,8 +2049,11 @@
   - tracker
   - trader
   - witchs_hut
+  expansions:
+  - Hinterlands, 2E
+  - Nocturne
   idx: 24852875625506030676885425398645531812
-  name: 5/16/24
+  name: 2024-5-16
 - cards:
   - bishop
   - border_guard
@@ -947,24 +2065,30 @@
   - sculptor
   - spices
   - swashbuckler
+  expansions:
+  - Prosperity, 2E
+  - Renaissance
   idx: 260380282461811104295718247532897651160
-  name: 5/15/24
+  name: 2024-5-15
+  use_colonies: true
 - cards:
   - archive
   - capital
-  - catapult
+  - catapult/rocks
   - chariot_race
-  - encampment
+  - encampment/plunder
   - engineer
   - forum
-  - gladiator
-  - settlers
+  - gladiator/fortune
+  - settlers/bustling_village
   - villa
+  expansions:
+  - Empires
   idx: 157601814190347714463286545802223456383
   landscapes:
   - aqueduct
   - triumph
-  name: 5/14/24
+  name: 2024-5-14
 - cards:
   - bandit
   - bureaucrat
@@ -976,8 +2100,11 @@
   - scrying_pool
   - vassal
   - vineyard
+  expansions:
+  - Alchemy
+  - Base, 2E
   idx: 255142330109638167283445568645963786945
-  name: 5/13/24
+  name: 2024-5-13
 - cards:
   - acting_troupe
   - buried_treasure
@@ -989,11 +2116,22 @@
   - miser
   - poacher
   - pooka
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Renaissance
+  - Seaside, 2E
   idx: 220471235003747421314970366151430237943
   landscapes:
   - banish
   - donate
-  name: 5/12/24
+  name: 2024-5-12
 - cards:
   - city_quarter
   - council_room
@@ -1005,11 +2143,22 @@
   - lackeys
   - shaman
   - tunnel
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
+  - Renaissance
   idx: 19911549707603215408487406071901545381
   landscapes:
   - fountain
   - museum
-  name: 5/11/24
+  name: 2024-5-11
 - cards:
   - abundance
   - crew
@@ -1021,11 +2170,14 @@
   - rope
   - taskmaster
   - trickster
+  expansions:
+  - Empires
+  - Plunder
   idx: 293687599227031853220337077929655145717
   landscapes:
   - conquest
   - mountain_pass
-  name: 5/10/24
+  name: 2024-5-10
 - cards:
   - anvil
   - charlatan
@@ -1037,8 +2189,11 @@
   - peddler
   - philosophers_stone
   - vineyard
+  expansions:
+  - Alchemy
+  - Prosperity, 2E
   idx: 310011900486314992340045066825261344405
-  name: 5/9/24
+  name: 2024-5-9
 - cards:
   - astrolabe
   - cemetery
@@ -1050,8 +2205,11 @@
   - tactician
   - tormentor
   - treasury
+  expansions:
+  - Nocturne
+  - Seaside, 2E
   idx: 85026421900180304277935371613803827611
-  name: 5/8/24
+  name: 2024-5-8
 - cards:
   - border_village
   - cartographer
@@ -1063,8 +2221,10 @@
   - margrave
   - trader
   - weaver
+  expansions:
+  - Hinterlands, 2E
   idx: 18989236622190962992977157509697495359
-  name: 5/7/24
+  name: 2024-5-7
 - cards:
   - bridge
   - council_room
@@ -1076,8 +2236,11 @@
   - shanty_town
   - swindler
   - throne_room
+  expansions:
+  - Base, 2E
+  - Intrigue, 2E
   idx: 298130966335609185129475844919193933272
-  name: 5/6/24
+  name: 2024-5-6
 - cards:
   - gear
   - investment
@@ -1089,11 +2252,20 @@
   - town
   - treasurer
   - upgrade
+  expansions:
+  - Adventures
+  - Allies
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
   idx: 141971351539454576463600467758762701322
   landscapes:
   - prosper
   - reap
-  name: 5/5/24
+  name: 2024-5-5
 - cards:
   - cage
   - duplicate
@@ -1105,11 +2277,18 @@
   - secret_passage
   - storeroom
   - torturer
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Dark Ages
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
   idx: 72830495529357257552044400096570767083
   landscapes:
   - enclave
   - invasion
-  name: 5/4/24
+  name: 2024-5-4
 - cards:
   - counterfeit
   - courtyard
@@ -1121,8 +2300,12 @@
   - replace
   - sentry
   - wandering_minstrel
+  expansions:
+  - Base, 2E
+  - Dark Ages
+  - Intrigue, 2E
   idx: 177929476144159630759068661114792566722
-  name: 5/3/24
+  name: 2024-5-3
 - cards:
   - artificer
   - bounty_hunter
@@ -1134,11 +2317,14 @@
   - ratcatcher
   - raze
   - transmogrify
+  expansions:
+  - Adventures
+  - Menagerie
   idx: 13043859830602115551670694499983427160
   landscapes:
   - borrow
   - way_of_the_squirrel
-  name: 5/2/24
+  name: 2024-5-2
 - cards:
   - city
   - crew
@@ -1150,10 +2336,14 @@
   - rope
   - secluded_shrine
   - siren
+  expansions:
+  - Plunder
+  - Prosperity, 2E
   idx: 21381540920550095218574396148780369835
   landscapes:
   - prepare
-  name: 5/1/24
+  name: 2024-5-1
+  use_colonies: true
 - cards:
   - band_of_misfits
   - bandit_camp
@@ -1165,8 +2355,11 @@
   - urchin
   - vagrant
   - wandering_minstrel
+  expansions:
+  - Dark Ages
   idx: 17179167269529422312338562215957758906
-  name: 4/30/24
+  name: 2024-4-30
+  use_shelters: true
 - cards:
   - cartographer
   - chapel
@@ -1178,9 +2371,13 @@
   - trail
   - vassal
   - village
+  expansions:
+  - Base, 2E
+  - Hinterlands, 2E
   idx: 169711091246205780439473071190183525655
-  name: 4/29/24
-- cards:
+  name: 2024-4-29
+- bane_pile: fishing_village
+  cards:
   - contract
   - coven
   - haggler
@@ -1191,13 +2388,24 @@
   - vineyard
   - wayfarer
   - young_witch
+  - fishing_village
+  expansions:
+  - Alchemy
+  - Allies
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Seaside, 2E
   idx: 258768861613384823469486438295545283651
   landscapes:
   - city-state
-  - fishing_village
   - invest
-  name: 4/28/24
-- cards:
+  name: 2024-4-28
+- bane_pile: beggar
+  cards:
   - alchemist
   - apothecary
   - city_quarter
@@ -1206,14 +2414,24 @@
   - mine
   - search
   - storeroom
+  - beggar
   - wayfarer
   - young_witch
+  expansions:
+  - Alchemy
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
   idx: 48460509879554925029571017832894743126
   landscapes:
   - banquet
   - beggar
   - way_of_the_ox
-  name: 4/27/24
+  name: 2024-4-27
 - cards:
   - caravan_guard
   - carpenter
@@ -1225,12 +2443,16 @@
   - royal_galley
   - skirmisher
   - wizards
+  expansions:
+  - Adventures
+  - Allies
+  - Cornucopia & Guilds, 2E
   idx: 335857894431927966283121670984399379025
   landscapes:
   - alms
   - league_of_shopkeepers
   - pathfinding
-  name: 4/26/24
+  name: 2024-4-26
 - cards:
   - baron
   - diplomat
@@ -1242,8 +2464,11 @@
   - torturer
   - trading_post
   - vineyard
+  expansions:
+  - Alchemy
+  - Intrigue, 2E
   idx: 225454947673112846436535563134034181609
-  name: 4/25/24
+  name: 2024-4-25
 - cards:
   - hostelry
   - kiln
@@ -1255,10 +2480,13 @@
   - snowy_village
   - stockpile
   - treasury
+  expansions:
+  - Menagerie
+  - Seaside, 2E
   idx: 107803615126970480120564528793836928719
   landscapes:
   - way_of_the_mole
-  name: 4/24/24
+  name: 2024-4-24
 - cards:
   - bauble
   - capital_city
@@ -1270,23 +2498,30 @@
   - specialist
   - town
   - townsfolk
+  expansions:
+  - Allies
   idx: 113615356645715065133686626543349802432
-  name: 4/23/24
+  landscapes:
+  - cave_dwellers
+  name: 2024-4-23
 - cards:
   - artisan
   - bureaucrat
   - chapel
   - charm
   - crown
-  - patrician
+  - patrician/emporium
   - royal_blacksmith
   - vassal
   - wild_hunt
   - witch
+  expansions:
+  - Base, 2E
+  - Empires
   idx: 217889022319336769413332876120108385414
   landscapes:
   - donate
-  name: 4/22/24
+  name: 2024-4-22
 - cards:
   - blessed_village
   - harem_farm
@@ -1298,11 +2533,19 @@
   - ranger
   - scheme
   - treasure_trove
+  expansions:
+  - Adventures
+  - Cornucopia & Guilds, 2E
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Seaside, 2E
   idx: 43486932519472322557597437114569760341
   landscapes:
   - enhance
   - lost_arts
-  name: 4/21/24
+  name: 2024-4-21
 - cards:
   - bridge
   - castles
@@ -1314,11 +2557,20 @@
   - throne_room
   - tracker
   - trail
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
   idx: 253678151209528404625263184222356774757
   landscapes:
   - toil
   - way_of_the_rat
-  name: 4/20/24
+  name: 2024-4-20
 - cards:
   - band_of_misfits
   - duke
@@ -1330,8 +2582,12 @@
   - nobles
   - sage
   - scavenger
+  expansions:
+  - Base, 2E
+  - Dark Ages
+  - Intrigue, 2E
   idx: 72492777399117472948138446812931947771
-  name: 4/19/24
+  name: 2024-4-19
 - cards:
   - altar
   - cultist
@@ -1343,8 +2599,12 @@
   - rats
   - sage
   - urchin
+  expansions:
+  - Dark Ages
+  - Intrigue, 2E
   idx: 92917978385949029114099003322558493662
-  name: 4/18/24
+  name: 2024-4-18
+  use_shelters: true
 - cards:
   - advisor
   - butcher
@@ -1356,10 +2616,13 @@
   - swap
   - sycophant
   - underling
+  expansions:
+  - Allies
+  - Cornucopia & Guilds, 2E
   idx: 195595278129188894806476745604720593270
   landscapes:
   - city-state
-  name: 4/17/24
+  name: 2024-4-17
 - cards:
   - acting_troupe
   - border_guard
@@ -1371,11 +2634,13 @@
   - patron
   - priest
   - villain
+  expansions:
+  - Renaissance
   idx: 196996016144013607483747737354733777499
   landscapes:
   - guildhall
   - star_chart
-  name: 4/16/24
+  name: 2024-4-16
 - cards:
   - cemetery
   - druid
@@ -1387,9 +2652,17 @@
   - tragic_hero
   - vampire
   - werewolf
+  druid_boons:
+  - the_seas_gift
+  - the_suns_gift
+  - the_swamps_gift
+  expansions:
+  - Base, 2E
+  - Nocturne
   idx: 58561868428960435293422920753902566111
-  name: 4/15/24
-- cards:
+  name: 2024-4-15
+- bane_pile: guardian
+  cards:
   - baron
   - festival
   - graverobber
@@ -1400,12 +2673,22 @@
   - shaman
   - village
   - young_witch
+  - guardian
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Nocturne
+  - Plunder
+  - Renaissance
   idx: 336527931734568996369200674387338468457
   landscapes:
   - citadel
   - groundskeeper
   - triumph
-  name: 4/14/24
+  name: 2024-4-14
 - cards:
   - chapel
   - devils_workshop
@@ -1417,11 +2700,18 @@
   - pendant
   - pilgrim
   - pirate
+  expansions:
+  - Base, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Renaissance
+  - Seaside, 2E
   idx: 70557375108776211991373458097234579419
   landscapes:
   - foray
   - prepare
-  name: 4/13/24
+  name: 2024-4-13
 - cards:
   - band_of_misfits
   - bandit
@@ -1433,8 +2723,12 @@
   - trail
   - urchin
   - witch
+  expansions:
+  - Base, 2E
+  - Dark Ages
+  - Hinterlands, 2E
   idx: 272679945790055228174391262187012513879
-  name: 4/12/24
+  name: 2024-4-12
 - cards:
   - animal_fair
   - barge
@@ -1446,8 +2740,11 @@
   - scrap
   - snowy_village
   - steward
+  expansions:
+  - Intrigue, 2E
+  - Menagerie
   idx: 139565278363330162791993990333075647820
-  name: 4/11/24
+  name: 2024-4-11
 - cards:
   - acting_troupe
   - advisor
@@ -1459,11 +2756,14 @@
   - soothsayer
   - spices
   - swashbuckler
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Renaissance
   idx: 234878117247626161828241934503499870775
   landscapes:
   - barracks
   - exploration
-  name: 4/10/24
+  name: 2024-4-10
 - cards:
   - cabin_boy
   - cage
@@ -1475,11 +2775,13 @@
   - longship
   - taskmaster
   - wealthy_village
+  expansions:
+  - Plunder
   idx: 242003832557479593111209130119459599916
   landscapes:
   - bury
   - maelstrom
-  name: 4/9/24
+  name: 2024-4-9
 - cards:
   - artisan
   - band_of_misfits
@@ -1491,8 +2793,11 @@
   - squire
   - storeroom
   - wandering_minstrel
+  expansions:
+  - Base, 2E
+  - Dark Ages
   idx: 255343311972805709446800660655306252889
-  name: 4/8/24
+  name: 2024-4-8
 - cards:
   - black_cat
   - engineer
@@ -1504,12 +2809,21 @@
   - shop
   - squire
   - supplies
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Menagerie
+  - Plunder
+  - Renaissance
   idx: 43061436680950799927936605232286992533
   landscapes:
   - inherited
   - scrounge
-  name: 4/7/24
-  notes: Inherited trait for Shop
+  name: 2024-4-7
+  traits:
+  - - inherited
+    - shop
 - cards:
   - advisor
   - clerk
@@ -1521,12 +2835,25 @@
   - market_square
   - sacrifice
   - secret_cave
+  expansions:
+  - Adventures
+  - Alchemy
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
   idx: 194296895932712834212286671320288255914
   landscapes:
   - cursed
   - reckless
-  name: 4/6/24
-  notes: Reckless trait for Market Square, Cursed trait for Familiar
+  name: 2024-4-6
+  traits:
+  - - reckless
+    - market_square
+  - - cursed
+    - familiar
 - cards:
   - archive
   - conspirator
@@ -1538,11 +2865,15 @@
   - replace
   - sacrifice
   - torturer
+  expansions:
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
   idx: 181016132620699437022233175157336927569
   landscapes:
   - basilica
   - wolf_den
-  name: 4/5/24
+  name: 2024-4-5
 - cards:
   - bard
   - changeling
@@ -1554,8 +2885,11 @@
   - shepherd
   - shop
   - skulk
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Nocturne
   idx: 24154691331727043866367977917192336519
-  name: 4/4/24
+  name: 2024-4-4
 - cards:
   - caravan_guard
   - coin_of_the_realm
@@ -1567,11 +2901,14 @@
   - ranger
   - storyteller
   - transmogrify
+  expansions:
+  - Adventures
+  - Cornucopia & Guilds, 2E
   idx: 48900398416971150891740926549440542560
   landscapes:
   - mission
   - trade
-  name: 4/3/24
+  name: 2024-4-3
 - cards:
   - armory
   - beggar
@@ -1583,8 +2920,10 @@
   - rats
   - storeroom
   - vagrant
+  expansions:
+  - Dark Ages
   idx: 302717738780956851175132996206012862137
-  name: 4/2/24
+  name: 2024-4-2
 - cards:
   - artisan
   - blockade
@@ -1596,8 +2935,11 @@
   - smugglers
   - throne_room
   - wharf
+  expansions:
+  - Base, 2E
+  - Seaside, 2E
   idx: 154660105426486931815038296633307343173
-  name: 4/1/24
+  name: 2024-4-1
 - cards:
   - farmers_market
   - hunting_party
@@ -1606,11 +2948,19 @@
   - merchant_guild
   - pirate
   - scrap
-  - settlers
+  - settlers/bustling_village
   - treasure_trove
   - vault
+  expansions:
+  - Adventures
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Menagerie
+  - Plunder
+  - Prosperity, 2E
+  - Seaside, 2E
   idx: 136004497440244714323790023587624562028
-  name: 3/31/24
+  name: 2024-3-31
 - cards:
   - crystal_ball
   - emissary
@@ -1622,11 +2972,19 @@
   - mining_road
   - peasant
   - poor_house
+  expansions:
+  - Adventures
+  - Allies
+  - Dark Ages
+  - Empires
+  - Menagerie
+  - Plunder
+  - Prosperity, 2E
   idx: 84437157655462810817371995150266166227
   landscapes:
   - mountain_folk
   - mountain_pass
-  name: 3/30/24
+  name: 2024-3-30
 - cards:
   - baker
   - carnival
@@ -1638,10 +2996,13 @@
   - shop
   - swap
   - wizards
+  expansions:
+  - Allies
+  - Cornucopia & Guilds, 2E
   idx: 309426016510722022146547170536546232943
   landscapes:
   - city-state
-  name: 3/29/24
+  name: 2024-3-29
 - cards:
   - ducat
   - harem_farm
@@ -1653,11 +3014,14 @@
   - silk_merchant
   - torturer
   - trading_post
+  expansions:
+  - Intrigue, 2E
+  - Renaissance
   idx: 71022083706507530313083936993106801636
   landscapes:
   - crop_rotation
   - road_network
-  name: 3/28/24
+  name: 2024-3-28
 - cards:
   - black_cat
   - border_guard
@@ -1669,11 +3033,14 @@
   - scepter
   - treasurer
   - villain
+  expansions:
+  - Menagerie
+  - Renaissance
   idx: 219055360360800603363540037571187124156
   landscapes:
   - cathedral
   - stampede
-  name: 3/27/24
+  name: 2024-3-27
 - cards:
   - astrolabe
   - corsair
@@ -1685,8 +3052,10 @@
   - salvager
   - smugglers
   - treasure_map
+  expansions:
+  - Seaside, 2E
   idx: 277502102925776651658391469518264164629
-  name: 3/26/24
+  name: 2024-3-26
 - cards:
   - bandit
   - bureaucrat
@@ -1698,8 +3067,11 @@
   - vassal
   - wheelwright
   - witch
+  expansions:
+  - Base, 2E
+  - Hinterlands, 2E
   idx: 309696294928325386574456177541910636448
-  name: 3/25/24
+  name: 2024-3-25
 - cards:
   - bard
   - duke
@@ -1711,10 +3083,18 @@
   - lost_city
   - minion
   - paddock
+  expansions:
+  - Adventures
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
   idx: 301313779580485908672326244665263090178
   landscapes:
   - colonnade
-  name: 3/24/24
+  name: 2024-3-24
 - cards:
   - beggar
   - bridge_troll
@@ -1726,11 +3106,26 @@
   - lackeys
   - replace
   - wayfarer
+  druid_boons:
+  - the_winds_gift
+  - the_skys_gift
+  - the_seas_gift
+  expansions:
+  - Adventures
+  - Alchemy
+  - Allies
+  - Dark Ages
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Prosperity, 2E
+  - Renaissance
   idx: 269318298536907446643407399388420409447
   landscapes:
   - enclave
   - woodworkers_guild
-  name: 3/23/24
+  name: 2024-3-23
+  use_shelters: true
 - cards:
   - acting_troupe
   - border_guard
@@ -1742,11 +3137,15 @@
   - seer
   - storeroom
   - watchtower
+  expansions:
+  - Dark Ages
+  - Prosperity, 2E
+  - Renaissance
   idx: 31625177703498520193876278500469652921
   landscapes:
   - capitalism
   - crop_rotation
-  name: 3/22/24
+  name: 2024-3-22
 - cards:
   - black_cat
   - displace
@@ -1758,11 +3157,14 @@
   - sleigh
   - snowy_village
   - wild_hunt
+  expansions:
+  - Empires
+  - Menagerie
   idx: 304994926224173449010781411520251348704
   landscapes:
   - stampede
   - tower
-  name: 3/21/24
+  name: 2024-3-21
 - cards:
   - barge
   - bounty_hunter
@@ -1774,11 +3176,14 @@
   - remake
   - sleigh
   - stockpile
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Menagerie
   idx: 99625143679831341343805143555431351684
   landscapes:
   - black_cat
   - young_witch
-  name: 3/20/24
+  name: 2024-3-20
 - cards:
   - city
   - collection
@@ -1790,8 +3195,10 @@
   - war_chest
   - watchtower
   - workers_village
+  expansions:
+  - Prosperity, 2E
   idx: 143641773246898116590569127526646738133
-  name: 3/19/24
+  name: 2024-3-19
 - cards:
   - artisan
   - bazaar
@@ -1803,8 +3210,11 @@
   - merchant
   - treasury
   - warehouse
+  expansions:
+  - Base, 2E
+  - Seaside, 2E
   idx: 94157756579213003917534932653082492992
-  name: 3/18/24
+  name: 2024-3-18
 - cards:
   - count
   - improve
@@ -1816,11 +3226,20 @@
   - trail
   - villain
   - weaver
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Nocturne
+  - Prosperity, 2E
+  - Renaissance
   idx: 252041309812093930840899734282329310237
   landscapes:
   - save
   - triumphal_arch
-  name: 3/17/24
+  name: 2024-3-17
 - cards:
   - band_of_misfits
   - council_room
@@ -1832,11 +3251,19 @@
   - remake
   - rope
   - tools
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Intrigue, 2E
+  - Nocturne
+  - Plunder
   idx: 288183458834424279829382660726684167008
   landscapes:
   - inheritance
   - pilgrimage
-  name: 3/16/24
+  name: 2024-3-16
 - cards:
   - cutthroat
   - flagship
@@ -1848,11 +3275,14 @@
   - quartermaster
   - search
   - shaman
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Plunder
   idx: 25323809833038632718575156990302395515
   landscapes:
   - deliver
   - launch
-  name: 3/15/24
+  name: 2024-3-15
 - cards:
   - bounty_hunter
   - cavalry
@@ -1864,11 +3294,14 @@
   - siren
   - village_green
   - wayfarer
+  expansions:
+  - Menagerie
+  - Plunder
   idx: 133470133724215758667524695133179185734
   landscapes:
   - transport
   - way_of_the_goat
-  name: 3/14/24
+  name: 2024-3-14
 - cards:
   - figurine
   - flagship
@@ -1880,12 +3313,17 @@
   - shaman
   - swamp_shacks
   - swindler
+  expansions:
+  - Intrigue, 2E
+  - Plunder
   idx: 19097356357266651192053791464768057815
   landscapes:
   - journey
   - rich
-  name: 3/13/24
-  notes: Rich trait for Grotto
+  name: 2024-3-13
+  traits:
+  - - rich
+    - grotto
 - cards:
   - courtier
   - courtyard
@@ -1897,8 +3335,10 @@
   - swindler
   - torturer
   - wishing_well
+  expansions:
+  - Intrigue, 2E
   idx: 261268770966405831125219597134394732400
-  name: 3/12/24
+  name: 2024-3-12
 - cards:
   - artisan
   - merchant
@@ -1910,11 +3350,14 @@
   - spices
   - treasurer
   - workshop
+  expansions:
+  - Base, 2E
+  - Renaissance
   idx: 274653319719475451293789839786825492726
   landscapes:
   - academy
   - innovation
-  name: 3/11/24
+  name: 2024-3-11
 - cards:
   - amulet
   - berserker
@@ -1926,11 +3369,20 @@
   - scrying_pool
   - siren
   - stables
+  expansions:
+  - Adventures
+  - Alchemy
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Nocturne
+  - Plunder
   idx: 202281198170416244015647961188257981147
-  name: 3/10/24
+  name: 2024-3-10
 - cards:
   - apprentice
-  - catapult
+  - catapult/rocks
   - chapel
   - devils_workshop
   - familiar
@@ -1939,11 +3391,20 @@
   - mill
   - ranger
   - wayfarer
+  expansions:
+  - Adventures
+  - Alchemy
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
   idx: 98146010034921853045697535639739440395
   landscapes:
   - dominate
   - way_of_the_mole
-  name: 3/9/24
+  name: 2024-3-9
 - cards:
   - advisor
   - bandit
@@ -1955,8 +3416,12 @@
   - throne_room
   - vassal
   - village
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Hinterlands, 2E
   idx: 20910151552032973588518575356228683190
-  name: 3/8/24
+  name: 2024-3-8
 - cards:
   - artificer
   - baron
@@ -1968,11 +3433,14 @@
   - mining_village
   - relic
   - replace
+  expansions:
+  - Adventures
+  - Intrigue, 2E
   idx: 211489428039960867457038052781666586804
   landscapes:
   - plan
   - scouting_party
-  name: 3/7/24
+  name: 2024-3-7
 - cards:
   - bank
   - expand
@@ -1984,8 +3452,11 @@
   - war_chest
   - watchtower
   - workers_village
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Prosperity, 2E
   idx: 306871506169990879651214341079116946679
-  name: 3/6/24
+  name: 2024-3-6
 - cards:
   - bridge_troll
   - coin_of_the_realm
@@ -1997,8 +3468,10 @@
   - royal_carriage
   - swamp_hag
   - transmogrify
+  expansions:
+  - Adventures
   idx: 321095647372863580125238746091556650963
-  name: 3/5/24
+  name: 2024-3-5
 - cards:
   - artisan
   - band_of_misfits
@@ -2010,8 +3483,11 @@
   - urchin
   - village
   - witch
+  expansions:
+  - Base, 2E
+  - Dark Ages
   idx: 27845647288003481572667861168092978325
-  name: 3/4/24
+  name: 2024-3-4
 - cards:
   - cavalry
   - chariot_race
@@ -2023,10 +3499,22 @@
   - secluded_shrine
   - specialist
   - temple
+  expansions:
+  - Allies
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Menagerie
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
   idx: 263911712279168863311028135947811289167
   landscapes:
   - sinister_plot
-  name: 3/3/24
+  name: 2024-3-3
+  use_colonies: true
+  use_shelters: true
 - cards:
   - apothecary
   - clashes
@@ -2038,11 +3526,20 @@
   - minion
   - pickaxe
   - plaza
+  expansions:
+  - Alchemy
+  - Allies
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
+  - Renaissance
   idx: 13462759854572145947887043207258515800
   landscapes:
   - delay
   - foray
-  name: 3/2/24
+  name: 2024-3-2
 - cards:
   - animal_fair
   - camel_train
@@ -2054,11 +3551,15 @@
   - modify
   - odysseys
   - sheepdog
+  expansions:
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Menagerie
   idx: 225335300133043529447928021690678376156
   landscapes:
   - toil
   - way_of_the_pig
-  name: 3/1/24
+  name: 2024-3-1
 - cards:
   - baron
   - castles
@@ -2070,11 +3571,14 @@
   - lurker
   - mining_village
   - wild_hunt
+  expansions:
+  - Empires
+  - Intrigue, 2E
   idx: 149518878623795867801180141357851836889
   landscapes:
   - banquet
   - battlefield
-  name: 2/29/24
+  name: 2024-2-29
 - cards:
   - altar
   - count
@@ -2086,12 +3590,17 @@
   - siren
   - squire
   - taskmaster
+  expansions:
+  - Dark Ages
+  - Plunder
   idx: 164242370350440139126246331037554932337
   landscapes:
   - bury
   - fated
-  name: 2/28/24
-  notes: Fated trait for Squire
+  name: 2024-2-28
+  traits:
+  - - fated
+    - squire
 - cards:
   - black_cat
   - cardinal
@@ -2103,11 +3612,13 @@
   - sleigh
   - snowy_village
   - stockpile
+  expansions:
+  - Menagerie
   idx: 261148504388416370335475260011036562636
   landscapes:
   - invest
   - stampede
-  name: 2/27/24
+  name: 2024-2-27
 - cards:
   - bandit
   - bandit_camp
@@ -2119,11 +3630,14 @@
   - storeroom
   - vagrant
   - vassal
+  expansions:
+  - Base, 2E
+  - Dark Ages
   idx: 241624917684971129268669761009763721502
-  name: 2/26/24
+  name: 2024-2-26
 - cards:
   - apothecary
-  - catapult
+  - catapult/rocks
   - festival
   - landing_party
   - merchant_guild
@@ -2132,11 +3646,21 @@
   - relic
   - stables
   - witch
+  expansions:
+  - Adventures
+  - Alchemy
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Hinterlands, 2E
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
   idx: 66356327746842029739503783595733545734
   landscapes:
   - ball
   - capitalism
-  name: 2/25/24
+  name: 2024-2-25
 - cards:
   - gatekeeper
   - grand_market
@@ -2148,11 +3672,23 @@
   - replace
   - sage
   - scholar
+  expansions:
+  - Adventures
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
   idx: 178351968025609035988681816584478223920
   landscapes:
   - foray
   - invasion
-  name: 2/24/24
+  name: 2024-2-24
 - cards:
   - astrolabe
   - bauble
@@ -2164,10 +3700,14 @@
   - masquerade
   - outpost
   - sailor
+  expansions:
+  - Allies
+  - Intrigue, 2E
+  - Seaside, 2E
   idx: 64265795059765673294711258916046685953
   landscapes:
   - peaceful_cult
-  name: 2/23/24
+  name: 2024-2-23
 - cards:
   - blockade
   - caravan
@@ -2179,12 +3719,16 @@
   - livery
   - paddock
   - village_green
+  expansions:
+  - Menagerie
+  - Seaside, 2E
   idx: 298976677070316631691958124077719895019
   landscapes:
   - gamble
   - way_of_the_chameleon
-  name: 2/22/24
-- cards:
+  name: 2024-2-22
+- bane_pile: menagerie
+  cards:
   - courtier
   - diplomat
   - horse_traders
@@ -2195,10 +3739,12 @@
   - torturer
   - tournament
   - young_witch
-  idx: 306942380033419663822283941157759255938
-  landscapes:
   - menagerie
-  name: 2/21/24
+  expansions:
+  - Cornucopia, 1E
+  - Intrigue, 2E
+  idx: 306942380033419663822283941157759255938
+  name: 2024-2-21
 - cards:
   - band_of_misfits
   - bandit_camp
@@ -2210,8 +3756,11 @@
   - mystic
   - rats
   - urchin
+  expansions:
+  - Dark Ages
   idx: 68359178530903173443642489095754668048
-  name: 2/20/24
+  name: 2024-2-20
+  use_shelters: true
 - cards:
   - chapel
   - ducat
@@ -2223,11 +3772,14 @@
   - recruiter
   - remodel
   - smithy
+  expansions:
+  - Base, 2E
+  - Renaissance
   idx: 174988470585550703695506698150739238510
   landscapes:
   - piazza
   - sinister_plot
-  name: 2/19/24
+  name: 2024-2-19
 - cards:
   - death_cart
   - doctor
@@ -2239,11 +3791,20 @@
   - watchtower
   - weaver
   - wheelwright
+  expansions:
+  - Dark Ages
+  - Guilds, 1E
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
+  - Prosperity, 2E
+  - Seaside, 2E
   idx: 195398025999060453564975564234622120278
   landscapes:
   - banish
   - way_of_the_rat
-  name: 2/18/24
+  name: 2024-2-18
 - cards:
   - anvil
   - bank
@@ -2255,11 +3816,17 @@
   - priest
   - sack_of_loot
   - silver_mine
+  expansions:
+  - Base, 2E
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
   idx: 22364902952776029820523451615378603022
   landscapes:
   - citadel
   - rush
-  name: 2/17/24
+  name: 2024-2-17
 - cards:
   - augurs
   - feodum
@@ -2271,8 +3838,15 @@
   - squire
   - underling
   - vagrant
+  expansions:
+  - Allies
+  - Cornucopia, 1E
+  - Dark Ages
   idx: 49306618801177041377285104352797606875
-  name: 2/16/24
+  landscapes:
+  - market_towns
+  name: 2024-2-16
+  use_shelters: true
 - cards:
   - animal_fair
   - bishop
@@ -2284,8 +3858,11 @@
   - monument
   - snowy_village
   - war_chest
+  expansions:
+  - Menagerie
+  - Prosperity, 2E
   idx: 324578149930313602506642652469755141194
-  name: 2/15/24
+  name: 2024-2-15
 - cards:
   - bank
   - courtier
@@ -2297,8 +3874,11 @@
   - torturer
   - upgrade
   - wishing_well
+  expansions:
+  - Intrigue, 2E
+  - Prosperity, 2E
   idx: 202434514243872735453310887616730533985
-  name: 2/14/24
+  name: 2024-2-14
 - cards:
   - baron
   - bridge
@@ -2310,8 +3890,10 @@
   - torturer
   - trading_post
   - wishing_well
+  expansions:
+  - Intrigue, 2E
   idx: 113986493513466920957523077647075360900
-  name: 2/13/24
+  name: 2024-2-13
 - cards:
   - artisan
   - bandit
@@ -2323,11 +3905,14 @@
   - mastermind
   - scrap
   - snowy_village
+  expansions:
+  - Base, 2E
+  - Menagerie
   idx: 288121129126749045039900598243943651761
   landscapes:
   - populate
   - pursue
-  name: 2/12/24
+  name: 2024-2-12
 - cards:
   - displace
   - faithful_hound
@@ -2339,8 +3924,22 @@
   - shanty_town
   - storeroom
   - wizards
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Dark Ages
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Renaissance
+  - Seaside, 2E
   idx: 147258017767252149428271594195423447444
-  name: 2/11/24
+  landscapes:
+  - pursue
+  - delay
+  - gang_of_pickpockets
+  name: 2024-2-11
 - cards:
   - anvil
   - bank
@@ -2352,10 +3951,18 @@
   - rats
   - stonemason
   - vault
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Menagerie
+  - Nocturne
+  - Prosperity, 2E
   idx: 64783877155182884269610240191711837858
   landscapes:
   - way_of_the_seal
-  name: 2/10/24
+  name: 2024-2-10
+  use_colonies: true
 - cards:
   - altar
   - armory
@@ -2367,8 +3974,12 @@
   - royal_galley
   - soothsayer
   - taxman
+  expansions:
+  - Allies
+  - Dark Ages
+  - Guilds, 1E
   idx: 193298418673590618744735508568652764902
-  name: 2/9/24
+  name: 2024-2-9
 - cards:
   - barbarian
   - carpenter
@@ -2380,26 +3991,31 @@
   - town
   - townsfolk
   - wizards
+  expansions:
+  - Allies
   idx: 108026343320350593911642906207092128175
   landscapes:
   - architects_guild
-  name: 2/8/24
+  name: 2024-2-8
 - cards:
   - blessed_village
   - den_of_sin
   - engineer
   - farmers_market
   - monastery
-  - patrician
+  - patrician/emporium
   - pixie
   - secret_cave
-  - settlers
+  - settlers/bustling_village
   - tracker
+  expansions:
+  - Empires
+  - Nocturne
   idx: 61131100488232989787142345988388771894
   landscapes:
   - baths
   - mountain_pass
-  name: 2/7/24
+  name: 2024-2-7
 - cards:
   - duplicate
   - gear
@@ -2411,11 +4027,13 @@
   - storyteller
   - swamp_hag
   - wine_merchant
+  expansions:
+  - Adventures
   idx: 14426883254126390721538288893580862863
   landscapes:
   - seaway
   - travelling_fair
-  name: 2/6/24
+  name: 2024-2-6
 - cards:
   - bauble
   - merchant
@@ -2427,10 +4045,13 @@
   - sycophant
   - underling
   - vassal
+  expansions:
+  - Allies
+  - Base, 2E
   idx: 163441387457693053859460090352157431646
   landscapes:
   - city-state
-  name: 2/5/24
+  name: 2024-2-5
 - cards:
   - cultist
   - displace
@@ -2440,13 +4061,23 @@
   - harvest
   - necromancer
   - pendant
-  - settlers
+  - settlers/bustling_village
   - storyteller
+  expansions:
+  - Adventures
+  - Cornucopia, 1E
+  - Dark Ages
+  - Empires
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
   idx: 141193914858812176861883930788835242901
   landscapes:
   - expedition
   - obelisk
-  name: 2/4/24
+  name: 2024-2-4
+  obelisk_pile: necromancer
 - cards:
   - bank
   - cemetery
@@ -2458,11 +4089,22 @@
   - peddler
   - sculptor
   - wild_hunt
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
   idx: 48893707618509468093360468912837352869
   landscapes:
   - road_network
   - way_of_the_camel
-  name: 2/3/24
+  name: 2024-2-3
 - cards:
   - cutpurse
   - den_of_sin
@@ -2474,8 +4116,16 @@
   - merchant_ship
   - minion
   - nobles
+  druid_boons:
+  - the_winds_gift
+  - the_suns_gift
+  - the_forests_gift
+  expansions:
+  - Intrigue, 2E
+  - Nocturne
+  - Seaside, 2E
   idx: 53342826791786789357318907151036701315
-  name: 2/2/24
+  name: 2024-2-2
 - cards:
   - black_cat
   - displace
@@ -2487,11 +4137,14 @@
   - snowy_village
   - torturer
   - village_green
+  expansions:
+  - Intrigue, 2E
+  - Menagerie
   idx: 57517739987535371691638666659338682182
   landscapes:
   - enclave
   - way_of_the_turtle
-  name: 2/1/24
+  name: 2024-2-1
 - cards:
   - caravan_guard
   - distant_lands
@@ -2503,11 +4156,14 @@
   - relic
   - storyteller
   - treasure_trove
+  expansions:
+  - Adventures
+  - Cornucopia, 1E
   idx: 7044052107790141819052929874962950579
   landscapes:
   - alms
   - save
-  name: 1/31/24
+  name: 2024-1-31
 - cards:
   - faithful_hound
   - guardian
@@ -2519,8 +4175,10 @@
   - tormentor
   - tracker
   - tragic_hero
+  expansions:
+  - Nocturne
   idx: 72491626452850680343964283192470782975
-  name: 1/30/24
+  name: 2024-1-30
 - cards:
   - bandit
   - cellar
@@ -2532,8 +4190,11 @@
   - poacher
   - swindler
   - vassal
+  expansions:
+  - Base, 2E
+  - Intrigue, 2E
   idx: 289987931830051063502743565322523316829
-  name: 1/29/24
+  name: 2024-1-29
 - cards:
   - chariot_race
   - figurine
@@ -2545,11 +4206,20 @@
   - trader
   - vineyard
   - wine_merchant
+  expansions:
+  - Adventures
+  - Alchemy
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
   idx: 336103684582546346495866028221834516816
   landscapes:
   - conquest
   - way_of_the_pig
-  name: 1/28/24
+  name: 2024-1-28
 - cards:
   - artificer
   - bard
@@ -2561,10 +4231,17 @@
   - mastermind
   - mining_road
   - torturer
+  expansions:
+  - Adventures
+  - Cornucopia & Guilds, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
   idx: 179622077166303662672359642965182363471
   landscapes:
   - way_of_the_pig
-  name: 1/27/24
+  name: 2024-1-27
 - cards:
   - capital_city
   - experiment
@@ -2576,8 +4253,12 @@
   - townsfolk
   - weaver
   - wheelwright
+  expansions:
+  - Allies
+  - Hinterlands, 2E
+  - Renaissance
   idx: 127394660508435007936861229712121503151
-  name: 1/26/24
+  name: 2024-1-26
 - cards:
   - courtier
   - experiment
@@ -2589,11 +4270,14 @@
   - patrol
   - sculptor
   - torturer
+  expansions:
+  - Intrigue, 2E
+  - Renaissance
   idx: 91816672275752200989422454395663279642
   landscapes:
   - sewers
   - sinister_plot
-  name: 1/25/24
+  name: 2024-1-25
 - cards:
   - apothecary
   - butcher
@@ -2605,8 +4289,11 @@
   - soothsayer
   - taxman
   - vineyard
+  expansions:
+  - Alchemy
+  - Guilds, 1E
   idx: 261311367410892406638900196801692862207
-  name: 1/24/24
+  name: 2024-1-24
 - cards:
   - caravan
   - corsair
@@ -2618,8 +4305,10 @@
   - smugglers
   - tide_pools
   - warehouse
+  expansions:
+  - Seaside, 2E
   idx: 138535758969251785970232413037453823442
-  name: 1/23/24
+  name: 2024-1-23
 - cards:
   - apothecary
   - bureaucrat
@@ -2631,8 +4320,11 @@
   - possession
   - throne_room
   - university
+  expansions:
+  - Alchemy
+  - Base, 2E
   idx: 138240548259636193380348583499461810806
-  name: 1/22/24
+  name: 2024-1-22
 - cards:
   - baron
   - falconer
@@ -2644,12 +4336,22 @@
   - pickaxe
   - sack_of_loot
   - villa
+  expansions:
+  - Adventures
+  - Allies
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
+  - Renaissance
   idx: 87563577434474761900112864848771955701
   landscapes:
   - crop_rotation
   - desert_guides
   - seize_the_day
-  name: 1/21/24
+  name: 2024-1-21
 - cards:
   - bank
   - border_village
@@ -2661,10 +4363,20 @@
   - old_witch
   - scholar
   - wandering_minstrel
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
   idx: 64210418533766518024233204640519930068
   landscapes:
   - ball
-  name: 1/20/24
+  name: 2024-1-20
 - cards:
   - border_guard
   - courtyard
@@ -2676,12 +4388,16 @@
   - secret_passage
   - seer
   - wharf
+  expansions:
+  - Intrigue, 2E
+  - Renaissance
+  - Seaside, 2E
   idx: 73391259326013890968315871927505184934
   landscapes:
   - road_network
-  name: 1/19/24
+  name: 2024-1-19
 - cards:
-  - encampment
+  - encampment/plunder
   - enlarge
   - farmers_market
   - figurine
@@ -2691,11 +4407,14 @@
   - pendant
   - shaman
   - taskmaster
+  expansions:
+  - Empires
+  - Plunder
   idx: 42519206902964700952571941373133108046
   landscapes:
   - bury
   - scrounge
-  name: 1/18/24
+  name: 2024-1-18
 - cards:
   - beggar
   - cultist
@@ -2707,11 +4426,15 @@
   - priest
   - rats
   - villain
+  expansions:
+  - Dark Ages
+  - Renaissance
   idx: 338574397438272211500379582978885554334
   landscapes:
   - silos
   - sinister_plot
-  name: 1/17/24
+  name: 2024-1-17
+  use_shelters: true
 - cards:
   - catacombs
   - graverobber
@@ -2723,8 +4446,11 @@
   - squire
   - urchin
   - vagrant
+  expansions:
+  - Dark Ages
   idx: 109925110365613449944725276588724764813
-  name: 1/16/24
+  name: 2024-1-16
+  use_shelters: true
 - cards:
   - bazaar
   - corsair
@@ -2736,8 +4462,11 @@
   - sea_witch
   - treasury
   - village
+  expansions:
+  - Base, 2E
+  - Seaside, 2E
   idx: 23242204942639189175339957417036090008
-  name: 1/15/24
+  name: 2024-1-15
 - cards:
   - cardinal
   - farmers_market
@@ -2749,11 +4478,22 @@
   - tournament
   - townsfolk
   - urchin
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Cornucopia, 1E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Plunder
+  - Seaside, 2E
   idx: 250403318890375923503635388203044329803
   landscapes:
   - bandit_fort
   - training
-  name: 1/14/24
+  name: 2024-1-14
 - cards:
   - augurs
   - bandit_camp
@@ -2765,13 +4505,22 @@
   - secluded_shrine
   - shaman
   - underling
+  expansions:
+  - Allies
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Menagerie
+  - Plunder
   idx: 229616148058787184269802844260640528858
   landscapes:
   - band_of_nomads
   - demand
-  name: 1/13/24
-- cards:
+  name: 2024-1-13
+- bane_pile: menagerie
+  cards:
   - bandit
+  - bureaucrat
   - crossroads
   - fairgrounds
   - farming_village
@@ -2781,10 +4530,12 @@
   - menagerie
   - remake
   - young_witch
+  expansions:
+  - Base, 2E
+  - Cornucopia, 1E
+  - Hinterlands, 2E
   idx: 186034048182883819978215849987153910988
-  landscapes:
-  - menagerie
-  name: 1/12/24
+  name: 2024-1-12
 - cards:
   - bishop
   - forge
@@ -2796,8 +4547,11 @@
   - war_chest
   - watchtower
   - workers_village
+  expansions:
+  - Nocturne
+  - Prosperity, 2E
   idx: 69383307380585006955402079634699132837
-  name: 1/11/24
+  name: 2024-1-11
 - cards:
   - advisor
   - butcher
@@ -2809,8 +4563,12 @@
   - poor_house
   - sage
   - vagrant
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
   idx: 231100818715237440166326989908567642389
-  name: 1/10/24
+  name: 2024-1-10
+  use_shelters: true
 - cards:
   - berserker
   - border_village
@@ -2822,8 +4580,10 @@
   - trader
   - trail
   - weaver
+  expansions:
+  - Hinterlands, 2E
   idx: 123349748340143003954589340264824456470
-  name: 1/9/24
+  name: 2024-1-9
 - cards:
   - bandit
   - council_room
@@ -2834,15 +4594,18 @@
   - poacher
   - royal_blacksmith
   - sacrifice
-  - settlers
+  - settlers/bustling_village
+  expansions:
+  - Base, 2E
+  - Empires
   idx: 188222735810514776698095988691504385286
   landscapes:
   - dominate
   - mountain_pass
-  name: 1/8/24
+  name: 2024-1-8
 - cards:
   - bandit
-  - catapult
+  - catapult/rocks
   - city
   - ducat
   - engineer
@@ -2851,11 +4614,18 @@
   - throne_room
   - watchtower
   - wild_hunt
+  expansions:
+  - Allies
+  - Base, 2E
+  - Empires
+  - Menagerie
+  - Prosperity, 2E
+  - Renaissance
   idx: 184313235323258495681655088882604744648
   landscapes:
   - city_gate
   - populate
-  name: 1/7/24
+  name: 2024-1-7
 - cards:
   - animal_fair
   - apothecary
@@ -2867,11 +4637,22 @@
   - seer
   - siren
   - war_chest
+  expansions:
+  - Adventures
+  - Alchemy
+  - Base, 2E
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
   idx: 231977904032833017433696000549340280315
   landscapes:
   - enclave
   - plan
-  name: 1/6/24
+  name: 2024-1-6
 - cards:
   - artisan
   - barge
@@ -2883,11 +4664,15 @@
   - scholar
   - scrap
   - smithy
+  expansions:
+  - Base, 2E
+  - Menagerie
+  - Renaissance
   idx: 179621207879660469306998897301039639055
   landscapes:
   - fair
   - way_of_the_seal
-  name: 1/5/24
+  name: 2024-1-5
 - cards:
   - acting_troupe
   - charlatan
@@ -2899,11 +4684,14 @@
   - quarry
   - silk_merchant
   - treasurer
+  expansions:
+  - Prosperity, 2E
+  - Renaissance
   idx: 17045042265666532435391858837053584678
   landscapes:
   - cathedral
   - sinister_plot
-  name: 1/4/24
+  name: 2024-1-4
 - cards:
   - capital
   - charm
@@ -2915,11 +4703,14 @@
   - royal_blacksmith
   - temple
   - treasurer
+  expansions:
+  - Empires
+  - Renaissance
   idx: 66844822651961823797798954046618554585
   landscapes:
   - salt_the_earth
   - triumphal_arch
-  name: 1/3/24
+  name: 2024-1-3
 - cards:
   - baron
   - conspirator
@@ -2931,8 +4722,10 @@
   - steward
   - trading_post
   - wishing_well
+  expansions:
+  - Intrigue, 2E
   idx: 171226779265833545423972282246399658829
-  name: 1/2/24
+  name: 2024-1-2
 - cards:
   - artisan
   - black_cat
@@ -2944,11 +4737,14 @@
   - remodel
   - scrap
   - stockpile
+  expansions:
+  - Base, 2E
+  - Menagerie
   idx: 92405716272590035556237138288454041519
   landscapes:
   - commerce
   - way_of_the_owl
-  name: 1/1/24
+  name: 2024-1-1
 - cards:
   - candlestick_maker
   - cemetery
@@ -2960,11 +4756,22 @@
   - necromancer
   - ranger
   - salvager
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Seaside, 2E
   idx: 178868901413613923722643679324187034535
   landscapes:
   - orchard
   - way_of_the_pig
-  name: 12/31/23
+  name: '2023-12-31'
 - cards:
   - druid
   - figurine
@@ -2976,10 +4783,23 @@
   - sacred_grove
   - tactician
   - taxman
+  druid_boons:
+  - the_seas_gift
+  - the_earths_gift
+  - the_skys_gift
+  expansions:
+  - Adventures
+  - Dark Ages
+  - Guilds, 1E
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
   idx: 54528820895933098965952451802850218774
   landscapes:
   - pageant
-  name: 12/30/23
+  name: '2023-12-30'
 - cards:
   - armory
   - cartographer
@@ -2991,24 +4811,31 @@
   - steward
   - weaver
   - witchs_hut
+  expansions:
+  - Dark Ages
+  - Hinterlands, 2E
+  - Intrigue, 2E
   idx: 170289443413357584357376066289326363323
-  name: 12/29/23
+  name: '2023-12-29'
 - cards:
   - archive
   - charm
   - engineer
   - farmers_market
-  - gladiator
+  - gladiator/fortune
   - groundskeeper
   - horse_traders
   - legionary
   - sacrifice
   - wild_hunt
+  expansions:
+  - Cornucopia, 1E
+  - Empires
   idx: 3874507602316221510869028551650704347
   landscapes:
   - defiled_shrine
   - tower
-  name: 12/28/23
+  name: '2023-12-28'
 - cards:
   - armory
   - band_of_misfits
@@ -3020,8 +4847,13 @@
   - rebuild
   - storeroom
   - urchin
+  expansions:
+  - Dark Ages
+  - Prosperity, 2E
   idx: 101784072663525974877628070450923757463
-  name: 12/27/23
+  name: '2023-12-27'
+  use_colonies: true
+  use_shelters: true
 - cards:
   - animal_fair
   - barge
@@ -3033,11 +4865,13 @@
   - sheepdog
   - snowy_village
   - wayfarer
+  expansions:
+  - Menagerie
   idx: 262093334144438843386418325054947286135
   landscapes:
   - desperation
   - enhance
-  name: 12/26/23
+  name: '2023-12-26'
 - cards:
   - cellar
   - cemetery
@@ -3049,8 +4883,11 @@
   - skulk
   - smithy
   - workshop
+  expansions:
+  - Base, 2E
+  - Nocturne
   idx: 299915949559732278374682653583637504114
-  name: 12/25/23
+  name: '2023-12-25'
 - cards:
   - astrolabe
   - harbinger
@@ -3062,10 +4899,19 @@
   - skulk
   - taskmaster
   - tide_pools
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Empires
+  - Intrigue, 2E
+  - Nocturne
+  - Plunder
+  - Seaside, 2E
   idx: 301372439543007532458969711433346125131
   landscapes:
   - defiled_shrine
-  name: 12/24/23
+  name: '2023-12-24'
 - cards:
   - barge
   - crew
@@ -3077,12 +4923,24 @@
   - mining_village
   - skirmisher
   - tiara
+  expansions:
+  - Allies
+  - Base, 2E
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
   idx: 317978894107216035369215141679036830954
   landscapes:
   - cursed
   - triumphal_arch
-  name: 12/23/23
-  notes: Cursed trait for Galleria
+  name: '2023-12-23'
+  traits:
+  - - cursed
+    - galleria
 - cards:
   - cemetery
   - cobbler
@@ -3094,10 +4952,14 @@
   - replace
   - sacred_grove
   - swindler
+  expansions:
+  - Allies
+  - Intrigue, 2E
+  - Nocturne
   idx: 20318386916448486373559889179461820336
   landscapes:
   - circle_of_witches
-  name: 12/22/23
+  name: '2023-12-22'
 - cards:
   - beggar
   - first_mate
@@ -3109,12 +4971,20 @@
   - longship
   - search
   - vagrant
+  expansions:
+  - Dark Ages
+  - Plunder
   idx: 189133773760833865872650825844981651166
   landscapes:
   - inspiring
   - patient
-  name: 12/21/23
-  notes: Patient trait for Search, Inspiring trait for Knights
+  name: '2023-12-21'
+  traits:
+  - - inspiring
+    - knights
+  - - patient
+    - search
+  use_shelters: true
 - cards:
   - baron
   - bridge
@@ -3126,8 +4996,11 @@
   - nobles
   - trading_post
   - upgrade
+  expansions:
+  - Cornucopia, 1E
+  - Intrigue, 2E
   idx: 106099897883005602229128630684938065503
-  name: 12/20/23
+  name: '2023-12-20'
 - cards:
   - amulet
   - haunted_woods
@@ -3139,11 +5012,13 @@
   - ratcatcher
   - relic
   - storyteller
+  expansions:
+  - Adventures
   idx: 296270668324689178316322894487686075624
   landscapes:
   - pilgrimage
   - save
-  name: 12/19/23
+  name: '2023-12-19'
 - cards:
   - baron
   - conspirator
@@ -3155,8 +5030,11 @@
   - mining_village
   - moneylender
   - throne_room
+  expansions:
+  - Base, 2E
+  - Intrigue, 2E
   idx: 293453914441591326227851333322049247282
-  name: 12/18/23
+  name: '2023-12-18'
 - cards:
   - goatherd
   - ironworks
@@ -3168,11 +5046,20 @@
   - search
   - town
   - trickster
+  expansions:
+  - Allies
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
   idx: 244870238725503703469655880146576174910
   landscapes:
   - battlefield
   - city_gate
-  name: 12/17/23
+  name: '2023-12-17'
 - cards:
   - camel_train
   - chapel
@@ -3184,11 +5071,21 @@
   - scepter
   - storyteller
   - tactician
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Menagerie
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
   idx: 30364705275579845698575548841009704107
   landscapes:
   - dominate
   - way_of_the_owl
-  name: 12/16/23
+  name: '2023-12-16'
 - cards:
   - band_of_misfits
   - bandit_camp
@@ -3200,8 +5097,12 @@
   - tide_pools
   - treasury
   - warehouse
+  expansions:
+  - Base, 2E
+  - Dark Ages
+  - Seaside, 2E
   idx: 135189222532426714435915284801346923056
-  name: 12/15/23
+  name: '2023-12-15'
 - cards:
   - corsair
   - count
@@ -3213,8 +5114,12 @@
   - wandering_minstrel
   - warehouse
   - wharf
+  expansions:
+  - Dark Ages
+  - Seaside, 2E
   idx: 140427472494835231543436819884965346740
-  name: 12/14/23
+  name: '2023-12-14'
+  use_shelters: true
 - cards:
   - bounty_hunter
   - destrier
@@ -3226,12 +5131,15 @@
   - kiln
   - skirmisher
   - sycophant
+  expansions:
+  - Allies
+  - Menagerie
   idx: 241196232630921583881712429345027500198
   landscapes:
   - circle_of_witches
   - seize_the_day
   - way_of_the_mule
-  name: 12/13/23
+  name: '2023-12-13'
 - cards:
   - experiment
   - flag_bearer
@@ -3243,11 +5151,13 @@
   - seer
   - treasurer
   - villain
+  expansions:
+  - Renaissance
   idx: 43112042716686785364981674719379009131
   landscapes:
   - canal
   - sinister_plot
-  name: 12/12/23
+  name: '2023-12-12'
 - cards:
   - bandit
   - cellar
@@ -3259,8 +5169,12 @@
   - throne_room
   - watchtower
   - witch
+  expansions:
+  - Base, 2E
+  - Prosperity, 2E
   idx: 106307886475713360073081242053804947357
-  name: 12/11/23
+  name: '2023-12-11'
+  use_colonies: true
 - cards:
   - corsair
   - council_room
@@ -3272,8 +5186,17 @@
   - skirmisher
   - swap
   - vineyard
+  expansions:
+  - Alchemy
+  - Allies
+  - Base, 2E
+  - Empires
+  - Menagerie
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
   idx: 151591800470160017136156648670019314741
-  name: 12/10/23
+  name: '2023-12-10'
 - cards:
   - barge
   - bauble
@@ -3285,12 +5208,22 @@
   - sage
   - throne_room
   - trader
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Dark Ages
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
   idx: 91723317423392089371092725643153190910
   landscapes:
   - mirror
   - order_of_masons
   - seaway
-  name: 12/9/23
+  name: 2023-12-9
 - cards:
   - city_quarter
   - courtyard
@@ -3302,28 +5235,35 @@
   - sacrifice
   - spice_merchant
   - wild_hunt
+  expansions:
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
   idx: 206391675474726853128771658357685818418
   landscapes:
   - obelisk
   - tomb
-  name: 12/8/23
-  notes: Obelisk card is Sacrifice
+  name: 2023-12-8
+  obelisk_pile: sacrifice
 - cards:
   - baker
   - candlestick_maker
-  - catapult
+  - catapult/rocks
   - crown
   - doctor
-  - encampment
+  - encampment/plunder
   - forum
   - herald
   - plaza
   - soothsayer
+  expansions:
+  - Empires
+  - Guilds, 1E
   idx: 11508477671176090646422928382667593793
   landscapes:
   - aqueduct
   - tax
-  name: 12/7/23
+  name: 2023-12-7
 - cards:
   - courtyard
   - duke
@@ -3335,8 +5275,11 @@
   - steward
   - trading_post
   - wishing_well
+  expansions:
+  - Alchemy
+  - Intrigue, 2E
   idx: 208109754518748085625093700473223397139
-  name: 12/6/23
+  name: 2023-12-6
 - cards:
   - cage
   - crucible
@@ -3348,12 +5291,16 @@
   - secluded_shrine
   - silver_mine
   - taskmaster
+  expansions:
+  - Plunder
   idx: 145798440163006049431950695362789460347
   landscapes:
   - foray
   - reckless
-  name: 12/5/23
-  notes: Reckless trait for Taskmaster
+  name: 2023-12-5
+  traits:
+  - - reckless
+    - taskmaster
 - cards:
   - baron
   - conspirator
@@ -3365,8 +5312,11 @@
   - steward
   - throne_room
   - workshop
+  expansions:
+  - Base, 2E
+  - Intrigue, 2E
   idx: 147403451483963317653887611979247789058
-  name: 12/4/23
+  name: 2023-12-4
 - cards:
   - importer
   - kings_cache
@@ -3378,12 +5328,21 @@
   - transmute
   - village
   - warehouse
+  expansions:
+  - Alchemy
+  - Allies
+  - Base, 2E
+  - Empires
+  - Intrigue, 2E
+  - Nocturne
+  - Plunder
+  - Seaside, 2E
   idx: 128584464308566855985293270513266211065
   landscapes:
   - architects_guild
   - conquest
   - palace
-  name: 12/3/23
+  name: 2023-12-3
 - cards:
   - acting_troupe
   - carpenter
@@ -3395,11 +5354,21 @@
   - sentinel
   - shepherd
   - tiara
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Empires
+  - Intrigue, 2E
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
   idx: 282981775981992577422780708239676409885
   landscapes:
   - delve
   - quest
-  name: 12/2/23
+  name: 2023-12-2
 - cards:
   - augurs
   - barbarian
@@ -3411,10 +5380,14 @@
   - research
   - spice_merchant
   - stables
+  expansions:
+  - Allies
+  - Hinterlands, 2E
+  - Renaissance
   idx: 290810228966338727863015652216622565074
   landscapes:
   - family_of_inventors
-  name: 12/1/23
+  name: 2023-12-1
 - cards:
   - cage
   - cutthroat
@@ -3426,11 +5399,14 @@
   - rope
   - stonemason
   - stowaway
+  expansions:
+  - Guilds, 1E
+  - Plunder
   idx: 38533130052166183132209894095996327855
   landscapes:
   - deliver
   - prosper
-  name: 11/30/23
+  name: '2023-11-30'
 - cards:
   - broker
   - fairgrounds
@@ -3442,8 +5418,13 @@
   - remake
   - skirmisher
   - underling
+  expansions:
+  - Allies
+  - Cornucopia, 1E
   idx: 336454549884762767272601863598285154065
-  name: 11/29/23
+  landscapes:
+  - family_of_inventors
+  name: '2023-11-29'
 - cards:
   - bard
   - cemetery
@@ -3455,8 +5436,10 @@
   - monastery
   - pooka
   - vampire
+  expansions:
+  - Nocturne
   idx: 302762805720557742029958718216238040672
-  name: 11/28/23
+  name: '2023-11-28'
 - cards:
   - cardinal
   - cellar
@@ -3468,11 +5451,14 @@
   - library
   - merchant
   - smithy
+  expansions:
+  - Base, 2E
+  - Menagerie
   idx: 124062908450422023395155381700048083829
   landscapes:
   - banish
   - enclave
-  name: 11/27/23
+  name: '2023-11-27'
 - cards:
   - animal_fair
   - cardinal
@@ -3484,29 +5470,49 @@
   - taskmaster
   - tragic_hero
   - witch
+  expansions:
+  - Allies
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
   idx: 259768529807487877987117458656545076991
   landscapes:
   - avoid
   - dominate
   - forest_dwellers
-  name: 11/26/23
+  name: '2023-11-26'
 - cards:
   - archive
   - cardinal
   - charlatan
-  - patrician
+  - patrician/emporium
   - recruiter
   - siren
   - sleigh
   - souk
   - weaver
   - wizards
+  expansions:
+  - Adventures
+  - Allies
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
   idx: 65367458054225102221956818453446976935
   landscapes:
   - band_of_nomads
   - banish
   - lost_arts
-  name: 11/25/23
+  name: '2023-11-25'
+  use_colonies: true
 - cards:
   - bandit
   - carpenter
@@ -3518,8 +5524,12 @@
   - royal_galley
   - sentry
   - vagrant
+  expansions:
+  - Allies
+  - Base, 2E
+  - Dark Ages
   idx: 152108404666860293520573936701172977028
-  name: 11/24/23
+  name: '2023-11-24'
 - cards:
   - augurs
   - band_of_misfits
@@ -3531,8 +5541,11 @@
   - sage
   - squire
   - storeroom
+  expansions:
+  - Allies
+  - Dark Ages
   idx: 77287170241247564841144963596564757861
-  name: 11/23/23
+  name: '2023-11-23'
 - cards:
   - bank
   - buried_treasure
@@ -3544,12 +5557,19 @@
   - rope
   - silver_mine
   - wealthy_village
+  expansions:
+  - Plunder
+  - Prosperity, 2E
   idx: 211492644335537182477438039213006283493
   landscapes:
   - friendly
   - pious
-  name: 11/22/23
-  notes: Friendly trait for City, Pious trait for Buried Treasure
+  name: '2023-11-22'
+  traits:
+  - - friendly
+    - city
+  - - pious
+    - buried_treasure
 - cards:
   - courtier
   - courtyard
@@ -3561,8 +5581,10 @@
   - trading_post
   - upgrade
   - wishing_well
+  expansions:
+  - Intrigue, 2E
   idx: 51501357183158469566519848437377334933
-  name: 11/21/23
+  name: '2023-11-21'
 - cards:
   - bridge
   - chapel
@@ -3574,8 +5596,11 @@
   - patrol
   - sentry
   - upgrade
+  expansions:
+  - Base, 2E
+  - Intrigue, 2E
   idx: 140579079831139890951024353711355835643
-  name: 11/20/23
+  name: '2023-11-20'
 - cards:
   - broker
   - cartographer
@@ -3587,12 +5612,22 @@
   - militia
   - nomads
   - poor_house
+  expansions:
+  - Allies
+  - Base, 2E
+  - Dark Ages
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Renaissance
   idx: 262081483370145693440822779921071085248
   landscapes:
   - league_of_shopkeepers
   - maelstrom
   - ride
-  name: 11/19/23
+  name: '2023-11-19'
+  use_shelters: true
 - cards:
   - chariot_race
   - enlarge
@@ -3604,11 +5639,20 @@
   - stockpile
   - tactician
   - taxman
+  expansions:
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Guilds, 1E
+  - Menagerie
+  - Plunder
+  - Renaissance
+  - Seaside, 2E
   idx: 120887989808000845067876536549163192353
   landscapes:
   - canal
   - way_of_the_goat
-  name: 11/18/23
+  name: '2023-11-18'
 - cards:
   - cursed_village
   - experiment
@@ -3620,11 +5664,16 @@
   - scepter
   - tournament
   - vampire
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Cornucopia, 1E
+  - Nocturne
+  - Renaissance
   idx: 41622822740478714274923541223589531391
   landscapes:
   - fleet
   - plaza
-  name: 11/17/23
+  name: '2023-11-17'
 - cards:
   - baron
   - bridge
@@ -3636,10 +5685,13 @@
   - secret_passage
   - sentinel
   - sycophant
+  expansions:
+  - Allies
+  - Intrigue, 2E
   idx: 215740501867711580734651358513256289813
   landscapes:
   - family_of_inventors
-  name: 11/16/23
+  name: '2023-11-16'
 - cards:
   - broker
   - carpenter
@@ -3651,8 +5703,13 @@
   - oasis
   - specialist
   - wizards
+  expansions:
+  - Allies
+  - Hinterlands, 2E
   idx: 323596880316087822747488536144390160867
-  name: 11/15/23
+  landscapes:
+  - city-state
+  name: '2023-11-15'
 - cards:
   - blessed_village
   - crypt
@@ -3664,8 +5721,10 @@
   - secret_cave
   - skulk
   - tragic_hero
+  expansions:
+  - Nocturne
   idx: 28305614337866664560918599350629933642
-  name: 11/14/23
+  name: '2023-11-14'
 - cards:
   - bandit
   - chapel
@@ -3677,11 +5736,14 @@
   - sentry
   - supplies
   - witch
+  expansions:
+  - Base, 2E
+  - Menagerie
   idx: 244891259637033916095464711841638482744
   landscapes:
   - enclave
   - way_of_the_goat
-  name: 11/13/23
+  name: '2023-11-13'
 - cards:
   - beggar
   - castles
@@ -3693,12 +5755,23 @@
   - mountain_village
   - spice_merchant
   - treasury
+  expansions:
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Plunder
+  - Renaissance
+  - Seaside, 2E
   idx: 221205955971996655896952005839897591658
   landscapes:
   - annex
   - reckless
-  name: 11/12/23
-  notes: Reckless trait for Beggar
+  name: '2023-11-12'
+  traits:
+  - - reckless
+    - beggar
 - cards:
   - carpenter
   - cemetery
@@ -3710,10 +5783,20 @@
   - sea_chart
   - town
   - wild_hunt
+  expansions:
+  - Adventures
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Seaside, 2E
   idx: 10829083485795576275302373526228537823
   landscapes:
   - delay
-  name: 11/11/23
+  name: '2023-11-11'
 - cards:
   - alchemist
   - cardinal
@@ -3725,27 +5808,34 @@
   - sanctuary
   - seer
   - village_green
+  expansions:
+  - Alchemy
+  - Menagerie
+  - Renaissance
   idx: 325295321951952342339005526618856915463
   landscapes:
   - demand
   - pageant
-  name: 11/10/23
+  name: '2023-11-10'
 - cards:
   - advisor
   - archive
   - butcher
   - capital
-  - catapult
+  - catapult/rocks
   - charm
   - groundskeeper
   - merchant_guild
   - sacrifice
-  - settlers
+  - settlers/bustling_village
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Empires
   idx: 320283193996908872500206628984712409835
   landscapes:
   - banquet
   - defiled_shrine
-  name: 11/9/23
+  name: 2023-11-9
 - cards:
   - cargo_ship
   - clashes
@@ -3757,12 +5847,15 @@
   - spices
   - townsfolk
   - underling
+  expansions:
+  - Allies
+  - Renaissance
   idx: 47479096398967631588509626207871623174
   landscapes:
   - band_of_nomads
   - piazza
   - sinister_plot
-  name: 11/8/23
+  name: 2023-11-8
 - cards:
   - charlatan
   - expand
@@ -3774,8 +5867,11 @@
   - monument
   - rabble
   - watchtower
+  expansions:
+  - Prosperity, 2E
   idx: 253871329054302590928511754760906111097
-  name: 11/7/23
+  name: 2023-11-7
+  use_colonies: true
 - cards:
   - barge
   - chapel
@@ -3787,11 +5883,14 @@
   - moneylender
   - sanctuary
   - sentry
+  expansions:
+  - Base, 2E
+  - Menagerie
   idx: 117880375324358045454976309372348705818
   landscapes:
   - enhance
   - way_of_the_goat
-  name: 11/6/23
+  name: 2023-11-6
 - cards:
   - clerk
   - death_cart
@@ -3803,11 +5902,21 @@
   - treasure_map
   - vagrant
   - wharf
+  expansions:
+  - Allies
+  - Base, 2E
+  - Dark Ages
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
   idx: 312735342384931278384063627638398436161
   landscapes:
   - march
   - way_of_the_owl
-  name: 11/5/23
+  name: 2023-11-5
 - cards:
   - capital
   - caravan_guard
@@ -3819,11 +5928,20 @@
   - skirmisher
   - throne_room
   - wild_hunt
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Empires
+  - Hinterlands, 2E
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
   idx: 49379513499012051489545238671970542928
   landscapes:
   - delve
   - rush
-  name: 11/4/23
+  name: 2023-11-4
 - cards:
   - camel_train
   - cavalry
@@ -3835,11 +5953,15 @@
   - scrap
   - siren
   - stowaway
+  expansions:
+  - Dark Ages
+  - Menagerie
+  - Plunder
   idx: 48054259117465781483112534999889589651
   landscapes:
   - commerce
   - way_of_the_pig
-  name: 11/3/23
+  name: 2023-11-3
 - cards:
   - counterfeit
   - cultist
@@ -3851,10 +5973,13 @@
   - kings_cache
   - siren
   - wandering_minstrel
+  expansions:
+  - Dark Ages
+  - Plunder
   idx: 89025125881896162532781477498414884983
   landscapes:
   - prepare
-  name: 11/2/23
+  name: 2023-11-2
 - cards:
   - band_of_misfits
   - catacombs
@@ -3866,11 +5991,14 @@
   - rebuild
   - scholar
   - treasurer
+  expansions:
+  - Dark Ages
+  - Renaissance
   idx: 47106078407629904599700076436765403647
   landscapes:
   - innovation
   - star_chart
-  name: 11/1/23
+  name: 2023-11-1
 - cards:
   - cemetery
   - druid
@@ -3882,8 +6010,14 @@
   - sacred_grove
   - vampire
   - werewolf
+  druid_boons:
+  - the_forests_gift
+  - the_skys_gift
+  - the_winds_gift
+  expansions:
+  - Nocturne
   idx: 241489785449883975744148184432363973635
-  name: 10/31/23
+  name: '2023-10-31'
 - cards:
   - anvil
   - bandit
@@ -3895,8 +6029,11 @@
   - moneylender
   - remodel
   - village
+  expansions:
+  - Base, 2E
+  - Prosperity, 2E
   idx: 5736568903917697792530459626465788014
-  name: 10/30/23
+  name: '2023-10-30'
 - cards:
   - band_of_misfits
   - catacombs
@@ -3908,13 +6045,22 @@
   - swap
   - swindler
   - wizards
+  expansions:
+  - Allies
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Nocturne
+  - Plunder
   idx: 205180310221272298825201062595920313434
   landscapes:
   - city-state
   - friendly
   - museum
-  name: 10/29/23
-  notes: Friendly trait for Wizards
+  name: '2023-10-29'
+  traits:
+  - - friendly
+    - wizards
 - cards:
   - fishing_village
   - kings_cache
@@ -3926,12 +6072,23 @@
   - soothsayer
   - wandering_minstrel
   - witchs_hut
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Hinterlands, 2E
+  - Menagerie
+  - Plunder
+  - Prosperity, 2E
+  - Seaside, 2E
   idx: 142157333969809410217373357803940538188
   landscapes:
   - fawning
   - way_of_the_pig
-  name: 10/28/23
-  notes: Fawning trait for Wandering Minstrel
+  name: '2023-10-28'
+  traits:
+  - - fawning
+    - wandering_minstrel
 - cards:
   - border_guard
   - camel_train
@@ -3943,11 +6100,15 @@
   - vassal
   - village_green
   - witch
+  expansions:
+  - Base, 2E
+  - Menagerie
+  - Renaissance
   idx: 314352108741597124267491675591178038795
   landscapes:
   - canal
   - fair
-  name: 10/27/23
+  name: '2023-10-27'
 - cards:
   - animal_fair
   - barge
@@ -3959,11 +6120,14 @@
   - sheepdog
   - snowy_village
   - wayfarer
+  expansions:
+  - Menagerie
   idx: 56273198265448003583069767777757586751
   landscapes:
   - desperation
   - enhance
-  name: 10/26/23
+  name: '2023-10-26'
+  use_colonies: true
 - cards:
   - border_village
   - guard_dog
@@ -3975,8 +6139,11 @@
   - trader
   - trail
   - tunnel
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Hinterlands, 2E
   idx: 27135091200443668282953626506788296348
-  name: 10/25/23
+  name: '2023-10-25'
 - cards:
   - bridge
   - diplomat
@@ -3988,8 +6155,10 @@
   - replace
   - secret_passage
   - trading_post
+  expansions:
+  - Intrigue, 2E
   idx: 173080083937674816778196845422041294783
-  name: 10/24/23
+  name: '2023-10-24'
 - cards:
   - animal_fair
   - cellar
@@ -4001,11 +6170,14 @@
   - smithy
   - snowy_village
   - stockpile
+  expansions:
+  - Base, 2E
+  - Menagerie
   idx: 226456943355900757596115095725614402820
   landscapes:
   - invest
   - way_of_the_rat
-  name: 10/23/23
+  name: '2023-10-23'
 - cards:
   - amulet
   - artificer
@@ -4017,11 +6189,20 @@
   - rope
   - scrying_pool
   - tracker
+  expansions:
+  - Adventures
+  - Alchemy
+  - Cornucopia, 1E
+  - Dark Ages
+  - Empires
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
   idx: 145737340581649814294840566955292478956
   landscapes:
   - avoid
   - delve
-  name: 10/22/23
+  name: '2023-10-22'
 - cards:
   - alchemist
   - broker
@@ -4033,11 +6214,20 @@
   - tournament
   - treasurer
   - villain
+  expansions:
+  - Alchemy
+  - Allies
+  - Cornucopia, 1E
+  - Empires
+  - Menagerie
+  - Plunder
+  - Renaissance
+  - Seaside, 2E
   idx: 266302163994601469904698081534763977254
   landscapes:
   - order_of_astrologers
   - way_of_the_monkey
-  name: 10/21/23
+  name: '2023-10-21'
 - cards:
   - cage
   - fortune_hunter
@@ -4049,12 +6239,18 @@
   - rope
   - treasure_trove
   - trickster
+  expansions:
+  - Adventures
+  - Intrigue, 2E
+  - Plunder
   idx: 70197766967026046090591160864271482539
   landscapes:
   - fawning
   - launch
-  name: 10/20/23
-  notes: Fawning trait for Fortune Hunter
+  name: '2023-10-20'
+  traits:
+  - - fawning
+    - fortune_hunter
 - cards:
   - archive
   - baker
@@ -4062,12 +6258,15 @@
   - chariot_race
   - crown
   - groundskeeper
-  - patrician
+  - patrician/emporium
   - plaza
   - sacrifice
-  - settlers
+  - settlers/bustling_village
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Empires
   idx: 308074179967229132864390507824624537650
-  name: 10/19/23
+  name: '2023-10-19'
 - cards:
   - altar
   - armory
@@ -4079,8 +6278,11 @@
   - outpost
   - pillage
   - tactician
+  expansions:
+  - Dark Ages
+  - Seaside, 2E
   idx: 245224845481811377887772160590247375972
-  name: 10/18/23
+  name: '2023-10-18'
 - cards:
   - band_of_misfits
   - feodum
@@ -4092,8 +6294,10 @@
   - urchin
   - vagrant
   - wandering_minstrel
+  expansions:
+  - Dark Ages
   idx: 281892837042676927576877297541990379474
-  name: 10/17/23
+  name: '2023-10-17'
 - cards:
   - artisan
   - bandit
@@ -4105,12 +6309,15 @@
   - hoard
   - laboratory
   - rabble
+  expansions:
+  - Base, 2E
+  - Prosperity, 2E
   idx: 30920127031521376585515370541294321387
-  name: 10/16/23
+  name: '2023-10-16'
 - cards:
   - experiment
   - fools_gold
-  - gladiator
+  - gladiator/fortune
   - leprechaun
   - longship
   - sanctuary
@@ -4118,11 +6325,20 @@
   - spice_merchant
   - treasury
   - workshop
+  expansions:
+  - Base, 2E
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Renaissance
+  - Seaside, 2E
   idx: 277584169060789758206720585293548974845
   landscapes:
   - city_gate
   - way_of_the_camel
-  name: 10/15/23
+  name: '2023-10-15'
 - cards:
   - cavalry
   - council_room
@@ -4130,15 +6346,21 @@
   - festival
   - magpie
   - messenger
-  - patrician
+  - patrician/emporium
   - peasant
   - pickaxe
   - supplies
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Empires
+  - Menagerie
+  - Plunder
   idx: 59596771504226984297714694453105541225
   landscapes:
   - battlefield
   - way_of_the_worm
-  name: 10/14/23
+  name: '2023-10-14'
 - cards:
   - augurs
   - buried_treasure
@@ -4150,13 +6372,19 @@
   - tools
   - town
   - workshop
+  expansions:
+  - Allies
+  - Base, 2E
+  - Plunder
   idx: 12944388731015931803226360697344812254
   landscapes:
   - fawning
   - maelstrom
   - trappers_lodge
-  name: 10/13/23
-  notes: Fawning trait for Workshop
+  name: '2023-10-13'
+  traits:
+  - - fawning
+    - workshop
 - cards:
   - carpenter
   - ducat
@@ -4168,12 +6396,15 @@
   - town
   - townsfolk
   - wizards
+  expansions:
+  - Allies
+  - Renaissance
   idx: 32754932787799557597899296036148515457
   landscapes:
   - band_of_nomads
   - citadel
   - silos
-  name: 10/12/23
+  name: '2023-10-12'
 - cards:
   - bard
   - barge
@@ -4185,11 +6416,14 @@
   - idol
   - livery
   - supplies
+  expansions:
+  - Menagerie
+  - Nocturne
   idx: 103977805151130283431122400510471105697
   landscapes:
   - alliance
   - way_of_the_turtle
-  name: 10/11/23
+  name: '2023-10-11'
 - cards:
   - clashes
   - emissary
@@ -4201,10 +6435,12 @@
   - skirmisher
   - swap
   - town
+  expansions:
+  - Allies
   idx: 91172430053461433152332652269856432254
   landscapes:
   - order_of_masons
-  name: 10/10/23
+  name: '2023-10-10'
 - cards:
   - anvil
   - bank
@@ -4216,24 +6452,37 @@
   - remodel
   - war_chest
   - workshop
+  expansions:
+  - Base, 2E
+  - Prosperity, 2E
   idx: 127158082158247352215778070589635555094
-  name: 10/9/23
+  name: 2023-10-9
 - cards:
   - border_village
   - caravan_guard
   - carpenter
   - castles
-  - encampment
+  - encampment/plunder
   - merchant_camp
   - nobles
   - pooka
   - procession
   - stockpile
+  expansions:
+  - Adventures
+  - Allies
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
   idx: 227039935123503515202267062642009541410
   landscapes:
   - launch
   - salt_the_earth
-  name: 10/8/23
+  name: 2023-10-8
 - cards:
   - bard
   - castles
@@ -4245,8 +6494,16 @@
   - plaza
   - siren
   - spices
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Renaissance
   idx: 173814425584122736029881282773495449730
-  name: 10/7/23
+  name: 2023-10-7
 - cards:
   - collection
   - lurker
@@ -4258,10 +6515,14 @@
   - quartermaster
   - tiara
   - vault
+  expansions:
+  - Intrigue, 2E
+  - Plunder
+  - Prosperity, 2E
   idx: 6354945513838816221802434474542020714
   landscapes:
   - deliver
-  name: 10/6/23
+  name: 2023-10-6
 - cards:
   - capital
   - charm
@@ -4273,11 +6534,14 @@
   - sailor
   - sea_chart
   - temple
+  expansions:
+  - Empires
+  - Seaside, 2E
   idx: 144620236840454709823080932613927326401
   landscapes:
   - battlefield
   - donate
-  name: 10/5/23
+  name: 2023-10-5
 - cards:
   - border_guard
   - crown
@@ -4289,11 +6553,14 @@
   - treasurer
   - villa
   - wild_hunt
+  expansions:
+  - Empires
+  - Renaissance
   idx: 326314172176189182287665275366574476984
   landscapes:
   - banquet
   - sewers
-  name: 10/4/23
+  name: 2023-10-4
 - cards:
   - amulet
   - caravan_guard
@@ -4305,11 +6572,13 @@
   - royal_carriage
   - storyteller
   - transmogrify
+  expansions:
+  - Adventures
   idx: 65618243227974196543466446554816341033
   landscapes:
   - ball
   - pilgrimage
-  name: 10/3/23
+  name: 2023-10-3
 - cards:
   - artisan
   - caravan_guard
@@ -4321,11 +6590,14 @@
   - ratcatcher
   - relic
   - wine_merchant
+  expansions:
+  - Adventures
+  - Base, 2E
   idx: 56718018460560398086467070917097170215
   landscapes:
   - mission
   - travelling_fair
-  name: 10/2/23
+  name: 2023-10-2
 - cards:
   - coin_of_the_realm
   - contract
@@ -4337,11 +6609,20 @@
   - soothsayer
   - transmogrify
   - warehouse
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Intrigue, 2E
+  - Nocturne
+  - Renaissance
+  - Seaside, 2E
   idx: 22860520135461995316290934293450712775
   landscapes:
   - crafters_guild
   - trade
-  name: 10/1/23
+  name: 2023-10-1
 - cards:
   - butcher
   - catacombs
@@ -4353,11 +6634,18 @@
   - miser
   - mystic
   - trader
+  expansions:
+  - Adventures
+  - Dark Ages
+  - Guilds, 1E
+  - Hinterlands, 2E
+  - Menagerie
+  - Plunder
   idx: 70580769650163403889888158918059863969
   landscapes:
-  - stowaway
-  name: 9/30/23
-  notes: Way of the Mouse
+  - way_of_the_mouse
+  mouse_card: stowaway
+  name: 2023-9-30
 - cards:
   - berserker
   - chapel
@@ -4369,8 +6657,12 @@
   - pawn
   - tunnel
   - witchs_hut
+  expansions:
+  - Base, 2E
+  - Hinterlands, 2E
+  - Intrigue, 2E
   idx: 178464562910330178831157482233229336871
-  name: 9/29/23
+  name: 2023-9-29
 - cards:
   - jewelled_egg
   - kings_cache
@@ -4382,11 +6674,14 @@
   - pilgrim
   - shaman
   - stonemason
+  expansions:
+  - Guilds, 1E
+  - Plunder
   idx: 75920221714096831046067781909316328767
   landscapes:
   - launch
   - scrounge
-  name: 9/28/23
+  name: 2023-9-28
 - cards:
   - crew
   - crown
@@ -4398,11 +6693,14 @@
   - siren
   - stowaway
   - wild_hunt
+  expansions:
+  - Empires
+  - Plunder
   idx: 260251091945690091547987845306123760864
   landscapes:
   - defiled_shrine
   - launch
-  name: 9/27/23
+  name: 2023-9-27
 - cards:
   - bishop
   - city
@@ -4414,8 +6712,11 @@
   - tiara
   - war_chest
   - watchtower
+  expansions:
+  - Prosperity, 2E
   idx: 135301337604791337713814386979574528583
-  name: 9/26/23
+  name: 2023-9-26
+  use_colonies: true
 - cards:
   - baker
   - candlestick_maker
@@ -4427,8 +6728,11 @@
   - herald
   - laboratory
   - moneylender
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
   idx: 207403484221937297496878321420759569043
-  name: 9/25/23
+  name: 2023-9-25
 - cards:
   - capital_city
   - crypt
@@ -4440,11 +6744,21 @@
   - rope
   - sentry
   - skirmisher
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
   idx: 37563745250482850161030974075685434245
   landscapes:
   - borrow
   - way_of_the_sheep
-  name: 9/24/23
+  name: 2023-9-24
 - cards:
   - amulet
   - changeling
@@ -4456,11 +6770,21 @@
   - monument
   - odysseys
   - patron
+  expansions:
+  - Adventures
+  - Allies
+  - Cornucopia, 1E
+  - Empires
+  - Menagerie
+  - Nocturne
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
   idx: 160120365401977377384169750163653853432
   landscapes:
   - arena
   - way_of_the_mule
-  name: 9/23/23
+  name: 2023-9-23
 - cards:
   - bridge_troll
   - cavalry
@@ -4472,11 +6796,15 @@
   - ranger
   - storyteller
   - supplies
+  expansions:
+  - Adventures
+  - Alchemy
+  - Menagerie
   idx: 298090361526044870877018720650991037739
   landscapes:
   - expedition
   - gamble
-  name: 9/22/23
+  name: 2023-9-22
 - cards:
   - courtyard
   - diplomat
@@ -4488,8 +6816,11 @@
   - nobles
   - pawn
   - shanty_town
+  expansions:
+  - Guilds, 1E
+  - Intrigue, 2E
   idx: 264947699737430364870848742504373221102
-  name: 9/21/23
+  name: 2023-9-21
 - cards:
   - bounty_hunter
   - cavalry
@@ -4501,11 +6832,14 @@
   - sleigh
   - village_green
   - watchtower
+  expansions:
+  - Menagerie
+  - Prosperity, 2E
   idx: 170336269156720304304673070071251873168
   landscapes:
   - enclave
   - toil
-  name: 9/20/23
+  name: 2023-9-20
 - cards:
   - experiment
   - flag_bearer
@@ -4517,11 +6851,13 @@
   - seer
   - silk_merchant
   - spices
+  expansions:
+  - Renaissance
   idx: 168390053508495332724583040367067310059
   landscapes:
   - crop_rotation
   - fleet
-  name: 9/19/23
+  name: 2023-9-19
 - cards:
   - blessed_village
   - cellar
@@ -4533,8 +6869,11 @@
   - tormentor
   - tragic_hero
   - vassal
+  expansions:
+  - Base, 2E
+  - Nocturne
   idx: 91143908384607018145995217317734176494
-  name: 9/18/23
+  name: 2023-9-18
 - cards:
   - cavalry
   - changeling
@@ -4546,10 +6885,18 @@
   - vagrant
   - wayfarer
   - wishing_well
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Renaissance
   idx: 58137871170282484968767229065000453903
   landscapes:
   - enclave
-  name: 9/17/23
+  name: 2023-9-17
+  use_shelters: true
 - cards:
   - berserker
   - coven
@@ -4561,10 +6908,18 @@
   - replace
   - sacred_grove
   - sentry
+  expansions:
+  - Base, 2E
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Prosperity, 2E
   idx: 56852288846533581333678918677362640764
   landscapes:
   - mountain_pass
-  name: 9/16/23
+  name: 2023-9-16
 - cards:
   - crossroads
   - festival
@@ -4576,8 +6931,12 @@
   - tunnel
   - witchs_hut
   - workshop
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Hinterlands, 2E
   idx: 58310670255859299635884284882963195623
-  name: 9/15/23
+  name: 2023-9-15
 - cards:
   - blessed_village
   - count
@@ -4589,8 +6948,11 @@
   - secret_cave
   - shepherd
   - skulk
+  expansions:
+  - Dark Ages
+  - Nocturne
   idx: 287702208511485303041841112643300002333
-  name: 9/14/23
+  name: 2023-9-14
 - cards:
   - artificer
   - bridge_troll
@@ -4602,11 +6964,14 @@
   - kiln
   - ranger
   - wine_merchant
+  expansions:
+  - Adventures
+  - Menagerie
   idx: 144157970153321130558585870990025830436
   landscapes:
   - lost_arts
   - way_of_the_goat
-  name: 9/13/23
+  name: 2023-9-13
 - cards:
   - cavalry
   - gatekeeper
@@ -4618,11 +6983,13 @@
   - supplies
   - village_green
   - wayfarer
+  expansions:
+  - Menagerie
   idx: 62563395823740604452317183780732811152
   landscapes:
   - delay
   - way_of_the_turtle
-  name: 9/12/23
+  name: 2023-9-12
 - cards:
   - bureaucrat
   - hamlet
@@ -4634,8 +7001,11 @@
   - poacher
   - remodel
   - smithy
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
   idx: 138612279168314008570410766348156288707
-  name: 9/11/23
+  name: 2023-9-11
 - cards:
   - castles
   - figurine
@@ -4647,12 +7017,22 @@
   - university
   - village
   - werewolf
+  expansions:
+  - Alchemy
+  - Allies
+  - Base, 2E
+  - Cornucopia, 1E
+  - Empires
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Renaissance
   idx: 230494426249418032407493812207742643410
   landscapes:
   - barracks
   - circle_of_witches
   - conquest
-  name: 9/10/23
+  name: 2023-9-10
 - cards:
   - abundance
   - clerk
@@ -4664,8 +7044,16 @@
   - steward
   - taxman
   - trader
+  expansions:
+  - Alchemy
+  - Guilds, 1E
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
   idx: 100521970940081540628428819742918984394
-  name: 9/9/23
+  name: 2023-9-9
 - cards:
   - alchemist
   - apprentice
@@ -4677,8 +7065,12 @@
   - remake
   - stonemason
   - taxman
+  expansions:
+  - Alchemy
+  - Cornucopia, 1E
+  - Guilds, 1E
   idx: 107658342007556914293181518600757732258
-  name: 9/8/23
+  name: 2023-9-8
 - cards:
   - alchemist
   - apothecary
@@ -4690,24 +7082,30 @@
   - trail
   - vineyard
   - wheelwright
+  expansions:
+  - Alchemy
+  - Hinterlands, 2E
   idx: 93962344224513186697801712934627132143
-  name: 9/7/23
+  name: 2023-9-7
 - cards:
   - cargo_ship
   - ducat
   - engineer
-  - gladiator
+  - gladiator/fortune
   - inventor
-  - patrician
+  - patrician/emporium
   - spices
   - villa
   - villain
   - wild_hunt
+  expansions:
+  - Empires
+  - Renaissance
   idx: 63809103112913689588178327175100160606
   landscapes:
   - baths
   - palace
-  name: 9/6/23
+  name: 2023-9-6
 - cards:
   - augurs
   - barbarian
@@ -4719,10 +7117,12 @@
   - specialist
   - sycophant
   - underling
+  expansions:
+  - Allies
   idx: 305305467500289891426981720656318472894
   landscapes:
   - coastal_haven
-  name: 9/5/23
+  name: 2023-9-5
 - cards:
   - coven
   - gardens
@@ -4734,11 +7134,14 @@
   - sheepdog
   - sleigh
   - village_green
+  expansions:
+  - Base, 2E
+  - Menagerie
   idx: 95071751536668008384378374577049193213
   landscapes:
   - bargain
   - way_of_the_owl
-  name: 9/4/23
+  name: 2023-9-4
 - cards:
   - bauble
   - cargo_ship
@@ -4750,12 +7153,21 @@
   - possession
   - seer
   - swindler
+  expansions:
+  - Alchemy
+  - Allies
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
+  - Renaissance
+  - Seaside, 2E
   idx: 163730678000298307115060525597025598667
   landscapes:
   - circle_of_witches
   - innovation
   - way_of_the_goat
-  name: 9/3/23
+  name: 2023-9-3
 - cards:
   - black_cat
   - lighthouse
@@ -4767,11 +7179,19 @@
   - temple
   - tormentor
   - treasure_map
+  expansions:
+  - Alchemy
+  - Empires
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Seaside, 2E
   idx: 239658560912325267209732321801928684689
   landscapes:
   - fountain
   - triumphal_arch
-  name: 9/2/23
+  name: 2023-9-2
 - cards:
   - advisor
   - butcher
@@ -4783,8 +7203,12 @@
   - soothsayer
   - swamp_shacks
   - trickster
+  expansions:
+  - Adventures
+  - Cornucopia & Guilds, 2E
+  - Plunder
   idx: 305435342756741378805393701735612805007
-  name: 9/1/23
+  name: 2023-9-1
 - cards:
   - armory
   - count
@@ -4796,8 +7220,10 @@
   - rogue
   - sage
   - wandering_minstrel
+  expansions:
+  - Dark Ages
   idx: 147585826332700885247654538210664629129
-  name: 8/31/23
+  name: 2023-8-31
 - cards:
   - band_of_misfits
   - broker
@@ -4809,10 +7235,14 @@
   - squire
   - underling
   - vagrant
+  expansions:
+  - Allies
+  - Dark Ages
   idx: 139654332746619766625507736951373707375
   landscapes:
   - fellowship_of_scribes
-  name: 8/30/23
+  name: 2023-8-30
+  use_shelters: true
 - cards:
   - ducat
   - experiment
@@ -4824,11 +7254,13 @@
   - priest
   - research
   - scholar
+  expansions:
+  - Renaissance
   idx: 198861805825085308008106410654092364794
   landscapes:
   - citadel
   - star_chart
-  name: 8/29/23
+  name: 2023-8-29
 - cards:
   - astrolabe
   - blockade
@@ -4840,8 +7272,11 @@
   - sailor
   - tide_pools
   - warehouse
+  expansions:
+  - Base, 2E
+  - Seaside, 2E
   idx: 163762608453891108736267964844520426690
-  name: 8/28/23
+  name: 2023-8-28
 - cards:
   - apothecary
   - bounty_hunter
@@ -4853,11 +7288,21 @@
   - outpost
   - snowy_village
   - tunnel
+  expansions:
+  - Adventures
+  - Alchemy
+  - Allies
+  - Dark Ages
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Seaside, 2E
   idx: 298076101611461527204714383081014202776
   landscapes:
   - seaway
   - way_of_the_butterfly
-  name: 8/27/23
+  name: 2023-8-27
 - cards:
   - blockade
   - bounty_hunter
@@ -4869,11 +7314,22 @@
   - menagerie
   - moat
   - scepter
+  expansions:
+  - Allies
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
   idx: 34983701198331906813595965324381021050
   landscapes:
   - canal
   - wedding
-  name: 8/26/23
+  name: 2023-8-26
 - cards:
   - bridge
   - cellar
@@ -4885,10 +7341,14 @@
   - pilgrim
   - secret_passage
   - stowaway
+  expansions:
+  - Base, 2E
+  - Intrigue, 2E
+  - Plunder
   idx: 189701584774430171985117770947102131839
   landscapes:
   - prosper
-  name: 8/25/23
+  name: 2023-8-25
 - cards:
   - corsair
   - familiar
@@ -4900,8 +7360,11 @@
   - sea_witch
   - tactician
   - treasure_map
+  expansions:
+  - Alchemy
+  - Seaside, 2E
   idx: 138192015514782478074100462452771969797
-  name: 8/24/23
+  name: 2023-8-24
 - cards:
   - death_cart
   - ducat
@@ -4913,11 +7376,14 @@
   - scepter
   - sculptor
   - urchin
+  expansions:
+  - Dark Ages
+  - Renaissance
   idx: 179079092568772117799895682294809733763
   landscapes:
   - fair
   - road_network
-  name: 8/23/23
+  name: 2023-8-23
 - cards:
   - bard
   - druid
@@ -4929,8 +7395,14 @@
   - skulk
   - tormentor
   - tracker
+  druid_boons:
+  - the_earths_gift
+  - the_winds_gift
+  - the_skys_gift
+  expansions:
+  - Nocturne
   idx: 188809248603397585291276459861434704868
-  name: 8/22/23
+  name: 2023-8-22
 - cards:
   - bandit_camp
   - council_room
@@ -4942,11 +7414,14 @@
   - squire
   - vassal
   - witch
+  expansions:
+  - Base, 2E
+  - Dark Ages
   idx: 107751078554706183845383704893844100780
-  name: 8/21/23
+  name: 2023-8-21
 - cards:
   - buried_treasure
-  - encampment
+  - encampment/plunder
   - harbor_village
   - maroon
   - pickaxe
@@ -4955,11 +7430,17 @@
   - swamp_shacks
   - town
   - treasurer
+  expansions:
+  - Adventures
+  - Allies
+  - Empires
+  - Plunder
+  - Renaissance
   idx: 112822681638811457371751964191797487563
   landscapes:
   - plan
   - windfall
-  name: 8/20/23
+  name: 2023-8-20
 - cards:
   - bazaar
   - cargo_ship
@@ -4971,11 +7452,23 @@
   - monastery
   - scrap
   - village
+  druid_boons:
+  - the_skys_gift
+  - the_suns_gift
+  - the_earths_gift
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Renaissance
+  - Seaside, 2E
   idx: 86249110610636644917378220733395034851
   landscapes:
   - barracks
   - pursue
-  name: 8/19/23
+  name: 2023-8-19
 - cards:
   - carpenter
   - clashes
@@ -4987,12 +7480,16 @@
   - sage
   - storeroom
   - wizards
+  expansions:
+  - Allies
+  - Dark Ages
+  - Renaissance
   idx: 316046329756039905020806673641559213438
   landscapes:
   - canal
   - order_of_masons
   - star_chart
-  name: 8/18/23
+  name: 2023-8-18
 - cards:
   - broker
   - fortune_teller
@@ -5004,10 +7501,13 @@
   - sentinel
   - swap
   - town
+  expansions:
+  - Allies
+  - Cornucopia, 1E
   idx: 45213316038326187634687195452089349406
   landscapes:
   - peaceful_cult
-  name: 8/17/23
+  name: 2023-8-17
 - cards:
   - blessed_village
   - cage
@@ -5019,11 +7519,14 @@
   - shaman
   - tormentor
   - trickster
+  expansions:
+  - Nocturne
+  - Plunder
   idx: 125789329692646717049192212448776699731
   landscapes:
   - avoid
   - bury
-  name: 8/16/23
+  name: 2023-8-16
 - cards:
   - border_village
   - cartographer
@@ -5035,8 +7538,10 @@
   - scheme
   - stables
   - tunnel
+  expansions:
+  - Hinterlands, 2E
   idx: 338349050515477892444267293958719547489
-  name: 8/15/23
+  name: 2023-8-15
 - cards:
   - anvil
   - chapel
@@ -5048,8 +7553,11 @@
   - mint
   - vassal
   - village
+  expansions:
+  - Base, 2E
+  - Prosperity, 2E
   idx: 219407676119347669486425650248419692616
-  name: 8/14/23
+  name: 2023-8-14
 - cards:
   - barbarian
   - berserker
@@ -5061,11 +7569,19 @@
   - plaza
   - recruiter
   - relic
+  expansions:
+  - Adventures
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Renaissance
   idx: 120987896654659071156227359651653944303
   landscapes:
   - transport
   - way_of_the_monkey
-  name: 8/13/23
+  name: 2023-8-13
 - cards:
   - cage
   - den_of_sin
@@ -5077,13 +7593,24 @@
   - spice_merchant
   - torturer
   - university
+  expansions:
+  - Alchemy
+  - Base, 2E
+  - Dark Ages
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
   idx: 245382584710784918727617958722006525047
   landscapes:
   - mirror
-  name: 8/12/23
-- cards:
+  name: 2023-8-12
+- bane_pile: gear
+  cards:
   - distant_lands
   - dungeon
+  - gear
   - haunted_woods
   - horn_of_plenty
   - jester
@@ -5092,12 +7619,15 @@
   - recruiter
   - scholar
   - young_witch
+  expansions:
+  - Adventures
+  - Cornucopia & Guilds, 2E
+  - Renaissance
   idx: 165812506975815572227245206359523131505
   landscapes:
   - bonfire
   - cathedral
-  - gear
-  name: 8/11/23
+  name: 2023-8-11
 - cards:
   - border_guard
   - capital_city
@@ -5109,10 +7639,13 @@
   - royal_galley
   - scepter
   - treasurer
+  expansions:
+  - Allies
+  - Renaissance
   idx: 300520007997917637984187626234374680519
   landscapes:
   - pageant
-  name: 8/10/23
+  name: 2023-8-10
 - cards:
   - abundance
   - courtier
@@ -5124,12 +7657,17 @@
   - secret_passage
   - swindler
   - torturer
+  expansions:
+  - Intrigue, 2E
+  - Plunder
   idx: 240308870469238985152631233945407170509
   landscapes:
   - scrounge
   - shy
-  name: 8/9/23
-  notes: Shy trait for Secret Passage
+  name: 2023-8-9
+  traits:
+  - - shy
+    - secret_passage
 - cards:
   - augurs
   - barbarian
@@ -5141,10 +7679,12 @@
   - specialist
   - town
   - townsfolk
+  expansions:
+  - Allies
   idx: 50888318246883187135180837444869279176
   landscapes:
   - peaceful_cult
-  name: 8/8/23
+  name: 2023-8-8
 - cards:
   - bauble
   - bureaucrat
@@ -5156,10 +7696,13 @@
   - remodel
   - smithy
   - swap
+  expansions:
+  - Allies
+  - Base, 2E
   idx: 255697847142781338330471742095796648590
   landscapes:
   - order_of_astrologers
-  name: 8/7/23
+  name: 2023-8-7
 - cards:
   - devils_workshop
   - experiment
@@ -5171,10 +7714,18 @@
   - tragic_hero
   - underling
   - wine_merchant
+  expansions:
+  - Adventures
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
   idx: 296819607524382890333915303431264257657
   landscapes:
   - league_of_bankers
-  name: 8/6/23
+  name: 2023-8-6
 - cards:
   - barbarian
   - cargo_ship
@@ -5186,10 +7737,20 @@
   - raider
   - relic
   - watchtower
+  expansions:
+  - Adventures
+  - Alchemy
+  - Allies
+  - Base, 2E
+  - Guilds, 1E
+  - Menagerie
+  - Nocturne
+  - Prosperity, 2E
+  - Renaissance
   idx: 217587737540831303565989970652343436120
   landscapes:
   - populate
-  name: 8/5/23
+  name: 2023-8-5
 - cards:
   - bounty_hunter
   - caravan
@@ -5201,11 +7762,15 @@
   - salvager
   - sleigh
   - tactician
+  expansions:
+  - Cornucopia, 1E
+  - Menagerie
+  - Seaside, 2E
   idx: 279178245434878511879594107634825382749
   landscapes:
   - invest
   - transport
-  name: 8/4/23
+  name: 2023-8-4
 - cards:
   - bridge_troll
   - cursed_village
@@ -5217,10 +7782,13 @@
   - secret_cave
   - shepherd
   - skulk
+  expansions:
+  - Adventures
+  - Nocturne
   idx: 277720559696870766869820477617314280006
   landscapes:
   - borrow
-  name: 8/3/23
+  name: 2023-8-3
 - cards:
   - altar
   - band_of_misfits
@@ -5232,12 +7800,17 @@
   - pillage
   - swamp_shacks
   - vagrant
+  expansions:
+  - Dark Ages
+  - Plunder
   idx: 339706509333543435188957269687036454119
   landscapes:
   - cursed
   - prosper
-  name: 8/2/23
-  notes: Cursed trait for Pilgrim
+  name: 2023-8-2
+  traits:
+  - - cursed
+    - pilgrim
 - cards:
   - buried_treasure
   - cabin_boy
@@ -5249,11 +7822,13 @@
   - quartermaster
   - secluded_shrine
   - silver_mine
+  expansions:
+  - Plunder
   idx: 221650433770661744214817962231648262688
   landscapes:
   - maelstrom
   - rush
-  name: 8/1/23
+  name: 2023-8-1
 - cards:
   - cage
   - enlarge
@@ -5265,8 +7840,11 @@
   - quartermaster
   - smithy
   - swamp_shacks
+  expansions:
+  - Base, 2E
+  - Plunder
   idx: 253778543484131787069057752199402371564
-  name: 7/31/23
+  name: 2023-7-31
 - cards:
   - apothecary
   - artisan
@@ -5278,13 +7856,23 @@
   - remake
   - trading_post
   - wizards
+  expansions:
+  - Alchemy
+  - Allies
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
   idx: 10888978479068067498023182883040765816
   landscapes:
   - desert_guides
   - foray
   - way_of_the_squirrel
-  name: 7/30/23
-- cards:
+  name: 2023-7-30
+- bane_pile: forager
+  cards:
   - blessed_village
   - cabin_boy
   - cauldron
@@ -5295,12 +7883,23 @@
   - smithy
   - trading_post
   - young_witch
+  - forager
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
   idx: 88998382979611854878213547599948980341
   landscapes:
   - forager
   - pathfinding
-  name: 7/29/23
-  notes: Forager is Bane card
+  name: 2023-7-29
 - cards:
   - courtyard
   - duke
@@ -5312,8 +7911,12 @@
   - masquerade
   - patrol
   - steward
+  expansions:
+  - Alchemy
+  - Cornucopia, 1E
+  - Intrigue, 2E
   idx: 330497674419448230612122539940160630178
-  name: 7/28/23
+  name: 2023-7-28
 - cards:
   - berserker
   - farmland
@@ -5325,8 +7928,11 @@
   - scheme
   - spice_merchant
   - tournament
+  expansions:
+  - Cornucopia, 1E
+  - Hinterlands, 2E
   idx: 16885930752638226849976837999097197403
-  name: 7/27/23
+  name: 2023-7-27
 - cards:
   - animal_fair
   - black_cat
@@ -5338,11 +7944,14 @@
   - mastermind
   - merchant_guild
   - plaza
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Menagerie
   idx: 148092869876746844777635340819174863393
   landscapes:
   - stampede
   - way_of_the_butterfly
-  name: 7/26/23
+  name: 2023-7-26
 - cards:
   - bazaar
   - blockade
@@ -5354,8 +7963,10 @@
   - sea_witch
   - treasure_map
   - treasury
+  expansions:
+  - Seaside, 2E
   idx: 177612649803650800982665271207914938051
-  name: 7/25/23
+  name: 2023-7-25
 - cards:
   - council_room
   - feodum
@@ -5367,8 +7978,11 @@
   - urchin
   - vagrant
   - vassal
+  expansions:
+  - Base, 2E
+  - Dark Ages
   idx: 146312068254924994546901862269596789074
-  name: 7/24/23
+  name: 2023-7-24
 - cards:
   - conspirator
   - fools_gold
@@ -5380,12 +7994,21 @@
   - skirmisher
   - town
   - wheelwright
+  expansions:
+  - Allies
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Nocturne
+  - Plunder
+  - Renaissance
   idx: 68135697739805537620397504323043986217
   landscapes:
   - maelstrom
   - reckless
-  name: 7/23/23
-  notes: Reckless trait for Fool's Gold
+  name: 2023-7-23
+  traits:
+  - - reckless
+    - fools_gold
 - cards:
   - blessed_village
   - crucible
@@ -5397,12 +8020,24 @@
   - pilgrim
   - sleigh
   - university
+  expansions:
+  - Adventures
+  - Alchemy
+  - Dark Ages
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Renaissance
   idx: 44967120398919876462696933270912584713
   landscapes:
   - cheap
   - trade
-  name: 7/22/23
-  notes: Cheap trait for Blessed Village
+  name: 2023-7-22
+  traits:
+  - - cheap
+    - blessed_village
 - cards:
   - band_of_misfits
   - cage
@@ -5414,12 +8049,18 @@
   - market_square
   - monkey
   - pickaxe
+  expansions:
+  - Dark Ages
+  - Plunder
+  - Seaside, 2E
   idx: 282694120351133908862709751142419346150
   landscapes:
   - bury
   - friendly
-  name: 7/21/23
-  notes: Friendly trait for Band of Misfits
+  name: 2023-7-21
+  traits:
+  - - friendly
+    - band_of_misfits
 - cards:
   - butcher
   - candlestick_maker
@@ -5431,8 +8072,11 @@
   - remake
   - stonemason
   - taxman
+  expansions:
+  - Cornucopia, 1E
+  - Guilds, 1E
   idx: 4534594090424017112824831659418947716
-  name: 7/20/23
+  name: 2023-7-20
 - cards:
   - lost_city
   - messenger
@@ -5444,11 +8088,14 @@
   - treasure_trove
   - wharf
   - wine_merchant
+  expansions:
+  - Adventures
+  - Seaside, 2E
   idx: 244290659727662691187133990794548168787
   landscapes:
   - bonfire
   - pilgrimage
-  name: 7/19/23
+  name: 2023-7-19
 - cards:
   - duplicate
   - haunted_woods
@@ -5460,11 +8107,13 @@
   - transmogrify
   - treasure_trove
   - wine_merchant
+  expansions:
+  - Adventures
   idx: 277475886198918123669540734824766596065
   landscapes:
   - quest
   - travelling_fair
-  name: 7/18/23
+  name: 2023-7-18
 - cards:
   - cellar
   - chapel
@@ -5476,8 +8125,11 @@
   - vassal
   - village
   - wheelwright
+  expansions:
+  - Base, 2E
+  - Hinterlands, 2E
   idx: 222315756114898548321905934840152159249
-  name: 7/17/23
+  name: 2023-7-17
 - cards:
   - artificer
   - bauble
@@ -5489,12 +8141,22 @@
   - masquerade
   - sleigh
   - temple
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
+  - Prosperity, 2E
   idx: 324146020416158613481032280086825788049
   landscapes:
   - order_of_masons
   - training
   - way_of_the_goat
-  name: 7/16/23
+  name: 2023-7-16
 - cards:
   - armory
   - baker
@@ -5506,11 +8168,20 @@
   - sage
   - souk
   - wild_hunt
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
   idx: 5005878846901537674063353273753446404
   landscapes:
   - salt_the_earth
   - way_of_the_owl
-  name: 7/15/23
+  name: 2023-7-15
 - cards:
   - bank
   - galleria
@@ -5522,10 +8193,14 @@
   - specialist
   - swap
   - wizards
+  expansions:
+  - Alchemy
+  - Allies
+  - Prosperity, 2E
   idx: 165317205270701244599129239234302251594
   landscapes:
   - league_of_shopkeepers
-  name: 7/14/23
+  name: 2023-7-14
 - cards:
   - cage
   - fools_gold
@@ -5537,12 +8212,17 @@
   - silver_mine
   - tools
   - tunnel
+  expansions:
+  - Hinterlands, 2E
+  - Plunder
   idx: 253114060226248596948027374440283213791
   landscapes:
   - hasty
   - invasion
-  name: 7/13/23
-  notes: Hasty trait for Tools
+  name: 2023-7-13
+  traits:
+  - - hasty
+    - tools
 - cards:
   - acting_troupe
   - barbarian
@@ -5554,11 +8234,14 @@
   - scholar
   - sculptor
   - sentinel
+  expansions:
+  - Allies
+  - Renaissance
   idx: 76793259182714624832393214952748171491
   landscapes:
   - canal
   - capitalism
-  name: 7/12/23
+  name: 2023-7-12
 - cards:
   - berserker
   - crossroads
@@ -5570,24 +8253,29 @@
   - spice_merchant
   - trail
   - witchs_hut
+  expansions:
+  - Hinterlands, 2E
   idx: 309654260509923405583445982175292986425
-  name: 7/11/23
+  name: 2023-7-11
 - cards:
   - capital
-  - catapult
+  - catapult/rocks
   - council_room
   - market
   - moneylender
   - overlord
-  - patrician
+  - patrician/emporium
   - poacher
   - temple
   - vassal
+  expansions:
+  - Base, 2E
+  - Empires
   idx: 332381043129069806522721355838987527590
   landscapes:
   - conquest
   - orchard
-  name: 7/10/23
+  name: 2023-7-10
 - cards:
   - chariot_race
   - fishing_village
@@ -5599,12 +8287,22 @@
   - treasury
   - vault
   - wizards
+  expansions:
+  - Alchemy
+  - Allies
+  - Dark Ages
+  - Empires
+  - Menagerie
+  - Nocturne
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
   idx: 287050143223295951003072022759754706491
   landscapes:
   - academy
   - crafters_guild
   - way_of_the_ox
-  name: 7/9/23
+  name: 2023-7-9
 - cards:
   - armory
   - crystal_ball
@@ -5616,11 +8314,19 @@
   - secret_passage
   - urchin
   - vault
+  expansions:
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
+  - Prosperity, 2E
   idx: 327488160361642147411337066756023285413
   landscapes:
   - tower
   - way_of_the_horse
-  name: 7/8/23
+  name: 2023-7-8
 - cards:
   - buried_treasure
   - collection
@@ -5632,12 +8338,21 @@
   - maroon
   - quarry
   - secluded_shrine
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Plunder
+  - Prosperity, 2E
   idx: 222755403147845304599839623095148051688
   landscapes:
   - patient
   - reckless
-  name: 7/7/23
-  notes: Patient trait for Fortune Hunter, Reckless trait for King's Cache
+  name: 2023-7-7
+  traits:
+  - - patient
+    - fortune_hunter
+  - - reckless
+    - kings_cache
+  use_colonies: true
 - cards:
   - archive
   - catacombs
@@ -5649,28 +8364,37 @@
   - rogue
   - sacrifice
   - urchin
+  expansions:
+  - Dark Ages
+  - Empires
   idx: 47676945539834073100530320819405379449
   landscapes:
   - aqueduct
   - tax
-  name: 7/6/23
+  name: 2023-7-6
+  use_shelters: true
 - cards:
   - archive
   - crucible
   - engineer
-  - gladiator
+  - gladiator/fortune
   - grotto
   - jewelled_egg
   - mapmaker
   - secluded_shrine
   - villa
   - wild_hunt
+  expansions:
+  - Empires
+  - Plunder
   idx: 59583951974830251930755373323091166026
   landscapes:
   - dominate
   - friendly
-  name: 7/5/23
-  notes: Friendly trait for Wild Hunt
+  name: 2023-7-5
+  traits:
+  - - friendly
+    - wild_hunt
 - cards:
   - black_cat
   - bounty_hunter
@@ -5682,11 +8406,13 @@
   - hostelry
   - snowy_village
   - wayfarer
+  expansions:
+  - Menagerie
   idx: 204664601223987667251391574053291153751
   landscapes:
   - ride
   - way_of_the_goat
-  name: 7/4/23
+  name: 2023-7-4
 - cards:
   - artisan
   - cellar
@@ -5698,11 +8424,14 @@
   - scepter
   - scholar
   - sculptor
+  expansions:
+  - Base, 2E
+  - Renaissance
   idx: 30159115889340292689000531211375730900
   landscapes:
   - canal
   - fair
-  name: 7/3/23
+  name: 2023-7-3
 - cards:
   - abundance
   - barge
@@ -5714,12 +8443,21 @@
   - paddock
   - seer
   - sycophant
+  expansions:
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Menagerie
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
   idx: 257422237722013566992443061089729501058
   landscapes:
   - arena
   - demand
   - league_of_bankers
-  name: 7/2/23
+  name: 2023-7-2
 - cards:
   - carpenter
   - chapel
@@ -5731,10 +8469,18 @@
   - stowaway
   - town
   - vassal
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Menagerie
+  - Plunder
+  - Prosperity, 2E
+  - Seaside, 2E
   idx: 51810153015156509829264602580065002699
   landscapes:
   - stampede
-  name: 7/1/23
+  name: 2023-7-1
 - cards:
   - bank
   - barge
@@ -5746,11 +8492,15 @@
   - vault
   - village_green
   - war_chest
+  expansions:
+  - Adventures
+  - Menagerie
+  - Prosperity, 2E
   idx: 157263669941358707616697060973184780185
   landscapes:
   - desperation
   - way_of_the_mole
-  name: 6/30/23
+  name: 2023-6-30
 - cards:
   - abundance
   - advisor
@@ -5762,12 +8512,17 @@
   - secluded_shrine
   - silver_mine
   - swamp_shacks
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Plunder
   idx: 278335580461675522740501395494708881466
   landscapes:
   - looting
   - patient
-  name: 6/29/23
-  notes: Patient trait for Rope
+  name: 2023-6-29
+  traits:
+  - - patient
+    - rope
 - cards:
   - barbarian
   - blockade
@@ -5779,10 +8534,13 @@
   - native_village
   - warehouse
   - wizards
+  expansions:
+  - Allies
+  - Seaside, 2E
   idx: 77517999472033892008241140390451033032
   landscapes:
   - peaceful_cult
-  name: 6/28/23
+  name: 2023-6-28
 - cards:
   - artificer
   - coin_of_the_realm
@@ -5794,8 +8552,10 @@
   - ranger
   - storyteller
   - swamp_hag
+  expansions:
+  - Adventures
   idx: 288000763334363408760204787047949829220
-  name: 6/27/23
+  name: 2023-6-27
 - cards:
   - animal_fair
   - cavalry
@@ -5807,11 +8567,14 @@
   - poacher
   - supplies
   - throne_room
+  expansions:
+  - Base, 2E
+  - Menagerie
   idx: 38993676005887476302660886346290662974
   landscapes:
   - delay
   - desperation
-  name: 6/26/23
+  name: 2023-6-26
 - cards:
   - armory
   - berserker
@@ -5823,11 +8586,21 @@
   - town
   - treasury
   - watchtower
+  expansions:
+  - Adventures
+  - Allies
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Prosperity, 2E
+  - Seaside, 2E
   idx: 229826134752943215924767550785617284374
   landscapes:
   - seaway
   - toil
-  name: 6/25/23
+  name: 2023-6-25
+  use_colonies: true
 - cards:
   - bureaucrat
   - cargo_ship
@@ -5839,8 +8612,18 @@
   - university
   - wandering_minstrel
   - wine_merchant
+  expansions:
+  - Adventures
+  - Alchemy
+  - Allies
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Prosperity, 2E
+  - Renaissance
   idx: 242152145775623479136598352402721212167
-  name: 6/24/23
+  name: 2023-6-24
 - cards:
   - berserker
   - capital
@@ -5852,11 +8635,16 @@
   - margrave
   - overlord
   - souk
+  expansions:
+  - Cornucopia, 1E
+  - Empires
+  - Hinterlands, 2E
   idx: 323468461446393642197490525120366862292
   landscapes:
   - obelisk
   - tower
-  name: 6/23/23
+  name: 2023-6-23
+  obelisk_pile: forum
 - cards:
   - animal_fair
   - baker
@@ -5868,11 +8656,14 @@
   - snowy_village
   - soothsayer
   - supplies
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Menagerie
   idx: 132629941015220779900064109645630929881
   landscapes:
   - invest
   - march
-  name: 6/22/23
+  name: 2023-6-22
 - cards:
   - blessed_village
   - crypt
@@ -5884,8 +8675,11 @@
   - skulk
   - swindler
   - tormentor
+  expansions:
+  - Intrigue, 2E
+  - Nocturne
   idx: 168722759931857463560093086874706537740
-  name: 6/21/23
+  name: 2023-6-21
 - cards:
   - conspirator
   - courtyard
@@ -5897,8 +8691,10 @@
   - pawn
   - replace
   - swindler
+  expansions:
+  - Intrigue, 2E
   idx: 171897335373108722786055242627413972889
-  name: 6/20/23
+  name: 2023-6-20
 - cards:
   - bureaucrat
   - familiar
@@ -5910,8 +8706,11 @@
   - sentry
   - university
   - vineyard
+  expansions:
+  - Alchemy
+  - Base, 2E
   idx: 256145067570978036888565017080647366877
-  name: 6/19/23
+  name: 2023-6-19
 - cards:
   - bandit_camp
   - capital_city
@@ -5923,12 +8722,20 @@
   - masquerade
   - pixie
   - research
+  expansions:
+  - Allies
+  - Dark Ages
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Renaissance
   idx: 183800743853872375636464034295321525262
   landscapes:
   - cave_dwellers
   - delay
   - guildhall
-  name: 6/18/23
+  name: 2023-6-18
 - cards:
   - capital
   - counterfeit
@@ -5940,10 +8747,18 @@
   - philosophers_stone
   - possession
   - squire
+  expansions:
+  - Alchemy
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
   idx: 311061187042260880064440103995005347394
   landscapes:
   - way_of_the_horse
-  name: 6/17/23
+  name: 2023-6-17
 - cards:
   - anvil
   - candlestick_maker
@@ -5955,8 +8770,12 @@
   - rabble
   - soothsayer
   - war_chest
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Prosperity, 2E
+  - Seaside, 2E
   idx: 266731218249066642347974409894149270059
-  name: 6/16/23
+  name: 2023-6-16
 - cards:
   - farming_village
   - hamlet
@@ -5968,11 +8787,14 @@
   - sack_of_loot
   - silver_mine
   - swamp_shacks
+  expansions:
+  - Cornucopia, 1E
+  - Plunder
   idx: 266127590247402194370414429439259690886
   landscapes:
   - looting
   - prepare
-  name: 6/15/23
+  name: 2023-6-15
 - cards:
   - barbarian
   - bishop
@@ -5984,8 +8806,11 @@
   - peddler
   - rabble
   - swap
+  expansions:
+  - Allies
+  - Prosperity, 2E
   idx: 39063178491536326500072102807101037291
-  name: 6/14/23
+  name: 2023-6-14
 - cards:
   - capital_city
   - clashes
@@ -5997,10 +8822,12 @@
   - skirmisher
   - specialist
   - town
+  expansions:
+  - Allies
   idx: 338016226051617077464040424561274111381
   landscapes:
   - city-state
-  name: 6/13/23
+  name: 2023-6-13
 - cards:
   - cemetery
   - cobbler
@@ -6012,8 +8839,15 @@
   - secret_cave
   - shepherd
   - vassal
+  druid_boons:
+  - the_earths_gift
+  - the_forests_gift
+  - the_moons_gift
+  expansions:
+  - Base, 2E
+  - Nocturne
   idx: 290451029385426186068752630981500032029
-  name: 6/12/23
+  name: 2023-6-12
 - cards:
   - baker
   - displace
@@ -6025,12 +8859,23 @@
   - tiara
   - underling
   - war_chest
+  expansions:
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
   idx: 278050124468225408062077334294735409799
   landscapes:
   - peaceful_cult
   - tireless
-  name: 6/11/23
-  notes: Tireless trait for Gatekeeper
+  name: 2023-6-11
+  traits:
+  - - tireless
+    - gatekeeper
 - cards:
   - black_cat
   - fishing_village
@@ -6042,11 +8887,18 @@
   - secluded_shrine
   - skirmisher
   - steward
+  expansions:
+  - Alchemy
+  - Allies
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
+  - Seaside, 2E
   idx: 4624939525797974943752984068571063586
   landscapes:
   - commerce
   - toil
-  name: 6/10/23
+  name: 2023-6-10
 - cards:
   - crew
   - gardens
@@ -6058,12 +8910,20 @@
   - secluded_shrine
   - siren
   - spice_merchant
+  expansions:
+  - Base, 2E
+  - Hinterlands, 2E
+  - Plunder
   idx: 45620081560117769580305495941491392850
   landscapes:
   - friendly
   - inspiring
-  name: 6/9/23
-  notes: Friendly trait for Militia, Inspiring trait for Inn
+  name: 2023-6-9
+  traits:
+  - - friendly
+    - militia
+  - - inspiring
+    - inn
 - cards:
   - animal_fair
   - bridge
@@ -6075,11 +8935,14 @@
   - swindler
   - trading_post
   - village_green
+  expansions:
+  - Intrigue, 2E
+  - Menagerie
   idx: 233044201850156994202661749565727932585
   landscapes:
   - stampede
   - way_of_the_owl
-  name: 6/8/23
+  name: 2023-6-8
 - cards:
   - cartographer
   - crossroads
@@ -6091,11 +8954,14 @@
   - swamp_hag
   - trail
   - transmogrify
+  expansions:
+  - Adventures
+  - Hinterlands, 2E
   idx: 262907610547460592448461054501399371627
   landscapes:
   - alms
   - expedition
-  name: 6/7/23
+  name: 2023-6-7
 - cards:
   - bauble
   - broker
@@ -6107,10 +8973,12 @@
   - royal_galley
   - sycophant
   - townsfolk
+  expansions:
+  - Allies
   idx: 187668311401223343503418829568468557828
   landscapes:
   - plateau_shepherds
-  name: 6/6/23
+  name: 2023-6-6
 - cards:
   - bandit_camp
   - beggar
@@ -6122,8 +8990,12 @@
   - remodel
   - scavenger
   - workshop
+  expansions:
+  - Base, 2E
+  - Dark Ages
   idx: 324674527278788913246610761623345675362
-  name: 6/5/23
+  name: 2023-6-5
+  use_shelters: true
 - cards:
   - apothecary
   - courier
@@ -6135,12 +9007,22 @@
   - lookout
   - masterpiece
   - odysseys
+  expansions:
+  - Alchemy
+  - Allies
+  - Empires
+  - Guilds, 1E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Seaside, 2E
   idx: 121358699390380032915893202155780257339
   landscapes:
   - obelisk
   - stampede
-  name: 6/4/23
-  notes: Obelisk target is Courier
+  name: 2023-6-4
+  obelisk_pile: courier
 - cards:
   - band_of_misfits
   - caravan_guard
@@ -6152,12 +9034,24 @@
   - vassal
   - villain
   - witch
+  expansions:
+  - Adventures
+  - Alchemy
+  - Allies
+  - Base, 2E
+  - Dark Ages
+  - Hinterlands, 2E
+  - Menagerie
+  - Plunder
+  - Renaissance
   idx: 84655640786258411448160010911341167457
   landscapes:
   - delay
   - pious
-  name: 6/3/23
-  notes: Pious trait for Caravan Guard
+  name: 2023-6-3
+  traits:
+  - - pious
+    - caravan_guard
 - cards:
   - camel_train
   - coven
@@ -6169,11 +9063,15 @@
   - smugglers
   - vineyard
   - wayfarer
+  expansions:
+  - Alchemy
+  - Menagerie
+  - Seaside, 2E
   idx: 53094262649129473463219791493346280041
   landscapes:
   - bargain
   - way_of_the_pig
-  name: 6/2/23
+  name: 2023-6-2
 - cards:
   - apothecary
   - coin_of_the_realm
@@ -6185,11 +9083,14 @@
   - page
   - peasant
   - wine_merchant
+  expansions:
+  - Adventures
+  - Alchemy
   idx: 298191605220738710284394036892179986016
   landscapes:
   - seaway
   - travelling_fair
-  name: 6/1/23
+  name: 2023-6-1
 - cards:
   - blockade
   - caravan
@@ -6201,11 +9102,16 @@
   - sea_chart
   - swamp_shacks
   - trickster
+  expansions:
+  - Plunder
+  - Seaside, 2E
   idx: 60439316340777194844271392261248246727
   landscapes:
   - fated
-  name: 5/31/23
-  notes: Fated trait for Lookout
+  name: 2023-5-31
+  traits:
+  - - fated
+    - lookout
 - cards:
   - conspirator
   - ironworks
@@ -6217,8 +9123,10 @@
   - secret_passage
   - torturer
   - upgrade
+  expansions:
+  - Intrigue, 2E
   idx: 21213920819109356618547138337335340934
-  name: 5/30/23
+  name: 2023-5-30
 - cards:
   - bureaucrat
   - cellar
@@ -6230,8 +9138,11 @@
   - moneylender
   - vassal
   - village
+  expansions:
+  - Base, 2E
+  - Cornucopia, 1E
   idx: 267366336642477213436216543985106685607
-  name: 5/29/23
+  name: 2023-5-29
 - cards:
   - acting_troupe
   - berserker
@@ -6243,12 +9154,22 @@
   - pirate
   - tide_pools
   - tournament
+  expansions:
+  - Base, 2E
+  - Cornucopia, 1E
+  - Hinterlands, 2E
+  - Plunder
+  - Renaissance
+  - Seaside, 2E
   idx: 149154185565346534715086202246520894465
   landscapes:
   - fated
-  name: 5/28/23
-  notes: Fated trait for Berserker
-- cards:
+  name: 2023-5-28
+  traits:
+  - - fated
+    - berserker
+- bane_pile: peasant
+  cards:
   - anvil
   - border_village
   - forge
@@ -6256,15 +9177,26 @@
   - herald
   - hunter
   - marauder
+  - peasant
   - quarry
   - secluded_shrine
   - young_witch
+  expansions:
+  - Adventures
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Plunder
+  - Prosperity, 2E
+  - Seaside, 2E
   idx: 29432786777798784622158282593211339814
   landscapes:
   - orchard
-  - peasant
   - ride
-  name: 5/27/23
+  name: 2023-5-27
 - cards:
   - carpenter
   - harbor_village
@@ -6276,12 +9208,17 @@
   - swap
   - taskmaster
   - townsfolk
+  expansions:
+  - Allies
+  - Plunder
   idx: 195383584144268811794747419934638655280
   landscapes:
   - inherited
   - scrounge
-  name: 5/26/23
-  notes: Inherited trait for Highwayman
+  name: 2023-5-26
+  traits:
+  - - inherited
+    - highwayman
 - cards:
   - crypt
   - faithful_hound
@@ -6293,40 +9230,48 @@
   - taxman
   - tormentor
   - vampire
+  expansions:
+  - Guilds, 1E
+  - Nocturne
   idx: 333021206223901835543206830601834630978
-  name: 5/25/23
+  name: 2023-5-25
 - cards:
   - city
   - enchantress
   - forge
-  - patrician
+  - patrician/emporium
   - peddler
   - rabble
   - sacrifice
   - temple
   - tiara
   - wild_hunt
+  expansions:
+  - Empires
+  - Prosperity, 2E
   idx: 152060647750637207163999542835110019831
   landscapes:
   - orchard
   - tax
-  name: 5/24/23
+  name: 2023-5-24
 - cards:
   - capital
   - enchantress
   - farmers_market
-  - gladiator
+  - gladiator/fortune
   - overlord
-  - patrician
+  - patrician/emporium
   - royal_blacksmith
   - temple
   - villa
   - wild_hunt
+  expansions:
+  - Empires
   idx: 286796270009737634270352760952301797714
   landscapes:
   - baths
   - salt_the_earth
-  name: 5/23/23
+  name: 2023-5-23
 - cards:
   - bandit
   - bureaucrat
@@ -6338,8 +9283,11 @@
   - poacher
   - sacred_grove
   - throne_room
+  expansions:
+  - Base, 2E
+  - Nocturne
   idx: 35153780476484707097640366219655567712
-  name: 5/22/23
+  name: 2023-5-22
 - cards:
   - bounty_hunter
   - coin_of_the_realm
@@ -6351,11 +9299,19 @@
   - relic
   - sentry
   - wealthy_village
+  expansions:
+  - Adventures
+  - Alchemy
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Menagerie
+  - Plunder
   idx: 277574359832097929357854513413250031758
   landscapes:
   - conquest
   - palace
-  name: 5/21/23
+  name: 2023-5-21
 - cards:
   - baker
   - dungeon
@@ -6367,14 +9323,26 @@
   - skirmisher
   - tiara
   - witchs_hut
+  expansions:
+  - Adventures
+  - Alchemy
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
   idx: 70824571672033258248713743304813606512
   landscapes:
   - palace
   - wedding
-  name: 5/20/23
+  name: 2023-5-20
 - cards:
   - capital
-  - catapult
+  - catapult/rocks
   - cemetery
   - conclave
   - expand
@@ -6383,11 +9351,15 @@
   - night_watchman
   - peddler
   - tragic_hero
+  expansions:
+  - Empires
+  - Nocturne
+  - Prosperity, 2E
   idx: 135897100171412660361511606593751513876
   landscapes:
   - annex
   - battlefield
-  name: 5/19/23
+  name: 2023-5-19
 - cards:
   - bauble
   - clashes
@@ -6399,10 +9371,13 @@
   - swindler
   - torturer
   - upgrade
+  expansions:
+  - Allies
+  - Intrigue, 2E
   idx: 259214873578021264607175159837237499586
   landscapes:
   - city-state
-  name: 5/18/23
+  name: 2023-5-18
 - cards:
   - broker
   - capital_city
@@ -6414,8 +9389,13 @@
   - innkeeper
   - rebuild
   - sentinel
+  expansions:
+  - Allies
+  - Dark Ages
   idx: 146675139906792060593573655804695821171
-  name: 5/17/23
+  landscapes:
+  - desert_guides
+  name: 2023-5-17
 - cards:
   - bard
   - cemetery
@@ -6427,8 +9407,10 @@
   - skulk
   - tragic_hero
   - werewolf
+  expansions:
+  - Nocturne
   idx: 160768633077371724453991748834590334543
-  name: 5/16/23
+  name: 2023-5-16
 - cards:
   - flagship
   - grotto
@@ -6440,11 +9422,14 @@
   - moat
   - pilgrim
   - swamp_shacks
+  expansions:
+  - Base, 2E
+  - Plunder
   idx: 110533576383134791608768366396939062573
   landscapes:
   - launch
   - looting
-  name: 5/15/23
+  name: 2023-5-15
 - cards:
   - acting_troupe
   - cargo_ship
@@ -6456,10 +9441,19 @@
   - rogue
   - salvager
   - villain
+  expansions:
+  - Base, 2E
+  - Dark Ages
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Renaissance
+  - Seaside, 2E
   idx: 171395762984068411878940344663046355403
   landscapes:
   - way_of_the_pig
-  name: 5/14/23
+  name: 2023-5-14
 - cards:
   - bandit_camp
   - candlestick_maker
@@ -6471,12 +9465,25 @@
   - swashbuckler
   - warehouse
   - weaver
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Plunder
+  - Renaissance
+  - Seaside, 2E
   idx: 336839618176795013319976476057532458487
   landscapes:
   - alliance
   - nearby
-  name: 5/13/23
-  notes: Nearby trait for Hireling
+  name: 2023-5-13
+  traits:
+  - - nearby
+    - hireling
 - cards:
   - artisan
   - barge
@@ -6485,14 +9492,19 @@
   - farmers_market
   - gatekeeper
   - militia
-  - patrician
+  - patrician/emporium
   - wild_hunt
   - workshop
+  expansions:
+  - Base, 2E
+  - Empires
+  - Menagerie
   idx: 208072327327693150239975153069941663145
   landscapes:
   - basilica
   - obelisk
-  name: 5/12/23
+  name: 2023-5-12
+  obelisk_pile: patrician/emporium
 - cards:
   - beggar
   - catacombs
@@ -6504,8 +9516,11 @@
   - investment
   - rabble
   - scavenger
+  expansions:
+  - Dark Ages
+  - Prosperity, 2E
   idx: 305377103693910407058249193568129101440
-  name: 5/11/23
+  name: 2023-5-11
 - cards:
   - amulet
   - artificer
@@ -6517,12 +9532,19 @@
   - ratcatcher
   - transmogrify
   - wealthy_village
+  expansions:
+  - Adventures
+  - Plunder
   idx: 20181575186038476960617775174013100039
   landscapes:
   - reckless
   - tireless
-  name: 5/10/23
-  notes: Reckless trait for Miser, Tireless trait for Transmogrify
+  name: 2023-5-10
+  traits:
+  - - reckless
+    - miser
+  - - tireless
+    - transmogrify
 - cards:
   - barge
   - destrier
@@ -6534,8 +9556,10 @@
   - snowy_village
   - supplies
   - wayfarer
+  expansions:
+  - Menagerie
   idx: 193852295064968918135612829033822452234
-  name: 5/9/23
+  name: 2023-5-9
 - cards:
   - cartographer
   - gardens
@@ -6547,8 +9571,11 @@
   - tunnel
   - vassal
   - witchs_hut
+  expansions:
+  - Base, 2E
+  - Hinterlands, 2E
   idx: 98555065614406130596627082881064730790
-  name: 5/8/23
+  name: 2023-5-8
 - cards:
   - archive
   - cage
@@ -6560,11 +9587,20 @@
   - secret_passage
   - trading_post
   - treasure_trove
+  expansions:
+  - Adventures
+  - Allies
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
+  - Renaissance
+  - Seaside, 2E
   idx: 255687102027628555277284743759891196163
   landscapes:
   - ride
   - trade
-  name: 5/7/23
+  name: 2023-5-7
 - cards:
   - amulet
   - contract
@@ -6576,12 +9612,23 @@
   - skulk
   - tactician
   - trading_post
+  expansions:
+  - Adventures
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Nocturne
+  - Plunder
+  - Renaissance
+  - Seaside, 2E
   idx: 202086678558194685148404636042241124902
   landscapes:
   - circle_of_witches
   - crop_rotation
   - wall
-  name: 5/6/23
+  name: 2023-5-6
 - cards:
   - bandit
   - broker
@@ -6593,12 +9640,16 @@
   - remodel
   - specialist
   - storyteller
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
   idx: 260394847081758909263423041442881596445
   landscapes:
   - alms
   - ferry
   - league_of_shopkeepers
-  name: 5/5/23
+  name: 2023-5-5
 - cards:
   - charlatan
   - expand
@@ -6610,8 +9661,11 @@
   - mint
   - tournament
   - vault
+  expansions:
+  - Cornucopia, 1E
+  - Prosperity, 2E
   idx: 210619325135367137646508531714568264178
-  name: 5/4/23
+  name: 2023-5-4
 - cards:
   - clerk
   - hideout
@@ -6623,8 +9677,11 @@
   - sculptor
   - vault
   - watchtower
+  expansions:
+  - Prosperity, 2E
+  - Renaissance
   idx: 291416712719251669646075573181604071234
-  name: 5/3/23
+  name: 2023-5-3
 - cards:
   - corsair
   - cutpurse
@@ -6636,8 +9693,10 @@
   - sea_witch
   - warehouse
   - wharf
+  expansions:
+  - Seaside, 2E
   idx: 78352020624382653190179052458232821131
-  name: 5/2/23
+  name: 2023-5-2
 - cards:
   - baker
   - butcher
@@ -6649,8 +9708,11 @@
   - taxman
   - throne_room
   - witch
+  expansions:
+  - Base, 2E
+  - Guilds, 1E
   idx: 283008220663168691807541294554989589460
-  name: 5/1/23
+  name: 2023-5-1
 - cards:
   - amulet
   - bard
@@ -6662,12 +9724,24 @@
   - tracker
   - treasury
   - village_green
+  expansions:
+  - Adventures
+  - Alchemy
+  - Empires
+  - Guilds, 1E
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Seaside, 2E
   idx: 125959992428649777085029779055927166631
   landscapes:
   - shy
   - windfall
-  name: 4/30/23
-  notes: Shy trait for Treasury
+  name: 2023-4-30
+  traits:
+  - - shy
+    - treasury
 - cards:
   - border_guard
   - cabin_boy
@@ -6679,11 +9753,20 @@
   - seer
   - treasure_map
   - villa
+  expansions:
+  - Adventures
+  - Dark Ages
+  - Empires
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Renaissance
+  - Seaside, 2E
   idx: 161094949472288056039873850771869563489
   landscapes:
   - stampede
   - way_of_the_ox
-  name: 4/29/23
+  name: 2023-4-29
 - cards:
   - armory
   - band_of_misfits
@@ -6695,10 +9778,14 @@
   - masquerade
   - trading_post
   - wizards
+  expansions:
+  - Allies
+  - Dark Ages
+  - Intrigue, 2E
   idx: 107512734567237138818853554301536911793
   landscapes:
   - fellowship_of_scribes
-  name: 4/28/23
+  name: 2023-4-28
 - cards:
   - exorcist
   - guardian
@@ -6710,12 +9797,17 @@
   - quartermaster
   - shepherd
   - siren
+  expansions:
+  - Nocturne
+  - Plunder
   idx: 161490725889320602490464821458992937884
   landscapes:
   - inspiring
   - invasion
-  name: 4/27/23
-  notes: Inspiring trait for Longship
+  name: 2023-4-27
+  traits:
+  - - inspiring
+    - longship
 - cards:
   - abundance
   - animal_fair
@@ -6727,8 +9819,11 @@
   - taskmaster
   - tools
   - wealthy_village
+  expansions:
+  - Menagerie
+  - Plunder
   idx: 24131498138196086761174028122718983953
-  name: 4/26/23
+  name: 2023-4-26
 - cards:
   - charlatan
   - clerk
@@ -6740,8 +9835,11 @@
   - quarry
   - tiara
   - vault
+  expansions:
+  - Prosperity, 2E
   idx: 316510308488027453476580112470929691224
-  name: 4/25/23
+  name: 2023-4-25
+  use_colonies: true
 - cards:
   - bauble
   - capital_city
@@ -6753,10 +9851,13 @@
   - specialist
   - throne_room
   - townsfolk
+  expansions:
+  - Allies
+  - Base, 2E
   idx: 300267441787084682997969617991271120918
   landscapes:
   - plateau_shepherds
-  name: 4/24/23
+  name: 2023-4-24
 - cards:
   - bandit_camp
   - bishop
@@ -6768,15 +9869,27 @@
   - peddler
   - sacrifice
   - skirmisher
+  expansions:
+  - Allies
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
   idx: 117419059845616008304570935548058112989
   landscapes:
   - exploration
   - fawning
-  name: 4/23/23
-  notes: Fawning trait for Crew
+  name: 2023-4-23
+  traits:
+  - - fawning
+    - crew
 - cards:
   - abundance
-  - catapult
+  - catapult/rocks
   - doctor
   - lost_city
   - masterpiece
@@ -6785,11 +9898,19 @@
   - stonemason
   - swamp_shacks
   - tactician
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Empires
+  - Guilds, 1E
+  - Plunder
+  - Renaissance
+  - Seaside, 2E
   idx: 205065799936954035729171751118247956636
   landscapes:
   - exploration
   - salt_the_earth
-  name: 4/22/23
+  name: 2023-4-22
 - cards:
   - city_quarter
   - corsair
@@ -6801,12 +9922,18 @@
   - sea_chart
   - taskmaster
   - villa
+  expansions:
+  - Empires
+  - Plunder
+  - Seaside, 2E
   idx: 211180148126595392509139516804033174325
   landscapes:
   - rush
   - shy
-  name: 4/21/23
-  notes: Shy trait for Frigate
+  name: 2023-4-21
+  traits:
+  - - shy
+    - frigate
 - cards:
   - cage
   - contract
@@ -6818,13 +9945,18 @@
   - sack_of_loot
   - specialist
   - swamp_shacks
+  expansions:
+  - Allies
+  - Plunder
   idx: 88551681906398127866796461025032943937
   landscapes:
   - crafters_guild
   - maelstrom
   - shy
-  name: 4/20/23
-  notes: Shy trait for Jewelled Egg
+  name: 2023-4-20
+  traits:
+  - - shy
+    - jewelled_egg
 - cards:
   - acting_troupe
   - catacombs
@@ -6836,10 +9968,13 @@
   - seer
   - storeroom
   - villain
+  expansions:
+  - Dark Ages
+  - Renaissance
   idx: 278366342521897749121067326340062808476
   landscapes:
   - fleet
-  name: 4/19/23
+  name: 2023-4-19
 - cards:
   - archive
   - capital
@@ -6851,11 +9986,13 @@
   - sacrifice
   - temple
   - wild_hunt
+  expansions:
+  - Empires
   idx: 12970617283354740974924303539266581439
   landscapes:
   - annex
   - labyrinth
-  name: 4/18/23
+  name: 2023-4-18
 - cards:
   - bandit
   - cartographer
@@ -6867,8 +10004,11 @@
   - smithy
   - village
   - witch
+  expansions:
+  - Base, 2E
+  - Hinterlands, 2E
   idx: 11427734683092894535858777099027088524
-  name: 4/17/23
+  name: 2023-4-17
 - cards:
   - bazaar
   - council_room
@@ -6880,11 +10020,22 @@
   - margrave
   - maroon
   - skirmisher
+  expansions:
+  - Adventures
+  - Alchemy
+  - Allies
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Plunder
+  - Seaside, 2E
   idx: 138142235769874193707491357654026178415
   landscapes:
   - fountain
   - quest
-  name: 4/16/23
+  name: 2023-4-16
 - cards:
   - alchemist
   - altar
@@ -6896,11 +10047,21 @@
   - hunting_lodge
   - swap
   - swashbuckler
+  expansions:
+  - Alchemy
+  - Allies
+  - Cornucopia, 1E
+  - Dark Ages
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Renaissance
   idx: 331799995487888356713083636244295250147
   landscapes:
   - bury
   - way_of_the_rat
-  name: 4/15/23
+  name: 2023-4-15
 - cards:
   - cavalry
   - groom
@@ -6912,11 +10073,14 @@
   - research
   - swashbuckler
   - villain
+  expansions:
+  - Menagerie
+  - Renaissance
   idx: 178695982208321473304314721541312561337
   landscapes:
   - sewers
   - star_chart
-  name: 4/14/23
+  name: 2023-4-14
 - cards:
   - butcher
   - herald
@@ -6928,11 +10092,14 @@
   - scepter
   - sculptor
   - stonemason
+  expansions:
+  - Guilds, 1E
+  - Renaissance
   idx: 79460497137630468207978619571121584914
   landscapes:
   - academy
   - fair
-  name: 4/13/23
+  name: 2023-4-13
 - cards:
   - duke
   - ironworks
@@ -6944,11 +10111,14 @@
   - torturer
   - upgrade
   - wishing_well
+  expansions:
+  - Intrigue, 2E
+  - Renaissance
   idx: 328138123534891111811328637180472662777
   landscapes:
   - city_gate
   - sinister_plot
-  name: 4/12/23
+  name: 2023-4-12
 - cards:
   - bazaar
   - blockade
@@ -6960,8 +10130,10 @@
   - treasure_map
   - treasury
   - warehouse
+  expansions:
+  - Seaside, 2E
   idx: 329628915161146692558779729619524701441
-  name: 4/11/23
+  name: 2023-4-11
 - cards:
   - alchemist
   - artisan
@@ -6973,8 +10145,11 @@
   - sentry
   - witch
   - workshop
+  expansions:
+  - Alchemy
+  - Base, 2E
   idx: 65774123907036637308361586370209239416
-  name: 4/10/23
+  name: 2023-4-10
 - cards:
   - fools_gold
   - guardian
@@ -6986,11 +10161,21 @@
   - tide_pools
   - trader
   - war_chest
+  expansions:
+  - Adventures
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
   idx: 80095283051844997620726932009854488517
   landscapes:
   - quest
   - way_of_the_otter
-  name: 4/9/23
+  name: 2023-4-9
 - cards:
   - displace
   - frigate
@@ -7002,12 +10187,23 @@
   - sailor
   - sentry
   - trader
+  expansions:
+  - Allies
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Plunder
+  - Seaside, 2E
   idx: 108725512929982800934423822454602767448
   landscapes:
   - museum
   - reckless
-  name: 4/8/23
-  notes: Reckless trait for Sailor
+  name: 2023-4-8
+  traits:
+  - - reckless
+    - sailor
 - cards:
   - broker
   - cobbler
@@ -7019,13 +10215,19 @@
   - shaman
   - specialist
   - wealthy_village
+  expansions:
+  - Allies
+  - Nocturne
+  - Plunder
   idx: 209792958898864985361349428793775437662
   landscapes:
   - mirror
   - peaceful_cult
   - rich
-  name: 4/7/23
-  notes: Rich trait for Shaman
+  name: 2023-4-7
+  traits:
+  - - rich
+    - shaman
 - cards:
   - abundance
   - crucible
@@ -7037,11 +10239,14 @@
   - shaman
   - siren
   - villain
+  expansions:
+  - Plunder
+  - Renaissance
   idx: 200494405630105973912202459934658331706
   landscapes:
   - canal
   - launch
-  name: 4/6/23
+  name: 2023-4-6
 - cards:
   - bishop
   - changeling
@@ -7053,8 +10258,11 @@
   - necromancer
   - tragic_hero
   - workers_village
+  expansions:
+  - Nocturne
+  - Prosperity, 2E
   idx: 6795948904081586573921884605201254350
-  name: 4/5/23
+  name: 2023-4-5
 - cards:
   - bridge
   - conspirator
@@ -7066,8 +10274,10 @@
   - steward
   - swindler
   - trading_post
+  expansions:
+  - Intrigue, 2E
   idx: 22605348361692371734380929167723845198
-  name: 4/4/23
+  name: 2023-4-4
 - cards:
   - messenger
   - harbinger
@@ -7079,11 +10289,14 @@
   - village
   - wine_merchant
   - witch
+  expansions:
+  - Adventures
+  - Base, 2E
   idx: 179752600582166560098822990662922866389
   landscapes:
   - bonfire
   - borrow
-  name: 4/3/23
+  name: 2023-4-3
 - cards:
   - blockade
   - displace
@@ -7095,12 +10308,25 @@
   - raider
   - tormentor
   - villain
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Renaissance
+  - Seaside, 2E
   idx: 216009520037049731889924607019938003088
   landscapes:
   - inherited
   - shy
-  name: 4/2/23
-  notes: Inherited trait for Tormentor; Shy trait for Lackeys
+  name: 2023-4-2
+  traits:
+  - - inherited
+    - tormentor
+  - - shy
+    - lackeys
 - cards:
   - changeling
   - first_mate
@@ -7112,28 +10338,41 @@
   - spices
   - vassal
   - war_chest
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Empires
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
   idx: 64399543295656354848910657309819937320
   landscapes:
   - mountain_folk
   - ritual
   - stampede
-  name: 4/1/23
+  name: 2023-4-1
 - cards:
   - archive
-  - catapult
+  - catapult/rocks
   - counterfeit
   - farmers_market
   - fortress
   - junk_dealer
   - marauder
-  - patrician
+  - patrician/emporium
   - rogue
-  - settlers
+  - settlers/bustling_village
+  expansions:
+  - Dark Ages
+  - Empires
   idx: 40449937505709268529072204174667548991
   landscapes:
   - ritual
   - salt_the_earth
-  name: 3/31/23
+  name: 2023-3-31
 - cards:
   - alchemist
   - apprentice
@@ -7145,9 +10384,13 @@
   - sailor
   - tactician
   - treasure_map
+  expansions:
+  - Alchemy
+  - Seaside, 2E
   idx: 32230304032110285642587618483794716255
-  name: 3/30/23
-- cards:
+  name: 2023-3-30
+- bane_pile: improve
+  cards:
   - flag_bearer
   - hamlet
   - hideout
@@ -7156,13 +10399,17 @@
   - research
   - scholar
   - sculptor
+  - improve
   - silk_merchant
   - young_witch
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Renaissance
   idx: 305272662356913465339938691832119474040
   landscapes:
   - city_gate
   - guildhall
-  name: 3/29/23
+  name: 2023-3-29
 - cards:
   - amulet
   - artificer
@@ -7174,11 +10421,13 @@
   - royal_carriage
   - storyteller
   - transmogrify
+  expansions:
+  - Adventures
   idx: 116768834631113063205882850909477663353
   landscapes:
   - alms
   - pilgrimage
-  name: 3/28/23
+  name: 2023-3-28
 - cards:
   - chapel
   - crystal_ball
@@ -7190,8 +10439,11 @@
   - monument
   - workers_village
   - workshop
+  expansions:
+  - Base, 2E
+  - Prosperity, 2E
   idx: 245154517047520059281988601990570438907
-  name: 3/27/23
+  name: 2023-3-27
 - cards:
   - charlatan
   - journeyman
@@ -7203,11 +10455,20 @@
   - sea_chart
   - sheepdog
   - squire
+  expansions:
+  - Adventures
+  - Alchemy
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Menagerie
+  - Prosperity, 2E
+  - Seaside, 2E
   idx: 338580614040641756275016565129383538213
   landscapes:
   - enclave
   - palace
-  name: 3/26/23
+  name: 2023-3-26
 - cards:
   - cultist
   - emissary
@@ -7219,13 +10480,24 @@
   - miser
   - sanctuary
   - wealthy_village
+  expansions:
+  - Adventures
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Hinterlands, 2E
+  - Menagerie
+  - Plunder
+  - Seaside, 2E
   idx: 165271741319880482794680323458490160230
   landscapes:
   - banish
   - island_folk
   - nearby
-  name: 3/25/23
-  notes: Nearby trait for Emissary
+  name: 2023-3-25
+  traits:
+  - - nearby
+    - emissary
 - cards:
   - clashes
   - distant_lands
@@ -7237,11 +10509,15 @@
   - ranger
   - sentinel
   - wheelwright
+  expansions:
+  - Adventures
+  - Allies
+  - Hinterlands, 2E
   idx: 172096513444698778705050172258992610397
   landscapes:
   - lost_arts
   - trade
-  name: 3/24/23
+  name: 2023-3-24
 - cards:
   - den_of_sin
   - druid
@@ -7253,8 +10529,15 @@
   - menagerie
   - secret_cave
   - vampire
+  druid_boons:
+  - the_rivers_gift
+  - the_mountains_gift
+  - the_earths_gift
+  expansions:
+  - Cornucopia, 1E
+  - Nocturne
   idx: 91341140301928538258904395648866051463
-  name: 3/23/23
+  name: 2023-3-23
 - cards:
   - apothecary
   - familiar
@@ -7266,8 +10549,11 @@
   - scrying_pool
   - tournament
   - vineyard
+  expansions:
+  - Alchemy
+  - Cornucopia, 1E
   idx: 287763114189250780035647790128108347167
-  name: 3/22/23
+  name: 2023-3-22
 - cards:
   - animal_fair
   - bounty_hunter
@@ -7279,11 +10565,13 @@
   - hunting_lodge
   - paddock
   - sleigh
+  expansions:
+  - Menagerie
   idx: 332698600799584194205024953952478024455
   landscapes:
   - stampede
   - way_of_the_turtle
-  name: 3/21/23
+  name: 2023-3-21
 - cards:
   - artisan
   - cargo_ship
@@ -7295,11 +10583,14 @@
   - seer
   - spices
   - workshop
+  expansions:
+  - Base, 2E
+  - Renaissance
   idx: 54030373506887740015637748820904649883
   landscapes:
   - road_network
   - sinister_plot
-  name: 3/20/23
+  name: 2023-3-20
 - cards:
   - artisan
   - augurs
@@ -7311,12 +10602,24 @@
   - peddler
   - scrap
   - village_green
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
   idx: 50633296998269896688144786636483274579
   landscapes:
   - advance
   - shy
-  name: 3/19/23
-  notes: Shy trait for Augurs
+  name: 2023-3-19
+  traits:
+  - - shy
+    - augurs
 - cards:
   - berserker
   - city_quarter
@@ -7328,12 +10631,21 @@
   - souk
   - sycophant
   - village
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Plunder
+  - Prosperity, 2E
   idx: 284809557943266561953254096427997090727
   landscapes:
   - mountain_folk
   - triumph
   - way_of_the_worm
-  name: 3/18/23
+  name: 2023-3-18
 - cards:
   - apprentice
   - cobbler
@@ -7345,8 +10657,12 @@
   - shepherd
   - tragic_hero
   - warehouse
+  expansions:
+  - Alchemy
+  - Nocturne
+  - Seaside, 2E
   idx: 222641093091109076624759130558239684527
-  name: 3/17/23
+  name: 2023-3-17
 - cards:
   - advisor
   - doctor
@@ -7358,8 +10674,11 @@
   - secret_passage
   - trading_post
   - upgrade
+  expansions:
+  - Guilds, 1E
+  - Intrigue, 2E
   idx: 172355821006213021813842211423218712917
-  name: 3/16/23
+  name: 2023-3-16
 - cards:
   - beggar
   - catacombs
@@ -7371,8 +10690,11 @@
   - ironmonger
   - junk_dealer
   - tiara
+  expansions:
+  - Dark Ages
+  - Prosperity, 2E
   idx: 232372737359164236797565734787862467653
-  name: 3/15/23
+  name: 2023-3-15
 - cards:
   - barge
   - black_cat
@@ -7384,11 +10706,13 @@
   - sleigh
   - snowy_village
   - supplies
+  expansions:
+  - Menagerie
   idx: 224142310589601166664351758805739039739
   landscapes:
   - demand
   - way_of_the_camel
-  name: 3/14/23
+  name: 2023-3-14
 - cards:
   - bandit
   - cellar
@@ -7400,10 +10724,13 @@
   - moneylender
   - sentry
   - wizards
+  expansions:
+  - Allies
+  - Base, 2E
   idx: 84718378751027446442779654749785824550
   landscapes:
   - circle_of_witches
-  name: 3/13/23
+  name: 2023-3-13
 - cards:
   - artisan
   - catacombs
@@ -7415,27 +10742,46 @@
   - patrol
   - procession
   - secret_cave
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Dark Ages
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Renaissance
+  - Seaside, 2E
   idx: 255615063154963139891965516978676315565
   landscapes:
   - avoid
   - sewers
-  name: 3/12/23
+  name: 2023-3-12
 - cards:
   - cabin_boy
   - figurine
   - fortune_hunter
   - journeyman
   - mill
-  - settlers
+  - settlers/bustling_village
   - shaman
   - tournament
   - wharf
   - wild_hunt
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Cornucopia, 1E
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
+  - Renaissance
+  - Seaside, 2E
   idx: 126504078962960547766135479053306224698
   landscapes:
   - cathedral
   - way_of_the_pig
-  name: 3/11/23
+  name: 2023-3-11
 - cards:
   - black_cat
   - bridge
@@ -7447,8 +10793,11 @@
   - swindler
   - village_green
   - wayfarer
+  expansions:
+  - Intrigue, 2E
+  - Menagerie
   idx: 278447421380019184515895658796384425387
-  name: 3/10/23
+  name: 2023-3-10
 - cards:
   - bounty_hunter
   - gatekeeper
@@ -7460,12 +10809,15 @@
   - stockpile
   - townsfolk
   - underling
+  expansions:
+  - Allies
+  - Menagerie
   idx: 43257009999871628659663751540564653554
   landscapes:
   - enhance
   - league_of_bankers
   - way_of_the_camel
-  name: 3/9/23
+  name: 2023-3-9
 - cards:
   - bazaar
   - caravan
@@ -7477,8 +10829,11 @@
   - pixie
   - raider
   - tracker
+  expansions:
+  - Nocturne
+  - Seaside, 2E
   idx: 320853979423666877576084795129912595702
-  name: 3/8/23
+  name: 2023-3-8
 - cards:
   - ducat
   - hideout
@@ -7490,11 +10845,13 @@
   - sculptor
   - seer
   - swashbuckler
+  expansions:
+  - Renaissance
   idx: 189002280183990594425861913861359295886
   landscapes:
   - capitalism
   - road_network
-  name: 3/7/23
+  name: 2023-3-7
 - cards:
   - alchemist
   - apprentice
@@ -7506,8 +10863,11 @@
   - poacher
   - scrying_pool
   - university
+  expansions:
+  - Alchemy
+  - Base, 2E
   idx: 277589301524795330430814024763231638997
-  name: 3/6/23
+  name: 2023-3-6
 - cards:
   - advisor
   - bazaar
@@ -7519,11 +10879,21 @@
   - port
   - silk_merchant
   - tracker
+  expansions:
+  - Adventures
+  - Alchemy
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Renaissance
+  - Seaside, 2E
   idx: 281432433819993070518258745159940569205
   landscapes:
   - invasion
   - stampede
-  name: 3/5/23
+  name: 2023-3-5
 - cards:
   - bridge_troll
   - count
@@ -7531,16 +10901,29 @@
   - fool
   - highwayman
   - mint
-  - settlers
+  - settlers/bustling_village
   - tools
   - tunnel
   - university
+  expansions:
+  - Adventures
+  - Alchemy
+  - Allies
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
   idx: 332409920681779015615089311622352268711
   landscapes:
   - inspiring
   - star_chart
-  name: 3/4/23
-  notes: Inspiring trait for Fool
+  name: 2023-3-4
+  traits:
+  - - inspiring
+    - fool
 - cards:
   - abundance
   - city_quarter
@@ -7552,12 +10935,17 @@
   - swamp_shacks
   - taskmaster
   - villa
+  expansions:
+  - Empires
+  - Plunder
   idx: 324863514955555792812085475386424148168
   landscapes:
   - museum
   - nearby
-  name: 3/3/23
-  notes: Nearby trait for Museum
+  name: 2023-3-3
+  traits:
+  - - nearby
+    - swamp_shacks
 - cards:
   - chariot_race
   - charm
@@ -7569,12 +10957,16 @@
   - sacrifice
   - seer
   - swashbuckler
+  expansions:
+  - Empires
+  - Renaissance
   idx: 82441761254686794187036807765701577198
   landscapes:
   - annex
   - crop_rotation
-  name: 3/2/23
-- cards:
+  name: 2023-3-2
+- bane_pile: candlestick_maker
+  cards:
   - advisor
   - baker
   - butcher
@@ -7585,8 +10977,12 @@
   - taxman
   - tournament
   - young_witch
+  - candlestick_maker
+  expansions:
+  - Cornucopia, 1E
+  - Guilds, 1E
   idx: 58203724541254109523840787314334785021
-  name: 3/1/23
+  name: 2023-3-1
 - cards:
   - bazaar
   - corsair
@@ -7598,8 +10994,10 @@
   - monkey
   - treasure_map
   - wharf
+  expansions:
+  - Seaside, 2E
   idx: 36142319425359737422080728578689409497
-  name: 2/28/23
+  name: 2023-2-28
 - cards:
   - alchemist
   - apprentice
@@ -7611,8 +11009,11 @@
   - philosophers_stone
   - sentry
   - witch
+  expansions:
+  - Alchemy
+  - Base, 2E
   idx: 170751358527294733028870621589168772745
-  name: 2/27/23
+  name: 2023-2-27
 - cards:
   - bounty_hunter
   - doctor
@@ -7624,11 +11025,20 @@
   - landing_party
   - marquis
   - remodel
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Empires
+  - Guilds, 1E
+  - Menagerie
+  - Plunder
+  - Renaissance
   idx: 55187814215499187384739186616417537706
   landscapes:
   - piazza
   - raid
-  name: 2/26/23
+  name: 2023-2-26
 - cards:
   - altar
   - charm
@@ -7640,11 +11050,19 @@
   - royal_blacksmith
   - sanctuary
   - village
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Cornucopia, 1E
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
   idx: 137546912915097508075845972115416301941
   landscapes:
   - delay
   - march
-  name: 2/25/23
+  name: 2023-2-25
 - cards:
   - bandit_camp
   - bridge_troll
@@ -7656,11 +11074,14 @@
   - page
   - peasant
   - rebuild
+  expansions:
+  - Adventures
+  - Dark Ages
   idx: 242446687394128085136868060643081531381
   landscapes:
   - lost_arts
   - pilgrimage
-  name: 2/24/23
+  name: 2023-2-24
 - cards:
   - alchemist
   - apprentice
@@ -7672,8 +11093,11 @@
   - scavenger
   - squire
   - storeroom
+  expansions:
+  - Alchemy
+  - Dark Ages
   idx: 51872246475001363237266166833361801698
-  name: 2/23/23
+  name: 2023-2-23
 - cards:
   - conspirator
   - courtier
@@ -7685,8 +11109,11 @@
   - peddler
   - upgrade
   - watchtower
+  expansions:
+  - Intrigue, 2E
+  - Prosperity, 2E
   idx: 175957798396612767356132234302154504210
-  name: 2/22/23
+  name: 2023-2-22
 - cards:
   - anvil
   - charlatan
@@ -7698,8 +11125,10 @@
   - vault
   - war_chest
   - workers_village
+  expansions:
+  - Prosperity, 2E
   idx: 257523680597886841143399633228128016891
-  name: 2/21/23
+  name: 2023-2-21
 - cards:
   - artisan
   - chapel
@@ -7711,8 +11140,11 @@
   - sailor
   - tactician
   - village
+  expansions:
+  - Base, 2E
+  - Seaside, 2E
   idx: 16267718463508679620734583279970800849
-  name: 2/20/23
+  name: 2023-2-20
 - cards:
   - barge
   - city_quarter
@@ -7724,11 +11156,18 @@
   - groom
   - pilgrim
   - witch
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Empires
+  - Guilds, 1E
+  - Menagerie
+  - Plunder
   idx: 308936941438364622713580063500911771518
   landscapes:
   - gamble
   - toil
-  name: 2/19/23
+  name: 2023-2-19
 - cards:
   - advisor
   - cutpurse
@@ -7740,11 +11179,21 @@
   - pillage
   - ranger
   - remodel
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Menagerie
+  - Nocturne
+  - Seaside, 2E
   idx: 189990896291969739532374501227835483127
   landscapes:
   - colonnade
   - conquest
-  name: 2/18/23
+  name: 2023-2-18
 - cards:
   - bank
   - berserker
@@ -7756,8 +11205,12 @@
   - quarry
   - trail
   - vault
+  expansions:
+  - Cornucopia, 1E
+  - Hinterlands, 2E
+  - Prosperity, 2E
   idx: 70206555656452128638679067937141898446
-  name: 2/17/23
+  name: 2023-2-17
 - cards:
   - astrolabe
   - caravan
@@ -7768,12 +11221,15 @@
   - pirate
   - sacrifice
   - sailor
-  - settlers
+  - settlers/bustling_village
+  expansions:
+  - Empires
+  - Seaside, 2E
   idx: 319972134503379614527139480559827963269
   landscapes:
   - arena
   - wall
-  name: 2/16/23
+  name: 2023-2-16
 - cards:
   - band_of_misfits
   - beggar
@@ -7785,8 +11241,11 @@
   - scavenger
   - storeroom
   - warehouse
+  expansions:
+  - Dark Ages
+  - Seaside, 2E
   idx: 157409352361170355914865125373745054512
-  name: 2/15/23
+  name: 2023-2-15
 - cards:
   - blessed_village
   - conclave
@@ -7798,8 +11257,10 @@
   - tracker
   - tragic_hero
   - vampire
+  expansions:
+  - Nocturne
   idx: 76729021194689267738065039030169265774
-  name: 2/14/23
+  name: 2023-2-14
 - cards:
   - artisan
   - capital_city
@@ -7811,8 +11272,11 @@
   - militia
   - remodel
   - vassal
+  expansions:
+  - Allies
+  - Base, 2E
   idx: 149747996351902539537762154857273820829
-  name: 2/13/23
+  name: 2023-2-13
 - cards:
   - altar
   - amulet
@@ -7824,8 +11288,17 @@
   - smithy
   - stables
   - vagrant
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Dark Ages
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Seaside, 2E
   idx: 230310696157800061803970091900848272862
-  name: 2/12/23
+  name: 2023-2-12
 - cards:
   - black_cat
   - charm
@@ -7837,11 +11310,20 @@
   - kings_court
   - port
   - specialist
+  expansions:
+  - Adventures
+  - Allies
+  - Empires
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Seaside, 2E
   idx: 210435931852438540590664829739599189976
   landscapes:
   - avoid
   - fountain
-  name: 2/11/23
+  name: 2023-2-11
 - cards:
   - blessed_village
   - charlatan
@@ -7853,8 +11335,11 @@
   - idol
   - night_watchman
   - sacred_grove
+  expansions:
+  - Nocturne
+  - Prosperity, 2E
   idx: 2860855192501948218189762858931828415
-  name: 2/10/23
+  name: 2023-2-10
 - cards:
   - crossroads
   - farmland
@@ -7866,8 +11351,11 @@
   - stables
   - weaver
   - wheelwright
+  expansions:
+  - Hinterlands, 2E
+  - Prosperity, 2E
   idx: 80995741946484838772187308164272464744
-  name: 2/9/23
+  name: 2023-2-9
 - cards:
   - camel_train
   - displace
@@ -7879,8 +11367,11 @@
   - supplies
   - village_green
   - wayfarer
+  expansions:
+  - Cornucopia, 1E
+  - Menagerie
   idx: 327937196613396886021468371285404905510
-  name: 2/8/23
+  name: 2023-2-8
 - cards:
   - blessed_village
   - den_of_sin
@@ -7892,8 +11383,14 @@
   - sacred_grove
   - skulk
   - tracker
+  druid_boons:
+  - the_winds_gift
+  - the_mountains_gift
+  - the_seas_gift
+  expansions:
+  - Nocturne
   idx: 305961350019519297108206350588452416183
-  name: 2/7/23
+  name: 2023-2-7
 - cards:
   - caravan
   - council_room
@@ -7905,8 +11402,11 @@
   - smithy
   - wharf
   - witch
+  expansions:
+  - Base, 2E
+  - Seaside, 2E
   idx: 144613740449444765590625428163406313379
-  name: 2/6/23
+  name: 2023-2-6
 - cards:
   - conspirator
   - experiment
@@ -7918,11 +11418,22 @@
   - royal_blacksmith
   - snowy_village
   - swap
+  expansions:
+  - Adventures
+  - Allies
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Renaissance
+  - Seaside, 2E
   idx: 36852308511048550110366588217766737272
   landscapes:
   - commerce
   - demand
-  name: 2/5/23
+  name: 2023-2-5
 - cards:
   - alchemist
   - barbarian
@@ -7934,12 +11445,26 @@
   - tactician
   - tormentor
   - urchin
+  expansions:
+  - Alchemy
+  - Allies
+  - Dark Ages
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Renaissance
+  - Seaside, 2E
   idx: 95512273503034366275364551951495442824
   landscapes:
   - reckless
   - way_of_the_mouse
-  name: 2/4/23
-  notes: Reckless trait for Tormentor
+  mouse_card: candlestick_maker
+  name: 2023-2-4
+  traits:
+  - - reckless
+    - tormentor
 - cards:
   - border_village
   - coin_of_the_realm
@@ -7951,11 +11476,15 @@
   - rabble
   - raze
   - wine_merchant
+  expansions:
+  - Adventures
+  - Hinterlands, 2E
+  - Prosperity, 2E
   idx: 254960588155232324128735961116233913630
   landscapes:
   - trade
   - travelling_fair
-  name: 2/3/23
+  name: 2023-2-3
 - cards:
   - bank
   - berserker
@@ -7967,8 +11496,11 @@
   - vault
   - watchtower
   - workers_village
+  expansions:
+  - Hinterlands, 2E
+  - Prosperity, 2E
   idx: 334066504673395597069309616917786308026
-  name: 2/2/23
+  name: 2023-2-2
 - cards:
   - band_of_misfits
   - bandit_camp
@@ -7980,7 +11512,10 @@
   - modify
   - poor_house
   - wandering_minstrel
+  expansions:
+  - Allies
+  - Dark Ages
   idx: 85735967822365847780672366279993306442
   landscapes:
   - order_of_astrologers
-  name: 2/1/23
+  name: 2023-2-1

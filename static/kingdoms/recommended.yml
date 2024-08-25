@@ -9,6 +9,8 @@
   - smithy
   - village
   - workshop
+  expansions:
+  - Base, 2E
   idx: 0
   name: First Game
 - cards:
@@ -22,6 +24,8 @@
   - throne_room
   - witch
   - workshop
+  expansions:
+  - Base, 2E
   idx: 1
   name: Size Distortion
 - cards:
@@ -35,6 +39,8 @@
   - sentry
   - vassal
   - village
+  expansions:
+  - Base, 2E
   idx: 2
   name: Deck Top
 - cards:
@@ -48,6 +54,8 @@
   - poacher
   - smithy
   - throne_room
+  expansions:
+  - Base, 2E
   idx: 3
   name: Sleight of Hand
 - cards:
@@ -61,6 +69,8 @@
   - poacher
   - remodel
   - witch
+  expansions:
+  - Base, 2E
   idx: 4
   name: Improvements
 - cards:
@@ -74,6 +84,8 @@
   - moneylender
   - throne_room
   - vassal
+  expansions:
+  - Base, 2E
   idx: 5
   name: Silver & Gold
 - cards:
@@ -87,6 +99,9 @@
   - pawn
   - sentry
   - vassal
+  expansions:
+  - Base, 2E
+  - Intrigue, 2E
   idx: 6
   name: Underlings
 - cards:
@@ -100,6 +115,9 @@
   - patrol
   - shanty_town
   - workshop
+  expansions:
+  - Base, 2E
+  - Intrigue, 2E
   idx: 7
   name: Grand Scheme
 - cards:
@@ -113,6 +131,9 @@
   - swindler
   - throne_room
   - village
+  expansions:
+  - Base, 2E
+  - Intrigue, 2E
   idx: 8
   name: Deconstruction
 - cards:
@@ -126,6 +147,9 @@
   - treasure_map
   - vassal
   - village
+  expansions:
+  - Base, 2E
+  - Seaside, 2E
   idx: 9
   name: Reach for Tomorrow
 - cards:
@@ -139,6 +163,9 @@
   - sea_chart
   - treasury
   - workshop
+  expansions:
+  - Base, 2E
+  - Seaside, 2E
   idx: 10
   name: Repetition
 - cards:
@@ -152,6 +179,9 @@
   - possession
   - throne_room
   - university
+  expansions:
+  - Alchemy
+  - Base, 2E
   idx: 11
   name: Forbidden Arts
 - cards:
@@ -165,6 +195,9 @@
   - poacher
   - smithy
   - transmute
+  expansions:
+  - Alchemy
+  - Base, 2E
   idx: 12
   name: Potion Mixers
 - cards:
@@ -178,6 +211,9 @@
   - university
   - vassal
   - witch
+  expansions:
+  - Alchemy
+  - Base, 2E
   idx: 13
   name: Chemistry Lesson
 - cards:
@@ -191,6 +227,9 @@
   - mint
   - moneylender
   - tiara
+  expansions:
+  - Base, 2E
+  - Prosperity, 2E
   idx: 14
   name: Biggest Money
   use_colonies: true
@@ -205,6 +244,9 @@
   - rabble
   - vault
   - village
+  expansions:
+  - Base, 2E
+  - Prosperity, 2E
   idx: 15
   name: The King's Army
   use_colonies: true
@@ -219,6 +261,9 @@
   - throne_room
   - trail
   - workshop
+  expansions:
+  - Base, 2E
+  - Hinterlands, 2E
   idx: 17
   name: Happy Trails
 - cards:
@@ -232,6 +277,9 @@
   - souk
   - vassal
   - witchs_hut
+  expansions:
+  - Base, 2E
+  - Hinterlands, 2E
   idx: 18
   name: Adventures Abroad
 - cards:
@@ -245,6 +293,9 @@
   - wandering_minstrel
   - witch
   - workshop
+  expansions:
+  - Base, 2E
+  - Dark Ages
   idx: 19
   name: High and Low
   use_shelters: true
@@ -259,6 +310,9 @@
   - remodel
   - scavenger
   - squire
+  expansions:
+  - Base, 2E
+  - Dark Ages
   idx: 20
   name: Chivalry and Revelry
   use_shelters: true
@@ -273,15 +327,14 @@
   - militia
   - moneylender
   - smithy
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
   ferryman_pile: farrier
   idx: 21
   name: Bounty of the Hunt
   notes: Farrier is not a legal choice for Ferryman, this is an error. Donald X suggests
     to play with it like this anyway.
-- idx: 22
-- idx: 23
-- idx: 24
-- idx: 25
 - bane_pile: vassal
   cards:
   - candlestick_maker
@@ -295,6 +348,9 @@
   - sentry
   - vassal
   - young_witch
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
   idx: 26
   name: Gilding the Lily
 - cards:
@@ -308,6 +364,9 @@
   - miser
   - throne_room
   - workshop
+  expansions:
+  - Adventures
+  - Base, 2E
   idx: 27
   landscapes:
   - training
@@ -323,6 +382,9 @@
   - moneylender
   - treasure_trove
   - witch
+  expansions:
+  - Adventures
+  - Base, 2E
   idx: 28
   landscapes:
   - bonfire
@@ -339,6 +401,9 @@
   - temple
   - village
   - workshop
+  expansions:
+  - Base, 2E
+  - Empires
   idx: 29
   landscapes:
   - orchard
@@ -355,6 +420,9 @@
   - market
   - moneylender
   - patrician/emporium
+  expansions:
+  - Base, 2E
+  - Empires
   idx: 30
   landscapes:
   - aqueduct
@@ -375,6 +443,9 @@
   - the_earths_gift
   - the_flames_gift
   - the_forests_gift
+  expansions:
+  - Base, 2E
+  - Nocturne
   idx: 31
   name: Night Shift
 - cards:
@@ -388,6 +459,9 @@
   - merchant
   - moneylender
   - tragic_hero
+  expansions:
+  - Base, 2E
+  - Nocturne
   idx: 32
   name: Idle Hands
 - cards:
@@ -401,6 +475,9 @@
   - smithy
   - treasurer
   - vassal
+  expansions:
+  - Base, 2E
+  - Renaissance
   idx: 33
   landscapes:
   - road_network
@@ -416,6 +493,9 @@
   - swashbuckler
   - villain
   - workshop
+  expansions:
+  - Base, 2E
+  - Renaissance
   idx: 34
   landscapes:
   - barracks
@@ -432,6 +512,9 @@
   - stockpile
   - supplies
   - village
+  expansions:
+  - Base, 2E
+  - Menagerie
   idx: 35
   landscapes:
   - stampede
@@ -448,6 +531,9 @@
   - sanctuary
   - scrap
   - snowy_village
+  expansions:
+  - Base, 2E
+  - Menagerie
   idx: 36
   landscapes:
   - toil
@@ -464,6 +550,9 @@
   - remodel
   - sycophant
   - vassal
+  expansions:
+  - Allies
+  - Base, 2E
   idx: 37
   landscapes:
   - crafters_guild
@@ -479,6 +568,9 @@
   - moneylender
   - royal_galley
   - town
+  expansions:
+  - Allies
+  - Base, 2E
   idx: 38
   landscapes:
   - league_of_shopkeepers
@@ -494,6 +586,8 @@
   - nobles
   - patrol
   - replace
+  expansions:
+  - Intrigue, 2E
   idx: 39
   name: Victory Dance
 - cards:
@@ -507,6 +601,8 @@
   - swindler
   - torturer
   - trading_post
+  expansions:
+  - Intrigue, 2E
   idx: 40
   name: The Plot Thickens
 - cards:
@@ -520,6 +616,8 @@
   - torturer
   - upgrade
   - wishing_well
+  expansions:
+  - Intrigue, 2E
   idx: 41
   name: Best Wishes
 - cards:
@@ -533,6 +631,9 @@
   - tide_pools
   - treasure_map
   - wishing_well
+  expansions:
+  - Intrigue, 2E
+  - Seaside, 2E
   idx: 42
   name: A Star to Steer By
 - cards:
@@ -546,6 +647,9 @@
   - shanty_town
   - trading_post
   - wharf
+  expansions:
+  - Intrigue, 2E
+  - Seaside, 2E
   idx: 43
   name: Shore Patrol
 - cards:
@@ -559,6 +663,9 @@
   - steward
   - transmute
   - vineyard
+  expansions:
+  - Alchemy
+  - Intrigue, 2E
   idx: 44
   name: Servants
 - cards:
@@ -572,6 +679,9 @@
   - shanty_town
   - torturer
   - university
+  expansions:
+  - Alchemy
+  - Intrigue, 2E
   idx: 45
   name: Secret Research
 - cards:
@@ -585,6 +695,9 @@
   - scrying_pool
   - trading_post
   - wishing_well
+  expansions:
+  - Alchemy
+  - Intrigue, 2E
   idx: 46
   name: Pools, Tools and Fools
 - cards:
@@ -598,10 +711,12 @@
   - peddler
   - shanty_town
   - upgrade
+  expansions:
+  - Intrigue, 2E
+  - Prosperity, 2E
   idx: 47
   name: Paths to Victory
   use_colonies: true
-- idx: 48
 - cards:
   - bank
   - baron
@@ -613,6 +728,9 @@
   - tiara
   - upgrade
   - wishing_well
+  expansions:
+  - Intrigue, 2E
+  - Prosperity, 2E
   idx: 49
   name: Lucky Seven
   use_colonies: true
@@ -627,6 +745,9 @@
   - tunnel
   - weaver
   - wheelwright
+  expansions:
+  - Hinterlands, 2E
+  - Intrigue, 2E
   idx: 50
   name: Money for Nothing
 - cards:
@@ -640,6 +761,9 @@
   - trail
   - upgrade
   - wheelwright
+  expansions:
+  - Hinterlands, 2E
+  - Intrigue, 2E
   idx: 51
   name: The Duke's Ball
 - cards:
@@ -653,6 +777,9 @@
   - secret_passage
   - vagrant
   - wishing_well
+  expansions:
+  - Dark Ages
+  - Intrigue, 2E
   idx: 52
   name: Prophecy
   use_shelters: true
@@ -667,10 +794,12 @@
   - torturer
   - upgrade
   - urchin
+  expansions:
+  - Dark Ages
+  - Intrigue, 2E
   idx: 53
   name: Invasion
   use_shelters: true
-- idx: 54
 - bane_pile: wishing_well
   cards:
   - courtier
@@ -684,10 +813,11 @@
   - replace
   - wishing_well
   - young_witch
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Intrigue, 2E
   idx: 55
   name: The Spice of Life
-- idx: 56
-- idx: 57
 - cards:
   - butcher
   - conspirator
@@ -699,9 +829,11 @@
   - secret_passage
   - soothsayer
   - stonemason
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Intrigue, 2E
   idx: 58
   name: Tricks of the Trade
-- idx: 59
 - cards:
   - bridge_troll
   - conspirator
@@ -713,6 +845,9 @@
   - raze
   - royal_carriage
   - swindler
+  expansions:
+  - Adventures
+  - Intrigue, 2E
   idx: 60
   landscapes:
   - pilgrimage
@@ -728,6 +863,9 @@
   - transmogrify
   - upgrade
   - wine_merchant
+  expansions:
+  - Adventures
+  - Intrigue, 2E
   idx: 61
   landscapes:
   - ball
@@ -744,6 +882,9 @@
   - sacrifice
   - settlers/bustling_village
   - torturer
+  expansions:
+  - Empires
+  - Intrigue, 2E
   idx: 62
   landscapes:
   - arena
@@ -760,6 +901,9 @@
   - nobles
   - pawn
   - trading_post
+  expansions:
+  - Empires
+  - Intrigue, 2E
   idx: 63
   landscapes:
   - salt_the_earth
@@ -776,6 +920,9 @@
   - secret_passage
   - shepherd
   - tragic_hero
+  expansions:
+  - Intrigue, 2E
+  - Nocturne
   idx: 64
   name: Shadowy Figures
 - cards:
@@ -789,6 +936,9 @@
   - tormentor
   - upgrade
   - werewolf
+  expansions:
+  - Intrigue, 2E
+  - Nocturne
   idx: 65
   name: Impending Doom
 - cards:
@@ -802,6 +952,9 @@
   - silk_merchant
   - swindler
   - upgrade
+  expansions:
+  - Intrigue, 2E
+  - Renaissance
   idx: 66
   landscapes:
   - citadel
@@ -817,6 +970,9 @@
   - scepter
   - scholar
   - steward
+  expansions:
+  - Intrigue, 2E
+  - Renaissance
   idx: 67
   landscapes:
   - fleet
@@ -833,6 +989,9 @@
   - sheepdog
   - torturer
   - upgrade
+  expansions:
+  - Intrigue, 2E
+  - Menagerie
   idx: 68
   landscapes:
   - commerce
@@ -849,6 +1008,9 @@
   - replace
   - scrap
   - wishing_well
+  expansions:
+  - Intrigue, 2E
+  - Menagerie
   idx: 69
   landscapes:
   - populate
@@ -865,6 +1027,9 @@
   - secret_passage
   - steward
   - townsfolk
+  expansions:
+  - Allies
+  - Intrigue, 2E
   idx: 70
   landscapes:
   - circle_of_witches
@@ -880,6 +1045,9 @@
   - swap
   - underling
   - wizards
+  expansions:
+  - Allies
+  - Intrigue, 2E
   idx: 71
   landscapes:
   - plateau_shepherds
@@ -895,6 +1063,8 @@
   - pirate
   - warehouse
   - wharf
+  expansions:
+  - Seaside, 2E
   idx: 72
   name: High Seas
 - cards:
@@ -908,6 +1078,8 @@
   - sea_chart
   - tactician
   - treasure_map
+  expansions:
+  - Seaside, 2E
   idx: 73
   name: Buried Treasure
 - cards:
@@ -921,6 +1093,9 @@
   - sea_witch
   - vineyard
   - warehouse
+  expansions:
+  - Alchemy
+  - Seaside, 2E
   idx: 74
   name: Gummed Up
 - cards:
@@ -934,6 +1109,9 @@
   - quarry
   - tactician
   - wharf
+  expansions:
+  - Prosperity, 2E
+  - Seaside, 2E
   idx: 75
   name: Exploding Kingdom
   use_colonies: true
@@ -948,6 +1126,9 @@
   - monkey
   - native_village
   - treasury
+  expansions:
+  - Prosperity, 2E
+  - Seaside, 2E
   idx: 76
   name: Pirate Bay
   use_colonies: true
@@ -962,6 +1143,9 @@
   - souk
   - stables
   - warehouse
+  expansions:
+  - Hinterlands, 2E
+  - Seaside, 2E
   idx: 77
   name: Travelers
 - cards:
@@ -975,6 +1159,9 @@
   - sailor
   - smugglers
   - wheelwright
+  expansions:
+  - Hinterlands, 2E
+  - Seaside, 2E
   idx: 78
   name: Runners
 - cards:
@@ -988,6 +1175,9 @@
   - scavenger
   - treasure_map
   - treasury
+  expansions:
+  - Dark Ages
+  - Seaside, 2E
   idx: 79
   name: Watery Graves
   use_shelters: true
@@ -1002,6 +1192,9 @@
   - poor_house
   - vagrant
   - warehouse
+  expansions:
+  - Dark Ages
+  - Seaside, 2E
   idx: 80
   name: Peasants
   use_shelters: true
@@ -1016,6 +1209,9 @@
   - monkey
   - smugglers
   - tide_pools
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Seaside, 2E
   idx: 81
   name: Collecting
 - cards:
@@ -1029,6 +1225,9 @@
   - sea_chart
   - stonemason
   - treasury
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Seaside, 2E
   idx: 82
   name: Island Builder
 - cards:
@@ -1042,6 +1241,9 @@
   - page
   - sailor
   - swamp_hag
+  expansions:
+  - Adventures
+  - Seaside, 2E
   idx: 83
   landscapes:
   - mission
@@ -1057,6 +1259,9 @@
   - sailor
   - salvager
   - smugglers
+  expansions:
+  - Adventures
+  - Seaside, 2E
   idx: 84
   landscapes:
   - expedition
@@ -1073,6 +1278,9 @@
   - tactician
   - warehouse
   - wharf
+  expansions:
+  - Empires
+  - Seaside, 2E
   idx: 85
   landscapes:
   - tax
@@ -1089,6 +1297,9 @@
   - sea_witch
   - temple
   - wild_hunt
+  expansions:
+  - Empires
+  - Seaside, 2E
   idx: 86
   landscapes:
   - delve
@@ -1105,6 +1316,9 @@
   - sailor
   - secret_cave
   - tactician
+  expansions:
+  - Nocturne
+  - Seaside, 2E
   idx: 87
   name: The New Black
 - cards:
@@ -1118,6 +1332,9 @@
   - tide_pools
   - tracker
   - tragic_hero
+  expansions:
+  - Nocturne
+  - Seaside, 2E
   idx: 88
   name: Forbidden Isle
 - cards:
@@ -1131,6 +1348,9 @@
   - smugglers
   - spices
   - wharf
+  expansions:
+  - Renaissance
+  - Seaside, 2E
   idx: 89
   landscapes:
   - innovation
@@ -1146,6 +1366,9 @@
   - sculptor
   - swashbuckler
   - treasure_map
+  expansions:
+  - Renaissance
+  - Seaside, 2E
   idx: 90
   landscapes:
   - crop_rotation
@@ -1162,6 +1385,9 @@
   - pirate
   - sheepdog
   - tide_pools
+  expansions:
+  - Menagerie
+  - Seaside, 2E
   idx: 91
   landscapes:
   - invest
@@ -1178,6 +1404,9 @@
   - tide_pools
   - village_green
   - warehouse
+  expansions:
+  - Menagerie
+  - Seaside, 2E
   idx: 92
   landscapes:
   - alliance
@@ -1194,6 +1423,9 @@
   - sentinel
   - tactician
   - warehouse
+  expansions:
+  - Allies
+  - Seaside, 2E
   idx: 93
   landscapes:
   - cave_dwellers
@@ -1209,11 +1441,13 @@
   - town
   - treasure_map
   - treasury
+  expansions:
+  - Allies
+  - Seaside, 2E
   idx: 94
   landscapes:
   - market_towns
   name: Treasure Hunt
-- idx: 95
 - cards:
   - anvil
   - apprentice
@@ -1225,10 +1459,12 @@
   - university
   - vineyard
   - workers_village
+  expansions:
+  - Alchemy
+  - Prosperity, 2E
   idx: 96
   name: Lower Learning
   use_colonies: true
-- idx: 97
 - cards:
   - apprentice
   - familiar
@@ -1240,6 +1476,9 @@
   - nomads
   - university
   - vineyard
+  expansions:
+  - Alchemy
+  - Hinterlands, 2E
   idx: 98
   name: Wine Country
 - cards:
@@ -1253,6 +1492,9 @@
   - transmute
   - vineyard
   - wandering_minstrel
+  expansions:
+  - Alchemy
+  - Dark Ages
   idx: 99
   name: Infestations
   use_shelters: true
@@ -1267,6 +1509,9 @@
   - ironmonger
   - pillage
   - university
+  expansions:
+  - Alchemy
+  - Dark Ages
   idx: 100
   name: Lamentations
   use_shelters: true
@@ -1281,11 +1526,11 @@
   - jester
   - menagerie
   - university
+  expansions:
+  - Alchemy
+  - Cornucopia & Guilds, 2E
   idx: 101
   name: Clown College
-- idx: 102
-- idx: 103
-- idx: 104
 - cards:
   - apprentice
   - magpie
@@ -1297,6 +1542,9 @@
   - treasure_trove
   - university
   - vineyard
+  expansions:
+  - Adventures
+  - Alchemy
   idx: 105
   landscapes:
   - plan
@@ -1312,6 +1560,9 @@
   - peasant
   - philosophers_stone
   - ratcatcher
+  expansions:
+  - Adventures
+  - Alchemy
   idx: 106
   landscapes:
   - save
@@ -1328,6 +1579,9 @@
   - herbalist
   - transmute
   - university
+  expansions:
+  - Alchemy
+  - Empires
   idx: 107
   landscapes:
   - colonnade
@@ -1344,6 +1598,9 @@
   - tracker
   - transmute
   - vineyard
+  expansions:
+  - Alchemy
+  - Nocturne
   idx: 108
   name: Nightmare Fuel
 - cards:
@@ -1357,6 +1614,9 @@
   - scrying_pool
   - sculptor
   - silk_merchant
+  expansions:
+  - Alchemy
+  - Renaissance
   idx: 109
   landscapes:
   - cathedral
@@ -1372,6 +1632,9 @@
   - university
   - vineyard
   - wayfarer
+  expansions:
+  - Alchemy
+  - Menagerie
   idx: 110
   landscapes:
   - delay
@@ -1388,6 +1651,9 @@
   - modify
   - scrying_pool
   - wizards
+  expansions:
+  - Alchemy
+  - Allies
   idx: 111
   landscapes:
   - coastal_haven
@@ -1403,6 +1669,8 @@
   - tiara
   - watchtower
   - workers_village
+  expansions:
+  - Prosperity, 2E
   idx: 112
   name: Beginners
   use_colonies: true
@@ -1417,10 +1685,11 @@
   - vault
   - war_chest
   - workers_village
+  expansions:
+  - Prosperity, 2E
   idx: 113
   name: Friendly Interactive
   use_colonies: true
-- idx: 114
 - cards:
   - berserker
   - bishop
@@ -1432,6 +1701,9 @@
   - oasis
   - trail
   - watchtower
+  expansions:
+  - Hinterlands, 2E
+  - Prosperity, 2E
   idx: 115
   name: Instant Gratification
   use_colonies: true
@@ -1446,6 +1718,9 @@
   - inn
   - monument
   - tiara
+  expansions:
+  - Hinterlands, 2E
+  - Prosperity, 2E
   idx: 116
   name: Treasure Trove
   use_colonies: true
@@ -1460,6 +1735,9 @@
   - pillage
   - squire
   - war_chest
+  expansions:
+  - Dark Ages
+  - Prosperity, 2E
   idx: 117
   name: One Man's Trash
   use_colonies: true
@@ -1475,6 +1753,9 @@
   - rogue
   - squire
   - watchtower
+  expansions:
+  - Dark Ages
+  - Prosperity, 2E
   idx: 118
   name: Honor Among Thieves
   use_colonies: true
@@ -1490,6 +1771,9 @@
   - joust
   - magnate
   - remake
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Prosperity, 2E
   idx: 119
   name: Detours
   use_colonies: true
@@ -1504,11 +1788,12 @@
   - merchant_guild
   - quarry
   - soothsayer
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Prosperity, 2E
   idx: 120
   name: Quarrymen
   use_colonies: true
-- idx: 121
-- idx: 122
 - cards:
   - bishop
   - coin_of_the_realm
@@ -1520,6 +1805,9 @@
   - port
   - relic
   - vault
+  expansions:
+  - Adventures
+  - Prosperity, 2E
   idx: 123
   landscapes:
   - inheritance
@@ -1536,6 +1824,9 @@
   - peddler
   - storyteller
   - war_chest
+  expansions:
+  - Adventures
+  - Prosperity, 2E
   idx: 124
   landscapes:
   - ball
@@ -1553,6 +1844,9 @@
   - royal_blacksmith
   - tiara
   - villa
+  expansions:
+  - Empires
+  - Prosperity, 2E
   idx: 125
   landscapes:
   - dominate
@@ -1571,6 +1865,9 @@
   - peddler
   - war_chest
   - wild_hunt
+  expansions:
+  - Empires
+  - Prosperity, 2E
   idx: 126
   landscapes:
   - basilica
@@ -1588,6 +1885,9 @@
   - tiara
   - vampire
   - war_chest
+  expansions:
+  - Nocturne
+  - Prosperity, 2E
   idx: 127
   name: Treasures of the Night
   use_colonies: true
@@ -1606,6 +1906,9 @@
   - the_forests_gift
   - the_rivers_gift
   - the_swamps_gift
+  expansions:
+  - Nocturne
+  - Prosperity, 2E
   idx: 128
   name: Day at the Races
   use_colonies: true
@@ -1620,6 +1923,9 @@
   - vault
   - watchtower
   - workers_village
+  expansions:
+  - Prosperity, 2E
+  - Renaissance
   idx: 129
   landscapes:
   - academy
@@ -1636,6 +1942,9 @@
   - research
   - treasurer
   - villain
+  expansions:
+  - Prosperity, 2E
+  - Renaissance
   idx: 130
   landscapes:
   - capitalism
@@ -1653,6 +1962,9 @@
   - supplies
   - wayfarer
   - workers_village
+  expansions:
+  - Menagerie
+  - Prosperity, 2E
   idx: 131
   landscapes:
   - desperation
@@ -1670,6 +1982,9 @@
   - paddock
   - quarry
   - war_chest
+  expansions:
+  - Menagerie
+  - Prosperity, 2E
   idx: 132
   landscapes:
   - reap
@@ -1687,6 +2002,9 @@
   - kings_court
   - quarry
   - rabble
+  expansions:
+  - Allies
+  - Prosperity, 2E
   idx: 133
   landscapes:
   - family_of_inventors
@@ -1703,6 +2021,9 @@
   - sycophant
   - town
   - vault
+  expansions:
+  - Allies
+  - Prosperity, 2E
   idx: 134
   landscapes:
   - league_of_bankers
@@ -1719,9 +2040,10 @@
   - spice_merchant
   - stables
   - weaver
+  expansions:
+  - Hinterlands, 2E
   idx: 135
   name: Introduction
-- idx: 136
 - cards:
   - border_village
   - cauldron
@@ -1733,9 +2055,10 @@
   - trader
   - trail
   - wheelwright
+  expansions:
+  - Hinterlands, 2E
   idx: 137
   name: Bargains
-- idx: 138
 - cards:
   - cartographer
   - catacombs
@@ -1747,6 +2070,9 @@
   - wandering_minstrel
   - weaver
   - witchs_hut
+  expansions:
+  - Dark Ages
+  - Hinterlands, 2E
   idx: 139
   name: Far From Home
   use_shelters: true
@@ -1761,6 +2087,9 @@
   - scheme
   - spice_merchant
   - storeroom
+  expansions:
+  - Dark Ages
+  - Hinterlands, 2E
   idx: 140
   name: Expeditions
   use_shelters: true
@@ -1775,10 +2104,12 @@
   - tunnel
   - weaver
   - witchs_hut
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Hinterlands, 2E
   ferryman_pile: guard_dog
   idx: 141
   name: Blue Harvest
-- idx: 142
 - bane_pile: oasis
   cards:
   - border_village
@@ -1792,9 +2123,11 @@
   - stonemason
   - trader
   - young_witch
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Hinterlands, 2E
   idx: 143
   name: Exchanges
-- idx: 144
 - cards:
   - berserker
   - guard_dog
@@ -1806,6 +2139,9 @@
   - spice_merchant
   - trader
   - wine_merchant
+  expansions:
+  - Adventures
+  - Hinterlands, 2E
   idx: 145
   landscapes:
   - raid
@@ -1821,6 +2157,9 @@
   - inn
   - ranger
   - trail
+  expansions:
+  - Adventures
+  - Hinterlands, 2E
   idx: 146
   landscapes:
   - expedition
@@ -1837,6 +2176,9 @@
   - stables
   - villa
   - wheelwright
+  expansions:
+  - Empires
+  - Hinterlands, 2E
   idx: 147
   landscapes:
   - donate
@@ -1853,6 +2195,9 @@
   - spice_merchant
   - stables
   - tunnel
+  expansions:
+  - Empires
+  - Hinterlands, 2E
   idx: 148
   landscapes:
   - battlefield
@@ -1873,6 +2218,9 @@
   - the_mountains_gift
   - the_skys_gift
   - the_suns_gift
+  expansions:
+  - Hinterlands, 2E
+  - Nocturne
   idx: 149
   name: Search Party
 - cards:
@@ -1886,6 +2234,9 @@
   - shepherd
   - tunnel
   - weaver
+  expansions:
+  - Hinterlands, 2E
+  - Nocturne
   idx: 150
   name: Counting Sheep
 - cards:
@@ -1899,6 +2250,9 @@
   - spice_merchant
   - spices
   - witchs_hut
+  expansions:
+  - Hinterlands, 2E
+  - Renaissance
   idx: 151
   landscapes:
   - silos
@@ -1914,6 +2268,9 @@
   - souk
   - swashbuckler
   - trader
+  expansions:
+  - Hinterlands, 2E
+  - Renaissance
   idx: 152
   landscapes:
   - barracks
@@ -1930,6 +2287,9 @@
   - village_green
   - weaver
   - witchs_hut
+  expansions:
+  - Hinterlands, 2E
+  - Menagerie
   idx: 153
   landscapes:
   - banish
@@ -1946,6 +2306,9 @@
   - stables
   - supplies
   - wheelwright
+  expansions:
+  - Hinterlands, 2E
+  - Menagerie
   idx: 154
   landscapes:
   - gamble
@@ -1963,6 +2326,9 @@
   - margrave
   - trail
   - tunnel
+  expansions:
+  - Allies
+  - Hinterlands, 2E
   idx: 155
   landscapes:
   - fellowship_of_scribes
@@ -1978,6 +2344,9 @@
   - spice_merchant
   - townsfolk
   - underling
+  expansions:
+  - Allies
+  - Hinterlands, 2E
   idx: 156
   landscapes:
   - order_of_masons
@@ -1993,6 +2362,8 @@
   - knights
   - market_square
   - procession
+  expansions:
+  - Dark Ages
   idx: 157
   name: Grim Parade
   use_shelters: true
@@ -2007,6 +2378,8 @@
   - scavenger
   - storeroom
   - vagrant
+  expansions:
+  - Dark Ages
   idx: 158
   name: Chess With Death
   use_shelters: true
@@ -2021,11 +2394,13 @@
   - junk_dealer
   - knights
   - menagerie
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
   ferryman_pile: fortress
   idx: 159
   name: Dark Carnival
   use_shelters: true
-- idx: 160
 - cards:
   - advisor
   - farrier
@@ -2037,10 +2412,12 @@
   - rogue
   - shop
   - stonemason
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
   idx: 161
   name: Stoneground
   use_shelters: true
-- idx: 162
 - cards:
   - amulet
   - caravan_guard
@@ -2052,6 +2429,9 @@
   - relic
   - rogue
   - wandering_minstrel
+  expansions:
+  - Adventures
+  - Dark Ages
   idx: 163
   landscapes:
   - alms
@@ -2068,6 +2448,9 @@
   - rats
   - raze
   - transmogrify
+  expansions:
+  - Adventures
+  - Dark Ages
   idx: 164
   landscapes:
   - lost_arts
@@ -2085,6 +2468,9 @@
   - rats
   - sacrifice
   - storeroom
+  expansions:
+  - Dark Ages
+  - Empires
   idx: 165
   landscapes:
   - advance
@@ -2102,6 +2488,9 @@
   - legionary
   - market_square
   - procession
+  expansions:
+  - Dark Ages
+  - Empires
   idx: 166
   landscapes:
   - defiled_shrine
@@ -2119,6 +2508,9 @@
   - rogue
   - settlers/bustling_village
   - squire
+  expansions:
+  - Dark Ages
+  - Empires
   idx: 167
   landscapes:
   - museum
@@ -2136,6 +2528,9 @@
   - skulk
   - squire
   - tormentor
+  expansions:
+  - Dark Ages
+  - Nocturne
   idx: 168
   name: Grave Matters
   use_shelters: true
@@ -2150,6 +2545,9 @@
   - sacred_grove
   - tracker
   - vampire
+  expansions:
+  - Dark Ages
+  - Nocturne
   idx: 169
   name: Rats and Bats
   use_shelters: true
@@ -2164,6 +2562,9 @@
   - silk_merchant
   - swashbuckler
   - wandering_minstrel
+  expansions:
+  - Dark Ages
+  - Renaissance
   idx: 170
   landscapes:
   - star_chart
@@ -2180,6 +2581,9 @@
   - mountain_village
   - rats
   - research
+  expansions:
+  - Dark Ages
+  - Renaissance
   idx: 171
   landscapes:
   - crop_rotation
@@ -2197,6 +2601,9 @@
   - goatherd
   - hunting_lodge
   - market_square
+  expansions:
+  - Dark Ages
+  - Menagerie
   idx: 172
   landscapes:
   - ride
@@ -2214,6 +2621,9 @@
   - sage
   - scrap
   - squire
+  expansions:
+  - Dark Ages
+  - Menagerie
   idx: 173
   landscapes:
   - bargain
@@ -2231,6 +2641,9 @@
   - highwayman
   - poor_house
   - wizards
+  expansions:
+  - Allies
+  - Dark Ages
   idx: 174
   landscapes:
   - cave_dwellers
@@ -2247,6 +2660,9 @@
   - squire
   - swap
   - townsfolk
+  expansions:
+  - Allies
+  - Dark Ages
   idx: 175
   landscapes:
   - desert_guides
@@ -2263,6 +2679,8 @@
   - jester
   - merchant_guild
   - soothsayer
+  expansions:
+  - Cornucopia & Guilds, 2E
   idx: 176
   name: Misfortune
 - cards:
@@ -2276,6 +2694,8 @@
   - remake
   - shop
   - stonemason
+  expansions:
+  - Cornucopia & Guilds, 2E
   idx: 177
   name: Baking Contest
 - cards:
@@ -2289,12 +2709,13 @@
   - ranger
   - relic
   - shop
+  expansions:
+  - Adventures
+  - Cornucopia & Guilds, 2E
   idx: 178
   landscapes:
   - travelling_fair
   name: The Hero's Return
-- idx: 179
-- idx: 180
 - bane_pile: coin_of_the_realm
   cards:
   - advisor
@@ -2308,6 +2729,9 @@
   - royal_carriage
   - transmogrify
   - young_witch
+  expansions:
+  - Adventures
+  - Cornucopia & Guilds, 2E
   idx: 181
   landscapes:
   - pathfinding
@@ -2324,6 +2748,9 @@
   - settlers/bustling_village
   - shop
   - wild_hunt
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Empires
   ferryman_pile: villa
   idx: 182
   landscapes:
@@ -2341,6 +2768,9 @@
   - infirmary
   - royal_blacksmith
   - soothsayer
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Empires
   idx: 183
   landscapes:
   - baths
@@ -2357,6 +2787,9 @@
   - monastery
   - pixie
   - shepherd
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Nocturne
   idx: 184
   name: The Endless Fair
 - bane_pile: leprechaun
@@ -2372,6 +2805,9 @@
   - secret_cave
   - shop
   - young_witch
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Nocturne
   idx: 185
   name: Happy Chaos
 - cards:
@@ -2385,6 +2821,9 @@
   - sculptor
   - seer
   - stonemason
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Renaissance
   ferryman_pile: mountain_village
   idx: 186
   landscapes:
@@ -2401,6 +2840,9 @@
   - spices
   - swashbuckler
   - treasurer
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Renaissance
   idx: 187
   landscapes:
   - city_gate
@@ -2417,6 +2859,9 @@
   - livery
   - scrap
   - stockpile
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Menagerie
   idx: 188
   landscapes:
   - enclave
@@ -2433,6 +2878,9 @@
   - joust
   - mastermind
   - village_green
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Menagerie
   idx: 189
   landscapes:
   - pursue
@@ -2449,6 +2897,9 @@
   - plaza
   - sentinel
   - shop
+  expansions:
+  - Allies
+  - Cornucopia & Guilds, 2E
   idx: 190
   landscapes:
   - woodworkers_guild
@@ -2464,6 +2915,9 @@
   - journeyman
   - royal_galley
   - sentinel
+  expansions:
+  - Allies
+  - Cornucopia & Guilds, 2E
   idx: 191
   landscapes:
   - forest_dwellers
@@ -2479,6 +2933,8 @@
   - ranger
   - ratcatcher
   - treasure_trove
+  expansions:
+  - Adventures
   idx: 192
   landscapes:
   - scouting_party
@@ -2494,6 +2950,8 @@
   - swamp_hag
   - transmogrify
   - wine_merchant
+  expansions:
+  - Adventures
   idx: 193
   landscapes:
   - mission
@@ -2510,6 +2968,9 @@
   - relic
   - treasure_trove
   - wine_merchant
+  expansions:
+  - Adventures
+  - Empires
   idx: 194
   landscapes:
   - banquet
@@ -2526,6 +2987,9 @@
   - temple
   - transmogrify
   - villa
+  expansions:
+  - Adventures
+  - Empires
   idx: 195
   landscapes:
   - bandit_fort
@@ -2542,6 +3006,9 @@
   - storyteller
   - vampire
   - werewolf
+  expansions:
+  - Adventures
+  - Nocturne
   idx: 196
   landscapes:
   - quest
@@ -2561,6 +3028,9 @@
   - the_fields_gift
   - the_seas_gift
   - the_skys_gift
+  expansions:
+  - Adventures
+  - Nocturne
   idx: 197
   landscapes:
   - pilgrimage
@@ -2576,6 +3046,9 @@
   - silk_merchant
   - swamp_hag
   - transmogrify
+  expansions:
+  - Adventures
+  - Renaissance
   idx: 198
   landscapes:
   - piazza
@@ -2592,6 +3065,9 @@
   - sculptor
   - spices
   - storyteller
+  expansions:
+  - Adventures
+  - Renaissance
   idx: 199
   landscapes:
   - ferry
@@ -2608,6 +3084,9 @@
   - royal_carriage
   - sleigh
   - stockpile
+  expansions:
+  - Adventures
+  - Menagerie
   idx: 200
   landscapes:
   - pilgrimage
@@ -2624,6 +3103,9 @@
   - mastermind
   - raze
   - village_green
+  expansions:
+  - Adventures
+  - Menagerie
   idx: 201
   landscapes:
   - mission
@@ -2640,6 +3122,9 @@
   - modify
   - specialist
   - treasure_trove
+  expansions:
+  - Adventures
+  - Allies
   idx: 202
   landscapes:
   - gang_of_pickpockets
@@ -2656,6 +3141,9 @@
   - skirmisher
   - sycophant
   - transmogrify
+  expansions:
+  - Adventures
+  - Allies
   idx: 203
   landscapes:
   - market_towns
@@ -2672,6 +3160,8 @@
   - patrician/emporium
   - sacrifice
   - villa
+  expansions:
+  - Empires
   idx: 204
   landscapes:
   - tower
@@ -2688,6 +3178,8 @@
   - royal_blacksmith
   - settlers/bustling_village
   - temple
+  expansions:
+  - Empires
   idx: 205
   landscapes:
   - arena
@@ -2704,6 +3196,9 @@
   - fool
   - shepherd
   - temple
+  expansions:
+  - Empires
+  - Nocturne
   idx: 206
   landscapes:
   - tomb
@@ -2719,6 +3214,9 @@
   - sacrifice
   - settlers/bustling_village
   - skulk
+  expansions:
+  - Empires
+  - Nocturne
   idx: 207
   landscapes:
   - banquet
@@ -2734,6 +3232,9 @@
   - sacrifice
   - sculptor
   - wild_hunt
+  expansions:
+  - Empires
+  - Renaissance
   idx: 208
   landscapes:
   - battlefield
@@ -2750,6 +3251,9 @@
   - patrician/emporium
   - scepter
   - villa
+  expansions:
+  - Empires
+  - Renaissance
   idx: 209
   landscapes:
   - ritual
@@ -2766,6 +3270,9 @@
   - stockpile
   - villa
   - wayfarer
+  expansions:
+  - Empires
+  - Menagerie
   idx: 210
   landscapes:
   - advance
@@ -2782,6 +3289,9 @@
   - settlers/bustling_village
   - snowy_village
   - wild_hunt
+  expansions:
+  - Empires
+  - Menagerie
   idx: 211
   landscapes:
   - transport
@@ -2798,6 +3308,9 @@
   - swap
   - sycophant
   - wild_hunt
+  expansions:
+  - Allies
+  - Empires
   idx: 212
   landscapes:
   - island_folk
@@ -2814,6 +3327,9 @@
   - hunter
   - importer
   - patrician/emporium
+  expansions:
+  - Allies
+  - Empires
   idx: 213
   landscapes:
   - trappers_lodge
@@ -2830,6 +3346,8 @@
   - shepherd
   - tormentor
   - tragic_hero
+  expansions:
+  - Nocturne
   idx: 214
   name: Dusk
 - cards:
@@ -2847,6 +3365,8 @@
   - the_flames_gift
   - the_swamps_gift
   - the_winds_gift
+  expansions:
+  - Nocturne
   idx: 215
   name: Midnight
 - cards:
@@ -2860,6 +3380,9 @@
   - skulk
   - spices
   - tragic_hero
+  expansions:
+  - Nocturne
+  - Renaissance
   idx: 216
   landscapes:
   - exploration
@@ -2875,6 +3398,9 @@
   - sculptor
   - secret_cave
   - villain
+  expansions:
+  - Nocturne
+  - Renaissance
   idx: 217
   landscapes:
   - cathedral
@@ -2891,6 +3417,9 @@
   - sheepdog
   - skulk
   - supplies
+  expansions:
+  - Menagerie
+  - Nocturne
   idx: 218
   landscapes:
   - seize_the_day
@@ -2907,6 +3436,9 @@
   - pooka
   - sacred_grove
   - shepherd
+  expansions:
+  - Menagerie
+  - Nocturne
   idx: 219
   landscapes:
   - enhance
@@ -2923,6 +3455,9 @@
   - idol
   - necromancer
   - sycophant
+  expansions:
+  - Allies
+  - Nocturne
   idx: 220
   landscapes:
   - peaceful_cult
@@ -2938,6 +3473,9 @@
   - tormentor
   - tracker
   - wizards
+  expansions:
+  - Allies
+  - Nocturne
   idx: 221
   landscapes:
   - woodworkers_guild
@@ -2953,6 +3491,8 @@
   - old_witch
   - seer
   - treasurer
+  expansions:
+  - Renaissance
   idx: 222
   landscapes:
   - fair
@@ -2968,6 +3508,8 @@
   - silk_merchant
   - swashbuckler
   - villain
+  expansions:
+  - Renaissance
   idx: 223
   landscapes:
   - citadel
@@ -2984,6 +3526,9 @@
   - recruiter
   - scepter
   - swashbuckler
+  expansions:
+  - Menagerie
+  - Renaissance
   idx: 224
   landscapes:
   - sinister_plot
@@ -3000,6 +3545,9 @@
   - silk_merchant
   - spices
   - wayfarer
+  expansions:
+  - Menagerie
+  - Renaissance
   idx: 225
   landscapes:
   - academy
@@ -3016,6 +3564,9 @@
   - townsfolk
   - treasurer
   - wizards
+  expansions:
+  - Allies
+  - Renaissance
   idx: 226
   landscapes:
   - band_of_nomads
@@ -3032,6 +3583,9 @@
   - specialist
   - underling
   - villain
+  expansions:
+  - Allies
+  - Renaissance
   idx: 227
   landscapes:
   - fellowship_of_scribes
@@ -3048,6 +3602,8 @@
   - scrap
   - sheepdog
   - supplies
+  expansions:
+  - Menagerie
   idx: 228
   landscapes:
   - enhance
@@ -3064,6 +3620,8 @@
   - snowy_village
   - stockpile
   - wayfarer
+  expansions:
+  - Menagerie
   idx: 229
   landscapes:
   - march
@@ -3080,6 +3638,9 @@
   - merchant_camp
   - town
   - wizards
+  expansions:
+  - Allies
+  - Menagerie
   idx: 230
   landscapes:
   - architects_guild
@@ -3096,6 +3657,9 @@
   - skirmisher
   - snowy_village
   - supplies
+  expansions:
+  - Allies
+  - Menagerie
   idx: 231
   landscapes:
   - mountain_folk
@@ -3112,6 +3676,8 @@
   - modify
   - royal_galley
   - townsfolk
+  expansions:
+  - Allies
   idx: 232
   landscapes:
   - city-state
@@ -3127,6 +3693,8 @@
   - specialist
   - town
   - underling
+  expansions:
+  - Allies
   idx: 233
   landscapes:
   - order_of_astrologers
@@ -3142,6 +3710,8 @@
   - secluded_shrine
   - silver_mine
   - wealthy_village
+  expansions:
+  - Plunder
   idx: 234
   landscapes:
   - hasty
@@ -3160,6 +3730,8 @@
   - search
   - siren
   - stowaway
+  expansions:
+  - Plunder
   idx: 235
   landscapes:
   - pious
@@ -3179,6 +3751,9 @@
   - pilgrim
   - sack_of_loot
   - vassal
+  expansions:
+  - Base, 2E
+  - Plunder
   idx: 236
   landscapes:
   - tireless
@@ -3197,6 +3772,9 @@
   - moneylender
   - remodel
   - shaman
+  expansions:
+  - Base, 2E
+  - Plunder
   idx: 237
   landscapes:
   - cursed
@@ -3216,6 +3794,9 @@
   - nobles
   - quartermaster
   - replace
+  expansions:
+  - Intrigue, 2E
+  - Plunder
   idx: 238
   landscapes:
   - reckless
@@ -3234,6 +3815,9 @@
   - secret_passage
   - wealthy_village
   - wishing_well
+  expansions:
+  - Intrigue, 2E
+  - Plunder
   idx: 239
   landscapes:
   - avoid
@@ -3253,6 +3837,9 @@
   - rope
   - sailor
   - sea_witch
+  expansions:
+  - Plunder
+  - Seaside, 2E
   idx: 240
   landscapes:
   - cheap
@@ -3271,6 +3858,9 @@
   - sea_chart
   - stowaway
   - treasure_map
+  expansions:
+  - Plunder
+  - Seaside, 2E
   idx: 241
   landscapes:
   - inherited
@@ -3290,6 +3880,9 @@
   - tools
   - transmute
   - trickster
+  expansions:
+  - Alchemy
+  - Plunder
   idx: 242
   landscapes:
   - cursed
@@ -3309,6 +3902,9 @@
   - silver_mine
   - tiara
   - war_chest
+  expansions:
+  - Plunder
+  - Prosperity, 2E
   idx: 243
   landscapes:
   - fated
@@ -3328,6 +3924,9 @@
   - stowaway
   - swamp_shacks
   - workers_village
+  expansions:
+  - Plunder
+  - Prosperity, 2E
   idx: 244
   landscapes:
   - fawning
@@ -3348,6 +3947,9 @@
   - pendant
   - souk
   - weaver
+  expansions:
+  - Hinterlands, 2E
+  - Plunder
   idx: 245
   landscapes:
   - reckless
@@ -3366,6 +3968,9 @@
   - scheme
   - stables
   - wealthy_village
+  expansions:
+  - Hinterlands, 2E
+  - Plunder
   idx: 246
   landscapes:
   - rich
@@ -3385,6 +3990,9 @@
   - shaman
   - squire
   - vagrant
+  expansions:
+  - Dark Ages
+  - Plunder
   idx: 247
   landscapes:
   - inherited
@@ -3404,6 +4012,9 @@
   - pillage
   - storeroom
   - trickster
+  expansions:
+  - Dark Ages
+  - Plunder
   idx: 248
   landscapes:
   - invasion
@@ -3424,6 +4035,9 @@
   - pickaxe
   - soothsayer
   - stonemason
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Plunder
   idx: 249
   landscapes:
   - inspiring
@@ -3442,6 +4056,9 @@
   - swamp_shacks
   - taskmaster
   - tools
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Plunder
   idx: 250
   landscapes:
   - journey
@@ -3461,6 +4078,9 @@
   - ratcatcher
   - search
   - treasure_trove
+  expansions:
+  - Adventures
+  - Plunder
   idx: 251
   landscapes:
   - ferry
@@ -3480,6 +4100,9 @@
   - swamp_shacks
   - tools
   - wine_merchant
+  expansions:
+  - Adventures
+  - Plunder
   idx: 252
   landscapes:
   - rush
@@ -3499,6 +4122,9 @@
   - taskmaster
   - tools
   - wild_hunt
+  expansions:
+  - Empires
+  - Plunder
   idx: 253
   landscapes:
   - museum
@@ -3518,6 +4144,9 @@
   - rope
   - sacrifice
   - wealthy_village
+  expansions:
+  - Empires
+  - Plunder
   idx: 254
   landscapes:
   - friendly
@@ -3537,6 +4166,9 @@
   - taskmaster
   - tragic_hero
   - werewolf
+  expansions:
+  - Nocturne
+  - Plunder
   idx: 255
   landscapes:
   - pious
@@ -3555,6 +4187,9 @@
   - secluded_shrine
   - skulk
   - tracker
+  expansions:
+  - Nocturne
+  - Plunder
   idx: 256
   landscapes:
   - foray
@@ -3574,6 +4209,9 @@
   - search
   - shaman
   - swashbuckler
+  expansions:
+  - Plunder
+  - Renaissance
   idx: 257
   landscapes:
   - cathedral
@@ -3593,6 +4231,9 @@
   - spices
   - taskmaster
   - trickster
+  expansions:
+  - Plunder
+  - Renaissance
   idx: 258
   landscapes:
   - fated
@@ -3612,6 +4253,9 @@
   - silver_mine
   - snowy_village
   - supplies
+  expansions:
+  - Menagerie
+  - Plunder
   idx: 259
   landscapes:
   - cheap
@@ -3631,6 +4275,9 @@
   - sanctuary
   - sheepdog
   - siren
+  expansions:
+  - Menagerie
+  - Plunder
   idx: 260
   landscapes:
   - nearby
@@ -3650,6 +4297,9 @@
   - sack_of_loot
   - shaman
   - sycophant
+  expansions:
+  - Allies
+  - Plunder
   idx: 261
   landscapes:
   - cave_dwellers
@@ -3669,6 +4319,9 @@
   - merchant_camp
   - odysseys
   - skirmisher
+  expansions:
+  - Allies
+  - Plunder
   idx: 262
   landscapes:
   - bury
@@ -3688,6 +4341,8 @@
   - rustic_village
   - samurai
   - tea_house
+  expansions:
+  - Rising Sun
   idx: 263
   landscapes:
   - progress
@@ -3703,6 +4358,8 @@
   - ninja
   - rice_broker
   - ronin
+  expansions:
+  - Rising Sun
   idx: 264
   landscapes:
   - kind_emperor
@@ -3719,6 +4376,9 @@
   - tanuki
   - throne_room
   - workshop
+  expansions:
+  - Base, 2E
+  - Rising Sun
   idx: 265
   landscapes:
   - rapid_expansion
@@ -3735,6 +4395,9 @@
   - poet
   - ronin
   - snake_witch
+  expansions:
+  - Base, 2E
+  - Rising Sun
   idx: 266
   landscapes:
   - gather
@@ -3751,6 +4414,9 @@
   - riverboat
   - ronin
   - wishing_well
+  expansions:
+  - Intrigue, 2E
+  - Rising Sun
   idx: 267
   landscapes:
   - enlightenment
@@ -3767,6 +4433,9 @@
   - snake_witch
   - tanuki
   - tea_house
+  expansions:
+  - Intrigue, 2E
+  - Rising Sun
   idx: 268
   landscapes:
   - amass
@@ -3784,11 +4453,15 @@
   - salvager
   - sea_chart
   - treasure_map
+  expansions:
+  - Rising Sun
+  - Seaside, 2E
   idx: 269
   landscapes:
   - approaching_army
   name: Invasion Fleet
   riverboat_card: bazaar
+  army_pile: corsair
 - cards:
   - caravan
   - craftsman
@@ -3800,6 +4473,9 @@
   - sea_witch
   - snake_witch
   - tide_pools
+  expansions:
+  - Rising Sun
+  - Seaside, 2E
   idx: 270
   landscapes:
   - great_leader
@@ -3816,6 +4492,9 @@
   - samurai
   - university
   - vineyard
+  expansions:
+  - Alchemy
+  - Rising Sun
   idx: 271
   landscapes:
   - progress
@@ -3832,6 +4511,9 @@
   - litter
   - ninja
   - transmute
+  expansions:
+  - Alchemy
+  - Rising Sun
   idx: 272
   landscapes:
   - biding_time
@@ -3848,6 +4530,9 @@
   - riverboat
   - root_cellar
   - war_chest
+  expansions:
+  - Prosperity, 2E
+  - Rising Sun
   idx: 273
   landscapes:
   - flourishing_trade
@@ -3865,6 +4550,9 @@
   - quarry
   - rustic_village
   - watchtower
+  expansions:
+  - Prosperity, 2E
+  - Rising Sun
   idx: 274
   landscapes:
   - continue
@@ -3882,6 +4570,9 @@
   - jester
   - snake_witch
   - tea_house
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Rising Sun
   idx: 275
   landscapes:
   - harsh_winter
@@ -3897,6 +4588,9 @@
   - poet
   - shop
   - tanuki
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Rising Sun
   idx: 276
   landscapes:
   - gather
@@ -3913,6 +4607,9 @@
   - scheme
   - snake_witch
   - weaver
+  expansions:
+  - Hinterlands, 2E
+  - Rising Sun
   idx: 277
   landscapes:
   - progress
@@ -3928,6 +4625,9 @@
   - tanuki
   - tunnel
   - wheelwright
+  expansions:
+  - Hinterlands, 2E
+  - Rising Sun
   idx: 278
   landscapes:
   - bureaucracy
@@ -3945,6 +4645,9 @@
   - rogue
   - scavenger
   - vagrant
+  expansions:
+  - Dark Ages
+  - Rising Sun
   idx: 279
   landscapes:
   - sickness
@@ -3962,12 +4665,16 @@
   - samurai
   - snake_witch
   - squire
+  expansions:
+  - Dark Ages
+  - Rising Sun
   idx: 280
   landscapes:
   - approaching_army
   - asceticism
   name: Distant Hordes
   use_shelters: true
+  army_pile: samurai
 - cards:
   - amulet
   - caravan_guard
@@ -3979,6 +4686,9 @@
   - poet
   - ronin
   - tanuki
+  expansions:
+  - Adventures
+  - Rising Sun
   idx: 281
   landscapes:
   - ball
@@ -3995,6 +4705,9 @@
   - page
   - root_cellar
   - samurai
+  expansions:
+  - Adventures
+  - Rising Sun
   idx: 282
   landscapes:
   - biding_time
@@ -4011,6 +4724,9 @@
   - rice
   - river_shrine
   - snake_witch
+  expansions:
+  - Empires
+  - Rising Sun
   idx: 283
   landscapes:
   - kind_emperor
@@ -4027,6 +4743,9 @@
   - rice_broker
   - root_cellar
   - temple
+  expansions:
+  - Empires
+  - Rising Sun
   idx: 284
   landscapes:
   - divine_wind
@@ -4043,6 +4762,9 @@
   - samurai
   - shepherd
   - tea_house
+  expansions:
+  - Nocturne
+  - Rising Sun
   idx: 285
   landscapes:
   - growth
@@ -4058,6 +4780,9 @@
   - skulk
   - tanuki
   - werewolf
+  expansions:
+  - Nocturne
+  - Rising Sun
   idx: 286
   landscapes:
   - amass
@@ -4074,6 +4799,9 @@
   - riverboat
   - scholar
   - treasurer
+  expansions:
+  - Renaissance
+  - Rising Sun
   idx: 287
   landscapes:
   - bureaucracy
@@ -4091,6 +4819,9 @@
   - poet
   - sculptor
   - tea_house
+  expansions:
+  - Renaissance
+  - Rising Sun
   idx: 288
   landscapes:
   - divine_wind
@@ -4107,6 +4838,9 @@
   - poet
   - samurai
   - wayfarer
+  expansions:
+  - Menagerie
+  - Rising Sun
   idx: 289
   landscapes:
   - enlightenment
@@ -4123,6 +4857,9 @@
   - rustic_village
   - sleigh
   - supplies
+  expansions:
+  - Menagerie
+  - Rising Sun
   idx: 290
   landscapes:
   - panic
@@ -4139,6 +4876,9 @@
   - riverboat
   - rustic_village
   - swap
+  expansions:
+  - Allies
+  - Rising Sun
   idx: 291
   landscapes:
   - crafters_guild
@@ -4156,6 +4896,9 @@
   - skirmisher
   - snake_witch
   - tea_house
+  expansions:
+  - Allies
+  - Rising Sun
   idx: 292
   landscapes:
   - credit
@@ -4172,6 +4915,9 @@
   - rice_broker
   - tanuki
   - taskmaster
+  expansions:
+  - Plunder
+  - Rising Sun
   idx: 293
   landscapes:
   - growth
@@ -4188,6 +4934,9 @@
   - river_shrine
   - root_cellar
   - tools
+  expansions:
+  - Plunder
+  - Rising Sun
   idx: 294
   landscapes:
   - credit

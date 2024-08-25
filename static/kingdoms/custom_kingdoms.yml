@@ -1,0 +1,1100 @@
+- cards:
+  - baron
+  - catacombs
+  - fairgrounds
+  - magpie
+  - pawn
+  - pixie
+  - ratcatcher
+  - royal_carriage
+  - town
+  - village_green
+  expansions:
+  - Adventures
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  idx: 282805425755807064282550273851180182678
+  landscapes:
+  - scrounge
+  - way_of_the_butterfly
+  name: Butterfly madness
+- cards:
+  - abundance
+  - bridge_troll
+  - fairgrounds
+  - groundskeeper
+  - poacher
+  - quartermaster
+  - sailor
+  - scavenger
+  - search
+  - witchs_hut
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Plunder
+  - Seaside, 2E
+  idx: 215586075375817962657153070664702012850
+  landscapes:
+  - arena
+  - way_of_the_frog
+  name: Finicky Sailage
+- cards:
+  - artificer
+  - artisan
+  - crypt
+  - faithful_hound
+  - herbalist
+  - research
+  - royal_blacksmith
+  - secluded_shrine
+  - sleigh
+  - tools
+  expansions:
+  - Adventures
+  - Alchemy
+  - Base, 2E
+  - Empires
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Renaissance
+  idx: 189933793654760663315242303275843584390
+  landscapes:
+  - pious
+  - prepare
+  name: Prepare your tools
+  traits:
+  - - pious
+    - artificer
+- cards:
+  - bandit
+  - forager
+  - fortress
+  - ironworks
+  - mining_village
+  - moat
+  - rabble
+  - salvager
+  - shepherd
+  - village
+  expansions:
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Prosperity, 2E
+  - Seaside, 2E
+  idx: 11506136353280600617255512357967998104
+  landscapes:
+  - salt_the_earth
+  - way_of_the_frog
+  name: EZ Moat kingdom
+- cards:
+  - astrolabe
+  - broker
+  - cabin_boy
+  - laboratory
+  - magnate
+  - pendant
+  - royal_galley
+  - sentinel
+  - swashbuckler
+  - village
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
+  idx: 251003904870795211878390170810399824103
+  landscapes:
+  - fleet
+  - league_of_shopkeepers
+  - quest
+  name: The perfect Magnate kingdom?!
+- cards:
+  - camel_train
+  - cardinal
+  - cutpurse
+  - duke
+  - enchantress
+  - falconer
+  - harbor_village
+  - masquerade
+  - sailor
+  - shepherd
+  expansions:
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Renaissance
+  - Seaside, 2E
+  idx: 37675422381207538692943123448987919356
+  landscapes:
+  - star_chart
+  - way_of_the_goat
+  name: Ugly Cardinality
+- bane_pile: market_square
+  cards:
+  - duplicate
+  - gatekeeper
+  - grand_market
+  - haven
+  - junk_dealer
+  - market_square
+  - necromancer
+  - shaman
+  - silk_merchant
+  - wheelwright
+  - young_witch
+  expansions:
+  - Adventures
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
+  idx: 286081933413540980632278166545200651922
+  landscapes:
+  - shy
+  - wall
+  name: One man's trash...
+  traits:
+  - - shy
+    - silk_merchant
+- cards:
+  - acting_troupe
+  - fairgrounds
+  - kiln
+  - remodel
+  - rogue
+  - rope
+  - souk
+  - stonemason
+  - sycophant
+  - trading_post
+  expansions:
+  - Allies
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
+  - Renaissance
+  idx: 93826845506980332601296396712557539954
+  landscapes:
+  - island_folk
+  - seize_the_day
+  name: Extra spinning without draw
+- cards:
+  - harvest
+  - island
+  - mill
+  - mystic
+  - native_village
+  - odysseys
+  - remake
+  - scavenger
+  - shaman
+  - smithy
+  expansions:
+  - Allies
+  - Base, 2E
+  - Cornucopia, 1E
+  - Dark Ages
+  - Intrigue, 2E
+  - Plunder
+  - Renaissance
+  - Seaside, 2E
+  idx: 101627277514080086570384856207903439527
+  landscapes:
+  - citadel
+  - patient
+  name: Odyssey for Victory
+  traits:
+  - - patient
+    - native_village
+- cards:
+  - baron
+  - druid
+  - festival
+  - forager
+  - governor
+  - priest
+  - rogue
+  - sailor
+  - secret_cave
+  - village
+  druid_boons:
+  - the_forests_gift
+  - the_moons_gift
+  - the_rivers_gift
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Dark Ages
+  - Intrigue, 2E
+  - Nocturne
+  - Promo
+  - Renaissance
+  - Seaside, 2E
+  idx: 185017664215233540122901333014706778231
+  landscapes:
+  - quest
+  - training
+  name: Wishful Governance
+- cards:
+  - altar
+  - apothecary
+  - gondola
+  - harbor_village
+  - investment
+  - journeyman
+  - magnate
+  - recruiter
+  - sentry
+  - supplies
+  expansions:
+  - Alchemy
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Menagerie
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  idx: 215264274597471100171071376840615505131
+  landscapes:
+  - toil
+  name: No buy no problem
+  use_colonies: true
+- cards:
+  - barge
+  - camel_train
+  - chariot_race
+  - druid
+  - raze
+  - remake
+  - shanty_town
+  - smugglers
+  - tactician
+  - town
+  druid_boons:
+  - the_earths_gift
+  - the_skys_gift
+  - the_winds_gift
+  expansions:
+  - Adventures
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Seaside, 2E
+  idx: 29450825455010960766115743863516007894
+  landscapes:
+  - avoid
+  - windfall
+  name: Druid racing
+- cards:
+  - apprentice
+  - crystal_ball
+  - dismantle
+  - displace
+  - guildmaster
+  - research
+  - sack_of_loot
+  - shanty_town
+  - squire
+  - wharf
+  expansions:
+  - Alchemy
+  - Allies
+  - Dark Ages
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
+  - Promo
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
+  idx: 50798353847907134481684481919359480624
+  landscapes:
+  - family_of_inventors
+  - toil
+  name: Looting Apprentice with a twist
+- cards:
+  - amulet
+  - blockade
+  - broker
+  - butcher
+  - cage
+  - cemetery
+  - feodum
+  - longship
+  - night_watchman
+  - wheelwright
+  expansions:
+  - Adventures
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Seaside, 2E
+  idx: 317234998142428128811734870733065309432
+  landscapes:
+  - alms
+  - commerce
+  - league_of_bankers
+  name: Useful Feodum and insane Brokers
+- cards:
+  - amulet
+  - artificer
+  - courier
+  - death_cart
+  - enlarge
+  - envoy
+  - first_mate
+  - rats
+  - secret_cave
+  - villain
+  expansions:
+  - Adventures
+  - Allies
+  - Dark Ages
+  - Empires
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Promo
+  - Renaissance
+  idx: 306069181995078629949994579183020305582
+  landscapes:
+  - triumphal_arch
+  - way_of_the_horse
+  name: Crazy Death Cartificer Horsey
+- cards:
+  - acting_troupe
+  - artisan
+  - baker
+  - bazaar
+  - cage
+  - envoy
+  - experiment
+  - sentinel
+  - sheepdog
+  - warehouse
+  expansions:
+  - Allies
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Menagerie
+  - Plunder
+  - Promo
+  - Renaissance
+  - Seaside, 2E
+  idx: 210795131600789688783949983295726907702
+  landscapes:
+  - delve
+  - fawning
+  name: Quick single buy, multi gain
+  traits:
+  - - fawning
+    - experiment
+- cards:
+  - barbarian
+  - fairgrounds
+  - festival
+  - moneylender
+  - night_watchman
+  - royal_carriage
+  - sentry
+  - tactician
+  - trading_post
+  - witchs_hut
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Seaside, 2E
+  idx: 24090974727705904799522306185460753647
+  landscapes:
+  - seaway
+  - way_of_the_butterfly
+  name: Double Tac beauty
+- cards:
+  - bureaucrat
+  - captain
+  - catacombs
+  - exorcist
+  - feodum
+  - fools_gold
+  - moat
+  - raze
+  - snowy_village
+  - vineyard
+  expansions:
+  - Adventures
+  - Alchemy
+  - Base, 2E
+  - Dark Ages
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Promo
+  idx: 157968320908236461544874939360423177380
+  landscapes:
+  - bonfire
+  - way_of_the_camel
+  name: Exo Miniature
+  use_shelters: true
+- cards:
+  - bridge_troll
+  - charlatan
+  - druid
+  - fortress
+  - necromancer
+  - pawn
+  - sanctuary
+  - skirmisher
+  - vineyard
+  - weaver
+  druid_boons:
+  - the_earths_gift
+  - the_moons_gift
+  - the_swamps_gift
+  expansions:
+  - Adventures
+  - Alchemy
+  - Allies
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Prosperity, 2E
+  idx: 50424820268912420668131419414255797717
+  landscapes:
+  - advance
+  - inheritance
+  name: Wisp Hour
+- cards:
+  - gondola
+  - journeyman
+  - library
+  - masquerade
+  - mine
+  - patrol
+  - spices
+  - taskmaster
+  - trickster
+  - weaver
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
+  - Renaissance
+  idx: 316094118024644277642614661762257706209
+  landscapes:
+  - colonnade
+  - way_of_the_horse
+  name: Patrolling Masters
+- cards:
+  - bridge
+  - feodum
+  - fisherman
+  - fortress
+  - forts
+  - laboratory
+  - miser
+  - pawn
+  - sentry
+  - temple
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
+  idx: 80072693496512764555287283283985720906
+  landscapes:
+  - peril
+  name: Spicy Bridge Megaturn?
+- cards:
+  - buried_treasure
+  - candlestick_maker
+  - cauldron
+  - dismantle
+  - haunted_woods
+  - hunter
+  - improve
+  - investment
+  - lurker
+  - walled_village
+  expansions:
+  - Adventures
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
+  - Promo
+  - Prosperity, 2E
+  - Renaissance
+  idx: 269749861277771504712851595957826840863
+  landscapes:
+  - journey
+  - way_of_the_ox
+  name: Steady Improvements 12t
+- cards:
+  - figurine
+  - fool
+  - groundskeeper
+  - guardian
+  - harbor_village
+  - priest
+  - sentinel
+  - spice_merchant
+  - stonemason
+  - witch
+  expansions:
+  - Allies
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Renaissance
+  idx: 93278512738819737673300517489957714826
+  landscapes:
+  - populate
+  - way_of_the_chameleon
+  name: Crazy Priesting
+- cards:
+  - alchemist
+  - apothecary
+  - bandit
+  - bishop
+  - captain
+  - caravan
+  - city_quarter
+  - fairgrounds
+  - feodum
+  - urchin
+  expansions:
+  - Alchemy
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Promo
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
+  idx: 16614182235350981562392603204404378705
+  landscapes:
+  - bandit_fort
+  - sewers
+  name: Golden Deck stuff
+- cards:
+  - druid
+  - footpad
+  - hostelry
+  - ironworks
+  - jester
+  - joust
+  - kings_cache
+  - odysseys
+  - smugglers
+  - steward
+  druid_boons:
+  - the_forests_gift
+  - the_mountains_gift
+  - the_winds_gift
+  expansions:
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Seaside, 2E
+  idx: 172320819356165136150511338899098062826
+  landscapes:
+  - nearby
+  - transport
+  name: What even are snowballs? Don't.
+  traits:
+  - - nearby
+    - druid
+- cards:
+  - city_quarter
+  - enchantress
+  - faithful_hound
+  - lurker
+  - margrave
+  - port
+  - sacred_grove
+  - sacrifice
+  - squire
+  - war_chest
+  expansions:
+  - Adventures
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Prosperity, 2E
+  idx: 176664346285143588534591752688435300760
+  landscapes:
+  - alliance
+  - orchard
+  name: Plentiful Orchard
+- cards:
+  - bishop
+  - broker
+  - cobbler
+  - druid
+  - figurine
+  - jack_of_all_trades
+  - magnate
+  - outpost
+  - remodel
+  - wayfarer
+  druid_boons:
+  - the_seas_gift
+  - the_skys_gift
+  - the_swamps_gift
+  expansions:
+  - Allies
+  - Base, 2E
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Seaside, 2E
+  idx: 166828410480371078176154170432154101109
+  landscapes:
+  - dominate
+  - market_towns
+  - prepare
+  name: Prepare for Domination
+  use_colonies: true
+- cards:
+  - charm
+  - giant
+  - harbinger
+  - hideout
+  - nomads
+  - quarry
+  - seer
+  - villa
+  - wandering_minstrel
+  - wizards
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Prosperity, 2E
+  - Renaissance
+  idx: 285516458536006831491642091747758231687
+  landscapes:
+  - mountain_folk
+  - museum
+  name: Neat Villa/Quarry stuff
+  use_shelters: true
+- cards:
+  - apprentice
+  - cabin_boy
+  - captain
+  - catapult/rocks
+  - fortune_hunter
+  - library
+  - oasis
+  - paddock
+  - salvager
+  - swap
+  expansions:
+  - Alchemy
+  - Allies
+  - Base, 2E
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Plunder
+  - Promo
+  - Renaissance
+  - Seaside, 2E
+  idx: 25353514887306230572954703521101554634
+  landscapes:
+  - canal
+  - reckless
+  name: Snowballville Captains
+  traits:
+  - - reckless
+    - captain
+- cards:
+  - artisan
+  - bandit_camp
+  - experiment
+  - guildmaster
+  - ironworks
+  - replace
+  - supplies
+  - university
+  - warehouse
+  - wharf
+  expansions:
+  - Adventures
+  - Alchemy
+  - Allies
+  - Base, 2E
+  - Dark Ages
+  - Intrigue, 2E
+  - Menagerie
+  - Renaissance
+  - Seaside, 2E
+  idx: 180485596109518979313510812041659476357
+  landscapes:
+  - coastal_haven
+  - mission
+  - ride
+  name: On a crazy Mission
+- cards:
+  - duplicate
+  - emissary
+  - exorcist
+  - hoard
+  - ranger
+  - scepter
+  - scholar
+  - snowy_village
+  - village_green
+  - wizards
+  expansions:
+  - Adventures
+  - Allies
+  - Menagerie
+  - Nocturne
+  - Prosperity, 2E
+  - Renaissance
+  idx: 332612275783797587330699567053653075689
+  landscapes:
+  - desert_guides
+  name: Hoarding Villages
+- cards:
+  - astrolabe
+  - augurs
+  - collection
+  - feodum
+  - port
+  - smithy
+  - swamp_shacks
+  - treasure_trove
+  - villa
+  - wild_hunt
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Plunder
+  - Prosperity, 2E
+  - Seaside, 2E
+  idx: 296329828187656630999422315600079520957
+  landscapes:
+  - foray
+  - journey
+  name: Fun Journey
+  use_shelters: true
+- cards:
+  - bank
+  - bounty_hunter
+  - carpenter
+  - ducat
+  - fortress
+  - forum
+  - lurker
+  - pixie
+  - raze
+  - sentry
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Prosperity, 2E
+  - Renaissance
+  idx: 177655372868785192547959105014835113118
+  landscapes:
+  - orchard
+  - quest
+  name: Crazy Orchard
+- cards:
+  - augurs
+  - bank
+  - devils_workshop
+  - festival
+  - figurine
+  - kings_cache
+  - marchland
+  - odysseys
+  - scepter
+  - tunnel
+  expansions:
+  - Allies
+  - Base, 2E
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Promo
+  - Prosperity, 2E
+  - Renaissance
+  idx: 74454740435876842531659800360153952091
+  landscapes:
+  - ride
+  name: Buy phase engine go brrr
+- cards:
+  - farmhands
+  - forge
+  - legionary
+  - livery
+  - plaza
+  - quarry
+  - scepter
+  - seer
+  - trickster
+  - village
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Menagerie
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  idx: 33174254445372545524530377467051691049
+  landscapes:
+  - pursue
+  - way_of_the_seal
+  name: Forge crazorski
+- cards:
+  - gear
+  - groom
+  - hunting_party
+  - jewelled_egg
+  - legionary
+  - port
+  - royal_carriage
+  - sentry
+  - smithy
+  - villa
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Menagerie
+  - Plunder
+  - Renaissance
+  idx: 131327742308032264163468205293750284300
+  landscapes:
+  - guildhall
+  name: Grooming Madness
+- cards:
+  - animal_fair
+  - barge
+  - carnival
+  - collection
+  - hunting_lodge
+  - landing_party
+  - miser
+  - moneylender
+  - recruiter
+  - stockpile
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Menagerie
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  idx: 244020483401005069036704805845132671817
+  landscapes:
+  - avoid
+  - fair
+  name: Collecting Stockpiles
+- cards:
+  - bandit
+  - dungeon
+  - farrier
+  - ferryman
+  - horn_of_plenty
+  - journeyman
+  - laboratory
+  - maroon
+  - taskmaster
+  - throne_room
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Menagerie
+  - Plunder
+  ferryman_pile: tools
+  idx: 35136386564441024988334064109860879244
+  landscapes:
+  - banish
+  name: 10 innocent turns...
+- cards:
+  - charm
+  - exorcist
+  - forge
+  - ironmonger
+  - livery
+  - marauder
+  - seer
+  - shaman
+  - village_green
+  - wharf
+  expansions:
+  - Dark Ages
+  - Empires
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
+  idx: 96256743060541735378944397371772119480
+  landscapes:
+  - defiled_shrine
+  - triumph
+  name: Power Card Galore
+  use_shelters: true
+- cards:
+  - artificer
+  - cage
+  - catacombs
+  - cutpurse
+  - livery
+  - poacher
+  - silver_mine
+  - steward
+  - stowaway
+  - swamp_shacks
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
+  - Seaside, 2E
+  idx: 150479632690474508047480469172377526813
+  landscapes:
+  - wolf_den
+  name: Denning the Livery
+- cards:
+  - bridge_troll
+  - crossroads
+  - farmhands
+  - idol
+  - page
+  - poet
+  - prince
+  - souk
+  - squire
+  - watchtower
+  expansions:
+  - Adventures
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Nocturne
+  - Promo
+  - Prosperity, 2E
+  - Rising Sun
+  idx: 24732931491620013139787415492260196647
+  landscapes:
+  - fountain
+  - sickness
+  name: Interesting BridgeTroll Sickness
+- cards:
+  - aristocrat
+  - artist
+  - craftsman
+  - falconer
+  - fishmonger
+  - hunting_lodge
+  - ninja
+  - ronin
+  - snowy_village
+  - wayfarer
+  expansions:
+  - Menagerie
+  - Rising Sun
+  idx: 164527398429953846540644236659413365370
+  name: Neat Aristocrats
