@@ -3,16 +3,32 @@
 from pathlib import Path
 from typing import Any
 
+import numpy as np
 import pandas as pd
 import yaml
 
 from ..constants import (
+    FPATH_KINGDOMS_CUSTOM,
     FPATH_KINGDOMS_LAST100,
     FPATH_KINGDOMS_RECOMMENDED,
     FPATH_KINGDOMS_TGG_DAILIES,
-    FPATH_KINGDOMS_CUSTOM,
+    PATH_ASSETS,
 )
 from .kingdom import Kingdom
+
+
+def _load_tgg_winrate_data() -> dict[str, float]:
+    win_data = pd.read_csv(
+        PATH_ASSETS.joinpath("other/daily_hard_win_approx_percent.csv"),
+        names=["date", "win_percent"],
+        index_col=0,
+    )
+    return win_data["win_percent"].apply(lambda x: float(x.strip("%")) / 100).to_dict()
+
+
+def _add_winrate(name: str, win_data: dict[str, float]) -> float:
+    date = "-".join([f"{num:0>2}" for num in name.split("-")])
+    return win_data.get(date, np.nan)
 
 
 def custom_fillna(column: pd.Series) -> pd.Series:
@@ -104,6 +120,9 @@ class KingdomManager:
 
     def load_tgg_dailies(self):
         self.load_kingdoms_from_yaml(FPATH_KINGDOMS_TGG_DAILIES)
+        win_data = _load_tgg_winrate_data()
+        for k in self.kingdoms:
+            k["winrate"] = _add_winrate(k["name"], win_data)
 
     def load_custom_kingdoms(self):
         self.load_kingdoms_from_yaml(FPATH_KINGDOMS_CUSTOM)

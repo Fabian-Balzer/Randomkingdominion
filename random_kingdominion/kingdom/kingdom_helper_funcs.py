@@ -110,7 +110,14 @@ def sanitize_cso_name(name: str) -> str:
     """Return a sanitized version of the name of the cso."""
     if isinstance(name, float):
         return ""
-    name = name.lower().strip().replace(" ", "_").replace("'", "").replace("’", "")
+    name = (
+        name.lower()
+        .strip()
+        .replace(" / ", "/")
+        .replace(" ", "_")
+        .replace("'", "")
+        .replace("’", "")
+    )
     if name == "harem" or name == "farm":
         return "harem_farm"
     return name

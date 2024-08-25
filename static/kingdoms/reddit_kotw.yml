@@ -1,0 +1,5597 @@
+- cards:
+  - bridge_troll
+  - cemetery
+  - death_cart
+  - flag_bearer
+  - joust
+  - longship
+  - overlord
+  - pooka
+  - trail
+  - upgrade
+  expansions:
+  - Adventures
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Nocturne
+  - Plunder
+  - Renaissance
+  idx: 278585594467505169753674041828610137728
+  landscapes:
+  - pious
+  - sinister_plot
+  name: kotw 19 aug
+  traits:
+  - - pious
+    - longship
+  use_shelters: true
+- army_pile: kitsune
+  cards:
+  - daimyo
+  - fishmonger
+  - gold_mine
+  - kitsune
+  - mountain_shrine
+  - rice
+  - river_shrine
+  - samurai
+  - snake_witch
+  - tanuki
+  - tea_house
+  expansions:
+  - Rising Sun
+  idx: 295764560223209526150873313524395600306
+  landscapes:
+  - approaching_army
+  - asceticism
+  name: kotw 12 aug
+- bane_pile: experiment
+  cards:
+  - city_quarter
+  - experiment
+  - horn_of_plenty
+  - lookout
+  - monument
+  - nobles
+  - priest
+  - quartermaster
+  - tragic_hero
+  - tunnel
+  - young_witch
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
+  idx: 298721724307516644013769759183125368167
+  landscapes:
+  - aqueduct
+  - piazza
+  name: kotw 05 aug
+- bane_pile: enchantress
+  cards:
+  - candlestick_maker
+  - chariot_race
+  - enchantress
+  - fairgrounds
+  - farmers_market
+  - gladiator/fortune
+  - hunting_party
+  - patrician/emporium
+  - sacrifice
+  - settlers/bustling_village
+  - young_witch
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Empires
+  idx: 113979452833286995237732343700025346445
+  landscapes:
+  - arena
+  - mountain_pass
+  name: kotw 29 jul
+- cards:
+  - band_of_misfits
+  - crossroads
+  - fortress
+  - harem_farm
+  - market_square
+  - old_witch
+  - quarry
+  - stables
+  - trading_post
+  - warehouse
+  expansions:
+  - Dark Ages
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
+  idx: 14206198142193506956033561750792454338
+  name: kotw 22 jul
+- cards:
+  - bazaar
+  - dismantle
+  - embassy
+  - fortress
+  - pawn
+  - quarry
+  - rats
+  - research
+  - souk
+  - trading_post
+  expansions:
+  - Dark Ages
+  - Hinterlands, 1E
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Promo
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
+  idx: 115768155109495311960431068176691767041
+  name: kotw 15 jul
+  use_colonies: true
+- cards:
+  - bureaucrat
+  - castles
+  - clashes
+  - crossroads
+  - fairgrounds
+  - marchland
+  - mill
+  - prince
+  - shepherd
+  - silk_road
+  expansions:
+  - Allies
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Hinterlands, 1E
+  - Intrigue, 2E
+  - Nocturne
+  - Plunder
+  - Promo
+  - Renaissance
+  idx: 199676783799204290018452347112506423654
+  landscapes:
+  - inspiring
+  - road_network
+  name: kotw 08 jul
+  traits:
+  - - inspiring
+    - bureaucrat
+- bane_pile: augurs
+  cards:
+  - artisan
+  - augurs
+  - broker
+  - conclave
+  - coven
+  - old_witch
+  - sea_witch
+  - town
+  - watchtower
+  - witch
+  - young_witch
+  expansions:
+  - Allies
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Menagerie
+  - Nocturne
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
+  idx: 16241780292606916989188259899673949784
+  landscapes:
+  - circle_of_witches
+  - delve
+  - sewers
+  name: kotw 01 jul
+- cards:
+  - bard
+  - blessed_village
+  - cavalry
+  - church
+  - gondola
+  - idol
+  - importer
+  - merchant_camp
+  - paddock
+  - swashbuckler
+  expansions:
+  - Allies
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Promo
+  - Renaissance
+  idx: 195328607804403115672094766590232396761
+  landscapes:
+  - forest_dwellers
+  name: kotw 24 jun
+- cards:
+  - importer
+  - inventor
+  - library
+  - poacher
+  - ratcatcher
+  - scheme
+  - secret_cave
+  - soothsayer
+  - trail
+  - underling
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Hinterlands, 2E
+  - Nocturne
+  - Plunder
+  - Renaissance
+  idx: 285294219467503323155336812527854800586
+  landscapes:
+  - friendly
+  - trappers_lodge
+  name: kotw 17 jun
+  traits:
+  - - friendly
+    - inventor
+- cards:
+  - cargo_ship
+  - ducat
+  - farmland
+  - flag_bearer
+  - guard_dog
+  - hideout
+  - patron
+  - stables
+  - tunnel
+  - wheelwright
+  expansions:
+  - Hinterlands, 2E
+  - Renaissance
+  idx: 94224007284147767014756570385620418820
+  landscapes:
+  - crop_rotation
+  - guildhall
+  name: kotw 10 jun
+- cards:
+  - bandit
+  - candlestick_maker
+  - footpad
+  - forum
+  - gardens
+  - gladiator/fortune
+  - harbinger
+  - merchant_guild
+  - plaza
+  - workshop
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Empires
+  idx: 73183075133923761147841929497509652265
+  landscapes:
+  - delve
+  - fountain
+  name: kotw 03 jun
+- cards:
+  - bridge_troll
+  - crucible
+  - figurine
+  - jewelled_egg
+  - kings_cache
+  - peasant
+  - ranger
+  - relic
+  - storyteller
+  - tools
+  expansions:
+  - Adventures
+  - Plunder
+  idx: 220568500974767522387608780517328042072
+  landscapes:
+  - ferry
+  - inheritance
+  - plan
+  - reckless
+  name: kotw 27 may
+  traits:
+  - - reckless
+    - ranger
+- cards:
+  - astrolabe
+  - bauble
+  - blessed_village
+  - ducat
+  - jewelled_egg
+  - mining_road
+  - spices
+  - squire
+  - stockpile
+  - wayfarer
+  expansions:
+  - Allies
+  - Dark Ages
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Renaissance
+  - Seaside, 2E
+  idx: 221073957762961078108797220984075592823
+  landscapes:
+  - deliver
+  - guildhall
+  - plateau_shepherds
+  - reckless
+  name: kotw 20 may
+  traits:
+  - - reckless
+    - wayfarer
+- cards:
+  - abundance
+  - flag_bearer
+  - flagship
+  - kings_cache
+  - quartermaster
+  - sack_of_loot
+  - scepter
+  - sculptor
+  - seer
+  - silk_merchant
+  expansions:
+  - Plunder
+  - Renaissance
+  idx: 253911400094087603893463597236297234020
+  landscapes:
+  - academy
+  - reckless
+  name: kotw 06 may
+  traits:
+  - - reckless
+    - silk_merchant
+- cards:
+  - emissary
+  - fortress
+  - goons
+  - grand_market
+  - importer
+  - kings_court
+  - procession
+  - rats
+  - squire
+  - sycophant
+  expansions:
+  - Allies
+  - Dark Ages
+  - Prosperity, 1E
+  idx: 187014881574484842928830364343358246228
+  landscapes:
+  - woodworkers_guild
+  name: kotw 29 apr
+  use_colonies: true
+  use_shelters: true
+- cards:
+  - artisan
+  - counterfeit
+  - crucible
+  - farmland
+  - inn
+  - marchland
+  - rats
+  - sacrifice
+  - shaman
+  - throne_room
+  expansions:
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Plunder
+  - Promo
+  idx: 331266081286584798641346762558076023823
+  landscapes:
+  - bandit_fort
+  - inherited
+  name: kotw 22 apr
+  traits:
+  - - inherited
+    - rats
+- cards:
+  - bandit
+  - hamlet
+  - harvest
+  - jester
+  - market
+  - moat
+  - moneylender
+  - remake
+  - smithy
+  - village
+  expansions:
+  - Base, 2E
+  - Cornucopia, 1E
+  idx: 23055443750139553957708776644847436301
+  name: kotw 15 apr
+- cards:
+  - amulet
+  - cavalry
+  - changeling
+  - conclave
+  - farrier
+  - footpad
+  - infirmary
+  - magpie
+  - paddock
+  - peasant
+  expansions:
+  - Adventures
+  - Cornucopia & Guilds, 2E
+  - Menagerie
+  - Nocturne
+  idx: 122817719733213113861063804702655928222
+  landscapes:
+  - travelling_fair
+  - way_of_the_chameleon
+  name: kotw 08 apr
+- cards:
+  - adventurer
+  - loan
+  - marauder
+  - moneylender
+  - patron
+  - sea_hag
+  - trail
+  - tunnel
+  - venture
+  - workshop
+  expansions:
+  - Adventures
+  - Base, 1E
+  - Dark Ages
+  - Hinterlands, 2E
+  - Plunder
+  - Prosperity, 1E
+  - Renaissance
+  - Seaside, 1E
+  idx: 117635595340591133311214056980113835746
+  landscapes:
+  - academy
+  - bonfire
+  - foray
+  - inherited
+  name: kotw 01 apr
+  traits:
+  - - inherited
+    - adventurer
+- cards:
+  - artisan
+  - bishop
+  - caravan
+  - cutthroat
+  - first_mate
+  - livery
+  - peasant
+  - sentry
+  - squire
+  - villa
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Menagerie
+  - Plunder
+  - Prosperity, 2E
+  - Seaside, 2E
+  idx: 72199103469868510785811986119896205736
+  landscapes:
+  - arena
+  - rush
+  name: kotw 25 mar
+- cards:
+  - apothecary
+  - bridge
+  - captain
+  - coppersmith
+  - courtyard
+  - importer
+  - moneylender
+  - settlers/bustling_village
+  - throne_room
+  - university
+  expansions:
+  - Alchemy
+  - Allies
+  - Base, 2E
+  - Empires
+  - Intrigue, 1E
+  - Plunder
+  - Promo
+  - Renaissance
+  idx: 237572851878677635158917556909101887154
+  landscapes:
+  - banquet
+  - fair
+  - family_of_inventors
+  - inherited
+  name: kotw 18 mar
+  traits:
+  - - inherited
+    - coppersmith
+- cards:
+  - abundance
+  - anvil
+  - blockade
+  - butcher
+  - cauldron
+  - cobbler
+  - horn_of_plenty
+  - inventor
+  - navigator
+  - sheepdog
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 1E
+  - Seaside, 2E
+  idx: 178911663674173723832124447791343960465
+  landscapes:
+  - academy
+  - commerce
+  - delve
+  name: kotw 11 mar
+- cards:
+  - buried_treasure
+  - coven
+  - enlarge
+  - kiln
+  - maroon
+  - quartermaster
+  - royal_carriage
+  - tide_pools
+  - tunnel
+  - wild_hunt
+  expansions:
+  - Adventures
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Plunder
+  - Seaside, 2E
+  idx: 151191062048775953038235650207320061468
+  landscapes:
+  - desperation
+  - pathfinding
+  name: kotw 04 mar
+- cards:
+  - black_cat
+  - clerk
+  - falconer
+  - market_square
+  - secret_chamber
+  - sheepdog
+  - trader
+  - trail
+  - tunnel
+  - watchtower
+  expansions:
+  - Adventures
+  - Dark Ages
+  - Hinterlands, 2E
+  - Intrigue, 1E
+  - Menagerie
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  idx: 114889862342901469378816610525740643000
+  landscapes:
+  - patient
+  - prepare
+  - save
+  - sewers
+  name: kotw 26 feb
+  traits:
+  - - patient
+    - trail
+- cards:
+  - alchemist
+  - artisan
+  - enchantress
+  - investment
+  - lost_city
+  - native_village
+  - night_watchman
+  - specialist
+  - treasurer
+  - vineyard
+  expansions:
+  - Adventures
+  - Alchemy
+  - Allies
+  - Base, 2E
+  - Empires
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
+  idx: 130563334722618149454678068235320070121
+  landscapes:
+  - nearby
+  - tireless
+  name: kotw 19 feb
+  traits:
+  - - nearby
+    - enchantress
+  - - tireless
+    - investment
+- cards:
+  - fortune_teller
+  - knights
+  - militia
+  - mountebank
+  - rabble
+  - replace
+  - sea_hag
+  - swindler
+  - torturer
+  - village
+  expansions:
+  - Base, 2E
+  - Cornucopia, 1E
+  - Dark Ages
+  - Intrigue, 2E
+  - Prosperity, 1E
+  - Seaside, 1E
+  idx: 211790353295853524159856562787752043066
+  name: kotw 12 feb
+- bane_pile: odysseys
+  cards:
+  - advisor
+  - animal_fair
+  - diplomat
+  - exorcist
+  - farming_village
+  - goatherd
+  - odysseys
+  - old_witch
+  - royal_carriage
+  - royal_galley
+  - young_witch
+  expansions:
+  - Adventures
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Cornucopia, 1E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Renaissance
+  idx: 37603191661572280474686127682106538950
+  landscapes:
+  - nearby
+  name: kotw 5 feb
+  traits:
+  - - nearby
+    - advisor
+- cards:
+  - feodum
+  - hunting_party
+  - magnate
+  - menagerie
+  - patron
+  - rebuild
+  - trail
+  - village_green
+  - weaver
+  - wheelwright
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Hinterlands, 2E
+  - Menagerie
+  - Prosperity, 2E
+  - Renaissance
+  idx: 113925296021036849158442029000547940232
+  landscapes:
+  - capitalism
+  - pursue
+  - way_of_the_mole
+  name: kotw 29 jan
+- bane_pile: lurker
+  cards:
+  - cavalry
+  - lookout
+  - lurker
+  - merchant_guild
+  - philosophers_stone
+  - rats
+  - trail
+  - vampire
+  - watchtower
+  - wizards
+  - young_witch
+  expansions:
+  - Adventures
+  - Alchemy
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
+  idx: 125436745000013738347271632050683600335
+  landscapes:
+  - alms
+  - peaceful_cult
+  - pious
+  - sewers
+  - tomb
+  name: kotw 22 jan
+  traits:
+  - - pious
+    - cavalry
+- cards:
+  - altar
+  - archive
+  - artificer
+  - dismantle
+  - enchantress
+  - experiment
+  - horn_of_plenty
+  - improve
+  - recruiter
+  - village_green
+  expansions:
+  - Adventures
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Menagerie
+  - Promo
+  - Renaissance
+  idx: 303627995283354897274945146462387646314
+  landscapes:
+  - mountain_pass
+  name: kotw 15 jan
+- cards:
+  - acting_troupe
+  - farmland
+  - kings_court
+  - masquerade
+  - peasant
+  - priest
+  - scepter
+  - silk_merchant
+  - swamp_hag
+  - torturer
+  expansions:
+  - Adventures
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Prosperity, 2E
+  - Renaissance
+  idx: 121224691525001146380003497738394752498
+  landscapes:
+  - scouting_party
+  - sewers
+  name: kotw 08 jan
+- cards:
+  - crew
+  - fishing_village
+  - flagship
+  - hireling
+  - kings_court
+  - quartermaster
+  - royal_galley
+  - sailor
+  - scepter
+  - throne_room
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Menagerie
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
+  idx: 198570567110719752326978337922998895573
+  landscapes:
+  - citadel
+  - reckless
+  - way_of_the_butterfly
+  name: kotw 01 jan
+  traits:
+  - - reckless
+    - hireling
+- bane_pile: townsfolk
+  cards:
+  - carpenter
+  - emissary
+  - herald
+  - inn
+  - messenger
+  - relic
+  - remake
+  - royal_carriage
+  - shepherd
+  - townsfolk
+  - young_witch
+  expansions:
+  - Adventures
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Hinterlands, 2E
+  - Nocturne
+  - Plunder
+  idx: 128770668988381129867774151058203065534
+  landscapes:
+  - avoid
+  - market_towns
+  - save
+  name: kotw 25 dec
+- cards:
+  - contract
+  - courier
+  - harbinger
+  - highwayman
+  - horn_of_plenty
+  - inn
+  - journeyman
+  - peasant
+  - supplies
+  - taxman
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Guilds, 1E
+  - Hinterlands, 2E
+  - Menagerie
+  idx: 294140703791041348164417403050148374393
+  landscapes:
+  - order_of_masons
+  name: kotw 18 dec
+- cards:
+  - catapult/rocks
+  - corsair
+  - feodum
+  - inn
+  - loan
+  - merchant
+  - squire
+  - swindler
+  - trader
+  - wayfarer
+  expansions:
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
+  - Prosperity, 1E
+  - Seaside, 2E
+  idx: 189057323558786908723071984792351164929
+  landscapes:
+  - cheap
+  - salt_the_earth
+  name: kotw 11 dec
+  traits:
+  - - cheap
+    - corsair
+- cards:
+  - baker
+  - bandit
+  - bandit_camp
+  - bank
+  - barbarian
+  - bard
+  - barge
+  - baron
+  - bauble
+  - bazaar
+  expansions:
+  - Allies
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Prosperity, 2E
+  - Seaside, 2E
+  idx: 69758069788674065102136415201747427006
+  landscapes:
+  - band_of_nomads
+  - banish
+  - banquet
+  name: kotw 4 dec
+- cards:
+  - abundance
+  - alchemist
+  - bounty_hunter
+  - legionary
+  - messenger
+  - procession
+  - soothsayer
+  - spices
+  - tools
+  - workers_village
+  expansions:
+  - Adventures
+  - Alchemy
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Menagerie
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  idx: 214072707777059402243029373123991584090
+  landscapes:
+  - prosper
+  - travelling_fair
+  name: kotw 27 nov
+  use_colonies: true
+- cards:
+  - bandit_camp
+  - enlarge
+  - fairgrounds
+  - groundskeeper
+  - investment
+  - magnate
+  - pickaxe
+  - sack_of_loot
+  - sentry
+  - trader
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Plunder
+  - Prosperity, 2E
+  idx: 297098140252889312164536608908962515929
+  landscapes:
+  - banquet
+  - wolf_den
+  name: kotw 20 nov
+  use_colonies: true
+- cards:
+  - cultist
+  - festival
+  - harbinger
+  - moat
+  - poor_house
+  - sentry
+  - urchin
+  - vagrant
+  - wandering_minstrel
+  - witch
+  expansions:
+  - Base, 2E
+  - Dark Ages
+  idx: 235129053950295467785527319152627094148
+  name: kotw 13 nov
+  use_shelters: true
+- cards:
+  - bandit_camp
+  - changeling
+  - guardian
+  - knights
+  - marauder
+  - monastery
+  - remodel
+  - skulk
+  - smithy
+  - squire
+  expansions:
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Nocturne
+  idx: 276833860383998589102849752986293692825
+  landscapes:
+  - delve
+  - wall
+  name: kotw 06 nov
+  use_shelters: true
+- bane_pile: black_cat
+  cards:
+  - black_cat
+  - knights
+  - necromancer
+  - page
+  - pirate
+  - prince
+  - tournament
+  - vampire
+  - werewolf
+  - wizards
+  - young_witch
+  expansions:
+  - Adventures
+  - Allies
+  - Cornucopia, 1E
+  - Dark Ages
+  - Menagerie
+  - Nocturne
+  - Promo
+  - Seaside, 2E
+  idx: 269674329834684149627781860301002599543
+  landscapes:
+  - circle_of_witches
+  - pathfinding
+  name: kotw 30 oct
+- cards:
+  - ambassador
+  - apothecary
+  - bridge
+  - cache
+  - coppersmith
+  - counting_house
+  - ill-gotten_gains
+  - mountebank
+  - native_village
+  - possession
+  expansions:
+  - Adventures
+  - Alchemy
+  - Empires
+  - Hinterlands, 1E
+  - Intrigue, 1E
+  - Prosperity, 1E
+  - Seaside, 1E
+  idx: 157397786610002138299781460855744652714
+  landscapes:
+  - banquet
+  - bonfire
+  - travelling_fair
+  - wall
+  name: kotw 23 oct
+- cards:
+  - longship
+  - market_square
+  - masterpiece
+  - mine
+  - mining_road
+  - plaza
+  - sack_of_loot
+  - secluded_shrine
+  - treasure_trove
+  - treasurer
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Guilds, 1E
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  idx: 236177055398378722141189753525917913250
+  landscapes:
+  - aqueduct
+  - hasty
+  - tomb
+  - wedding
+  name: kotw 16 oct
+  traits:
+  - - hasty
+    - mine
+  use_colonies: true
+- cards:
+  - catacombs
+  - coin_of_the_realm
+  - experiment
+  - feodum
+  - forum
+  - junk_dealer
+  - masterpiece
+  - merchant_guild
+  - scepter
+  - villa
+  expansions:
+  - Adventures
+  - Dark Ages
+  - Empires
+  - Guilds, 1E
+  - Renaissance
+  idx: 114243832762979824070553527247357184295
+  landscapes:
+  - sinister_plot
+  - travelling_fair
+  name: kotw 09 oct
+- cards:
+  - camel_train
+  - chariot_race
+  - coven
+  - fortune_teller
+  - hamlet
+  - jester
+  - legionary
+  - overlord
+  - scheme
+  - spice_merchant
+  expansions:
+  - Cornucopia, 1E
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  idx: 159291641034370106435776240015536401846
+  landscapes:
+  - delay
+  - way_of_the_ox
+  name: kotw 02 oct
+- cards:
+  - bureaucrat
+  - coin_of_the_realm
+  - doctor
+  - duke
+  - gardens
+  - plaza
+  - royal_carriage
+  - seer
+  - tragic_hero
+  - war_chest
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Guilds, 1E
+  - Intrigue, 2E
+  - Nocturne
+  - Prosperity, 2E
+  - Renaissance
+  idx: 327882175510112582905271646444260639490
+  landscapes:
+  - crop_rotation
+  name: kotw 25 sep
+- cards:
+  - flag_bearer
+  - fortune_hunter
+  - improve
+  - ironworks
+  - kings_cache
+  - mining_road
+  - minion
+  - pendant
+  - priest
+  - swindler
+  expansions:
+  - Intrigue, 2E
+  - Plunder
+  - Renaissance
+  idx: 18756390066458031933199837570414129903
+  landscapes:
+  - capitalism
+  - prosper
+  name: kotw 18 sep
+- cards:
+  - blessed_village
+  - cultist
+  - ducat
+  - duplicate
+  - guildmaster
+  - lost_city
+  - priest
+  - procession
+  - secret_cave
+  - wizards
+  expansions:
+  - Adventures
+  - Allies
+  - Dark Ages
+  - Nocturne
+  - Plunder
+  - Renaissance
+  idx: 82477919685992017987069829035434586518
+  landscapes:
+  - band_of_nomads
+  - maelstrom
+  - nearby
+  name: kotw 11 sep
+  traits:
+  - - nearby
+    - lost_city
+- cards:
+  - sauna/avanto
+  - scavenger
+  - scrying_pool
+  - secluded_shrine
+  - shaman
+  - skirmisher
+  - soothsayer
+  - squire
+  - stash
+  - supplies
+  expansions:
+  - Alchemy
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Menagerie
+  - Plunder
+  - Promo
+  - Renaissance
+  idx: 80804972429217032104836418389482840131
+  landscapes:
+  - seize_the_day
+  - sinister_plot
+  - summon
+  name: kotw 04 sep
+  use_shelters: true
+- cards:
+  - catapult/rocks
+  - counterfeit
+  - ducat
+  - feodum
+  - gladiator/fortune
+  - monkey
+  - native_village
+  - pirate
+  - spices
+  - squire
+  expansions:
+  - Dark Ages
+  - Empires
+  - Renaissance
+  - Seaside, 2E
+  idx: 161567957437048524843374176282376831753
+  landscapes:
+  - delve
+  - triumph
+  name: kotw 28 aug
+- cards:
+  - cemetery
+  - distant_lands
+  - fairgrounds
+  - farmland
+  - feodum
+  - gardens
+  - island
+  - mill
+  - nobles
+  - shepherd
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Nocturne
+  - Seaside, 2E
+  idx: 25091300674719042825694925408410075691
+  landscapes:
+  - inheritance
+  - lost_arts
+  name: kotw 21 aug
+- cards:
+  - baron
+  - black_cat
+  - bounty_hunter
+  - crossroads
+  - falconer
+  - ironworks
+  - mill
+  - nobles
+  - patrol
+  - silk_road
+  expansions:
+  - Adventures
+  - Hinterlands, 1E
+  - Intrigue, 2E
+  - Menagerie
+  idx: 15903029410491626022722774075876492868
+  landscapes:
+  - inheritance
+  name: kotw 14 aug
+- cards:
+  - barbarian
+  - city_quarter
+  - fortress
+  - grand_market
+  - kings_court
+  - procession
+  - rogue
+  - royal_blacksmith
+  - specialist
+  - sycophant
+  expansions:
+  - Allies
+  - Dark Ages
+  - Empires
+  - Prosperity, 2E
+  idx: 319702381084097551370104385748951909372
+  landscapes:
+  - tomb
+  - woodworkers_guild
+  name: kotw 07 aug
+- cards:
+  - astrolabe
+  - berserker
+  - cartographer
+  - highway
+  - sailor
+  - salvager
+  - tactician
+  - trail
+  - treasure_map
+  - wheelwright
+  expansions:
+  - Hinterlands, 2E
+  - Seaside, 2E
+  idx: 33160494320968917231636576416074067716
+  name: kotw 31 jul
+- cards:
+  - anvil
+  - crystal_ball
+  - investment
+  - kings_cache
+  - pendant
+  - rope
+  - silver_mine
+  - tiara
+  - tools
+  - war_chest
+  expansions:
+  - Plunder
+  - Prosperity, 2E
+  idx: 185482426651010963868096304524014721432
+  landscapes:
+  - deliver
+  - prosper
+  name: kotw 24 jul
+  use_colonies: true
+- cards:
+  - bauble
+  - coin_of_the_realm
+  - courtyard
+  - jewelled_egg
+  - lurker
+  - raze
+  - shaman
+  - sleigh
+  - supplies
+  - sycophant
+  expansions:
+  - Adventures
+  - Allies
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
+  idx: 164896680968430196994005099774687413229
+  landscapes:
+  - peril
+  - plateau_shepherds
+  - way_of_the_mouse
+  mouse_card: pawn
+  name: kotw 17 jul
+- cards:
+  - animal_fair
+  - city_quarter
+  - expand
+  - forge
+  - grand_market
+  - hireling
+  - hunting_grounds
+  - kings_court
+  - nobles
+  - wayfarer
+  expansions:
+  - Adventures
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Prosperity, 2E
+  idx: 124059369864197227380362935703580795041
+  landscapes:
+  - donate
+  - populate
+  name: kotw 10 jul
+  use_colonies: true
+- cards:
+  - black_market
+  - chapel
+  - chariot_race
+  - grand_market
+  - kings_court
+  - knights
+  - market_square
+  - rogue
+  - shaman
+  - smithy
+  expansions:
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Plunder
+  - Promo
+  - Prosperity, 2E
+  - Renaissance
+  idx: 155673713555210128708984507758168480724
+  landscapes:
+  - innovation
+  - tomb
+  name: kotw 02 jul
+  use_colonies: true
+- cards:
+  - broker
+  - clashes
+  - crew
+  - fortress
+  - graverobber
+  - guildmaster
+  - highwayman
+  - pickaxe
+  - procession
+  - rats
+  expansions:
+  - Allies
+  - Dark Ages
+  - Plunder
+  idx: 248348794614706845548082323080041754715
+  landscapes:
+  - cursed
+  - fellowship_of_scribes
+  name: kotw 26 jun
+  traits:
+  - - cursed
+    - rats
+  use_shelters: true
+- cards:
+  - catapult/rocks
+  - ducat
+  - forum
+  - gladiator/fortune
+  - mountain_village
+  - patrician/emporium
+  - research
+  - sacrifice
+  - scepter
+  - sculptor
+  expansions:
+  - Empires
+  - Renaissance
+  idx: 38598168922272082253489335033270142256
+  landscapes:
+  - sinister_plot
+  - tomb
+  name: kotw 19 jun
+- cards:
+  - apprentice
+  - bank
+  - broker
+  - cauldron
+  - church
+  - coven
+  - laboratory
+  - sentry
+  - smithy
+  - tide_pools
+  expansions:
+  - Alchemy
+  - Allies
+  - Base, 2E
+  - Hinterlands, 2E
+  - Menagerie
+  - Plunder
+  - Promo
+  - Prosperity, 2E
+  - Seaside, 2E
+  idx: 308699198050797710819749309774299304909
+  landscapes:
+  - cheap
+  - fellowship_of_scribes
+  - way_of_the_chameleon
+  name: kotw 12 jun
+  traits:
+  - - cheap
+    - laboratory
+- cards:
+  - blockade
+  - caravan
+  - expand
+  - hoard
+  - merchant_ship
+  - monkey
+  - sailor
+  - tiara
+  - vault
+  - workers_village
+  expansions:
+  - Prosperity, 2E
+  - Seaside, 2E
+  idx: 320470866713795809562825466884261622114
+  name: kotw 5 jun
+  use_colonies: true
+- cards:
+  - baron
+  - bureaucrat
+  - chapel
+  - conspirator
+  - militia
+  - mining_village
+  - secret_passage
+  - smithy
+  - throne_room
+  - upgrade
+  expansions:
+  - Base, 2E
+  - Intrigue, 2E
+  idx: 50325590709161626524695521116877896508
+  name: kotw 29 may
+- cards:
+  - bounty_hunter
+  - forum
+  - hunting_lodge
+  - lurker
+  - sheepdog
+  - supplies
+  - trader
+  - tragic_hero
+  - university
+  - upgrade
+  expansions:
+  - Adventures
+  - Alchemy
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  idx: 268479318498256582356749325887207966620
+  landscapes:
+  - quest
+  - stampede
+  name: kotw 22 may
+- cards:
+  - altar
+  - council_room
+  - ducat
+  - exorcist
+  - golem
+  - moneylender
+  - patron
+  - scheme
+  - villa
+  - villain
+  expansions:
+  - Alchemy
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Nocturne
+  - Renaissance
+  idx: 334737688084117105899636982644053168534
+  landscapes:
+  - banquet
+  - triumph
+  name: kotw 15 may
+- cards:
+  - chapel
+  - cultist
+  - kings_cache
+  - kings_court
+  - monument
+  - nobles
+  - peasant
+  - relic
+  - royal_blacksmith
+  - royal_galley
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Plunder
+  - Prosperity, 2E
+  idx: 42794445881840547157237827101248099256
+  landscapes:
+  - cursed
+  - inherited
+  name: kotw 8 may
+  traits:
+  - - cursed
+    - nobles
+  - - inherited
+    - kings_cache
+  use_colonies: true
+- cards:
+  - bard
+  - cursed_village
+  - druid
+  - guildmaster
+  - leprechaun
+  - patrol
+  - ratcatcher
+  - skulk
+  - tracker
+  - villa
+  expansions:
+  - Adventures
+  - Allies
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  idx: 35685326858656263412075934750560210362
+  landscapes:
+  - market_towns
+  - way_of_the_rat
+  name: kotw 1 may
+  druid_boons:
+  - the_earths_gift
+  - the_fields_gift
+  - the_winds_gift
+- cards:
+  - archive
+  - beggar
+  - black_market
+  - changeling
+  - nomads
+  - royal_blacksmith
+  - swindler
+  - tactician
+  - throne_room
+  - villa
+  expansions:
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Nocturne
+  - Promo
+  - Renaissance
+  - Seaside, 2E
+  idx: 60563795900403438764149402661929847411
+  landscapes:
+  - guildhall
+  name: kotw 24 apr
+- cards:
+  - capital
+  - church
+  - city
+  - counterfeit
+  - courier
+  - gladiator/fortune
+  - island
+  - market_square
+  - patron
+  - tunnel
+  expansions:
+  - Allies
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Promo
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
+  idx: 223767347884642816036233514853000446361
+  landscapes:
+  - crop_rotation
+  name: kotw 17 apr
+- cards:
+  - clashes
+  - encampment/plunder
+  - forts
+  - gladiator/fortune
+  - horn_of_plenty
+  - jester
+  - menagerie
+  - plaza
+  - sentinel
+  - settlers/bustling_village
+  expansions:
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Empires
+  idx: 239017540274313139599568667483998227633
+  landscapes:
+  - museum
+  - ritual
+  name: kotw 10 apr
+- cards:
+  - courtyard
+  - crossroads
+  - crypt
+  - hamlet
+  - lighthouse
+  - menagerie
+  - merchant
+  - miser
+  - pawn
+  - wild_hunt
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Seaside, 2E
+  idx: 183569943751324288316445436030475417312
+  landscapes:
+  - toil
+  - triumphal_arch
+  name: kotw 03 apr
+- cards:
+  - acting_troupe
+  - animal_fair
+  - courier
+  - cutthroat
+  - grotto
+  - magnate
+  - maroon
+  - mining_village
+  - monkey
+  - soothsayer
+  expansions:
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
+  idx: 243942134755331450605433917108806823652
+  landscapes:
+  - rush
+  - windfall
+  name: kotw 27 mar
+- cards:
+  - butcher
+  - counting_house
+  - gear
+  - merchant
+  - research
+  - sea_hag
+  - storyteller
+  - tracker
+  - treasure_trove
+  - werewolf
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Nocturne
+  - Prosperity, 1E
+  - Renaissance
+  - Seaside, 1E
+  idx: 301575157488784158721163069203239633515
+  landscapes:
+  - seaway
+  name: kotw 20 mar
+- cards:
+  - acting_troupe
+  - destrier
+  - displace
+  - envoy
+  - fisherman
+  - flag_bearer
+  - moat
+  - monument
+  - necromancer
+  - wild_hunt
+  expansions:
+  - Base, 2E
+  - Empires
+  - Menagerie
+  - Nocturne
+  - Promo
+  - Prosperity, 2E
+  - Renaissance
+  idx: 179328332186840180718911814367582030167
+  landscapes:
+  - obelisk
+  - pursue
+  name: kotw 13 mar
+  obelisk_pile: destrier
+- cards:
+  - cellar
+  - counterfeit
+  - diplomat
+  - ducat
+  - market_square
+  - mining_village
+  - patron
+  - rogue
+  - scepter
+  - skulk
+  expansions:
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Nocturne
+  - Renaissance
+  idx: 237318499297671654538499674528367181938
+  landscapes:
+  - battlefield
+  - orchard
+  name: kotw 06 mar
+- cards:
+  - amulet
+  - collection
+  - fishing_village
+  - hireling
+  - peddler
+  - quarry
+  - sailor
+  - sea_chart
+  - treasure_trove
+  - war_chest
+  expansions:
+  - Adventures
+  - Prosperity, 2E
+  - Seaside, 2E
+  idx: 161705780664516513100431748547310899397
+  landscapes:
+  - quest
+  - travelling_fair
+  name: kotw 27 feb
+  use_colonies: true
+- cards:
+  - alchemist
+  - clashes
+  - gatekeeper
+  - leprechaun
+  - oasis
+  - remodel
+  - replace
+  - sycophant
+  - underling
+  - wandering_minstrel
+  expansions:
+  - Alchemy
+  - Allies
+  - Base, 2E
+  - Dark Ages
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  idx: 269995060174071832441757438234163989553
+  landscapes:
+  - forest_dwellers
+  name: kotw 20 feb
+- cards:
+  - camel_train
+  - crew
+  - farming_village
+  - importer
+  - jewelled_egg
+  - landing_party
+  - leprechaun
+  - marquis
+  - stables
+  - wealthy_village
+  expansions:
+  - Allies
+  - Cornucopia, 1E
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  idx: 337943969031245738013561427690107224994
+  landscapes:
+  - annex
+  - mountain_folk
+  - peril
+  name: kotw 13 feb
+- cards:
+  - animal_fair
+  - cultist
+  - goatherd
+  - guildmaster
+  - jewelled_egg
+  - odysseys
+  - pillage
+  - shaman
+  - squire
+  - wizards
+  expansions:
+  - Allies
+  - Dark Ages
+  - Empires
+  - Menagerie
+  - Plunder
+  idx: 37771400000565630166599485767148682683
+  landscapes:
+  - city-state
+  - rush
+  - tomb
+  name: kotw 06 feb
+  use_shelters: true
+- cards:
+  - cardinal
+  - cutthroat
+  - enlarge
+  - forager
+  - grotto
+  - hunting_lodge
+  - kings_cache
+  - sack_of_loot
+  - stockpile
+  - storeroom
+  expansions:
+  - Dark Ages
+  - Menagerie
+  - Plunder
+  idx: 83265214990241245705657861746006604882
+  landscapes:
+  - peril
+  - way_of_the_ox
+  name: kotw 1/15
+- cards:
+  - conspirator
+  - courtier
+  - ironworks
+  - pickaxe
+  - quartermaster
+  - shaman
+  - siren
+  - swamp_shacks
+  - swindler
+  - wishing_well
+  expansions:
+  - Intrigue, 2E
+  - Plunder
+  idx: 150033200136051745668577215876479837047
+  landscapes:
+  - rush
+  - cheap
+  name: kotw 1/8
+  traits:
+  - - cheap
+    - courtier
+- cards:
+  - conspirator
+  - crown
+  - embassy
+  - forager
+  - lost_city
+  - market_square
+  - mill
+  - steward
+  - treasure_trove
+  - urchin
+  expansions:
+  - Adventures
+  - Dark Ages
+  - Empires
+  - Hinterlands, 1E
+  - Intrigue, 2E
+  idx: 149312346938979501197559896362709980049
+  landscapes:
+  - keep
+  - pilgrimage
+  name: kotw 1/1
+  use_shelters: true
+- cards:
+  - baker
+  - bauble
+  - festival
+  - herald
+  - horn_of_plenty
+  - importer
+  - sacrifice
+  - seer
+  - sleigh
+  - snowy_village
+  expansions:
+  - Allies
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Menagerie
+  - Renaissance
+  idx: 78087537034159527124285000585860087226
+  landscapes:
+  - band_of_nomads
+  - donate
+  name: kotw 12/25
+- cards:
+  - acting_troupe
+  - bishop
+  - courier
+  - ducat
+  - fishing_village
+  - grand_market
+  - guildmaster
+  - highwayman
+  - lookout
+  - marquis
+  expansions:
+  - Allies
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
+  idx: 20439878735604906272357401095954779744
+  landscapes:
+  - desert_guides
+  - innovation
+  name: kotw 12/18
+  use_colonies: true
+- cards:
+  - captain
+  - chapel
+  - coven
+  - ducat
+  - inventor
+  - militia
+  - scrap
+  - sculptor
+  - sheepdog
+  - snowy_village
+  expansions:
+  - Base, 2E
+  - Menagerie
+  - Promo
+  - Renaissance
+  idx: 20715375807134004695727053138412652012
+  landscapes:
+  - invest
+  - star_chart
+  name: kotw 12/11
+- cards:
+  - broker
+  - capital_city
+  - city
+  - city_quarter
+  - hamlet
+  - hunting_lodge
+  - ironmonger
+  - nobles
+  - scepter
+  - village
+  expansions:
+  - Allies
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Prosperity, 2E
+  - Renaissance
+  idx: 255633623737546930378309385098482665834
+  landscapes:
+  - architects_guild
+  - enhance
+  - way_of_the_sheep
+  name: kotw 12/4
+- cards:
+  - courtier
+  - emissary
+  - ironworks
+  - sailor
+  - salvager
+  - sea_witch
+  - steward
+  - swap
+  - sycophant
+  - wizards
+  expansions:
+  - Allies
+  - Intrigue, 2E
+  - Seaside, 2E
+  idx: 67568364910187370728251352529513071326
+  landscapes:
+  - league_of_shopkeepers
+  name: kotw 11/27
+- cards:
+  - destrier
+  - hunting_lodge
+  - hunting_party
+  - oasis
+  - remake
+  - sleigh
+  - snowy_village
+  - stonemason
+  - urchin
+  - village_green
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Hinterlands, 2E
+  - Menagerie
+  idx: 150895342448600579488155115540755752306
+  landscapes:
+  - stampede
+  - way_of_the_monkey
+  name: kotw 11/20
+- cards:
+  - anvil
+  - artisan
+  - investment
+  - lackeys
+  - magnate
+  - market
+  - militia
+  - scepter
+  - settlers/bustling_village
+  - temple
+  expansions:
+  - Base, 2E
+  - Empires
+  - Prosperity, 2E
+  - Renaissance
+  idx: 140457154445411020352632005332776735873
+  landscapes:
+  - fair
+  - keep
+  name: kotw 11/13
+- cards:
+  - broker
+  - catacombs
+  - goatherd
+  - livery
+  - magpie
+  - rats
+  - relic
+  - squire
+  - sycophant
+  - village_green
+  expansions:
+  - Adventures
+  - Allies
+  - Dark Ages
+  - Menagerie
+  idx: 30748710260062771706026945384222097656
+  landscapes:
+  - demand
+  - desert_guides
+  - way_of_the_turtle
+  name: kotw 11/6
+- cards:
+  - catacombs
+  - death_cart
+  - devils_workshop
+  - dungeon
+  - ghost_town
+  - graverobber
+  - necromancer
+  - swamp_hag
+  - transmogrify
+  - werewolf
+  expansions:
+  - Adventures
+  - Dark Ages
+  - Nocturne
+  idx: 79919770134851039947685261675814698602
+  landscapes:
+  - lost_arts
+  - travelling_fair
+  name: kotw 10/30
+- cards:
+  - black_cat
+  - cemetery
+  - changeling
+  - coven
+  - cursed_village
+  - exorcist
+  - ghost_ship
+  - masquerade
+  - scheme
+  - vampire
+  expansions:
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Seaside, 1E
+  idx: 321784973811373993309457801755279794125
+  landscapes:
+  - populate
+  - way_of_the_ox
+  name: kotw 10/23
+- cards:
+  - catapult/rocks
+  - charm
+  - hideout
+  - ironmonger
+  - library
+  - patron
+  - poacher
+  - squire
+  - urchin
+  - wandering_minstrel
+  expansions:
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Renaissance
+  idx: 206229537713227521694689145620714894753
+  landscapes:
+  - arena
+  - triumph
+  name: kotw 10/16
+- cards:
+  - border_village
+  - gatekeeper
+  - marquis
+  - mastermind
+  - scrap
+  - souk
+  - sycophant
+  - trail
+  - tunnel
+  - underling
+  expansions:
+  - Allies
+  - Hinterlands, 2E
+  - Menagerie
+  idx: 2677893948912254832540303306694846467
+  landscapes:
+  - banish
+  - way_of_the_butterfly
+  - woodworkers_guild
+  name: kotw 10/9
+- cards:
+  - cellar
+  - den_of_sin
+  - exorcist
+  - haggler
+  - port
+  - salvager
+  - smugglers
+  - stockpile
+  - vampire
+  - wine_merchant
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Seaside, 2E
+  idx: 336562954863427848016281111517414091231
+  landscapes:
+  - bonfire
+  - invest
+  name: kotw 10/2
+- cards:
+  - baker
+  - butcher
+  - farming_village
+  - fishing_village
+  - forager
+  - horn_of_plenty
+  - market_square
+  - merchant
+  - storeroom
+  - supplies
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Cornucopia, 1E
+  - Dark Ages
+  - Menagerie
+  - Seaside, 2E
+  idx: 105470343423556073528045363022531962103
+  landscapes:
+  - demand
+  - way_of_the_owl
+  name: kotw 9/25
+  use_shelters: true
+- cards:
+  - charlatan
+  - courtier
+  - crystal_ball
+  - enchantress
+  - patrol
+  - sea_chart
+  - vagrant
+  - villa
+  - wandering_minstrel
+  - warehouse
+  expansions:
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Prosperity, 2E
+  - Seaside, 2E
+  idx: 26888350343390634138721359408391154263
+  landscapes:
+  - defiled_shrine
+  - ritual
+  name: kotw 9/18
+  use_shelters: true
+- cards:
+  - artificer
+  - collection
+  - experiment
+  - forge
+  - grand_market
+  - lackeys
+  - port
+  - raze
+  - scholar
+  - tiara
+  expansions:
+  - Adventures
+  - Prosperity, 2E
+  - Renaissance
+  idx: 268289575090174796778628837895606528550
+  landscapes:
+  - pilgrimage
+  - silos
+  name: kotw 9/11
+  use_colonies: true
+- cards:
+  - baker
+  - butcher
+  - cobbler
+  - fool
+  - guide
+  - herald
+  - peasant
+  - ranger
+  - shepherd
+  - stonemason
+  expansions:
+  - Adventures
+  - Cornucopia & Guilds, 2E
+  - Nocturne
+  idx: 197142282658213640757710454693554500319
+  landscapes:
+  - lost_arts
+  - save
+  name: kotw 9/4
+- cards:
+  - capital
+  - experiment
+  - festival
+  - hamlet
+  - kiln
+  - old_witch
+  - poacher
+  - remake
+  - royal_blacksmith
+  - village_green
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Menagerie
+  - Renaissance
+  idx: 36821892897959698132302521001485873844
+  landscapes:
+  - citadel
+  - way_of_the_mole
+  name: kotw 8/28
+- cards:
+  - advisor
+  - barbarian
+  - broker
+  - chapel
+  - library
+  - soothsayer
+  - sycophant
+  - throne_room
+  - underling
+  - village
+  expansions:
+  - Allies
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  idx: 281537431087900381920942668926722464184
+  landscapes:
+  - architects_guild
+  name: kotw 8/21
+- cards:
+  - cauldron
+  - experiment
+  - forum
+  - improve
+  - overlord
+  - priest
+  - silk_merchant
+  - temple
+  - tunnel
+  - wild_hunt
+  expansions:
+  - Empires
+  - Hinterlands, 2E
+  - Renaissance
+  idx: 264405870101241558385734036952785973150
+  landscapes:
+  - academy
+  - obelisk
+  name: kotw 8/14
+  obelisk_pile: on_experiment
+- cards:
+  - berserker
+  - crossroads
+  - guard_dog
+  - sailor
+  - salvager
+  - sea_witch
+  - trail
+  - warehouse
+  - weaver
+  - wharf
+  expansions:
+  - Hinterlands, 2E
+  - Seaside, 2E
+  idx: 284708916192186279901376511918835447997
+  name: kotw 8/7
+- cards:
+  - cauldron
+  - gear
+  - magpie
+  - nomads
+  - port
+  - raze
+  - souk
+  - squire
+  - storeroom
+  - vagrant
+  expansions:
+  - Adventures
+  - Dark Ages
+  - Hinterlands, 2E
+  idx: 247384313166885363892627421035913623991
+  landscapes:
+  - plan
+  - travelling_fair
+  name: kotw 7/31
+  use_shelters: true
+- cards:
+  - border_village
+  - catapult/rocks
+  - cellar
+  - chapel
+  - enchantress
+  - throne_room
+  - trail
+  - villa
+  - wheelwright
+  - witchs_hut
+  expansions:
+  - Base, 2E
+  - Empires
+  - Hinterlands, 2E
+  idx: 31668622372022770078169643414250647596
+  landscapes:
+  - banquet
+  - labyrinth
+  name: kotw 7/24
+- cards:
+  - anvil
+  - clerk
+  - conspirator
+  - cursed_village
+  - ghost_town
+  - replace
+  - secret_passage
+  - skulk
+  - steward
+  - war_chest
+  expansions:
+  - Intrigue, 2E
+  - Nocturne
+  - Prosperity, 2E
+  idx: 185882688337095577613570310319178290820
+  name: kotw 7/17
+- cards:
+  - augurs
+  - crystal_ball
+  - investment
+  - magnate
+  - mountain_village
+  - peddler
+  - research
+  - scepter
+  - sycophant
+  - underling
+  expansions:
+  - Allies
+  - Prosperity, 2E
+  - Renaissance
+  idx: 29882018558482236468800081250047291329
+  landscapes:
+  - guildhall
+  - league_of_bankers
+  name: kotw 7/10
+  use_colonies: true
+- cards:
+  - charlatan
+  - collection
+  - fools_gold
+  - forager
+  - market_square
+  - scheme
+  - squire
+  - stables
+  - tiara
+  - workers_village
+  expansions:
+  - Dark Ages
+  - Hinterlands, 2E
+  - Prosperity, 2E
+  idx: 215626890156864126913432190145326984834
+  name: kotw 7/3
+- cards:
+  - baron
+  - coin_of_the_realm
+  - contract
+  - dungeon
+  - duplicate
+  - hunter
+  - mill
+  - modify
+  - odysseys
+  - town
+  expansions:
+  - Adventures
+  - Allies
+  - Intrigue, 2E
+  idx: 46959751043532998274435728186878502863
+  landscapes:
+  - inheritance
+  - order_of_astrologers
+  - quest
+  name: kotw 6/26
+- cards:
+  - astrolabe
+  - hunting_lodge
+  - minion
+  - pawn
+  - sailor
+  - scrap
+  - sea_chart
+  - sea_witch
+  - tide_pools
+  - village_green
+  expansions:
+  - Intrigue, 2E
+  - Menagerie
+  - Seaside, 2E
+  idx: 217843763589386019447125649351605369006
+  landscapes:
+  - march
+  - populate
+  name: kotw 6/19
+- cards:
+  - animal_fair
+  - archive
+  - augurs
+  - carpenter
+  - encampment/plunder
+  - enchantress
+  - hostelry
+  - scrap
+  - skirmisher
+  - swap
+  expansions:
+  - Allies
+  - Empires
+  - Menagerie
+  idx: 65423364948745134371565827124848613331
+  landscapes:
+  - delay
+  - tax
+  name: kotw 6/12
+- cards:
+  - blockade
+  - corsair
+  - counterfeit
+  - cultist
+  - fishing_village
+  - forager
+  - market_square
+  - monkey
+  - pirate
+  - squire
+  expansions:
+  - Dark Ages
+  - Seaside, 2E
+  idx: 53780483762823259889465475814029196123
+  name: kotw 6/5
+  use_shelters: true
+- cards:
+  - bridge
+  - gatekeeper
+  - goatherd
+  - innkeeper
+  - modify
+  - pawn
+  - specialist
+  - steward
+  - village_green
+  - wizards
+  expansions:
+  - Allies
+  - Intrigue, 2E
+  - Menagerie
+  idx: 52927320095359075195255523932897092237
+  landscapes:
+  - commerce
+  - trappers_lodge
+  - way_of_the_chameleon
+  name: kotw 5/29
+- cards:
+  - bishop
+  - catapult/rocks
+  - city_quarter
+  - crown
+  - encampment/plunder
+  - ill-gotten_gains
+  - stables
+  - talisman
+  - trader
+  - workers_village
+  expansions:
+  - Empires
+  - Hinterlands, 1E
+  - Prosperity, 1E
+  idx: 304000604630095661831041970362522534526
+  landscapes:
+  - banquet
+  - keep
+  name: kotw 5/22
+  use_colonies: true
+- cards:
+  - contract
+  - golem
+  - modify
+  - odysseys
+  - scrying_pool
+  - sycophant
+  - town
+  - townsfolk
+  - underling
+  - university
+  expansions:
+  - Alchemy
+  - Allies
+  idx: 301337113369683891169939154284524071263
+  landscapes:
+  - coastal_haven
+  name: kotw 5/15
+- cards:
+  - advisor
+  - candlestick_maker
+  - herald
+  - lookout
+  - stonemason
+  - tactician
+  - throne_room
+  - treasury
+  - vassal
+  - witch
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Seaside, 2E
+  idx: 185487137460766256577887580481644621740
+  name: kotw 5/8
+- cards:
+  - broker
+  - capital_city
+  - catapult/rocks
+  - courtier
+  - emissary
+  - engineer
+  - forts
+  - importer
+  - mining_village
+  - temple
+  expansions:
+  - Allies
+  - Empires
+  - Intrigue, 2E
+  idx: 120775856793031180127949636877829117576
+  landscapes:
+  - forest_dwellers
+  - labyrinth
+  name: kotw 5/1
+- cards:
+  - barge
+  - cardinal
+  - courtier
+  - displace
+  - lurker
+  - mandarin
+  - silk_road
+  - steward
+  - tunnel
+  - village_green
+  expansions:
+  - Hinterlands, 1E
+  - Intrigue, 2E
+  - Menagerie
+  idx: 35697130855867728424181663988840608564
+  landscapes:
+  - gamble
+  - way_of_the_goat
+  name: kotw 4/24
+- cards:
+  - bauble
+  - clashes
+  - fishing_village
+  - galleria
+  - highwayman
+  - miser
+  - raze
+  - royal_galley
+  - salvager
+  - sea_hag
+  expansions:
+  - Adventures
+  - Allies
+  - Seaside, 1E
+  idx: 111465027571920422929007860023452357682
+  landscapes:
+  - band_of_nomads
+  - expedition
+  name: kotw 4/17
+- cards:
+  - cemetery
+  - conclave
+  - flag_bearer
+  - gear
+  - margrave
+  - monastery
+  - pillage
+  - seer
+  - village
+  - wayfarer
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Renaissance
+  idx: 75299376912355199397108646010704504003
+  landscapes:
+  - dominate
+  - populate
+  name: kotw 4/10
+- cards:
+  - barbarian
+  - conclave
+  - count
+  - faithful_hound
+  - market_square
+  - merchant_camp
+  - pooka
+  - procession
+  - townsfolk
+  - underling
+  expansions:
+  - Allies
+  - Dark Ages
+  - Nocturne
+  idx: 131761091696498521794054600407926572447
+  landscapes:
+  - cave_dwellers
+  name: kotw 4/3
+  use_shelters: true
+- cards:
+  - courier
+  - gatekeeper
+  - guildmaster
+  - marquis
+  - mountebank
+  - scrap
+  - sentinel
+  - sycophant
+  - village_green
+  - workers_village
+  expansions:
+  - Allies
+  - Menagerie
+  - Prosperity, 1E
+  idx: 70064246280280071399287072437813722447
+  landscapes:
+  - city-state
+  - demand
+  name: kotw 3/27
+  use_colonies: true
+- cards:
+  - artisan
+  - captain
+  - envoy
+  - highway
+  - militia
+  - outpost
+  - salvager
+  - spice_merchant
+  - village
+  - witch
+  expansions:
+  - Base, 2E
+  - Hinterlands, 2E
+  - Promo
+  - Seaside, 2E
+  idx: 214598895502108501285453413553745220023
+  name: kotw 3/20
+- cards:
+  - animal_fair
+  - cardinal
+  - cultist
+  - farming_village
+  - flag_bearer
+  - hunting_lodge
+  - menagerie
+  - patron
+  - scrap
+  - storeroom
+  expansions:
+  - Cornucopia, 1E
+  - Dark Ages
+  - Menagerie
+  - Renaissance
+  idx: 106742684439882162972234957964572698626
+  landscapes:
+  - invest
+  - way_of_the_horse
+  name: kotw 3/13
+- cards:
+  - bandit_camp
+  - coven
+  - destrier
+  - enchantress
+  - forager
+  - mastermind
+  - royal_blacksmith
+  - scrap
+  - squire
+  - temple
+  expansions:
+  - Dark Ages
+  - Empires
+  - Menagerie
+  idx: 122895097712285214454491826653900049640
+  landscapes:
+  - conquest
+  - delve
+  name: kotw 3/6
+- cards:
+  - artisan
+  - experiment
+  - loan
+  - monastery
+  - mountebank
+  - mystic
+  - patron
+  - throne_room
+  - tragic_hero
+  - wandering_minstrel
+  expansions:
+  - Base, 2E
+  - Dark Ages
+  - Nocturne
+  - Prosperity, 1E
+  - Renaissance
+  idx: 281113702444385437195956960667999833110
+  landscapes:
+  - city_gate
+  - fleet
+  name: kotw 2/27
+  use_colonies: true
+  use_shelters: true
+- cards:
+  - castles
+  - catapult/rocks
+  - contraband
+  - expand
+  - goatherd
+  - hostelry
+  - kiln
+  - settlers/bustling_village
+  - sheepdog
+  - watchtower
+  expansions:
+  - Empires
+  - Menagerie
+  - Prosperity, 1E
+  idx: 46437892582894425870236774074119437118
+  landscapes:
+  - banquet
+  - bargain
+  name: kotw 2/20
+- cards:
+  - altar
+  - bard
+  - blessed_village
+  - chapel
+  - charm
+  - courtyard
+  - gardens
+  - groom
+  - priest
+  - wishing_well
+  expansions:
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Renaissance
+  idx: 72375260088372043299400723654977761875
+  landscapes:
+  - star_chart
+  - wedding
+  name: kotw 2/13
+- cards:
+  - animal_fair
+  - bridge
+  - courtier
+  - doctor
+  - duplicate
+  - encampment/plunder
+  - merchant_guild
+  - miser
+  - royal_blacksmith
+  - sheepdog
+  expansions:
+  - Adventures
+  - Empires
+  - Guilds, 1E
+  - Intrigue, 2E
+  - Menagerie
+  idx: 332947545238921865991403984771052436562
+  landscapes:
+  - toil
+  - way_of_the_owl
+  name: kotw 2/6
+- cards:
+  - conspirator
+  - encampment/plunder
+  - gladiator/fortune
+  - hunting_party
+  - outpost
+  - overlord
+  - tournament
+  - villa
+  - wandering_minstrel
+  - wharf
+  expansions:
+  - Adventures
+  - Cornucopia, 1E
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Seaside, 1E
+  idx: 184414447328393126554079200715125019840
+  landscapes:
+  - pathfinding
+  - way_of_the_mouse
+  mouse_card: ambassador
+  name: kotw 1/30
+- cards:
+  - hamlet
+  - hostelry
+  - market_square
+  - mountebank
+  - poor_house
+  - quarry
+  - ranger
+  - remake
+  - royal_carriage
+  - scrap
+  expansions:
+  - Adventures
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Menagerie
+  - Prosperity, 1E
+  idx: 222065366540420030775461223262012905542
+  landscapes:
+  - seaway
+  - way_of_the_horse
+  name: kotw 1/23
+  use_shelters: true
+- cards:
+  - artificer
+  - cargo_ship
+  - experiment
+  - flag_bearer
+  - port
+  - raze
+  - replace
+  - sheepdog
+  - spices
+  - torturer
+  expansions:
+  - Adventures
+  - Intrigue, 2E
+  - Menagerie
+  - Renaissance
+  idx: 283925891167928396734327623598844895406
+  landscapes:
+  - exploration
+  - way_of_the_butterfly
+  name: kotw 1/16
+- cards:
+  - bishop
+  - catacombs
+  - church
+  - cultist
+  - exorcist
+  - monastery
+  - priest
+  - relic
+  - sanctuary
+  - workers_village
+  expansions:
+  - Adventures
+  - Dark Ages
+  - Menagerie
+  - Nocturne
+  - Promo
+  - Prosperity, 2E
+  - Renaissance
+  idx: 116544520398525654289585293116123759250
+  landscapes:
+  - mission
+  - pilgrimage
+  name: kotw 1/9
+  use_shelters: true
+- cards:
+  - death_cart
+  - exorcist
+  - haggler
+  - ironmonger
+  - island
+  - night_watchman
+  - poor_house
+  - scepter
+  - tactician
+  - urchin
+  expansions:
+  - Dark Ages
+  - Hinterlands, 2E
+  - Nocturne
+  - Renaissance
+  - Seaside, 2E
+  idx: 51212865858008197993705860915939703148
+  landscapes:
+  - piazza
+  - silos
+  name: kotw 1/2
+- cards:
+  - baker
+  - blessed_village
+  - butcher
+  - fishing_village
+  - forager
+  - grand_market
+  - horn_of_plenty
+  - lackeys
+  - spice_merchant
+  - stockpile
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
+  idx: 119426556249379451670874289251675427159
+  landscapes:
+  - demand
+  - sinister_plot
+  name: kotw 12/26
+- cards:
+  - baker
+  - cobbler
+  - festival
+  - ironmonger
+  - messenger
+  - sleigh
+  - snowy_village
+  - tracker
+  - treasure_map
+  - warehouse
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Menagerie
+  - Nocturne
+  - Seaside, 2E
+  idx: 262417068259083429019087057085530248676
+  landscapes:
+  - bonfire
+  name: kotw 12/19
+- cards:
+  - animal_fair
+  - black_cat
+  - cardinal
+  - cartographer
+  - cellar
+  - gardens
+  - grand_market
+  - patrol
+  - trader
+  - workers_village
+  expansions:
+  - Base, 2E
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Prosperity, 2E
+  idx: 229016711796281407058543530632977742440
+  landscapes:
+  - invest
+  - way_of_the_goat
+  name: kotw 12/12
+- cards:
+  - castles
+  - changeling
+  - enchantress
+  - exorcist
+  - haggler
+  - kings_court
+  - spice_merchant
+  - tracker
+  - vault
+  - watchtower
+  expansions:
+  - Empires
+  - Hinterlands, 2E
+  - Nocturne
+  - Prosperity, 2E
+  idx: 193699426154081762665567758344150378052
+  landscapes:
+  - conquest
+  - keep
+  name: kotw 12/5
+  use_colonies: true
+- cards:
+  - beggar
+  - bridge_troll
+  - destrier
+  - engineer
+  - guide
+  - hermit
+  - hostelry
+  - ill-gotten_gains
+  - jack_of_all_trades
+  - villa
+  expansions:
+  - Adventures
+  - Dark Ages
+  - Empires
+  - Hinterlands, 1E
+  - Menagerie
+  idx: 112482992557849088956781170429958349936
+  landscapes:
+  - donate
+  - pursue
+  name: kotw 11/28
+- cards:
+  - baron
+  - black_cat
+  - cardinal
+  - distant_lands
+  - fools_gold
+  - ironmonger
+  - mint
+  - royal_blacksmith
+  - sacred_grove
+  - village_green
+  expansions:
+  - Adventures
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Prosperity, 2E
+  idx: 107912709746175197059046720395473856300
+  landscapes:
+  - inheritance
+  name: kotw 11/21
+- cards:
+  - butcher
+  - hermit
+  - inn
+  - jack_of_all_trades
+  - peasant
+  - procession
+  - smugglers
+  - stonemason
+  - tactician
+  - transmogrify
+  expansions:
+  - Adventures
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Hinterlands, 2E
+  - Seaside, 2E
+  idx: 71818541248922148987816765339890124666
+  landscapes:
+  - alms
+  name: kotw 11/14
+  use_shelters: true
+- cards:
+  - altar
+  - baker
+  - fortress
+  - monastery
+  - oasis
+  - shepherd
+  - stonemason
+  - storeroom
+  - urchin
+  - vagrant
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Hinterlands, 2E
+  - Nocturne
+  idx: 332060457994239904066456441697508927220
+  name: kotw 11/7
+  use_shelters: true
+- cards:
+  - courtier
+  - embargo
+  - expand
+  - lackeys
+  - lookout
+  - lurker
+  - minion
+  - pawn
+  - pirate_ship
+  - sculptor
+  expansions:
+  - Intrigue, 2E
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 1E
+  idx: 16588027122372424680262562476035935965
+  landscapes:
+  - capitalism
+  - fleet
+  name: kotw 10/31
+- bane_pile: gear
+  cards:
+  - acting_troupe
+  - bounty_hunter
+  - fools_gold
+  - gear
+  - guardian
+  - haggler
+  - horn_of_plenty
+  - junk_dealer
+  - masquerade
+  - storyteller
+  - young_witch
+  expansions:
+  - Adventures
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Renaissance
+  idx: 201373714967060923525576079855158924440
+  landscapes:
+  - windfall
+  name: kotw 10/24
+- cards:
+  - contraband
+  - fortress
+  - golem
+  - hermit
+  - hunting_grounds
+  - monument
+  - quarry
+  - sage
+  - scrying_pool
+  - vineyard
+  expansions:
+  - Alchemy
+  - Dark Ages
+  - Prosperity, 1E
+  idx: 233575183130214267148872676568699225038
+  name: kotw 10/17
+  use_shelters: true
+- cards:
+  - artisan
+  - cemetery
+  - ducat
+  - necromancer
+  - priest
+  - scepter
+  - sculptor
+  - throne_room
+  - vampire
+  - vassal
+  expansions:
+  - Base, 2E
+  - Nocturne
+  - Renaissance
+  idx: 298735120580243378312725171339779686359
+  landscapes:
+  - citadel
+  - exploration
+  name: kotw 10/10
+- cards:
+  - border_village
+  - displace
+  - farmers_market
+  - ghost_ship
+  - groom
+  - menagerie
+  - patrician/emporium
+  - remake
+  - treasure_trove
+  - wayfarer
+  expansions:
+  - Adventures
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Seaside, 1E
+  idx: 102733993647216333055701508070582619577
+  landscapes:
+  - defiled_shrine
+  - mountain_pass
+  name: kotw 10/3
+- cards:
+  - cargo_ship
+  - hermit
+  - jack_of_all_trades
+  - mystic
+  - patron
+  - rebuild
+  - research
+  - scheme
+  - silk_road
+  - squire
+  expansions:
+  - Dark Ages
+  - Hinterlands, 1E
+  - Renaissance
+  idx: 202916612339157152647549936916408598167
+  landscapes:
+  - crop_rotation
+  - silos
+  name: kotw 9/26
+- cards:
+  - hoard
+  - island
+  - kings_court
+  - lighthouse
+  - mountebank
+  - research
+  - salvager
+  - seer
+  - silk_merchant
+  - smugglers
+  expansions:
+  - Prosperity, 1E
+  - Renaissance
+  - Seaside, 2E
+  idx: 240940546762393758132274372804420401606
+  landscapes:
+  - guildhall
+  name: kotw 9/19
+- cards:
+  - butcher
+  - city_quarter
+  - embassy
+  - faithful_hound
+  - fools_gold
+  - merchant_guild
+  - night_watchman
+  - nomad_camp
+  - pooka
+  - tunnel
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Hinterlands, 1E
+  - Nocturne
+  idx: 182086372281293857042011549805333027842
+  landscapes:
+  - ritual
+  - tower
+  name: kotw 9/12
+- cards:
+  - crossroads
+  - cursed_village
+  - falconer
+  - ill-gotten_gains
+  - livery
+  - lookout
+  - magpie
+  - poacher
+  - tragic_hero
+  - village_green
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Hinterlands, 1E
+  - Menagerie
+  - Nocturne
+  - Seaside, 2E
+  idx: 101432756662507661864840453969214630513
+  landscapes:
+  - gamble
+  - way_of_the_owl
+  name: kotw 9/5
+- cards:
+  - bandit_camp
+  - engineer
+  - horn_of_plenty
+  - island
+  - mining_village
+  - pixie
+  - rats
+  - raze
+  - stockpile
+  - tragic_hero
+  expansions:
+  - Adventures
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Prosperity, 2E
+  - Seaside, 2E
+  idx: 29547998115583769640297858407696721165
+  landscapes:
+  - way_of_the_horse
+  - wolf_den
+  name: kotw 8/29
+  use_colonies: true
+- cards:
+  - courtier
+  - death_cart
+  - hermit
+  - ironmonger
+  - market
+  - necromancer
+  - nobles
+  - sentry
+  - vassal
+  - werewolf
+  expansions:
+  - Base, 2E
+  - Dark Ages
+  - Intrigue, 2E
+  - Nocturne
+  idx: 118566547153828485547092465433725624975
+  name: kotw 8/22
+  use_shelters: true
+- cards:
+  - archive
+  - bounty_hunter
+  - chapel
+  - diplomat
+  - grand_market
+  - inventor
+  - mastermind
+  - mill
+  - peasant
+  - sanctuary
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Prosperity, 2E
+  - Renaissance
+  idx: 182975199670679566872278323727546781242
+  landscapes:
+  - museum
+  - tomb
+  name: kotw 8/15
+- cards:
+  - border_guard
+  - caravan
+  - cargo_ship
+  - displace
+  - distant_lands
+  - embassy
+  - highway
+  - settlers/bustling_village
+  - supplies
+  - warehouse
+  expansions:
+  - Adventures
+  - Empires
+  - Hinterlands, 1E
+  - Menagerie
+  - Renaissance
+  - Seaside, 2E
+  idx: 191347409393676475788912433323087009318
+  landscapes:
+  - travelling_fair
+  name: kotw 8/8
+- cards:
+  - apothecary
+  - artificer
+  - bridge_troll
+  - catapult/rocks
+  - count
+  - forager
+  - magpie
+  - scrying_pool
+  - squire
+  - university
+  expansions:
+  - Adventures
+  - Alchemy
+  - Dark Ages
+  - Empires
+  idx: 47129399732132999224477936518174250518
+  landscapes:
+  - save
+  name: kotw 8/1
+- cards:
+  - duchess
+  - gardens
+  - harbinger
+  - inn
+  - masterpiece
+  - merchant_guild
+  - oracle
+  - plaza
+  - sea_hag
+  - warehouse
+  expansions:
+  - Base, 2E
+  - Guilds, 1E
+  - Hinterlands, 1E
+  - Seaside, 1E
+  idx: 183218443806426415103624323989019404230
+  name: kotw 7/25
+- cards:
+  - cemetery
+  - cobbler
+  - dungeon
+  - fortress
+  - library
+  - ranger
+  - raze
+  - rebuild
+  - village
+  - witch
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Dark Ages
+  - Nocturne
+  idx: 153129414580534803260967722451332975907
+  landscapes:
+  - alms
+  - pilgrimage
+  name: kotw 7/18
+- cards:
+  - ghost_ship
+  - ghost_town
+  - guardian
+  - mining_village
+  - mint
+  - native_village
+  - necromancer
+  - quarry
+  - replace
+  - tragic_hero
+  expansions:
+  - Intrigue, 2E
+  - Nocturne
+  - Prosperity, 2E
+  - Seaside, 1E
+  idx: 239447225693973739548078048602758032127
+  name: kotw 7/11
+  use_colonies: true
+- cards:
+  - animal_fair
+  - coven
+  - ironworks
+  - lurker
+  - mill
+  - nobles
+  - rebuild
+  - smugglers
+  - snowy_village
+  - squire
+  expansions:
+  - Dark Ages
+  - Intrigue, 2E
+  - Menagerie
+  - Seaside, 2E
+  idx: 317001377557682354452936562222355920369
+  landscapes:
+  - bargain
+  - way_of_the_sheep
+  name: kotw 7/4
+- cards:
+  - bank
+  - counting_house
+  - enchantress
+  - farming_village
+  - haunted_woods
+  - horse_traders
+  - jester
+  - raze
+  - settlers/bustling_village
+  - talisman
+  expansions:
+  - Adventures
+  - Cornucopia, 1E
+  - Empires
+  - Prosperity, 1E
+  idx: 94628728114271799623107193448818088026
+  landscapes:
+  - tower
+  - travelling_fair
+  name: kotw 6/27
+- cards:
+  - border_guard
+  - counterfeit
+  - farming_village
+  - grand_market
+  - library
+  - militia
+  - mountebank
+  - patron
+  - poor_house
+  - remake
+  expansions:
+  - Base, 2E
+  - Cornucopia, 1E
+  - Dark Ages
+  - Prosperity, 1E
+  - Renaissance
+  idx: 326927196455160040481502146145765685512
+  landscapes:
+  - cathedral
+  name: kotw 6/20
+  use_colonies: true
+- cards:
+  - armory
+  - catapult/rocks
+  - cavalry
+  - flag_bearer
+  - fortress
+  - militia
+  - peasant
+  - recruiter
+  - squire
+  - watchtower
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Menagerie
+  - Prosperity, 2E
+  - Renaissance
+  idx: 169498301792000915635203862887171493482
+  landscapes:
+  - march
+  name: kotw 6/13
+- cards:
+  - city_quarter
+  - develop
+  - farmers_market
+  - fools_gold
+  - ghost_ship
+  - native_village
+  - sea_hag
+  - silk_road
+  - tactician
+  - villa
+  expansions:
+  - Empires
+  - Hinterlands, 1E
+  - Seaside, 1E
+  idx: 255727429358777024091411434183618310228
+  landscapes:
+  - baths
+  - salt_the_earth
+  name: kotw 6/6
+- cards:
+  - artisan
+  - chariot_race
+  - coin_of_the_realm
+  - enchantress
+  - haunted_woods
+  - kings_court
+  - magpie
+  - mountebank
+  - remodel
+  - watchtower
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Empires
+  - Prosperity, 1E
+  idx: 26944498546641774588483926577671765558
+  landscapes:
+  - banquet
+  - triumph
+  name: kotw 5/30
+- cards:
+  - bridge
+  - loan
+  - lurker
+  - monument
+  - nobles
+  - snowy_village
+  - steward
+  - upgrade
+  - vault
+  - wayfarer
+  expansions:
+  - Intrigue, 2E
+  - Menagerie
+  - Prosperity, 1E
+  idx: 145284571105283449907751892746671281247
+  landscapes:
+  - invest
+  - toil
+  name: kotw 5/23
+- cards:
+  - acting_troupe
+  - cavalry
+  - courtier
+  - ironworks
+  - minion
+  - patron
+  - supplies
+  - swashbuckler
+  - village_green
+  - wishing_well
+  expansions:
+  - Intrigue, 2E
+  - Menagerie
+  - Renaissance
+  idx: 22521338433431951181912041212715108107
+  landscapes:
+  - pageant
+  - way_of_the_goat
+  name: kotw 5/16
+- cards:
+  - apprentice
+  - city_quarter
+  - count
+  - duke
+  - masquerade
+  - sacrifice
+  - storeroom
+  - university
+  - vineyard
+  - wild_hunt
+  expansions:
+  - Alchemy
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  idx: 115736389665074593036152757278511963785
+  landscapes:
+  - advance
+  - annex
+  name: kotw 5/9
+  use_shelters: true
+- cards:
+  - border_village
+  - expand
+  - fools_gold
+  - loan
+  - peddler
+  - priest
+  - research
+  - scepter
+  - spice_merchant
+  - vault
+  expansions:
+  - Hinterlands, 2E
+  - Prosperity, 1E
+  - Renaissance
+  idx: 113408078634360550963267181887490117741
+  landscapes:
+  - city_gate
+  name: kotw 5/2
+- cards:
+  - camel_train
+  - cobbler
+  - courtier
+  - cutpurse
+  - raider
+  - replace
+  - scrap
+  - secret_passage
+  - snowy_village
+  - treasure_map
+  expansions:
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Seaside, 2E
+  idx: 265839572963312676174143672997081101915
+  landscapes:
+  - march
+  - way_of_the_monkey
+  name: kotw 4/25
+- cards:
+  - doctor
+  - ghost_ship
+  - herald
+  - island
+  - merchant_guild
+  - mountebank
+  - native_village
+  - quarry
+  - trade_route
+  - warehouse
+  expansions:
+  - Guilds, 1E
+  - Prosperity, 1E
+  - Seaside, 1E
+  idx: 275512938972144312171419114769095763749
+  name: kotw 4/18
+- cards:
+  - beggar
+  - embargo
+  - festival
+  - fishing_village
+  - gatekeeper
+  - harbinger
+  - hunting_lodge
+  - merchant
+  - sea_hag
+  - wayfarer
+  expansions:
+  - Base, 2E
+  - Dark Ages
+  - Menagerie
+  - Seaside, 1E
+  idx: 149255083518857988345439490842017697579
+  landscapes:
+  - bargain
+  - way_of_the_turtle
+  name: kotw 4/11
+- cards:
+  - develop
+  - flag_bearer
+  - goatherd
+  - hostelry
+  - ill-gotten_gains
+  - priest
+  - recruiter
+  - scholar
+  - spice_merchant
+  - supplies
+  expansions:
+  - Hinterlands, 1E
+  - Menagerie
+  - Renaissance
+  idx: 62684795997940825110233623583448145599
+  landscapes:
+  - city_gate
+  - desperation
+  name: kotw 4/4
+- cards:
+  - cultist
+  - develop
+  - ducat
+  - fisherman
+  - gatekeeper
+  - sage
+  - silk_merchant
+  - squire
+  - tunnel
+  - vassal
+  expansions:
+  - Base, 2E
+  - Dark Ages
+  - Hinterlands, 2E
+  - Menagerie
+  - Renaissance
+  idx: 182973147527789349956182021782881930654
+  landscapes:
+  - canal
+  - demand
+  name: kotw 3/28
+  use_shelters: true
+- cards:
+  - caravan_guard
+  - forager
+  - hideout
+  - horn_of_plenty
+  - ironmonger
+  - loan
+  - page
+  - rabble
+  - vassal
+  - witch
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Prosperity, 1E
+  - Renaissance
+  idx: 309579471796848926674507803627231759142
+  landscapes:
+  - fair
+  - star_chart
+  name: kotw 3/21
+- cards:
+  - courtier
+  - diplomat
+  - duke
+  - goons
+  - horse_traders
+  - lighthouse
+  - native_village
+  - plaza
+  - salvager
+  - steward
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Cornucopia, 1E
+  - Intrigue, 2E
+  - Prosperity, 1E
+  - Seaside, 2E
+  idx: 321785902084359745654738773225684297188
+  name: kotw 3/14
+  use_colonies: true
+- cards:
+  - ducat
+  - enchantress
+  - feodum
+  - forager
+  - highway
+  - jack_of_all_trades
+  - rebuild
+  - seer
+  - silk_merchant
+  - squire
+  expansions:
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Renaissance
+  idx: 148339798432079647830299065427148079966
+  landscapes:
+  - road_network
+  - salt_the_earth
+  name: kotw 3/7
+- cards:
+  - bounty_hunter
+  - castles
+  - catapult/rocks
+  - cemetery
+  - crown
+  - destrier
+  - devils_workshop
+  - groom
+  - patrician/emporium
+  - stockpile
+  expansions:
+  - Empires
+  - Menagerie
+  - Nocturne
+  idx: 203543128447310969636062813585082627191
+  landscapes:
+  - battlefield
+  name: kotw 2/28
+- cards:
+  - caravan
+  - cartographer
+  - chariot_race
+  - charm
+  - embassy
+  - fishing_village
+  - fools_gold
+  - nomad_camp
+  - swindler
+  - upgrade
+  expansions:
+  - Empires
+  - Hinterlands, 1E
+  - Intrigue, 2E
+  - Seaside, 2E
+  idx: 282839467616249232463495374695382727726
+  landscapes:
+  - advance
+  - bandit_fort
+  name: kotw 2/21
+- cards:
+  - black_cat
+  - enchantress
+  - mastermind
+  - pooka
+  - ratcatcher
+  - settlers/bustling_village
+  - sheepdog
+  - shepherd
+  - silk_road
+  - storyteller
+  expansions:
+  - Adventures
+  - Empires
+  - Hinterlands, 1E
+  - Menagerie
+  - Nocturne
+  idx: 32020755732815597794807251128424529683
+  landscapes:
+  - stampede
+  - way_of_the_monkey
+  name: kotw 2/14
+- cards:
+  - baron
+  - black_cat
+  - cemetery
+  - contraband
+  - crossroads
+  - gardens
+  - groundskeeper
+  - harem_farm
+  - mill
+  - silk_road
+  expansions:
+  - Base, 2E
+  - Empires
+  - Hinterlands, 1E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Prosperity, 1E
+  - Renaissance
+  idx: 189716481620764583731960438528208848878
+  landscapes:
+  - alliance
+  - crop_rotation
+  name: kotw 2/7
+  use_colonies: true
+- cards:
+  - amulet
+  - bridge
+  - courtyard
+  - fishing_village
+  - island
+  - journeyman
+  - replace
+  - royal_carriage
+  - sea_hag
+  - stonemason
+  expansions:
+  - Adventures
+  - Cornucopia & Guilds, 2E
+  - Intrigue, 2E
+  - Seaside, 1E
+  idx: 175630814235039865216068946811997341945
+  landscapes:
+  - mission
+  - seaway
+  name: kotw 1/31
+- cards:
+  - border_village
+  - engineer
+  - faithful_hound
+  - groundskeeper
+  - horse_traders
+  - inn
+  - necromancer
+  - remake
+  - shepherd
+  - tunnel
+  expansions:
+  - Cornucopia, 1E
+  - Empires
+  - Hinterlands, 2E
+  - Nocturne
+  idx: 339020512021928950854171447919110914052
+  landscapes:
+  - keep
+  - triumph
+  name: kotw 1/24
+- cards:
+  - cardinal
+  - ducat
+  - gatekeeper
+  - kiln
+  - magpie
+  - mastermind
+  - priest
+  - raze
+  - trade_route
+  - venture
+  expansions:
+  - Adventures
+  - Menagerie
+  - Prosperity, 1E
+  - Renaissance
+  idx: 252955033110029135646336117979089145980
+  landscapes:
+  - guildhall
+  - invest
+  name: kotw 1/17
+  use_colonies: true
+- cards:
+  - courtyard
+  - haunted_woods
+  - merchant
+  - mill
+  - miser
+  - nobles
+  - ratcatcher
+  - replace
+  - snowy_village
+  - throne_room
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Intrigue, 2E
+  - Menagerie
+  idx: 294619812093309060237113849751940580586
+  landscapes:
+  - ferry
+  - way_of_the_chameleon
+  name: kotw 1/11
+- cards:
+  - ambassador
+  - border_guard
+  - butcher
+  - courtyard
+  - inventor
+  - lackeys
+  - old_witch
+  - recruiter
+  - stonemason
+  - wharf
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Intrigue, 2E
+  - Renaissance
+  - Seaside, 1E
+  idx: 127319066478600326825932748110187289343
+  landscapes:
+  - academy
+  name: kotw 1/3
+- cards:
+  - animal_fair
+  - blessed_village
+  - fairgrounds
+  - festival
+  - grand_market
+  - horn_of_plenty
+  - royal_carriage
+  - storyteller
+  - wandering_minstrel
+  - wine_merchant
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Menagerie
+  - Nocturne
+  - Prosperity, 2E
+  idx: 190381567757870784779353038975092157536
+  landscapes:
+  - bonfire
+  - seize_the_day
+  name: kotw 12/27
+- cards:
+  - cardinal
+  - displace
+  - experiment
+  - fishing_village
+  - hunting_lodge
+  - lookout
+  - magpie
+  - relic
+  - salvager
+  - silk_merchant
+  expansions:
+  - Adventures
+  - Menagerie
+  - Renaissance
+  - Seaside, 2E
+  idx: 213932081358055231859664000715237047680
+  landscapes:
+  - guildhall
+  - way_of_the_rat
+  name: kotw 12/20
+- bane_pile: loan
+  cards:
+  - develop
+  - farming_village
+  - jester
+  - livery
+  - loan
+  - peddler
+  - rats
+  - sheepdog
+  - squire
+  - tunnel
+  - young_witch
+  expansions:
+  - Cornucopia, 1E
+  - Dark Ages
+  - Hinterlands, 2E
+  - Menagerie
+  - Prosperity, 1E
+  idx: 138179106958868612812973060817304737120
+  landscapes:
+  - pursue
+  - way_of_the_mole
+  name: kotw 12/13
+- cards:
+  - chariot_race
+  - crown
+  - dismantle
+  - engineer
+  - guardian
+  - hunting_grounds
+  - legionary
+  - monastery
+  - skulk
+  - wandering_minstrel
+  expansions:
+  - Dark Ages
+  - Empires
+  - Nocturne
+  - Promo
+  idx: 283990247710879410332961178024440989215
+  landscapes:
+  - tower
+  name: kotw 12/6
+- cards:
+  - animal_fair
+  - artisan
+  - black_cat
+  - coin_of_the_realm
+  - courtier
+  - gardens
+  - goatherd
+  - hostelry
+  - scepter
+  - treasurer
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Renaissance
+  idx: 312181374907217176649847565675771520917
+  landscapes:
+  - guildhall
+  - way_of_the_camel
+  name: kotw 11/29
+- cards:
+  - ducat
+  - forager
+  - groundskeeper
+  - horn_of_plenty
+  - hunting_grounds
+  - ill-gotten_gains
+  - inn
+  - mystic
+  - settlers/bustling_village
+  - trader
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 1E
+  - Renaissance
+  idx: 294256997690384691679014721857507775586
+  landscapes:
+  - banquet
+  - silos
+  name: kotw 11/22
+- cards:
+  - animal_fair
+  - bridge_troll
+  - chapel
+  - den_of_sin
+  - ghost_ship
+  - improve
+  - mastermind
+  - salvager
+  - treasure_trove
+  - vassal
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Menagerie
+  - Nocturne
+  - Renaissance
+  - Seaside, 1E
+  idx: 105648679553397965561240076930065646818
+  landscapes:
+  - toil
+  name: kotw 11/15
+- cards:
+  - acting_troupe
+  - baron
+  - engineer
+  - hamlet
+  - highway
+  - hireling
+  - relic
+  - research
+  - spice_merchant
+  - storeroom
+  expansions:
+  - Adventures
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Renaissance
+  idx: 160730371888744076638114385592322248247
+  landscapes:
+  - advance
+  - battlefield
+  name: kotw 11/8
+- cards:
+  - barge
+  - bishop
+  - contraband
+  - crown
+  - encampment/plunder
+  - enchantress
+  - gatekeeper
+  - hoard
+  - kiln
+  - snowy_village
+  expansions:
+  - Empires
+  - Menagerie
+  - Prosperity, 1E
+  idx: 82880376823336548336683403368311944206
+  landscapes:
+  - salt_the_earth
+  - way_of_the_worm
+  name: kotw 11/1
+- cards:
+  - cemetery
+  - cursed_village
+  - dungeon
+  - harbinger
+  - haunted_woods
+  - hideout
+  - necromancer
+  - transmogrify
+  - vampire
+  - witch
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Nocturne
+  - Renaissance
+  idx: 9484799280795938274503126486293364173
+  landscapes:
+  - sinister_plot
+  name: kotw 10/25
+- cards:
+  - encampment/plunder
+  - hunting_lodge
+  - kiln
+  - legionary
+  - royal_blacksmith
+  - scrap
+  - sea_hag
+  - treasury
+  - village_green
+  - warehouse
+  expansions:
+  - Empires
+  - Menagerie
+  - Seaside, 1E
+  idx: 165990716250354773470424097234304349802
+  landscapes:
+  - desperation
+  - wedding
+  name: kotw 10/18
+- cards:
+  - baron
+  - haggler
+  - hideout
+  - inn
+  - magpie
+  - mill
+  - patrol
+  - priest
+  - procession
+  - trade_route
+  expansions:
+  - Adventures
+  - Dark Ages
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Prosperity, 1E
+  - Renaissance
+  idx: 218332683429508678109295814597098702347
+  landscapes:
+  - fair
+  - inheritance
+  name: kotw 10/11
+- cards:
+  - alchemist
+  - cellar
+  - changeling
+  - guardian
+  - mine
+  - minion
+  - secret_cave
+  - secret_passage
+  - skulk
+  - vineyard
+  expansions:
+  - Alchemy
+  - Base, 2E
+  - Intrigue, 2E
+  - Nocturne
+  idx: 102797942637234092363681494077734461335
+  name: kotw 10/4
+- cards:
+  - bank
+  - beggar
+  - bishop
+  - changeling
+  - coin_of_the_realm
+  - cultist
+  - haunted_woods
+  - monastery
+  - venture
+  - workers_village
+  expansions:
+  - Adventures
+  - Dark Ages
+  - Nocturne
+  - Prosperity, 1E
+  idx: 102582018972726619636825932199540441919
+  landscapes:
+  - seaway
+  name: kotw 9/27
+- cards:
+  - cavalry
+  - crossroads
+  - develop
+  - farmland
+  - fools_gold
+  - hunting_grounds
+  - mandarin
+  - rats
+  - silk_road
+  - storyteller
+  expansions:
+  - Adventures
+  - Dark Ages
+  - Hinterlands, 1E
+  - Menagerie
+  idx: 124375921827562082805692660510627279059
+  landscapes:
+  - way_of_the_monkey
+  name: kotw 9/20
+- cards:
+  - artificer
+  - bank
+  - bazaar
+  - crown
+  - farmers_market
+  - goons
+  - guide
+  - lookout
+  - swamp_hag
+  - tactician
+  expansions:
+  - Adventures
+  - Empires
+  - Prosperity, 1E
+  - Seaside, 2E
+  idx: 304088444332207058977144689587480506789
+  landscapes:
+  - lost_arts
+  - ritual
+  name: kotw 9/13
+- cards:
+  - border_village
+  - chariot_race
+  - city_quarter
+  - highway
+  - remodel
+  - sentry
+  - spice_merchant
+  - tunnel
+  - vassal
+  - witch
+  expansions:
+  - Base, 2E
+  - Empires
+  - Hinterlands, 2E
+  idx: 243434118093041669103567299549731831444
+  landscapes:
+  - banquet
+  name: kotw 9/6
+- cards:
+  - artificer
+  - bridge
+  - fishing_village
+  - forager
+  - haunted_woods
+  - hermit
+  - lighthouse
+  - masquerade
+  - outpost
+  - sea_hag
+  expansions:
+  - Adventures
+  - Dark Ages
+  - Intrigue, 2E
+  - Seaside, 1E
+  idx: 118115039332327063789907762924497577881
+  landscapes:
+  - inheritance
+  - quest
+  name: kotw 8/30
+- cards:
+  - black_cat
+  - cavalry
+  - changeling
+  - city
+  - coin_of_the_realm
+  - ducat
+  - falconer
+  - ghost_town
+  - market_square
+  - tragic_hero
+  expansions:
+  - Adventures
+  - Dark Ages
+  - Menagerie
+  - Nocturne
+  - Prosperity, 2E
+  - Renaissance
+  idx: 192699758420197358235432072066397669228
+  landscapes:
+  - toil
+  - way_of_the_horse
+  name: kotw 8/23
+  use_colonies: true
+- cards:
+  - counting_house
+  - ill-gotten_gains
+  - minion
+  - monastery
+  - plaza
+  - quarry
+  - raider
+  - scheme
+  - scholar
+  - squire
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 1E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Prosperity, 1E
+  - Renaissance
+  idx: 295772457931391808583414889629788824872
+  landscapes:
+  - tomb
+  - way_of_the_rat
+  name: kotw 8/16
+- cards:
+  - artisan
+  - crown
+  - farming_village
+  - grand_market
+  - haven
+  - moneylender
+  - sauna/avanto
+  - smugglers
+  - venture
+  - watchtower
+  expansions:
+  - Base, 2E
+  - Cornucopia, 1E
+  - Empires
+  - Promo
+  - Prosperity, 1E
+  - Seaside, 2E
+  idx: 330574962934300710511622957462016709044
+  landscapes:
+  - conquest
+  - mountain_pass
+  name: kotw 8/9
+- cards:
+  - camel_train
+  - cardinal
+  - conspirator
+  - displace
+  - kings_court
+  - livery
+  - mountebank
+  - scrap
+  - secret_passage
+  - watchtower
+  expansions:
+  - Intrigue, 2E
+  - Menagerie
+  - Prosperity, 1E
+  idx: 16747249345950086931945301916255172237
+  landscapes:
+  - commerce
+  - way_of_the_ox
+  name: kotw 8/2
+  use_colonies: true
+- cards:
+  - barge
+  - catapult/rocks
+  - count
+  - groom
+  - hunting_lodge
+  - kiln
+  - squire
+  - temple
+  - villa
+  - wayfarer
+  expansions:
+  - Dark Ages
+  - Empires
+  - Menagerie
+  idx: 313843352629451133608288341698496886079
+  landscapes:
+  - battlefield
+  - way_of_the_seal
+  name: kotw 7/26
+- cards:
+  - blessed_village
+  - crossroads
+  - devils_workshop
+  - hoard
+  - kings_court
+  - shepherd
+  - silk_road
+  - spice_merchant
+  - vault
+  - werewolf
+  expansions:
+  - Hinterlands, 1E
+  - Nocturne
+  - Prosperity, 2E
+  idx: 146624894536264384589759306456400560540
+  name: kotw 7/19
+- bane_pile: black_cat
+  cards:
+  - black_cat
+  - castles
+  - enchantress
+  - fairgrounds
+  - falconer
+  - horse_traders
+  - hostelry
+  - hunting_lodge
+  - menagerie
+  - remake
+  - young_witch
+  expansions:
+  - Cornucopia, 1E
+  - Empires
+  - Menagerie
+  idx: 22958838723815985321452311957455364732
+  landscapes:
+  - populate
+  - way_of_the_chameleon
+  name: kotw 7/12
+- cards:
+  - amulet
+  - artificer
+  - cemetery
+  - magpie
+  - night_watchman
+  - pooka
+  - raider
+  - ranger
+  - raze
+  - storyteller
+  expansions:
+  - Adventures
+  - Nocturne
+  idx: 294185040141850909358366980627996238235
+  landscapes:
+  - mission
+  name: kotw 7/5
+- cards:
+  - butcher
+  - goatherd
+  - groom
+  - haggler
+  - ill-gotten_gains
+  - lurker
+  - mastermind
+  - merchant_guild
+  - paddock
+  - stonemason
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Hinterlands, 1E
+  - Intrigue, 2E
+  - Menagerie
+  idx: 241523256579720485107412359515579048410
+  landscapes:
+  - seize_the_day
+  - way_of_the_frog
+  name: kotw 6/28
+- cards:
+  - changeling
+  - cursed_village
+  - gardens
+  - leprechaun
+  - militia
+  - monument
+  - mountebank
+  - shepherd
+  - trade_route
+  - workers_village
+  expansions:
+  - Base, 2E
+  - Nocturne
+  - Prosperity, 1E
+  idx: 11128570238663780611319407195643194978
+  name: kotw 6/21
+- cards:
+  - camel_train
+  - caravan
+  - develop
+  - distant_lands
+  - fishing_village
+  - hoard
+  - island
+  - nomad_camp
+  - quarry
+  - supplies
+  expansions:
+  - Adventures
+  - Hinterlands, 1E
+  - Menagerie
+  - Prosperity, 2E
+  - Seaside, 2E
+  idx: 172290801595597264658052633997485907631
+  landscapes:
+  - banish
+  - way_of_the_camel
+  name: kotw 6/14
+- cards:
+  - cursed_village
+  - exorcist
+  - hamlet
+  - horn_of_plenty
+  - hunting_party
+  - mining_village
+  - mountebank
+  - pixie
+  - quarry
+  - vault
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Intrigue, 2E
+  - Nocturne
+  - Prosperity, 1E
+  idx: 317974571139592376154254226052077566108
+  name: kotw 6/7
+- cards:
+  - black_cat
+  - bounty_hunter
+  - count
+  - fisherman
+  - gardens
+  - groom
+  - market_square
+  - rogue
+  - sentry
+  - squire
+  expansions:
+  - Base, 2E
+  - Dark Ages
+  - Menagerie
+  idx: 47945096869763608604643175175152787751
+  landscapes:
+  - invest
+  - way_of_the_mole
+  name: kotw 5/31
+  use_shelters: true
+- cards:
+  - animal_fair
+  - den_of_sin
+  - destrier
+  - ghost_town
+  - hunting_lodge
+  - kings_court
+  - monastery
+  - rabble
+  - vampire
+  - village_green
+  expansions:
+  - Menagerie
+  - Nocturne
+  - Prosperity, 2E
+  idx: 32436926729947054617440756850242300446
+  landscapes:
+  - transport
+  - way_of_the_butterfly
+  name: kotw 5/24
+- cards:
+  - acting_troupe
+  - candlestick_maker
+  - conspirator
+  - doctor
+  - festival
+  - ironworks
+  - pawn
+  - procession
+  - scholar
+  - tunnel
+  expansions:
+  - Base, 2E
+  - Dark Ages
+  - Guilds, 1E
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Renaissance
+  idx: 99299286913336225140715153282767695099
+  landscapes:
+  - academy
+  - canal
+  name: kotw 5/17
+  use_shelters: true
+- cards:
+  - altar
+  - castles
+  - duke
+  - hunting_grounds
+  - mining_village
+  - patrician/emporium
+  - rogue
+  - sacrifice
+  - upgrade
+  - wandering_minstrel
+  expansions:
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  idx: 187326947012711507008021370544049076212
+  landscapes:
+  - annex
+  - labyrinth
+  name: kotw 5/10
+  use_shelters: true
+- cards:
+  - bandit
+  - philosophers_stone
+  - poor_house
+  - scavenger
+  - smugglers
+  - spice_merchant
+  - transmute
+  - vault
+  - venture
+  - villa
+  expansions:
+  - Alchemy
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Prosperity, 1E
+  - Renaissance
+  - Seaside, 2E
+  idx: 12996278836745717046184852155402420292
+  landscapes:
+  - banquet
+  - silos
+  name: kotw 5/3
+- cards:
+  - coin_of_the_realm
+  - market_square
+  - merchant
+  - merchant_guild
+  - merchant_ship
+  - peddler
+  - silk_merchant
+  - spice_merchant
+  - trade_route
+  - wine_merchant
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Hinterlands, 2E
+  - Prosperity, 1E
+  - Renaissance
+  - Seaside, 2E
+  idx: 241635994008961240915678730038215392505
+  landscapes:
+  - capitalism
+  - expedition
+  name: kotw 4/26
+- cards:
+  - altar
+  - bridge
+  - catacombs
+  - count
+  - lackeys
+  - lurker
+  - masquerade
+  - rebuild
+  - silk_merchant
+  - swashbuckler
+  expansions:
+  - Dark Ages
+  - Intrigue, 2E
+  - Renaissance
+  idx: 190190613356243207841546180017742397886
+  landscapes:
+  - fleet
+  - road_network
+  name: kotw 4/19
+  use_shelters: true
+- cards:
+  - chariot_race
+  - engineer
+  - faithful_hound
+  - goons
+  - groundskeeper
+  - guardian
+  - mill
+  - replace
+  - tragic_hero
+  - workers_village
+  expansions:
+  - Empires
+  - Intrigue, 2E
+  - Nocturne
+  - Prosperity, 1E
+  idx: 116118386431288379407832359011498337324
+  landscapes:
+  - arena
+  - triumph
+  name: kotw 4/12
+  use_colonies: true
+- cards:
+  - castles
+  - courtier
+  - harem_farm
+  - ironmonger
+  - island
+  - knights
+  - mill
+  - nobles
+  - rebuild
+  - sacrifice
+  expansions:
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Renaissance
+  - Seaside, 2E
+  idx: 116088216570669886972055935796609380113
+  landscapes:
+  - road_network
+  - salt_the_earth
+  name: kotw 4/5
+  use_shelters: true
+- cards:
+  - apothecary
+  - apprentice
+  - fortress
+  - magpie
+  - native_village
+  - rats
+  - raze
+  - scrying_pool
+  - university
+  - vineyard
+  expansions:
+  - Adventures
+  - Alchemy
+  - Dark Ages
+  - Empires
+  - Seaside, 2E
+  idx: 50908673170593320229159855582845162209
+  landscapes:
+  - bandit_fort
+  - tomb
+  - triumph
+  name: kotw 3/29
+- cards:
+  - ambassador
+  - diplomat
+  - distant_lands
+  - encampment/plunder
+  - expand
+  - lost_city
+  - marauder
+  - merchant_ship
+  - settlers/bustling_village
+  - spice_merchant
+  expansions:
+  - Adventures
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Prosperity, 2E
+  - Seaside, 1E
+  idx: 214785408832460635066740821425264875449
+  landscapes:
+  - expedition
+  name: kotw 3/22
+  use_colonies: true
+- cards:
+  - border_guard
+  - ducat
+  - gardens
+  - hermit
+  - hoard
+  - inventor
+  - patron
+  - raider
+  - swashbuckler
+  - taxman
+  expansions:
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Guilds, 1E
+  - Nocturne
+  - Prosperity, 2E
+  - Renaissance
+  idx: 278337284516933323254306782900896595156
+  landscapes:
+  - bandit_fort
+  - dominate
+  name: kotw 3/15
+- cards:
+  - amulet
+  - cargo_ship
+  - catacombs
+  - death_cart
+  - doctor
+  - lost_city
+  - port
+  - priest
+  - ratcatcher
+  - rats
+  expansions:
+  - Adventures
+  - Dark Ages
+  - Guilds, 1E
+  - Renaissance
+  idx: 200050278462905937525018781180606769639
+  landscapes:
+  - inheritance
+  - save
+  name: kotw 3/8
+- cards:
+  - charm
+  - cobbler
+  - enchantress
+  - masquerade
+  - night_watchman
+  - old_witch
+  - prince
+  - royal_carriage
+  - transmogrify
+  - wishing_well
+  expansions:
+  - Adventures
+  - Empires
+  - Intrigue, 2E
+  - Nocturne
+  - Promo
+  - Renaissance
+  idx: 228219017388631519183664823158696463655
+  landscapes:
+  - ball
+  - wedding
+  name: kotw 3/1
+- bane_pile: herbalist
+  cards:
+  - changeling
+  - chapel
+  - courtier
+  - herbalist
+  - mandarin
+  - merchant_guild
+  - merchant_ship
+  - rogue
+  - storyteller
+  - watchtower
+  - young_witch
+  expansions:
+  - Adventures
+  - Alchemy
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 1E
+  - Intrigue, 2E
+  - Nocturne
+  - Promo
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
+  idx: 39139373252033050190659021789579381373
+  landscapes:
+  - capitalism
+  - summon
+  - tomb
+  name: kotw 2/23
+- cards:
+  - counterfeit
+  - ghost_town
+  - hoard
+  - junk_dealer
+  - nomad_camp
+  - patron
+  - shepherd
+  - tunnel
+  - vault
+  - venture
+  expansions:
+  - Adventures
+  - Dark Ages
+  - Hinterlands, 1E
+  - Nocturne
+  - Prosperity, 1E
+  - Renaissance
+  idx: 116691395180705353948732526053619019392
+  landscapes:
+  - ferry
+  - lost_arts
+  name: kotw 2/16
+  use_colonies: true
+- cards:
+  - apothecary
+  - apprentice
+  - fortress
+  - magpie
+  - native_village
+  - rats
+  - raze
+  - scrying_pool
+  - university
+  - vineyard
+  expansions:
+  - Adventures
+  - Alchemy
+  - Dark Ages
+  - Empires
+  - Seaside, 2E
+  idx: 88502710346251220382266476502845563609
+  landscapes:
+  - bandit_fort
+  - tomb
+  - triumph
+  name: kotw 2/9
+- cards:
+  - artisan
+  - council_room
+  - cultist
+  - duke
+  - lurker
+  - militia
+  - rebuild
+  - steward
+  - storeroom
+  - village
+  expansions:
+  - Base, 2E
+  - Dark Ages
+  - Intrigue, 2E
+  idx: 107865618715248159167838955413843533634
+  name: kotw 2/2
+- cards:
+  - altar
+  - artificer
+  - border_village
+  - changeling
+  - distant_lands
+  - haunted_woods
+  - research
+  - rogue
+  - royal_carriage
+  - tactician
+  expansions:
+  - Adventures
+  - Dark Ages
+  - Hinterlands, 2E
+  - Nocturne
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
+  idx: 193586785852412412098293276175212742043
+  landscapes:
+  - innovation
+  - mission
+  name: kotw 1/26
+  use_colonies: true
+- cards:
+  - caravan
+  - cemetery
+  - courtier
+  - farmers_market
+  - forum
+  - night_watchman
+  - nobles
+  - raider
+  - sacrifice
+  - vampire
+  expansions:
+  - Empires
+  - Intrigue, 2E
+  - Nocturne
+  - Seaside, 2E
+  idx: 223836194479776661084423021053513991705
+  landscapes:
+  - ritual
+  - triumph
+  name: kotw 1/19
+- cards:
+  - border_village
+  - dungeon
+  - duplicate
+  - fools_gold
+  - haven
+  - ill-gotten_gains
+  - lost_city
+  - merchant_ship
+  - messenger
+  - salvager
+  expansions:
+  - Adventures
+  - Hinterlands, 1E
+  - Seaside, 2E
+  idx: 271617517888779170129987690389256793018
+  landscapes:
+  - pathfinding
+  - plan
+  name: kotw 1/12
+- cards:
+  - beggar
+  - cache
+  - charm
+  - city_quarter
+  - cutpurse
+  - embargo
+  - grand_market
+  - mountebank
+  - royal_blacksmith
+  - temple
+  expansions:
+  - Adventures
+  - Dark Ages
+  - Empires
+  - Hinterlands, 1E
+  - Prosperity, 1E
+  - Renaissance
+  - Seaside, 1E
+  idx: 189501292592527306974259460852720602274
+  landscapes:
+  - guildhall
+  - travelling_fair
+  name: kotw 1/5
+  use_colonies: true
+- cards:
+  - ghost_ship
+  - herald
+  - hideout
+  - masquerade
+  - messenger
+  - poacher
+  - prince
+  - rats
+  - scavenger
+  - smugglers
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Promo
+  - Renaissance
+  - Seaside, 1E
+  idx: 52202436282823401235847627036743558563
+  landscapes:
+  - piazza
+  - tower
+  name: kotw 12/29
+- cards:
+  - blessed_village
+  - council_room
+  - embassy
+  - governor
+  - lost_city
+  - masquerade
+  - messenger
+  - sacred_grove
+  - soothsayer
+  - vault
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Hinterlands, 1E
+  - Intrigue, 2E
+  - Nocturne
+  - Promo
+  - Prosperity, 2E
+  idx: 162471281219776922638139101942957475629
+  landscapes:
+  - bandit_fort
+  - basilica
+  name: kotw 12/22
+- cards:
+  - crossroads
+  - feodum
+  - flag_bearer
+  - fortress
+  - knights
+  - lackeys
+  - market_square
+  - old_witch
+  - squire
+  - swindler
+  expansions:
+  - Dark Ages
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Renaissance
+  idx: 141044335679214197192867329171340763457
+  name: kotw 12/15
+  use_shelters: true
+- cards:
+  - border_guard
+  - caravan_guard
+  - laboratory
+  - mining_village
+  - monument
+  - outpost
+  - ratcatcher
+  - spice_merchant
+  - talisman
+  - urchin
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Dark Ages
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Prosperity, 1E
+  - Renaissance
+  - Seaside, 2E
+  idx: 229989188580064178532923371658358210734
+  landscapes:
+  - guildhall
+  - seaway
+  name: kotw 12/8
+- cards:
+  - bishop
+  - crown
+  - forager
+  - goons
+  - inventor
+  - kings_court
+  - lighthouse
+  - lurker
+  - remake
+  - watchtower
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Prosperity, 1E
+  - Renaissance
+  - Seaside, 2E
+  idx: 223331176078042499454388968053124253144
+  landscapes:
+  - dominate
+  - donate
+  name: kotw 12/1
+  use_colonies: true
+- cards:
+  - blessed_village
+  - farmers_market
+  - farmland
+  - festival
+  - harvest
+  - herbalist
+  - library
+  - page
+  - sage
+  - secret_passage
+  expansions:
+  - Adventures
+  - Alchemy
+  - Base, 2E
+  - Cornucopia, 1E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Nocturne
+  idx: 41719329382563369588618121916678616772
+  landscapes:
+  - banquet
+  - bonfire
+  name: kotw 11/24
+- cards:
+  - artificer
+  - bishop
+  - cache
+  - gardens
+  - harbinger
+  - haunted_woods
+  - messenger
+  - relic
+  - watchtower
+  - workers_village
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Hinterlands, 1E
+  - Prosperity, 2E
+  idx: 291395401715169248187265932771956721898
+  landscapes:
+  - alms
+  - save
+  name: kotw 11/17
+- cards:
+  - death_cart
+  - fairgrounds
+  - forager
+  - harvest
+  - hunting_grounds
+  - ironmonger
+  - junk_dealer
+  - menagerie
+  - nobles
+  - swindler
+  expansions:
+  - Cornucopia, 1E
+  - Dark Ages
+  - Intrigue, 2E
+  idx: 303557516795256562531558529112115912769
+  name: kotw 11/10
+  use_shelters: true
+- cards:
+  - chariot_race
+  - city_quarter
+  - grand_market
+  - inventor
+  - mint
+  - mountebank
+  - sacrifice
+  - scepter
+  - villa
+  - watchtower
+  expansions:
+  - Empires
+  - Prosperity, 1E
+  - Renaissance
+  idx: 130149903342364340159205381217204314972
+  landscapes:
+  - fleet
+  - ritual
+  name: kotw 11/3
+  use_colonies: true
+- cards:
+  - amulet
+  - butcher
+  - cultist
+  - gear
+  - lurker
+  - market_square
+  - peasant
+  - stonemason
+  - torturer
+  - wandering_minstrel
+  expansions:
+  - Adventures
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Intrigue, 2E
+  idx: 252589899804554517042916319488235529679
+  landscapes:
+  - ferry
+  name: kotw 10/27
+- cards:
+  - artisan
+  - border_village
+  - conspirator
+  - haggler
+  - improve
+  - masquerade
+  - minion
+  - silk_merchant
+  - steward
+  - throne_room
+  expansions:
+  - Base, 2E
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Renaissance
+  idx: 313101657497827579192242849865748958303
+  landscapes:
+  - capitalism
+  - crop_rotation
+  name: kotw 10/20

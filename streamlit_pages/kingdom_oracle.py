@@ -8,20 +8,19 @@ rk.build_page_header(
     "Learn more about the CSO and kingdom qualities on the about page.",
 )
 
-from typing import Literal
 
 import pandas as pd
 
 
 @st.cache_data
-def load_existing_kingdoms(
-    selection_type: Literal["Recommended", "TGG Dailies", "Fabi's Recommendations"]
-) -> pd.DataFrame:
+def load_existing_kingdoms(selection_type: str) -> pd.DataFrame:
     manager = rk.KingdomManager()
     if selection_type == "TGG Dailies":
         manager.load_tgg_dailies()
     elif selection_type == "Recommended":
         manager.load_recommended_kingdoms()
+    elif selection_type == "Reddit's KOTW":
+        manager.load_kingdoms_from_yaml(rk.FPATH_KINGDOMS_KOTW_REDDIT)
     elif selection_type == "Fabi's Recommendations":
         manager.load_custom_kingdoms()
     df = manager.dataframe_repr
@@ -31,7 +30,11 @@ def load_existing_kingdoms(
         lambda x: ", ".join(x) if len(x) < 4 else f"{len(x)} expansions"
     )
     df["name_with_exps"] = df["name"] + " (" + exp_repr + ")"
-
+    if selection_type == "TGG Dailies":
+        sani_wr = df["winrate"].apply(
+            lambda x: f" [{x*100:.1f} %]" if x != "" else "N/A"
+        )
+        df["name_with_exps"] = df["name_with_exps"] + sani_wr
     df["csos"] = df.apply(lambda x: x["cards"] + x["landscapes"], axis=1)
     return df
 
@@ -68,6 +71,12 @@ def _build_reference_widget():
             "https://store.steampowered.com/app/1131620/Dominion/",
             help="The TGG Dailies are a set of daily kingdoms provided in the [Temple Gates Games Client](https://store.steampowered.com/app/1131620/Dominion/), where you compete against the Hard AI.\nThanks to the amazing people on the TGG discord I managed to collect these (most notably ``probably-lost``, ``igorbone`` and ``Diesel Pioneer``).",
         )
+    elif selected_stuff == "Reddit's KOTW":
+        st.link_button(
+            "Reddit's KOTW 🔗",
+            "https://www.reddit.com/r/dominion/search/?q=flair%3Akotw&sort=new",
+            help="The Kingdom of the Week is a weekly event on the [Dominion subreddit](https://www.reddit.com/r/dominion/) with a special kingdom being covered each week.",
+        )
 
 
 def _get_short_info(selected_stuff: str) -> str:
@@ -77,6 +86,8 @@ def _get_short_info(selected_stuff: str) -> str:
         return "The TGG Dailies are kingdoms provided each day in the Temple Gates Games Client, where you compete against the Hard AI.\\\nShoutout to the amazing people on the TGG discord who helped me collect these (most notably ``probably-lost``, ``igorbone`` and ``Diesel Pioneer``)."
     elif selected_stuff == "Fabi's Recommendations":
         return "My personal recommendations of kingdoms I randomly stumbled upon, played in the TGG client against the Hard AI, and deemed to be interesting.\\\nHave fun with them! They usually contain a large amount of expansions, so they might be more suited for online play."
+    elif selected_stuff == "Reddit's KOTW":
+        return "The Kingdom of the Week (KOTW) is a weekly event on the Dominion subreddit, where a curated kingdom is covered. These usually offer especially interesting interactions.\\\nCheck out the [Dominion subreddit](https://www.reddit.com/r/dominion/) for more information."
     else:
         return "Unknown"
 
@@ -151,9 +162,51 @@ def _build_csos_filter_widget(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def build_existing_kingdom_select(
-    selection_type: Literal["Recommended", "TGG Dailies", "Fabi's Recommendations"]
-):
+def _build_random_selection_button(df: pd.DataFrame):
+    if st.button(
+        "Random\nSelection",
+        key="kingdom_select_random_selection",
+        use_container_width=True,
+        type="primary",
+        help="Select a random kingdom from those currently eligible.",
+    ):
+        if len(df) > 0:
+            series = df.sample().iloc[0]
+            kingdom = rk.Kingdom.from_dict(series.to_dict())
+            st.session_state["kingdom_input"] = kingdom.get_dombot_csv_string()
+            st.session_state["kingdom_name"] = kingdom.name
+
+
+def _build_tgg_winrate_filter_widget(df: pd.DataFrame) -> pd.DataFrame:
+    cols = st.columns([0.8, 0.2])
+    with cols[1]:
+        apply_winrate_filter = st.checkbox(
+            "Filter by winrate",
+            help="If checked, you can filter the kingdoms by the winrate of the TGG Hard AI. The winrate is an approximation and might not be accurate.",
+            key="kingdom_select_winrate_filter_checkbox",
+        )
+    with cols[0]:
+        winrate_slider = st.slider(
+            "Winrate",
+            min_value=0.0,
+            max_value=1.0,
+            value=(0.0, 1.0),
+            step=0.01,
+            key="kingdom_select_winrate_filter",
+            help="Filter kingdoms by the winrate of the TGG Hard AI. The winrate is an approximation and might not be accurate.",
+            disabled=not apply_winrate_filter,
+        )
+    if apply_winrate_filter:
+        st.info(
+            f"The winrate of the TGG Hard AI was kindly provided to me by Jeff - thanks a lot!\\\nThe winrate $\\eta$ is defined as $\\eta = \\frac{{N_{{\\rm First Wins}}}}{{N_{{\\rm First Wins}} + N_{{\\rm First Losses}}}}$ where $N_{{\\rm First Wins}}$ and $N_{{\\rm First Losses}}$ are the number of games the players won or lost against the AI on their first playthrough. It is only available for kingdoms played after mid December 2023 (when AI difficulty settings were introduced to the Daily).\\\nIf you're filtering for it, all kingdoms where it's unavailable are excluded."
+        )
+    if apply_winrate_filter:
+        df = df[df["winrate"] != ""]
+        df = df[df["winrate"].between(*winrate_slider)]
+    return df
+
+
+def build_existing_kingdom_select(selection_type: str):
     """Build a way for the user to select one of the given existing kingdoms
     provided via the dataframe.
     """
@@ -162,28 +215,32 @@ def build_existing_kingdom_select(
         st.write("Filtering options")
         df = _build_exps_filter_widget(df)
         df = _build_csos_filter_widget(df)
+        if selection_type == "TGG Dailies":
+            df = _build_tgg_winrate_filter_widget(df)
 
     if len(df) == 0:
         st.warning("No kingdoms available for your selection.")
         return
 
-    cols = st.columns([0.9, 0.1])
+    cols = st.columns([0.75, 0.15, 0.1])
     with cols[0]:
         _build_kingdom_select_box(df)
     with cols[1]:
+        _build_random_selection_button(df)
+    with cols[2]:
         _build_reference_widget()
 
 
 with st.expander("Select existing kingdom to visualize", expanded=False):
     selection = st.radio(
         "Which set of kingdoms?",
-        ["Recommended", "TGG Dailies", "Fabi's Recommendations"],
+        ["Recommended", "TGG Dailies", "Reddit's KOTW", "Fabi's Recommendations"],
         index=0,
         horizontal=True,
         key="kingdom_select_group",
     )
-    if selection in ["Recommended", "TGG Dailies", "Fabi's Recommendations"]:
-        build_existing_kingdom_select(selection)  # type: ignore
+    if selection is not None:
+        build_existing_kingdom_select(selection)
         st.info(_get_short_info(selection))
 
 cols = st.columns([0.9, 0.1])
@@ -192,6 +249,7 @@ with cols[0]:
         "Enter a kingdom in the DomBot-typical-csv Format 'card1, card2, ..., cardN'. You may specify the bane card with 'Young Witch: card' or 'Young Witch(Card)'.",
         value=st.session_state.get("kingdom_input", ""),
         key="kingdom_input",
+        placeholder="e.g. Chapel, Village, Young Witch (Moat), Pious (Poet), Swindler, Growth, ...",
     )
 with cols[1]:
     if len(kingdom_input) > 0:

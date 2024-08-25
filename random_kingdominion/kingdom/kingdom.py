@@ -143,6 +143,8 @@ class Kingdom:
         new_string = remove_deep_nested_parentheses(csv_string)
         if new_string != csv_string:
             note_str += "Removed nested parentheses, they currently aren't supported.\n"
+        for col_str in ["colony", "colony/platinum", "platinum"]:
+            new_string = new_string.lower().replace(col_str, "colonies")
         # Search for all single entries (we can't just split by "," because of druid boons)
         pattern = r"\s*,\s*(?![^()]*\))"
         full_list = re.split(pattern, new_string)
@@ -176,7 +178,11 @@ class Kingdom:
             if "druid" in special_dict
             else []
         )
-        bane_pile = sanitize_cso_name(special_dict["young_witch"])
+        bane_pile = (
+            sanitize_cso_name(special_dict["young_witch"])
+            if "young_witch" in special_dict
+            else sanitize_cso_name(special_dict["bane"])
+        )
         if bane_pile != "":
             cso_list += [bane_pile]
         obelisk_pile = sanitize_cso_name(special_dict["obelisk"])
@@ -212,7 +218,10 @@ class Kingdom:
             cards = pd.concat(
                 [cards, ALL_CSOS.loc[[t[1] for t in traits if t[1] not in cards.index]]]
             )
-
+        if "" in unrecognized_csos:
+            unrecognized_csos.remove("")
+        if "bane" in unrecognized_csos:
+            unrecognized_csos.remove("bane")
         if len(unrecognized_csos) > 0:
             note_str += f"Unrecognized: {unrecognized_csos}\n"
         if len(duplicates) > 0:

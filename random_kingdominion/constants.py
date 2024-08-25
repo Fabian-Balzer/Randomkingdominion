@@ -142,6 +142,7 @@ FPATH_RANDOMIZER_CONFIG_DEFAULTS = PATH_ASSETS.joinpath(
 FPATH_KINGDOMS_RECOMMENDED = PATH_ASSETS.joinpath("kingdoms/recommended.yml")
 FPATH_KINGDOMS_LAST100 = PATH_ASSETS.joinpath("kingdoms/last_100.yml")
 FPATH_KINGDOMS_TGG_DAILIES = PATH_ASSETS.joinpath("kingdoms/tgg_dailies.yml")
+FPATH_KINGDOMS_KOTW_REDDIT = PATH_ASSETS.joinpath("kingdoms/reddit_kotw.yml")
 FPATH_KINGDOMS_CUSTOM = PATH_ASSETS.joinpath("kingdoms/custom_kingdoms.yml")
 
 

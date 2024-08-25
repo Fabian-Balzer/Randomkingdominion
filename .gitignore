@@ -1,5 +1,7 @@
 *.old.jpg
 
+reddit_kotw.html
+Dominion Rules Lookup - Database.csv
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
