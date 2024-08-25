@@ -1,3 +1,8 @@
+- 1.2.0 (2024-08-25):
+  - Updated TGG kingdoms, and added them to be accessible on the oracle page.
+  - Customized kingdom filtering options for recommended, TGG, and my own kingdoms.
+  - Added 'is_valid' field to kingdoms to assess whether a kingdom is valid.
+  - Added expansions to yaml files to avoid having to load each kingdom, vastly improving first loading time.
 - 1.1.0 (2024-08-22):
   - Added regex filtering options for card database
   - Added type amount filtering option

@@ -16,7 +16,9 @@ SELECTED_EXPANSIONS = []
 with st.container(border=True):
     st.write("#### Use these options to filter the database below")
     INVERT_MASK = st.checkbox(
-        "Invert all filters", value=False, help="Invert all applied filters."
+        "Invert all filters",
+        value=False,
+        help="Invert all filters applied to the database.",
     )
     TABS = st.tabs(["Text", "Expansions", "Types", "Cost", "Columns", "Other"])
     with TABS[0]:

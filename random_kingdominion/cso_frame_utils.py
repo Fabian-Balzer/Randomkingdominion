@@ -190,14 +190,14 @@ def get_sub_df_for_special_card(
     elif special_card_to_pick_for == "ferryman":
         banned_for_ferryman = ["Young Witch", "Riverboat"]
         pool = _get_sub_df_for_cost(pool, ["$3", "$4", "$3+", "$4+"])
-        pool = pool[~np.in1d(pool["Name"], banned_for_ferryman)]
+        pool = pool[~np.isin(pool["Name"], banned_for_ferryman)]
         return pool
     elif special_card_to_pick_for == "approaching_army":
         banned_for_army = [
             "Young Witch"
         ]  # Don't want to deal with the annoyances of that stuff xD
         pool = pool[listlike_contains(pool["Types"], "Attack")]
-        pool = pool[~np.in1d(pool["Name"], banned_for_army)]
+        pool = pool[~np.isin(pool["Name"], banned_for_army)]
         return pool
     # In the case of mouse or riverboat, we are picking single cards rather
     # than piles, such that single Knights etc. can also be part.
@@ -229,13 +229,13 @@ def get_sub_df_for_special_card(
         ]
         pool = _get_sub_df_for_cost(pool, ["$2", "$3", "$2+", "$3+"])
         pool = pool[listlike_contains(pool["Types"], "Action")]
-        pool = pool[~np.in1d(pool["Name"], banned_for_mouse)]
+        pool = pool[~np.isin(pool["Name"], banned_for_mouse)]
     elif special_card_to_pick_for == "riverboat":
         banned_for_riverboat = ["Royal Carriage", "Ferryman", "Distant Lands"]
         pool = _get_sub_df_for_cost(pool, ["$5", "$5*"])
         pool = pool[listlike_contains(pool["Types"], "Action")]
         pool = pool[~listlike_contains(pool["Types"], "Duration")]
-        pool = pool[~np.in1d(pool["Name"], banned_for_riverboat)]
+        pool = pool[~np.isin(pool["Name"], banned_for_riverboat)]
     return pool
 
 

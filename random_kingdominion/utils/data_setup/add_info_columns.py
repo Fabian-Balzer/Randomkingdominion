@@ -100,7 +100,7 @@ def test_in_supply(df):
         "Platinum",
         "Potion",
     ] + SPLITPILE_CARDS
-    # Knights and Castles as piles have a differing type from their instances
+    # Knights as piles have a differing type from their instances
     still_include = [
         "Page",
         "Peasant",
@@ -110,6 +110,7 @@ def test_in_supply(df):
         "Wizards",
         "Clashes",
         "Forts",
+        "Castles",
     ]
     series = (
         (

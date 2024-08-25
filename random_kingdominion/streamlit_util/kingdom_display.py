@@ -20,9 +20,9 @@ from .randomizer_util import reroll_cso, reroll_selected_csos
 
 
 @st.fragment
-def _build_clipboard_button():
+def build_clipboard_button(state_key: str):
     csv_str = Kingdom.from_dombot_csv_string(
-        st.session_state["randomized_kingdom"]
+        st.session_state[state_key]
     ).get_dombot_csv_string()
     st_copy_to_clipboard(
         csv_str,
@@ -191,7 +191,7 @@ def build_csv_display():
                 unsafe_allow_html=True,
             )
     with cols[1]:
-        _build_clipboard_button()
+        build_clipboard_button("randomized_kingdom")
 
 
 def display_kingdom(k: Kingdom, is_randomizer_view=True):

@@ -6,7 +6,7 @@ import re
 from collections import defaultdict
 from dataclasses import asdict, dataclass, field
 from functools import reduce
-from typing import Any
+from typing import Any, Literal
 from uuid import uuid4
 
 import numpy as np
@@ -21,6 +21,30 @@ from .kingdom_helper_funcs import (
     sanitize_cso_name,
     sort_kingdom,
 )
+
+
+def remove_deep_nested_parentheses(s: str) -> str:
+    """Remove all parentheses and stuff in them that are nested deeper than one layer,
+    e.g. "Nearby(Druid(_boons_))" -> "Nearby(Druid)".
+    """
+    stack = []
+    result = []
+
+    for char in s:
+        if char == "(":
+            stack.append(char)
+            if len(stack) == 1:
+                result.append(char)
+        elif char == ")":
+            if len(stack) == 1:
+                result.append(char)
+            if stack:
+                stack.pop()
+        else:
+            if not stack or len(stack) == 1:
+                result.append(char)
+
+    return "".join(result)
 
 
 def get_cso_name(cso_key: str) -> str:
@@ -102,19 +126,26 @@ class Kingdom:
         "full_kingdom_df",
         "kingdom_card_df",
         "kingdom_landscape_df",
-        "expansions",
         "extras",
         "total_qualities",
     }
 
     @classmethod
-    def from_dombot_csv_string(cls, csv_string: str) -> Kingdom:
+    def from_dombot_csv_string(cls, csv_string: str, name: str = "") -> Kingdom:
         """Try to initialize the kingdom from a given comma-separated value string similar to
         the one that DomBot produces using the !kingdom -r -l command.
+        Does not support deep nesting (e.g. Nearby(Druid(_boons_)) would be ignored).
         """
+        note_str = ""
+        # remove the -m parameter sometimes present in TGG kingdoms
+        csv_string = csv_string.replace("-m ", ", ")
+        # Remove all parentheses and stuff in them that are nested deeper than one layer
+        new_string = remove_deep_nested_parentheses(csv_string)
+        if new_string != csv_string:
+            note_str += "Removed nested parentheses, they currently aren't supported.\n"
         # Search for all single entries (we can't just split by "," because of druid boons)
         pattern = r"\s*,\s*(?![^()]*\))"
-        full_list = re.split(pattern, csv_string)
+        full_list = re.split(pattern, new_string)
         full_list = [entry.replace(":", "(") for entry in full_list]
         duplicates = [entry for entry in full_list if full_list.count(entry) > 1]
         full_list = list(set(full_list))
@@ -134,7 +165,7 @@ class Kingdom:
             if not ("colonies" in entry.lower() or "shelters" in entry.lower())
         ]
         cso_list = [sanitize_cso_name(entry.split("(")[0]) for entry in cso_list]
-        special_ones = [entry for entry in full_list if "(" in entry or ":" in entry]
+        special_ones = [entry for entry in full_list if "(" in entry]
         special_tuples = [tupstr.split("(") for tupstr in special_ones]
         special_dict = {
             sanitize_cso_name(cso): inside.strip(") ") for cso, inside in special_tuples
@@ -182,7 +213,6 @@ class Kingdom:
                 [cards, ALL_CSOS.loc[[t[1] for t in traits if t[1] not in cards.index]]]
             )
 
-        note_str = ""
         if len(unrecognized_csos) > 0:
             note_str += f"Unrecognized: {unrecognized_csos}\n"
         if len(duplicates) > 0:
@@ -202,6 +232,7 @@ class Kingdom:
             army_pile=army_pile,
             traits=traits,
             notes=note_str,
+            name=name,
         )
 
     @classmethod
@@ -307,6 +338,108 @@ class Kingdom:
             card_text += "\nUse Colonies/Platinum"
         return card_text.replace("\t", "  ")
 
+    @property
+    def is_valid(self) -> bool:
+        """Check whether this kingdom is valid."""
+        return len(self.get_reasons_for_invalidity()) == 0
+
+    def _get_reasons_young_witch(self) -> list[str]:
+        reasons = []
+        bane = self.bane_pile
+        if bane != "" and "young_witch" not in self.cards:
+            reasons.append("no_young_witch_but_bane")
+        if bane == "" and "young_witch" in self.cards:
+            reasons.append("young_witch_but_no_bane")
+        if bane != "" and bane not in self.cards:
+            reasons.append(f"bane_{bane}_not_in_cards")
+        return reasons
+
+    def _get_reasons_army(self) -> list[str]:
+        reasons = []
+        army = self.army_pile
+        if army != "" and "approaching_army" not in self.landscapes:
+            reasons.append("no_approaching_army_but_army_pile")
+        if army == "" and "approaching_army" in self.landscapes:
+            reasons.append("approaching_army_but_no_army")
+        if army != "" and army not in self.cards:
+            reasons.append(f"army_{army}_not_in_cards")
+        return reasons
+
+    def _get_reasons_ally_prophecy(self) -> list[str]:
+        reasons = []
+        contains_liaison = self.check_cards_for_type("IsLiaison")
+        contains_omen = self.check_cards_for_type("IsOmen")
+        if contains_liaison and not self.contains_ally():
+            reasons.append("no_ally")
+        if contains_omen and not self.contains_prophecy():
+            reasons.append("no_prophecy")
+        if self.contains_ally() and not contains_liaison:
+            reasons.append("no_liaison")
+        if self.contains_prophecy() and not contains_omen:
+            reasons.append("no_omen")
+        return reasons
+
+    def _get_reasons_traits(self) -> list[str]:
+        reasons = []
+        trait_dict = self.trait_dict
+        ls = self.kingdom_landscape_df
+        traits = ls[ls["IsTrait"]].index.tolist()
+        for trait in traits:
+            if trait not in trait_dict:
+                reasons.append(f"no_trait_{trait}_target")
+            if (target := trait_dict.get(trait, "")) not in self.cards:
+                reasons.append(f"trait_{trait}_target_{target}_not_in_cards")
+        for trait in trait_dict:
+            if trait not in traits:
+                reasons.append(f"trait_{trait}_not_in_landscapes")
+        return reasons
+
+    def _get_reasons_extras(self) -> list[str]:
+        reasons = []
+        if self.ferryman_pile != "" and "ferryman" not in self.cards:
+            reasons.append("no_ferryman_but_target")
+        if "ferrymen" in self.cards and self.ferryman_pile == "":
+            reasons.append("no_ferryman_target")
+        if self.riverboat_card != "" and "riverboat" not in self.cards:
+            reasons.append("no_riverboat_but_target")
+        if "riverboat" in self.cards and self.riverboat_card == "":
+            reasons.append("no_riverboat_target")
+        if self.mouse_card != "" and "way_of_the_mouse" not in self.landscapes:
+            reasons.append("no_mouse_but_target")
+        if "way_of_the_mouse" in self.landscapes and self.mouse_card == "":
+            reasons.append("no_mouse_target")
+        if self.obelisk_pile != "" and "obelisk" not in self.landscapes:
+            reasons.append("obelisk_but_no_ob")
+        if "obelisk" in self.landscapes and self.obelisk_pile == "":
+            reasons.append("no_obelisk_target")
+        if "druid" in self.cards and len(self.druid_boons) != 3:
+            reasons.append("no_druid_boons")
+        if "druid" not in self.cards and len(self.druid_boons) > 0:
+            reasons.append("no_druid_but_boons")
+        return reasons
+
+    def get_reasons_for_invalidity(self) -> list[str]:
+        """Check whether this kingdom represents a valid kingdom."""
+        cards = self.cards
+        reasons = []
+        expected_card_num = 10
+        if self.bane_pile != "":
+            expected_card_num += 1
+        if self.army_pile != "":
+            expected_card_num += 1
+        if len(cards) != expected_card_num:
+            reasons.append(f"wrong_card_num_of_{len(cards)}")
+        if len(self.landscapes) > 4:
+            reasons.append("too_many_landscapes")
+        reason_funcs = [
+            self._get_reasons_ally_prophecy,
+            self._get_reasons_traits,
+            self._get_reasons_extras,
+            self._get_reasons_young_witch,
+            self._get_reasons_army,
+        ]
+        return reasons + [reason for func in reason_funcs for reason in func()]
+
     def get_cso_name_with_extra(self, cso_key: str) -> str:
         """Get the name of the card or landscape with the extra information."""
         return get_cso_name(cso_key) + self._get_cso_extras(cso_key)
@@ -380,6 +513,11 @@ class Kingdom:
         proper_strings.append("Colonies" if self.use_colonies else "No Colonies")
         sep_string = ", ".join(sorted(proper_strings))
         return sep_string
+
+    def check_cards_for_type(self, key: Literal["IsLiaison", "IsOmen"]) -> bool:
+        """Check whether this kingdom contains a card of the given type."""
+        # Deliberately check full kingdom df as omen or liaison might be hidden in ferryman/riverboat/mouse stuff
+        return np.sum(self.full_kingdom_df[key]) > 0
 
     def contains_ally(self) -> bool:
         """Checks whether this kingdom contains an ally"""

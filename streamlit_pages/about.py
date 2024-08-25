@@ -67,7 +67,7 @@ In the future, the following features might find their way into the randomizer:
     - Some cards require extra setup or components, such as tokens or mats. Maybe I'll add a feature to limit them (relevant for IRL play).
 - **Kingdom history**:
     - Save the kingdoms you've generated to look at them later.
-- **Kingdom analysis of recommended sets**:
+- ✅ **Kingdom analysis of recommended sets**:
     - I plan to include the recommended (and maybe the TGG Daily) sets as part of the Kingdom Oracle so you'll be able to analyze them there without having to paste them in.
 """
 
@@ -92,7 +92,15 @@ final_text = """
 
 Dominion is a game by Donald X. Vaccarino and published by Rio Grande Games.
 This project has no affiliation with either party.\\
-Card images were taken from the Dominion Strategy Wiki and might be outdated (let me know!).
+Card images were taken from the Dominion Strategy Wiki and might be outdated (let me know!).\\
+Here are some links to relevant Dominion pages:
+
+- [Dominion Strategy Wiki](https://wiki.dominionstrategy.com/)
+- [Dominion Online Implementation](https://dominion.games/)
+- [Dominion by Temple Gates Games](https://store.steampowered.com/app/1131620/Dominion/)
+- [The Dominion Discord](https://discord.gg/dominiongame)
+- [The Dominion Subreddit](https://www.reddit.com/r/dominion/)
+- [Kieran Millar's Extra Recommended Sets](https://kieranmillar.github.io/extra-recommended-sets/)
 """
 
 st.write(final_text)

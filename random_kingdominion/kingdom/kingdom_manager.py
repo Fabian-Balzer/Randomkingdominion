@@ -6,8 +6,30 @@ from typing import Any
 import pandas as pd
 import yaml
 
-from ..constants import FPATH_KINGDOMS_LAST100, FPATH_KINGDOMS_RECOMMENDED
+from ..constants import (
+    FPATH_KINGDOMS_LAST100,
+    FPATH_KINGDOMS_RECOMMENDED,
+    FPATH_KINGDOMS_TGG_DAILIES,
+    FPATH_KINGDOMS_CUSTOM,
+)
 from .kingdom import Kingdom
+
+
+def custom_fillna(column: pd.Series) -> pd.Series:
+    """Fill NaN values based on the type of the column."""
+    if column.dtype == "object":
+        if column.apply(lambda x: isinstance(x, list)).any():
+            filled_column = column.apply(lambda x: x if isinstance(x, list) else [])
+        elif column.apply(lambda x: isinstance(x, bool)).any():
+            filled_column = column.fillna(False)
+        else:
+            filled_column = column.fillna("")
+    elif column.dtype == "bool":
+        filled_column = column.fillna(False)
+    else:
+        filled_column = column.fillna("")
+    # Call infer_objects to handle the FutureWarning
+    return filled_column.infer_objects(copy=False)  # type: ignore
 
 
 class KingdomManager:
@@ -47,7 +69,7 @@ class KingdomManager:
     @property
     def dataframe_repr(self) -> pd.DataFrame:
         """Return the kingdoms as a DataFrame."""
-        return pd.DataFrame(self.kingdoms).set_index("idx")
+        return pd.DataFrame(self.kingdoms).set_index("idx").apply(custom_fillna)
 
     def get_kingdom_by_name(self, kingdom_name: str) -> Kingdom | None:
         """Try to recover the given kingdom by its name."""
@@ -80,6 +102,12 @@ class KingdomManager:
     def load_recommended_kingdoms(self):
         self.load_kingdoms_from_yaml(FPATH_KINGDOMS_RECOMMENDED)
 
+    def load_tgg_dailies(self):
+        self.load_kingdoms_from_yaml(FPATH_KINGDOMS_TGG_DAILIES)
+
+    def load_custom_kingdoms(self):
+        self.load_kingdoms_from_yaml(FPATH_KINGDOMS_CUSTOM)
+
     def save_last_100_kingdoms(self):
         if not self.in_last_kingdom_mode:
             print("Skipped saving last 100 kingdoms as not started in lastKingdomMode")
@@ -95,5 +123,10 @@ class KingdomManager:
                 ]
 
     def save_kingdoms_to_yaml(self, file_path: str | Path):
+        if isinstance(file_path, str):
+            if "/" in file_path:
+                file_path = Path(file_path)
+            else:
+                file_path = FPATH_KINGDOMS_RECOMMENDED.parent.joinpath(file_path)
         with open(file_path, "w", encoding="utf-8") as yaml_file:
             yaml_file.write(self.yaml_repr)
