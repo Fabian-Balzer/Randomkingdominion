@@ -5,6 +5,7 @@ import streamlit as st
 from PIL import ImageOps
 from st_copy_to_clipboard import st_copy_to_clipboard
 
+from ..constants import ALL_CSOS
 from ..kingdom import Kingdom, sanitize_cso_name
 from ..utils import get_cso_quality_description, invert_dict
 from .cso_df_display import display_stylysed_cso_df
@@ -228,6 +229,14 @@ def display_kingdom(k: Kingdom, is_randomizer_view=True):
         with tabs[2]:
             display_kingdom_plot(k, with_border=True)
         build_csv_display()
+    if len(inter := k.get_interactions()) > 0:
+        st.write("### Special Interactions (rules-wise)")
+        for _, (c1, c2, rule) in inter.iterrows():
+            c1 = ALL_CSOS.loc[c1]["Name"]
+            c2 = ALL_CSOS.loc[c2]["Name"]
+            st.write(f"- {c1} and {c2}: {rule}")
+    else:
+        st.write("### No special rules interactions found.")
 
 
 def display_current_kingdom():

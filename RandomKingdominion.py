@@ -53,6 +53,12 @@ pg = st.navigation(
                 icon="📂",
             ),
             st.Page(
+                "streamlit_pages/interactions.py",
+                title="Interactions",
+                url_path="interactions",
+                icon="↔️",
+            ),
+            st.Page(
                 "streamlit_pages/about.py",
                 title="About this page",
                 url_path="about",

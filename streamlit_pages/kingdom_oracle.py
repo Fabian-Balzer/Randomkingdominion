@@ -1,3 +1,4 @@
+import pandas as pd
 import streamlit as st
 
 import random_kingdominion as rk
@@ -7,9 +8,6 @@ rk.build_page_header(
     "This page allows you to easily input a kingdom to visualize its engine qualities and take a more detailed look on its CSOs. The resulting plot also shows any extra components you'd need to set up the kingdom in its physical form.",
     "Learn more about the CSO and kingdom qualities on the about page.",
 )
-
-
-import pandas as pd
 
 
 @st.cache_data
@@ -32,7 +30,7 @@ def load_existing_kingdoms(selection_type: str) -> pd.DataFrame:
     df["name_with_exps"] = df["name"] + " (" + exp_repr + ")"
     if selection_type == "TGG Dailies":
         sani_wr = df["winrate"].apply(
-            lambda x: f" [{x*100:.1f} %]" if x != "" else "N/A"
+            lambda x: f" [{x*100:.1f} %]" if x != "" else " [N/A]"
         )
         df["name_with_exps"] = df["name_with_exps"] + sani_wr
     df["csos"] = df.apply(lambda x: x["cards"] + x["landscapes"], axis=1)
@@ -251,12 +249,18 @@ with cols[0]:
         key="kingdom_input",
         placeholder="e.g. Chapel, Village, Young Witch (Moat), Pious (Poet), Swindler, Growth, ...",
     )
+try:
+    if kingdom_input != "":
+        kingdom = rk.Kingdom.from_dombot_csv_string(kingdom_input)
+    else:
+        kingdom = rk.Kingdom([])
+except ValueError:
+    kingdom = rk.Kingdom([], notes="Invalid kingdom input. Please check the format.")
+kingdom.name = st.session_state.get("kingdom_name", "")
 with cols[1]:
-    if len(kingdom_input) > 0:
+    if not kingdom.is_empty:
         rk.build_clipboard_button("kingdom_input")
 
-kingdom = rk.Kingdom.from_dombot_csv_string(kingdom_input)
-kingdom.name = st.session_state.get("kingdom_name", "")
 if kingdom.notes != "" and "['']" not in kingdom.notes:
     notes = kingdom.notes.replace("\n", "<br>").removesuffix("<br>")
     red_background_message = f"""

@@ -140,7 +140,8 @@ def get_expansion_icon_path(expansion: str, relative_only: bool = False) -> str:
     for outdated_exp in RENEWED_EXPANSIONS:
         conversion_dict[outdated_exp + ", 1E"] = outdated_exp + "_old"
         conversion_dict[outdated_exp + ", 2E"] = outdated_exp
-    conversion_dict["Cornucopia & Guilds, 2E"] = "CornGuilds"
+    for cguild_str in ["Cornucopia & Guilds, 2E", "Cornucopia", "Guilds"]:
+        conversion_dict[cguild_str] = "CornGuilds"
     if expansion in conversion_dict:
         expansion = conversion_dict[expansion]
     rel_path = base + expansion.replace(" ", "_") + ".png"

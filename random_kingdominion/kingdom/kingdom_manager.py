@@ -16,6 +16,8 @@ from ..constants import (
 )
 from .kingdom import Kingdom
 
+pd.set_option("future.no_silent_downcasting", True)
+
 
 def _load_tgg_winrate_data() -> dict[str, float]:
     win_data = pd.read_csv(

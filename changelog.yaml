@@ -1,7 +1,12 @@
+- 1.3.0 (2024-08-26):
+  - Curated interactions from the rules lookup project, added them to the card database.
+  - Added card and expansion filters for interactions.
+  - Added interactions to kingdom view in oracle and randomizer mode.
+  - Added safety and validity checks for oracle page, improved kingdom readout.
 - 1.2.1 (2024-08-25):
-  - Added 'Kingdom Of The Week' kingdoms to the oracle page
-  - Added TGG Daily Winrate and a filter for it
-  - Added 'random' button for selected kingdoms on oracle page
+  - Added 'Kingdom Of The Week' kingdoms to the oracle page.
+  - Added TGG Daily Winrate and a filter for it.
+  - Added 'random' button for selected kingdoms on oracle page.
 - 1.2.0 (2024-08-25):
   - Updated TGG kingdoms, and added them to be accessible on the oracle page.
   - Customized kingdom filtering options for recommended, TGG, and my own kingdoms.

@@ -12,7 +12,12 @@ from uuid import uuid4
 import numpy as np
 import pandas as pd
 
-from ..constants import ALL_CSOS, QUALITIES_AVAILABLE, RENEWED_EXPANSIONS
+from ..constants import (
+    ALL_CSOS,
+    ALL_INTERACTIONS,
+    QUALITIES_AVAILABLE,
+    RENEWED_EXPANSIONS,
+)
 from ..utils.utils import copy_to_clipboard
 from .kingdom_helper_funcs import (
     _dict_factory_func,
@@ -131,20 +136,30 @@ class Kingdom:
     }
 
     @classmethod
-    def from_dombot_csv_string(cls, csv_string: str, name: str = "") -> Kingdom:
+    def from_dombot_csv_string(
+        cls,
+        csv_string: str,
+        name: str = "",
+        add_unrecognized_notes=True,
+        add_invalidity_notes=True,
+    ) -> Kingdom:
         """Try to initialize the kingdom from a given comma-separated value string similar to
         the one that DomBot produces using the !kingdom -r -l command.
         Does not support deep nesting (e.g. Nearby(Druid(_boons_)) would be ignored).
         """
         note_str = ""
         # remove the -m parameter sometimes present in TGG kingdoms
-        csv_string = csv_string.replace("-m ", ", ")
+        csv_string = csv_string.replace("-m ", ", ").replace(". ", ", ")
         # Remove all parentheses and stuff in them that are nested deeper than one layer
         new_string = remove_deep_nested_parentheses(csv_string)
         if new_string != csv_string:
             note_str += "Removed nested parentheses, they currently aren't supported.\n"
         for col_str in ["colony", "colony/platinum", "platinum"]:
-            new_string = new_string.lower().replace(col_str, "colonies")
+            new_string = (
+                new_string.lower()
+                .replace(col_str, "colonies")
+                .replace("landscapes: ", ", ")
+            )
         # Search for all single entries (we can't just split by "," because of druid boons)
         pattern = r"\s*,\s*(?![^()]*\))"
         full_list = re.split(pattern, new_string)
@@ -222,12 +237,12 @@ class Kingdom:
             unrecognized_csos.remove("")
         if "bane" in unrecognized_csos:
             unrecognized_csos.remove("bane")
-        if len(unrecognized_csos) > 0:
+        if add_unrecognized_notes and len(unrecognized_csos) > 0:
             note_str += f"Unrecognized: {unrecognized_csos}\n"
-        if len(duplicates) > 0:
+        if add_unrecognized_notes and len(duplicates) > 0:
             dup_counts = {entry: duplicates.count(entry) for entry in duplicates}
             note_str += f"Duplicates: {dup_counts}\n"
-        return Kingdom(
+        k = Kingdom(
             cards.index.to_list(),
             landscapes=landscapes.index.to_list(),
             use_colonies=use_colonies,
@@ -243,6 +258,12 @@ class Kingdom:
             notes=note_str,
             name=name,
         )
+        if (
+            add_invalidity_notes
+            and len(invalid_reasons := k.get_reasons_for_invalidity()) > 0
+        ):
+            k.notes += f"This is only a partial kingdom, reason(s): {invalid_reasons}"
+        return k
 
     @classmethod
     def from_dict(cls, kingdom_dict: dict[str, Any]) -> Kingdom:
@@ -619,7 +640,7 @@ class Kingdom:
     def get_component_string(self) -> str:
         """Retrieve the string describing the extra components and csos needed for this kingdom."""
         comp = self.full_kingdom_df["Extra Components"].tolist()
-        excluded = ["Trash mat"]
+        excluded = ["Trash mat", "-"]
         unzipped = [cso for cso_list in comp for cso in cso_list if cso not in excluded]
         uni_comp = list(np.unique(unzipped))
         if self.use_shelters:
@@ -658,3 +679,16 @@ class Kingdom:
         """Copies the kingdom to the clipboard."""
 
         copy_to_clipboard(self.get_dombot_csv_string())
+
+    def get_interactions(self) -> pd.DataFrame:
+        """Get all interactions between the cards in this kingdom."""
+        combinations = []
+        keys = self.full_kingdom_df.index.tolist()
+        for key1 in keys:
+            for key2 in keys:
+                if key1 >= key2:
+                    continue
+                combinations.append(f"{key1}___{key2}")
+        combinations = [c for c in combinations if c in ALL_INTERACTIONS.index]
+        interactions = ALL_INTERACTIONS.loc[combinations]
+        return interactions

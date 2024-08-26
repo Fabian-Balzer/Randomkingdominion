@@ -1,4 +1,20 @@
 - cards:
+  - cartographer
+  - council_room
+  - farmland
+  - fools_gold
+  - library
+  - market
+  - militia
+  - poacher
+  - souk
+  - weaver
+  expansions:
+  - Base, 2E
+  - Hinterlands, 2E
+  idx: 165083237427305287044598286852278853515
+  name: 2024-8-26
+- cards:
   - bazaar
   - black_cat
   - footpad
@@ -25,6 +41,7 @@
   traits:
   - - pious
     - forge
+  winrate: 0.1246
 - cards:
   - berserker
   - castles
@@ -51,6 +68,7 @@
   - bandit_fort
   - pageant
   name: 2024-8-24
+  winrate: 0.0664
 - cards:
   - band_of_misfits
   - bank
@@ -68,6 +86,7 @@
   idx: 68715540766033669432543229437186294245
   name: 2024-8-23
   use_colonies: true
+  winrate: 0.0947
 - cards:
   - barbarian
   - bridge
@@ -86,6 +105,7 @@
   landscapes:
   - market_towns
   name: 2024-8-22
+  winrate: 0.1152
 - cards:
   - augurs
   - broker
@@ -104,6 +124,7 @@
   landscapes:
   - band_of_nomads
   name: 2024-8-21
+  winrate: 0.1162
 - cards:
   - bauble
   - emissary
@@ -121,6 +142,7 @@
   landscapes:
   - circle_of_witches
   name: 2024-8-20
+  winrate: 0.1537
 - cards:
   - bandit
   - chapel
@@ -137,6 +159,7 @@
   - Hinterlands, 2E
   idx: 298036535365105735590169346606074762219
   name: 2024-8-19
+  winrate: 0.47729999999999995
 - cards:
   - capital
   - count
@@ -163,6 +186,7 @@
   - journey
   - way_of_the_squirrel
   name: 2024-8-18
+  winrate: 0.289
 - cards:
   - candlestick_maker
   - cavalry
@@ -189,6 +213,7 @@
   - travelling_fair
   name: 2024-8-17
   use_shelters: true
+  winrate: 0.1522
 - army_pile: ninja
   cards:
   - craftsman
@@ -211,6 +236,7 @@
   - approaching_army
   - asceticism
   name: 2024-8-16
+  winrate: 0.126
 - cards:
   - black_cat
   - daimyo
@@ -230,6 +256,7 @@
   - alliance
   - enlightenment
   name: 2024-8-15
+  winrate: 0.17809999999999998
 - cards:
   - aristocrat
   - craftsman
@@ -248,6 +275,7 @@
   landscapes:
   - kintsugi
   name: 2024-8-14
+  winrate: 0.1941
 - cards:
   - alley
   - artist
@@ -266,6 +294,7 @@
   - asceticism
   - biding_time
   name: 2024-8-13
+  winrate: 0.2647
 - cards:
   - bandit
   - cellar
@@ -285,6 +314,7 @@
   - amass
   - kintsugi
   name: 2024-8-12
+  winrate: 0.2723
 - cards:
   - border_village
   - expand
@@ -311,6 +341,7 @@
   - triumph
   - wall
   name: 2024-8-11
+  winrate: 0.0758
 - cards:
   - daimyo
   - gardens
@@ -329,6 +360,7 @@
   landscapes:
   - panic
   name: 2024-8-10
+  winrate: 0.2016
 - cards:
   - distant_lands
   - giant
@@ -348,6 +380,7 @@
   - raid
   - save
   name: 2024-8-9
+  winrate: 0.16219999999999998
 - cards:
   - barbarian
   - charlatan
@@ -366,6 +399,7 @@
   landscapes:
   - trappers_lodge
   name: 2024-8-8
+  winrate: 0.18
 - cards:
   - caravan_guard
   - coin_of_the_realm
@@ -384,6 +418,7 @@
   landscapes:
   - inheritance
   name: 2024-8-7
+  winrate: 0.40399999999999997
 - cards:
   - bishop
   - city
@@ -400,6 +435,7 @@
   idx: 59349829751735254122249533760981133600
   name: 2024-8-6
   use_colonies: true
+  winrate: 0.08789999999999999
 - cards:
   - enlarge
   - figurine
@@ -422,6 +458,7 @@
   traits:
   - - friendly
     - kings_cache
+  winrate: 0.06559999999999999
 - cards:
   - castles
   - engineer
@@ -447,6 +484,7 @@
   - avoid
   - way_of_the_horse
   name: 2024-8-4
+  winrate: 0.0703
 - cards:
   - clashes
   - distant_lands
@@ -475,6 +513,7 @@
   traits:
   - - inherited
     - mountain_village
+  winrate: 0.1057
 - cards:
   - butcher
   - courtyard
@@ -492,6 +531,7 @@
   - Intrigue, 2E
   idx: 54276306398919815198733579894387463227
   name: 2024-8-2
+  winrate: 0.1383
 - cards:
   - candlestick_maker
   - develop
@@ -508,6 +548,7 @@
   - Hinterlands, 2E
   idx: 296008429921231552100101106285254734758
   name: 2024-8-1
+  winrate: 0.21530000000000002
 - cards:
   - carnival
   - clerk
@@ -525,6 +566,7 @@
   idx: 183276411033422928678116908954869138381
   name: 2024-7-31
   use_colonies: true
+  winrate: 0.37729999999999997
 - cards:
   - cutthroat
   - figurine
@@ -546,6 +588,7 @@
   traits:
   - - inspiring
     - stowaway
+  winrate: 0.147
 - cards:
   - artificer
   - distant_lands
@@ -565,6 +608,7 @@
   - expedition
   - lost_arts
   name: 2024-7-29
+  winrate: 0.1009
 - cards:
   - amulet
   - familiar
@@ -594,6 +638,7 @@
   traits:
   - - cheap
     - sacrifice
+  winrate: 0.11380000000000001
 - cards:
   - changeling
   - guardian
@@ -618,6 +663,7 @@
   - alms
   - scouting_party
   name: 2024-7-27
+  winrate: 0.153
 - cards:
   - apprentice
   - cauldron
@@ -635,6 +681,7 @@
   - Hinterlands, 2E
   idx: 191413764060538873565907728624201206814
   name: 2024-7-26
+  winrate: 0.0379
 - cards:
   - ducat
   - experiment
@@ -654,6 +701,7 @@
   - academy
   - piazza
   name: 2024-7-25
+  winrate: 0.061200000000000004
 - cards:
   - crossroads
   - highway
@@ -670,6 +718,7 @@
   - Renaissance
   idx: 215305545972138140670313250657925423501
   name: 2024-7-24
+  winrate: 0.1356
 - cards:
   - bazaar
   - blockade
@@ -685,6 +734,7 @@
   - Seaside, 2E
   idx: 99563800498360529592963291426810478589
   name: 2024-7-23
+  winrate: 0.2302
 - cards:
   - baron
   - chapel
@@ -701,6 +751,7 @@
   - Intrigue, 2E
   idx: 21968161280281857750075705614928507138
   name: 2024-7-22
+  winrate: 0.1369
 - cards:
   - augurs
   - baker
@@ -727,6 +778,7 @@
   - wall
   - windfall
   name: 2024-7-21
+  winrate: 0.0851
 - cards:
   - advisor
   - baker
@@ -752,6 +804,7 @@
   - mission
   - way_of_the_sheep
   name: 2024-7-20
+  winrate: 0.0962
 - cards:
   - animal_fair
   - apprentice
@@ -772,6 +825,7 @@
   - toil
   - way_of_the_turtle
   name: 2024-7-19
+  winrate: 0.1812
 - cards:
   - cutthroat
   - haven
@@ -794,6 +848,7 @@
   traits:
   - - nearby
     - wharf
+  winrate: 0.1245
 - cards:
   - apothecary
   - apprentice
@@ -810,6 +865,7 @@
   - Hinterlands, 2E
   idx: 337713683047333424977554180227145447104
   name: 2024-7-17
+  winrate: 0.1491
 - cards:
   - artificer
   - caravan_guard
@@ -828,6 +884,7 @@
   - lost_arts
   - save
   name: 2024-7-16
+  winrate: 0.1114
 - cards:
   - amulet
   - artificer
@@ -847,6 +904,7 @@
   - bonfire
   - borrow
   name: 2024-7-15
+  winrate: 0.1231
 - cards:
   - cartographer
   - collection
@@ -874,6 +932,7 @@
   - guildhall
   - wedding
   name: 2024-7-14
+  winrate: 0.049100000000000005
 - cards:
   - chapel
   - enchantress
@@ -899,6 +958,7 @@
   - circle_of_witches
   - orchard
   name: 2024-7-13
+  winrate: 0.2014
 - cards:
   - harbinger
   - merchant
@@ -919,6 +979,7 @@
   - pursue
   - way_of_the_mule
   name: 2024-7-12
+  winrate: 0.11019999999999999
 - cards:
   - cobbler
   - druid
@@ -939,6 +1000,7 @@
   - Prosperity, 2E
   idx: 174184981059778697577364041705126374323
   name: 2024-7-11
+  winrate: 0.1818
 - cards:
   - farmland
   - jack_of_all_trades
@@ -958,6 +1020,7 @@
   - barracks
   - exploration
   name: 2024-7-10
+  winrate: 0.12369999999999999
 - cards:
   - armory
   - band_of_misfits
@@ -974,6 +1037,7 @@
   idx: 176574084915122380309260526779366785418
   name: 2024-7-9
   use_shelters: true
+  winrate: 0.2796
 - cards:
   - artisan
   - bandit
@@ -990,6 +1054,7 @@
   - Cornucopia & Guilds, 2E
   idx: 182436575872507060335054596254609389871
   name: 2024-7-8
+  winrate: 0.1941
 - cards:
   - band_of_misfits
   - buried_treasure
@@ -1014,6 +1079,7 @@
   landscapes:
   - way_of_the_squirrel
   name: 2024-7-7
+  winrate: 0.1322
 - cards:
   - altar
   - bank
@@ -1037,6 +1103,7 @@
   - desperation
   - journey
   name: 2024-7-6
+  winrate: 0.0788
 - cards:
   - black_cat
   - fortress
@@ -1058,6 +1125,7 @@
   - way_of_the_squirrel
   name: 2024-7-5
   use_shelters: true
+  winrate: 0.1069
 - cards:
   - armory
   - band_of_misfits
@@ -1082,6 +1150,7 @@
     - cage
   - - inherited
     - wealthy_village
+  winrate: 0.14529999999999998
 - cards:
   - city_quarter
   - cobbler
@@ -1101,6 +1170,7 @@
   - arena
   - mountain_pass
   name: 2024-7-3
+  winrate: 0.19920000000000002
 - cards:
   - astrolabe
   - caravan
@@ -1116,6 +1186,7 @@
   - Seaside, 2E
   idx: 29272732835791662023029974784719829925
   name: 2024-7-2
+  winrate: 0.2076
 - cards:
   - black_cat
   - camel_train
@@ -1135,6 +1206,7 @@
   - ride
   - way_of_the_chameleon
   name: 2024-7-1
+  winrate: 0.2229
 - cards:
   - artisan
   - devils_workshop
@@ -1163,6 +1235,7 @@
   - sewers
   - way_of_the_goat
   name: 2024-6-30
+  winrate: 0.133
 - cards:
   - bounty_hunter
   - catapult/rocks
@@ -1188,6 +1261,7 @@
   - bonfire
   - commerce
   name: 2024-6-29
+  winrate: 0.09480000000000001
 - cards:
   - conspirator
   - farmland
@@ -1205,6 +1279,7 @@
   - Intrigue, 2E
   idx: 74772789873907042759468641280865214251
   name: 2024-6-28
+  winrate: 0.1434
 - cards:
   - berserker
   - magpie
@@ -1224,6 +1299,7 @@
   - ball
   - training
   name: 2024-6-27
+  winrate: 0.1515
 - cards:
   - courtier
   - duke
@@ -1240,6 +1316,7 @@
   - Intrigue, 2E
   idx: 85585271695201746429986488888925472103
   name: 2024-6-26
+  winrate: 0.0659
 - cards:
   - archive
   - capital
@@ -1258,6 +1335,7 @@
   - banquet
   - triumph
   name: 2024-6-25
+  winrate: 0.09449999999999999
 - cards:
   - alchemist
   - artisan
@@ -1274,6 +1352,7 @@
   - Base, 2E
   idx: 235850794154099737394305914299213936020
   name: 2024-6-24
+  winrate: 0.1894
 - cards:
   - altar
   - bazaar
@@ -1303,6 +1382,7 @@
   traits:
   - - rich
     - altar
+  winrate: 0.0925
 - cards:
   - alchemist
   - candlestick_maker
@@ -1329,6 +1409,7 @@
   - capitalism
   - wedding
   name: 2024-6-22
+  winrate: 0.1564
 - bane_pile: guide
   cards:
   - guide
@@ -1351,6 +1432,7 @@
   - lost_arts
   - raid
   name: 2024-6-21
+  winrate: 0.1469
 - cards:
   - apprentice
   - chariot_race
@@ -1370,6 +1452,7 @@
   - conquest
   - tower
   name: 2024-6-20
+  winrate: 0.25730000000000003
 - cards:
   - amulet
   - bauble
@@ -1390,6 +1473,7 @@
   - ferry
   - scouting_party
   name: 2024-6-19
+  winrate: 0.095
 - cards:
   - capital_city
   - contract
@@ -1407,6 +1491,7 @@
   landscapes:
   - order_of_astrologers
   name: 2024-6-18
+  winrate: 0.1454
 - cards:
   - bureaucrat
   - expand
@@ -1423,6 +1508,7 @@
   - Prosperity, 2E
   idx: 10160369827105345803235437570610765263
   name: 2024-6-17
+  winrate: 0.07919999999999999
 - cards:
   - abundance
   - bandit_camp
@@ -1447,6 +1533,7 @@
   - deliver
   - way_of_the_chameleon
   name: 2024-6-16
+  winrate: 0.1143
 - cards:
   - bank
   - capital
@@ -1477,6 +1564,7 @@
   - battlefield
   - way_of_the_worm
   name: 2024-6-15
+  winrate: 0.2766
 - cards:
   - advisor
   - altar
@@ -1496,6 +1584,7 @@
   landscapes:
   - cave_dwellers
   name: 2024-6-14
+  winrate: 0.17489999999999997
 - cards:
   - cauldron
   - conclave
@@ -1512,6 +1601,7 @@
   - Nocturne
   idx: 4016661320779299388476613444349290923
   name: 2024-6-13
+  winrate: 0.2826
 - cards:
   - apprentice
   - capital_city
@@ -1528,6 +1618,7 @@
   - Allies
   idx: 323774640844709397616578704105379714630
   name: 2024-6-12
+  winrate: 0.1107
 - cards:
   - cauldron
   - fools_gold
@@ -1543,6 +1634,7 @@
   - Hinterlands, 2E
   idx: 96165908115423623427481709764241836582
   name: 2024-6-11
+  winrate: 0.13699999999999998
 - cards:
   - bandit
   - bureaucrat
@@ -1559,6 +1651,7 @@
   - Base, 2E
   idx: 142581616921155152740547590933334202176
   name: 2024-6-10
+  winrate: 0.3448
 - cards:
   - frigate
   - ghost_town
@@ -1584,6 +1677,7 @@
   - pursue
   name: 2024-6-9
   use_shelters: true
+  winrate: 0.204
 - cards:
   - catacombs
   - courtier
@@ -1609,6 +1703,7 @@
   - seize_the_day
   - way_of_the_frog
   name: 2024-6-8
+  winrate: 0.2288
 - cards:
   - augurs
   - count
@@ -1626,6 +1721,7 @@
   - Dark Ages
   idx: 47687486371521461380809548608426129802
   name: 2024-6-7
+  winrate: 0.2917
 - cards:
   - astrolabe
   - border_village
@@ -1642,6 +1738,7 @@
   - Seaside, 2E
   idx: 114578657483899204145588660079315652912
   name: 2024-6-6
+  winrate: 0.1759
 - cards:
   - bard
   - bazaar
@@ -1658,6 +1755,7 @@
   - Seaside, 2E
   idx: 215390028410035572697581856505733487568
   name: 2024-6-5
+  winrate: 0.2484
 - cards:
   - cartographer
   - develop
@@ -1673,6 +1771,7 @@
   - Hinterlands, 2E
   idx: 243510902548738663508007688447757109394
   name: 2024-6-4
+  winrate: 0.1321
 - cards:
   - cellar
   - chapel
@@ -1689,6 +1788,7 @@
   - Seaside, 2E
   idx: 61326820419023359064414417848139647453
   name: 2024-6-3
+  winrate: 0.1437
 - cards:
   - collection
   - counterfeit
@@ -1718,6 +1818,7 @@
   name: 2024-6-2
   use_colonies: true
   use_shelters: true
+  winrate: 0.2195
 - cards:
   - black_cat
   - cardinal
@@ -1739,6 +1840,7 @@
   landscapes:
   - coastal_haven
   name: 2024-6-1
+  winrate: 0.0682
 - cards:
   - capital_city
   - clashes
@@ -1759,6 +1861,7 @@
   - trappers_lodge
   name: 2024-5-31
   use_colonies: true
+  winrate: 0.2421
 - cards:
   - baker
   - bridge
@@ -1775,6 +1878,7 @@
   - Intrigue, 2E
   idx: 166842664992570759597253746150607834478
   name: 2024-5-30
+  winrate: 0.1162
 - cards:
   - bard
   - blessed_village
@@ -1791,6 +1895,7 @@
   - Nocturne
   idx: 167778711352656777615069896874808296204
   name: 2024-5-29
+  winrate: 0.2529
 - cards:
   - bazaar
   - blockade
@@ -1806,6 +1911,7 @@
   - Seaside, 2E
   idx: 85370376429528904950403304884904419181
   name: 2024-5-28
+  winrate: 0.1242
 - cards:
   - bureaucrat
   - courtyard
@@ -1822,6 +1928,7 @@
   - Intrigue, 2E
   idx: 2107259128584264116220860511806769125
   name: 2024-5-27
+  winrate: 0.34490000000000004
 - cards:
   - altar
   - catacombs
@@ -1845,6 +1952,7 @@
   - mirror
   - scrounge
   name: 2024-5-26
+  winrate: 0.0643
 - cards:
   - advisor
   - bureaucrat
@@ -1870,6 +1978,7 @@
   - band_of_nomads
   - way_of_the_seal
   name: 2024-5-25
+  winrate: 0.1883
 - cards:
   - cellar
   - encampment/plunder
@@ -1890,6 +1999,7 @@
   - annex
   - aqueduct
   name: 2024-5-24
+  winrate: 0.17350000000000002
 - cards:
   - bridge_troll
   - coin_of_the_realm
@@ -1909,6 +2019,7 @@
   - academy
   - capitalism
   name: 2024-5-23
+  winrate: 0.07719999999999999
 - cards:
   - apothecary
   - archive
@@ -1928,6 +2039,7 @@
   - triumph
   - triumphal_arch
   name: 2024-5-22
+  winrate: 0.0897
 - cards:
   - acting_troupe
   - border_guard
@@ -1946,6 +2058,7 @@
   - citadel
   - crop_rotation
   name: 2024-5-21
+  winrate: 0.1625
 - cards:
   - cellar
   - harbinger
@@ -1962,6 +2075,7 @@
   - Hinterlands, 2E
   idx: 107921082018868618620738946109218278926
   name: 2024-5-20
+  winrate: 0.2043
 - cards:
   - conspirator
   - contract
@@ -1990,6 +2104,7 @@
   traits:
   - - friendly
     - falconer
+  winrate: 0.23420000000000002
 - cards:
   - baker
   - develop
@@ -2017,6 +2132,7 @@
   - circle_of_witches
   - palace
   name: 2024-5-18
+  winrate: 0.32289999999999996
 - cards:
   - barbarian
   - castles
@@ -2038,6 +2154,7 @@
   - order_of_astrologers
   - wolf_den
   name: 2024-5-17
+  winrate: 0.0692
 - cards:
   - conclave
   - crypt
@@ -2054,6 +2171,7 @@
   - Nocturne
   idx: 24852875625506030676885425398645531812
   name: 2024-5-16
+  winrate: 0.1777
 - cards:
   - bishop
   - border_guard
@@ -2071,6 +2189,7 @@
   idx: 260380282461811104295718247532897651160
   name: 2024-5-15
   use_colonies: true
+  winrate: 0.2959
 - cards:
   - archive
   - capital
@@ -2089,6 +2208,7 @@
   - aqueduct
   - triumph
   name: 2024-5-14
+  winrate: 0.09369999999999999
 - cards:
   - bandit
   - bureaucrat
@@ -2105,6 +2225,7 @@
   - Base, 2E
   idx: 255142330109638167283445568645963786945
   name: 2024-5-13
+  winrate: 0.4407
 - cards:
   - acting_troupe
   - buried_treasure
@@ -2132,6 +2253,7 @@
   - banish
   - donate
   name: 2024-5-12
+  winrate: 0.2466
 - cards:
   - city_quarter
   - council_room
@@ -2159,6 +2281,7 @@
   - fountain
   - museum
   name: 2024-5-11
+  winrate: 0.231
 - cards:
   - abundance
   - crew
@@ -2178,6 +2301,7 @@
   - conquest
   - mountain_pass
   name: 2024-5-10
+  winrate: 0.1265
 - cards:
   - anvil
   - charlatan
@@ -2194,6 +2318,7 @@
   - Prosperity, 2E
   idx: 310011900486314992340045066825261344405
   name: 2024-5-9
+  winrate: 0.2281
 - cards:
   - astrolabe
   - cemetery
@@ -2210,6 +2335,7 @@
   - Seaside, 2E
   idx: 85026421900180304277935371613803827611
   name: 2024-5-8
+  winrate: 0.36810000000000004
 - cards:
   - border_village
   - cartographer
@@ -2225,6 +2351,7 @@
   - Hinterlands, 2E
   idx: 18989236622190962992977157509697495359
   name: 2024-5-7
+  winrate: 0.19469999999999998
 - cards:
   - bridge
   - council_room
@@ -2241,6 +2368,7 @@
   - Intrigue, 2E
   idx: 298130966335609185129475844919193933272
   name: 2024-5-6
+  winrate: 0.1114
 - cards:
   - gear
   - investment
@@ -2266,6 +2394,7 @@
   - prosper
   - reap
   name: 2024-5-5
+  winrate: 0.10490000000000001
 - cards:
   - cage
   - duplicate
@@ -2289,6 +2418,7 @@
   - enclave
   - invasion
   name: 2024-5-4
+  winrate: 0.2626
 - cards:
   - counterfeit
   - courtyard
@@ -2306,6 +2436,7 @@
   - Intrigue, 2E
   idx: 177929476144159630759068661114792566722
   name: 2024-5-3
+  winrate: 0.12890000000000001
 - cards:
   - artificer
   - bounty_hunter
@@ -2325,6 +2456,7 @@
   - borrow
   - way_of_the_squirrel
   name: 2024-5-2
+  winrate: 0.2334
 - cards:
   - city
   - crew
@@ -2344,6 +2476,7 @@
   - prepare
   name: 2024-5-1
   use_colonies: true
+  winrate: 0.1691
 - cards:
   - band_of_misfits
   - bandit_camp
@@ -2360,6 +2493,7 @@
   idx: 17179167269529422312338562215957758906
   name: 2024-4-30
   use_shelters: true
+  winrate: 0.20350000000000001
 - cards:
   - cartographer
   - chapel
@@ -2376,6 +2510,7 @@
   - Hinterlands, 2E
   idx: 169711091246205780439473071190183525655
   name: 2024-4-29
+  winrate: 0.16829999999999998
 - bane_pile: fishing_village
   cards:
   - contract
@@ -2404,6 +2539,7 @@
   - city-state
   - invest
   name: 2024-4-28
+  winrate: 0.1732
 - bane_pile: beggar
   cards:
   - alchemist
@@ -2432,6 +2568,7 @@
   - beggar
   - way_of_the_ox
   name: 2024-4-27
+  winrate: 0.1427
 - cards:
   - caravan_guard
   - carpenter
@@ -2453,6 +2590,7 @@
   - league_of_shopkeepers
   - pathfinding
   name: 2024-4-26
+  winrate: 0.1272
 - cards:
   - baron
   - diplomat
@@ -2469,6 +2607,7 @@
   - Intrigue, 2E
   idx: 225454947673112846436535563134034181609
   name: 2024-4-25
+  winrate: 0.36119999999999997
 - cards:
   - hostelry
   - kiln
@@ -2487,6 +2626,7 @@
   landscapes:
   - way_of_the_mole
   name: 2024-4-24
+  winrate: 0.20010000000000003
 - cards:
   - bauble
   - capital_city
@@ -2504,6 +2644,7 @@
   landscapes:
   - cave_dwellers
   name: 2024-4-23
+  winrate: 0.2379
 - cards:
   - artisan
   - bureaucrat
@@ -2522,6 +2663,7 @@
   landscapes:
   - donate
   name: 2024-4-22
+  winrate: 0.2422
 - cards:
   - blessed_village
   - harem_farm
@@ -2546,6 +2688,7 @@
   - enhance
   - lost_arts
   name: 2024-4-21
+  winrate: 0.2112
 - cards:
   - bridge
   - castles
@@ -2571,6 +2714,7 @@
   - toil
   - way_of_the_rat
   name: 2024-4-20
+  winrate: 0.0533
 - cards:
   - band_of_misfits
   - duke
@@ -2588,6 +2732,7 @@
   - Intrigue, 2E
   idx: 72492777399117472948138446812931947771
   name: 2024-4-19
+  winrate: 0.1696
 - cards:
   - altar
   - cultist
@@ -2605,6 +2750,7 @@
   idx: 92917978385949029114099003322558493662
   name: 2024-4-18
   use_shelters: true
+  winrate: 0.09119999999999999
 - cards:
   - advisor
   - butcher
@@ -2623,6 +2769,7 @@
   landscapes:
   - city-state
   name: 2024-4-17
+  winrate: 0.0524
 - cards:
   - acting_troupe
   - border_guard
@@ -2641,6 +2788,7 @@
   - guildhall
   - star_chart
   name: 2024-4-16
+  winrate: 0.1301
 - cards:
   - cemetery
   - druid
@@ -2661,6 +2809,7 @@
   - Nocturne
   idx: 58561868428960435293422920753902566111
   name: 2024-4-15
+  winrate: 0.16
 - bane_pile: guardian
   cards:
   - baron
@@ -2689,6 +2838,7 @@
   - groundskeeper
   - triumph
   name: 2024-4-14
+  winrate: 0.204
 - cards:
   - chapel
   - devils_workshop
@@ -2712,6 +2862,7 @@
   - foray
   - prepare
   name: 2024-4-13
+  winrate: 0.1275
 - cards:
   - band_of_misfits
   - bandit
@@ -2729,6 +2880,7 @@
   - Hinterlands, 2E
   idx: 272679945790055228174391262187012513879
   name: 2024-4-12
+  winrate: 0.13019999999999998
 - cards:
   - animal_fair
   - barge
@@ -2745,6 +2897,7 @@
   - Menagerie
   idx: 139565278363330162791993990333075647820
   name: 2024-4-11
+  winrate: 0.3072
 - cards:
   - acting_troupe
   - advisor
@@ -2764,6 +2917,7 @@
   - barracks
   - exploration
   name: 2024-4-10
+  winrate: 0.11869999999999999
 - cards:
   - cabin_boy
   - cage
@@ -2782,6 +2936,7 @@
   - bury
   - maelstrom
   name: 2024-4-9
+  winrate: 0.1333
 - cards:
   - artisan
   - band_of_misfits
@@ -2798,6 +2953,7 @@
   - Dark Ages
   idx: 255343311972805709446800660655306252889
   name: 2024-4-8
+  winrate: 0.4266
 - cards:
   - black_cat
   - engineer
@@ -2824,6 +2980,7 @@
   traits:
   - - inherited
     - shop
+  winrate: 0.0837
 - cards:
   - advisor
   - clerk
@@ -2854,6 +3011,7 @@
     - market_square
   - - cursed
     - familiar
+  winrate: 0.0417
 - cards:
   - archive
   - conspirator
@@ -2874,6 +3032,7 @@
   - basilica
   - wolf_den
   name: 2024-4-5
+  winrate: 0.18100000000000002
 - cards:
   - bard
   - changeling
@@ -2890,6 +3049,7 @@
   - Nocturne
   idx: 24154691331727043866367977917192336519
   name: 2024-4-4
+  winrate: 0.20739999999999997
 - cards:
   - caravan_guard
   - coin_of_the_realm
@@ -2909,6 +3069,7 @@
   - mission
   - trade
   name: 2024-4-3
+  winrate: 0.1304
 - cards:
   - armory
   - beggar
@@ -2924,6 +3085,7 @@
   - Dark Ages
   idx: 302717738780956851175132996206012862137
   name: 2024-4-2
+  winrate: 0.2078
 - cards:
   - artisan
   - blockade
@@ -2940,6 +3102,7 @@
   - Seaside, 2E
   idx: 154660105426486931815038296633307343173
   name: 2024-4-1
+  winrate: 0.20600000000000002
 - cards:
   - farmers_market
   - hunting_party
@@ -2961,6 +3124,7 @@
   - Seaside, 2E
   idx: 136004497440244714323790023587624562028
   name: 2024-3-31
+  winrate: 0.1514
 - cards:
   - crystal_ball
   - emissary
@@ -2985,6 +3149,7 @@
   - mountain_folk
   - mountain_pass
   name: 2024-3-30
+  winrate: 0.2675
 - cards:
   - baker
   - carnival
@@ -3003,6 +3168,7 @@
   landscapes:
   - city-state
   name: 2024-3-29
+  winrate: 0.1852
 - cards:
   - ducat
   - harem_farm
@@ -3022,6 +3188,7 @@
   - crop_rotation
   - road_network
   name: 2024-3-28
+  winrate: 0.15689999999999998
 - cards:
   - black_cat
   - border_guard
@@ -3041,6 +3208,7 @@
   - cathedral
   - stampede
   name: 2024-3-27
+  winrate: 0.3558
 - cards:
   - astrolabe
   - corsair
@@ -3056,6 +3224,7 @@
   - Seaside, 2E
   idx: 277502102925776651658391469518264164629
   name: 2024-3-26
+  winrate: 0.1784
 - cards:
   - bandit
   - bureaucrat
@@ -3072,6 +3241,7 @@
   - Hinterlands, 2E
   idx: 309696294928325386574456177541910636448
   name: 2024-3-25
+  winrate: 0.23
 - cards:
   - bard
   - duke
@@ -3095,6 +3265,7 @@
   landscapes:
   - colonnade
   name: 2024-3-24
+  winrate: 0.2741
 - cards:
   - beggar
   - bridge_troll
@@ -3126,6 +3297,7 @@
   - woodworkers_guild
   name: 2024-3-23
   use_shelters: true
+  winrate: 0.039599999999999996
 - cards:
   - acting_troupe
   - border_guard
@@ -3146,6 +3318,7 @@
   - capitalism
   - crop_rotation
   name: 2024-3-22
+  winrate: 0.2668
 - cards:
   - black_cat
   - displace
@@ -3165,6 +3338,7 @@
   - stampede
   - tower
   name: 2024-3-21
+  winrate: 0.2463
 - cards:
   - barge
   - bounty_hunter
@@ -3184,6 +3358,7 @@
   - black_cat
   - young_witch
   name: 2024-3-20
+  winrate: 0.1474
 - cards:
   - city
   - collection
@@ -3199,6 +3374,7 @@
   - Prosperity, 2E
   idx: 143641773246898116590569127526646738133
   name: 2024-3-19
+  winrate: 0.4484
 - cards:
   - artisan
   - bazaar
@@ -3215,6 +3391,7 @@
   - Seaside, 2E
   idx: 94157756579213003917534932653082492992
   name: 2024-3-18
+  winrate: 0.3181
 - cards:
   - count
   - improve
@@ -3240,6 +3417,7 @@
   - save
   - triumphal_arch
   name: 2024-3-17
+  winrate: 0.08789999999999999
 - cards:
   - band_of_misfits
   - council_room
@@ -3264,6 +3442,7 @@
   - inheritance
   - pilgrimage
   name: 2024-3-16
+  winrate: 0.23850000000000002
 - cards:
   - cutthroat
   - flagship
@@ -3283,6 +3462,7 @@
   - deliver
   - launch
   name: 2024-3-15
+  winrate: 0.1457
 - cards:
   - bounty_hunter
   - cavalry
@@ -3302,6 +3482,7 @@
   - transport
   - way_of_the_goat
   name: 2024-3-14
+  winrate: 0.042
 - cards:
   - figurine
   - flagship
@@ -3324,6 +3505,7 @@
   traits:
   - - rich
     - grotto
+  winrate: 0.09050000000000001
 - cards:
   - courtier
   - courtyard
@@ -3339,6 +3521,7 @@
   - Intrigue, 2E
   idx: 261268770966405831125219597134394732400
   name: 2024-3-12
+  winrate: 0.1535
 - cards:
   - artisan
   - merchant
@@ -3358,6 +3541,7 @@
   - academy
   - innovation
   name: 2024-3-11
+  winrate: 0.07629999999999999
 - cards:
   - amulet
   - berserker
@@ -3380,6 +3564,7 @@
   - Plunder
   idx: 202281198170416244015647961188257981147
   name: 2024-3-10
+  winrate: 0.09570000000000001
 - cards:
   - apprentice
   - catapult/rocks
@@ -3405,6 +3590,7 @@
   - dominate
   - way_of_the_mole
   name: 2024-3-9
+  winrate: 0.11259999999999999
 - cards:
   - advisor
   - bandit
@@ -3422,6 +3608,7 @@
   - Hinterlands, 2E
   idx: 20910151552032973588518575356228683190
   name: 2024-3-8
+  winrate: 0.19579999999999997
 - cards:
   - artificer
   - baron
@@ -3441,6 +3628,7 @@
   - plan
   - scouting_party
   name: 2024-3-7
+  winrate: 0.2242
 - cards:
   - bank
   - expand
@@ -3457,6 +3645,7 @@
   - Prosperity, 2E
   idx: 306871506169990879651214341079116946679
   name: 2024-3-6
+  winrate: 0.2112
 - cards:
   - bridge_troll
   - coin_of_the_realm
@@ -3472,6 +3661,7 @@
   - Adventures
   idx: 321095647372863580125238746091556650963
   name: 2024-3-5
+  winrate: 0.10310000000000001
 - cards:
   - artisan
   - band_of_misfits
@@ -3488,6 +3678,7 @@
   - Dark Ages
   idx: 27845647288003481572667861168092978325
   name: 2024-3-4
+  winrate: 0.060700000000000004
 - cards:
   - cavalry
   - chariot_race
@@ -3515,6 +3706,7 @@
   name: 2024-3-3
   use_colonies: true
   use_shelters: true
+  winrate: 0.0555
 - cards:
   - apothecary
   - clashes
@@ -3540,6 +3732,7 @@
   - delay
   - foray
   name: 2024-3-2
+  winrate: 0.0604
 - cards:
   - animal_fair
   - camel_train
@@ -3560,6 +3753,7 @@
   - toil
   - way_of_the_pig
   name: 2024-3-1
+  winrate: 0.1583
 - cards:
   - baron
   - castles
@@ -3579,6 +3773,7 @@
   - banquet
   - battlefield
   name: 2024-2-29
+  winrate: 0.19260000000000002
 - cards:
   - altar
   - count
@@ -3601,6 +3796,7 @@
   traits:
   - - fated
     - squire
+  winrate: 0.0562
 - cards:
   - black_cat
   - cardinal
@@ -3619,6 +3815,7 @@
   - invest
   - stampede
   name: 2024-2-27
+  winrate: 0.16510000000000002
 - cards:
   - bandit
   - bandit_camp
@@ -3635,6 +3832,7 @@
   - Dark Ages
   idx: 241624917684971129268669761009763721502
   name: 2024-2-26
+  winrate: 0.1825
 - cards:
   - apothecary
   - catapult/rocks
@@ -3661,6 +3859,7 @@
   - ball
   - capitalism
   name: 2024-2-25
+  winrate: 0.2987
 - cards:
   - gatekeeper
   - grand_market
@@ -3689,6 +3888,7 @@
   - foray
   - invasion
   name: 2024-2-24
+  winrate: 0.1465
 - cards:
   - astrolabe
   - bauble
@@ -3708,6 +3908,7 @@
   landscapes:
   - peaceful_cult
   name: 2024-2-23
+  winrate: 0.1637
 - cards:
   - blockade
   - caravan
@@ -3727,6 +3928,7 @@
   - gamble
   - way_of_the_chameleon
   name: 2024-2-22
+  winrate: 0.10490000000000001
 - bane_pile: menagerie
   cards:
   - courtier
@@ -3745,6 +3947,7 @@
   - Intrigue, 2E
   idx: 306942380033419663822283941157759255938
   name: 2024-2-21
+  winrate: 0.27449999999999997
 - cards:
   - band_of_misfits
   - bandit_camp
@@ -3761,6 +3964,7 @@
   idx: 68359178530903173443642489095754668048
   name: 2024-2-20
   use_shelters: true
+  winrate: 0.0672
 - cards:
   - chapel
   - ducat
@@ -3780,6 +3984,7 @@
   - piazza
   - sinister_plot
   name: 2024-2-19
+  winrate: 0.0675
 - cards:
   - death_cart
   - doctor
@@ -3805,6 +4010,7 @@
   - banish
   - way_of_the_rat
   name: 2024-2-18
+  winrate: 0.17149999999999999
 - cards:
   - anvil
   - bank
@@ -3827,6 +4033,7 @@
   - citadel
   - rush
   name: 2024-2-17
+  winrate: 0.2206
 - cards:
   - augurs
   - feodum
@@ -3847,6 +4054,7 @@
   - market_towns
   name: 2024-2-16
   use_shelters: true
+  winrate: 0.2412
 - cards:
   - animal_fair
   - bishop
@@ -3863,6 +4071,7 @@
   - Prosperity, 2E
   idx: 324578149930313602506642652469755141194
   name: 2024-2-15
+  winrate: 0.1322
 - cards:
   - bank
   - courtier
@@ -3879,6 +4088,7 @@
   - Prosperity, 2E
   idx: 202434514243872735453310887616730533985
   name: 2024-2-14
+  winrate: 0.1594
 - cards:
   - baron
   - bridge
@@ -3894,6 +4104,7 @@
   - Intrigue, 2E
   idx: 113986493513466920957523077647075360900
   name: 2024-2-13
+  winrate: 0.16760000000000003
 - cards:
   - artisan
   - bandit
@@ -3913,6 +4124,7 @@
   - populate
   - pursue
   name: 2024-2-12
+  winrate: 0.0516
 - cards:
   - displace
   - faithful_hound
@@ -3940,6 +4152,7 @@
   - delay
   - gang_of_pickpockets
   name: 2024-2-11
+  winrate: 0.078
 - cards:
   - anvil
   - bank
@@ -3963,6 +4176,7 @@
   - way_of_the_seal
   name: 2024-2-10
   use_colonies: true
+  winrate: 0.0973
 - cards:
   - altar
   - armory
@@ -3980,6 +4194,7 @@
   - Guilds, 1E
   idx: 193298418673590618744735508568652764902
   name: 2024-2-9
+  winrate: 0.1093
 - cards:
   - barbarian
   - carpenter
@@ -3997,6 +4212,7 @@
   landscapes:
   - architects_guild
   name: 2024-2-8
+  winrate: 0.0987
 - cards:
   - blessed_village
   - den_of_sin
@@ -4016,6 +4232,7 @@
   - baths
   - mountain_pass
   name: 2024-2-7
+  winrate: 0.1011
 - cards:
   - duplicate
   - gear
@@ -4034,6 +4251,7 @@
   - seaway
   - travelling_fair
   name: 2024-2-6
+  winrate: 0.1052
 - cards:
   - bauble
   - merchant
@@ -4052,6 +4270,7 @@
   landscapes:
   - city-state
   name: 2024-2-5
+  winrate: 0.0575
 - cards:
   - cultist
   - displace
@@ -4078,6 +4297,7 @@
   - obelisk
   name: 2024-2-4
   obelisk_pile: necromancer
+  winrate: 0.0649
 - cards:
   - bank
   - cemetery
@@ -4105,6 +4325,7 @@
   - road_network
   - way_of_the_camel
   name: 2024-2-3
+  winrate: 0.1875
 - cards:
   - cutpurse
   - den_of_sin
@@ -4126,6 +4347,7 @@
   - Seaside, 2E
   idx: 53342826791786789357318907151036701315
   name: 2024-2-2
+  winrate: 0.1412
 - cards:
   - black_cat
   - displace
@@ -4145,6 +4367,7 @@
   - enclave
   - way_of_the_turtle
   name: 2024-2-1
+  winrate: 0.4079
 - cards:
   - caravan_guard
   - distant_lands
@@ -4164,6 +4387,7 @@
   - alms
   - save
   name: 2024-1-31
+  winrate: 0.25120000000000003
 - cards:
   - faithful_hound
   - guardian
@@ -4179,6 +4403,7 @@
   - Nocturne
   idx: 72491626452850680343964283192470782975
   name: 2024-1-30
+  winrate: 0.2006
 - cards:
   - bandit
   - cellar
@@ -4195,6 +4420,7 @@
   - Intrigue, 2E
   idx: 289987931830051063502743565322523316829
   name: 2024-1-29
+  winrate: 0.4144
 - cards:
   - chariot_race
   - figurine
@@ -4220,6 +4446,7 @@
   - conquest
   - way_of_the_pig
   name: 2024-1-28
+  winrate: 0.3353
 - cards:
   - artificer
   - bard
@@ -4242,6 +4469,7 @@
   landscapes:
   - way_of_the_pig
   name: 2024-1-27
+  winrate: 0.2379
 - cards:
   - capital_city
   - experiment
@@ -4259,6 +4487,7 @@
   - Renaissance
   idx: 127394660508435007936861229712121503151
   name: 2024-1-26
+  winrate: 0.36
 - cards:
   - courtier
   - experiment
@@ -4278,6 +4507,7 @@
   - sewers
   - sinister_plot
   name: 2024-1-25
+  winrate: 0.2712
 - cards:
   - apothecary
   - butcher
@@ -4294,6 +4524,7 @@
   - Guilds, 1E
   idx: 261311367410892406638900196801692862207
   name: 2024-1-24
+  winrate: 0.385
 - cards:
   - caravan
   - corsair
@@ -4309,6 +4540,7 @@
   - Seaside, 2E
   idx: 138535758969251785970232413037453823442
   name: 2024-1-23
+  winrate: 0.3015
 - cards:
   - apothecary
   - bureaucrat
@@ -4325,6 +4557,7 @@
   - Base, 2E
   idx: 138240548259636193380348583499461810806
   name: 2024-1-22
+  winrate: 0.32770000000000005
 - cards:
   - baron
   - falconer
@@ -4352,6 +4585,7 @@
   - desert_guides
   - seize_the_day
   name: 2024-1-21
+  winrate: 0.2284
 - cards:
   - bank
   - border_village
@@ -4377,6 +4611,7 @@
   landscapes:
   - ball
   name: 2024-1-20
+  winrate: 0.2899
 - cards:
   - border_guard
   - courtyard
@@ -4396,6 +4631,7 @@
   landscapes:
   - road_network
   name: 2024-1-19
+  winrate: 0.3285
 - cards:
   - encampment/plunder
   - enlarge
@@ -4415,6 +4651,7 @@
   - bury
   - scrounge
   name: 2024-1-18
+  winrate: 0.0416
 - cards:
   - beggar
   - cultist
@@ -4435,6 +4672,7 @@
   - sinister_plot
   name: 2024-1-17
   use_shelters: true
+  winrate: 0.1506
 - cards:
   - catacombs
   - graverobber
@@ -4451,6 +4689,7 @@
   idx: 109925110365613449944725276588724764813
   name: 2024-1-16
   use_shelters: true
+  winrate: 0.07
 - cards:
   - bazaar
   - corsair
@@ -4467,6 +4706,7 @@
   - Seaside, 2E
   idx: 23242204942639189175339957417036090008
   name: 2024-1-15
+  winrate: 0.2007
 - cards:
   - cardinal
   - farmers_market
@@ -4494,6 +4734,7 @@
   - bandit_fort
   - training
   name: 2024-1-14
+  winrate: 0.3497
 - cards:
   - augurs
   - bandit_camp
@@ -4517,6 +4758,7 @@
   - band_of_nomads
   - demand
   name: 2024-1-13
+  winrate: 0.2785
 - bane_pile: menagerie
   cards:
   - bandit
@@ -4536,6 +4778,7 @@
   - Hinterlands, 2E
   idx: 186034048182883819978215849987153910988
   name: 2024-1-12
+  winrate: 0.16649999999999998
 - cards:
   - bishop
   - forge
@@ -4552,6 +4795,7 @@
   - Prosperity, 2E
   idx: 69383307380585006955402079634699132837
   name: 2024-1-11
+  winrate: 0.2982
 - cards:
   - advisor
   - butcher
@@ -4569,6 +4813,7 @@
   idx: 231100818715237440166326989908567642389
   name: 2024-1-10
   use_shelters: true
+  winrate: 0.2214
 - cards:
   - berserker
   - border_village
@@ -4584,6 +4829,7 @@
   - Hinterlands, 2E
   idx: 123349748340143003954589340264824456470
   name: 2024-1-9
+  winrate: 0.34630000000000005
 - cards:
   - bandit
   - council_room
@@ -4603,6 +4849,7 @@
   - dominate
   - mountain_pass
   name: 2024-1-8
+  winrate: 0.22829999999999998
 - cards:
   - bandit
   - catapult/rocks
@@ -4626,6 +4873,7 @@
   - city_gate
   - populate
   name: 2024-1-7
+  winrate: 0.22149999999999997
 - cards:
   - animal_fair
   - apothecary
@@ -4653,6 +4901,7 @@
   - enclave
   - plan
   name: 2024-1-6
+  winrate: 0.2189
 - cards:
   - artisan
   - barge
@@ -4673,6 +4922,7 @@
   - fair
   - way_of_the_seal
   name: 2024-1-5
+  winrate: 0.3663
 - cards:
   - acting_troupe
   - charlatan
@@ -4692,6 +4942,7 @@
   - cathedral
   - sinister_plot
   name: 2024-1-4
+  winrate: 0.126
 - cards:
   - capital
   - charm
@@ -4711,6 +4962,7 @@
   - salt_the_earth
   - triumphal_arch
   name: 2024-1-3
+  winrate: 0.1042
 - cards:
   - baron
   - conspirator
@@ -4726,6 +4978,7 @@
   - Intrigue, 2E
   idx: 171226779265833545423972282246399658829
   name: 2024-1-2
+  winrate: 0.25379999999999997
 - cards:
   - artisan
   - black_cat
@@ -4745,6 +4998,7 @@
   - commerce
   - way_of_the_owl
   name: 2024-1-1
+  winrate: 0.0983
 - cards:
   - candlestick_maker
   - cemetery
@@ -4772,6 +5026,7 @@
   - orchard
   - way_of_the_pig
   name: '2023-12-31'
+  winrate: 0.3148
 - cards:
   - druid
   - figurine
@@ -4800,6 +5055,7 @@
   landscapes:
   - pageant
   name: '2023-12-30'
+  winrate: 0.2225
 - cards:
   - armory
   - cartographer
@@ -4817,6 +5073,7 @@
   - Intrigue, 2E
   idx: 170289443413357584357376066289326363323
   name: '2023-12-29'
+  winrate: 0.42090000000000005
 - cards:
   - archive
   - charm
@@ -4836,6 +5093,7 @@
   - defiled_shrine
   - tower
   name: '2023-12-28'
+  winrate: 0.1153
 - cards:
   - armory
   - band_of_misfits
@@ -4854,6 +5112,7 @@
   name: '2023-12-27'
   use_colonies: true
   use_shelters: true
+  winrate: 0.315
 - cards:
   - animal_fair
   - barge
@@ -4872,6 +5131,7 @@
   - desperation
   - enhance
   name: '2023-12-26'
+  winrate: 0.3015
 - cards:
   - cellar
   - cemetery
@@ -4888,6 +5148,7 @@
   - Nocturne
   idx: 299915949559732278374682653583637504114
   name: '2023-12-25'
+  winrate: 0.2708
 - cards:
   - astrolabe
   - harbinger
@@ -4912,6 +5173,7 @@
   landscapes:
   - defiled_shrine
   name: '2023-12-24'
+  winrate: 0.5253
 - cards:
   - barge
   - crew
@@ -4941,6 +5203,7 @@
   traits:
   - - cursed
     - galleria
+  winrate: 0.33630000000000004
 - cards:
   - cemetery
   - cobbler
@@ -4960,6 +5223,7 @@
   landscapes:
   - circle_of_witches
   name: '2023-12-22'
+  winrate: 0.11900000000000001
 - cards:
   - beggar
   - first_mate
@@ -4985,6 +5249,7 @@
   - - patient
     - search
   use_shelters: true
+  winrate: 0.26940000000000003
 - cards:
   - baron
   - bridge
@@ -5001,6 +5266,7 @@
   - Intrigue, 2E
   idx: 106099897883005602229128630684938065503
   name: '2023-12-20'
+  winrate: 0.0758
 - cards:
   - amulet
   - haunted_woods
@@ -5019,6 +5285,7 @@
   - pilgrimage
   - save
   name: '2023-12-19'
+  winrate: 0.2311
 - cards:
   - baron
   - conspirator
@@ -5035,6 +5302,7 @@
   - Intrigue, 2E
   idx: 293453914441591326227851333322049247282
   name: '2023-12-18'
+  winrate: 0.2582
 - cards:
   - goatherd
   - ironworks
@@ -5060,6 +5328,7 @@
   - battlefield
   - city_gate
   name: '2023-12-17'
+  winrate: .nan
 - cards:
   - camel_train
   - chapel
@@ -5086,6 +5355,7 @@
   - dominate
   - way_of_the_owl
   name: '2023-12-16'
+  winrate: .nan
 - cards:
   - band_of_misfits
   - bandit_camp
@@ -5103,6 +5373,7 @@
   - Seaside, 2E
   idx: 135189222532426714435915284801346923056
   name: '2023-12-15'
+  winrate: .nan
 - cards:
   - corsair
   - count
@@ -5120,6 +5391,7 @@
   idx: 140427472494835231543436819884965346740
   name: '2023-12-14'
   use_shelters: true
+  winrate: .nan
 - cards:
   - bounty_hunter
   - destrier
@@ -5140,6 +5412,7 @@
   - seize_the_day
   - way_of_the_mule
   name: '2023-12-13'
+  winrate: .nan
 - cards:
   - experiment
   - flag_bearer
@@ -5158,6 +5431,7 @@
   - canal
   - sinister_plot
   name: '2023-12-12'
+  winrate: .nan
 - cards:
   - bandit
   - cellar
@@ -5175,6 +5449,7 @@
   idx: 106307886475713360073081242053804947357
   name: '2023-12-11'
   use_colonies: true
+  winrate: .nan
 - cards:
   - corsair
   - council_room
@@ -5197,6 +5472,7 @@
   - Seaside, 2E
   idx: 151591800470160017136156648670019314741
   name: '2023-12-10'
+  winrate: .nan
 - cards:
   - barge
   - bauble
@@ -5224,6 +5500,7 @@
   - order_of_masons
   - seaway
   name: 2023-12-9
+  winrate: .nan
 - cards:
   - city_quarter
   - courtyard
@@ -5245,6 +5522,7 @@
   - tomb
   name: 2023-12-8
   obelisk_pile: sacrifice
+  winrate: .nan
 - cards:
   - baker
   - candlestick_maker
@@ -5264,6 +5542,7 @@
   - aqueduct
   - tax
   name: 2023-12-7
+  winrate: .nan
 - cards:
   - courtyard
   - duke
@@ -5280,6 +5559,7 @@
   - Intrigue, 2E
   idx: 208109754518748085625093700473223397139
   name: 2023-12-6
+  winrate: .nan
 - cards:
   - cage
   - crucible
@@ -5301,6 +5581,7 @@
   traits:
   - - reckless
     - taskmaster
+  winrate: .nan
 - cards:
   - baron
   - conspirator
@@ -5317,6 +5598,7 @@
   - Intrigue, 2E
   idx: 147403451483963317653887611979247789058
   name: 2023-12-4
+  winrate: .nan
 - cards:
   - importer
   - kings_cache
@@ -5343,6 +5625,7 @@
   - conquest
   - palace
   name: 2023-12-3
+  winrate: .nan
 - cards:
   - acting_troupe
   - carpenter
@@ -5369,6 +5652,7 @@
   - delve
   - quest
   name: 2023-12-2
+  winrate: .nan
 - cards:
   - augurs
   - barbarian
@@ -5388,6 +5672,7 @@
   landscapes:
   - family_of_inventors
   name: 2023-12-1
+  winrate: .nan
 - cards:
   - cage
   - cutthroat
@@ -5407,6 +5692,7 @@
   - deliver
   - prosper
   name: '2023-11-30'
+  winrate: .nan
 - cards:
   - broker
   - fairgrounds
@@ -5425,6 +5711,7 @@
   landscapes:
   - family_of_inventors
   name: '2023-11-29'
+  winrate: .nan
 - cards:
   - bard
   - cemetery
@@ -5440,6 +5727,7 @@
   - Nocturne
   idx: 302762805720557742029958718216238040672
   name: '2023-11-28'
+  winrate: .nan
 - cards:
   - cardinal
   - cellar
@@ -5459,6 +5747,7 @@
   - banish
   - enclave
   name: '2023-11-27'
+  winrate: .nan
 - cards:
   - animal_fair
   - cardinal
@@ -5486,6 +5775,7 @@
   - dominate
   - forest_dwellers
   name: '2023-11-26'
+  winrate: .nan
 - cards:
   - archive
   - cardinal
@@ -5513,6 +5803,7 @@
   - lost_arts
   name: '2023-11-25'
   use_colonies: true
+  winrate: .nan
 - cards:
   - bandit
   - carpenter
@@ -5530,6 +5821,7 @@
   - Dark Ages
   idx: 152108404666860293520573936701172977028
   name: '2023-11-24'
+  winrate: .nan
 - cards:
   - augurs
   - band_of_misfits
@@ -5546,6 +5838,7 @@
   - Dark Ages
   idx: 77287170241247564841144963596564757861
   name: '2023-11-23'
+  winrate: .nan
 - cards:
   - bank
   - buried_treasure
@@ -5570,6 +5863,7 @@
     - city
   - - pious
     - buried_treasure
+  winrate: .nan
 - cards:
   - courtier
   - courtyard
@@ -5585,6 +5879,7 @@
   - Intrigue, 2E
   idx: 51501357183158469566519848437377334933
   name: '2023-11-21'
+  winrate: .nan
 - cards:
   - bridge
   - chapel
@@ -5601,6 +5896,7 @@
   - Intrigue, 2E
   idx: 140579079831139890951024353711355835643
   name: '2023-11-20'
+  winrate: .nan
 - cards:
   - broker
   - cartographer
@@ -5628,6 +5924,7 @@
   - ride
   name: '2023-11-19'
   use_shelters: true
+  winrate: .nan
 - cards:
   - chariot_race
   - enlarge
@@ -5653,6 +5950,7 @@
   - canal
   - way_of_the_goat
   name: '2023-11-18'
+  winrate: .nan
 - cards:
   - cursed_village
   - experiment
@@ -5674,6 +5972,7 @@
   - fleet
   - plaza
   name: '2023-11-17'
+  winrate: .nan
 - cards:
   - baron
   - bridge
@@ -5692,6 +5991,7 @@
   landscapes:
   - family_of_inventors
   name: '2023-11-16'
+  winrate: .nan
 - cards:
   - broker
   - carpenter
@@ -5710,6 +6010,7 @@
   landscapes:
   - city-state
   name: '2023-11-15'
+  winrate: .nan
 - cards:
   - blessed_village
   - crypt
@@ -5725,6 +6026,7 @@
   - Nocturne
   idx: 28305614337866664560918599350629933642
   name: '2023-11-14'
+  winrate: .nan
 - cards:
   - bandit
   - chapel
@@ -5744,6 +6046,7 @@
   - enclave
   - way_of_the_goat
   name: '2023-11-13'
+  winrate: .nan
 - cards:
   - beggar
   - castles
@@ -5772,6 +6075,7 @@
   traits:
   - - reckless
     - beggar
+  winrate: .nan
 - cards:
   - carpenter
   - cemetery
@@ -5797,6 +6101,7 @@
   landscapes:
   - delay
   name: '2023-11-11'
+  winrate: .nan
 - cards:
   - alchemist
   - cardinal
@@ -5817,6 +6122,7 @@
   - demand
   - pageant
   name: '2023-11-10'
+  winrate: .nan
 - cards:
   - advisor
   - archive
@@ -5836,6 +6142,7 @@
   - banquet
   - defiled_shrine
   name: 2023-11-9
+  winrate: .nan
 - cards:
   - cargo_ship
   - clashes
@@ -5856,6 +6163,7 @@
   - piazza
   - sinister_plot
   name: 2023-11-8
+  winrate: .nan
 - cards:
   - charlatan
   - expand
@@ -5872,6 +6180,7 @@
   idx: 253871329054302590928511754760906111097
   name: 2023-11-7
   use_colonies: true
+  winrate: .nan
 - cards:
   - barge
   - chapel
@@ -5891,6 +6200,7 @@
   - enhance
   - way_of_the_goat
   name: 2023-11-6
+  winrate: .nan
 - cards:
   - clerk
   - death_cart
@@ -5917,6 +6227,7 @@
   - march
   - way_of_the_owl
   name: 2023-11-5
+  winrate: .nan
 - cards:
   - capital
   - caravan_guard
@@ -5942,6 +6253,7 @@
   - delve
   - rush
   name: 2023-11-4
+  winrate: .nan
 - cards:
   - camel_train
   - cavalry
@@ -5962,6 +6274,7 @@
   - commerce
   - way_of_the_pig
   name: 2023-11-3
+  winrate: .nan
 - cards:
   - counterfeit
   - cultist
@@ -5980,6 +6293,7 @@
   landscapes:
   - prepare
   name: 2023-11-2
+  winrate: .nan
 - cards:
   - band_of_misfits
   - catacombs
@@ -5999,6 +6313,7 @@
   - innovation
   - star_chart
   name: 2023-11-1
+  winrate: .nan
 - cards:
   - cemetery
   - druid
@@ -6018,6 +6333,7 @@
   - Nocturne
   idx: 241489785449883975744148184432363973635
   name: '2023-10-31'
+  winrate: .nan
 - cards:
   - anvil
   - bandit
@@ -6034,6 +6350,7 @@
   - Prosperity, 2E
   idx: 5736568903917697792530459626465788014
   name: '2023-10-30'
+  winrate: .nan
 - cards:
   - band_of_misfits
   - catacombs
@@ -6061,6 +6378,7 @@
   traits:
   - - friendly
     - wizards
+  winrate: .nan
 - cards:
   - fishing_village
   - kings_cache
@@ -6089,6 +6407,7 @@
   traits:
   - - fawning
     - wandering_minstrel
+  winrate: .nan
 - cards:
   - border_guard
   - camel_train
@@ -6109,6 +6428,7 @@
   - canal
   - fair
   name: '2023-10-27'
+  winrate: .nan
 - cards:
   - animal_fair
   - barge
@@ -6128,6 +6448,7 @@
   - enhance
   name: '2023-10-26'
   use_colonies: true
+  winrate: .nan
 - cards:
   - border_village
   - guard_dog
@@ -6144,6 +6465,7 @@
   - Hinterlands, 2E
   idx: 27135091200443668282953626506788296348
   name: '2023-10-25'
+  winrate: .nan
 - cards:
   - bridge
   - diplomat
@@ -6159,6 +6481,7 @@
   - Intrigue, 2E
   idx: 173080083937674816778196845422041294783
   name: '2023-10-24'
+  winrate: .nan
 - cards:
   - animal_fair
   - cellar
@@ -6178,6 +6501,7 @@
   - invest
   - way_of_the_rat
   name: '2023-10-23'
+  winrate: .nan
 - cards:
   - amulet
   - artificer
@@ -6203,6 +6527,7 @@
   - avoid
   - delve
   name: '2023-10-22'
+  winrate: .nan
 - cards:
   - alchemist
   - broker
@@ -6228,6 +6553,7 @@
   - order_of_astrologers
   - way_of_the_monkey
   name: '2023-10-21'
+  winrate: .nan
 - cards:
   - cage
   - fortune_hunter
@@ -6251,6 +6577,7 @@
   traits:
   - - fawning
     - fortune_hunter
+  winrate: .nan
 - cards:
   - archive
   - baker
@@ -6267,6 +6594,7 @@
   - Empires
   idx: 308074179967229132864390507824624537650
   name: '2023-10-19'
+  winrate: .nan
 - cards:
   - altar
   - armory
@@ -6283,6 +6611,7 @@
   - Seaside, 2E
   idx: 245224845481811377887772160590247375972
   name: '2023-10-18'
+  winrate: .nan
 - cards:
   - band_of_misfits
   - feodum
@@ -6298,6 +6627,7 @@
   - Dark Ages
   idx: 281892837042676927576877297541990379474
   name: '2023-10-17'
+  winrate: .nan
 - cards:
   - artisan
   - bandit
@@ -6314,6 +6644,7 @@
   - Prosperity, 2E
   idx: 30920127031521376585515370541294321387
   name: '2023-10-16'
+  winrate: .nan
 - cards:
   - experiment
   - fools_gold
@@ -6339,6 +6670,7 @@
   - city_gate
   - way_of_the_camel
   name: '2023-10-15'
+  winrate: .nan
 - cards:
   - cavalry
   - council_room
@@ -6361,6 +6693,7 @@
   - battlefield
   - way_of_the_worm
   name: '2023-10-14'
+  winrate: .nan
 - cards:
   - augurs
   - buried_treasure
@@ -6385,6 +6718,7 @@
   traits:
   - - fawning
     - workshop
+  winrate: .nan
 - cards:
   - carpenter
   - ducat
@@ -6405,6 +6739,7 @@
   - citadel
   - silos
   name: '2023-10-12'
+  winrate: .nan
 - cards:
   - bard
   - barge
@@ -6424,6 +6759,7 @@
   - alliance
   - way_of_the_turtle
   name: '2023-10-11'
+  winrate: .nan
 - cards:
   - clashes
   - emissary
@@ -6441,6 +6777,7 @@
   landscapes:
   - order_of_masons
   name: '2023-10-10'
+  winrate: .nan
 - cards:
   - anvil
   - bank
@@ -6457,6 +6794,7 @@
   - Prosperity, 2E
   idx: 127158082158247352215778070589635555094
   name: 2023-10-9
+  winrate: .nan
 - cards:
   - border_village
   - caravan_guard
@@ -6483,6 +6821,7 @@
   - launch
   - salt_the_earth
   name: 2023-10-8
+  winrate: .nan
 - cards:
   - bard
   - castles
@@ -6504,6 +6843,7 @@
   - Renaissance
   idx: 173814425584122736029881282773495449730
   name: 2023-10-7
+  winrate: .nan
 - cards:
   - collection
   - lurker
@@ -6523,6 +6863,7 @@
   landscapes:
   - deliver
   name: 2023-10-6
+  winrate: .nan
 - cards:
   - capital
   - charm
@@ -6542,6 +6883,7 @@
   - battlefield
   - donate
   name: 2023-10-5
+  winrate: .nan
 - cards:
   - border_guard
   - crown
@@ -6561,6 +6903,7 @@
   - banquet
   - sewers
   name: 2023-10-4
+  winrate: .nan
 - cards:
   - amulet
   - caravan_guard
@@ -6579,6 +6922,7 @@
   - ball
   - pilgrimage
   name: 2023-10-3
+  winrate: .nan
 - cards:
   - artisan
   - caravan_guard
@@ -6598,6 +6942,7 @@
   - mission
   - travelling_fair
   name: 2023-10-2
+  winrate: .nan
 - cards:
   - coin_of_the_realm
   - contract
@@ -6623,6 +6968,7 @@
   - crafters_guild
   - trade
   name: 2023-10-1
+  winrate: .nan
 - cards:
   - butcher
   - catacombs
@@ -6646,6 +6992,7 @@
   - way_of_the_mouse
   mouse_card: stowaway
   name: 2023-9-30
+  winrate: .nan
 - cards:
   - berserker
   - chapel
@@ -6663,6 +7010,7 @@
   - Intrigue, 2E
   idx: 178464562910330178831157482233229336871
   name: 2023-9-29
+  winrate: .nan
 - cards:
   - jewelled_egg
   - kings_cache
@@ -6682,6 +7030,7 @@
   - launch
   - scrounge
   name: 2023-9-28
+  winrate: .nan
 - cards:
   - crew
   - crown
@@ -6701,6 +7050,7 @@
   - defiled_shrine
   - launch
   name: 2023-9-27
+  winrate: .nan
 - cards:
   - bishop
   - city
@@ -6717,6 +7067,7 @@
   idx: 135301337604791337713814386979574528583
   name: 2023-9-26
   use_colonies: true
+  winrate: .nan
 - cards:
   - baker
   - candlestick_maker
@@ -6733,6 +7084,7 @@
   - Cornucopia & Guilds, 2E
   idx: 207403484221937297496878321420759569043
   name: 2023-9-25
+  winrate: .nan
 - cards:
   - capital_city
   - crypt
@@ -6759,6 +7111,7 @@
   - borrow
   - way_of_the_sheep
   name: 2023-9-24
+  winrate: .nan
 - cards:
   - amulet
   - changeling
@@ -6785,6 +7138,7 @@
   - arena
   - way_of_the_mule
   name: 2023-9-23
+  winrate: .nan
 - cards:
   - bridge_troll
   - cavalry
@@ -6805,6 +7159,7 @@
   - expedition
   - gamble
   name: 2023-9-22
+  winrate: .nan
 - cards:
   - courtyard
   - diplomat
@@ -6821,6 +7176,7 @@
   - Intrigue, 2E
   idx: 264947699737430364870848742504373221102
   name: 2023-9-21
+  winrate: .nan
 - cards:
   - bounty_hunter
   - cavalry
@@ -6840,6 +7196,7 @@
   - enclave
   - toil
   name: 2023-9-20
+  winrate: .nan
 - cards:
   - experiment
   - flag_bearer
@@ -6858,6 +7215,7 @@
   - crop_rotation
   - fleet
   name: 2023-9-19
+  winrate: .nan
 - cards:
   - blessed_village
   - cellar
@@ -6874,6 +7232,7 @@
   - Nocturne
   idx: 91143908384607018145995217317734176494
   name: 2023-9-18
+  winrate: .nan
 - cards:
   - cavalry
   - changeling
@@ -6897,6 +7256,7 @@
   - enclave
   name: 2023-9-17
   use_shelters: true
+  winrate: .nan
 - cards:
   - berserker
   - coven
@@ -6920,6 +7280,7 @@
   landscapes:
   - mountain_pass
   name: 2023-9-16
+  winrate: .nan
 - cards:
   - crossroads
   - festival
@@ -6937,6 +7298,7 @@
   - Hinterlands, 2E
   idx: 58310670255859299635884284882963195623
   name: 2023-9-15
+  winrate: .nan
 - cards:
   - blessed_village
   - count
@@ -6953,6 +7315,7 @@
   - Nocturne
   idx: 287702208511485303041841112643300002333
   name: 2023-9-14
+  winrate: .nan
 - cards:
   - artificer
   - bridge_troll
@@ -6972,6 +7335,7 @@
   - lost_arts
   - way_of_the_goat
   name: 2023-9-13
+  winrate: .nan
 - cards:
   - cavalry
   - gatekeeper
@@ -6990,6 +7354,7 @@
   - delay
   - way_of_the_turtle
   name: 2023-9-12
+  winrate: .nan
 - cards:
   - bureaucrat
   - hamlet
@@ -7006,6 +7371,7 @@
   - Cornucopia & Guilds, 2E
   idx: 138612279168314008570410766348156288707
   name: 2023-9-11
+  winrate: .nan
 - cards:
   - castles
   - figurine
@@ -7033,6 +7399,7 @@
   - circle_of_witches
   - conquest
   name: 2023-9-10
+  winrate: .nan
 - cards:
   - abundance
   - clerk
@@ -7054,6 +7421,7 @@
   - Renaissance
   idx: 100521970940081540628428819742918984394
   name: 2023-9-9
+  winrate: .nan
 - cards:
   - alchemist
   - apprentice
@@ -7071,6 +7439,7 @@
   - Guilds, 1E
   idx: 107658342007556914293181518600757732258
   name: 2023-9-8
+  winrate: .nan
 - cards:
   - alchemist
   - apothecary
@@ -7087,6 +7456,7 @@
   - Hinterlands, 2E
   idx: 93962344224513186697801712934627132143
   name: 2023-9-7
+  winrate: .nan
 - cards:
   - cargo_ship
   - ducat
@@ -7106,6 +7476,7 @@
   - baths
   - palace
   name: 2023-9-6
+  winrate: .nan
 - cards:
   - augurs
   - barbarian
@@ -7123,6 +7494,7 @@
   landscapes:
   - coastal_haven
   name: 2023-9-5
+  winrate: .nan
 - cards:
   - coven
   - gardens
@@ -7142,6 +7514,7 @@
   - bargain
   - way_of_the_owl
   name: 2023-9-4
+  winrate: .nan
 - cards:
   - bauble
   - cargo_ship
@@ -7168,6 +7541,7 @@
   - innovation
   - way_of_the_goat
   name: 2023-9-3
+  winrate: .nan
 - cards:
   - black_cat
   - lighthouse
@@ -7192,6 +7566,7 @@
   - fountain
   - triumphal_arch
   name: 2023-9-2
+  winrate: .nan
 - cards:
   - advisor
   - butcher
@@ -7209,6 +7584,7 @@
   - Plunder
   idx: 305435342756741378805393701735612805007
   name: 2023-9-1
+  winrate: .nan
 - cards:
   - armory
   - count
@@ -7224,6 +7600,7 @@
   - Dark Ages
   idx: 147585826332700885247654538210664629129
   name: 2023-8-31
+  winrate: .nan
 - cards:
   - band_of_misfits
   - broker
@@ -7243,6 +7620,7 @@
   - fellowship_of_scribes
   name: 2023-8-30
   use_shelters: true
+  winrate: .nan
 - cards:
   - ducat
   - experiment
@@ -7261,6 +7639,7 @@
   - citadel
   - star_chart
   name: 2023-8-29
+  winrate: .nan
 - cards:
   - astrolabe
   - blockade
@@ -7277,6 +7656,7 @@
   - Seaside, 2E
   idx: 163762608453891108736267964844520426690
   name: 2023-8-28
+  winrate: .nan
 - cards:
   - apothecary
   - bounty_hunter
@@ -7303,6 +7683,7 @@
   - seaway
   - way_of_the_butterfly
   name: 2023-8-27
+  winrate: .nan
 - cards:
   - blockade
   - bounty_hunter
@@ -7330,6 +7711,7 @@
   - canal
   - wedding
   name: 2023-8-26
+  winrate: .nan
 - cards:
   - bridge
   - cellar
@@ -7349,6 +7731,7 @@
   landscapes:
   - prosper
   name: 2023-8-25
+  winrate: .nan
 - cards:
   - corsair
   - familiar
@@ -7365,6 +7748,7 @@
   - Seaside, 2E
   idx: 138192015514782478074100462452771969797
   name: 2023-8-24
+  winrate: .nan
 - cards:
   - death_cart
   - ducat
@@ -7384,6 +7768,7 @@
   - fair
   - road_network
   name: 2023-8-23
+  winrate: .nan
 - cards:
   - bard
   - druid
@@ -7403,6 +7788,7 @@
   - Nocturne
   idx: 188809248603397585291276459861434704868
   name: 2023-8-22
+  winrate: .nan
 - cards:
   - bandit_camp
   - council_room
@@ -7419,6 +7805,7 @@
   - Dark Ages
   idx: 107751078554706183845383704893844100780
   name: 2023-8-21
+  winrate: .nan
 - cards:
   - buried_treasure
   - encampment/plunder
@@ -7441,6 +7828,7 @@
   - plan
   - windfall
   name: 2023-8-20
+  winrate: .nan
 - cards:
   - bazaar
   - cargo_ship
@@ -7469,6 +7857,7 @@
   - barracks
   - pursue
   name: 2023-8-19
+  winrate: .nan
 - cards:
   - carpenter
   - clashes
@@ -7490,6 +7879,7 @@
   - order_of_masons
   - star_chart
   name: 2023-8-18
+  winrate: .nan
 - cards:
   - broker
   - fortune_teller
@@ -7508,6 +7898,7 @@
   landscapes:
   - peaceful_cult
   name: 2023-8-17
+  winrate: .nan
 - cards:
   - blessed_village
   - cage
@@ -7527,6 +7918,7 @@
   - avoid
   - bury
   name: 2023-8-16
+  winrate: .nan
 - cards:
   - border_village
   - cartographer
@@ -7542,6 +7934,7 @@
   - Hinterlands, 2E
   idx: 338349050515477892444267293958719547489
   name: 2023-8-15
+  winrate: .nan
 - cards:
   - anvil
   - chapel
@@ -7558,6 +7951,7 @@
   - Prosperity, 2E
   idx: 219407676119347669486425650248419692616
   name: 2023-8-14
+  winrate: .nan
 - cards:
   - barbarian
   - berserker
@@ -7582,6 +7976,7 @@
   - transport
   - way_of_the_monkey
   name: 2023-8-13
+  winrate: .nan
 - cards:
   - cage
   - den_of_sin
@@ -7606,6 +8001,7 @@
   landscapes:
   - mirror
   name: 2023-8-12
+  winrate: .nan
 - bane_pile: gear
   cards:
   - distant_lands
@@ -7628,6 +8024,7 @@
   - bonfire
   - cathedral
   name: 2023-8-11
+  winrate: .nan
 - cards:
   - border_guard
   - capital_city
@@ -7646,6 +8043,7 @@
   landscapes:
   - pageant
   name: 2023-8-10
+  winrate: .nan
 - cards:
   - abundance
   - courtier
@@ -7668,6 +8066,7 @@
   traits:
   - - shy
     - secret_passage
+  winrate: .nan
 - cards:
   - augurs
   - barbarian
@@ -7685,6 +8084,7 @@
   landscapes:
   - peaceful_cult
   name: 2023-8-8
+  winrate: .nan
 - cards:
   - bauble
   - bureaucrat
@@ -7703,6 +8103,7 @@
   landscapes:
   - order_of_astrologers
   name: 2023-8-7
+  winrate: .nan
 - cards:
   - devils_workshop
   - experiment
@@ -7726,6 +8127,7 @@
   landscapes:
   - league_of_bankers
   name: 2023-8-6
+  winrate: .nan
 - cards:
   - barbarian
   - cargo_ship
@@ -7751,6 +8153,7 @@
   landscapes:
   - populate
   name: 2023-8-5
+  winrate: .nan
 - cards:
   - bounty_hunter
   - caravan
@@ -7771,6 +8174,7 @@
   - invest
   - transport
   name: 2023-8-4
+  winrate: .nan
 - cards:
   - bridge_troll
   - cursed_village
@@ -7789,6 +8193,7 @@
   landscapes:
   - borrow
   name: 2023-8-3
+  winrate: .nan
 - cards:
   - altar
   - band_of_misfits
@@ -7811,6 +8216,7 @@
   traits:
   - - cursed
     - pilgrim
+  winrate: .nan
 - cards:
   - buried_treasure
   - cabin_boy
@@ -7829,6 +8235,7 @@
   - maelstrom
   - rush
   name: 2023-8-1
+  winrate: .nan
 - cards:
   - cage
   - enlarge
@@ -7845,6 +8252,7 @@
   - Plunder
   idx: 253778543484131787069057752199402371564
   name: 2023-7-31
+  winrate: .nan
 - cards:
   - apothecary
   - artisan
@@ -7871,6 +8279,7 @@
   - foray
   - way_of_the_squirrel
   name: 2023-7-30
+  winrate: .nan
 - bane_pile: forager
   cards:
   - blessed_village
@@ -7900,6 +8309,7 @@
   - forager
   - pathfinding
   name: 2023-7-29
+  winrate: .nan
 - cards:
   - courtyard
   - duke
@@ -7917,6 +8327,7 @@
   - Intrigue, 2E
   idx: 330497674419448230612122539940160630178
   name: 2023-7-28
+  winrate: .nan
 - cards:
   - berserker
   - farmland
@@ -7933,6 +8344,7 @@
   - Hinterlands, 2E
   idx: 16885930752638226849976837999097197403
   name: 2023-7-27
+  winrate: .nan
 - cards:
   - animal_fair
   - black_cat
@@ -7952,6 +8364,7 @@
   - stampede
   - way_of_the_butterfly
   name: 2023-7-26
+  winrate: .nan
 - cards:
   - bazaar
   - blockade
@@ -7967,6 +8380,7 @@
   - Seaside, 2E
   idx: 177612649803650800982665271207914938051
   name: 2023-7-25
+  winrate: .nan
 - cards:
   - council_room
   - feodum
@@ -7983,6 +8397,7 @@
   - Dark Ages
   idx: 146312068254924994546901862269596789074
   name: 2023-7-24
+  winrate: .nan
 - cards:
   - conspirator
   - fools_gold
@@ -8009,6 +8424,7 @@
   traits:
   - - reckless
     - fools_gold
+  winrate: .nan
 - cards:
   - blessed_village
   - crucible
@@ -8038,6 +8454,7 @@
   traits:
   - - cheap
     - blessed_village
+  winrate: .nan
 - cards:
   - band_of_misfits
   - cage
@@ -8061,6 +8478,7 @@
   traits:
   - - friendly
     - band_of_misfits
+  winrate: .nan
 - cards:
   - butcher
   - candlestick_maker
@@ -8077,6 +8495,7 @@
   - Guilds, 1E
   idx: 4534594090424017112824831659418947716
   name: 2023-7-20
+  winrate: .nan
 - cards:
   - lost_city
   - messenger
@@ -8096,6 +8515,7 @@
   - bonfire
   - pilgrimage
   name: 2023-7-19
+  winrate: .nan
 - cards:
   - duplicate
   - haunted_woods
@@ -8114,6 +8534,7 @@
   - quest
   - travelling_fair
   name: 2023-7-18
+  winrate: .nan
 - cards:
   - cellar
   - chapel
@@ -8130,6 +8551,7 @@
   - Hinterlands, 2E
   idx: 222315756114898548321905934840152159249
   name: 2023-7-17
+  winrate: .nan
 - cards:
   - artificer
   - bauble
@@ -8157,6 +8579,7 @@
   - training
   - way_of_the_goat
   name: 2023-7-16
+  winrate: .nan
 - cards:
   - armory
   - baker
@@ -8182,6 +8605,7 @@
   - salt_the_earth
   - way_of_the_owl
   name: 2023-7-15
+  winrate: .nan
 - cards:
   - bank
   - galleria
@@ -8201,6 +8625,7 @@
   landscapes:
   - league_of_shopkeepers
   name: 2023-7-14
+  winrate: .nan
 - cards:
   - cage
   - fools_gold
@@ -8223,6 +8648,7 @@
   traits:
   - - hasty
     - tools
+  winrate: .nan
 - cards:
   - acting_troupe
   - barbarian
@@ -8242,6 +8668,7 @@
   - canal
   - capitalism
   name: 2023-7-12
+  winrate: .nan
 - cards:
   - berserker
   - crossroads
@@ -8257,6 +8684,7 @@
   - Hinterlands, 2E
   idx: 309654260509923405583445982175292986425
   name: 2023-7-11
+  winrate: .nan
 - cards:
   - capital
   - catapult/rocks
@@ -8276,6 +8704,7 @@
   - conquest
   - orchard
   name: 2023-7-10
+  winrate: .nan
 - cards:
   - chariot_race
   - fishing_village
@@ -8303,6 +8732,7 @@
   - crafters_guild
   - way_of_the_ox
   name: 2023-7-9
+  winrate: .nan
 - cards:
   - armory
   - crystal_ball
@@ -8327,6 +8757,7 @@
   - tower
   - way_of_the_horse
   name: 2023-7-8
+  winrate: .nan
 - cards:
   - buried_treasure
   - collection
@@ -8353,6 +8784,7 @@
   - - reckless
     - kings_cache
   use_colonies: true
+  winrate: .nan
 - cards:
   - archive
   - catacombs
@@ -8373,6 +8805,7 @@
   - tax
   name: 2023-7-6
   use_shelters: true
+  winrate: .nan
 - cards:
   - archive
   - crucible
@@ -8395,6 +8828,7 @@
   traits:
   - - friendly
     - wild_hunt
+  winrate: .nan
 - cards:
   - black_cat
   - bounty_hunter
@@ -8413,6 +8847,7 @@
   - ride
   - way_of_the_goat
   name: 2023-7-4
+  winrate: .nan
 - cards:
   - artisan
   - cellar
@@ -8432,6 +8867,7 @@
   - canal
   - fair
   name: 2023-7-3
+  winrate: .nan
 - cards:
   - abundance
   - barge
@@ -8458,6 +8894,7 @@
   - demand
   - league_of_bankers
   name: 2023-7-2
+  winrate: .nan
 - cards:
   - carpenter
   - chapel
@@ -8481,6 +8918,7 @@
   landscapes:
   - stampede
   name: 2023-7-1
+  winrate: .nan
 - cards:
   - bank
   - barge
@@ -8501,6 +8939,7 @@
   - desperation
   - way_of_the_mole
   name: 2023-6-30
+  winrate: .nan
 - cards:
   - abundance
   - advisor
@@ -8523,6 +8962,7 @@
   traits:
   - - patient
     - rope
+  winrate: .nan
 - cards:
   - barbarian
   - blockade
@@ -8541,6 +8981,7 @@
   landscapes:
   - peaceful_cult
   name: 2023-6-28
+  winrate: .nan
 - cards:
   - artificer
   - coin_of_the_realm
@@ -8556,6 +8997,7 @@
   - Adventures
   idx: 288000763334363408760204787047949829220
   name: 2023-6-27
+  winrate: .nan
 - cards:
   - animal_fair
   - cavalry
@@ -8575,6 +9017,7 @@
   - delay
   - desperation
   name: 2023-6-26
+  winrate: .nan
 - cards:
   - armory
   - berserker
@@ -8601,6 +9044,7 @@
   - toil
   name: 2023-6-25
   use_colonies: true
+  winrate: .nan
 - cards:
   - bureaucrat
   - cargo_ship
@@ -8624,6 +9068,7 @@
   - Renaissance
   idx: 242152145775623479136598352402721212167
   name: 2023-6-24
+  winrate: .nan
 - cards:
   - berserker
   - capital
@@ -8645,6 +9090,7 @@
   - tower
   name: 2023-6-23
   obelisk_pile: forum
+  winrate: .nan
 - cards:
   - animal_fair
   - baker
@@ -8664,6 +9110,7 @@
   - invest
   - march
   name: 2023-6-22
+  winrate: .nan
 - cards:
   - blessed_village
   - crypt
@@ -8680,6 +9127,7 @@
   - Nocturne
   idx: 168722759931857463560093086874706537740
   name: 2023-6-21
+  winrate: .nan
 - cards:
   - conspirator
   - courtyard
@@ -8695,6 +9143,7 @@
   - Intrigue, 2E
   idx: 171897335373108722786055242627413972889
   name: 2023-6-20
+  winrate: .nan
 - cards:
   - bureaucrat
   - familiar
@@ -8711,6 +9160,7 @@
   - Base, 2E
   idx: 256145067570978036888565017080647366877
   name: 2023-6-19
+  winrate: .nan
 - cards:
   - bandit_camp
   - capital_city
@@ -8736,6 +9186,7 @@
   - delay
   - guildhall
   name: 2023-6-18
+  winrate: .nan
 - cards:
   - capital
   - counterfeit
@@ -8759,6 +9210,7 @@
   landscapes:
   - way_of_the_horse
   name: 2023-6-17
+  winrate: .nan
 - cards:
   - anvil
   - candlestick_maker
@@ -8776,6 +9228,7 @@
   - Seaside, 2E
   idx: 266731218249066642347974409894149270059
   name: 2023-6-16
+  winrate: .nan
 - cards:
   - farming_village
   - hamlet
@@ -8795,6 +9248,7 @@
   - looting
   - prepare
   name: 2023-6-15
+  winrate: .nan
 - cards:
   - barbarian
   - bishop
@@ -8811,6 +9265,7 @@
   - Prosperity, 2E
   idx: 39063178491536326500072102807101037291
   name: 2023-6-14
+  winrate: .nan
 - cards:
   - capital_city
   - clashes
@@ -8828,6 +9283,7 @@
   landscapes:
   - city-state
   name: 2023-6-13
+  winrate: .nan
 - cards:
   - cemetery
   - cobbler
@@ -8848,6 +9304,7 @@
   - Nocturne
   idx: 290451029385426186068752630981500032029
   name: 2023-6-12
+  winrate: .nan
 - cards:
   - baker
   - displace
@@ -8876,6 +9333,7 @@
   traits:
   - - tireless
     - gatekeeper
+  winrate: .nan
 - cards:
   - black_cat
   - fishing_village
@@ -8899,6 +9357,7 @@
   - commerce
   - toil
   name: 2023-6-10
+  winrate: .nan
 - cards:
   - crew
   - gardens
@@ -8924,6 +9383,7 @@
     - militia
   - - inspiring
     - inn
+  winrate: .nan
 - cards:
   - animal_fair
   - bridge
@@ -8943,6 +9403,7 @@
   - stampede
   - way_of_the_owl
   name: 2023-6-8
+  winrate: .nan
 - cards:
   - cartographer
   - crossroads
@@ -8962,6 +9423,7 @@
   - alms
   - expedition
   name: 2023-6-7
+  winrate: .nan
 - cards:
   - bauble
   - broker
@@ -8979,6 +9441,7 @@
   landscapes:
   - plateau_shepherds
   name: 2023-6-6
+  winrate: .nan
 - cards:
   - bandit_camp
   - beggar
@@ -8996,6 +9459,7 @@
   idx: 324674527278788913246610761623345675362
   name: 2023-6-5
   use_shelters: true
+  winrate: .nan
 - cards:
   - apothecary
   - courier
@@ -9023,6 +9487,7 @@
   - stampede
   name: 2023-6-4
   obelisk_pile: courier
+  winrate: .nan
 - cards:
   - band_of_misfits
   - caravan_guard
@@ -9052,6 +9517,7 @@
   traits:
   - - pious
     - caravan_guard
+  winrate: .nan
 - cards:
   - camel_train
   - coven
@@ -9072,6 +9538,7 @@
   - bargain
   - way_of_the_pig
   name: 2023-6-2
+  winrate: .nan
 - cards:
   - apothecary
   - coin_of_the_realm
@@ -9091,6 +9558,7 @@
   - seaway
   - travelling_fair
   name: 2023-6-1
+  winrate: .nan
 - cards:
   - blockade
   - caravan
@@ -9112,6 +9580,7 @@
   traits:
   - - fated
     - lookout
+  winrate: .nan
 - cards:
   - conspirator
   - ironworks
@@ -9127,6 +9596,7 @@
   - Intrigue, 2E
   idx: 21213920819109356618547138337335340934
   name: 2023-5-30
+  winrate: .nan
 - cards:
   - bureaucrat
   - cellar
@@ -9143,6 +9613,7 @@
   - Cornucopia, 1E
   idx: 267366336642477213436216543985106685607
   name: 2023-5-29
+  winrate: .nan
 - cards:
   - acting_troupe
   - berserker
@@ -9168,6 +9639,7 @@
   traits:
   - - fated
     - berserker
+  winrate: .nan
 - bane_pile: peasant
   cards:
   - anvil
@@ -9197,6 +9669,7 @@
   - orchard
   - ride
   name: 2023-5-27
+  winrate: .nan
 - cards:
   - carpenter
   - harbor_village
@@ -9219,6 +9692,7 @@
   traits:
   - - inherited
     - highwayman
+  winrate: .nan
 - cards:
   - crypt
   - faithful_hound
@@ -9235,6 +9709,7 @@
   - Nocturne
   idx: 333021206223901835543206830601834630978
   name: 2023-5-25
+  winrate: .nan
 - cards:
   - city
   - enchantress
@@ -9254,6 +9729,7 @@
   - orchard
   - tax
   name: 2023-5-24
+  winrate: .nan
 - cards:
   - capital
   - enchantress
@@ -9272,6 +9748,7 @@
   - baths
   - salt_the_earth
   name: 2023-5-23
+  winrate: .nan
 - cards:
   - bandit
   - bureaucrat
@@ -9288,6 +9765,7 @@
   - Nocturne
   idx: 35153780476484707097640366219655567712
   name: 2023-5-22
+  winrate: .nan
 - cards:
   - bounty_hunter
   - coin_of_the_realm
@@ -9312,6 +9790,7 @@
   - conquest
   - palace
   name: 2023-5-21
+  winrate: .nan
 - cards:
   - baker
   - dungeon
@@ -9340,6 +9819,7 @@
   - palace
   - wedding
   name: 2023-5-20
+  winrate: .nan
 - cards:
   - capital
   - catapult/rocks
@@ -9360,6 +9840,7 @@
   - annex
   - battlefield
   name: 2023-5-19
+  winrate: .nan
 - cards:
   - bauble
   - clashes
@@ -9378,6 +9859,7 @@
   landscapes:
   - city-state
   name: 2023-5-18
+  winrate: .nan
 - cards:
   - broker
   - capital_city
@@ -9396,6 +9878,7 @@
   landscapes:
   - desert_guides
   name: 2023-5-17
+  winrate: .nan
 - cards:
   - bard
   - cemetery
@@ -9411,6 +9894,7 @@
   - Nocturne
   idx: 160768633077371724453991748834590334543
   name: 2023-5-16
+  winrate: .nan
 - cards:
   - flagship
   - grotto
@@ -9430,6 +9914,7 @@
   - launch
   - looting
   name: 2023-5-15
+  winrate: .nan
 - cards:
   - acting_troupe
   - cargo_ship
@@ -9454,6 +9939,7 @@
   landscapes:
   - way_of_the_pig
   name: 2023-5-14
+  winrate: .nan
 - cards:
   - bandit_camp
   - candlestick_maker
@@ -9484,6 +9970,7 @@
   traits:
   - - nearby
     - hireling
+  winrate: .nan
 - cards:
   - artisan
   - barge
@@ -9505,6 +9992,7 @@
   - obelisk
   name: 2023-5-12
   obelisk_pile: patrician/emporium
+  winrate: .nan
 - cards:
   - beggar
   - catacombs
@@ -9521,6 +10009,7 @@
   - Prosperity, 2E
   idx: 305377103693910407058249193568129101440
   name: 2023-5-11
+  winrate: .nan
 - cards:
   - amulet
   - artificer
@@ -9545,6 +10034,7 @@
     - miser
   - - tireless
     - transmogrify
+  winrate: .nan
 - cards:
   - barge
   - destrier
@@ -9560,6 +10050,7 @@
   - Menagerie
   idx: 193852295064968918135612829033822452234
   name: 2023-5-9
+  winrate: .nan
 - cards:
   - cartographer
   - gardens
@@ -9576,6 +10067,7 @@
   - Hinterlands, 2E
   idx: 98555065614406130596627082881064730790
   name: 2023-5-8
+  winrate: .nan
 - cards:
   - archive
   - cage
@@ -9601,6 +10093,7 @@
   - ride
   - trade
   name: 2023-5-7
+  winrate: .nan
 - cards:
   - amulet
   - contract
@@ -9629,6 +10122,7 @@
   - crop_rotation
   - wall
   name: 2023-5-6
+  winrate: .nan
 - cards:
   - bandit
   - broker
@@ -9650,6 +10144,7 @@
   - ferry
   - league_of_shopkeepers
   name: 2023-5-5
+  winrate: .nan
 - cards:
   - charlatan
   - expand
@@ -9666,6 +10161,7 @@
   - Prosperity, 2E
   idx: 210619325135367137646508531714568264178
   name: 2023-5-4
+  winrate: .nan
 - cards:
   - clerk
   - hideout
@@ -9682,6 +10178,7 @@
   - Renaissance
   idx: 291416712719251669646075573181604071234
   name: 2023-5-3
+  winrate: .nan
 - cards:
   - corsair
   - cutpurse
@@ -9697,6 +10194,7 @@
   - Seaside, 2E
   idx: 78352020624382653190179052458232821131
   name: 2023-5-2
+  winrate: .nan
 - cards:
   - baker
   - butcher
@@ -9713,6 +10211,7 @@
   - Guilds, 1E
   idx: 283008220663168691807541294554989589460
   name: 2023-5-1
+  winrate: .nan
 - cards:
   - amulet
   - bard
@@ -9742,6 +10241,7 @@
   traits:
   - - shy
     - treasury
+  winrate: .nan
 - cards:
   - border_guard
   - cabin_boy
@@ -9767,6 +10267,7 @@
   - stampede
   - way_of_the_ox
   name: 2023-4-29
+  winrate: .nan
 - cards:
   - armory
   - band_of_misfits
@@ -9786,6 +10287,7 @@
   landscapes:
   - fellowship_of_scribes
   name: 2023-4-28
+  winrate: .nan
 - cards:
   - exorcist
   - guardian
@@ -9808,6 +10310,7 @@
   traits:
   - - inspiring
     - longship
+  winrate: .nan
 - cards:
   - abundance
   - animal_fair
@@ -9824,6 +10327,7 @@
   - Plunder
   idx: 24131498138196086761174028122718983953
   name: 2023-4-26
+  winrate: .nan
 - cards:
   - charlatan
   - clerk
@@ -9840,6 +10344,7 @@
   idx: 316510308488027453476580112470929691224
   name: 2023-4-25
   use_colonies: true
+  winrate: .nan
 - cards:
   - bauble
   - capital_city
@@ -9858,6 +10363,7 @@
   landscapes:
   - plateau_shepherds
   name: 2023-4-24
+  winrate: .nan
 - cards:
   - bandit_camp
   - bishop
@@ -9887,6 +10393,7 @@
   traits:
   - - fawning
     - crew
+  winrate: .nan
 - cards:
   - abundance
   - catapult/rocks
@@ -9911,6 +10418,7 @@
   - exploration
   - salt_the_earth
   name: 2023-4-22
+  winrate: .nan
 - cards:
   - city_quarter
   - corsair
@@ -9934,6 +10442,7 @@
   traits:
   - - shy
     - frigate
+  winrate: .nan
 - cards:
   - cage
   - contract
@@ -9957,6 +10466,7 @@
   traits:
   - - shy
     - jewelled_egg
+  winrate: .nan
 - cards:
   - acting_troupe
   - catacombs
@@ -9975,6 +10485,7 @@
   landscapes:
   - fleet
   name: 2023-4-19
+  winrate: .nan
 - cards:
   - archive
   - capital
@@ -9993,6 +10504,7 @@
   - annex
   - labyrinth
   name: 2023-4-18
+  winrate: .nan
 - cards:
   - bandit
   - cartographer
@@ -10009,6 +10521,7 @@
   - Hinterlands, 2E
   idx: 11427734683092894535858777099027088524
   name: 2023-4-17
+  winrate: .nan
 - cards:
   - bazaar
   - council_room
@@ -10036,6 +10549,7 @@
   - fountain
   - quest
   name: 2023-4-16
+  winrate: .nan
 - cards:
   - alchemist
   - altar
@@ -10062,6 +10576,7 @@
   - bury
   - way_of_the_rat
   name: 2023-4-15
+  winrate: .nan
 - cards:
   - cavalry
   - groom
@@ -10081,6 +10596,7 @@
   - sewers
   - star_chart
   name: 2023-4-14
+  winrate: .nan
 - cards:
   - butcher
   - herald
@@ -10100,6 +10616,7 @@
   - academy
   - fair
   name: 2023-4-13
+  winrate: .nan
 - cards:
   - duke
   - ironworks
@@ -10119,6 +10636,7 @@
   - city_gate
   - sinister_plot
   name: 2023-4-12
+  winrate: .nan
 - cards:
   - bazaar
   - blockade
@@ -10134,6 +10652,7 @@
   - Seaside, 2E
   idx: 329628915161146692558779729619524701441
   name: 2023-4-11
+  winrate: .nan
 - cards:
   - alchemist
   - artisan
@@ -10150,6 +10669,7 @@
   - Base, 2E
   idx: 65774123907036637308361586370209239416
   name: 2023-4-10
+  winrate: .nan
 - cards:
   - fools_gold
   - guardian
@@ -10176,6 +10696,7 @@
   - quest
   - way_of_the_otter
   name: 2023-4-9
+  winrate: .nan
 - cards:
   - displace
   - frigate
@@ -10204,6 +10725,7 @@
   traits:
   - - reckless
     - sailor
+  winrate: .nan
 - cards:
   - broker
   - cobbler
@@ -10228,6 +10750,7 @@
   traits:
   - - rich
     - shaman
+  winrate: .nan
 - cards:
   - abundance
   - crucible
@@ -10247,6 +10770,7 @@
   - canal
   - launch
   name: 2023-4-6
+  winrate: .nan
 - cards:
   - bishop
   - changeling
@@ -10263,6 +10787,7 @@
   - Prosperity, 2E
   idx: 6795948904081586573921884605201254350
   name: 2023-4-5
+  winrate: .nan
 - cards:
   - bridge
   - conspirator
@@ -10278,6 +10803,7 @@
   - Intrigue, 2E
   idx: 22605348361692371734380929167723845198
   name: 2023-4-4
+  winrate: .nan
 - cards:
   - messenger
   - harbinger
@@ -10297,6 +10823,7 @@
   - bonfire
   - borrow
   name: 2023-4-3
+  winrate: .nan
 - cards:
   - blockade
   - displace
@@ -10327,6 +10854,7 @@
     - tormentor
   - - shy
     - lackeys
+  winrate: .nan
 - cards:
   - changeling
   - first_mate
@@ -10354,6 +10882,7 @@
   - ritual
   - stampede
   name: 2023-4-1
+  winrate: .nan
 - cards:
   - archive
   - catapult/rocks
@@ -10373,6 +10902,7 @@
   - ritual
   - salt_the_earth
   name: 2023-3-31
+  winrate: .nan
 - cards:
   - alchemist
   - apprentice
@@ -10389,6 +10919,7 @@
   - Seaside, 2E
   idx: 32230304032110285642587618483794716255
   name: 2023-3-30
+  winrate: .nan
 - bane_pile: improve
   cards:
   - flag_bearer
@@ -10410,6 +10941,7 @@
   - city_gate
   - guildhall
   name: 2023-3-29
+  winrate: .nan
 - cards:
   - amulet
   - artificer
@@ -10428,6 +10960,7 @@
   - alms
   - pilgrimage
   name: 2023-3-28
+  winrate: .nan
 - cards:
   - chapel
   - crystal_ball
@@ -10444,6 +10977,7 @@
   - Prosperity, 2E
   idx: 245154517047520059281988601990570438907
   name: 2023-3-27
+  winrate: .nan
 - cards:
   - charlatan
   - journeyman
@@ -10469,6 +11003,7 @@
   - enclave
   - palace
   name: 2023-3-26
+  winrate: .nan
 - cards:
   - cultist
   - emissary
@@ -10498,6 +11033,7 @@
   traits:
   - - nearby
     - emissary
+  winrate: .nan
 - cards:
   - clashes
   - distant_lands
@@ -10518,6 +11054,7 @@
   - lost_arts
   - trade
   name: 2023-3-24
+  winrate: .nan
 - cards:
   - den_of_sin
   - druid
@@ -10538,6 +11075,7 @@
   - Nocturne
   idx: 91341140301928538258904395648866051463
   name: 2023-3-23
+  winrate: .nan
 - cards:
   - apothecary
   - familiar
@@ -10554,6 +11092,7 @@
   - Cornucopia, 1E
   idx: 287763114189250780035647790128108347167
   name: 2023-3-22
+  winrate: .nan
 - cards:
   - animal_fair
   - bounty_hunter
@@ -10572,6 +11111,7 @@
   - stampede
   - way_of_the_turtle
   name: 2023-3-21
+  winrate: .nan
 - cards:
   - artisan
   - cargo_ship
@@ -10591,6 +11131,7 @@
   - road_network
   - sinister_plot
   name: 2023-3-20
+  winrate: .nan
 - cards:
   - artisan
   - augurs
@@ -10620,6 +11161,7 @@
   traits:
   - - shy
     - augurs
+  winrate: .nan
 - cards:
   - berserker
   - city_quarter
@@ -10646,6 +11188,7 @@
   - triumph
   - way_of_the_worm
   name: 2023-3-18
+  winrate: .nan
 - cards:
   - apprentice
   - cobbler
@@ -10663,6 +11206,7 @@
   - Seaside, 2E
   idx: 222641093091109076624759130558239684527
   name: 2023-3-17
+  winrate: .nan
 - cards:
   - advisor
   - doctor
@@ -10679,6 +11223,7 @@
   - Intrigue, 2E
   idx: 172355821006213021813842211423218712917
   name: 2023-3-16
+  winrate: .nan
 - cards:
   - beggar
   - catacombs
@@ -10695,6 +11240,7 @@
   - Prosperity, 2E
   idx: 232372737359164236797565734787862467653
   name: 2023-3-15
+  winrate: .nan
 - cards:
   - barge
   - black_cat
@@ -10713,6 +11259,7 @@
   - demand
   - way_of_the_camel
   name: 2023-3-14
+  winrate: .nan
 - cards:
   - bandit
   - cellar
@@ -10731,6 +11278,7 @@
   landscapes:
   - circle_of_witches
   name: 2023-3-13
+  winrate: .nan
 - cards:
   - artisan
   - catacombs
@@ -10757,6 +11305,7 @@
   - avoid
   - sewers
   name: 2023-3-12
+  winrate: .nan
 - cards:
   - cabin_boy
   - figurine
@@ -10782,6 +11331,7 @@
   - cathedral
   - way_of_the_pig
   name: 2023-3-11
+  winrate: .nan
 - cards:
   - black_cat
   - bridge
@@ -10798,6 +11348,7 @@
   - Menagerie
   idx: 278447421380019184515895658796384425387
   name: 2023-3-10
+  winrate: .nan
 - cards:
   - bounty_hunter
   - gatekeeper
@@ -10818,6 +11369,7 @@
   - league_of_bankers
   - way_of_the_camel
   name: 2023-3-9
+  winrate: .nan
 - cards:
   - bazaar
   - caravan
@@ -10834,6 +11386,7 @@
   - Seaside, 2E
   idx: 320853979423666877576084795129912595702
   name: 2023-3-8
+  winrate: .nan
 - cards:
   - ducat
   - hideout
@@ -10852,6 +11405,7 @@
   - capitalism
   - road_network
   name: 2023-3-7
+  winrate: .nan
 - cards:
   - alchemist
   - apprentice
@@ -10868,6 +11422,7 @@
   - Base, 2E
   idx: 277589301524795330430814024763231638997
   name: 2023-3-6
+  winrate: .nan
 - cards:
   - advisor
   - bazaar
@@ -10894,6 +11449,7 @@
   - invasion
   - stampede
   name: 2023-3-5
+  winrate: .nan
 - cards:
   - bridge_troll
   - count
@@ -10924,6 +11480,7 @@
   traits:
   - - inspiring
     - fool
+  winrate: .nan
 - cards:
   - abundance
   - city_quarter
@@ -10946,6 +11503,7 @@
   traits:
   - - nearby
     - swamp_shacks
+  winrate: .nan
 - cards:
   - chariot_race
   - charm
@@ -10965,6 +11523,7 @@
   - annex
   - crop_rotation
   name: 2023-3-2
+  winrate: .nan
 - bane_pile: candlestick_maker
   cards:
   - advisor
@@ -10983,6 +11542,7 @@
   - Guilds, 1E
   idx: 58203724541254109523840787314334785021
   name: 2023-3-1
+  winrate: .nan
 - cards:
   - bazaar
   - corsair
@@ -10998,6 +11558,7 @@
   - Seaside, 2E
   idx: 36142319425359737422080728578689409497
   name: 2023-2-28
+  winrate: .nan
 - cards:
   - alchemist
   - apprentice
@@ -11014,6 +11575,7 @@
   - Base, 2E
   idx: 170751358527294733028870621589168772745
   name: 2023-2-27
+  winrate: .nan
 - cards:
   - bounty_hunter
   - doctor
@@ -11039,6 +11601,7 @@
   - piazza
   - raid
   name: 2023-2-26
+  winrate: .nan
 - cards:
   - altar
   - charm
@@ -11063,6 +11626,7 @@
   - delay
   - march
   name: 2023-2-25
+  winrate: .nan
 - cards:
   - bandit_camp
   - bridge_troll
@@ -11082,6 +11646,7 @@
   - lost_arts
   - pilgrimage
   name: 2023-2-24
+  winrate: .nan
 - cards:
   - alchemist
   - apprentice
@@ -11098,6 +11663,7 @@
   - Dark Ages
   idx: 51872246475001363237266166833361801698
   name: 2023-2-23
+  winrate: .nan
 - cards:
   - conspirator
   - courtier
@@ -11114,6 +11680,7 @@
   - Prosperity, 2E
   idx: 175957798396612767356132234302154504210
   name: 2023-2-22
+  winrate: .nan
 - cards:
   - anvil
   - charlatan
@@ -11129,6 +11696,7 @@
   - Prosperity, 2E
   idx: 257523680597886841143399633228128016891
   name: 2023-2-21
+  winrate: .nan
 - cards:
   - artisan
   - chapel
@@ -11145,6 +11713,7 @@
   - Seaside, 2E
   idx: 16267718463508679620734583279970800849
   name: 2023-2-20
+  winrate: .nan
 - cards:
   - barge
   - city_quarter
@@ -11168,6 +11737,7 @@
   - gamble
   - toil
   name: 2023-2-19
+  winrate: .nan
 - cards:
   - advisor
   - cutpurse
@@ -11194,6 +11764,7 @@
   - colonnade
   - conquest
   name: 2023-2-18
+  winrate: .nan
 - cards:
   - bank
   - berserker
@@ -11211,6 +11782,7 @@
   - Prosperity, 2E
   idx: 70206555656452128638679067937141898446
   name: 2023-2-17
+  winrate: .nan
 - cards:
   - astrolabe
   - caravan
@@ -11230,6 +11802,7 @@
   - arena
   - wall
   name: 2023-2-16
+  winrate: .nan
 - cards:
   - band_of_misfits
   - beggar
@@ -11246,6 +11819,7 @@
   - Seaside, 2E
   idx: 157409352361170355914865125373745054512
   name: 2023-2-15
+  winrate: .nan
 - cards:
   - blessed_village
   - conclave
@@ -11261,6 +11835,7 @@
   - Nocturne
   idx: 76729021194689267738065039030169265774
   name: 2023-2-14
+  winrate: .nan
 - cards:
   - artisan
   - capital_city
@@ -11277,6 +11852,7 @@
   - Base, 2E
   idx: 149747996351902539537762154857273820829
   name: 2023-2-13
+  winrate: .nan
 - cards:
   - altar
   - amulet
@@ -11299,6 +11875,7 @@
   - Seaside, 2E
   idx: 230310696157800061803970091900848272862
   name: 2023-2-12
+  winrate: .nan
 - cards:
   - black_cat
   - charm
@@ -11324,6 +11901,7 @@
   - avoid
   - fountain
   name: 2023-2-11
+  winrate: .nan
 - cards:
   - blessed_village
   - charlatan
@@ -11340,6 +11918,7 @@
   - Prosperity, 2E
   idx: 2860855192501948218189762858931828415
   name: 2023-2-10
+  winrate: .nan
 - cards:
   - crossroads
   - farmland
@@ -11356,6 +11935,7 @@
   - Prosperity, 2E
   idx: 80995741946484838772187308164272464744
   name: 2023-2-9
+  winrate: .nan
 - cards:
   - camel_train
   - displace
@@ -11372,6 +11952,7 @@
   - Menagerie
   idx: 327937196613396886021468371285404905510
   name: 2023-2-8
+  winrate: .nan
 - cards:
   - blessed_village
   - den_of_sin
@@ -11391,6 +11972,7 @@
   - Nocturne
   idx: 305961350019519297108206350588452416183
   name: 2023-2-7
+  winrate: .nan
 - cards:
   - caravan
   - council_room
@@ -11407,6 +11989,7 @@
   - Seaside, 2E
   idx: 144613740449444765590625428163406313379
   name: 2023-2-6
+  winrate: .nan
 - cards:
   - conspirator
   - experiment
@@ -11434,6 +12017,7 @@
   - commerce
   - demand
   name: 2023-2-5
+  winrate: .nan
 - cards:
   - alchemist
   - barbarian
@@ -11465,6 +12049,7 @@
   traits:
   - - reckless
     - tormentor
+  winrate: .nan
 - cards:
   - border_village
   - coin_of_the_realm
@@ -11485,6 +12070,7 @@
   - trade
   - travelling_fair
   name: 2023-2-3
+  winrate: .nan
 - cards:
   - bank
   - berserker
@@ -11501,6 +12087,7 @@
   - Prosperity, 2E
   idx: 334066504673395597069309616917786308026
   name: 2023-2-2
+  winrate: .nan
 - cards:
   - band_of_misfits
   - bandit_camp
@@ -11519,3 +12106,4 @@
   landscapes:
   - order_of_astrologers
   name: 2023-2-1
+  winrate: .nan

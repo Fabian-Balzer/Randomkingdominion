@@ -7,9 +7,8 @@ from pathlib import Path
 import pandas as pd
 from matplotlib import colormaps as cm  # type: ignore
 
-from .cso_series_utils import listlike_contains
-
 from .cso_frame_utils import get_unique_entries_of_list_column
+from .cso_series_utils import listlike_contains
 
 
 @dataclass(frozen=True)
@@ -320,6 +319,11 @@ ALL_CARDS = ALL_CSOS[
 ALL_LANDSCAPES = ALL_CSOS[(ALL_CSOS["IsExtendedLandscape"])].index.to_list()
 """All landscapes, allies and prophecies in a big list."""
 
+ALL_INTERACTIONS = pd.read_csv(PATH_ASSETS.joinpath("other/interactions.csv"))
+ALL_INTERACTIONS["ident"] = (
+    ALL_INTERACTIONS["Card1"] + "___" + ALL_INTERACTIONS["Card2"]
+)
+ALL_INTERACTIONS.set_index("ident", inplace=True)
 
 COLOR_PALETTE = ColorPalette()
 

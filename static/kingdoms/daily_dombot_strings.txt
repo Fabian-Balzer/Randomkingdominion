@@ -1,3 +1,4 @@
+2024-8-26: fools_gold, militia, poacher, weaver, cartographer, council_room, library, market, souk, farmland
 2024-8-25: black_cat, goatherd, vassal, remake, workers_village, bazaar, footpad, merchant_guild, pirate, forge, cathedral, pious(forge)
 2024-8-24: lackeys, castles, change, harbor_village, berserker, falconer, gold_mine, joust, market, modify, pageant, bandit_fort
 2024-8-23: forager, investment, ironmonger, rats, band_of_misfits, city, collection, mystic, war_chest, bank, colonies

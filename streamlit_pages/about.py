@@ -52,7 +52,11 @@ with st.expander("Kingdom Oracle", expanded=False):
 
 with st.expander("CSO Database", expanded=False):
     st.write(
-        "The CSO Database page provides an overview of all CSOs I have identified and their qualities. You can filter and sort the CSOs by their properties and qualities, and also search for specific CSOs. The page also includes a detailed view of each CSO."
+        "The CSO Database page provides an overview of all available CSOs and the qualities I have associated with them. You can filter and sort the CSOs by their properties, qualities, and other fun stuff."
+    )
+with st.expander("CSO Interactions", expanded=False):
+    st.write(
+        "The interactions page allows you to explore interactions between CSOs that might catch you off-guard rules-wise. The project was initiated on discord by `nave`; while there are lot of different combinations, these do not cover the straight-forward interactions like your typical Village/Smithy. The interactions have been gathered with the assumption that those using it have a base knowledge of the rules of Dominion and are looking for edge-cases and things that are not 100 % intuitive."
     )
 
 future_development_text = """
