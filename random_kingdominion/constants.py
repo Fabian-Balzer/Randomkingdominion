@@ -66,6 +66,7 @@ def _init_main_df():
         "Victory Points",
     ]
     df = read_dataframe_from_file(FPATH_CARD_DATA, True)
+    df["ImagePath"] = df["ImagePath"].str.replace(" ", "_")
     df["index_name"] = df["Name"].str.lower().str.replace(" ", "_").str.replace("'", "")
     df = (
         df.set_index("index_name")
