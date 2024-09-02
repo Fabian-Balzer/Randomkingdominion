@@ -202,7 +202,10 @@ def display_kingdom(k: Kingdom, is_randomizer_view=True):
         tab_names.append("Plot View")
     tabs = st.tabs(tab_names)
     with tabs[0]:
-        with st.expander("Shortened Info", expanded=not is_randomizer_view):
+        with st.expander("Kingdom Image Display", expanded=is_randomizer_view):
+            display_full_kingdom_images(k, show_reroll=is_randomizer_view)
+        expander_label = "Shortened Info" if is_randomizer_view else "Overview plot"
+        with st.expander(expander_label, expanded=not is_randomizer_view):
             if is_randomizer_view:
                 cols = st.columns(2)
                 with cols[0]:
@@ -218,10 +221,8 @@ def display_kingdom(k: Kingdom, is_randomizer_view=True):
             else:
                 display_kingdom_plot(k, with_border=True)
                 st.info(
-                    "*Hint: Hover over the images below to directly see the individual card's qualities.*"
+                    "*Hint: Hover over the images above to directly see the individual card's qualities.*"
                 )
-        with st.expander("Kingdom Image Display", expanded=True):
-            display_full_kingdom_images(k, show_reroll=is_randomizer_view)
     with tabs[1]:
         # Don't add reroll here as it can lead to confusing behavior between the two tabs
         display_stylysed_cso_df(df)
@@ -230,13 +231,15 @@ def display_kingdom(k: Kingdom, is_randomizer_view=True):
             display_kingdom_plot(k, with_border=True)
         build_csv_display()
     if len(inter := k.get_interactions()) > 0:
-        st.write("### Special Interactions (rules-wise)")
+        st.write("#### Special Interactions (rules-wise)")
         for _, (c1, c2, rule) in inter.iterrows():
             c1 = ALL_CSOS.loc[c1]["Name"]
             c2 = ALL_CSOS.loc[c2]["Name"]
-            st.write(f"- {c1} and {c2}: {rule}")
+            st.write(f"- **{c1} and {c2}**: {rule}")
     else:
-        st.write("### No special rules interactions found.")
+        st.write(
+            "No special rules interactions found [which doesn't mean there are none, let me know about any you find!]."
+        )
 
 
 def display_current_kingdom():

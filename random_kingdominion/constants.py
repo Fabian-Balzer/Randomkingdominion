@@ -319,7 +319,9 @@ ALL_CARDS = ALL_CSOS[
 ALL_LANDSCAPES = ALL_CSOS[(ALL_CSOS["IsExtendedLandscape"])].index.to_list()
 """All landscapes, allies and prophecies in a big list."""
 
-ALL_INTERACTIONS = pd.read_csv(PATH_ASSETS.joinpath("other/interactions.csv"))
+ALL_INTERACTIONS = read_dataframe_from_file(
+    PATH_ASSETS.joinpath("other/interactions.csv")
+)
 ALL_INTERACTIONS["ident"] = (
     ALL_INTERACTIONS["Card1"] + "___" + ALL_INTERACTIONS["Card2"]
 )

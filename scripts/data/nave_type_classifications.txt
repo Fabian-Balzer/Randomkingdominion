@@ -1,0 +1,90 @@
+Reacts on discard - Trail, Village Green, Tunnel, Weaver, Faithful Hound
+Reacts on trashing this - Trail, Catacombs, Fortress, Nomads, Squire, Cultist, Overgrown Estate, Feodum, Rats, Sir Vander, Hunting Grounds, Crumbling Castle, Rocks,  Haunted Mirror, Silk Merchant, Sycophant, Jewelled Egg
+Reacts on trashing something else - Market Square, Tomb, Priest, Sewers
+Reacts on attack - Diplomat, Caravan Guard, Horse Traders, Guard Dog, Beggar
+React on play - Champion, Flagship, Circle of Witches, Fellowship of Scribes, League of Shopkeepers, Landing Party, Approaching Army, Good Harvest, Great Leader, Panic, Sauna (Adventures tokens, Frigate)
+
+Reacts on gain - Trail, Sheepdog, Black Cat, Stowaway, Pirate, Trader, Hovel, Fools Gold, Sleigh, Falconer, Mapmaker (Road Network, Monkey, Sailor, Blockade, Watchtower, Hoard, Footpad, Souk, Border Village, Farmland, Nomads, Inn, Cauldron, Plan, Port, Messenger, Swamp Hag, Haunted Woods, Haunted Castle, Rocks, Forum, Groundskeeper, Fortune, Sprawling Castle, Grand Castle, Aqueduct, Basilica, Battlefield, Colonnade, Defiled Shrine, Labyrinth, Mountain Pass, Cursed Village, Skulk, Ducat, Lackeys, Experiment, Silk Merchant, Guildhall, Academny, Innovation, Hostelry, Invest, Sycophant, Galleria, Guildmaster, Skirmisher, Architects Guild, Band of Nomads, City-State, Cage, Secluded Shrine, Siren, Abundance, Cutthroat, Wealthy Village, Doubloons, Cursed, Fawning, Hasty, Nearby, Pious, Rich, Bureaucracy, Growth, Marchland )
+
+Innovators - Innovation, Sailor, Spell Scroll, City-State, Mining Road (Buried Treasure)
+One-shots - Pillage, Experiment, Way of the Horse, Reckless, Madman, Acting Troupe, Acolyte, Cabin Boy, Spoils, Reckless
+
+Removes cards from play - Procession, Bonfire, Counterfeit, Corsair, Investment, Mint, Death Cart, Pillage, Spoils, Raze, Engineer, Small Castle, Grand Castle, Student, Acolyte, Cabin Boy, Reckless
+Cares about things in play - Sea Chart, Housecarl, Horn of Plenty, Berseker, Raid, Fortune, Emporium, Magic Lamp, Imp, Conclave, Changeling, Leprechaun, Idol, Tormentor, Raider, Stampede, Sunken Treasure, Swamp Shacks, Tools, Pendant, Wealthy Village, Inherited, Artist, Aristocrat, Amass, Foresight, Sea Trade
+Cares about things you've played - Conspirator, Good Harvest
+Infinite Durations - Hireling, Endless Chalice, Samurai, Quartermaster, Prince
+
+Counts things in your deck - Vineyard, Gardens, Feodum, Marchland, Territory, Duke, Philosopher's Stone, Demesne, Fairgrounds, Bandit Fort, Fountain, Keep, Museum, Obelisk, Orchard, Palace, Tower, Triumphal Arch, Wall, Wolf Den, Pasture, Plateau Shepherds
+Gains in a turn - Monastery, Devil's Workshop, Exploration, Destrier, Commerce, Triumph, Conquest, Garrison, Taskmaster, River Shrine, Recieve Tribute
+
+"Exchange" - Travellers, Trader, Changeling, Vampire/Bat, Hermit
+Cleanup stuff - Herbalist, Scheme, Improve, Capital, Expedition, Horn, WOT Squirrel, Merchant Camp, Tent, Coastal Haven, Island Folk, Cage, Trickster, Puzzle Box, Friendly, Patient, Tireless, Deliver, Biding Time, Panic, Walled Village
+
+Gain from trash - Lurker, Treasurer, Graverobber, Rogue, Lich, Shaman, Scrounge
+Cares what's in trash - Necromancer, Forager, Mountain Shrine
+
+-1 Card Token - Relic, Borrow
+-1 Coin Token - Ball, Bridge Troll
+Loses coins - Souk, Poor House
+
+Attack defense - Lighthouse, Guardian, Champion (Moat/Shield is probably a separate case)
+Extra turns - Outpost, Mission, Journey, Fleet, Seize the Day, Voyage, Island Folk
+Overpay - Stonemason, Herald, Infirmary, Doctor, Farrier
+Things that count types - Courtier, Maroon, Rice (Ironmonger, Ironworks, I'm gonna have to go through again for all those)
+Shuffle modifiers - Star Chart, Order of Astrologers, Order of Masons, Avoid, Fated
+
+Cares about empty supply piles - Search, Animal Fair, Paddock, City, Poacher, Carpenter, Territory, Tower, 
+Refill supply piles - Ambassador, Swap, Experiment, Reckless, Encampment, Vampire
+
+Can play actions in your buy phase - Crystal Ball, Coronet, Scepter, Capitalism, Gamble, Toil, March, Market Towns, Gondola, Orb, Staff, Spell Scroll, Rush, Invasion, Practice
+
+
+Other cards that have weird rules questions:
+Treasure Map
+Possession
+Huge Turnip
+Ferryman
+Young Witch
+Inheritance
+Enchantress
+Castles
+Charm
+Baths
+Donate
+Windfall
+Patron
+Citadel
+Snowy Village
+Gatekeeper
+Siren
+Wayfarer
+Battle Plan
+Emissary
+Highwayman
+Lich
+Harbor Village
+Inherited
+Change
+Divine Wind
+Flourishing Trade
+Kintsugi (gains in a game)
+
+Appending your cateogries
+
+Start of turn (non-duration) - Clerk, Farmhands, Blessed Village, Cathedral, Silos, Sinister Plot, Crop Rotation, Reap, Cave Dwellers, Crafters Guild, Desert Guides, Forest Dwellers, Gang of Pickpockets, Mountain Folk, Shaman, Hasty, Shy, Prepare, Biding Time, Kind Emperor, Rapid Expansion, Sickness, Summon
+
+Categories that may be useful
+DTX (specifically when dealing with the -1 card token)
+Thrones
+Cost Reduction
+Varying Costs - Peddler, Destrier, Wayfarer, Fisherman (Animal Fair, Grand Market, Ferry, Cheap)
+Split Piles
+Shadows
+TFB
+Cares about whats in your hand
+Debt
+Cares about cost of another card
+End actions/Start buy
+Exile
+Horses
+"Look at x cards from your deck" (i.e. trash a trail with sentinel, does it draw one of those cards you're looking at?)

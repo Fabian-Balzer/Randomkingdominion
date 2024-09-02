@@ -1098,3 +1098,580 @@
   - Rising Sun
   idx: 164527398429953846540644236659413365370
   name: Neat Aristocrats
+- cards:
+  - alley
+  - bounty_hunter
+  - daimyo
+  - destrier
+  - kitsune
+  - rats
+  - samurai
+  - scrap
+  - shaman
+  - supplies
+  expansions:
+  - Dark Ages
+  - Menagerie
+  - Plunder
+  - Rising Sun
+  idx: 331278809972163506601829125568016497295
+  landscapes:
+  - rapid_expansion
+  - way_of_the_seal
+  name: Rapid Ratspansion
+- army_pile: gatekeeper
+  cards:
+  - aristocrat
+  - artist
+  - barge
+  - cavalry
+  - fisherman
+  - gatekeeper
+  - rice_broker
+  - river_shrine
+  - root_cellar
+  - sanctuary
+  - wayfarer
+  expansions:
+  - Menagerie
+  - Rising Sun
+  idx: 162666495084666221221126909533004328982
+  landscapes:
+  - approaching_army
+  - pursue
+  name: Aristocratic Barges
+- cards:
+  - alley
+  - daimyo
+  - fishmonger
+  - gatekeeper
+  - litter
+  - mountain_shrine
+  - samurai
+  - sanctuary
+  - snake_witch
+  - wayfarer
+  expansions:
+  - Menagerie
+  - Rising Sun
+  idx: 16527497153007635112406692960648644583
+  landscapes:
+  - enlightenment
+  - way_of_the_horse
+  name: Enlightened Horsing
+- cards:
+  - animal_fair
+  - craftsman
+  - daimyo
+  - fisherman
+  - paddock
+  - riverboat
+  - sanctuary
+  - scrap
+  - supplies
+  - tea_house
+  expansions:
+  - Menagerie
+  - Rising Sun
+  idx: 138719084351869162809180701032722043017
+  landscapes:
+  - growth
+  - way_of_the_horse
+  name: Growing up
+  riverboat_card: kitsune
+- army_pile: coven
+  cards:
+  - coven
+  - groom
+  - kitsune
+  - mastermind
+  - poet
+  - rice
+  - rice_broker
+  - ronin
+  - sheepdog
+  - snake_witch
+  - stockpile
+  expansions:
+  - Menagerie
+  - Rising Sun
+  idx: 127098220723547929117683195245865394992
+  landscapes:
+  - approaching_army
+  - populate
+  name: Population Studies
+- cards:
+  - craftsman
+  - cutthroat
+  - frigate
+  - kitsune
+  - poet
+  - rice
+  - root_cellar
+  - siren
+  - tanuki
+  - tools
+  expansions:
+  - Plunder
+  - Rising Sun
+  idx: 109123836084582694412439228156624472290
+  landscapes:
+  - biding_time
+  - friendly
+  name: Biding Time Over
+  traits:
+  - - friendly
+    - cutthroat
+- army_pile: siren
+  cards:
+  - abundance
+  - fortune_hunter
+  - jewelled_egg
+  - litter
+  - mountain_shrine
+  - ninja
+  - pilgrim
+  - quartermaster
+  - rice_broker
+  - silver_mine
+  - siren
+  expansions:
+  - Plunder
+  - Rising Sun
+  idx: 273571497513877509119515952834725312294
+  landscapes:
+  - approaching_army
+  - sea_trade
+  name: Ninjago
+- cards:
+  - cabin_boy
+  - cutthroat
+  - figurine
+  - landing_party
+  - litter
+  - rustic_village
+  - samurai
+  - siren
+  - taskmaster
+  - tea_house
+  expansions:
+  - Plunder
+  - Rising Sun
+  idx: 302152589211755513308392045525002274285
+  landscapes:
+  - flourishing_trade
+  - hasty
+  name: Quick Samurais
+  traits:
+  - - hasty
+    - samurai
+- cards:
+  - daimyo
+  - fortune_hunter
+  - jewelled_egg
+  - pendant
+  - riverboat
+  - root_cellar
+  - snake_witch
+  - tea_house
+  - tools
+  - wealthy_village
+  expansions:
+  - Plunder
+  - Rising Sun
+  idx: 150248209255872756928043286778056841736
+  landscapes:
+  - deliver
+  - flourishing_trade
+  name: Flourishing Delivery
+  riverboat_card: first_mate
+- cards:
+  - artist
+  - fishmonger
+  - gold_mine
+  - kings_cache
+  - landing_party
+  - mapmaker
+  - maroon
+  - pickaxe
+  - river_shrine
+  - tea_house
+  expansions:
+  - Plunder
+  - Rising Sun
+  idx: 307991569043949546936436190632617885171
+  landscapes:
+  - flourishing_trade
+  - prepare
+  name: Trade Preparation
+- cards:
+  - abundance
+  - alley
+  - cage
+  - daimyo
+  - litter
+  - pendant
+  - secluded_shrine
+  - taskmaster
+  - tea_house
+  - wealthy_village
+  expansions:
+  - Plunder
+  - Rising Sun
+  idx: 224851020856956999894654240762937280922
+  landscapes:
+  - progress
+  - tireless
+  name: Progressing into Litterland
+  traits:
+  - - tireless
+    - pendant
+- cards:
+  - hideout
+  - old_witch
+  - patron
+  - research
+  - rice
+  - rice_broker
+  - river_shrine
+  - samurai
+  - sculptor
+  - silk_merchant
+  expansions:
+  - Renaissance
+  - Rising Sun
+  idx: 322665012477035196304267055970759769875
+  landscapes:
+  - bureaucracy
+  - continue
+  - exploration
+  name: Rice Imperium
+- cards:
+  - alley
+  - hideout
+  - mountain_shrine
+  - priest
+  - recruiter
+  - rustic_village
+  - sculptor
+  - seer
+  - silk_merchant
+  - swashbuckler
+  expansions:
+  - Renaissance
+  - Rising Sun
+  idx: 165724916779932729547315070624377045511
+  landscapes:
+  - bureaucracy
+  - continue
+  - foresight
+  name: Staying on Copper
+- cards:
+  - alley
+  - baker
+  - footpad
+  - herald
+  - mountain_shrine
+  - plaza
+  - ronin
+  - snake_witch
+  - tanuki
+  - tea_house
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Rising Sun
+  idx: 122233059508071502606093302567941507586
+  landscapes:
+  - enlightenment
+  - gather
+  name: Buyless Enlightenment
+- cards:
+  - butcher
+  - gold_mine
+  - jewelled_egg
+  - journeyman
+  - mountain_shrine
+  - rice_broker
+  - rustic_village
+  - soothsayer
+  - stonemason
+  - tanuki
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Plunder
+  - Rising Sun
+  idx: 178821900342401684875498918181820438169
+  landscapes:
+  - panic
+  - tireless
+  name: Student Debt
+  traits:
+  - - tireless
+    - jewelled_egg
+- cards:
+  - artist
+  - baker
+  - farrier
+  - fishmonger
+  - gold_mine
+  - litter
+  - ninja
+  - plaza
+  - rustic_village
+  - soothsayer
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Rising Sun
+  idx: 5078630806061093241700656291977921728
+  landscapes:
+  - asceticism
+  - kind_emperor
+  name: Artistic Baking Contest
+- cards:
+  - daimyo
+  - imperial_envoy
+  - kitsune
+  - monument
+  - peddler
+  - root_cellar
+  - rustic_village
+  - tea_house
+  - war_chest
+  - workers_village
+  expansions:
+  - Prosperity, 2E
+  - Rising Sun
+  idx: 144075191964992207675712465725897418957
+  landscapes:
+  - asceticism
+  - bureaucracy
+  name: Spring Cleaning
+- cards:
+  - aristocrat
+  - kitsune
+  - magnate
+  - mountain_shrine
+  - ninja
+  - ronin
+  - root_cellar
+  - rustic_village
+  - tanuki
+  - workers_village
+  expansions:
+  - Prosperity, 2E
+  - Rising Sun
+  idx: 99907346599127956744802216704495395868
+  landscapes:
+  - foresight
+  - great_leader
+  name: Speeding by Leading
+- cards:
+  - aristocrat
+  - artist
+  - change
+  - forge
+  - mint
+  - mountain_shrine
+  - poet
+  - snake_witch
+  - tea_house
+  - vault
+  expansions:
+  - Prosperity, 2E
+  - Rising Sun
+  idx: 262098837905231732591599283417971004353
+  landscapes:
+  - flourishing_trade
+  - sea_trade
+  name: Trading Ahead
+- cards:
+  - aristocrat
+  - counterfeit
+  - death_cart
+  - mountain_shrine
+  - procession
+  - river_shrine
+  - riverboat
+  - sage
+  - samurai
+  - snake_witch
+  expansions:
+  - Dark Ages
+  - Prosperity, 2E
+  - Rising Sun
+  idx: 270505564316928431804371368425128313773
+  landscapes:
+  - biding_time
+  name: Magnificent Biding
+  riverboat_card: magnate
+  use_shelters: true
+- cards:
+  - catacombs
+  - count
+  - hunting_grounds
+  - imperial_envoy
+  - rebuild
+  - rice
+  - riverboat
+  - rogue
+  - root_cellar
+  - rustic_village
+  expansions:
+  - Dark Ages
+  - Prosperity, 2E
+  - Rising Sun
+  idx: 328505335959703033696841891909102438688
+  landscapes:
+  - biding_time
+  - credit
+  name: More Magnificent Biding
+  riverboat_card: magnate
+- cards:
+  - artist
+  - astrolabe
+  - corsair
+  - haven
+  - native_village
+  - poet
+  - ronin
+  - rustic_village
+  - sailor
+  - samurai
+  expansions:
+  - Rising Sun
+  - Seaside, 2E
+  idx: 54140587783360703067091326799530873759
+  landscapes:
+  - kind_emperor
+  - kintsugi
+  name: Emperor Ashore
+- cards:
+  - alchemist
+  - artist
+  - chapel
+  - laboratory
+  - merchant
+  - rice
+  - riverboat
+  - rustic_village
+  - throne_room
+  - transmute
+  expansions:
+  - Alchemy
+  - Base, 2E
+  - Rising Sun
+  idx: 196947920237879802781013559571769277275
+  landscapes:
+  - gather
+  - kind_emperor
+  name: The Emperor's Merchant
+  riverboat_card: litter
+- cards:
+  - bank
+  - diplomat
+  - gold_mine
+  - grotto
+  - kitsune
+  - mountain_shrine
+  - rabble
+  - swamp_hag
+  - tactician
+  - trading_post
+  expansions:
+  - Adventures
+  - Empires
+  - Intrigue, 2E
+  - Plunder
+  - Prosperity, 2E
+  - Rising Sun
+  - Seaside, 2E
+  idx: 62583729243177329189529546188647790225
+  landscapes:
+  - kind_emperor
+  - tomb
+  name: The Emperor's Tactician
+  notes: 'Comment: Beautiful double Tactician board
+
+    Previous Results: 48-38 in 12 turns against Hard AI'
+- cards:
+  - artist
+  - count
+  - farmers_market
+  - fishmonger
+  - kitsune
+  - port
+  - raze
+  - ronin
+  - rustic_village
+  - scrying_pool
+  expansions:
+  - Adventures
+  - Alchemy
+  - Dark Ages
+  - Empires
+  - Menagerie
+  - Rising Sun
+  idx: 57567808898050813548220356801872602444
+  landscapes:
+  - great_leader
+  - populate
+  name: Leading the Population
+- cards:
+  - change
+  - charm
+  - encampment/plunder
+  - journeyman
+  - riverboat
+  - royal_galley
+  - rustic_village
+  - sack_of_loot
+  - silk_merchant
+  - tea_house
+  expansions:
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Hinterlands, 2E
+  - Plunder
+  - Renaissance
+  - Rising Sun
+  idx: 221117698765808477300133441733798979492
+  landscapes:
+  - amass
+  - sickness
+  name: Stay Healthy
+  notes: 'Comment: Interesting set concerning Sickness; taking Curses is really punishing,
+    so you end up discarding a lot, which makes it even more important to set up the
+    next turns properly. I guess Prize Goat could make this a little lopsided.
+
+    Previous Results: 10-4 in 16 turns against Hard AI'
+  riverboat_card: stables
+- cards:
+  - aristocrat
+  - cutpurse
+  - daimyo
+  - figurine
+  - first_mate
+  - fishmonger
+  - ironmonger
+  - pawn
+  - peddler
+  - scepter
+  expansions:
+  - Dark Ages
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Rising Sun
+  - Seaside, 2E
+  idx: 295837356911157925835609299794789697141
+  landscapes:
+  - toil
+  - way_of_the_otter
+  name: Going Fishing
+  notes: 'Comment: Can you spot the hidden central interaction that allows for some
+    consistency on this no-trashing board?
+
+    Previous Results: 15-3 in 10 turns against Hard AI'

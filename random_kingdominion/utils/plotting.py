@@ -74,7 +74,7 @@ def plot_normalized_polygon(
         icon_path = get_quality_icon_fpath(label)
         icon = Image.open(icon_path)
         im_size = 100
-        icon = np.array(icon.resize((im_size, im_size), resample=Image.LANCZOS))
+        icon = np.array(icon.resize((im_size, im_size), resample=Image.LANCZOS))  # type: ignore
         ab = AnnotationBbox(
             OffsetImage(icon, zoom=0.35), (angle, 1), frameon=False, xycoords="data"
         )

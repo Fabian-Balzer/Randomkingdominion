@@ -276,6 +276,7 @@ else:
     rk.display_kingdom(kingdom, is_randomizer_view=False)
 
 
-st.warning(
-    "Be aware that this is a very superficial view of the kingdom and does not take into account special card interactions, and that some of my takes on individual cards' qualities might seem surprising. Check out the about page for more information on those."
-)
+with st.expander("Disclaimer", expanded=False):
+    st.warning(
+        "Be aware that this is a very superficial view of the kingdom and does not take into account special card interactions, and that some of my takes on individual cards' qualities might seem surprising. Check out the about page for more information on those."
+    )

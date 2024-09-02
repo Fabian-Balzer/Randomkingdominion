@@ -1,4 +1,135 @@
 - cards:
+  - artisan
+  - bounty_hunter
+  - changeling
+  - coven
+  - craftsman
+  - galleria
+  - ghost_town
+  - monument
+  - procession
+  - raze
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Dark Ages
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Rising Sun
+  idx: 232981005394002527728174085375439432744
+  landscapes:
+  - fawning
+  - reckless
+  name: 2024-9-1
+  traits:
+  - - fawning
+    - monument
+  - - reckless
+    - coven
+- cards:
+  - clashes
+  - exorcist
+  - farrier
+  - guardian
+  - patrician/emporium
+  - royal_carriage
+  - supplies
+  - tracker
+  - treasure_map
+  - wealthy_village
+  expansions:
+  - Adventures
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Seaside, 2E
+  idx: 16763386228988016885629737657096350320
+  name: 2024-8-31
+- cards:
+  - bridge_troll
+  - coin_of_the_realm
+  - collection
+  - farmhands
+  - forge
+  - hunting_party
+  - monument
+  - peddler
+  - watchtower
+  - workers_village
+  expansions:
+  - Adventures
+  - Cornucopia & Guilds, 2E
+  - Prosperity, 2E
+  idx: 2119853731063923646513319735031668009
+  landscapes:
+  - pilgrimage
+  - scouting_party
+  name: 2024-8-30
+  winrate: .nan
+- cards:
+  - distant_lands
+  - giant
+  - hamlet
+  - ranger
+  - relic
+  - royal_carriage
+  - swamp_hag
+  - transmogrify
+  - treasure_trove
+  - wine_merchant
+  expansions:
+  - Adventures
+  - Cornucopia & Guilds, 2E
+  idx: 118380994829171967311496125802905111681
+  landscapes:
+  - alms
+  - trade
+  name: 2024-8-29
+  winrate: .nan
+- cards:
+  - catacombs
+  - count
+  - forager
+  - hunter
+  - hunting_grounds
+  - innkeeper
+  - market_square
+  - poor_house
+  - scavenger
+  - sycophant
+  expansions:
+  - Allies
+  - Dark Ages
+  idx: 206703019959702357206721204376743715562
+  landscapes:
+  - gang_of_pickpockets
+  name: 2024-8-28
+  use_shelters: true
+  winrate: .nan
+- cards:
+  - altar
+  - armory
+  - band_of_misfits
+  - count
+  - feodum
+  - graverobber
+  - marauder
+  - poor_house
+  - procession
+  - rogue
+  expansions:
+  - Dark Ages
+  idx: 137209070765987548152370716470175734509
+  name: 2024-8-27
+  use_shelters: true
+  winrate: .nan
+- cards:
   - cartographer
   - council_room
   - farmland
@@ -14,6 +145,7 @@
   - Hinterlands, 2E
   idx: 165083237427305287044598286852278853515
   name: 2024-8-26
+  winrate: .nan
 - cards:
   - bazaar
   - black_cat

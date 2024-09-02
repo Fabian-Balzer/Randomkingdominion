@@ -1,5 +1,5 @@
 from .config import CustomConfigParser
-from .data_setup import add_quality_info_columns, write_image_database
+from .data_setup import add_additional_info_columns, write_image_database
 
 # from .pandas_extensions import ListAccessorSeries, ListFilterAccessorDataFrame
 from .plotting import add_kingdom_info_to_plot, plot_normalized_polygon
@@ -21,7 +21,7 @@ from .utils import (
 __all__ = [
     "get_version",
     "get_changelog",
-    "add_quality_info_columns",
+    "add_additional_info_columns",
     "write_image_database",
     "invert_dict",
     "ask_file_overwrite",

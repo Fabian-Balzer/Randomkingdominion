@@ -115,21 +115,23 @@ def ask_yes_now(question: str) -> bool:
     return False
 
 
-def write_dataframe_to_file(df: pd.DataFrame, fpath: str | Path):
+def write_dataframe_to_file(
+    df: pd.DataFrame, fpath: str | Path, overwrite: bool = False, verbose: bool = True
+):
     """Writes the given dataframe to a file"""
-    if not ask_file_overwrite(fpath):
+    if not overwrite and not ask_file_overwrite(fpath):
         return
+    elif overwrite and os.path.exists(fpath):
+        print(f"Overwriting '{fpath}'")
     df.to_csv(fpath, sep=";", index=False)
-    print(
-        f"Successfully wrote the dominion cards to the file '{fpath}' in the current path."
-    )
+    if verbose:
+        print(f"Successfully wrote the file '{fpath}'")
 
 
 def override(func):
     """
     Decorator to indicate that a method is overridden.
     """
-    # pylint: disable=unused-argument,invalid-name,missing-function-docstring
     return func
 
 

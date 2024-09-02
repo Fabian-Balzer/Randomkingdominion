@@ -63,6 +63,9 @@ def extract_and_convert(value):
 def load_main_df():
     """Cache the CSOs for streamlit (Not sure this is the correct way)"""
     ALL_CSOS["Sanitized Cost"] = ALL_CSOS["Cost"].apply(extract_and_convert)
+    ALL_CSOS["Name and Expansion"] = ALL_CSOS.apply(
+        lambda x: f"{x['Name']} ({x['Expansion']})", axis=1
+    )
     return ALL_CSOS
 
 

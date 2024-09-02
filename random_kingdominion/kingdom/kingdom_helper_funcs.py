@@ -123,6 +123,15 @@ def sanitize_cso_name(name: str) -> str:
     return name
 
 
+def get_interaction_identifier(card1: str, card2: str, sanitize=False) -> str:
+    """Get the identifier for the interaction between two cards."""
+    if sanitize:
+        card1 = sanitize_cso_name(card1)
+        card2 = sanitize_cso_name(card2)
+    card1, card2 = sorted([card1, card2])
+    return card1 + "___" + card2
+
+
 def sanitize_cso_list(cso_list: list[str], sort=True) -> list[str]:
     """Sanitize each cso in a list of csos."""
     if isinstance(cso_list, float):

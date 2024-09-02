@@ -31,7 +31,7 @@ def get_interactions() -> pd.DataFrame:
 INTERACTIONS = get_interactions()
 
 rk.build_page_header(
-    "CSO Interactions",
+    "CSO Interactions (rules-wise)",
     "On this page, you can explore interactions between CSOs that might catch you off-guard rules-wise. The project was initiated on discord by `nave`; while there are lot of different combinations, these do not cover the straight-forward interactions like your typical Village/Smithy. The interactions have been gathered with the assumption that those using it have a base knowledge of the rules of Dominion and are looking for edge-cases and things that are not 100 % intuitive.\\\nYou can either filter the interactions for certain expansions, or post a comma-separated list from which the site will try to filter for any relevant interactions.\\\nIf you want to see the full list of CSOs, you can visit the [CSO Database](/cso_overview).",
     "Learn more about the CSO and kingdom qualities on the about page.",
 )
@@ -82,6 +82,14 @@ def build_interactions_filter_other(df: pd.DataFrame) -> pd.DataFrame:
     )
     if exclude_ways:
         df = df[~df.index.str.contains("way_of_the_")]
+    exclude_first_edition = st.checkbox(
+        "Exclude 1E CSOs",
+        value=st.session_state.get("inter_exclude_first_edition", True),
+        key="inter_exclude_first_edition",
+        help="Exclude interactions revolving around CSOs from first editions.",
+    )
+    if exclude_first_edition:
+        df = df[~df["exp_1"].str.contains("1E") & ~df["exp_2"].str.contains("1E")]
     return df
 
 
@@ -95,15 +103,15 @@ def build_interactions_filter_for_csos(df: pd.DataFrame) -> pd.DataFrame:
             "Require all CSOs",
             value=st.session_state.get("inter_require_all_csos", True),
             key="inter_require_all_csos",
-            help="If checked, only interactions that include all CSOs provided here are shown.",
+            help="If checked, only interactions that include all CSOs provided here are shown (unless you only input one).",
         )
     with cols[0]:
         logic = "AND" if require_all else "OR"
         kingdom_input = st.text_input(
             f"Enter CSOs you want the interactions to be filtered for with a logical {logic}.",
-            value=st.session_state.get("inter_kingdom", ""),
+            value=st.session_state.get("inter_cso_filtering_input", ""),
             help="Enter a kingdom string to filter for interactions. The kingdom string should be formatted as a comma-separated list of CSO names.",
-            key="inter_kingdom",
+            key="inter_cso_filtering_input",
             placeholder="e.g. Siren, Sailor, Stonemason, Destrier, ...",
         )
     try:
@@ -126,13 +134,49 @@ def build_interactions_filter_for_csos(df: pd.DataFrame) -> pd.DataFrame:
         </div>
         """
         st.write(red_background_message, unsafe_allow_html=True)
-    if not kingdom.is_empty:
-        if require_all:
-            df = df.loc[kingdom.get_interactions().index]
-        else:
-            objs = kingdom.full_kingdom_df.index.tolist()
-            df = df[df.index.str.contains("|".join(objs))]
+    if kingdom.is_empty:
+        return df
+    if require_all and len(kingdom) > 1:
+        df = df.loc[kingdom.get_interactions().index]
+    else:
+        objs = kingdom.full_kingdom_df.index.tolist()
+        df = df[df.index.str.contains("|".join(objs))]
     return df
+
+
+def _get_tab_names(static: bool) -> list[str]:
+    """Returns the tab names for the interactions filter."""
+    # TODO: Because of the way streamlit works, we currently cannot set the tab names dynamically unfortunately.
+    if static:
+        return ["CSO Filter", "Expansion Filter", "Other Filter"]
+    first_symbol = (
+        " 🔍"
+        if st.session_state.get("inter_cso_filtering_input", "").strip("") != ""
+        else ""
+    )
+    second_symbol = (
+        " 🔍" if st.session_state.get("inter_expansion_filter", []) != [] else ""
+    )
+    third_symbol = (
+        " 🔍"
+        if st.session_state.get("inter_exclude_ways", False)
+        or st.session_state.get("inter_exclude_first_edition", True)
+        else ""
+    )
+    return [
+        f"By CSO list{first_symbol}",
+        f"By expansions{second_symbol}",
+        f"Other filters{third_symbol}",
+    ]
+
+
+def _reset_all_filters():
+    st.session_state["inter_cso_filtering_input"] = ""
+    st.session_state["inter_expansion_filter"] = []
+    st.session_state["inter_require_all_csos"] = False
+    st.session_state["inter_exclude_ways"] = False
+    st.session_state["inter_require_all_exps"] = False
+    st.session_state["inter_exclude_first_edition"] = True
 
 
 with st.container(border=True):
@@ -140,13 +184,9 @@ with st.container(border=True):
         cols = st.columns([0.8, 0.2])
     with cols[1]:
         if st.button("Reset Filters", use_container_width=True):
-            st.session_state["inter_expansion_filter"] = []
-            st.session_state["inter_require_all_csos"] = False
-            st.session_state["inter_exclude_ways"] = False
-            st.session_state["inter_require_all_exps"] = False
-            st.session_state["inter_kingdom"] = ""
+            _reset_all_filters()
             st.rerun()
-    tabs = st.tabs(["By CSO list", "By expansions", "Other filters"])
+    tabs = st.tabs(_get_tab_names(static=True))
     with tabs[0]:
         INTERACTIONS = build_interactions_filter_for_csos(INTERACTIONS)
     with tabs[1]:
@@ -154,7 +194,9 @@ with st.container(border=True):
     with tabs[2]:
         INTERACTIONS = build_interactions_filter_other(INTERACTIONS)
     with cols[0]:
-        st.write(f"### Filtering for {len(INTERACTIONS)} interactions")
+        st.write(
+            f"### Filtering for {len(INTERACTIONS)}/{len(get_interactions())} available interactions"
+        )
 
 
 def display_interactions_df(df: pd.DataFrame):

@@ -10,7 +10,6 @@ import pandas as pd
 
 from ..constants import ALL_CSOS, QUALITIES_AVAILABLE
 from ..cso_frame_utils import sample_single_cso_from_df
-
 from ..utils.config import CustomConfigParser
 from .kingdom import Kingdom
 from .kingdom_helper_funcs import _get_total_quality
@@ -277,11 +276,23 @@ class RandomizedKingdom:
         # Make sure no card is picked by more than one Trait
         excluded = [trait_tuple[1] for trait_tuple in self.traits]
         if trait_name == "cheap":
-            excluded += ["transmute"]
+            excluded += [
+                "transmute",
+                "engineer",
+                "city_quarter",
+                "overlord",
+                "daimyo",
+                "artist",
+                "royal_blacksmith",
+                "mountain_shrine",
+            ]
         if trait_name == "hasty":
             excluded += ["buried_treasure"]
         if trait_name == "fated":
             excluded += ["stash"]
+        if trait_name == ["Tireless"]:
+            # Yes, technically, there are Way edge cases, but on most boards the following does nothing
+            excluded += ["samurai", "hireling", "quartermaster", "crew", "highwayman"]
         counterpart = self._pick_action_or_treasure(excluded)
         if counterpart:
             self.traits.append([trait_name, counterpart])

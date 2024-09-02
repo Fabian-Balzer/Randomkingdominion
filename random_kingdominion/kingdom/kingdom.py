@@ -122,7 +122,7 @@ class Kingdom:
 
     # TODO: Find a more lightweight way to do this as it causes load times > 1 sec for > 100 kingdoms
     full_kingdom_df: pd.DataFrame = field(init=False, repr=False, compare=False)
-    """All components of the kingdom except for boons, loot etc., but including colonies and shelters."""
+    """All components of the kingdom except for boons, loot etc., but including colonies, shelters, and ruins plus the special cards."""
     kingdom_card_df: pd.DataFrame = field(init=False, repr=False, compare=False)
     kingdom_landscape_df: pd.DataFrame = field(init=False, repr=False, compare=False)
     total_qualities: dict[str, int] = field(default_factory=dict, compare=False)
@@ -310,6 +310,8 @@ class Kingdom:
             key_list.append("platinum")
         if self.use_shelters:
             key_list += ["necropolis", "hovel", "overgrown_estate"]
+        if ["marauder", "death_cart", "cultist"] in self.cards:
+            key_list += ["ruins"]
         key_list = np.unique(key_list)
         full_kingdom_df = ALL_CSOS.loc[key_list]
         self.full_kingdom_df = sort_kingdom(full_kingdom_df)
@@ -343,6 +345,9 @@ class Kingdom:
             for exp in np.unique(unique_expansions.tolist() + exps_to_add)
             if exp not in exps_to_remove
         ]
+
+    def __len__(self) -> int:
+        return len(self.cards) + len(self.landscapes)
 
     @property
     def is_empty(self) -> bool:

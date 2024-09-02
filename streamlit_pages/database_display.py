@@ -262,10 +262,10 @@ def filter_full_df_for_options(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-filtered_df = filter_full_df_for_options(rk.MAIN_DF)
-text = f"Found {filtered_df.shape[0]}/{len(rk.MAIN_DF)} CSOs with the given filter options.\\\n*Hint*: You can click on the column names to sort the table."
+FILTERED_DF = filter_full_df_for_options(rk.MAIN_DF)
+text = f"Found {FILTERED_DF.shape[0]}/{len(rk.MAIN_DF)} CSOs with the given filter options.\\\n*Hint*: You can click on the column names to sort the table."
 st.info(text)
-if filtered_df.shape[0] > 300:
+if FILTERED_DF.shape[0] > 300:
     st.warning(
         "Due to more than 300 entries being selected, the sorting might be slow."
     )
@@ -276,8 +276,48 @@ cols = [
 if "Image" in cols:
     cols.remove("Image")
     cols = ["ImagePath"] + cols
-rk.display_stylysed_cso_df(filtered_df[cols + ["Name"]], with_reroll=False)
+rk.display_stylysed_cso_df(FILTERED_DF[cols + ["Name"]], with_reroll=False)
 
+
+def get_clipboard_str(radio_output: str) -> str:
+    text = ""
+    if radio_output == "Names":
+        text += ", ".join(FILTERED_DF["Name"].tolist())
+    elif radio_output == "Keys":
+        text += ", ".join(
+            rk.sanitize_cso_list(FILTERED_DF["Name"].tolist(), sort=False)
+        )
+    elif radio_output == "Names and Expansions":
+        text += ", ".join(FILTERED_DF["Name and Expansion"].tolist())
+    return text
+
+
+@st.fragment
+def build_database_clipboard_copy_options():
+    from st_copy_to_clipboard import st_copy_to_clipboard
+
+    cols = st.columns([0.8, 0.2])
+    radio_options = ["Names", "Keys", "Names and Expansions"]
+    with cols[0]:
+        radio_output = st.radio(
+            "Copy a comma-separated list of all selected CSOs to clipboard.",
+            radio_options,
+            index=radio_options.index(
+                st.session_state.get("radio_db_csv_output_sel", "Names")
+            ),
+            key="radio_db_csv_output_sel",
+            help="Select the type of text that's copied to clipboard.",
+            horizontal=True,
+        )
+    with cols[1]:
+        st_copy_to_clipboard(
+            get_clipboard_str(radio_output),  # type: ignore
+            before_copy_label="📋Copy to clipboard",
+            after_copy_label="Copied! Ready to be pasted.",
+        )
+
+
+build_database_clipboard_copy_options()
 
 # Add some spacing below as it helps displaying pictures if a user clicks on them
 st.write("<br>" * 10, unsafe_allow_html=True)
