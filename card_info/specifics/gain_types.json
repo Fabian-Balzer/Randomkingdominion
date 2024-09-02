@@ -199,6 +199,7 @@
   "Rogue": ["Specific*"],
   "Rope": ["Buys"],
   "Ruined Market": ["Buys"],
+  "Ruins": ["Buys"],
   "Sack of Loot": ["Buys", "Loot"],
   "Sacred Grove": ["Buys", "Boons"],
   "Salvager": ["Buys*"],
