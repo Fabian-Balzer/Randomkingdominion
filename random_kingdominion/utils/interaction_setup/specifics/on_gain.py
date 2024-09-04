@@ -175,8 +175,10 @@ def _add_on_gain_topdeck_villa_interaction(
 ):
     if choice:
         rule = f"If you gain a Villa, you can decide whether to topdeck it using {topdeck_cso}, or gain it to your hand. In any case, you will receive +1 Action and return to you Action phase if you're in your buy phase."
+    elif topdeck_cso == "Progress":
+        rule = f"If you gain a Villa while Progress is active, it is topdecked instead of put into your hand (unless you gain it on top of your deck directly with e.g. Armory, in which case it paradoxically is put into your hand afterwards)."
     else:
-        rule = f"If you gain a Villa using {topdeck_cso}, it is topdecked and then you put it into your hand hand."
+        rule = f"If you gain a Villa using {topdeck_cso}, it is first topdecked and then you put it into your hand."
     add_interaction("Villa", topdeck_cso, rule, df)
 
 
@@ -292,8 +294,7 @@ def add_all_on_gain_interactions(df: pd.DataFrame, verbose=False):
         _add_on_gain_topdeck_villa_interaction(topdeck_cso, df, choice=True)
     for topdeck_cso in WILL_TOPDECK_ON_GAIN:
         _add_on_gain_topdeck_siren_interaction(topdeck_cso, df)
-        if topdeck_cso != "Demand":
-            _add_on_gain_topdeck_villa_interaction(topdeck_cso, df)
+        _add_on_gain_topdeck_villa_interaction(topdeck_cso, df)
     for topdeck_cso in MUST_TOPDECK_ON_GAIN:
         _add_on_gain_topdeck_siren_interaction(topdeck_cso, df, force=True)
         _add_on_gain_topdeck_villa_interaction(topdeck_cso, df)

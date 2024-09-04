@@ -150,6 +150,21 @@ def _add_all_garrison_interactions(df: pd.DataFrame):
         _add_garrison_interaction(impostor, df)
 
 
+def _add_all_grand_market_interactions(df: pd.DataFrame):
+    add_interaction(
+        "Grand Market",
+        "Mint",
+        "Coppers that were in play earlier in the turn but are removed are not a restriction for buying Grand Market; if you have 11 Coppers in play and 2 Buys, you could buy a Mint, trash all of your played Treasures, and then buy a Grand Market.",
+        df,
+    )
+    add_interaction(
+        "Grand Market",
+        "Bonfire",
+        "Coppers that were in play earlier in the turn but are removed are not a restriction for buying Grand Market; if you have $9 with two Coppers in play and 2 Buys, you could buy Bonfire, trash the two Coppers, and then buy a Grand Market.",
+        df,
+    )
+
+
 def _add_all_harbor_village_interactions(df: pd.DataFrame):
     # HARBOR VILLAGE [See also the Ways section]
     add_interaction(
@@ -386,6 +401,7 @@ def add_all_individual_card_interactions(df: pd.DataFrame, verbose=False) -> Non
     _add_all_enchantress_interactions(df)
     _add_all_experiment_interactions(df)
     _add_all_garrison_interactions(df)
+    _add_all_grand_market_interactions(df)
     _add_all_harbor_village_interactions(df)
     _add_all_highwayman_interactions(df)
     _add_all_leprechaun_interactions(df)

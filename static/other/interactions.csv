@@ -18,7 +18,7 @@ armory;innovation;When you gain a card using Armory and immediately play it usin
 armory;night_watchman;If you gain a Night Watchman using Armory, it is topdecked instead of being gained to your hand.
 armory;rush;When you gain a card using Armory and immediately play it using Rush, you will not be able to topdeck it.
 armory;siren;If you gain a Siren and topdeck it using Armory, you still need to trash an Action card from your hand in order to not trash the Siren.
-armory;villa;If you gain a Villa using Armory, it is topdecked and then you put it into your hand hand.
+armory;villa;If you gain a Villa using Armory, it is first topdecked and then you put it into your hand.
 artisan;gatekeeper;If you gain a card and put it in your hand using Artisan while under the Gatekeeper attack, you still need to Exile it if you don't have a copy of it in Exile.
 artisan;sheepdog;If you gain a Sheepdog to your hand using Artisan, you can immediately react to its own gain and play it.
 artisan;siren;If you gain a Siren and put it in your hand using Artisan, you still need to trash an Action from your hand in order to not trash the Siren.
@@ -71,6 +71,7 @@ black_market;way_of_the_horse;If you play a card from the Black Market deck usin
 black_market;wild_hunt;When you get Wild Hunt from the Black Market deck, since there is no pile to gather VP tokens on, the gathering will have no effect.
 blockade;rapid_expansion;Once Rapid Expansion (RE) is triggered, any Actions or Treasures gained by Blockade will be set aside by RE and thus not truly be Blockaded (you clean up the Blockade during Clean-up).
 blockade;siren;If you gain a Siren and set it aside using Blockade, you still need to trash an Action from your hand in order to not trash the Siren.
+bonfire;grand_market;"Coppers that were in play earlier in the turn but are removed are not a restriction for buying Grand Market; if you have $9 with two Coppers in play and 2 Buys, you could buy Bonfire, trash the two Coppers, and then buy a Grand Market."
 border_village;destrier;Even if a Border Village is the first card you gain this turn, you may gain a Destrier off of it.
 bridge_troll;harbor_village;If you play a card giving only +$1 and use that to remove the -Coin token after playing Harbor Village, you don't get +$1 from Harbor Village as the card didn't produce any $.
 buried_treasure;mandarin;If you gain a Mandarin and have played Buried Treasure before that, you put it on top of your deck, but the duration effect still persists.
@@ -220,7 +221,7 @@ crafters_guild;innovation;When you gain a card using Crafter's Guild and immedia
 crafters_guild;night_watchman;If you gain a Night Watchman using Crafter's Guild, it is topdecked instead of being gained to your hand.
 crafters_guild;rush;When you gain a card using Crafter's Guild and immediately play it using Rush, you will not be able to topdeck it.
 crafters_guild;siren;If you gain a Siren and topdeck it using Crafter's Guild, you still need to trash an Action card from your hand in order to not trash the Siren.
-crafters_guild;villa;If you gain a Villa using Crafter's Guild, it is topdecked and then you put it into your hand hand.
+crafters_guild;villa;If you gain a Villa using Crafter's Guild, it is first topdecked and then you put it into your hand.
 crown;enchantress;If Enchantress affects Crown played in a Buy phase, its player gets +1 Card +1 Action, but has no way to use the +1 Action, since it is their Buy phase (but it might matter e.g. if the player buys Villa).
 crown;enlightenment;If Enlightenment is active, Crown's Action phase mode is overwritten by Enlightenment.
 crown;farmhands;If Farmhands's ability lets you play a Treasure in your Action phase, and this Treasure is a Crown, then because it is your Action phase, Crown lets you play an Action card (and not a Treasure) from your hand twice.
@@ -283,7 +284,7 @@ develop;innovation;When you gain a card using Develop and immediately play it us
 develop;night_watchman;If you gain a Night Watchman using Develop, it is topdecked instead of being gained to your hand.
 develop;rush;When you gain a card using Develop and immediately play it using Rush, you will not be able to topdeck it.
 develop;siren;If you gain a Siren and topdeck it using Develop, you still need to trash an Action card from your hand in order to not trash the Siren.
-develop;villa;If you gain a Villa using Develop, it is topdecked and then you put it into your hand hand.
+develop;villa;If you gain a Villa using Develop, it is first topdecked and then you put it into your hand.
 diplomat;soothsayer;If an opponent plays Soothsayer, you may react with Diplomat immediately, and then gain a Curse. Once you're done reacting, you draw a card due to Soothsayer, and if that card is a Diplomat, it is too late for you to react with that one.
 diplomat;way_of_the_butterfly;You can react your Diplomat's ability to an opponent playing an Attack card even if they play it as Way of the Butterfly.
 diplomat;way_of_the_camel;You can react your Diplomat's ability to an opponent playing an Attack card even if they play it as Way of the Camel.
@@ -462,13 +463,14 @@ gondola;secluded_shrine;When you gain a Gondola and play a Secluded Shrine from 
 grand_castle;inheritance;When you gain Grand Castle, you get points for opponent's Estates if they are in play because they inherited a Duration.
 grand_castle;patron;If you gain a Grand Castle during your Buy phase and reveal a Patron from your hand, you will not get +1 Coffers since it's not an Action phase.
 grand_castle;stronghold;When you gain Grand Castle, you get points for opponent's Strongholds because they are in play.
+grand_market;mint;"Coppers that were in play earlier in the turn but are removed are not a restriction for buying Grand Market; if you have 11 Coppers in play and 2 Buys, you could buy a Mint, trash all of your played Treasures, and then buy a Grand Market."
 graverobber;guardian;If you gain a Guardian using Graverobber, it is topdecked instead of being gained to your hand.
 graverobber;innovation;When you gain a card using Graverobber and immediately play it using Innovation, you will not be able to topdeck it.
 graverobber;necromancer;If you use a Necromancer to play a card from the trash (turning it face down), then gain it with Graverobber, then trash it again, you may play it again with a subsequent Necromancer as it will be turned face up again.
 graverobber;night_watchman;If you gain a Night Watchman using Graverobber, it is topdecked instead of being gained to your hand.
 graverobber;rush;When you gain a card using Graverobber and immediately play it using Rush, you will not be able to topdeck it.
 graverobber;siren;If you gain a Siren and topdeck it using Graverobber, you still need to trash an Action card from your hand in order to not trash the Siren.
-graverobber;villa;If you gain a Villa using Graverobber, it is topdecked and then you put it into your hand hand.
+graverobber;villa;If you gain a Villa using Graverobber, it is first topdecked and then you put it into your hand.
 guard_dog;way_of_the_butterfly;When you react and play Guard Dog during another player's turn, you can decide to play it as Way of the Butterfly.
 guard_dog;way_of_the_camel;When you react and play Guard Dog during another player's turn, you can decide to play it as Way of the Camel.
 guard_dog;way_of_the_chameleon;"When you react and play Guard Dog during another player's turn, you can decide to play it as Way of the Chameleon. Remember that +$ can't normally be used on other player's turns.
@@ -551,7 +553,7 @@ invasion;night_watchman;If you gain a Night Watchman using Invasion, it is topde
 invasion;ninja;When buying Invasion, you may play a Ninja from your deck as the Attack.
 invasion;rush;When you gain a card using Invasion and immediately play it using Rush, you will not be able to topdeck it.
 invasion;siren;If you gain a Siren and topdeck it using Invasion, you still need to trash an Action card from your hand in order to not trash the Siren.
-invasion;villa;If you gain a Villa using Invasion, it is topdecked and then you put it into your hand hand.
+invasion;villa;If you gain a Villa using Invasion, it is first topdecked and then you put it into your hand.
 investment;patron;If you play Investment during your Buy phase and reveal a Patron this way, you will not get +1 Coffers since it's not an Action phase.
 jewels;mandarin;If you gain a Mandarin and have played Jewels before that, you put it on top of your deck, but the duration effect still persists.
 jewels;panic;Since you never discard Jewels from play after playing it (bar e.g. Highwayman), you never return it for Panic.
@@ -662,7 +664,7 @@ prince;raze;If you Prince a Raze and choose the option to trash itself, you fail
 prince;way_of_the_butterfly;If you play the Princed Action using Way of the Butterfly, it fails to return to its pile, and nothing will happen.
 prince;way_of_the_horse;If you play the Princed Action using Way of the Horse, it stays set aside.
 progress;siren;If you gain a Siren and topdeck it using Progress, you don't need to trash an Action card in order for the Siren to stay in your deck.
-progress;villa;If you gain a Villa using Progress, it is topdecked and then you put it into your hand hand.
+progress;villa;If you gain a Villa while Progress is active, it is topdecked instead of put into your hand (unless you gain it on top of your deck directly with e.g. Armory, in which case it paradoxically is put into your hand afterwards).
 quartermaster;rapid_expansion;Once Rapid Expansion (RE) is triggered, any Actions or Treasures gained by Quartermaster will be set aside by RE and thus not put onto Quartermaster.
 quartermaster;siren;If you gain a Siren and set it aside using Quartermaster, you still need to trash an Action from your hand in order to not trash the Siren.
 rapid_expansion;siren;If you gain a Siren and set it aside using Rapid Expansion, since it's set aside after being gained, it will stay there even if you fail to trash an Action.
