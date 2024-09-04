@@ -60,7 +60,9 @@ stuff_to_provide = (
     )
     .to_dict()
 )
-WAY_DICT = {_ways.loc[k]["Name"]: v for k, v in stuff_to_provide.items()}
+WAY_DICT: dict[str, list[str]] = {
+    _ways.loc[k]["Name"]: v for k, v in stuff_to_provide.items()
+}
 ALL_TRAITS = ALL_CSOS[ALL_CSOS["IsTrait"]]["Name"].tolist()
 
 ALL_LOOTS = ALL_CSOS[listlike_contains(ALL_CSOS["Types"], "Loot")]["Name"].tolist()

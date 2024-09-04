@@ -31,8 +31,8 @@ def get_interactions() -> pd.DataFrame:
 INTERACTIONS = get_interactions()
 
 rk.build_page_header(
-    "CSO Interactions (rules-wise)",
-    "On this page, you can explore interactions between CSOs that might catch you off-guard rules-wise. The project was initiated on discord by `nave`; while there are lot of different combinations, these do not cover the straight-forward interactions like your typical Village/Smithy. The interactions have been gathered with the assumption that those using it have a base knowledge of the rules of Dominion and are looking for edge-cases and things that are not 100 % intuitive.\\\nYou can either filter the interactions for certain expansions, or post a comma-separated list from which the site will try to filter for any relevant interactions.\\\nIf you want to see the full list of CSOs, you can visit the [CSO Database](/cso_overview).",
+    "Domionion Card and Landscape Rules Interactions",
+    "On this page, you can explore interactions between Card-Shaped Objects (CSOs) that might catch you off-guard rules-wise. The project was initiated on discord by `nave`; while there are lot of different combinations, these do not cover the straight-forward interactions like your typical Village/Smithy. The interactions have been gathered with the assumption that those using it have a base knowledge of the rules of Dominion and are looking for edge-cases and things that are not 100 % intuitive.\\\nYou can either filter the interactions for certain expansions, or post a comma-separated list from which the site will try to filter for any relevant interactions.\\\nIf you want to see the full list of CSOs, you can visit the [CSO Database](/cso_overview).",
     "Learn more about the CSO and kingdom qualities on the about page.",
 )
 
@@ -195,7 +195,7 @@ with st.container(border=True):
         INTERACTIONS = build_interactions_filter_other(INTERACTIONS)
     with cols[0]:
         st.write(
-            f"### Filtering for {len(INTERACTIONS)}/{len(get_interactions())} available interactions"
+            f"#### Filtering for {len(INTERACTIONS)}/{len(get_interactions())} available interactions between Card-Shaped Objects (CSOs)."
         )
 
 

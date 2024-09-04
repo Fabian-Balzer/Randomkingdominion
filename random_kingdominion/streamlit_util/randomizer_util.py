@@ -82,6 +82,11 @@ def save_config() -> CustomConfigParser:
         "colony_probability",
         str(st.session_state["colony_probability"]),
     )
+    config.set(
+        "General",
+        "partial_random_kingdom",
+        st.session_state.get("partial_random_kingdom", ""),
+    )
 
     for qual in QUALITIES_AVAILABLE:
         config.set_requested_quality(qual, st.session_state.get(f"requested_{qual}", 0))

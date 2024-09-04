@@ -2,6 +2,7 @@
 
 import streamlit as st
 
+from ..kingdom_readout import build_kingdom_text_input
 from .expansion_select import build_expansion_selection
 from .landscape_options import build_landscape_option_selection
 from .likes_and_bans import build_like_ban_selection
@@ -16,6 +17,10 @@ def build_randomization_options():
         st.write("### Randomization Options")
         TABS = st.tabs(
             ["Expansions", "Mechanics", "Landscapes", "Engine Qualities", "Likes/Bans"]
+        )
+        build_kingdom_text_input(
+            key="partial_random_kingdom",
+            description_text="Enter a (partial) kingdom in the DomBot-typical-csv Format 'card1, card2, ..., cardN' to start the randomization from.\\\nTakes precedence over the other options (e.g. will force [No] Shelters and cards even if they are banned or not in the selected expansions).",
         )
     with TABS[0]:
         build_expansion_selection()

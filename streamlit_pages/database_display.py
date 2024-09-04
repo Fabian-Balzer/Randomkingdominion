@@ -7,14 +7,14 @@ import streamlit as st
 import random_kingdominion as rk
 
 rk.build_page_header(
-    "CSO Database",
+    "Dominion Card and Landscape Database",
     "On this page, you can filter and view the card database of all dominion Card-Shaped Objects (CSOs), and sort and filter them to hunt for whatever you might need, including my hand-curated CSO qualities described in the *about* page.",
     "Learn more about how the card qualities were devised.",
 )
 
 SELECTED_EXPANSIONS = []
 with st.container(border=True):
-    st.write("#### Use these options to filter the database below")
+    filter_header_container = st.container()
     INVERT_MASK = st.checkbox(
         "Invert all filters",
         value=False,
@@ -44,21 +44,19 @@ with st.container(border=True):
                     help="Use regex search for the card text instead of the conventional one (e.g. search for '\\+\\d' for any CSO giving + something).",
                 )
             with cols[0]:
-                filter_type = (
-                    "a regex search parameter"
-                    if use_regex_search
-                    else "a search parameter"
-                )
+                filter_type = "regex" if use_regex_search else "plain text"
                 searched_cols = ", ".join(
                     [f"```{col}```" for col in text_search_columns]
                 )
                 suffix = "s" if len(text_search_columns) > 1 else ""
-                input_label = (
-                    f"Enter {filter_type} to filter the {searched_cols} column{suffix}:"
-                )
+                input_label = f"Enter a {filter_type} search parameter to filter the {searched_cols} column{suffix}:"
                 value = st.session_state.get("card_text_search_param", "")
+                placeholder = f"Enter words to {filter_type}-filter for in the {searched_cols.replace("```", "'")} column{suffix}, e.g. 'Next Time'."
                 card_text_search_param = st.text_input(
-                    input_label, value, key="card_text_search_param"
+                    input_label,
+                    value,
+                    key="card_text_search_param",
+                    placeholder=placeholder
                 )
         st.info(
             "The search is case-insensitive and will match any part of the texts. Leave the search parameter empty to disable the filter."
@@ -263,7 +261,11 @@ def filter_full_df_for_options(df: pd.DataFrame) -> pd.DataFrame:
 
 
 FILTERED_DF = filter_full_df_for_options(rk.MAIN_DF)
-text = f"Found {FILTERED_DF.shape[0]}/{len(rk.MAIN_DF)} CSOs with the given filter options.\\\n*Hint*: You can click on the column names to sort the table."
+with filter_header_container:
+    st.write(
+        f"#### Filtering for {len(FILTERED_DF)}/{len(rk.MAIN_DF)} available Card-Shaped Objects (CSOs)"
+    )
+text = f"*Hint*: You can click on the column names to sort the table."
 st.info(text)
 if FILTERED_DF.shape[0] > 300:
     st.warning(

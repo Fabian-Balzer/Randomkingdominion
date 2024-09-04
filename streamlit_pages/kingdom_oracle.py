@@ -4,8 +4,8 @@ import streamlit as st
 import random_kingdominion as rk
 
 rk.build_page_header(
-    "Kingdom Oracle",
-    "This page allows you to easily input a kingdom to visualize its engine qualities and take a more detailed look on its CSOs. The resulting plot also shows any extra components you'd need to set up the kingdom in its physical form.",
+    "Dominion Kingdom Oracle",
+    "This page allows you to easily input a kingdom to visualize its engine qualities and take a more detailed look on its Card-Shaped Objects (CSOs). The resulting plot also shows any extra components you'd need to set up the kingdom in its physical form.",
     "Learn more about the CSO and kingdom qualities on the about page.",
 )
 
@@ -241,23 +241,25 @@ with st.expander("Select existing kingdom to visualize", expanded=False):
         build_existing_kingdom_select(selection)
         st.info(_get_short_info(selection))
 
-cols = st.columns([0.9, 0.1])
+cols = st.columns([0.7, 0.2, 0.1])
 with cols[0]:
-    kingdom_input = st.text_input(
-        "Enter a kingdom in the DomBot-typical-csv Format 'card1, card2, ..., cardN'. You may specify the bane card with 'Young Witch: card' or 'Young Witch(Card)'.",
-        value=st.session_state.get("kingdom_input", ""),
-        key="kingdom_input",
-        placeholder="e.g. Chapel, Village, Young Witch (Moat), Pious (Poet), Swindler, Growth, ...",
-    )
-try:
-    if kingdom_input != "":
-        kingdom = rk.Kingdom.from_dombot_csv_string(kingdom_input)
-    else:
-        kingdom = rk.Kingdom([])
-except ValueError:
-    kingdom = rk.Kingdom([], notes="Invalid kingdom input. Please check the format.")
-kingdom.name = st.session_state.get("kingdom_name", "")
+    kingdom = rk.build_kingdom_text_input()
+
+
+def navigate_to_randomizer():
+    st.session_state["partial_random_kingdom"] = kingdom.get_dombot_csv_string()
+    st.switch_page("streamlit_pages/randomizer.py")
+
+
 with cols[1]:
+    if st.button(
+        "To Randomizer\\\n🔀",
+        help="Use this assortment to randomize from",
+        use_container_width=True,
+        disabled=kingdom.is_empty,
+    ):
+        navigate_to_randomizer()
+with cols[2]:
     if not kingdom.is_empty:
         rk.build_clipboard_button("kingdom_input")
 

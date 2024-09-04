@@ -1,3 +1,7 @@
+- 1.3.2 (2024-09-04):
+  - Added capability of using a partial kingdom from the oracle page for the randomizer.
+  - Added more interactions, particularly involving Reckless and Market Square.
+  - Removed a few wrong interactions.
 - 1.3.1 (2024-09-02):
   - Overhauled how interactions are gathered.
   - Added Clipboard-copying capability of the cso database when filtered.

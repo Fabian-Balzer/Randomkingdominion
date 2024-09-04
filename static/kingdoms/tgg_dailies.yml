@@ -1,4 +1,57 @@
 - cards:
+  - baron
+  - groundskeeper
+  - ironworks
+  - mill
+  - minion
+  - nobles
+  - sacrifice
+  - shanty_town
+  - villa
+  - wild_hunt
+  expansions:
+  - Empires
+  - Intrigue, 2E
+  idx: 111757787645158379959782353715897969805
+  landscapes:
+  - wedding
+  - wolf_den
+  name: 2024-9-4
+- cards:
+  - bridge_troll
+  - caravan_guard
+  - distant_lands
+  - duplicate
+  - giant
+  - messenger
+  - page
+  - raze
+  - royal_carriage
+  - storyteller
+  expansions:
+  - Adventures
+  idx: 281688218688048604914242201922247561877
+  landscapes:
+  - alms
+  - trade
+  name: 2024-9-3
+- cards:
+  - bureaucrat
+  - candlestick_maker
+  - farrier
+  - gardens
+  - market
+  - merchant_guild
+  - moneylender
+  - remodel
+  - sentry
+  - vassal
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  idx: 145541296004507783694682401649240965038
+  name: 2024-9-2
+- cards:
   - artisan
   - bounty_hunter
   - changeling
@@ -29,6 +82,7 @@
     - monument
   - - reckless
     - coven
+  winrate: .nan
 - cards:
   - clashes
   - exorcist
@@ -51,6 +105,7 @@
   - Seaside, 2E
   idx: 16763386228988016885629737657096350320
   name: 2024-8-31
+  winrate: .nan
 - cards:
   - bridge_troll
   - coin_of_the_realm

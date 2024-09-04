@@ -36,7 +36,7 @@ pg = st.navigation(
         "": [
             st.Page(
                 "streamlit_pages/randomizer.py",
-                title="Kingdom Randomizer",
+                title="Dominion Kingdom Randomizer",
                 url_path="randomizer",
                 icon="🔀",
             ),
@@ -54,7 +54,7 @@ pg = st.navigation(
             ),
             st.Page(
                 "streamlit_pages/interactions.py",
-                title="Interactions",
+                title="CSO Interactions",
                 url_path="interactions",
                 icon="↔️",
             ),
@@ -65,7 +65,7 @@ pg = st.navigation(
                 icon="❓",
             ),
         ],
-        "CSO and Kingdom Qualities": quality_pages,
+        "Card/Landscape and Kingdom Qualities": quality_pages,
     }
 )
 pg.run()

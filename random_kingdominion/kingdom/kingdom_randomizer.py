@@ -4,14 +4,9 @@ from __future__ import annotations
 
 import random
 
-from ..single_cso_utils import (
-    is_card,
-    is_cso_in_expansions,
-    is_extended_landscape,
-)
-from ..utils.config import CustomConfigParser
-
 from ..constants import ALL_CSOS
+from ..single_cso_utils import is_card, is_cso_in_expansions, is_extended_landscape
+from ..utils.config import CustomConfigParser
 from .kingdom import Kingdom
 from .kingdom_helper_funcs import sanitize_cso_list
 from .pool_container import PoolContainer
@@ -34,17 +29,18 @@ class KingdomRandomizer:
         random_kingdom: RandomizedKingdom,
         pick: str | None = None,
         add_to_cards=True,
-    ):
+    ) -> bool:
         """Picks the next card and makes sure that the Young Witch target and
         Allies are taken care of.
 
         If not specified, the card is picked randomly from the current pool.
         If add_to_cards is False, the card is not added to the kingdom cards (relevant for Ferryman and Riverboat)
         """
+        was_added = False
         if pick is None:
             pick = self.pool_con.pick_next_card(random_kingdom.quality_of_selection)
         if add_to_cards:
-            random_kingdom.add_card(pick)
+            was_added = random_kingdom.add_card(pick)
         if pick == "young_witch":
             self.pick_bane_pile(random_kingdom)
         elif pick == "ferryman":
@@ -64,6 +60,7 @@ class KingdomRandomizer:
             # An ally is not different from other landscapes, only picked under different conditions,
             # Except that it doesn't count towards the landscape number.
             random_kingdom.add_landscape(pick)
+        return was_added
 
     def pick_bane_pile(self, random_kingdom: RandomizedKingdom):
         """Pick the bane card."""
@@ -113,46 +110,54 @@ class KingdomRandomizer:
 
     def pick_next_landscape(
         self, random_kingdom: RandomizedKingdom, pick: str | None = None
-    ):
+    ) -> bool:
         """Picks the next landscape and makes sure that WotMouse is taken care of."""
+        was_added = False
         if pick is None:
             pick = self.pool_con.pick_next_landscape(
                 random_kingdom.quality_of_selection, random_kingdom.contains_way()
             )
-        random_kingdom.add_landscape(pick)
+        was_added = random_kingdom.add_landscape(pick)
         if pick == "way_of_the_mouse":
             self.pick_mouse_card(random_kingdom)
         elif pick == "approaching_army":
             self.pick_army_pile(random_kingdom)
         if pick == "":
-            return
+            return False
         cso = ALL_CSOS.loc[pick]
         # If an ally is picked, pick a liaison if there is none in the kingdom.
         # Should only happen if the ally is directly set.
         if cso["IsAlly"]:
             pick = self.pool_con.pick_liaison(random_kingdom.quality_of_selection)
-            self.pick_next_card(random_kingdom, pick)
+            was_added = self.pick_next_card(random_kingdom, pick)
             print(f"Picking {pick}")
         # If a prophecy is picked, pick an omen if there is none in the kingdom.
         # Should only happen if the prophecy is directly set.
         if cso["IsProphecy"]:
             pick = self.pool_con.pick_omen(random_kingdom.quality_of_selection)
-            self.pick_next_card(random_kingdom, pick)
+            was_added = self.pick_next_card(random_kingdom, pick)
+        return was_added
 
     def randomize_new_kingdom(self) -> Kingdom:
         """Create a completely fresh randomized kingdom."""
         self.pool_con = PoolContainer(self.config, self.rerolled_csos)
-        if len(self.config.get_expansions(False)) == 0:
-            return Kingdom([])
 
         num_cards = self.config.getint("General", "num_cards")
         num_landscapes = self._determine_landscape_number()
-        random_kingdom = RandomizedKingdom(num_landscapes=num_landscapes)
-        random_kingdom, used_cards, used_lscapes = self.add_required_csos(
-            random_kingdom
-        )
-        num_cards -= used_cards
-        num_landscapes -= used_lscapes
+        if (partial_str := self.config.get("General", "partial_random_kingdom")) != "":
+            try:
+                _partial_kingdom = Kingdom.from_dombot_csv_string(partial_str)
+            except ValueError:
+                _partial_kingdom = Kingdom([], notes="Invalid partial kingdom input.")
+            random_kingdom = RandomizedKingdom.from_kingdom(_partial_kingdom)
+            random_kingdom.num_desired_landscapes = num_landscapes
+        else:
+            random_kingdom = RandomizedKingdom(num_desired_landscapes=num_landscapes)
+        random_kingdom = self.add_required_csos(random_kingdom)
+        if len(self.config.get_expansions(False)) == 0:
+            return random_kingdom.get_kingdom()
+        num_cards -= random_kingdom.num_selected_cards
+        num_landscapes -= random_kingdom.num_selected_landscapes
 
         for _ in range(max(num_cards, 0)):
             self.pick_next_card(random_kingdom)
@@ -162,16 +167,12 @@ class KingdomRandomizer:
                 current_qual, random_kingdom.contains_way()
             )
             random_kingdom.add_landscape(pick)
-        shelter_prob = self.config.getfloat("Specialization", "shelter_probability")
-        col_plat_prob = self.config.getfloat("Specialization", "colony_probability")
         # Pick Ally in case a Liaison is in the kingdom
         # Pick a mouse card in case Way of the Mouse is amongst the picks:
         random_kingdom.finish_randomization(self.config)
         return random_kingdom.get_kingdom()
 
-    def add_required_csos(
-        self, random_kingdom: RandomizedKingdom
-    ) -> tuple[RandomizedKingdom, int, int]:
+    def add_required_csos(self, random_kingdom: RandomizedKingdom) -> RandomizedKingdom:
         """Adds the required csos to the random kingdom"""
         required_csos = self.config.getlist("General", "required_csos")
         expansions = self.config.get_expansions()
@@ -185,14 +186,14 @@ class KingdomRandomizer:
             ):
                 continue
             if is_card(cso):
-                self.pick_next_card(random_kingdom, cso)
-                added_cards += 1
+                if self.pick_next_card(random_kingdom, cso):
+                    added_cards += 1
             elif is_extended_landscape(cso):
-                self.pick_next_landscape(random_kingdom, cso)
-                added_landscapes += 1
+                if self.pick_next_landscape(random_kingdom, cso):
+                    added_landscapes += 1
             else:
                 print(f"Couldn't find {cso} in cards or landscapes")
-        return random_kingdom, added_cards, added_landscapes
+        return random_kingdom
 
     def _determine_landscape_number(self) -> int:
         min_num = self.config.getint("Landscapes", "min_num_landscapes")

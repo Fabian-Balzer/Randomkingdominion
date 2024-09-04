@@ -5,6 +5,8 @@ alchemist;reckless;If Alchemist is Reckless, you may topdeck if you have a Potio
 amphora;mandarin;If you gain a Mandarin and have played Amphora before that, you put it on top of your deck, but the duration effect still persists.
 amphora;panic;When you discard Amphora from play while Panic is active, you return it to the top of the Loot pile. When discarding multiple, you get to choose the order.
 approaching_army;harbor_village;Even if Approaching Army is active, Harbor Village does not give you +$1 when you play an Attack (that doesn't give +$) after it, since it's Approaching Army providing the +$1, not the Attack card itself.
+architects_guild;destrier;Destrier's cost will be evaluated after each gain, so if you gain a Destrier costing $6, you may gain a card cheaper than $5 afterwards using Architect's Guild. On the other hand, you may gain an initially $6-costing Destrier off of a Gold gain using Architect's Guild.
+architects_guild;fisherman;Fisherman's cost will be evaluated after each gain, so if you e.g. gain a Fisherman for $2, you may use two Favors to gain a card costing less than $5 (as long as the Fisherman is in the Discard Pile). On the other hand, you normally cannot gain a Fisherman for $2 off of a $5 cost gain using Architect's Guild.
 arena;trail;You may still discard a card like Trail for Arena even if there are no more VP tokens available. Be aware that there might be an Autoplay in the online clients skipping over this step that you'll have to turn off.
 arena;village_green;You may still discard a card like Village Green for Arena even if there are no more VP tokens available. Be aware that there might be an Autoplay in the online clients skipping over this step that you'll have to turn off.
 arena;weaver;You may still discard a card like Weaver for Arena even if there are no more VP tokens available. Be aware that there might be an Autoplay in the online clients skipping over this step that you'll have to turn off.
@@ -16,11 +18,12 @@ armory;innovation;When you gain a card using Armory and immediately play it usin
 armory;night_watchman;If you gain a Night Watchman using Armory, it is topdecked instead of being gained to your hand.
 armory;rush;When you gain a card using Armory and immediately play it using Rush, you will not be able to topdeck it.
 armory;siren;If you gain a Siren and topdeck it using Armory, you still need to trash an Action card from your hand in order to not trash the Siren.
-armory;spell_scroll;When you gain a card using Armory and immediately play it using Spell Scroll, you will not be able to topdeck it.
 armory;villa;If you gain a Villa using Armory, it is topdecked instead of being gained to your hand.
 artisan;gatekeeper;If you gain a card and put it in your hand using Artisan while under the Gatekeeper attack, you still need to Exile it if you don't have a copy of it in Exile.
+artisan;sheepdog;If you gain a Sheepdog to your hand using Artisan, you can immediately react to its own gain and play it.
 artisan;siren;If you gain a Siren and put it in your hand using Artisan, you still need to trash an Action from your hand in order to not trash the Siren.
 astrolabe;mandarin;If you gain a Mandarin and have played Astrolabe before that, you put it on top of your deck, but the duration effect still persists.
+bad_omens;patron;If you reveal the cards in your discard pile since you don't have any Coppers, you will get +1 Coffers for each Patron in there as long as it's during an Action phase.
 ball;harbor_village;If you play a card giving only +$1 and use that to remove the -Coin token after playing Harbor Village, you don't get +$1 from Harbor Village as the card didn't produce any $.
 band_of_misfits;garrison;If you play a Garrison using Band of Misfits, you can't put tokens on Garrison because it's not in play, and you don't put tokens on Band of Misfits either. This means it won't draw any cards next turn and will be discarded this turn.
 band_of_nomads;city-state;If you gain a card and use Band of Nomads to cause a shuffle, you cannot play it using City-State anymore (but you could choose to resolve the on-gain play first).
@@ -28,6 +31,7 @@ band_of_nomads;innovation;If you gain a card and use Band of Nomads to cause a s
 band_of_nomads;rush;If you gain a card and use Band of Nomads to cause a shuffle, you cannot play it using Rush anymore (but you could choose to resolve the on-gain play first).
 band_of_nomads;siren;If you gain a Siren and somehow trigger a shuffle by drawing a card using Band of Nomads, you still may trash an Action card from you hand, but the Siren will fail to trash itself and it will stay in your deck.
 band_of_nomads;spell_scroll;If you gain a card and use Band of Nomads to cause a shuffle, you cannot play it using Spell Scroll anymore (but you could choose to resolve the on-gain play first).
+bandit;charlatan;If a Bandit reveals a Curse with Charlatan in the kingdom, the Curse (or another non-Copper Treasure) is trashed.
 barge;way_of_the_chameleon;If you play Barge using Way of the Chameleon, remember that Way of the Chameleon only affects stuff happening *this turn*, so on your next turn, you will get the normal bonus from Barge.
 bauble;den_of_sin;If you gain a Den of Sin, you can decide whether to topdeck it using Bauble, or gain it to your hand.
 bauble;ghost_town;If you gain a Ghost Town, you can decide whether to topdeck it using Bauble, or gain it to your hand.
@@ -67,11 +71,13 @@ black_market;way_of_the_horse;If you play a card from the Black Market deck usin
 black_market;wild_hunt;When you get Wild Hunt from the Black Market deck, since there is no pile to gather VP tokens on, the gathering will have no effect.
 blockade;rapid_expansion;Once Rapid Expansion (RE) is triggered, any Actions or Treasures gained by Blockade will be set aside by RE and thus not truly be Blockaded (you clean up the Blockade during Clean-up).
 blockade;siren;If you gain a Siren and set it aside using Blockade, you still need to trash an Action from your hand in order to not trash the Siren.
+border_village;destrier;Even if a Border Village is the first card you gain this turn, you may gain a Destrier off of it.
 bridge_troll;harbor_village;If you play a card giving only +$1 and use that to remove the -Coin token after playing Harbor Village, you don't get +$1 from Harbor Village as the card didn't produce any $.
 buried_treasure;mandarin;If you gain a Mandarin and have played Buried Treasure before that, you put it on top of your deck, but the duration effect still persists.
 cage;mandarin;If you gain a Mandarin and have played Cage before that, you put it on top of your deck, but the duration effect still persists.
 capital;highwayman;"If you are under Highwayman attack and play Capital as your first Treasure, you do not get +6$ and +1 Buy; however, you will still get 6D when discarding Capital from play."
 capital;panic;When discarding Capital from play and Panic is active, you need to return it to its pile and also get +6 Debt.
+capital;reckless;If Capital is Reckless, you get +$12 and +2 Buys when playing it. When you discard it from play, you get +6 Debt and have to return it to its pile.
 capitalism;enlightenment;Once Enlightenment is active, Capitalism will turn all of its targets into cantrips during the Action phase.
 capitalism;fishmonger;During your buy phase, you can play Fishmongers from your deck if you have bought Capitalism. [This used to be bugged in the TGG client, let us know if it's resolved!]
 capitalism;way_of_the_butterfly;Once Capitalism is active, you can choose to play your new-found Action-Treasures as Way of the Butterfly both in your Action and Buy phase.
@@ -132,6 +138,7 @@ cave_dwellers;clerk;"You may react Clerks both before and after using Favors for
 change;fisherman;It is occasionally possible for cost reduction to make the gained card cost less $ than the trashed card after gaining. In this case the D incurred is the absolute value of the new $ difference. For example, if you trash a $2 Fisherman and gain a Silver, the Fisherman now costs $5, and you take 2D.
 changeling;city-state;If you play a gained card using City-State, you cannot exchange it for a Changeling afterwards. Conversely, you cannot play it anymore after having exchanged it for a Changeling.
 changeling;gondola;When gaining a Gondola, you can both exchange it for a Changeling and make use of its on-gain effect.
+changeling;infirmary;If you overpay for an Infirmary and exchange it for a Changeling, you cannot play it and vice versa.
 changeling;innovation;If you play a gained card using Innovation, you cannot exchange it for a Changeling afterwards. Conversely, you cannot play it anymore after having exchanged it for a Changeling.
 changeling;rush;If you play a gained card using Rush, you cannot exchange it for a Changeling afterwards. Conversely, you cannot play it anymore after having exchanged it for a Changeling.
 changeling;sculptor;If you play Sculptor to gain a Treasure and exchange it for a Changeling, will still get the Villager (but the Changeling will be gained to your discard pile).
@@ -152,6 +159,7 @@ city-state;graverobber;When you gain a card using Graverobber and immediately pl
 city-state;guildmaster;When you gain a Guildmaster and play it immediately using City-State, you receive a Favor from its gain.
 city-state;haggler;When you buy and gain a Haggler and play it immediately using City-State, you will gain a card costing less than it.
 city-state;hill_fort;If you gain a card and use Hill Fort to cause a shuffle, you cannot play it using City-State anymore (but you could choose to resolve the on-gain play first).
+city-state;improve;You can play cards you gain via an Improve trash using City-State during your Clean-up phase. This might lead to weird effects such as Encampment immediately returning to its pile, and Crown being useless.
 city-state;infirmary;When you overpay for Infirmary, you choose between the effect of the overpay and City-State triggering. If you choose City-State, Infirmary's overpay will be unable to play itself any number of times (because Infirmary already moved). City-State will also be unable to play Infirmary if you choose the overpay first, for the same reason.
 city-state;invasion;When you gain a card using Invasion and immediately play it using City-State, you will not be able to topdeck it.
 city-state;kiln;When you gain a Kiln and play it immediately using City-State, you will not be able to gain another Kiln due to its 'Next Time' wording. Instead, the next card you play will be subject to its effect.
@@ -160,12 +168,15 @@ city-state;search;When you gain the last Search and play it immediately using Ci
 city-state;sheepdog;If you gain a card and use Sheepdog to cause a shuffle, you cannot play it using City-State anymore (but you could choose to resolve the on-gain play first).
 city-state;siren;If you gain a Siren and use City-State to play the Siren, Siren no longer requires you to trash an action card from your hand in order to not trash the Siren.
 city-state;skirmisher;When you gain a Skirmisher and play it immediately using City-State, its effect will trigger, causing your opponents to discard.
+city-state;sycophant;You can immediately use the Favors from gaining Sycophant to play it using City-State.
 city-state;trail;If you gain a card and use Trail to cause a shuffle, you cannot play it using City-State anymore (but you could choose to resolve the on-gain play first).
 clashes;populate;Buying Populate will gain the top card of the Clashes pile, even if it's not an Action card.
 clerk;desert_guides;"You may react Clerks both before and after using Favors for Desert Guides, but not in-between; you could e.g. react Clerk, use Desert Guides two times, and then react another Clerk you've just drawn. After that, you may not use Desert Guides again."
 clerk;guide;"You may arbitrarily order reacting Clerks and calling Guides at the start of your turn; you could e.g. react a Clerk, call Guide, react another two Clerks that you've just drawn, and call another Guide."
 cobbler;gatekeeper;If you gain a card and put it in your hand using Cobbler while under the Gatekeeper attack, you still need to Exile it if you don't have a copy of it in Exile.
+cobbler;sheepdog;If you gain a Sheepdog to your hand using Cobbler, you can immediately react to its own gain and play it.
 cobbler;siren;If you gain a Siren and put it in your hand using Cobbler, you still need to trash an Action from your hand in order to not trash the Siren.
+coin_of_the_realm;highwayman;Calling Coin of the Realm from your Tavern mat will work and provide +2 Actions even if you are affected by the Highwayman attack because you don't *play* it there.
 conspirator;reckless;A Reckless card is not played twice as far as Conspirator is concerned. That means if you e.g. Reckless were on Conspirator and you would play it as the second Action this turn, you would only get +$4, not +$4 and +1 Card, +1 Action.
 continue;exploration;When you return to your Action phase using Continue, you are ending your Buy phase but gain a card at the same time, so Exploration can't trigger. Exploration can still trigger at the end of a future buy phase.
 continue;footpad;If you return to your Action phase using Continue, you are still gaining the card during the Buy phase, so Footpad's ability doesn't trigger.
@@ -209,7 +220,6 @@ crafters_guild;innovation;When you gain a card using Crafter's Guild and immedia
 crafters_guild;night_watchman;If you gain a Night Watchman using Crafter's Guild, it is topdecked instead of being gained to your hand.
 crafters_guild;rush;When you gain a card using Crafter's Guild and immediately play it using Rush, you will not be able to topdeck it.
 crafters_guild;siren;If you gain a Siren and topdeck it using Crafter's Guild, you still need to trash an Action card from your hand in order to not trash the Siren.
-crafters_guild;spell_scroll;When you gain a card using Crafter's Guild and immediately play it using Spell Scroll, you will not be able to topdeck it.
 crafters_guild;villa;If you gain a Villa using Crafter's Guild, it is topdecked instead of being gained to your hand.
 crown;enchantress;If Enchantress affects Crown played in a Buy phase, its player gets +1 Card +1 Action, but has no way to use the +1 Action, since it is their Buy phase (but it might matter e.g. if the player buys Villa).
 crown;enlightenment;If Enlightenment is active, Crown's Action phase mode is overwritten by Enlightenment.
@@ -240,6 +250,8 @@ crown;way_of_the_sheep;When you play Crown, you can still decide to play it as W
 crown;way_of_the_squirrel;When you play Crown, you can still decide to play it as Way of the Squirrel, whether you are in your Action or in your Buy phase.
 crown;way_of_the_turtle;When you play Crown, you can still decide to play it as Way of the Turtle, whether you are in your Action or in your Buy phase.
 crown;way_of_the_worm;When you play Crown, you can still decide to play it as Way of the Worm, whether you are in your Action or in your Buy phase.
+crypt;reckless;If Reckless is on a Treasure and you stow it away with Crypt, you cannot return it to its pile and it will stay in the Crypt for later use.
+cultist;market_square;When trashing a Cultist with Market Square in hand, you get to decide which effect to resolve first, and can even react a Market Square you have just drawn from the on-trash draw ability of Cultist.
 demand;den_of_sin;If you gain a Den of Sin using Demand, it is topdecked instead of being gained to your hand.
 demand;ghost_town;If you gain a Ghost Town using Demand, it is topdecked instead of being gained to your hand.
 demand;guardian;If you gain a Guardian using Demand, it is topdecked instead of being gained to your hand.
@@ -247,7 +259,6 @@ demand;innovation;When you gain a card using Demand and immediately play it usin
 demand;night_watchman;If you gain a Night Watchman using Demand, it is topdecked instead of being gained to your hand.
 demand;rush;When you gain a card using Demand and immediately play it using Rush, you will not be able to topdeck it.
 demand;siren;If you gain a Siren and topdeck it using Demand, you still need to trash an Action card from your hand in order to not trash the Siren.
-demand;spell_scroll;When you gain a card using Demand and immediately play it using Spell Scroll, you will not be able to topdeck it.
 demand;villa;If you Demand a Villa, you will gain a Horse and the Villa on top of your deck, get +1 Action, and return to your Action phase.
 den_of_sin;develop;If you gain a Den of Sin using Develop, it is topdecked instead of being gained to your hand.
 den_of_sin;graverobber;If you gain a Den of Sin using Graverobber, it is topdecked instead of being gained to your hand.
@@ -262,6 +273,8 @@ den_of_sin;trappers_lodge;If you gain a Den of Sin, you can decide whether to to
 den_of_sin;travelling_fair;If you gain a Den of Sin, you can decide whether to topdeck it using Travelling Fair, or gain it to your hand.
 den_of_sin;watchtower;If you gain a Den of Sin, you can decide whether to topdeck it using Watchtower, or gain it to your hand.
 den_of_sin;way_of_the_seal;If you gain a Den of Sin, you can decide whether to topdeck it using Way of the Seal, or gain it to your hand.
+destrier;growth;Destrier's cost will be evaluated after each gain, so you may gain an initially $6-costing Destrier off of a Gold gain when Growth is active.
+destrier;haggler;Destrier's cost will be evaluated after each gain, so if you buy a Destrier costing $6, you may gain a card cheaper than $5 afterwards from Haggler. On the other hand, you may gain an initially $6-costing Destrier off of a Gold buy.
 destrier;stonemason;When you gain two Action cards each costing exactly the amount you overpaid, only one of them can ever be Destrier because its cost is checked as you gain it and not when you overpay.
 destrier;taskmaster;For Taskmaster, the cost of Destrier when you gain it is important.
 develop;ghost_town;If you gain a Ghost Town using Develop, it is topdecked instead of being gained to your hand.
@@ -270,7 +283,6 @@ develop;innovation;When you gain a card using Develop and immediately play it us
 develop;night_watchman;If you gain a Night Watchman using Develop, it is topdecked instead of being gained to your hand.
 develop;rush;When you gain a card using Develop and immediately play it using Rush, you will not be able to topdeck it.
 develop;siren;If you gain a Siren and topdeck it using Develop, you still need to trash an Action card from your hand in order to not trash the Siren.
-develop;spell_scroll;When you gain a card using Develop and immediately play it using Spell Scroll, you will not be able to topdeck it.
 develop;villa;If you gain a Villa using Develop, it is topdecked instead of being gained to your hand.
 diplomat;soothsayer;If an opponent plays Soothsayer, you may react with Diplomat immediately, and then gain a Curse. Once you're done reacting, you draw a card due to Soothsayer, and if that card is a Diplomat, it is too late for you to react with that one.
 diplomat;way_of_the_butterfly;You can react your Diplomat's ability to an opponent playing an Attack card even if they play it as Way of the Butterfly.
@@ -314,6 +326,7 @@ duplicate;spell_scroll;When you gain Duplicate and play it immediately using Spe
 encampment/plunder;populate;Buying Populate will gain the top card of the Encampment/Plunder pile, even if it's not an Action card.
 encampment;prince;If you set aside an Encampment with Prince, it will fail to set itself aside when you play it and don't reveal Gold or Plunder, so Prince replays it at the start of each turn successfully.
 encampment;royal_galley;"If you play an Encampment with Royal Galley (RG) and you fail to reveal a Gold or Plunder, you set it aside and return it to its pile at the end of the turn; the RG gets discarded during Clean-up as it doesn't have anything left to do."
+enchantress;reckless;If you are under the Enchantress Attack and play a Reckless Action card as the first Action during your turn, you will only get +1 Card, +1 Action, fail to follow the instructions the second time, but still have to return the Reckless Action when you discard it from play.
 enchantress;spell_scroll;If Enchantress affects Spell Scroll played in a Buy phase, its player gets +1 Card +1 Action, but has no way to use the +1 Action, since it is their Buy phase (but it might matter e.g. if the player buys Villa).
 enchantress;way_of_the_butterfly;If you are playing your first Action in a turn while being affected by the Enchantress attack, you can choose to play it as Way of the Butterfly, overriding Enchantress' spell.
 enchantress;way_of_the_camel;If you are playing your first Action in a turn while being affected by the Enchantress attack, you can choose to play it as Way of the Camel, overriding Enchantress' spell.
@@ -361,6 +374,7 @@ experiment;procession;When you play an Experiment with Procession, you return it
 exploration;launch;When you return to your Action phase using Launch, you are ending your Buy phase, so Exploration can trigger.
 exploration;villa;When you return to your Action phase using Villa, you are ending your Buy phase but gain a card at the same time, so Exploration can't trigger. Exploration can still trigger at the end of a future buy phase.
 falconer;gatekeeper;If you gain a card and put it in your hand using Falconer while under the Gatekeeper attack, you still need to Exile it if you don't have a copy of it in Exile.
+falconer;sheepdog;If you gain a Sheepdog to your hand using Falconer, you can immediately react to its own gain and play it.
 falconer;siren;If you gain a Siren and put it in your hand using Falconer, you still need to trash an Action from your hand in order to not trash the Siren.
 falconer;way_of_the_butterfly;When you react and play Falconer during another player's turn, you can decide to play it as Way of the Butterfly.
 falconer;way_of_the_camel;When you react and play Falconer during another player's turn, you can decide to play it as Way of the Camel.
@@ -382,10 +396,14 @@ falconer;way_of_the_sheep;When you react and play Falconer during another player
 falconer;way_of_the_squirrel;When you react and play Falconer during another player's turn, you can decide to play it as Way of the Squirrel.
 falconer;way_of_the_turtle;When you react and play Falconer during another player's turn, you can decide to play it as Way of the Turtle.
 falconer;way_of_the_worm;When you react and play Falconer during another player's turn, you can decide to play it as Way of the Worm.
+famine;patron;If you reveal a Patron among the three cards, you will get +1 Coffers as long as it's during an Action phase.
 farmhands;inheritance;If you gain a Farmhands during your opponent's turn (e.g. due to Barbarian, Messenger, etc.) and they have bought Inheritance, you may set aside an Estate from your hand even if you have not bought Inheritance. In that case, it will be played at the start of your next turn (doing nothing, but counting as a card in play). At the end of that turn, you discard it from play.
+fated;patron;If Patron is Fated, you will get +1 Coffers from each Patron as long as you shuffle during an Action phase, and put them onto the top or bottom of your deck.
 fellowship_of_scribes;frigate;If you're under the Frigate attack, you can choose the order of discarding/drawing with Scribes, i.e. after playing an Action, you may first discard down to 4 cards in hand, and then use a Favor to draw 1 card, or (if you already had only 4 cards in hand) draw 1 card using Scribes and then discard down to 4 again.
 figurehead;mandarin;If you gain a Mandarin and have played Figurehead before that, you put it on top of your deck, but the duration effect still persists.
 figurehead;panic;When you discard Figurehead from play while Panic is active, you return it to the top of the Loot pile. When discarding multiple, you get to choose the order.
+fisherman;growth;Fisherman's cost will be evaluated after each gain, so you can usually not gain one after having gained a Silver when Growth is active.
+fisherman;haggler;Fisherman's cost will be evaluated after each gain, so if you e.g. buy a Fisherman for $2 after having played a Haggler, you will be able to gain a card costing less than $5 (as long as the Fisherman is in the Discard Pile). On the other hand, you normally cannot gain a Fisherman for $2 off of a $5 cost gain.
 fisherman;stonemason;Even if you have an empty discard pile while overpaying on the Stonemason buy, it will be gained (to your discard pile) first, causing the Fisherman to always cost $5 for the overpay.
 fisherman;taskmaster;For Taskmaster, the cost Fisherman has when you gain it is important.
 fisherman;wayfarer;After gaining a Fisherman to your Discard pile, even if it only cost $2, Wayfarer will cost $5 afterwards.
@@ -395,6 +413,7 @@ footpad;siren;If you gain a Siren and somehow trigger a shuffle by drawing a car
 footpad;spell_scroll;If you gain a card and use Footpad to cause a shuffle, you cannot play it using Spell Scroll anymore (but you could choose to resolve the on-gain play first).
 footpad;villa;If you return to your Action phase using Villa, you are still gaining the card during the Buy phase, so Footpad's ability doesn't trigger.
 forager;sewers;If you trash a Treasure that is unique to the trash with Sewers in reaction to Forager's trashing, said Treasure will be considered by Forager's check for unique Treasures, i.e. yield $.'
+foray;patron;If you buy Foray during your Buy phase and reveal a Patron this way, you will not get +1 Coffers since it's not an Action phase.
 galleria;gondola;When you gain a Gondola and play a Galleria from your hand, you will immediately get +Buy from the Gondola gain.
 galleria;innovation;"When you gain a cost-reducing card (like Highway, Bridge, or Inventor) and play it immediately using Innovation after having played a Galleria, the card's cost before the gain will determine whether you get +Buy (e.g. you won't get +Buy if Highway costs $5 before gaining and playing it).
 On the other hand, if you gain a Galleria and play it immediately using Innovation, you will get +Buy from the Galleria gain if you have reduced its cost to $3 or $4 prior to the gain."
@@ -402,13 +421,14 @@ galleria;rush;"When you gain a cost-reducing card (like Highway, Bridge, or Inve
 On the other hand, if you gain a Galleria and play it immediately using Rush, you will get +Buy from the Galleria gain if you have reduced its cost to $3 or $4 prior to the gain."
 galleria;spell_scroll;"When you gain a cost-reducing card (like Highway, Bridge, or Inventor) and play it immediately using Spell Scroll after having played a Galleria, the card's cost before the gain will determine whether you get +Buy (e.g. you won't get +Buy if Highway costs $5 before gaining and playing it).
 On the other hand, if you gain a Galleria and play it immediately using Spell Scroll, you will get +Buy from the Galleria gain if you have reduced its cost to $3 or $4 prior to the gain."
+gamble;patron;If you buy Gamble during your Buy phase and reveal a Patron this way, you will not get +1 Coffers since it's not an Action phase.
 garrison;inheritance;If you play a Garrison using Inheritance, you can't put tokens on Garrison because it's not in play, and you don't put tokens on Estate either. This means it won't draw any cards next turn and will be discarded this turn.
 garrison;overlord;If you play a Garrison using Overlord, you can't put tokens on Garrison because it's not in play, and you don't put tokens on Overlord either. This means it won't draw any cards next turn and will be discarded this turn.
 gatekeeper;hill_fort;If you gain a card and put it in your hand using Hill Fort while under the Gatekeeper attack, you still need to Exile it if you don't have a copy of it in Exile.
 gatekeeper;innovation;"If your opponent has played Gatekeeper, you gain a card and you don't have a copy of the gained card in Exile, you may choose whether to resolve Innovation or the exiling first; if you play the gained card, it cannot be moved to Exile and vice versa."
 gatekeeper;kind_emperor;If you gain a card and put it in your hand using Kind Emperor while under the Gatekeeper attack, you still need to Exile it if you don't have a copy of it in Exile.
 gatekeeper;rush;"If your opponent has played Gatekeeper, you gain a card and you don't have a copy of the gained card in Exile, you may choose whether to resolve Rush or the exiling first; if you play the gained card, it cannot be moved to Exile and vice versa."
-gatekeeper;sailor;"If your opponent has played Gatekeeper, you gain a Duration card and you don't have a copy of the gained card in Exile, you may choose whether to resolve Sailor or the exiling first; if you play the gained  Durationcard, it cannot be moved to Exile and vice versa."
+gatekeeper;sailor;"If your opponent has played Gatekeeper, you gain a Duration card and you don't have a copy of the gained card in Exile, you may choose whether to resolve Sailor or the exiling first; if you play the gained Duration card, it cannot be moved to Exile and vice versa."
 gatekeeper;sculptor;If you gain a card and put it in your hand using Sculptor while under the Gatekeeper attack, you still need to Exile it if you don't have a copy of it in Exile.
 gatekeeper;silver_mine;If you gain a card and put it in your hand using Silver Mine while under the Gatekeeper attack, you still need to Exile it if you don't have a copy of it in Exile.
 gatekeeper;siren;If you gain a Siren while under Gatekeeper attack (and don't have a Siren in Exile), you can choose which effect (exiling Siren or trashing an Action for it) to resolve first, and the Siren stays in Exile even if you don't trash an Action afterwards.
@@ -417,6 +437,7 @@ gatekeeper;swap;If you gain a card and put it in your hand using Swap while unde
 gatekeeper;transmogrify;If you gain a card and put it in your hand using Transmogrify while under the Gatekeeper attack, you still need to Exile it if you don't have a copy of it in Exile.
 gatekeeper;villa;If you return to your Action phase using Villa, you get to choose whether you first resolve Villa or Gatekeeper.
 gatekeeper;wish;If you gain a card and put it in your hand using Wish while under the Gatekeeper attack, you still need to Exile it if you don't have a copy of it in Exile.
+ghost;patron;If you reveal a Patron by playing Ghost, you will not get +1 Coffers since that happens during a Night (and not Action) phase.
 ghost_town;graverobber;If you gain a Ghost Town using Graverobber, it is topdecked instead of being gained to your hand.
 ghost_town;insignia;If you gain a Ghost Town, you can decide whether to topdeck it using Insignia, or gain it to your hand.
 ghost_town;invasion;If you gain a Ghost Town using Invasion, it is topdecked instead of being gained to your hand.
@@ -430,6 +451,7 @@ ghost_town;travelling_fair;If you gain a Ghost Town, you can decide whether to t
 ghost_town;watchtower;If you gain a Ghost Town, you can decide whether to topdeck it using Watchtower, or gain it to your hand.
 ghost_town;way_of_the_seal;If you gain a Ghost Town, you can decide whether to topdeck it using Way of the Seal, or gain it to your hand.
 gladiator/fortune;populate;Buying Populate will gain the top card of the Gladiator/Fortune pile, even if it's not an Action card.
+gladiator;market_square;If a Gladiator is trashed from the supply, since it is none of your cards, you cannot react Market Square to gain a Gold.
 gondola;guildmaster;When you gain a Gondola and play a Guildmaster from your hand, you will receive a Favor due to the Gondola gain.
 gondola;haggler;When you buy and gain a Gondola and play a Haggler from your hand, you will gain a card costing less than the Gondola.
 gondola;kiln;When you gain a Gondola and play a Kiln from your hand, you will not be able to gain another Gondola due to Kiln's 'Next Time' wording. Instead, the next card you play will be subject to its effect.
@@ -438,6 +460,7 @@ gondola;mandarin;If you gain a Mandarin and have played Gondola before that, you
 gondola;search;When you gain the last Gondola and play a Search from your hand, you will not gain a Loot from the Gondola gain due to Search's 'Next Time' wording. [This used to be bugged in the TGG client, let us know if it's resolved!]
 gondola;secluded_shrine;When you gain a Gondola and play a Secluded Shrine from your hand via its on-gain ability, you may not immediately trash two cards from your hand due Secluded Shrine's 'Next Time' wording.
 grand_castle;inheritance;When you gain Grand Castle, you get points for opponent's Estates if they are in play because they inherited a Duration.
+grand_castle;patron;If you gain a Grand Castle during your Buy phase and reveal a Patron from your hand, you will not get +1 Coffers since it's not an Action phase.
 grand_castle;stronghold;When you gain Grand Castle, you get points for opponent's Strongholds because they are in play.
 graverobber;guardian;If you gain a Guardian using Graverobber, it is topdecked instead of being gained to your hand.
 graverobber;innovation;When you gain a card using Graverobber and immediately play it using Innovation, you will not be able to topdeck it.
@@ -445,7 +468,6 @@ graverobber;necromancer;If you use a Necromancer to play a card from the trash (
 graverobber;night_watchman;If you gain a Night Watchman using Graverobber, it is topdecked instead of being gained to your hand.
 graverobber;rush;When you gain a card using Graverobber and immediately play it using Rush, you will not be able to topdeck it.
 graverobber;siren;If you gain a Siren and topdeck it using Graverobber, you still need to trash an Action card from your hand in order to not trash the Siren.
-graverobber;spell_scroll;When you gain a card using Graverobber and immediately play it using Spell Scroll, you will not be able to topdeck it.
 graverobber;villa;If you gain a Villa using Graverobber, it is topdecked instead of being gained to your hand.
 guard_dog;way_of_the_butterfly;When you react and play Guard Dog during another player's turn, you can decide to play it as Way of the Butterfly.
 guard_dog;way_of_the_camel;When you react and play Guard Dog during another player's turn, you can decide to play it as Way of the Camel.
@@ -495,18 +517,24 @@ hasty;siren;If you gain a Siren and set it aside using Hasty, since it's set asi
 hasty;territory;If the Clashes pile is Hasty and you gain a Territory, you set it aside and play it at the start of your next turn (doing nothing, but counting as a card in play). At the end of that turn, you discard it from play.
 hermit;launch;When you return to your Action phase using Launch, you are ending your Buy phase, so Hermit can trigger.
 hermit;villa;When you return to your Action phase using Villa, you are ending your Buy phase but gain a card at the same time, so Hermit can't trigger. Hermit can still trigger at the end of a future buy phase.
+highwayman;inspiring;If you play an Inspiring Treasure as your first Treasure while under the Highwayman attack, you can still play a unique Action card with it.
+highwayman;reckless;"If you play a Reckless Treasure while under the Highwayman attack as the first Treasure, it does nothing at all, but is returned to its pile when discarded from play.
+If Highwayman is Reckless, it is returned to its pile at the start of the next turn (and then you get +6 Cards)."
 hill_fort;innovation;If you gain a card and use Hill Fort to cause a shuffle, you cannot play it using Innovation anymore (but you could choose to resolve the on-gain play first).
 hill_fort;rush;If you gain a card and use Hill Fort to cause a shuffle, you cannot play it using Rush anymore (but you could choose to resolve the on-gain play first).
+hill_fort;sheepdog;If you gain a Sheepdog to your hand using Hill Fort, you can immediately react to its own gain and play it.
 hill_fort;siren;"If you gain a Siren and somehow trigger a shuffle by drawing a card using Hill Fort, you still may trash an Action card from you hand, but the Siren will fail to trash itself and it will stay in your deck.
 If you gain a Siren and put it in your hand using Hill Fort, you still need to trash an Action from your hand in order to not trash the Siren."
 hill_fort;spell_scroll;If you gain a card and use Hill Fort to cause a shuffle, you cannot play it using Spell Scroll anymore (but you could choose to resolve the on-gain play first).
 hireling;mastermind;If you play Hireling at the start of your turn using Mastermind, you will draw three cards immediately.
 hireling;piazza;If you play Hireling at the start of your turn using Piazza, you will draw a card immediately.
 horse;procession;When you play a Horse with Procession, you return it to its pile after its first play, so it doesn't get trashed. Nevertheless, you gain a card costing $1 more than it.
+improve;innovation;You can play cards you gain via an Improve trash using Innovation during your Clean-up phase. This might lead to weird effects such as Encampment immediately returning to its pile, and Crown being useless.
 improve;trail;Trashing a Trail with Improve's ability will not trigger Trail's on-trash effect because the trashing occurs during Clean-up.
 infirmary;innovation;When you overpay for Infirmary, you choose between the effect of the overpay and Innovation triggering. If you choose Innovation, Infirmary's overpay will be unable to play itself any number of times (because Infirmary already moved). Innovation will also be unable to play Infirmary if you choose the overpay first, for the same reason.
 infirmary;rush;When you overpay for Infirmary, you choose between the effect of the overpay and Rush triggering. If you choose Rush, Infirmary's overpay will be unable to play itself any number of times (because Infirmary already moved). Rush will also be unable to play Infirmary if you choose the overpay first, for the same reason.
 inheritance;warlord;If you have inherited a card (e.g. Battle Plan) and are under Warlord attack, you may both play two copies of said card and two Estates during your turn.
+inn;patron;If you gain an Inn during your Buy phase and reveal a Patron from your discard, you will not get +1 Coffers since it's not an Action phase.
 innovation;invasion;When you gain a card using Invasion and immediately play it using Innovation, you will not be able to topdeck it.
 innovation;kiln;When you gain a Kiln and play it immediately using Innovation, you will not be able to gain another Kiln due to its 'Next Time' wording. Instead, the next card you play will be subject to its effect.
 innovation;livery;When you gain a Livery and play it immediately using Innovation, you gain a Horse from its gain.
@@ -523,13 +551,14 @@ invasion;night_watchman;If you gain a Night Watchman using Invasion, it is topde
 invasion;ninja;When buying Invasion, you may play a Ninja from your deck as the Attack.
 invasion;rush;When you gain a card using Invasion and immediately play it using Rush, you will not be able to topdeck it.
 invasion;siren;If you gain a Siren and topdeck it using Invasion, you still need to trash an Action card from your hand in order to not trash the Siren.
-invasion;spell_scroll;When you gain a card using Invasion and immediately play it using Spell Scroll, you will not be able to topdeck it.
 invasion;villa;If you gain a Villa using Invasion, it is topdecked instead of being gained to your hand.
+investment;patron;If you play Investment during your Buy phase and reveal a Patron this way, you will not get +1 Coffers since it's not an Action phase.
 jewels;mandarin;If you gain a Mandarin and have played Jewels before that, you put it on top of your deck, but the duration effect still persists.
 jewels;panic;Since you never discard Jewels from play after playing it (bar e.g. Highwayman), you never return it for Panic.
 journey;walled_village;If you have no more than one other Action than the Walled Village in play, you can topdeck it for the Journey turn.
 kiln;rush;When you gain a Kiln and play it immediately using Rush, you will not be able to gain another Kiln due to its 'Next Time' wording. Instead, the next card you play will be subject to its effect.
 kiln;spell_scroll;When you gain a Kiln and play it immediately using Spell Scroll, you will not be able to gain another Kiln due to its 'Next Time' wording. Instead, the next card you play will be subject to its effect.
+kind_emperor;sheepdog;If you gain a Sheepdog to your hand using Kind Emperor, you can immediately react to its own gain and play it.
 kind_emperor;siren;If you gain a Siren and put it in your hand using Kind Emperor, you still need to trash an Action from your hand in order to not trash the Siren.
 knights;populate;Buying Populate will gain the top card of the knights pile.
 launch;merchant_guild;When you return to your Action phase using Launch, you are ending your Buy phase, so Merchant Guild can trigger.
@@ -537,11 +566,14 @@ launch;pageant;When you return to your Action phase using Launch, you are ending
 launch;river_shrine;You can only gain cards via River Shrine if you didn't gain any cards in any buy phase during your turn. Therefore, you .can only do so if you didn't gain any cards both in the Launch- and after-Launch buy phase.
 launch;treasury;When you return to your Action phase using Launch, you are ending your Buy phase, so Treasury can trigger.
 launch;wine_merchant;When you return to your Action phase using Launch, you are ending your Buy phase, so Wine Merchant can trigger.
+leprechaun;market_towns;At the start of your Buy phase, you may choose the order of returning Envious or Deluded, and playing Actions with Market Towns. If you play a Leprechaun at the start of your Buy phase and receive Envious or Deluded, you return it that same turn.
 leprechaun;mining_road;When you play Leprechaun after having played Mining Road, you can choose to play the gained Gold before the seven-card condition is checked. This can be used to your advantage, or come as a nasty surprise.
 leprechaun;sheepdog;When you play Leprechaun as your seventh card in play, you might get a nasty surprise if you react any Sheepdogs for the Gold gain. On the other hand, reacting Sheepdogs might help you reach the seventh card in play necessary for the wish gain.
 lich;necromancer;If you use a Necromancer to play a card from the trash (turning it face down), then gain it with Lich, then trash it again, you may play it again with a subsequent Necromancer as it will be turned face up again.
 livery;rush;When you gain a Livery and play it immediately using Rush, you gain a Horse from its gain.
 livery;spell_scroll;When you gain a Livery and play it immediately using Spell Scroll, you gain a Horse from its gain.
+loan;patron;If you play Loan during your Buy phase and reveal a Patron this way, you will not get +1 Coffers since it's not an Action phase.
+lurker;market_square;If Lurker trashes a card from the supply, since it is none of your cards, you cannot react Market Square to gain a Gold.
 lurker;necromancer;If you use a Necromancer to play a card from the trash (turning it face down), then gain it with Lurker, then trash it again, you may play it again with a subsequent Necromancer as it will be turned face up again.
 mandarin;rope;If you gain a Mandarin and have played Rope before that, you put it on top of your deck, but the duration effect still persists.
 mapmaker;way_of_the_butterfly;When you react and play Mapmaker during another player's turn, you can decide to play it as Way of the Butterfly.
@@ -564,6 +596,9 @@ mapmaker;way_of_the_sheep;When you react and play Mapmaker during another player
 mapmaker;way_of_the_squirrel;When you react and play Mapmaker during another player's turn, you can decide to play it as Way of the Squirrel.
 mapmaker;way_of_the_turtle;When you react and play Mapmaker during another player's turn, you can decide to play it as Way of the Turtle.
 mapmaker;way_of_the_worm;When you react and play Mapmaker during another player's turn, you can decide to play it as Way of the Worm.
+market_square;overgrown_estate;When trashing a Overgrown Estate with Market Square in hand, you get to decide which effect to resolve first, and can even react a Market Square you have just drawn from the on-trash draw ability of Overgrown Estate.
+market_square;rats;When trashing a Rats with Market Square in hand, you get to decide which effect to resolve first, and can even react a Market Square you have just drawn from the on-trash draw ability of Rats.
+market_square;trail;When trashing a Trail with Market Square in hand, you get to decide which effect to resolve first, and can even react a Market Square you have just drawn from the on-trash draw ability of Trail.
 marquis;way_of_the_chameleon;If you play Marquis using Way of the Chameleon, getting +$ instead of drawing cards, Marquis's condition will still be checked afterwards.
 mastermind;samurai;If you play Samurai at the start of your turn using Mastermind, you will get +$3 immediately.
 merchant_guild;villa;When you return to your Action phase using Villa, you are ending your Buy phase, so Merchant Guild can trigger.
@@ -594,6 +629,11 @@ panic;staff;When you discard Staff from play while Panic is active, you return i
 panic;sword;When you discard Sword from play while Panic is active, you return it to the top of the Loot pile. When discarding multiple, you get to choose the order.
 panic;tireless;When Tireless is on a Treasure and Panic is active, when discarding it from play you may decide whether to set it aside or return it to its pile. [This used to be bugged in the TGG client, let us know if it's resolved!]
 patient;territory;If the Clashes pile is Patient, you can set aside Territories and play them at the start of your next turn (doing nothing, but counting as a card in play). At the end of that turn, you discard them from play.
+patron;pursue;If you buy Pursue during your Buy phase and reveal a Patron this way, you will not get +1 Coffers since it's not an Action phase.
+patron;raider;If you reveal your hand due to an opponent's Raider being played, and you reveal a Patron, you will not get +1 Coffers since that happens during a Night (and not Action) phase.
+patron;venture;If you play Venture during your Buy phase and reveal a Patron this way, you will not get +1 Coffers since it's not an Action phase.
+patron;war;If you reveal a Patron due to War, you will get +1 Coffers as long as it's during an Action phase.
+peaceful_cult;sycophant;You cannot immediately use the Favors from trashing Sycophant with Peaceful Cult (as the latter doesn't say 'Repeat as desired').
 piazza;samurai;If you play Samurai at the start of your turn using Piazza, you will get +$1 immediately.
 pirate;way_of_the_butterfly;When you react and play Pirate during another player's turn, you can decide to play it as Way of the Butterfly.
 pirate;way_of_the_camel;When you react and play Pirate during another player's turn, you can decide to play it as Way of the Camel.
@@ -626,6 +666,28 @@ progress;villa;If you gain a Villa using Progress, it is topdecked instead of be
 quartermaster;rapid_expansion;Once Rapid Expansion (RE) is triggered, any Actions or Treasures gained by Quartermaster will be set aside by RE and thus not put onto Quartermaster.
 quartermaster;siren;If you gain a Siren and set it aside using Quartermaster, you still need to trash an Action from your hand in order to not trash the Siren.
 rapid_expansion;siren;If you gain a Siren and set it aside using Rapid Expansion, since it's set aside after being gained, it will stay there even if you fail to trash an Action.
+reckless;scheme;If Reckless is on an Action card and you play a Scheme, topdecking the Reckless card circumvents Reckless' return-to-pile prompt.
+reckless;trickster;If Reckless is on a Treasure and you played a Trickster on a turn you play said Treasure, you may set it aside, in which case you cannot return it to its pile, and will put it into your next hand instead.
+reckless;way_of_the_butterfly;If you play a Reckless Action card using Way of the Butterfly, you will only play it as Way of the Butterfly once and then fail to follow its instructions the second time.
+reckless;way_of_the_camel;If you play a Reckless Action card using Way of the Camel, you will only play it as Way of the Camel once and then fail to follow its instructions the second time, but you still have to return it when discarding it from play.
+reckless;way_of_the_chameleon;If you play a Reckless Action card using Way of the Chameleon, you follow its cards vs. $$ switched-around instructions twice, you do not get to choose in between..
+reckless;way_of_the_frog;If you play a Reckless Action card using Way of the Frog, you will only play it as Way of the Frog once and then fail to follow its instructions the second time, but you still have to return it when discarding it from play.
+reckless;way_of_the_goat;If you play a Reckless Action card using Way of the Goat, you will only play it as Way of the Goat once and then fail to follow its instructions the second time, but you still have to return it when discarding it from play.
+reckless;way_of_the_horse;If you play a Reckless Action card using Way of the Horse, you will only play it as Way of the Horse once and then fail to follow its instructions the second time.
+reckless;way_of_the_mole;If you play a Reckless Action card using Way of the Mole, you will only play it as Way of the Mole once and then fail to follow its instructions the second time, but you still have to return it when discarding it from play.
+reckless;way_of_the_monkey;If you play a Reckless Action card using Way of the Monkey, you will only play it as Way of the Monkey once and then fail to follow its instructions the second time, but you still have to return it when discarding it from play.
+reckless;way_of_the_mouse;If you play a Reckless Action card using Way of the Mouse, you will only play it as Way of the Mouse once and then fail to follow its instructions the second time, but you still have to return it when discarding it from play.
+reckless;way_of_the_mule;If you play a Reckless Action card using Way of the Mule, you will only play it as Way of the Mule once and then fail to follow its instructions the second time, but you still have to return it when discarding it from play.
+reckless;way_of_the_otter;If you play a Reckless Action card using Way of the Otter, you will only play it as Way of the Otter once and then fail to follow its instructions the second time, but you still have to return it when discarding it from play.
+reckless;way_of_the_owl;If you play a Reckless Action card using Way of the Owl, you will only play it as Way of the Owl once and then fail to follow its instructions the second time, but you still have to return it when discarding it from play.
+reckless;way_of_the_ox;If you play a Reckless Action card using Way of the Ox, you will only play it as Way of the Ox once and then fail to follow its instructions the second time, but you still have to return it when discarding it from play.
+reckless;way_of_the_pig;If you play a Reckless Action card using Way of the Pig, you will only play it as Way of the Pig once and then fail to follow its instructions the second time, but you still have to return it when discarding it from play.
+reckless;way_of_the_rat;If you play a Reckless Action card using Way of the Rat, you will only play it as Way of the Rat once and then fail to follow its instructions the second time, but you still have to return it when discarding it from play.
+reckless;way_of_the_seal;If you play a Reckless Action card using Way of the Seal, you will only play it as Way of the Seal once and then fail to follow its instructions the second time, but you still have to return it when discarding it from play.
+reckless;way_of_the_sheep;If you play a Reckless Action card using Way of the Sheep, you will only play it as Way of the Sheep once and then fail to follow its instructions the second time, but you still have to return it when discarding it from play.
+reckless;way_of_the_squirrel;If you play a Reckless Action card using Way of the Squirrel, you will only play it as Way of the Squirrel once and then fail to follow its instructions the second time, but you still have to return it when discarding it from play.
+reckless;way_of_the_turtle;If you play a Reckless Action card using Way of the Turtle, you will only play it as Way of the Turtle once and then fail to follow its instructions the second time. This means that you'll set aside the Reckless Action if played with Way of the Turtle, and the next time you choose to play it normally, the normal Reckless effect will kick in.
+reckless;way_of_the_worm;If you play a Reckless Action card using Way of the Worm, you will only play it as Way of the Worm once and then fail to follow its instructions the second time, but you still have to return it when discarding it from play.
 river_shrine;trail;Gaining a Trail with River Shrine's ability will not trigger Trail's on-gain effect because the gaining occurs during Clean-up.
 river_shrine;villa;You can only gain cards via River Shrine if you didn't gain any cards in any buy phase during your turn. Therefore, you .can never do so after buying Villa, even if you don't gain cards in your last buy phase.
 riverboat;way_of_the_butterfly;If you play the Riverboat card (not Riverboat) using Way of the Butterfly, it fails to return to its pile, and nothing will happen.
@@ -639,6 +701,7 @@ rush;skirmisher;When you gain a Skirmisher and play it immediately using Rush, i
 rush;trail;If you gain a card and use Trail to cause a shuffle, you cannot play it using Rush anymore (but you could choose to resolve the on-gain play first).
 sailor;search;When you gain the last Search and play it immediately using Sailor, it will not be trashed and you will not gain a Loot due to its 'Next Time' wording. [This used to be bugged in the TGG client, let us know if it's resolved!]
 sailor;siren;If you gain a Siren and use Sailor to play the Siren, Siren no longer requires you to trash an action card from your hand in order to not trash the Siren.
+sculptor;sheepdog;If you gain a Sheepdog to your hand using Sculptor, you can immediately react to its own gain and play it.
 sculptor;siren;If you gain a Siren and put it in your hand using Sculptor, you still need to trash an Action from your hand in order to not trash the Siren.
 search;spell_scroll;When you gain the last Search and play it immediately using Spell Scroll, it will not be trashed and you will not gain a Loot due to its 'Next Time' wording. [This used to be bugged in the TGG client, let us know if it's resolved!]
 secret_chamber;way_of_the_butterfly;You can react your Secret Chamber's ability to an opponent playing an Attack card even if they play it as Way of the Butterfly.
@@ -661,9 +724,12 @@ secret_chamber;way_of_the_sheep;You can react your Secret Chamber's ability to a
 secret_chamber;way_of_the_squirrel;You can react your Secret Chamber's ability to an opponent playing an Attack card even if they play it as Way of the Squirrel.
 secret_chamber;way_of_the_turtle;You can react your Secret Chamber's ability to an opponent playing an Attack card even if they play it as Way of the Turtle.
 secret_chamber;way_of_the_worm;You can react your Secret Chamber's ability to an opponent playing an Attack card even if they play it as Way of the Worm.
+sheepdog;silver_mine;If you gain a Sheepdog to your hand using Silver Mine, you can immediately react to its own gain and play it.
 sheepdog;siren;If you gain a Siren and somehow trigger a shuffle by drawing a card using Sheepdog, you still may trash an Action card from you hand, but the Siren will fail to trash itself and it will stay in your deck.
 sheepdog;soothsayer;If an opponent plays Soothsayer and you gain a Curse, you may react with Sheepdogs. Once you're done reacting, you draw a card due to Soothsayer, and if that card is a Sheepdog, it is too late for you to react with that one.
 sheepdog;spell_scroll;If you gain a card and use Sheepdog to cause a shuffle, you cannot play it using Spell Scroll anymore (but you could choose to resolve the on-gain play first).
+sheepdog;swap;If you gain a Sheepdog to your hand using Swap, you can immediately react to its own gain and play it.
+sheepdog;transmogrify;If you gain a Sheepdog to your hand using Transmogrify, you can immediately react to its own gain and play it.
 sheepdog;way_of_the_butterfly;When you react and play Sheepdog during another player's turn, you can decide to play it as Way of the Butterfly.
 sheepdog;way_of_the_camel;When you react and play Sheepdog during another player's turn, you can decide to play it as Way of the Camel.
 sheepdog;way_of_the_chameleon;When you react and play Sheepdog during another player's turn, you can decide to play it as Way of the Chameleon. Remember that +$ can't normally be used on other player's turns.
@@ -684,6 +750,7 @@ sheepdog;way_of_the_sheep;When you react and play Sheepdog during another player
 sheepdog;way_of_the_squirrel;When you react and play Sheepdog during another player's turn, you can decide to play it as Way of the Squirrel.
 sheepdog;way_of_the_turtle;When you react and play Sheepdog during another player's turn, you can decide to play it as Way of the Turtle.
 sheepdog;way_of_the_worm;When you react and play Sheepdog during another player's turn, you can decide to play it as Way of the Worm.
+sheepdog;wish;If you gain a Sheepdog to your hand using Wish, you can immediately react to its own gain and play it.
 silver_mine;siren;If you gain a Siren and put it in your hand using Silver Mine, you still need to trash an Action from your hand in order to not trash the Siren.
 siren;sleigh;If you gain a Siren and topdeck it using Sleigh, you don't need to trash an Action card in order for it to stay in your deck.
 siren;spell_scroll;If you gain a Siren and use Spell Scroll to play the Siren, Siren no longer requires you to trash an action card from your hand in order to not trash the Siren.
@@ -699,6 +766,7 @@ siren;way_of_the_seal;If you gain a Siren and topdeck it using Way of the Seal, 
 siren;wish;If you gain a Siren and put it in your hand using Wish, you still need to trash an Action from your hand in order to not trash the Siren.
 skirmisher;spell_scroll;When you gain a Skirmisher and play it immediately using Spell Scroll, its effect will trigger, causing your opponents to discard.
 sleigh;villa;If you gain a Villa, you can decide whether to topdeck it using Sleigh, or gain it to your hand. In any case, you will receive +1 Action and return to you Action phase if you're in your buy phase.
+smugglers;way_of_the_mouse;If Smugglers is the Mouse card and you are able to somehow play it during your opponent's turn, you are able to gain the cards they gained on their previous turn.
 soothsayer;watchtower;If an opponent plays Soothsayer and you gain a Curse and draw a Watchtower, it is too late for you to react with that Watchtower to trash the Curse (or put the Curse onto your deck).
 souk;way_of_the_chameleon;If you play a Souk as Way of the Chameleon, you will draw 7 cards, and then after drawing lose $1 for each card you have in your hand, without going below $0. 
 spell_scroll;trail;If you gain a card and use Trail to cause a shuffle, you cannot play it using Spell Scroll anymore (but you could choose to resolve the on-gain play first).

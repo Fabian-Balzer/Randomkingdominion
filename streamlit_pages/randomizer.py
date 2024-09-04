@@ -3,7 +3,7 @@ import streamlit as st
 import random_kingdominion as rk
 
 rk.build_page_header(
-    "RandomKingDominion - Randomizer",
+    "RandomKingDominion - Domionion Randomizer",
     "This page contains just another randomizer for the card game of [Dominion](https://wiki.dominionstrategy.com/index.php).\\\nShipped with loads of options to randomize brand-new kingdoms to your liking.",
     "Learn more about the Kingdom Randomizer and its features on the about page.",
 )

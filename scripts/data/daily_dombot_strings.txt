@@ -24,8 +24,8 @@
 2024-9-7---
 2024-9-6---
 2024-9-5---
-2024-9-4---
-2024-9-3---
+2024-9-4---shanty_town, baron, ironworks, mill, sacrifice, villa, groundskeeper, minion, wild_hunt, nobles, wedding, wolf_den
+2024-9-3---page, raze, caravan_guard, duplicate, messenger, bridge_troll, distant_lands, giant, royal_carriage, storyteller, trade, alms
 2024-9-2---candlestick_maker, farrier, vassal, bureaucrat, gardens, moneylender, remodel, market, merchant_guild, sentry
 2024-9-1---raze, changeling, craftsman, ghost_town, bounty_hunter, monument, procession, coven, galleria, artisan, fawning(monument), reckless(coven)
 2024-8-31---guardian, patrician, supplies, tracker, farrier, clashes, exorcist, treasure_map, royal_carriage, wealthy_village

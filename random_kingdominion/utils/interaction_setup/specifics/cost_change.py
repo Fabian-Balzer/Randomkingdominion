@@ -55,6 +55,48 @@ def _add_individual_cost_change_interactions(df: pd.DataFrame):
         "For Taskmaster, the cost of Destrier when you gain it is important.",
         df,
     )
+    add_interaction(
+        "Destrier",
+        "Border Village",
+        "Even if a Border Village is the first card you gain this turn, you may gain a Destrier off of it.",
+        df,
+    )
+    add_interaction(
+        "Destrier",
+        "Haggler",
+        "Destrier's cost will be evaluated after each gain, so if you buy a Destrier costing $6, you may gain a card cheaper than $5 afterwards from Haggler. On the other hand, you may gain an initially $6-costing Destrier off of a Gold buy.",
+        df,
+    )
+    add_interaction(
+        "Destrier",
+        "Architect's Guild",
+        "Destrier's cost will be evaluated after each gain, so if you gain a Destrier costing $6, you may gain a card cheaper than $5 afterwards using Architect's Guild. On the other hand, you may gain an initially $6-costing Destrier off of a Gold gain using Architect's Guild.",
+        df,
+    )
+    add_interaction(
+        "Destrier",
+        "Growth",
+        "Destrier's cost will be evaluated after each gain, so you may gain an initially $6-costing Destrier off of a Gold gain when Growth is active.",
+        df,
+    )
+    add_interaction(
+        "Fisherman",
+        "Architect's Guild",
+        "Fisherman's cost will be evaluated after each gain, so if you e.g. gain a Fisherman for $2, you may use two Favors to gain a card costing less than $5 (as long as the Fisherman is in the Discard Pile). On the other hand, you normally cannot gain a Fisherman for $2 off of a $5 cost gain using Architect's Guild.",
+        df,
+    )
+    add_interaction(
+        "Fisherman",
+        "Haggler",
+        "Fisherman's cost will be evaluated after each gain, so if you e.g. buy a Fisherman for $2 after having played a Haggler, you will be able to gain a card costing less than $5 (as long as the Fisherman is in the Discard Pile). On the other hand, you normally cannot gain a Fisherman for $2 off of a $5 cost gain.",
+        df,
+    )
+    add_interaction(
+        "Fisherman",
+        "Growth",
+        "Fisherman's cost will be evaluated after each gain, so you can usually not gain one after having gained a Silver when Growth is active.",
+        df,
+    )
 
 
 ##########################################################################################################

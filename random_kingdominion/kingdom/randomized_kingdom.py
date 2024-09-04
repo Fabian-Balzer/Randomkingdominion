@@ -24,8 +24,8 @@ def _qual_dict_factory() -> dict[str, int]:
 class RandomizedKingdom:
     """A Kingdom that has yet to be completed for randomization"""
 
-    num_landscapes: int
-    num_cards: int = 10
+    num_desired_landscapes: int
+    num_desired_cards: int = 10
     _selected_cards: list[str] = field(default_factory=list)
     _selected_landscapes: list[str] = field(default_factory=list)
     quality_of_selection: dict[str, int] = field(default_factory=_qual_dict_factory)
@@ -64,7 +64,7 @@ class RandomizedKingdom:
             kingdom,
             dict_factory=lambda x: {k: v for k, v in x if k in same_attrs},
         )
-        instance = RandomizedKingdom(num_landscapes=num_landscapes, **attr_dict)
+        instance = RandomizedKingdom(num_desired_landscapes=num_landscapes, **attr_dict)
         for card in kingdom.cards:
             instance.add_card(card)
         for landscape in kingdom.landscapes:
@@ -100,6 +100,16 @@ class RandomizedKingdom:
         for qual in QUALITIES_AVAILABLE:
             val = _get_total_quality(qual, df)
             self.quality_of_selection[qual] = val
+
+    @property
+    def num_selected_cards(self) -> int:
+        """Returns the number of selected cards"""
+        return len(self._selected_cards)
+
+    @property
+    def num_selected_landscapes(self) -> int:
+        """Returns the number of selected landscapes"""
+        return len(self._selected_landscapes)
 
     def contains_way(self) -> bool:
         """Checks whether the current selection contains a way."""
@@ -138,12 +148,13 @@ class RandomizedKingdom:
         df = self._get_full_df()
         return df[df["Types"].apply(lambda x: card_type in x)]
 
-    def add_card(self, card_name: str):
+    def add_card(self, card_name: str) -> bool:
         """Safely adds the given card to this kingdom"""
         if card_name == "" or card_name in self._selected_cards:
-            return
+            return False
         self._selected_cards.append(card_name)
         self._set_quality_values()
+        return True
 
     def remove_card_and_test_bane_army(
         self, card_name: str
@@ -212,18 +223,19 @@ class RandomizedKingdom:
         self._set_quality_values()
         return ALL_CSOS.loc[landscape_name]["Types"]  # type: ignore
 
-    def add_landscape(self, landscape_name: str, pick_targets=True):
+    def add_landscape(self, landscape_name: str, pick_targets=True) -> bool:
         """Safely adds the given landscape to this kingdom"""
         if landscape_name == "":
-            return
+            return False
         self._selected_landscapes.append(landscape_name)
         self._set_quality_values()
         if not pick_targets:
-            return
+            return True
         if landscape_name == "Obelisk":
             self._pick_obelisk()
         if self._get_landscape_df().loc[landscape_name]["IsTrait"]:
             self._pick_trait_target(landscape_name)
+        return True
 
     def set_bane_pile(self, bane_name: str):
         """Removes any existing old bane card and sets the new one"""

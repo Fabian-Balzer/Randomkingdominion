@@ -20,6 +20,7 @@ def write_interaction_database(overwrite: bool = False, verbose: bool = True):
     add_all_trait_interactions(df, verbose=verbose)
     add_all_way_interactions(df, verbose=verbose)
     add_all_prophecy_interactions(df, verbose=verbose)
+    add_all_allies_interactions(df, verbose=verbose)
     # INDIVIDUALS
     add_all_individual_card_interactions(df, verbose=verbose)
     # Write to file

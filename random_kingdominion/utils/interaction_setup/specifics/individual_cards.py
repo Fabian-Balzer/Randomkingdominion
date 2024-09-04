@@ -4,11 +4,11 @@ import pandas as pd
 
 from ..constants import (
     ACTION_TREASURES,
+    ALL_THRONES,
     CAN_PLAY_TREASURES_IN_ACTION_PHASE,
     CARD_IMPOSTORS,
     GATHERING_CARDS,
     TRAVELLER_BASE_CARDS,
-    ALL_THRONES,
 )
 from ..interaction_util import add_interaction, add_multiple_interactions_from_single
 
@@ -67,7 +67,7 @@ def _add_all_crown_interactions(df: pd.DataFrame):
         _add_crown_interaction(on_play_cso, df, multiple=multiple)
 
 
-def _add_changeling_interactions(df: pd.DataFrame):
+def _add_all_changeling_interactions(df: pd.DataFrame):
     # CHANGELING
     add_interaction(
         "Sculptor",
@@ -81,9 +81,15 @@ def _add_changeling_interactions(df: pd.DataFrame):
         "If you gain Silk Merchant and exchange it for a Changeling, will still get the Coffers and Villager (but the Changeling will be gained to your discard pile).",
         df,
     )
+    add_interaction(
+        "Changeling",
+        "Infirmary",
+        "If you overpay for an Infirmary and exchange it for a Changeling, you cannot play it and vice versa.",
+        df,
+    )
 
 
-def _add_clerk_interactions(df: pd.DataFrame):
+def _add_all_clerk_interactions(df: pd.DataFrame):
     # CLERK
     # See also Desert Guides, Cave Dwellers
     add_interaction(
@@ -94,7 +100,16 @@ def _add_clerk_interactions(df: pd.DataFrame):
     )
 
 
-def _add_encampment_interactions(df: pd.DataFrame):
+def _add_all_charlatan_interactions(df: pd.DataFrame):
+    add_interaction(
+        "Charlatan",
+        "Bandit",
+        "If a Bandit reveals a Curse with Charlatan in the kingdom, the Curse (or another non-Copper Treasure) is trashed.",
+        df,
+    )
+
+
+def _add_all_encampment_interactions(df: pd.DataFrame):
     # ENCAMPMENT [see also Prince, Black Market]
     add_interaction(
         "Royal Galley",
@@ -104,7 +119,7 @@ def _add_encampment_interactions(df: pd.DataFrame):
     )
 
 
-def _add_enchantress_interactions(df: pd.DataFrame):
+def _add_all_enchantress_interactions(df: pd.DataFrame):
     act_treas_str = (
         "|".join(ACTION_TREASURES)
         + "/Enchantress---If Enchantress affects {card_a} played in a Buy phase, its player gets +1 Card +1 Action, but has no way to use the +1 Action, since it is their Buy phase (but it might matter e.g. if the player buys Villa)."
@@ -112,7 +127,7 @@ def _add_enchantress_interactions(df: pd.DataFrame):
     add_multiple_interactions_from_single(act_treas_str, df)
 
 
-def _add_experiment_interactions(df: pd.DataFrame):
+def _add_all_experiment_interactions(df: pd.DataFrame):
     # EXPERIMENT [see also Prince, Black Market]
     add_interaction(
         "Experiment",
@@ -135,7 +150,7 @@ def _add_all_garrison_interactions(df: pd.DataFrame):
         _add_garrison_interaction(impostor, df)
 
 
-def _add_harbor_village_interactions(df: pd.DataFrame):
+def _add_all_harbor_village_interactions(df: pd.DataFrame):
     # HARBOR VILLAGE [See also the Ways section]
     add_interaction(
         "Harbor Village",
@@ -156,7 +171,17 @@ def _add_harbor_village_interactions(df: pd.DataFrame):
     add_multiple_interactions_from_single(hv_minus_coin, df)
 
 
-def _add_leprechaun_interactions(df: pd.DataFrame):
+def _add_all_highwayman_interactions(df: pd.DataFrame):
+    # More Highwayman interactions in the on-clean-up section with Reckless and in the traits section with Inspiring
+    add_interaction(
+        "Coin of the Realm",
+        "Highwayman",
+        "Calling Coin of the Realm from your Tavern mat will work and provide +2 Actions even if you are affected by the Highwayman attack because you don't *play* it there.",
+        df,
+    )
+
+
+def _add_all_leprechaun_interactions(df: pd.DataFrame):
     add_interaction(
         "Sheepdog",
         "Leprechaun",
@@ -171,7 +196,7 @@ def _add_leprechaun_interactions(df: pd.DataFrame):
     )
 
 
-def _add_mandarin_interactions(df: pd.DataFrame):
+def _add_all_mandarin_interactions(df: pd.DataFrame):
     TREASURE_DURATION = "Astrolabe, Contract, Cage, Abundance, Gondola, Rope, Buried Treasure, Amphora, Endless Chalice, Figurehead, Jewels".split(
         ", "
     )
@@ -183,12 +208,29 @@ def _add_mandarin_interactions(df: pd.DataFrame):
     add_multiple_interactions_from_single(manda_str, df)
 
 
-def _add_necromancer_interactions(df: pd.DataFrame):
+def _add_all_market_square_interactions(df: pd.DataFrame):
+    add_interaction(
+        "Market Square",
+        "Gladiator",
+        "If a Gladiator is trashed from the supply, since it is none of your cards, you cannot react Market Square to gain a Gold.",
+        df,
+    )
+    add_interaction(
+        "Market Square",
+        "Lurker",
+        "If Lurker trashes a card from the supply, since it is none of your cards, you cannot react Market Square to gain a Gold.",
+        df,
+    )
+    draws_on_trash_str = "Rats|Trail|Cultist|Overgrown Estate/Market Square---When trashing a {card_a} with Market Square in hand, you get to decide which effect to resolve first, and can even react a Market Square you have just drawn from the on-trash draw ability of {card_a}."
+    add_multiple_interactions_from_single(draws_on_trash_str, df)
+
+
+def _add_all_necromancer_interactions(df: pd.DataFrame):
     necro_turn = "Necromancer/Lurker|Lich|Graverobber|Rogue---If you use a Necromancer to play a card from the trash (turning it face down), then gain it with {card_b}, then trash it again, you may play it again with a subsequent Necromancer as it will be turned face up again."
     add_multiple_interactions_from_single(necro_turn, df)
 
 
-def _add_prince_interactions(df: pd.DataFrame):
+def _add_all_prince_interactions(df: pd.DataFrame):
     # PRINCE [see also WotHorse, WotButterfly]
     add_interaction(
         "Prince",
@@ -210,7 +252,74 @@ def _add_prince_interactions(df: pd.DataFrame):
     )
 
 
-def _add_procession_interactions(df: pd.DataFrame):
+def _add_patron_buy_phase_interaction(other: str, when: str, df: pd.DataFrame):
+    rule = f"If you {when} {other} during your Buy phase and reveal a Patron this way, you will not get +1 Coffers since it's not an Action phase."
+    add_interaction("Patron", other, rule, df)
+
+
+def _add_all_patron_interactions(df: pd.DataFrame):
+    buy_phase_revealers = {
+        "Loan": "play",
+        "Investment": "play",
+        "Venture": "play",
+        "Gamble": "buy",
+        "Pursue": "buy",
+        "Foray": "buy",
+    }
+    for other, when in buy_phase_revealers.items():
+        _add_patron_buy_phase_interaction(other, when, df)
+
+    add_interaction(
+        "Patron",
+        "Inn",
+        "If you gain an Inn during your Buy phase and reveal a Patron from your discard, you will not get +1 Coffers since it's not an Action phase.",
+        df,
+    )
+    add_interaction(
+        "Patron",
+        "Grand Castle",
+        "If you gain a Grand Castle during your Buy phase and reveal a Patron from your hand, you will not get +1 Coffers since it's not an Action phase.",
+        df,
+    )
+    add_interaction(
+        "Patron",
+        "Raider",
+        "If you reveal your hand due to an opponent's Raider being played, and you reveal a Patron, you will not get +1 Coffers since that happens during a Night (and not Action) phase.",
+        df,
+    )
+    add_interaction(
+        "Patron",
+        "Ghost",
+        "If you reveal a Patron by playing Ghost, you will not get +1 Coffers since that happens during a Night (and not Action) phase.",
+        df,
+    )
+    add_interaction(
+        "Patron",
+        "Bad Omens",
+        "If you reveal the cards in your discard pile since you don't have any Coppers, you will get +1 Coffers for each Patron in there as long as it's during an Action phase.",
+        df,
+    )
+    add_interaction(
+        "Patron",
+        "Famine",
+        "If you reveal a Patron among the three cards, you will get +1 Coffers as long as it's during an Action phase.",
+        df,
+    )
+    add_interaction(
+        "Patron",
+        "War",
+        "If you reveal a Patron due to War, you will get +1 Coffers as long as it's during an Action phase.",
+        df,
+    )
+    add_interaction(
+        "Patron",
+        "Fated",
+        "If Patron is Fated, you will get +1 Coffers from each Patron as long as you shuffle during an Action phase, and put them onto the top or bottom of your deck.",
+        df,
+    )
+
+
+def _add_all_procession_interactions(df: pd.DataFrame):
     # PROCESSION [see also Experiment]
     add_interaction(
         "Horse",
@@ -220,7 +329,7 @@ def _add_procession_interactions(df: pd.DataFrame):
     )
 
 
-def _add_soothsayer_interactions(df: pd.DataFrame):
+def _add_all_soothsayer_interactions(df: pd.DataFrame):
     add_interaction(
         "moat",
         "soothsayer",
@@ -270,18 +379,22 @@ def add_all_individual_card_interactions(df: pd.DataFrame, verbose=False) -> Non
     num_before = len(df)
     _add_all_black_market_interactions(df)
     _add_all_crown_interactions(df)
-    _add_changeling_interactions(df)
-    _add_clerk_interactions(df)
-    _add_encampment_interactions(df)
-    _add_enchantress_interactions(df)
-    _add_experiment_interactions(df)
+    _add_all_changeling_interactions(df)
+    _add_all_charlatan_interactions(df)
+    _add_all_clerk_interactions(df)
+    _add_all_encampment_interactions(df)
+    _add_all_enchantress_interactions(df)
+    _add_all_experiment_interactions(df)
     _add_all_garrison_interactions(df)
-    _add_harbor_village_interactions(df)
-    _add_leprechaun_interactions(df)
-    _add_mandarin_interactions(df)
-    _add_necromancer_interactions(df)
-    _add_prince_interactions(df)
-    _add_procession_interactions(df)
-    _add_soothsayer_interactions(df)
+    _add_all_harbor_village_interactions(df)
+    _add_all_highwayman_interactions(df)
+    _add_all_leprechaun_interactions(df)
+    _add_all_mandarin_interactions(df)
+    _add_all_market_square_interactions(df)
+    _add_all_necromancer_interactions(df)
+    _add_all_patron_interactions(df)
+    _add_all_prince_interactions(df)
+    _add_all_procession_interactions(df)
+    _add_all_soothsayer_interactions(df)
     if verbose:
         print(f"Added {len(df) - num_before} individual card interactions.")

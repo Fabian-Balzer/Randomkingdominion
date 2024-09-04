@@ -146,6 +146,15 @@ def _add_special_butterfly_horse_interactions(df: pd.DataFrame):
     )
 
 
+def _add_smugglers_mouse_interaction(df: pd.DataFrame):
+    add_interaction(
+        "smugglers",
+        "way of the mouse",
+        "If Smugglers is the Mouse card and you are able to somehow play it during your opponent's turn, you are able to gain the cards they gained on their previous turn.",
+        df,
+    )
+
+
 ##########################################################################################################
 # Final function
 def add_all_way_interactions(df: pd.DataFrame, verbose=False) -> None:
@@ -175,5 +184,6 @@ def add_all_way_interactions(df: pd.DataFrame, verbose=False) -> None:
         _add_way_harbor_village_interactions(way_name, df, extra_stuff)
     _add_special_chameleon_interactions(df)
     _add_special_butterfly_horse_interactions(df)
+    _add_smugglers_mouse_interaction(df)
     if verbose:
         print(f"Added {len(df) - num_before} interactions involving ways.")

@@ -11,8 +11,10 @@ from .prophecies import add_all_prophecy_interactions
 from .traits import add_all_trait_interactions
 from .victory_card_plays import add_all_victory_card_play_interactions
 from .ways import add_all_way_interactions
+from .allies import add_all_allies_interactions
 
 __all__ = [
+    "add_all_allies_interactions",
     "add_all_on_gain_interactions",
     "add_all_cost_change_interactions",
     "add_all_way_interactions",

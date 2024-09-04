@@ -1675,3 +1675,119 @@
     consistency on this no-trashing board?
 
     Previous Results: 15-3 in 10 turns against Hard AI'
+- cards:
+  - armory
+  - gardens
+  - gladiator/fortune
+  - imperial_envoy
+  - livery
+  - port
+  - rice
+  - ronin
+  - rustic_village
+  - swamp_shacks
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Menagerie
+  - Plunder
+  - Rising Sun
+  idx: 182625763301363691313479951223153413108
+  landscapes:
+  - bureaucracy
+  name: Who Needs An Engine Anyways
+  notes: 'Comment: Workshop-Gardens with a twist.
+
+    Previous Results: 33-26 in 16 turns as second player against Hard AI'
+- cards:
+  - animal_fair
+  - crown
+  - experiment
+  - gardens
+  - litter
+  - ninja
+  - river_shrine
+  - rustic_village
+  - university
+  - vampire
+  expansions:
+  - Alchemy
+  - Base, 2E
+  - Empires
+  - Menagerie
+  - Nocturne
+  - Renaissance
+  - Rising Sun
+  idx: 101570244011639283161365508345265394417
+  landscapes:
+  - bureaucracy
+  - triumph
+  name: Triumphant Bureaucracy
+  notes: 'Comment: This one is a doozie and can go either way - if you and your opponent
+    decide to go for the River Shrine route, you might end up with a weird Gardens
+    rush with Triumph intermixed. Otherwise be sure to be that person that pops the
+    Bureaucracy to get those juicy Triumphs in.
+
+    Previous Results: 185-15 in 17 turns as second player against Hard AI'
+- cards:
+  - altar
+  - daimyo
+  - exorcist
+  - ferryman
+  - kitsune
+  - patrician/emporium
+  - prince
+  - rice_broker
+  - riverboat
+  - tea_house
+  expansions:
+  - Adventures
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Nocturne
+  - Promo
+  - Rising Sun
+  ferryman_pile: amulet
+  idx: 182803679027124935505348756662444559953
+  landscapes:
+  - good_harvest
+  - museum
+  name: Multi-Route Business
+  notes: 'Comment: Daimyo is super strong as always, but which Actions should you
+    pair with it to get a good Harvest in?
+
+    Previous Results: 54-30 in 12 turns as first player against Hard AI'
+  riverboat_card: souk
+- cards:
+  - animal_fair
+  - archive
+  - galleria
+  - hostelry
+  - ironworks
+  - magnate
+  - mastermind
+  - patron
+  - raze
+  - village
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Prosperity, 2E
+  - Renaissance
+  idx: 303701626584746249290159029801336076272
+  landscapes:
+  - capitalism
+  - cathedral
+  name: Capitalist Dreams
+  notes: 'Comment: Incredible Capitalism synergies. You even get to discard Patrons
+    for Coffers if you do it right
+
+    Previous Results: 33-0 in 12 turns as first player against Hard AI'

@@ -71,8 +71,8 @@ def _determine_extra_components(cso: pd.Series) -> list[str]:
         extra_components += ["Villager tokens", "Villager mats"]
     if "VP Chips" in cso["altvp_types"]:
         extra_components += ["VP tokens", "VP mats"]
-    if "Reserve" in cso_types:
-        extra_components.append("Reserve Mat")
+    if "Reserve" in cso_types or name in ["Miser", "Page"]:
+        extra_components.append("Tavern Mat")
     if (
         "Exile" in cso["thinning_types"]
         and name not in ["Island", "Miser"]

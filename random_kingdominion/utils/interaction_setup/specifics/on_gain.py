@@ -118,6 +118,16 @@ def _add_on_gain_play_changeling_interaction(on_gain_play_cso: str, df: pd.DataF
     add_interaction("Changeling", on_gain_play_cso, rule, df)
 
 
+def _add_on_gain_play_improve_interaction(on_gain_play_cso: str, df: pd.DataFrame):
+    rule = f"You can play cards you gain via an Improve trash using {on_gain_play_cso} during your Clean-up phase. This might lead to weird effects such as Encampment immediately returning to its pile, and Crown being useless."
+    add_interaction(
+        on_gain_play_cso,
+        "Improve",
+        rule,
+        df,
+    )
+
+
 def _add_on_play_shuffle_trigger_interaction(
     on_gain_play_cso: str, shuffle_trigger_cso: str, df: pd.DataFrame
 ):
@@ -191,14 +201,19 @@ def _add_on_gain_set_aside_siren_interaction(set_aside_cso: str, df: pd.DataFram
 
 ##########################################################################################################
 ### On-Gain-to-Hand interactions
-def add_on_gain_hand_siren_interaction(hand_cso: str, df: pd.DataFrame):
+def _add_on_gain_hand_siren_interaction(hand_cso: str, df: pd.DataFrame):
     rule = f"If you gain a Siren and put it in your hand using {hand_cso}, you still need to trash an Action from your hand in order to not trash the Siren."
     add_interaction("Siren", hand_cso, rule, df, add_together_if_present=True)
 
 
-def add_on_gain_hand_gatekeeper_interaction(hand_cso: str, df: pd.DataFrame):
+def _add_on_gain_hand_gatekeeper_interaction(hand_cso: str, df: pd.DataFrame):
     rule = f"If you gain a card and put it in your hand using {hand_cso} while under the Gatekeeper attack, you still need to Exile it if you don't have a copy of it in Exile."
     add_interaction("Gatekeeper", hand_cso, rule, df, add_together_if_present=True)
+
+
+def _add_on_gain_hand_sheepdog_interaction(hand_cso: str, df: pd.DataFrame):
+    rule = f"If you gain a Sheepdog to your hand using {hand_cso}, you can immediately react to its own gain and play it."
+    add_interaction("Sheepdog", hand_cso, rule, df, add_together_if_present=True)
 
 
 ##########################################################################################################
@@ -254,8 +269,11 @@ def add_all_on_gain_interactions(df: pd.DataFrame, verbose=False):
             _add_on_play_shuffle_trigger_interaction(
                 on_play_cso, shuffle_trigger_cso, df
             )
-        for topdecker in WILL_TOPDECK_ON_GAIN:
-            _add_on_gain_play_topdecker_interaction(topdecker, on_play_cso, df)
+        if on_play_cso not in ["Gondola", "Spell Scroll"]:
+            for topdecker in WILL_TOPDECK_ON_GAIN:
+                _add_on_gain_play_topdecker_interaction(topdecker, on_play_cso, df)
+    for on_play_cso in ["Innovation", "City-State"]:
+        _add_on_gain_play_improve_interaction(on_play_cso, df)
     # Sailor can also play durations on gain
     _add_on_gain_play_search_interaction("Sailor", df)
     _add_on_gain_play_siren_interaction("Sailor", df)
@@ -294,8 +312,9 @@ def add_all_on_gain_interactions(df: pd.DataFrame, verbose=False):
     for set_aside_cso in GAINS_TO_SET_ASIDE:
         _add_on_gain_set_aside_siren_interaction(set_aside_cso, df)
     for hand_cso in GAINS_TO_HAND:
-        add_on_gain_hand_siren_interaction(hand_cso, df)
-        add_on_gain_hand_gatekeeper_interaction(hand_cso, df)
+        _add_on_gain_hand_siren_interaction(hand_cso, df)
+        _add_on_gain_hand_gatekeeper_interaction(hand_cso, df)
+        _add_on_gain_hand_sheepdog_interaction(hand_cso, df)
     _add_other_on_gain_interactions(df)
 
     if verbose:
