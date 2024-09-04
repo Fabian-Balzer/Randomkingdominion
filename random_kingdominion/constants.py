@@ -332,4 +332,7 @@ COLOR_PALETTE = ColorPalette()
 
 
 class EmptyError(Exception):
+    """Empty error for the case that a list is empty."""
+
+    some_test_var = ""
     pass
