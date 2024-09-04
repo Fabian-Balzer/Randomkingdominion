@@ -176,7 +176,7 @@ def _add_on_gain_topdeck_villa_interaction(
     if choice:
         rule = f"If you gain a Villa, you can decide whether to topdeck it using {topdeck_cso}, or gain it to your hand. In any case, you will receive +1 Action and return to you Action phase if you're in your buy phase."
     else:
-        rule = f"If you gain a Villa using {topdeck_cso}, it is topdecked instead of being gained to your hand."
+        rule = f"If you gain a Villa using {topdeck_cso}, it is topdecked and then you put it into your hand hand."
     add_interaction("Villa", topdeck_cso, rule, df)
 
 

@@ -21,9 +21,9 @@ GAINS_TO_SET_ASIDE = "Blockade, Quartermaster, Summon, Rapid Expansion, Hasty".s
     ", "
 )
 
-GAINS_SELF_TO_HAND_CARDS = (
-    "Villa, Guardian, Ghost Town, Night Watchman, Den of Sin".split(", ")
-)  # Technically, also Plague
+GAINS_SELF_TO_HAND_CARDS = "Villa, Guardian, Ghost Town, Night Watchman, Den of Sin".split(
+    ", "
+)  # Technically, also Plague. Also, Villa is different from the others due to its wording - when topdecked via the gainer, you can still put it in hand, while the others stay topdecked.
 
 CAN_CAUSE_SHUFFLE_TRIGGER_ON_GAIN = (
     "Hill Fort, Band of Nomads, Footpad, Sheepdog, Trail".split(", ")
