@@ -67,6 +67,9 @@ ALL_TRAITS = ALL_CSOS[ALL_CSOS["IsTrait"]]["Name"].tolist()
 
 ALL_LOOTS = ALL_CSOS[listlike_contains(ALL_CSOS["Types"], "Loot")]["Name"].tolist()
 
+KNIGHTS = ALL_CSOS[listlike_contains(ALL_CSOS["Types"], "Knight")]["Name"].tolist()
+RUINS = ALL_CSOS[listlike_contains(ALL_CSOS["Types"], "Ruins")]["Name"].tolist()
+
 not_actual_throne = [
     "cemetery",
     "exorcist",
@@ -76,6 +79,15 @@ ALL_THRONES = ALL_CSOS[
     listlike_contains(ALL_CSOS["village_types"], "Throne")
     & ~np.isin(ALL_CSOS.index, not_actual_throne)
 ]["Name"].tolist()
+
+TOKEN_EVENTS = {
+    "Seaway": "+ Buy",
+    "Pathfinding": "+ Card",
+    "Training": "+ $1",
+    "Lost Arts": "+ Action",
+    "Ferry": "-$2",
+    "Plan": "trashing",
+}
 
 
 TGG_BUG_DISCLAIMER = (

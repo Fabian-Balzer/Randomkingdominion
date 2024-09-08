@@ -213,13 +213,13 @@ def display_interactions_df(df: pd.DataFrame):
         hide_index=True,
         column_config=col_config,
         column_order=[
+            "img_1",
             "CSO 1",
+            "img_2",
             "CSO 2",
             "Rule",
             "exp_img_1",
             "exp_img_2",
-            "img_1",
-            "img_2",
         ],
     )
 

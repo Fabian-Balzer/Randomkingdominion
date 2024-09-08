@@ -21,8 +21,9 @@ def _add_all_city_state_interactions(df: pd.DataFrame):
     add_interaction(
         "Guildmaster",
         "City-State",
-        "You can immediately use the Favors from a card with Guildmaster in play to play it using City-State.",
+        "After having played a Guildmaster, when you gain a card, you can immediately use the Favors from that gain to play it using City-State.",
         df,
+        add_together_if_present=True,
     )
 
 

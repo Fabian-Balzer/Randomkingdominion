@@ -24,7 +24,9 @@ def add_interaction(
     ident = get_interaction_identifier(c1, c2)
     if ident in df.index:
         if warn_duplicate and not add_together_if_present:
-            print(f"WARNING: {c1} and {c2} already have a rule.")
+            print(
+                f"WARNING: {c1} and {c2} already have a rule ({df.loc[ident]['Rule']})."
+            )
         if add_together_if_present:
             df.loc[ident, "Rule"] += "\n" + interaction  # type: ignore
             print(f"NOTE: Adding another interaction for {c1} and {c2}.")

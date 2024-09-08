@@ -43,12 +43,6 @@ def _add_individual_on_start_of_turn_interactions(df: pd.DataFrame):
         f"When buying Invasion, you may play a Ninja from your deck as the Attack.",
         df,
     )
-    add_interaction(
-        "samurai",
-        "piazza",
-        "If you play Samurai at the start of your turn using Piazza, you will get +$1 immediately.",
-        df,
-    )
 
 
 ##########################################################################################################

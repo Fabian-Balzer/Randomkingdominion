@@ -36,7 +36,9 @@ def _add_way_interaction(
     if is_treasure:
         rule = f"When you play {other}, you can still decide to play it as {way}, whether you are in your Action or in your {phase} phase."
     elif other == "Enlightenment":
-        rule = f"Once Enlightenment is active, you can choose to play your treasures as {way} both in your Action and Buy phase."
+        rule = f"Once Enlightenment is active, you can choose to play your Treasures as {way} both in your Action and Buy phase."
+        if "Chameleon" in way:
+            rule += " However, during your Action phase, Way of the Chameleon will not have any effect, you still get +1 Card +1 Action from Enlightenment. During your Buy phase, Chameleon will affect them, switching +$ to +Cards and vice versa (you can e.g. play a Silver to draw two cards)."
     elif other == "Capitalism":
         rule = f"Once Capitalism is active, you can choose to play your new-found Action-Treasures as {way} both in your Action and Buy phase."
     elif other in ["Diplomat", "Secret Chamber"]:
@@ -69,7 +71,7 @@ def _add_way_harbor_village_interactions(
     way: str, df: pd.DataFrame, way_extras: list[str]
 ):
     if way == "Way of the Chameleon":
-        rule = "If you play a card as Way of the Chameleon and get +$ because of that, you will get +$1 from Harbor Village."
+        rule = "If you play Harbor Village using Way of the Chameleon, you will first get +$1, +2 Actions, and if a card you play later gives you +$1 (such as another Chameleon'd Harbor Village), you draw a card.\nAlso, Harbor Village will not give you +$1 if you play a card as Way of the Chameleon that gives you would giv you +$ but no +Cards."
     elif way == "Way of the Mouse":
         rule = "If you play a card as Way of the Mouse and get +$ because of that, you will get never get +$1 from Harbor Village as Way of the Mouse plays another card."
     elif "$" not in way_extras:
@@ -98,14 +100,30 @@ def _add_special_chameleon_interactions(df: pd.DataFrame):
         "If you play a Poor House as Way of the Chameleon, you will draw 4 cards, and then after drawing lose $1 for each card you have in your hand, without going below $0.",
         df,
     )
-    chameleon_next_turn_stuff = "Way of the Chameleon/Wharf|Merchant Ship|Enchantress|Tactician|Barge|Taskmaster---If you play {card_b} using {card_a}, remember that {card_a} only affects stuff happening *this turn*, so on your next turn, you will get the normal bonus from {card_b}."
-    add_multiple_interactions_from_single(chameleon_next_turn_stuff, df)
+    chameleon_next_turn_stuff = "Way of the Chameleon/Lighthouse|Fishing Village|Monkey|Caravan|Sailor|Corsair|Tactician|Wharf|Merchant Ship|Sea Witch|Amulet|Caravan Guard|Dungeon|Haunted Woods|Swamp Hag|Enchantress|Secret Cave|Village Green|Barge|Gatekeeper|Highwayman|Garrison|Warlord|Stronghold|Grotto|Stowaway|Taskmaster|Cabin Boy|Longship---If you play {card_b} using {card_a}, remember that {card_a} only affects stuff happening *this turn*, so on your next turn, you will get the normal bonus from {card_b}."
+    add_multiple_interactions_from_single(
+        chameleon_next_turn_stuff, df, add_together_if_present=True
+    )
+    chameleon_stay_in_play = "Way of the Chameleon/Samurai|Hireling---If you play {card_b} using {card_a}, remember that {card_a} only affects stuff happening *this turn*, so on your future turns you will get the normal bonus from {card_b}."
+    add_multiple_interactions_from_single(chameleon_stay_in_play, df)
     # Chameleon/Handsize stuff - Only Diplo states the obvious, THero, Guard Dog and Marquis do not
     csos = "Way of the Chameleon/Tragic Hero|Guard Dog|Marquis"
     inter = "If you play {card_b} using Way of the Chameleon, getting +$ instead of drawing cards, {card_b}'s condition will still be checked afterwards."
     add_multiple_interactions(csos, inter, df, True)
     cham_diplo = "Way of the Chameleon/Diplomat---If you play Diplomat using Way of the Chameleon, getting +$2 instead of +2 cards, you still get +2 actions even though Diplomat states '(after drawing)' when you in reality didn't draw any cards, assuming you have 5 or fewer cards in hand."
     add_multiple_interactions_from_single(cham_diplo, df, True)
+    add_interaction(
+        "way of the chameleon",
+        "priest",
+        "If you play Priest using Way of the Chameleon, you will draw 2 cards, then trash a card from your hand, and then get +2 Card for each subsequent trash this turn.",
+        df,
+    )
+    add_interaction(
+        "way of the chameleon",
+        "Merchant",
+        "If you play Merchant using Way of the Chameleon, you will first get +$1, +1 Action. Then, when you later play a Silver for the first time this turn, you draw a card.",
+        df,
+    )
 
 
 def _add_special_butterfly_horse_interactions(df: pd.DataFrame):

@@ -155,7 +155,7 @@ ROTATOR_DICT = {
     "Odysseys": ["Old Map", "Voyage", "Sunken Treasure", "Distant Shore"],
 }
 
-UNIQUEPILE_LIST = ["Castles", "Knights", "Loot"]
+UNIQUEPILE_LIST = ["Castles", "Knights", "Loot", "Ruins"]
 LANDSCAPE_LIST = ["Event", "Project", "Way", "Landmark", "Trait"]
 EXTENDED_LANDSCAPE_LIST = LANDSCAPE_LIST + ["Ally", "Prophecy"]
 OTHER_OBJ_LIST = ["Hex", "Boon", "State", "Artifact", "Loot"]

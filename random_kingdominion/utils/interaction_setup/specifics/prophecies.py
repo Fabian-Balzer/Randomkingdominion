@@ -68,7 +68,7 @@ def _add_individual_divine_wind_interactions(df: pd.DataFrame):
 
 
 def _add_all_divine_wind_interactions(df: pd.DataFrame):
-
+    # More interactions in 'events'
     for gathering_cso in GATHERING_CARDS:
         _add_gathering_divine_wind_interaction(gathering_cso, df)
 
@@ -79,15 +79,30 @@ def _add_all_divine_wind_interactions(df: pd.DataFrame):
 
 
 def _add_enlightenment_interactions(df: pd.DataFrame):
+    # More interactions at Black Market
     act_treas_str = (
         "|".join(ACTION_TREASURES)
         + "/Enlightenment---If Enlightenment is active, {card_a}'s Action phase mode is overwritten by Enlightenment."
     )
-    add_multiple_interactions_from_single(act_treas_str, df)
+    add_multiple_interactions_from_single(
+        act_treas_str, df, add_together_if_present=True
+    )
     add_interaction(
         "Capitalism",
         "Enlightenment",
         "Once Enlightenment is active, Capitalism will turn all of its targets into cantrips during the Action phase.",
+        df,
+    )
+    add_interaction(
+        "Continue",
+        "Enlightenment",
+        "Once Enlightenment is active, you can buy Continue to gain and play any non-Attack Action-Treasure (even Silver) costing at most $4. Since you return to your Action phase first before playing it, you will always get +1 Card and +1 Action from it.",
+        df,
+    )
+    add_interaction(
+        "Capital",
+        "Enlightenment",
+        "Once Enlightenment is active, even if you play Capital during your Action phase, you will still get +6 Debt when discarding it from play.",
         df,
     )
 
@@ -117,7 +132,25 @@ def _add_progress_interactions(df: pd.DataFrame):
     add_interaction(
         "Progress",
         "Continue",
-        "When you buy Continue when Progress is active, you have to topdeck the gained card and won't be able to play it.",
+        "When you buy Continue while Progress is active, you have to topdeck the gained card and won't be able to play it.",
+        df,
+    )
+    add_interaction(
+        "Progress",
+        "Spell Scroll",
+        "When you play a Spell Scroll while Progress is active, you have to topdeck the gained card and won't be able to play it.",
+        df,
+    )
+    add_interaction(
+        "Progress",
+        "Invasion",
+        "When you buy Invasion while Progress is active, you have to topdeck the gained Loot and won't be able to play it.",
+        df,
+    )
+    add_interaction(
+        "Progress",
+        "Mining Road",
+        "When you gain a Treasure while Progress is active, you can choose between playing it directly, or topdecking it (you only get to do one of these).",
         df,
     )
 

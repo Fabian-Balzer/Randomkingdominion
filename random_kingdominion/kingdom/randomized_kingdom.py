@@ -302,9 +302,17 @@ class RandomizedKingdom:
             excluded += ["buried_treasure"]
         if trait_name == "fated":
             excluded += ["stash"]
-        if trait_name == ["Tireless"]:
+        if trait_name == "tireless":
             # Yes, technically, there are Way edge cases, but on most boards the following does nothing
-            excluded += ["samurai", "hireling", "quartermaster", "crew", "highwayman"]
+            excluded += [
+                "samurai",
+                "hireling",
+                "quartermaster",
+                "crew",
+                "highwayman",
+                "experiment",
+                "treasure_map",
+            ]
         counterpart = self._pick_action_or_treasure(excluded)
         if counterpart:
             self.traits.append([trait_name, counterpart])

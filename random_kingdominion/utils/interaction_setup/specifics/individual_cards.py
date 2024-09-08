@@ -49,6 +49,24 @@ def _add_all_black_market_interactions(df: pd.DataFrame):
         "If you play a card from the Black Market deck using Way of the Horse, you get +2 Cards and +1 Action, but it does not return to a pile. This is because cards from the Black Market deck do not have a pile to return to.",
         df,
     )
+    add_interaction(
+        "black_market",
+        "mission",
+        "You cannot buy cards from the Black Market during Mission turns.",
+        df,
+    )
+    add_interaction(
+        "black_market",
+        "enlightenment",
+        "When Enlightenment is active, playing Treasures using it will provide +1 Card, +1 Action instead of the normal effect (but not use up an Action to play them).",
+        df,
+    )
+    add_interaction(
+        "black_market",
+        "Capitalism",
+        "If you have bought Capitalism, you can play a Black Market while playing Treasures for another Black Market. You resolve them recursively, i.e. the three cards of the first Black Market stay out until you have decided to buy (or decline) one of the cards of the second Black Market, and only after that you can buy cards from the first Black Market.",
+        df,
+    )
 
 
 ##########################################################################################################
@@ -109,6 +127,137 @@ def _add_all_charlatan_interactions(df: pd.DataFrame):
     )
 
 
+def _add_all_elder_interactions(df: pd.DataFrame):
+    # Omitting Elder/Steward|Minion|Nobles|Native Village|Spice Merchant|Squire|Treasurer|Innkeeper|Town|Specialist|Hill Fort|Stronghold.
+    # Also omitting any of the Choice-treasures as they are only relevant with Enlightenment.
+    add_interaction(
+        "Elder",
+        "Catacombs",
+        "If you play a Catacombs using Elder, you put the looked-at cards into your hand, but then have to immediately discard them (from your hand), and then draw three different cards.",
+        df,
+    )
+    add_interaction(
+        "Elder",
+        "Lurker",
+        "If you play a Lurker using Elder, you first trash an Action card and then gain one from the trash.",
+        df,
+    )
+    add_interaction(
+        "Elder",
+        "Courtier",
+        "If you play a Courtier using Elder, you get to pick up to one more option than you usually would have because of the types of the revealed card (but no single option twice).",
+        df,
+    )
+    add_interaction(
+        "Elder",
+        "Pawn",
+        "If you play a Pawn using Elder, you get to pick up to three of the options (but no single option twice).",
+        df,
+    )
+    add_interaction(
+        "Elder",
+        "Pirate Ship",
+        "If you play a Pirate Ship using Elder, you first get +$, and then possibly trash other players' treasures.",
+        df,
+    )
+    add_interaction(
+        "Elder",
+        "Courser",
+        "If you play a Courser using Elder, you get to pick three of the options.",
+        df,
+    )
+    add_interaction(
+        "Elder",
+        "Trusty Steed",
+        "If you play a Trusty Steed using Elder, you get to pick three of the options.",
+        df,
+    )
+    add_interaction(
+        "Elder",
+        "Count",
+        "If you play a Count using Elder, for each of the choices you get to pick up to two (but can decide e.g. for only one of the Topdeck/Discard/Gain Copper, and two of the +$3/Trash Hand/Gain Duchy choices).",
+        df,
+    )
+    add_interaction(
+        "Elder",
+        "Graverobber",
+        "If you play a Graverobber using Elder, you first try to gain a card costing $3-$6 from the trash (failing if there is no such card), and then trash an Action from your hand.",
+        df,
+    )
+    add_interaction(
+        "Elder",
+        "Amulet",
+        "If you play an Amulet using Elder, you get to pick two of the options this turn, but only one option on the next turn.",
+        df,
+    )
+    add_interaction(
+        "Elder",
+        "Miser",
+        "If you play a Miser using Elder, you can first put a Copper on your Tavern Mat, and then immediately profit off of it.",
+        df,
+    )
+    add_interaction(
+        "Elder",
+        "Wild Hunt",
+        "If you play a Wild Hunt using Elder, you can first draw and put a token on the pile, and then immediately gain an Estate to take the VP from the pile.",
+        df,
+    )
+    add_interaction(
+        "Elder",
+        "Necromancer",
+        "You don't get to choose more than one card from the trash when playing Necromancer using Elder. Neither do you get an additional option when playing a Choice card from the trash with a Necromancer played in such a way.",
+        df,
+    )
+    add_interaction(
+        "Elder",
+        "Scrap",
+        "If you play a Scrap using Elder, you get to pick up to one additional option (but not a single option twice).",
+        df,
+    )
+    add_interaction(
+        "Elder",
+        "Broker",
+        "If you play a Broker using Elder, you only trash one card and then get to pick up two options (but not a single option twice) corresponding to the $ of the trashed card.",
+        df,
+    )
+    add_interaction(
+        "Elder",
+        "Blacksmith",
+        "If you play a Blacksmith using Elder, the options you choose are resolved in the order they are on the card; if you e.g. choose to draw to 6 cards in hand and get +1 Card, +1 Action, you'll do the latter after the former, ending up with 7 cards in hand.",
+        df,
+    )
+    add_interaction(
+        "Elder",
+        "Town Crier",
+        "If you play a Town Crier using Elder, the options you choose are resolved in the order they are on the card; if you e.g. choose to gain a Silver and get +1 Card, +1 Action, you'll be able to draw the Silver you just gained.",
+        df,
+    )
+    add_interaction(
+        "Elder",
+        "Modify",
+        "If you play a Modify using Elder, you first have to decide whether you want to pick both choices (i.e. after having drawn a card, you cannot reconsider whether you want to gain a card costing up to $2 more than the trashed one).",
+        df,
+    )
+    add_interaction(
+        "Elder",
+        "Cabin Boy",
+        "If you play a Cabin Boy using Elder, due to the 'this turn' wording, it does not have an effect on the next turn, so you don't get to both receive +$2 and trash the Cabin Boy for a Duration card.",
+        df,
+    )
+    add_interaction(
+        "Elder",
+        "Quartermaster",
+        "If you play a Quartermaster using Elder, due to the 'this turn' wording, it does not have an effect on the next turns, so you only get to either tuck away a card, or take one from Quartermaster.",
+        df,
+    )
+    add_interaction(
+        "Elder",
+        "Kitsune",
+        "If you play a Kitsune using Elder, you get to pick up to three of the options (but no single option twice).",
+        df,
+    )
+
+
 def _add_all_encampment_interactions(df: pd.DataFrame):
     # ENCAMPMENT [see also Prince, Black Market]
     add_interaction(
@@ -159,6 +308,12 @@ def _add_all_grand_market_interactions(df: pd.DataFrame):
     )
     add_interaction(
         "Grand Market",
+        "Counterfeit",
+        "Coppers that you play and trash using Counterfeit are not a restriction for buying Grand Market.",
+        df,
+    )
+    add_interaction(
+        "Grand Market",
         "Bonfire",
         "Coppers that were in play earlier in the turn but are removed are not a restriction for buying Grand Market; if you have $9 with two Coppers in play and 2 Buys, you could buy Bonfire, trash the two Coppers, and then buy a Grand Market.",
         df,
@@ -176,7 +331,13 @@ def _add_all_harbor_village_interactions(df: pd.DataFrame):
     add_interaction(
         "Harbor Village",
         "League of Shopkeepers",
-        "Even if an Action-Liaison (that normally doesn't give +$) you play after a Harbor Village yields +$1 through League of Shopkeepers, you don't get +$1 from Harbor village.",
+        "Even if an Action-Liaison (that normally doesn't give +$) you play after a Harbor Village yields +$1 through League of Shopkeepers, you don't get +$1 from Harbor Village.",
+        df,
+    )
+    add_interaction(
+        "Harbor Village",
+        "Merchant",
+        "If you play a Merchant after Harbor Village, you do not retroactively get +$1 from Harbor Village if you later play a Silver for the first time (barring some edge cases that involve immediately letting Merchant give +$ like e.g. Inspiring Merchant playing Black Market playing Silver).",
         df,
     )
 
@@ -200,13 +361,13 @@ def _add_all_leprechaun_interactions(df: pd.DataFrame):
     add_interaction(
         "Sheepdog",
         "Leprechaun",
-        "When you play Leprechaun as your seventh card in play, you might get a nasty surprise if you react any Sheepdogs for the Gold gain. On the other hand, reacting Sheepdogs might help you reach the seventh card in play necessary for the wish gain.",
+        "When you play Leprechaun as your seventh card in play, if you react any Sheepdogs for the Gold gain, you will receive a Hex as the seven-card condition is checked afterwards. On the other hand, reacting Sheepdogs to the Gold gain might help you reach the seventh card in play necessary for the Wish gain.",
         df,
     )
     add_interaction(
         "Mining Road",
         "Leprechaun",
-        "When you play Leprechaun after having played Mining Road, you can choose to play the gained Gold before the seven-card condition is checked. This can be used to your advantage, or come as a nasty surprise.",
+        "When you play Leprechaun after having played Mining Road, you can choose to play the gained Gold before the seven-card condition is checked. This can be used to your advantage to be the necessary card to fulfil the condition, or become the eighth card, in which case you receive a Hex instead.",
         df,
     )
 
@@ -240,9 +401,19 @@ def _add_all_market_square_interactions(df: pd.DataFrame):
     add_multiple_interactions_from_single(draws_on_trash_str, df)
 
 
+def _add_all_monkey_interactions(df: pd.DataFrame):
+    pass  # Moved to on-gain skirmisher stuff
+
+
 def _add_all_necromancer_interactions(df: pd.DataFrame):
     necro_turn = "Necromancer/Lurker|Lich|Graverobber|Rogue---If you use a Necromancer to play a card from the trash (turning it face down), then gain it with {card_b}, then trash it again, you may play it again with a subsequent Necromancer as it will be turned face up again."
     add_multiple_interactions_from_single(necro_turn, df)
+    add_interaction(
+        "Hermit",
+        "Necromancer",
+        "If you play a Hermit from the trash using Necromancer, you cannot exchange the Hermit for a Madman, it will stay in the trash even if you don't gain any cards during your Buy phase.",
+        df,
+    )
 
 
 def _add_all_prince_interactions(df: pd.DataFrame):
@@ -263,6 +434,12 @@ def _add_all_prince_interactions(df: pd.DataFrame):
         "Prince",
         "Encampment",
         "If you set aside an Encampment with Prince, it will fail to set itself aside when you play it and don't reveal Gold or Plunder, so Prince replays it at the start of each turn successfully.",
+        df,
+    )
+    add_interaction(
+        "Prince",
+        "Throne Room",
+        "If you set aside a Throne Room with Prince, if you play another Duration card (such as Prince) with it at the start of on of your turns, the Duration card will be played twice, and you'll still get to play a card twice from the original Throne Room at the start of each of your future turns.",
         df,
     )
 
@@ -344,6 +521,21 @@ def _add_all_procession_interactions(df: pd.DataFrame):
     )
 
 
+def _add_all_possession_interactions(df: pd.DataFrame):
+    add_interaction(
+        "Possession",
+        "Credit",
+        "When you buy Credit while Possessing an opponent, since they never gain a card from it, the 'it' in 'equal to its cost' is undefined, and they wouldn't be scheduled to gain debt. Therefore, you also don't gain any debt from it.",
+        df,
+    )
+    add_interaction(
+        "Possession",
+        "Change",
+        "When you play Change while Possessing an opponent, trash one of their cards, and gain a card costing more $ than it, since they never gain it, they would never gain debt from that play. Therefore, you also don't gain any debt from it.",
+        df,
+    )
+
+
 def _add_all_soothsayer_interactions(df: pd.DataFrame):
     add_interaction(
         "moat",
@@ -377,14 +569,58 @@ def _add_all_soothsayer_interactions(df: pd.DataFrame):
     )
 
 
-def _add_urchin_throne_inter(throne: str, df: pd.DataFrame):
+def _add_single_urchin_throne_inter(throne: str, df: pd.DataFrame):
     rule = f"If you play an Urchin multiple times using {throne}, you may not trash this Urchin, since you need to play *another* attack card to be able to trash it."
     add_interaction(throne, "Urchin", rule, df)
 
 
 def _add_all_urchin_interactions(df: pd.DataFrame):
     for other in ALL_THRONES:
-        _add_urchin_throne_inter(other, df)
+        _add_single_urchin_throne_inter(other, df)
+
+
+def _add_all_voyage_interactions(df: pd.DataFrame):
+    add_interaction(
+        "Voyage",
+        "Black Market",
+        "Playing Treasures for Black Market during Voyage turn is limited by Voyage's restriction.",
+        df,
+    )
+    add_interaction(
+        "Voyage",
+        "Trail",
+        "Playing Trail via its on-gain/on-trash/on-discard effect does not count as playing it from hand as far as Voyage turns are concerned.",
+        df,
+    )
+    other_discard_play = "Voyage/Weaver|Village Green---Playing {card_b} via its on-discard effect does not count as playing it from hand as far as Voyage turns are concerned."
+    add_multiple_interactions_from_single(other_discard_play, df)
+    play_from_discard = "Voyage/Courier|Herb Gatherer|Orb---Playing a card from your discard pile using {card_b} does not count as playing it from hand as far as Voyage turns are concerned."
+    add_multiple_interactions_from_single(play_from_discard, df)
+
+
+def _add_all_warlord_interactions(df: pd.DataFrame):
+    add_interaction(
+        "Warlord",
+        "Black Market",
+        "Playing Action-Treasures for Black Market is limited by Warlord's attack restriction.",
+        df,
+    )
+    add_interaction(
+        "Warlord",
+        "Crown",
+        "Playing Crown is limited by Warlord's attack restriction, no matter whether you try to play it during your Action or your Buy phase.",
+        df,
+    )
+    add_interaction(
+        "Warlord",
+        "Trail",
+        "Playing Trail via its on-gain/on-trash/on-discard effect does not count as playing it from hand as far as Warlord's attack is concerned.",
+        df,
+    )
+    other_discard_play = "Warlord/Weaver|Village Green---Playing {card_b} via its on-discard effect does not count as playing it from hand as far as Warlord's attack is concerned."
+    add_multiple_interactions_from_single(other_discard_play, df)
+    play_from_discard = "Warlord/Courier|Herb Gatherer|Orb---Playing an Action card using {card_b} from your discard pile does not count as playing it from hand as far as Warlord's attack is concerned."
+    add_multiple_interactions_from_single(play_from_discard, df)
 
 
 ##########################################################################################################
@@ -397,6 +633,7 @@ def add_all_individual_card_interactions(df: pd.DataFrame, verbose=False) -> Non
     _add_all_changeling_interactions(df)
     _add_all_charlatan_interactions(df)
     _add_all_clerk_interactions(df)
+    _add_all_elder_interactions(df)
     _add_all_encampment_interactions(df)
     _add_all_enchantress_interactions(df)
     _add_all_experiment_interactions(df)
@@ -407,10 +644,15 @@ def add_all_individual_card_interactions(df: pd.DataFrame, verbose=False) -> Non
     _add_all_leprechaun_interactions(df)
     _add_all_mandarin_interactions(df)
     _add_all_market_square_interactions(df)
+    _add_all_monkey_interactions(df)
     _add_all_necromancer_interactions(df)
     _add_all_patron_interactions(df)
     _add_all_prince_interactions(df)
     _add_all_procession_interactions(df)
+    _add_all_possession_interactions(df)
     _add_all_soothsayer_interactions(df)
+    _add_all_urchin_interactions(df)
+    _add_all_voyage_interactions(df)
+    _add_all_warlord_interactions(df)
     if verbose:
         print(f"Added {len(df) - num_before} individual card interactions.")

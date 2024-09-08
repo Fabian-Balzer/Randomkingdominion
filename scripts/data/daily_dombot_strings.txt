@@ -20,10 +20,10 @@
 2024-9-11---
 2024-9-10---
 2024-9-9---
-2024-9-8---
-2024-9-7---
-2024-9-6---
-2024-9-5---
+2024-9-8---peasant, harbinger, menagerie, conspirator, mill, necromancer, salvager, hunter, market, tormentor, way_of_the_horse
+2024-9-7---bauble, beggar, snake_witch, gladiator, crucible, diplomat, archive, corsair, council_room, library, transport, prepare, circle_of_witches
+2024-9-6---chapel, native_village, merchant, sea_chart, caravan, militia, moneylender, treasure_map, merchant_ship, tactician
+2024-9-5---pawn, townsfolk, odysseys, swindler, carpenter, conspirator, innkeeper, royal_galley, torturer, nobles
 2024-9-4---shanty_town, baron, ironworks, mill, sacrifice, villa, groundskeeper, minion, wild_hunt, nobles, wedding, wolf_den
 2024-9-3---page, raze, caravan_guard, duplicate, messenger, bridge_troll, distant_lands, giant, royal_carriage, storyteller, trade, alms
 2024-9-2---candlestick_maker, farrier, vassal, bureaucrat, gardens, moneylender, remodel, market, merchant_guild, sentry

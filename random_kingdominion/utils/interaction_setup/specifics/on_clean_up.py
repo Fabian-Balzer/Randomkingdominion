@@ -3,7 +3,7 @@
 import pandas as pd
 
 from ..constants import TGG_BUG_DISCLAIMER, WAY_DICT
-from ..interaction_util import add_interaction
+from ..interaction_util import add_interaction, add_multiple_interactions_from_single
 
 
 def _add_single_way_reckless_inter(way: str, df: pd.DataFrame):
@@ -105,6 +105,50 @@ def _add_individual_on_cleanup_interactions(df: pd.DataFrame):
         "Highwayman",
         "capital",
         "If you are under Highwayman attack and play Capital as your first Treasure, you do not get +6$ and +1 Buy; however, you will still get 6D when discarding Capital from play.",
+        df,
+    )
+    add_interaction(
+        "Trickster",
+        "capital",
+        "Even if you set aside Capital using Trickster's ability, you will still get 6D since you still discard it from play.",
+        df,
+    )
+    add_interaction(
+        "Trickster",
+        "capital",
+        "Even if you topdeck Capital using Herbalist's ability, you will still get 6D since you still discard it from play.",
+        df,
+    )
+    add_interaction(
+        "Overlord",
+        "crew",
+        "If you play Overlord as Crew, it will stay in play until the next turn, fail to topdeck itself, and is discarded during Clean-up of that turn.",
+        df,
+    )
+    add_interaction(
+        "Crypt",
+        "Capital",
+        "If you play Capital and set it aside with Crypt, you will still get 6D when discarding Capital from play.",
+        df,
+    )
+    add_interaction(
+        "Crypt",
+        "Crown",
+        "If you play a Duration card using Crown, you can still set it aside with Crypt that turn, but still get the duration effect off of both plays for the next turn (e.g. Crown on Wharf, you can Crypt the Crown away while still drawing 4 cards on the next turn).",
+        df,
+    )
+    crypt_stuff = "Crypt/Coronet|Crown---If you play a Duration card using {card_b}, you can still set it aside with {card_b} that turn, but still get the duration effect off of both plays for the next turn (e.g. play Wharf using {card_b}; you can Crypt the {card_b} away while still drawing 4 cards and getting +2 Buys on the next turn)."
+    add_multiple_interactions_from_single(crypt_stuff, df)
+    add_interaction(
+        "Crypt",
+        "King's Cache",
+        "If you play a Duration Treasure using King's Cache (KC), you can still set it aside with Crypt that turn, but still get the duration effect off of all three plays for the next turn (e.g. KC on Astrolabe, you can Crypt away the KC and will get +$3 and +3 Buys on your next turn).",
+        df,
+    )
+    add_interaction(
+        "Crypt",
+        "Tiara",
+        "If you play a Duration Treasure using Tiara, you can still set it aside with Crypt that turn, but still get the duration effect off of both plays for the next turn (e.g. Tiara on Astrolabe, you can Crypt away the Tiara and will get +$2 and +2 Buys on your next turn).",
         df,
     )
 

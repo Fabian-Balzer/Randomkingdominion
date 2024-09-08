@@ -1,4 +1,87 @@
 - cards:
+  - conspirator
+  - harbinger
+  - hunter
+  - market
+  - menagerie
+  - mill
+  - necromancer
+  - peasant
+  - salvager
+  - tormentor
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Seaside, 2E
+  idx: 206356603330844723955225309371789838771
+  landscapes:
+  - way_of_the_horse
+  name: 2024-9-8
+- cards:
+  - archive
+  - bauble
+  - beggar
+  - corsair
+  - council_room
+  - crucible
+  - diplomat
+  - gladiator/fortune
+  - library
+  - snake_witch
+  expansions:
+  - Allies
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
+  - Rising Sun
+  - Seaside, 2E
+  idx: 111188031157607928181141277023707113740
+  landscapes:
+  - circle_of_witches
+  - prepare
+  - transport
+  name: 2024-9-7
+- cards:
+  - caravan
+  - chapel
+  - merchant
+  - merchant_ship
+  - militia
+  - moneylender
+  - native_village
+  - sea_chart
+  - tactician
+  - treasure_map
+  expansions:
+  - Base, 2E
+  - Seaside, 2E
+  idx: 31612390671270635486386558033373198280
+  name: 2024-9-6
+- cards:
+  - carpenter
+  - conspirator
+  - innkeeper
+  - nobles
+  - odysseys
+  - pawn
+  - royal_galley
+  - swindler
+  - torturer
+  - townsfolk
+  expansions:
+  - Allies
+  - Intrigue, 2E
+  idx: 40131242163337326628947423880643471846
+  name: 2024-9-5
+- cards:
   - baron
   - groundskeeper
   - ironworks
@@ -17,6 +100,7 @@
   - wedding
   - wolf_den
   name: 2024-9-4
+  winrate: .nan
 - cards:
   - bridge_troll
   - caravan_guard
@@ -35,6 +119,7 @@
   - alms
   - trade
   name: 2024-9-3
+  winrate: .nan
 - cards:
   - bureaucrat
   - candlestick_maker
@@ -51,6 +136,7 @@
   - Cornucopia & Guilds, 2E
   idx: 145541296004507783694682401649240965038
   name: 2024-9-2
+  winrate: .nan
 - cards:
   - artisan
   - bounty_hunter

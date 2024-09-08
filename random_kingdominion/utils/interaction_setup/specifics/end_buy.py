@@ -54,12 +54,7 @@ def add_all_end_buy_interactions(df: pd.DataFrame, verbose=False) -> None:
         "If you Demand a Cavalry, you will gain a Horse and the Cavalry on top of your deck, then draw them, and return to your Action phase.",
         df,
     )
-    add_interaction(
-        "Demand",
-        "Villa",
-        "If you Demand a Villa, you will gain a Horse and the Villa on top of your deck, get +1 Action, and return to your Action phase.",
-        df,
-    )
+    # Demand/Villa is described elsewhere.
 
     if verbose:
         print(f"Added {len(df) - num_before} end-buy interactions.")

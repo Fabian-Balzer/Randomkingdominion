@@ -22,13 +22,37 @@ def _add_individual_cost_change_interactions(df: pd.DataFrame):
     add_interaction(
         "stonemason",
         "fisherman",
-        "Even if you have an empty discard pile while overpaying on the Stonemason buy, it will be gained (to your discard pile) first, causing the Fisherman to always cost $5 for the overpay.",
+        "Even if you have an empty discard pile while overpaying on the Stonemason buy, it will be gained (to your discard pile) first, causing the Fisherman to cost $5 for the overpay.",
         df,
     )
     add_interaction(
         "Charm",
         "Destrier",
-        "If you choose the 'Gain Card with same cost' option for two Charms and then gain a Destrier (e.g. costing $6 at that moment), you will first gain another card costing $6, then one costing $5, and then, at last, the Destrier (and Destriers will cost $4). If, after playing Charms, you gain some other card costing $6, you may gain a Destrier costing $6, but only once as it will cost $1 less afterwards.",
+        "If you choose the 'Gain Card with same cost' option for two Charms and then buy a Destrier (e.g. costing $6 at that moment), you will first gain the Destrier, then another card costing $5, then one costing $4 (and Destriers will cost $3).\nIf, after playing Charms, you gain some other card costing $6, you may not gain a Destrier that cost $6 prior to that as it will change its cost to $5 due to the gain.",
+        df,
+    )
+    add_interaction(
+        "Charm",
+        "Wayfarer",
+        "If you choose the 'Gain Card with same cost' option, you will always (unless you gain another card in-between somehow with e.g. Haggler) be able to gain a Wayfarer off of any card you gain next, since Wayfarer changes its cost to said card. This even works with Debt and Potion cost cards.",
+        df,
+    )
+    add_interaction(
+        "Ferry",
+        "Wayfarer",
+        "If you put the -$2 token on Wayfarer, it will cost $4 at the beginning of your turn, but then change its cost to the one of the next card you gain (and not $2 less than that). Also, if you put the -$2 token on the last card you gained (e.g. via a Workshop) earlier during a turn, Wayfarer's cost will change with it.",
+        df,
+    )
+    add_interaction(
+        "Family of Inventors",
+        "Wayfarer",
+        "Wayfarer will assume the cost of the card you gained last, even if a Favor token has been put on its pile. If you reduce the cost of the last-gained card with a Favor at the beginning of your Buy phase, Wayfarer's cost will change along with that.",
+        df,
+    )
+    add_interaction(
+        "Charm",
+        "Fisherman",
+        "If you choose the 'Gain Card with same cost' option for Charm and then gain a Fisherman costing $2 (and it goes to your discard pile), you will be able to gain a $5-cost card from Charm. Conversely, you could gain a $5-cost card first (to your discard pile), and then gain Fisherman off the Charm.",
         df,
     )
     add_interaction(
@@ -44,15 +68,21 @@ def _add_individual_cost_change_interactions(df: pd.DataFrame):
         df,
     )
     add_interaction(
+        "Destrier",
+        "Wayfarer",
+        "When gaining a Destrier, Wayfarer will cost as much as the Destrier costs after the gain (e.g. if you buy Destrier for $6, Wayfarer will cost $5 afterwards).",
+        df,
+    )
+    add_interaction(
         "Taskmaster",
         "Fisherman",
-        "For Taskmaster, the cost Fisherman has when you gain it is important.",
+        "For Taskmaster, the cost of Fisherman when you gain it is important, you will not renew Taskmaster's ability if Fisherman costs $2 when (before) you gain it.",
         df,
     )
     add_interaction(
         "Taskmaster",
         "Destrier",
-        "For Taskmaster, the cost of Destrier when you gain it is important.",
+        "For Taskmaster, the cost of Destrier when you gain it is important, you will only renew Taskmaster's ability if Destrier costs $5 the when (before) you gain it.",
         df,
     )
     add_interaction(
@@ -95,6 +125,24 @@ def _add_individual_cost_change_interactions(df: pd.DataFrame):
         "Fisherman",
         "Growth",
         "Fisherman's cost will be evaluated after each gain, so you can usually not gain one after having gained a Silver when Growth is active.",
+        df,
+    )
+    add_interaction(
+        "Fisherman",
+        "Livery",
+        "After having played Livery, Fisherman's cost is evaluated when you gain it, so you will not gain a Horse when gaining a Fisherman that costs $2.",
+        df,
+    )
+    add_interaction(
+        "Destrier",
+        "Livery",
+        "After having played Livery, Destrier's cost is evaluated when you gain it, so you will be able to gain a Horse even if the cost of Destrier is less than $4 afterwards.",
+        df,
+    )
+    add_interaction(
+        "Wayfarer",
+        "Quarry",
+        "Wayfarer will always have the same cost as the last card you gained using it. Therefore, if you gain a Silver, then play Quarry, Wayfarer will still cost $3. If you gain an Action card costing $3, then play Quarry, Wayfarer will also cost $1.",
         df,
     )
 

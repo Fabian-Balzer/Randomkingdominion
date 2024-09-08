@@ -32,6 +32,16 @@ def _add_on_gain_play_duplicate_interaction(on_gain_play_cso: str, df: pd.DataFr
     add_interaction("Duplicate", on_gain_play_cso, rule, df)
 
 
+def _add_on_gain_play_enlightenment_interactions(
+    on_gain_play_cso: str, df: pd.DataFrame
+):
+    if on_gain_play_cso == "Gondola":
+        rule = f"If Enlightenment is active and you gain a Gondola in your buy phase, you can play an Treasure from your hand, which will give you the usual effect."
+    else:
+        rule = f"If Enlightenment is active and you gain a Treasure in your buy phase, you can play it immediately using {on_gain_play_cso}, causing you to receive the usual effect."
+    add_interaction("Enlightenment", on_gain_play_cso, rule, df)
+
+
 def _add_on_gain_play_gatekeeper_interaction(
     on_gain_play_cso: str, df: pd.DataFrame, extra_str=""
 ):
@@ -106,7 +116,7 @@ def _add_on_gain_play_kiln_interaction(on_gain_play_cso: str, df: pd.DataFrame):
 def _add_on_gain_play_siren_interaction(on_gain_play_cso: str, df: pd.DataFrame):
     if on_gain_play_cso == "Gondola":
         return
-    rule = f"If you gain a Siren and use {on_gain_play_cso} to play the Siren, Siren no longer requires you to trash an action card from your hand in order to not trash the Siren."
+    rule = f"If you gain a Siren and use {on_gain_play_cso} to play the Siren, Siren no longer requires you to trash an Action card from your hand in order to not trash the Siren."
     add_interaction("Siren", on_gain_play_cso, rule, df)
 
 
@@ -138,12 +148,16 @@ def _add_on_play_shuffle_trigger_interaction(
 
 
 def _add_on_gain_play_topdecker_interaction(
-    topdecker: str, on_play_cso: str, df: pd.DataFrame
+    topdecker: str, on_play_cso: str, df: pd.DataFrame, choice=False
 ):
     if on_play_cso == "Gondola":
         return
+    elif choice:
+        rule = f"When you gain a card, you can decide whether to immediately play it using {on_play_cso}, or topdeck it using {topdecker}."
     else:
         rule = f"When you gain a card using {topdecker} and immediately play it using {on_play_cso}, you will not be able to topdeck it."
+    if topdecker == "Progress":
+        rule = f"When you gain a card while Progress is active, you get to choose between topdecking it and playing it immediately using {on_play_cso} (you can only do one)."
     add_interaction(topdecker, on_play_cso, rule, df)
 
 
@@ -152,7 +166,7 @@ def _add_on_gain_play_topdecker_interaction(
 def _add_on_shuffle_trigger_siren_interaction(other: str, df: pd.DataFrame):
     if other == "Trail":
         return
-    rule = f"If you gain a Siren and somehow trigger a shuffle by drawing a card using {other}, you still may trash an Action card from you hand, but the Siren will fail to trash itself and it will stay in your deck."
+    rule = f"If you gain a Siren and somehow trigger a shuffle by drawing a card using {other}, you are no longer required to trash an Action card for the Siren to stay in your deck."
     add_interaction("Siren", other, rule, df)
 
 
@@ -218,6 +232,66 @@ def _add_on_gain_hand_sheepdog_interaction(hand_cso: str, df: pd.DataFrame):
     add_interaction("Sheepdog", hand_cso, rule, df, add_together_if_present=True)
 
 
+def _add_on_gain_topdeck_rapid_expansion_interaction(
+    topdeck_cso: str, df: pd.DataFrame, choice=False
+):
+    if topdeck_cso == "Sleigh":
+        rule = f"When you gain a card while Rapid Expansion is active, you can decide to topdeck it or put it into your hand using {topdeck_cso}, instead of setting it aside."
+    elif topdeck_cso == "Watchtower":
+        rule = f"When you gain a card while Rapid Expansion is active, you can decide to topdeck or trash it using {topdeck_cso}, instead of setting it aside."
+    elif choice:
+        rule = f"When you gain a card while Rapid Expansion is active, you can decide to topdeck it using {topdeck_cso} instead of setting it aside."
+    elif topdeck_cso == "Invasion":
+        rule = f"If Rapid Expansion is active, both the Action card and the Loot you gain are set aside (instead of topdecked and played)."
+    else:
+        rule = f"When you gain a card using {topdeck_cso}, it will be gained on top of your deck and then be set aside if Rapid Expansion is active."
+    add_interaction("rapid expansion", topdeck_cso, rule, df)
+
+
+##########################################################################################################
+### Stuff where turn order is important
+def _add_all_skirmisher_interactions(df: pd.DataFrame):
+    add_interaction(
+        "Invest",
+        "Skirmisher",
+        "If you have invested in Skirmisher or another Attack card and your opponent gains one after having played Skirmisher, you first discard down to 3 cards in hand, and then draw due to Invest",
+        df,
+    )
+    add_interaction(
+        "Skirmisher",
+        "Falconer",
+        "If your opponent has played a Skirmisher and gains an Attack card while you have a Falconer in hand, you first have to discard down to three cards in hand, and only then can react the Falconer since the different things happen in turn order.",
+        df,
+    )
+    add_interaction(
+        "Monkey",
+        "Skirmisher",
+        "If you have played a Monkey and your opponent gains an Attack after having played Skirmisher, you first discard down to 3 cards in hand, and then draw due to Monkey since the different things happen in turn order.",
+        df,
+    )
+
+
+def _add_all_haunted_castle_interactions(df: pd.DataFrame):
+    add_interaction(
+        "Haunted Castle",
+        "Falconer",
+        "If your opponent gains Haunted Castle and you have a Falconer in hand, you first have to topdeck two cards, and only then can react the Falconer since the different things happen in turn order.",
+        df,
+    )
+    add_interaction(
+        "Monkey",
+        "Haunted Castle",
+        "If you have played a Monkey and your opponent gains a Haunted Castle, you first topdeck two cards, and then draw due to Monkey since the different things happen in turn order.",
+        df,
+    )
+    add_interaction(
+        "Road Network",
+        "Haunted Castle",
+        "If you have bought Road Network and your opponent gains a Haunted Castle, you first topdeck two cards, and then draw due to Road Network since the different things happen in turn order.",
+        df,
+    )
+
+
 ##########################################################################################################
 # Other stuff
 def _add_other_on_gain_interactions(df: pd.DataFrame):
@@ -232,6 +306,12 @@ def _add_other_on_gain_interactions(df: pd.DataFrame):
         "blockade",
         "rapid expansion",
         "Once Rapid Expansion (RE) is triggered, any Actions or Treasures gained by Blockade will be set aside by RE and thus not truly be Blockaded (you clean up the Blockade during Clean-up).",
+        df,
+    )
+    add_interaction(
+        "continue",
+        "rapid expansion",
+        "When Rapid Expansion is active, the Action card gained from a Continue buy is set aside before it can be played (you still get +1 Action, +1 Buy and return to your Action phase).",
         df,
     )
     add_interaction(
@@ -256,23 +336,27 @@ def add_all_on_gain_interactions(df: pd.DataFrame, verbose=False):
     num_before = len(df)
     for on_play_cso in CAN_PLAY_CARD_ON_GAIN:
         _add_on_overpay_infirmary_interaction(on_play_cso, df)
-        _add_on_gain_play_gatekeeper_interaction(on_play_cso, df)
+        _add_on_gain_play_changeling_interaction(on_play_cso, df)
         _add_on_gain_play_duplicate_interaction(on_play_cso, df)
+        _add_on_gain_play_enlightenment_interactions(on_play_cso, df)
         _add_on_gain_play_galleria_interaction(on_play_cso, df)
+        _add_on_gain_play_gatekeeper_interaction(on_play_cso, df)
         _add_on_gain_play_guildmaster_interaction(on_play_cso, df)
         _add_on_gain_play_haggler_interaction(on_play_cso, df)
+        _add_on_gain_play_kiln_interaction(on_play_cso, df)
         _add_on_gain_play_livery_interaction(on_play_cso, df)
         _add_on_gain_play_search_interaction(on_play_cso, df)
         _add_on_gain_play_skirmisher_interaction(on_play_cso, df)
         _add_on_gain_play_siren_interaction(on_play_cso, df)
-        _add_on_gain_play_changeling_interaction(on_play_cso, df)
-        _add_on_gain_play_kiln_interaction(on_play_cso, df)
         for shuffle_trigger_cso in CAN_CAUSE_SHUFFLE_TRIGGER_ON_GAIN:
             _add_on_play_shuffle_trigger_interaction(
                 on_play_cso, shuffle_trigger_cso, df
             )
         if on_play_cso not in ["Gondola", "Spell Scroll"]:
+            _add_on_gain_play_topdecker_interaction("Progress", on_play_cso, df)
             for topdecker in WILL_TOPDECK_ON_GAIN:
+                _add_on_gain_play_topdecker_interaction(topdecker, on_play_cso, df)
+            for topdecker in CAN_TOPDECK_ON_GAIN:
                 _add_on_gain_play_topdecker_interaction(topdecker, on_play_cso, df)
     for on_play_cso in ["Innovation", "City-State"]:
         _add_on_gain_play_improve_interaction(on_play_cso, df)
@@ -292,9 +376,11 @@ def add_all_on_gain_interactions(df: pd.DataFrame, verbose=False):
     for topdeck_cso in CAN_TOPDECK_ON_GAIN:
         _add_on_gain_topdeck_siren_interaction(topdeck_cso, df, choice=True)
         _add_on_gain_topdeck_villa_interaction(topdeck_cso, df, choice=True)
+        _add_on_gain_topdeck_rapid_expansion_interaction(topdeck_cso, df, choice=True)
     for topdeck_cso in WILL_TOPDECK_ON_GAIN:
         _add_on_gain_topdeck_siren_interaction(topdeck_cso, df)
         _add_on_gain_topdeck_villa_interaction(topdeck_cso, df)
+        _add_on_gain_topdeck_rapid_expansion_interaction(topdeck_cso, df)
     for topdeck_cso in MUST_TOPDECK_ON_GAIN:
         _add_on_gain_topdeck_siren_interaction(topdeck_cso, df, force=True)
         _add_on_gain_topdeck_villa_interaction(topdeck_cso, df)
@@ -316,6 +402,8 @@ def add_all_on_gain_interactions(df: pd.DataFrame, verbose=False):
         _add_on_gain_hand_siren_interaction(hand_cso, df)
         _add_on_gain_hand_gatekeeper_interaction(hand_cso, df)
         _add_on_gain_hand_sheepdog_interaction(hand_cso, df)
+    _add_all_skirmisher_interactions(df)
+    _add_all_haunted_castle_interactions(df)
     _add_other_on_gain_interactions(df)
 
     if verbose:
