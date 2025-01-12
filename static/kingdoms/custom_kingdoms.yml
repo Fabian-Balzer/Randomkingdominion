@@ -1791,3 +1791,239 @@
     for Coffers if you do it right
 
     Previous Results: 33-0 in 12 turns as first player against Hard AI'
+- cards:
+  - bridge
+  - ferryman
+  - governor
+  - hunter
+  - mine
+  - quartermaster
+  - sailor
+  - sanctuary
+  - secret_cave
+  - shop
+  expansions:
+  - Allies
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Promo
+  - Rising Sun
+  - Seaside, 2E
+  ferryman_pile: marauder
+  idx: 133543580405078417214485231015236375664
+  landscapes:
+  - practice
+  - way_of_the_mouse
+  mouse_card: squire
+  name: Starting to Practice
+  notes: 'Comment: Loads of powerful cards, little draw - Do you fit in Quartermasters?
+    Practice/Bridge is strong.
+
+    Previous Results: 47-29 in 12 turns as first player against Hard AI'
+- cards:
+  - cabin_boy
+  - crypt
+  - guildmaster
+  - hideout
+  - port
+  - royal_blacksmith
+  - soothsayer
+  - steward
+  - tea_house
+  - tracker
+  expansions:
+  - Adventures
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Intrigue, 2E
+  - Nocturne
+  - Plunder
+  - Renaissance
+  - Rising Sun
+  idx: 294070854807667973229365721167914418342
+  landscapes:
+  - growth
+  - league_of_bankers
+  - prosper
+  name: The Real Prosperity
+  notes: 'Comment: 55-24 in 13 turns as first player against Hard AI'
+- cards:
+  - count
+  - craftsman
+  - crossroads
+  - fishmonger
+  - poet
+  - rice
+  - riverboat
+  - sage
+  - snake_witch
+  - tools
+  expansions:
+  - Dark Ages
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Plunder
+  - Rising Sun
+  idx: 167572672712898314165681913651951232043
+  landscapes:
+  - biding_time
+  name: Biding at the Crossroads
+  notes: 'Comment: The title already hints at the main synergy here. Rice then enables
+    an incredibly explosive deck.
+
+    Previous Results: 70-5 in 13 turns as second player against Hard AI'
+  riverboat_card: replace
+- cards:
+  - baker
+  - courier
+  - gold_mine
+  - innkeeper
+  - magnate
+  - nobles
+  - pirate
+  - rustic_village
+  - sage
+  - tea_house
+  expansions:
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Intrigue, 2E
+  - Plunder
+  - Prosperity, 2E
+  - Rising Sun
+  - Seaside, 2E
+  idx: 96160140211968706002959687273095733622
+  landscapes:
+  - biding_time
+  - inspiring
+  name: Law aBiding Citizens
+  notes: 'Comment: Finicky to set up, but really nice pay-off.
+
+    Previous Results: 40-37 in 14 turns as second player against Hard AI'
+  traits:
+  - - inspiring
+    - gold_mine
+- cards:
+  - black_cat
+  - blockade
+  - courier
+  - craftsman
+  - groundskeeper
+  - merchant
+  - merchant_camp
+  - old_witch
+  - poet
+  - ratcatcher
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Empires
+  - Menagerie
+  - Renaissance
+  - Rising Sun
+  - Seaside, 2E
+  idx: 317802758842211099919544592059219829501
+  landscapes:
+  - biding_time
+  - training
+  name: Single Buyding
+  notes: 'Comment: Even without +Buy, you can build incredibly big here.
+
+    Previous Results: 26-20 in 16 turns as second player against Hard AI, 3-pile'
+- cards:
+  - altar
+  - cemetery
+  - craftsman
+  - familiar
+  - inn
+  - rabble
+  - research
+  - scrying_pool
+  - sycophant
+  - tea_house
+  expansions:
+  - Alchemy
+  - Allies
+  - Dark Ages
+  - Hinterlands, 2E
+  - Nocturne
+  - Prosperity, 2E
+  - Renaissance
+  - Rising Sun
+  idx: 314350068954195897869533256179406016479
+  landscapes:
+  - coastal_haven
+  - great_leader
+  name: Staying In The Lead
+  notes: 'Comment: Very interesting dynamic around Craftsman gaining as there''s no
+    +Buy.
+
+    Previous Results: 33-15 in 12 turns as first player against Hard AI, 3-pile'
+- cards:
+  - apprentice
+  - aristocrat
+  - bridge
+  - cemetery
+  - city_quarter
+  - first_mate
+  - groundskeeper
+  - herbalist
+  - storyteller
+  - trading_post
+  expansions:
+  - Adventures
+  - Alchemy
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Renaissance
+  - Rising Sun
+  idx: 86392881771533389280156890011277006610
+  landscapes:
+  - capitalism
+  - way_of_the_chameleon
+  name: Capital Aristocracy
+  notes: 'Comment: Super fun Chameleon-Aristocrat stuff.
+
+    Previous Results: 59-0 in 12 turns as second player against Hard AI, Provinces'
+- cards:
+  - artist
+  - emissary
+  - magpie
+  - pilgrim
+  - snowy_village
+  - spice_merchant
+  - tea_house
+  - throne_room
+  - vagrant
+  - vampire
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Dark Ages
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Rising Sun
+  idx: 164745549638834397315912604096980376732
+  landscapes:
+  - bureaucracy
+  - continue
+  - league_of_bankers
+  name: Artistic Bureaucracy
+  notes: 'Comment: Super interesting Bureaucracy stuff, including strong draw made
+    possible by Continue.
+
+    Previous Results: 38-14 in 16 turns as second player against Hard AI, Provinces'

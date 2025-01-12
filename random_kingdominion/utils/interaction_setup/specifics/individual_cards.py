@@ -623,6 +623,13 @@ def _add_all_warlord_interactions(df: pd.DataFrame):
     add_multiple_interactions_from_single(play_from_discard, df)
 
 
+def _add_all_farmland_interactions(df: pd.DataFrame):
+    rule = "If you gain a Farmland and exchange it for a Changeling, you will still have to trash a card from your hand and gain one costing exactly $2 more than the trashed card."
+    add_interaction("Farmland", "Changeling", rule, df)
+    rule = "If you buy a Farmland while under the Haunted Woods attack, you get to choose which effect (topdecking or remodeling) to resolve first."
+    add_interaction("Haunted Woods", "Farmland", rule, df)
+
+
 ##########################################################################################################
 # Final function
 def add_all_individual_card_interactions(df: pd.DataFrame, verbose=False) -> None:
@@ -637,6 +644,7 @@ def add_all_individual_card_interactions(df: pd.DataFrame, verbose=False) -> Non
     _add_all_encampment_interactions(df)
     _add_all_enchantress_interactions(df)
     _add_all_experiment_interactions(df)
+    _add_all_farmland_interactions(df)
     _add_all_garrison_interactions(df)
     _add_all_grand_market_interactions(df)
     _add_all_harbor_village_interactions(df)

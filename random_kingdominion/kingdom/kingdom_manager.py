@@ -71,6 +71,15 @@ class KingdomManager:
             except TypeError:
                 pass
 
+    def load_qualities(self):
+        for kingdom in self.kingdoms:
+            if "qualities" in kingdom:
+                continue
+            try:
+                kingdom["qualities"] = Kingdom.from_dict(kingdom).total_qualities
+            except TypeError:
+                pass
+
     @classmethod
     def from_yaml(cls, yaml_str: str, max_amount=None) -> "KingdomManager":
         """Create a KingdomManager from a yaml file."""

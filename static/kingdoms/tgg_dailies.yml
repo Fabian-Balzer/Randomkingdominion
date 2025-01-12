@@ -1,4 +1,2725 @@
 - cards:
+  - caravan
+  - change
+  - city_quarter
+  - fool
+  - kiln
+  - mastermind
+  - storeroom
+  - tea_house
+  - vassal
+  - wild_hunt
+  expansions:
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Menagerie
+  - Nocturne
+  - Rising Sun
+  - Seaside, 2E
+  idx: 204252174573277092216875237360378823707
+  landscapes:
+  - aqueduct
+  - bureaucracy
+  - way_of_the_squirrel
+  name: '2025-01-12'
+- cards:
+  - armory
+  - astrolabe
+  - caravan_guard
+  - druid
+  - forts
+  - gladiator/fortune
+  - hunting_lodge
+  - patron
+  - sculptor
+  - swamp_hag
+  druid_boons:
+  - the_earths_gift
+  - the_flames_gift
+  - the_swamps_gift
+  expansions:
+  - Adventures
+  - Allies
+  - Dark Ages
+  - Empires
+  - Menagerie
+  - Nocturne
+  - Renaissance
+  - Seaside, 2E
+  idx: 147272094051500479492377332050227629356
+  landscapes:
+  - trade
+  - way_of_the_butterfly
+  name: '2025-01-11'
+  use_shelters: true
+- cards:
+  - ghost_town
+  - minion
+  - scholar
+  - sculptor
+  - seer
+  - shanty_town
+  - silk_merchant
+  - swindler
+  - torturer
+  - trading_post
+  expansions:
+  - Intrigue, 2E
+  - Nocturne
+  - Renaissance
+  idx: 4920548622571064760878270518212290763
+  name: '2025-01-10'
+- cards:
+  - develop
+  - farmland
+  - first_mate
+  - frigate
+  - search
+  - stables
+  - tools
+  - trader
+  - trickster
+  - tunnel
+  expansions:
+  - Hinterlands, 2E
+  - Plunder
+  idx: 166199909367559196094992239402530829405
+  landscapes:
+  - pious
+  name: 2025-01-9
+  traits:
+  - - pious
+    - tools
+- cards:
+  - barbarian
+  - courtyard
+  - first_mate
+  - giant
+  - hostelry
+  - kitsune
+  - merchant_camp
+  - pillage
+  - procession
+  - wayfarer
+  expansions:
+  - Adventures
+  - Allies
+  - Dark Ages
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
+  - Rising Sun
+  idx: 167662721234326012839220998519641152176
+  landscapes:
+  - bureaucracy
+  - plan
+  - way_of_the_chameleon
+  name: 2025-01-5
+- cards:
+  - crypt
+  - devils_workshop
+  - familiar
+  - graverobber
+  - inventor
+  - modify
+  - monkey
+  - night_watchman
+  - tools
+  - wheelwright
+  expansions:
+  - Adventures
+  - Alchemy
+  - Allies
+  - Dark Ages
+  - Hinterlands, 2E
+  - Nocturne
+  - Plunder
+  - Renaissance
+  - Seaside, 2E
+  idx: 110947894878337645170740446427935120511
+  landscapes:
+  - ball
+  name: 2025-01-4
+- cards:
+  - cabin_boy
+  - camel_train
+  - cutthroat
+  - fisherman
+  - longship
+  - mining_road
+  - pawn
+  - pendant
+  - shaman
+  - swamp_shacks
+  expansions:
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
+  idx: 225972638568366479016062455695923718478
+  landscapes:
+  - demand
+  - way_of_the_frog
+  name: 2025-01-3
+- cards:
+  - alchemist
+  - alley
+  - apprentice
+  - aristocrat
+  - gold_mine
+  - litter
+  - rice_broker
+  - ronin
+  - tea_house
+  - vineyard
+  expansions:
+  - Alchemy
+  - Rising Sun
+  idx: 64881316273273727843790511374688735002
+  landscapes:
+  - amass
+  - flourishing_trade
+  - foresight
+  name: 2025-01-2
+- cards:
+  - baker
+  - barbarian
+  - candlestick_maker
+  - carpenter
+  - contract
+  - herald
+  - skirmisher
+  - sycophant
+  - townsfolk
+  - underling
+  expansions:
+  - Allies
+  - Cornucopia & Guilds, 2E
+  idx: 216277518666051403375023159943288774965
+  landscapes:
+  - market_towns
+  name: 2025-01-8
+  winrate: .nan
+- cards:
+  - augurs
+  - contract
+  - emissary
+  - innkeeper
+  - merchant_camp
+  - royal_galley
+  - sentinel
+  - specialist
+  - sycophant
+  - wizards
+  expansions:
+  - Allies
+  idx: 180409601804062531002774444173148338816
+  landscapes:
+  - circle_of_witches
+  name: 2025-01-7
+  winrate: .nan
+- cards:
+  - bureaucrat
+  - inn
+  - laboratory
+  - margrave
+  - mine
+  - poacher
+  - scheme
+  - souk
+  - stables
+  - vassal
+  expansions:
+  - Base, 2E
+  - Hinterlands, 2E
+  idx: 58652517820178062072410179151175461702
+  name: 2025-01-6
+  winrate: .nan
+- cards:
+  - daimyo
+  - horn_of_plenty
+  - hunting_party
+  - imperial_envoy
+  - joust
+  - kitsune
+  - mountain_shrine
+  - ninja
+  - poet
+  - shop
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Rising Sun
+  idx: 46331716347647639624601351826023418010
+  landscapes:
+  - bureaucracy
+  - gather
+  name: 2025-01-1
+  winrate: .nan
+- cards:
+  - border_village
+  - cauldron
+  - fools_gold
+  - guard_dog
+  - haggler
+  - jack_of_all_trades
+  - nomads
+  - oasis
+  - weaver
+  - witchs_hut
+  expansions:
+  - Hinterlands, 2E
+  idx: 194674923582882088381920761134471837576
+  name: '2024-12-31'
+  winrate: .nan
+- cards:
+  - laboratory
+  - landing_party
+  - library
+  - market
+  - merchant
+  - mining_road
+  - search
+  - smithy
+  - taskmaster
+  - trickster
+  expansions:
+  - Base, 2E
+  - Plunder
+  idx: 128137969395540497319048629180778515962
+  landscapes:
+  - maelstrom
+  - reckless
+  name: '2024-12-30'
+  traits:
+  - - reckless
+    - smithy
+  winrate: .nan
+- cards:
+  - baker
+  - bounty_hunter
+  - cage
+  - farmland
+  - ghost_town
+  - merchant_ship
+  - patrician/emporium
+  - throne_room
+  - trader
+  - watchtower
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Seaside, 2E
+  idx: 128075715487821236105542298158939322210
+  landscapes:
+  - gamble
+  - way_of_the_turtle
+  name: '2024-12-29'
+  winrate: .nan
+- cards:
+  - forum
+  - gardens
+  - hunter
+  - hunting_lodge
+  - livery
+  - mine
+  - salvager
+  - tea_house
+  - temple
+  - tragic_hero
+  expansions:
+  - Allies
+  - Base, 2E
+  - Empires
+  - Menagerie
+  - Nocturne
+  - Rising Sun
+  - Seaside, 2E
+  idx: 261204368712747354486454502792830600913
+  landscapes:
+  - flourishing_trade
+  - practice
+  name: '2024-12-28'
+  winrate: .nan
+- cards:
+  - cartographer
+  - death_cart
+  - graverobber
+  - oasis
+  - replace
+  - sage
+  - scheme
+  - squire
+  - steward
+  - tunnel
+  expansions:
+  - Dark Ages
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  idx: 12676408970427940585585819880097410604
+  name: '2024-12-27'
+  winrate: .nan
+- cards:
+  - baker
+  - butcher
+  - clashes
+  - courier
+  - footpad
+  - herald
+  - importer
+  - infirmary
+  - marquis
+  - town
+  expansions:
+  - Allies
+  - Cornucopia & Guilds, 2E
+  idx: 94834504690054523602366297339108419301
+  landscapes:
+  - plateau_shepherds
+  name: '2024-12-25'
+  winrate: .nan
+- army_pile: samurai
+  cards:
+  - artist
+  - change
+  - craftsman
+  - daimyo
+  - kitsune
+  - rice_broker
+  - river_shrine
+  - ronin
+  - samurai
+  - snake_witch
+  - tanuki
+  expansions:
+  - Rising Sun
+  idx: 338296655399668469255282476982356798420
+  landscapes:
+  - approaching_army
+  - receive_tribute
+  name: '2024-12-24'
+  winrate: .nan
+- cards:
+  - bridge_troll
+  - bureaucrat
+  - dungeon
+  - guide
+  - harbinger
+  - magpie
+  - messenger
+  - ratcatcher
+  - sentry
+  - throne_room
+  expansions:
+  - Adventures
+  - Base, 2E
+  idx: 322854154567730591941302181736640093084
+  landscapes:
+  - quest
+  - training
+  name: '2024-12-23'
+  winrate: .nan
+- cards:
+  - bauble
+  - cellar
+  - city_quarter
+  - craftsman
+  - develop
+  - first_mate
+  - oasis
+  - pawn
+  - scepter
+  - townsfolk
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Plunder
+  - Renaissance
+  - Rising Sun
+  idx: 181207480694600141884208503965770720288
+  landscapes:
+  - fellowship_of_scribes
+  - lost_arts
+  name: '2024-12-22'
+  winrate: .nan
+- cards:
+  - crypt
+  - kitsune
+  - magpie
+  - moat
+  - monastery
+  - ratcatcher
+  - relic
+  - sanctuary
+  - witchs_hut
+  - workshop
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Renaissance
+  - Rising Sun
+  idx: 134898834505487023170112633022079869088
+  landscapes:
+  - great_leader
+  - palace
+  - silos
+  name: '2024-12-21'
+  winrate: .nan
+- cards:
+  - advisor
+  - amulet
+  - butcher
+  - count
+  - footpad
+  - hunting_grounds
+  - junk_dealer
+  - knights
+  - miser
+  - mystic
+  expansions:
+  - Adventures
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  idx: 94679314898220791962929612640952577708
+  landscapes:
+  - borrow
+  - mission
+  name: '2024-12-20'
+  winrate: .nan
+- cards:
+  - bank
+  - border_guard
+  - clerk
+  - expand
+  - quarry
+  - scholar
+  - sculptor
+  - swashbuckler
+  - tiara
+  - workers_village
+  expansions:
+  - Prosperity, 2E
+  - Renaissance
+  idx: 242028873771117389495085066499352683726
+  landscapes:
+  - academy
+  - canal
+  name: '2024-12-19'
+  use_colonies: true
+  winrate: .nan
+- cards:
+  - druid
+  - falconer
+  - leprechaun
+  - necromancer
+  - pooka
+  - raider
+  - sanctuary
+  - secret_cave
+  - stockpile
+  - supplies
+  druid_boons:
+  - the_earths_gift
+  - the_fields_gift
+  - the_mountains_gift
+  expansions:
+  - Menagerie
+  - Nocturne
+  idx: 330849851222914272887557337912589315318
+  landscapes:
+  - commerce
+  - way_of_the_mole
+  name: '2024-12-18'
+  winrate: .nan
+- cards:
+  - broker
+  - carpenter
+  - courier
+  - guildmaster
+  - innkeeper
+  - modify
+  - royal_galley
+  - sycophant
+  - underling
+  - wizards
+  expansions:
+  - Allies
+  idx: 107207483354898308932839171719114273709
+  landscapes:
+  - family_of_inventors
+  name: '2024-12-17'
+  winrate: .nan
+- cards:
+  - bandit
+  - bureaucrat
+  - chapel
+  - council_room
+  - gardens
+  - harbinger
+  - merchant
+  - sentry
+  - throne_room
+  - vassal
+  expansions:
+  - Base, 2E
+  idx: 327603604610947295737990741415819784609
+  name: '2024-12-16'
+  winrate: .nan
+- cards:
+  - alchemist
+  - artificer
+  - barbarian
+  - city_quarter
+  - feodum
+  - guardian
+  - horn_of_plenty
+  - patrician/emporium
+  - rice
+  - silk_merchant
+  expansions:
+  - Adventures
+  - Alchemy
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Menagerie
+  - Nocturne
+  - Renaissance
+  - Rising Sun
+  idx: 281478643561819617627470439322169765344
+  landscapes:
+  - fleet
+  - populate
+  name: '2024-12-15'
+  winrate: .nan
+- cards:
+  - apothecary
+  - ducat
+  - engineer
+  - merchant_camp
+  - mystic
+  - royal_blacksmith
+  - secret_passage
+  - stables
+  - tanuki
+  - trickster
+  expansions:
+  - Alchemy
+  - Allies
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Plunder
+  - Renaissance
+  - Rising Sun
+  idx: 145326241983717867550679154595001534955
+  landscapes:
+  - cursed
+  - reckless
+  name: '2024-12-14'
+  traits:
+  - - cursed
+    - mystic
+  - - reckless
+    - tanuki
+  winrate: .nan
+- cards:
+  - bandit
+  - bridge_troll
+  - caravan_guard
+  - laboratory
+  - lighthouse
+  - merchant_ship
+  - miser
+  - raze
+  - royal_carriage
+  - wine_merchant
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Seaside, 2E
+  idx: 236136741729190986633908457226020140124
+  landscapes:
+  - save
+  - travelling_fair
+  name: '2024-12-13'
+  winrate: .nan
+- cards:
+  - berserker
+  - emissary
+  - fools_gold
+  - importer
+  - jack_of_all_trades
+  - souk
+  - specialist
+  - trader
+  - weaver
+  - wheelwright
+  expansions:
+  - Allies
+  - Hinterlands, 2E
+  idx: 261722242528819893221214064929697517673
+  landscapes:
+  - mountain_folk
+  name: '2024-12-12'
+  winrate: .nan
+- cards:
+  - baron
+  - bridge
+  - chariot_race
+  - courtyard
+  - duke
+  - encampment/plunder
+  - mill
+  - steward
+  - temple
+  - wishing_well
+  expansions:
+  - Empires
+  - Intrigue, 2E
+  idx: 130859752197717360324026794972308415997
+  landscapes:
+  - defiled_shrine
+  - salt_the_earth
+  name: '2024-12-11'
+  winrate: .nan
+- cards:
+  - black_cat
+  - bounty_hunter
+  - cavalry
+  - falconer
+  - hostelry
+  - paddock
+  - scrap
+  - snowy_village
+  - village_green
+  - wayfarer
+  expansions:
+  - Menagerie
+  idx: 309140696324189171606843365149589071729
+  landscapes:
+  - march
+  - pursue
+  name: '2024-12-10'
+  winrate: .nan
+- cards:
+  - cartographer
+  - chapel
+  - develop
+  - festival
+  - oasis
+  - poacher
+  - stables
+  - throne_room
+  - trader
+  - vassal
+  expansions:
+  - Base, 2E
+  - Hinterlands, 2E
+  idx: 298508135127484142671863119397851048794
+  name: 2024-12-9
+  winrate: .nan
+- cards:
+  - bauble
+  - cellar
+  - duplicate
+  - enchantress
+  - fortune_hunter
+  - guard_dog
+  - livery
+  - merchant_guild
+  - rope
+  - village_green
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Plunder
+  idx: 86889687656736200346115656581078200000
+  landscapes:
+  - scouting_party
+  - tax
+  - woodworkers_guild
+  name: 2024-12-8
+  winrate: .nan
+- cards:
+  - gear
+  - hunting_lodge
+  - innkeeper
+  - magnate
+  - merchant_guild
+  - pilgrim
+  - recruiter
+  - ronin
+  - sea_witch
+  - vault
+  expansions:
+  - Adventures
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Menagerie
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Rising Sun
+  - Seaside, 2E
+  idx: 274388954045549602664631608662919876762
+  landscapes:
+  - lost_arts
+  - palace
+  name: 2024-12-7
+  winrate: .nan
+- cards:
+  - bridge
+  - duke
+  - magnate
+  - mapmaker
+  - nobles
+  - pilgrim
+  - quarry
+  - rabble
+  - siren
+  - torturer
+  expansions:
+  - Intrigue, 2E
+  - Plunder
+  - Prosperity, 2E
+  idx: 198457655924301001493423407404229190011
+  landscapes:
+  - hasty
+  - scrounge
+  name: 2024-12-6
+  traits:
+  - - hasty
+    - rabble
+  use_colonies: true
+  winrate: .nan
+- cards:
+  - capital
+  - castles
+  - chariot_race
+  - flagship
+  - gladiator/fortune
+  - landing_party
+  - longship
+  - patrician/emporium
+  - sacrifice
+  - secluded_shrine
+  expansions:
+  - Empires
+  - Plunder
+  idx: 188861006454632594008057525858244046285
+  landscapes:
+  - avoid
+  - inspiring
+  name: 2024-12-5
+  traits:
+  - - inspiring
+    - capital
+  winrate: .nan
+- bane_pile: infirmary
+  cards:
+  - baker
+  - candlestick_maker
+  - farmhands
+  - farrier
+  - footpad
+  - herald
+  - infirmary
+  - remake
+  - shop
+  - soothsayer
+  - young_witch
+  expansions:
+  - Cornucopia & Guilds, 2E
+  idx: 270485304664175835062416398951768599274
+  name: 2024-12-4
+  winrate: .nan
+- cards:
+  - capital
+  - catapult/rocks
+  - chariot_race
+  - charm
+  - crown
+  - forum
+  - legionary
+  - overlord
+  - royal_blacksmith
+  - wild_hunt
+  expansions:
+  - Empires
+  idx: 47608639356970782004333250709468764985
+  landscapes:
+  - defiled_shrine
+  - ritual
+  name: 2024-12-3
+  winrate: .nan
+- cards:
+  - bureaucrat
+  - cellar
+  - hamlet
+  - hunting_party
+  - library
+  - menagerie
+  - merchant
+  - militia
+  - mine
+  - witch
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  idx: 298767661987170062465679455264463433854
+  name: 2024-12-2
+  winrate: .nan
+- cards:
+  - bridge
+  - council_room
+  - distant_lands
+  - duplicate
+  - flagship
+  - marquis
+  - mine
+  - necromancer
+  - stockpile
+  - tormentor
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Renaissance
+  idx: 144646290100029445143242693614184056349
+  landscapes:
+  - delay
+  - exploration
+  name: 2024-12-1
+  winrate: .nan
+- cards:
+  - artist
+  - bounty_hunter
+  - candlestick_maker
+  - emissary
+  - flag_bearer
+  - hamlet
+  - patron
+  - poacher
+  - pooka
+  - poor_house
+  expansions:
+  - Allies
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Menagerie
+  - Nocturne
+  - Renaissance
+  - Rising Sun
+  idx: 321346874555384983623596610854381864702
+  landscapes:
+  - gang_of_pickpockets
+  - transport
+  name: '2024-11-30'
+  winrate: .nan
+- cards:
+  - coin_of_the_realm
+  - cutpurse
+  - duplicate
+  - first_mate
+  - frigate
+  - harbor_village
+  - haunted_woods
+  - royal_carriage
+  - sea_chart
+  - warehouse
+  expansions:
+  - Adventures
+  - Plunder
+  - Seaside, 2E
+  idx: 326767405424474414913543499431658128868
+  landscapes:
+  - inherited
+  - seaway
+  name: '2024-11-29'
+  traits:
+  - - inherited
+    - royal_carriage
+  winrate: .nan
+- cards:
+  - bandit_camp
+  - expand
+  - graverobber
+  - hunting_grounds
+  - magnate
+  - market_square
+  - monument
+  - rabble
+  - scavenger
+  - watchtower
+  expansions:
+  - Dark Ages
+  - Prosperity, 2E
+  idx: 247805252177196932226609018569715398723
+  name: '2024-11-28'
+  use_shelters: true
+  winrate: .nan
+- bane_pile: lackeys
+  cards:
+  - ducat
+  - farmhands
+  - flag_bearer
+  - hideout
+  - inventor
+  - lackeys
+  - recruiter
+  - remake
+  - scholar
+  - swashbuckler
+  - young_witch
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Renaissance
+  idx: 319832968843171784197738007377088643676
+  landscapes:
+  - canal
+  - pageant
+  name: '2024-11-27'
+  winrate: .nan
+- cards:
+  - caravan
+  - haven
+  - lighthouse
+  - outpost
+  - sailor
+  - tactician
+  - tide_pools
+  - treasury
+  - warehouse
+  - wharf
+  expansions:
+  - Seaside, 2E
+  idx: 338216748843483566767105992004162392356
+  name: '2024-11-26'
+  winrate: .nan
+- cards:
+  - apprentice
+  - bandit
+  - familiar
+  - harbinger
+  - laboratory
+  - merchant
+  - militia
+  - poacher
+  - vineyard
+  - workshop
+  expansions:
+  - Alchemy
+  - Base, 2E
+  idx: 244875672819478794272837879426643376336
+  name: '2024-11-25'
+  winrate: .nan
+- army_pile: giant
+  cards:
+  - augurs
+  - distant_lands
+  - giant
+  - gondola
+  - grand_market
+  - joust
+  - mountain_shrine
+  - port
+  - smithy
+  - torturer
+  - wizards
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Intrigue, 2E
+  - Plunder
+  - Prosperity, 2E
+  - Rising Sun
+  idx: 28955572028414545993070095409847484807
+  landscapes:
+  - approaching_army
+  - forest_dwellers
+  name: '2024-11-24'
+  winrate: .nan
+- cards:
+  - charlatan
+  - contract
+  - hunter
+  - knights
+  - marauder
+  - mine
+  - remodel
+  - shanty_town
+  - tide_pools
+  - watchtower
+  expansions:
+  - Allies
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Prosperity, 2E
+  - Rising Sun
+  - Seaside, 2E
+  idx: 88024142935455400838004593684614470020
+  landscapes:
+  - forest_dwellers
+  - museum
+  - way_of_the_mouse
+  mouse_card: craftsman
+  name: '2024-11-23'
+  winrate: .nan
+- cards:
+  - bureaucrat
+  - forts
+  - guardian
+  - highwayman
+  - library
+  - militia
+  - pooka
+  - specialist
+  - swap
+  - wizards
+  expansions:
+  - Allies
+  - Base, 2E
+  - Nocturne
+  idx: 303451059485375671696872543345052697747
+  landscapes:
+  - league_of_bankers
+  name: '2024-11-22'
+  winrate: .nan
+- cards:
+  - bandit_camp
+  - counterfeit
+  - encampment/plunder
+  - engineer
+  - farmers_market
+  - feodum
+  - graverobber
+  - groundskeeper
+  - poor_house
+  - sacrifice
+  expansions:
+  - Dark Ages
+  - Empires
+  idx: 168160974490797908224269778843969457508
+  landscapes:
+  - tomb
+  - wedding
+  name: '2024-11-21'
+  winrate: .nan
+- cards:
+  - blockade
+  - devils_workshop
+  - druid
+  - haven
+  - native_village
+  - raider
+  - salvager
+  - sea_witch
+  - smugglers
+  - tracker
+  druid_boons:
+  - the_earths_gift
+  - the_flames_gift
+  - the_rivers_gift
+  expansions:
+  - Nocturne
+  - Seaside, 2E
+  idx: 290547526855673513017701289247129580659
+  name: '2024-11-20'
+  winrate: .nan
+- cards:
+  - animal_fair
+  - barge
+  - cavalry
+  - destrier
+  - falconer
+  - fisherman
+  - hostelry
+  - supplies
+  - village_green
+  - wayfarer
+  expansions:
+  - Menagerie
+  idx: 331180857778637219353715054632161608771
+  landscapes:
+  - ride
+  - way_of_the_butterfly
+  name: '2024-11-19'
+  winrate: .nan
+- cards:
+  - bard
+  - blessed_village
+  - changeling
+  - crypt
+  - festival
+  - fool
+  - raider
+  - sentry
+  - tragic_hero
+  - witch
+  expansions:
+  - Base, 2E
+  - Nocturne
+  idx: 11477767829039439314043655511030515768
+  name: '2024-11-18'
+  winrate: .nan
+- cards:
+  - blockade
+  - city
+  - crucible
+  - destrier
+  - hideout
+  - lighthouse
+  - nomads
+  - research
+  - souk
+  - trail
+  expansions:
+  - Hinterlands, 2E
+  - Menagerie
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
+  idx: 12649297451214774798138000189951542804
+  landscapes:
+  - alliance
+  - commerce
+  name: '2024-11-17'
+  winrate: .nan
+- cards:
+  - alley
+  - cargo_ship
+  - council_room
+  - fairgrounds
+  - ferryman
+  - guildmaster
+  - lurker
+  - mint
+  - transmogrify
+  - treasury
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Intrigue, 2E
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Rising Sun
+  - Seaside, 2E
+  ferryman_pile: wishing_well
+  idx: 206018899668986854264537995475254285581
+  landscapes:
+  - academy
+  - family_of_inventors
+  - nearby
+  name: '2024-11-16'
+  traits:
+  - - nearby
+    - cargo_ship
+  winrate: .nan
+- cards:
+  - alchemist
+  - capital
+  - catacombs
+  - farmers_market
+  - golem
+  - graverobber
+  - ironmonger
+  - patrician/emporium
+  - storeroom
+  - vineyard
+  expansions:
+  - Alchemy
+  - Dark Ages
+  - Empires
+  idx: 66504870235263979132278219157699508262
+  landscapes:
+  - bandit_fort
+  - labyrinth
+  name: '2024-11-15'
+  winrate: .nan
+- cards:
+  - cemetery
+  - conclave
+  - devils_workshop
+  - exorcist
+  - monastery
+  - pixie
+  - rice
+  - rice_broker
+  - river_shrine
+  - skulk
+  expansions:
+  - Nocturne
+  - Rising Sun
+  idx: 192655913650199560268765128383676205405
+  landscapes:
+  - asceticism
+  - foresight
+  - growth
+  name: '2024-11-14'
+  winrate: .nan
+- cards:
+  - blessed_village
+  - change
+  - craftsman
+  - devils_workshop
+  - fool
+  - gold_mine
+  - mountain_shrine
+  - pixie
+  - riverboat
+  - tragic_hero
+  expansions:
+  - Nocturne
+  - Rising Sun
+  idx: 113289766902173102319788849834829916565
+  landscapes:
+  - bureaucracy
+  - sea_trade
+  name: '2024-11-13'
+  riverboat_card: rice_broker
+  winrate: .nan
+- cards:
+  - armory
+  - counterfeit
+  - death_cart
+  - feodum
+  - forager
+  - fortress
+  - marauder
+  - rogue
+  - sage
+  - squire
+  expansions:
+  - Dark Ages
+  idx: 197726620750777461969437693805244819230
+  name: '2024-11-12'
+  use_shelters: true
+  winrate: .nan
+- cards:
+  - artisan
+  - bandit
+  - council_room
+  - gardens
+  - laboratory
+  - merchant
+  - moneylender
+  - secret_passage
+  - vassal
+  - wishing_well
+  expansions:
+  - Base, 2E
+  - Intrigue, 2E
+  idx: 285160739380030983406135861727442565168
+  name: '2024-11-11'
+  winrate: .nan
+- cards:
+  - altar
+  - bandit
+  - bauble
+  - grotto
+  - highway
+  - lookout
+  - silver_mine
+  - stonemason
+  - storeroom
+  - vampire
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Hinterlands, 2E
+  - Nocturne
+  - Plunder
+  - Seaside, 2E
+  idx: 87974000773797422757460980579175959337
+  landscapes:
+  - borrow
+  - city-state
+  name: '2024-11-10'
+  use_shelters: true
+  winrate: .nan
+- cards:
+  - falconer
+  - forge
+  - gear
+  - ironmonger
+  - lost_city
+  - mine
+  - mountain_shrine
+  - nomads
+  - poet
+  - sea_chart
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Plunder
+  - Prosperity, 2E
+  - Rising Sun
+  - Seaside, 2E
+  idx: 40318810621432751752895508775688780645
+  landscapes:
+  - kind_emperor
+  - palace
+  - way_of_the_mouse
+  mouse_card: stowaway
+  name: 2024-11-9
+  winrate: .nan
+- cards:
+  - crossroads
+  - destrier
+  - develop
+  - guard_dog
+  - hostelry
+  - hunting_lodge
+  - inn
+  - trail
+  - tunnel
+  - witch
+  expansions:
+  - Base, 2E
+  - Hinterlands, 2E
+  - Menagerie
+  idx: 74878907190144798196533852734729433851
+  landscapes:
+  - alliance
+  - way_of_the_goat
+  name: 2024-11-8
+  winrate: .nan
+- cards:
+  - border_guard
+  - corsair
+  - flag_bearer
+  - hideout
+  - inventor
+  - patron
+  - sailor
+  - sculptor
+  - treasurer
+  - wharf
+  expansions:
+  - Renaissance
+  - Seaside, 2E
+  idx: 173092748210062274530531958515733130108
+  landscapes:
+  - silos
+  name: 2024-11-7
+  winrate: .nan
+- cards:
+  - fools_gold
+  - haggler
+  - hireling
+  - magpie
+  - messenger
+  - oasis
+  - page
+  - ranger
+  - relic
+  - wine_merchant
+  expansions:
+  - Adventures
+  - Hinterlands, 2E
+  idx: 329423431384390323256932729594707687239
+  landscapes:
+  - inheritance
+  - pilgrimage
+  name: 2024-11-6
+  winrate: .nan
+- cards:
+  - abundance
+  - buried_treasure
+  - cage
+  - crucible
+  - cutthroat
+  - flagship
+  - fortune_hunter
+  - gondola
+  - secluded_shrine
+  - wealthy_village
+  expansions:
+  - Plunder
+  idx: 282791960984232443366360206921294878397
+  landscapes:
+  - patient
+  - reckless
+  name: 2024-11-5
+  traits:
+  - - patient
+    - gondola
+  - - reckless
+    - secluded_shrine
+  winrate: .nan
+- cards:
+  - cauldron
+  - laboratory
+  - market
+  - merchant
+  - militia
+  - scheme
+  - souk
+  - stables
+  - throne_room
+  - wheelwright
+  expansions:
+  - Base, 2E
+  - Hinterlands, 2E
+  idx: 250656892718161386679154259109843274950
+  name: 2024-11-4
+  winrate: .nan
+- cards:
+  - cabin_boy
+  - capital_city
+  - cursed_village
+  - emissary
+  - exorcist
+  - falconer
+  - lackeys
+  - mapmaker
+  - samurai
+  - smugglers
+  expansions:
+  - Allies
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Renaissance
+  - Rising Sun
+  - Seaside, 2E
+  idx: 210406969468391495300707307251903549942
+  landscapes:
+  - crafters_guild
+  - way_of_the_pig
+  name: 2024-11-3
+  winrate: .nan
+- cards:
+  - animal_fair
+  - border_village
+  - bridge_troll
+  - contract
+  - distant_lands
+  - familiar
+  - farmers_market
+  - fools_gold
+  - temple
+  - torturer
+  expansions:
+  - Adventures
+  - Alchemy
+  - Allies
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Renaissance
+  idx: 63055330151767299443383398253478348111
+  landscapes:
+  - cave_dwellers
+  - fair
+  - trade
+  name: 2024-11-2
+  winrate: .nan
+- cards:
+  - abundance
+  - alley
+  - bandit
+  - enlarge
+  - longship
+  - pilgrim
+  - secluded_shrine
+  - sentry
+  - silver_mine
+  - trickster
+  expansions:
+  - Base, 2E
+  - Plunder
+  - Rising Sun
+  idx: 171357875059683633589655246909435807765
+  landscapes:
+  - avoid
+  - journey
+  name: 2024-11-1
+  winrate: .nan
+- cards:
+  - bank
+  - city
+  - clerk
+  - collection
+  - grand_market
+  - lackeys
+  - magnate
+  - patron
+  - spices
+  - tiara
+  expansions:
+  - Prosperity, 2E
+  - Renaissance
+  idx: 228560067500967035327413909826024140427
+  landscapes:
+  - cathedral
+  - guildhall
+  name: '2024-10-31'
+  use_colonies: true
+  winrate: .nan
+- bane_pile: candlestick_maker
+  cards:
+  - advisor
+  - candlestick_maker
+  - carnival
+  - farmhands
+  - farrier
+  - herald
+  - horn_of_plenty
+  - infirmary
+  - merchant_guild
+  - soothsayer
+  - young_witch
+  expansions:
+  - Cornucopia & Guilds, 2E
+  idx: 195087945186659207876959327009631487328
+  name: '2024-10-30'
+  winrate: .nan
+- cards:
+  - bridge
+  - courtier
+  - courtyard
+  - diplomat
+  - lurker
+  - mining_village
+  - minion
+  - nobles
+  - trading_post
+  - upgrade
+  expansions:
+  - Intrigue, 2E
+  idx: 9110251771411262199796534755885170799
+  name: '2024-10-29'
+  winrate: .nan
+- cards:
+  - altar
+  - count
+  - festival
+  - harbinger
+  - knights
+  - laboratory
+  - merchant
+  - mystic
+  - throne_room
+  - workshop
+  expansions:
+  - Base, 2E
+  - Dark Ages
+  idx: 67966563790260742134147237498574950639
+  name: '2024-10-28'
+  use_shelters: true
+  winrate: .nan
+- cards:
+  - amulet
+  - conclave
+  - market
+  - peasant
+  - royal_galley
+  - sailor
+  - scrap
+  - shepherd
+  - tunnel
+  - wine_merchant
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Seaside, 2E
+  idx: 317936778397091372774933467305377695388
+  landscapes:
+  - desperation
+  - way_of_the_goat
+  name: '2024-10-27'
+  winrate: .nan
+- bane_pile: astrolabe
+  cards:
+  - archive
+  - astrolabe
+  - bounty_hunter
+  - caravan_guard
+  - merchant_camp
+  - peasant
+  - priest
+  - quarry
+  - skirmisher
+  - smithy
+  - young_witch
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Menagerie
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
+  idx: 254932389982329018173717268900605702001
+  landscapes:
+  - rich
+  - wall
+  name: '2024-10-26'
+  traits:
+  - - rich
+    - archive
+  winrate: .nan
+- cards:
+  - blockade
+  - merchant_ship
+  - mine
+  - old_witch
+  - research
+  - salvager
+  - seer
+  - treasurer
+  - warehouse
+  - workshop
+  expansions:
+  - Base, 2E
+  - Renaissance
+  - Seaside, 2E
+  idx: 327337736854866551082146316908917194698
+  landscapes:
+  - fair
+  - road_network
+  name: '2024-10-25'
+  winrate: .nan
+- cards:
+  - archive
+  - castles
+  - chariot_race
+  - crown
+  - encampment/plunder
+  - enchantress
+  - forum
+  - golem
+  - philosophers_stone
+  - vineyard
+  expansions:
+  - Alchemy
+  - Empires
+  idx: 168596545755063838527885606473828843117
+  landscapes:
+  - wedding
+  - windfall
+  name: '2024-10-24'
+  winrate: .nan
+- cards:
+  - amulet
+  - artificer
+  - cauldron
+  - distant_lands
+  - fools_gold
+  - hireling
+  - messenger
+  - page
+  - ranger
+  - scheme
+  expansions:
+  - Adventures
+  - Hinterlands, 2E
+  idx: 194662089852397048578000935195599009740
+  landscapes:
+  - ball
+  - plan
+  name: '2024-10-23'
+  winrate: .nan
+- cards:
+  - castles
+  - chariot_race
+  - city_quarter
+  - encampment/plunder
+  - farmers_market
+  - gladiator/fortune
+  - patrician/emporium
+  - settlers/bustling_village
+  - temple
+  - villa
+  expansions:
+  - Empires
+  idx: 246127306247446281781678700744661258841
+  landscapes:
+  - conquest
+  - windfall
+  name: '2024-10-22'
+  winrate: .nan
+- cards:
+  - bandit
+  - bishop
+  - clerk
+  - council_room
+  - forge
+  - merchant
+  - mine
+  - poacher
+  - sentry
+  - tiara
+  expansions:
+  - Base, 2E
+  - Prosperity, 2E
+  idx: 221133434863049412445991055324441160426
+  name: '2024-10-21'
+  use_colonies: true
+  winrate: .nan
+- cards:
+  - farmhands
+  - graverobber
+  - odysseys
+  - patron
+  - scepter
+  - secluded_shrine
+  - sentry
+  - steward
+  - wealthy_village
+  - wishing_well
+  expansions:
+  - Allies
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
+  - Renaissance
+  idx: 47221373711726379621579028439386702225
+  landscapes:
+  - tomb
+  - way_of_the_mouse
+  mouse_card: scrap
+  name: '2024-10-20'
+  winrate: .nan
+- cards:
+  - bank
+  - figurine
+  - infirmary
+  - laboratory
+  - minion
+  - rice
+  - sage
+  - tools
+  - wandering_minstrel
+  - witch
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Intrigue, 2E
+  - Plunder
+  - Prosperity, 2E
+  - Rising Sun
+  idx: 140142724118848773897783068718444812515
+  name: '2024-10-19'
+  winrate: .nan
+- cards:
+  - alchemist
+  - farrier
+  - frigate
+  - golem
+  - herald
+  - journeyman
+  - plaza
+  - sack_of_loot
+  - siren
+  - vineyard
+  expansions:
+  - Alchemy
+  - Cornucopia & Guilds, 2E
+  - Plunder
+  idx: 155366935923737604450033277896545296913
+  landscapes:
+  - invasion
+  - journey
+  name: '2024-10-18'
+  winrate: .nan
+- cards:
+  - anvil
+  - collection
+  - den_of_sin
+  - druid
+  - ghost_town
+  - guardian
+  - idol
+  - leprechaun
+  - secret_cave
+  - tiara
+  druid_boons:
+  - the_earths_gift
+  - the_fields_gift
+  - the_flames_gift
+  expansions:
+  - Nocturne
+  - Prosperity, 2E
+  idx: 183865241066249429367635672150675236227
+  name: '2024-10-17'
+  use_colonies: true
+  winrate: .nan
+- cards:
+  - jewelled_egg
+  - margrave
+  - nomads
+  - pickaxe
+  - pilgrim
+  - search
+  - silver_mine
+  - siren
+  - trail
+  - wealthy_village
+  expansions:
+  - Hinterlands, 2E
+  - Plunder
+  idx: 104242052467162454649028188831953857985
+  landscapes:
+  - bury
+  - cursed
+  name: '2024-10-16'
+  traits:
+  - - cursed
+    - wealthy_village
+  winrate: .nan
+- cards:
+  - berserker
+  - cartographer
+  - cauldron
+  - farmland
+  - guard_dog
+  - oasis
+  - souk
+  - trail
+  - weaver
+  - witchs_hut
+  expansions:
+  - Hinterlands, 2E
+  idx: 137293786815634428514479626629475854737
+  name: '2024-10-15'
+  winrate: .nan
+- cards:
+  - council_room
+  - gardens
+  - merchant
+  - patron
+  - recruiter
+  - scepter
+  - sculptor
+  - sentry
+  - spices
+  - throne_room
+  expansions:
+  - Base, 2E
+  - Renaissance
+  idx: 289923719304538573685925030236004868230
+  landscapes:
+  - exploration
+  - sinister_plot
+  name: '2024-10-14'
+  winrate: .nan
+- cards:
+  - bauble
+  - chapel
+  - charm
+  - laboratory
+  - patron
+  - raze
+  - river_shrine
+  - smugglers
+  - trading_post
+  - wheelwright
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Renaissance
+  - Rising Sun
+  - Seaside, 2E
+  idx: 173584691192622050807619284095377515460
+  landscapes:
+  - architects_guild
+  - museum
+  - sickness
+  name: '2024-10-13'
+  winrate: .nan
+- cards:
+  - altar
+  - coven
+  - distant_lands
+  - forts
+  - ironmonger
+  - market
+  - merchant_camp
+  - scholar
+  - shanty_town
+  - swamp_shacks
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
+  - Renaissance
+  idx: 169944064361393095431437780471839146292
+  landscapes:
+  - aqueduct
+  - arena
+  name: '2024-10-12'
+  winrate: .nan
+- cards:
+  - dungeon
+  - haunted_woods
+  - library
+  - mine
+  - page
+  - peasant
+  - poacher
+  - port
+  - secret_passage
+  - workshop
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Intrigue, 2E
+  idx: 93967719758647501855485790052702099813
+  landscapes:
+  - scouting_party
+  - training
+  name: '2024-10-11'
+  winrate: .nan
+- cards:
+  - bandit_camp
+  - death_cart
+  - fairgrounds
+  - forager
+  - hamlet
+  - joust
+  - junk_dealer
+  - knights
+  - market_square
+  - squire
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  idx: 93967770331978603821950204100450578250
+  name: '2024-10-10'
+  winrate: .nan
+- cards:
+  - charm
+  - encampment/plunder
+  - farmland
+  - gladiator/fortune
+  - groundskeeper
+  - haggler
+  - legionary
+  - margrave
+  - scheme
+  - settlers/bustling_village
+  expansions:
+  - Empires
+  - Hinterlands, 2E
+  idx: 46495998686906738796567339041206994199
+  landscapes:
+  - salt_the_earth
+  - tomb
+  name: 2024-10-9
+  winrate: .nan
+- cards:
+  - destrier
+  - falconer
+  - fisherman
+  - gatekeeper
+  - groom
+  - scrap
+  - sheepdog
+  - snowy_village
+  - stockpile
+  - supplies
+  expansions:
+  - Menagerie
+  idx: 150670352055072578618294938834825992955
+  landscapes:
+  - populate
+  - way_of_the_chameleon
+  name: 2024-10-8
+  winrate: .nan
+- cards:
+  - artisan
+  - devils_workshop
+  - druid
+  - idol
+  - leprechaun
+  - mine
+  - monastery
+  - pixie
+  - pooka
+  - werewolf
+  druid_boons:
+  - the_earths_gift
+  - the_mountains_gift
+  - the_skys_gift
+  expansions:
+  - Base, 2E
+  - Nocturne
+  idx: 315004497996180190868928577964956722959
+  name: 2024-10-7
+  winrate: .nan
+- bane_pile: oasis
+  cards:
+  - animal_fair
+  - apothecary
+  - capital_city
+  - council_room
+  - diplomat
+  - dungeon
+  - ferryman
+  - frigate
+  - guardian
+  - oasis
+  - young_witch
+  expansions:
+  - Adventures
+  - Alchemy
+  - Allies
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Renaissance
+  ferryman_pile: enchantress
+  idx: 252788655093538588775408541001360755784
+  landscapes:
+  - fair
+  - prepare
+  name: 2024-10-6
+  winrate: .nan
+- cards:
+  - bard
+  - cutthroat
+  - destrier
+  - develop
+  - feodum
+  - gold_mine
+  - groundskeeper
+  - litter
+  - mint
+  - native_village
+  expansions:
+  - Adventures
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Rising Sun
+  - Seaside, 2E
+  idx: 257946167769824300301625897161931493489
+  landscapes:
+  - pilgrimage
+  - tireless
+  name: 2024-10-5
+  traits:
+  - - tireless
+    - develop
+  winrate: .nan
+- cards:
+  - conspirator
+  - familiar
+  - goatherd
+  - mill
+  - philosophers_stone
+  - replace
+  - sanctuary
+  - secret_passage
+  - snowy_village
+  - wayfarer
+  expansions:
+  - Alchemy
+  - Intrigue, 2E
+  - Menagerie
+  idx: 18697434211286992068710107325649815001
+  landscapes:
+  - march
+  - way_of_the_horse
+  name: 2024-10-4
+  winrate: .nan
+- cards:
+  - acting_troupe
+  - augurs
+  - border_guard
+  - ducat
+  - flag_bearer
+  - marquis
+  - modify
+  - odysseys
+  - patron
+  - scepter
+  expansions:
+  - Allies
+  - Renaissance
+  idx: 192698691322630515341514640216843581981
+  landscapes:
+  - academy
+  - fleet
+  name: 2024-10-3
+  winrate: .nan
+- cards:
+  - broker
+  - capital_city
+  - cemetery
+  - clashes
+  - den_of_sin
+  - fool
+  - guildmaster
+  - monastery
+  - night_watchman
+  - sycophant
+  expansions:
+  - Allies
+  - Nocturne
+  idx: 241233627466840849722925862145173085781
+  landscapes:
+  - mountain_folk
+  name: 2024-10-2
+  winrate: .nan
+- cards:
+  - berserker
+  - border_village
+  - cartographer
+  - farmland
+  - guard_dog
+  - oasis
+  - scheme
+  - stables
+  - tunnel
+  - weaver
+  expansions:
+  - Hinterlands, 2E
+  idx: 290140239054907519854194676068064942208
+  name: 2024-10-1
+  winrate: .nan
+- cards:
+  - bandit
+  - bureaucrat
+  - cellar
+  - gardens
+  - golem
+  - laboratory
+  - philosophers_stone
+  - remodel
+  - university
+  - vassal
+  expansions:
+  - Alchemy
+  - Base, 2E
+  idx: 55892725758214515392033768585123033854
+  name: 2024-9-30
+  winrate: .nan
+- cards:
+  - abundance
+  - artist
+  - cage
+  - cavalry
+  - grotto
+  - peddler
+  - remodel
+  - royal_blacksmith
+  - stockpile
+  - war_chest
+  expansions:
+  - Base, 2E
+  - Empires
+  - Menagerie
+  - Plunder
+  - Prosperity, 2E
+  - Rising Sun
+  idx: 85743792617052536386020825894353907595
+  landscapes:
+  - reckless
+  - tomb
+  name: 2024-9-29
+  traits:
+  - - reckless
+    - peddler
+  use_colonies: true
+  winrate: .nan
+- cards:
+  - aristocrat
+  - buried_treasure
+  - catapult/rocks
+  - coven
+  - crossroads
+  - faithful_hound
+  - guide
+  - haggler
+  - mapmaker
+  - warehouse
+  expansions:
+  - Adventures
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Renaissance
+  - Rising Sun
+  - Seaside, 2E
+  idx: 2386662879271422969372970733022593841
+  landscapes:
+  - citadel
+  - credit
+  name: 2024-9-28
+  winrate: .nan
+- cards:
+  - bounty_hunter
+  - counterfeit
+  - coven
+  - hostelry
+  - knights
+  - livery
+  - pixie
+  - raider
+  - skulk
+  - wandering_minstrel
+  expansions:
+  - Dark Ages
+  - Menagerie
+  - Nocturne
+  idx: 307433908656281233769821184667916109034
+  landscapes:
+  - toil
+  - way_of_the_monkey
+  name: 2024-9-27
+  winrate: .nan
+- bane_pile: odysseys
+  cards:
+  - bauble
+  - broker
+  - capital_city
+  - guildmaster
+  - hunter
+  - jester
+  - odysseys
+  - shop
+  - specialist
+  - underling
+  - young_witch
+  expansions:
+  - Allies
+  - Cornucopia & Guilds, 2E
+  idx: 263192665443268932284627600199115290334
+  landscapes:
+  - gang_of_pickpockets
+  name: 2024-9-26
+  winrate: .nan
+- cards:
+  - alchemist
+  - apothecary
+  - butcher
+  - familiar
+  - footpad
+  - herbalist
+  - infirmary
+  - merchant_guild
+  - philosophers_stone
+  - stonemason
+  expansions:
+  - Alchemy
+  - Cornucopia & Guilds, 2E
+  idx: 219262903531967456189268468110114936878
+  name: 2024-9-25
+  winrate: .nan
+- cards:
+  - bard
+  - blessed_village
+  - changeling
+  - cobbler
+  - crypt
+  - faithful_hound
+  - fool
+  - leprechaun
+  - necromancer
+  - skulk
+  expansions:
+  - Nocturne
+  idx: 121645562092644771532377223759203774716
+  name: 2024-9-24
+  winrate: .nan
+- cards:
+  - council_room
+  - counterfeit
+  - feodum
+  - forager
+  - fortress
+  - militia
+  - rats
+  - storeroom
+  - village
+  - wandering_minstrel
+  expansions:
+  - Base, 2E
+  - Dark Ages
+  idx: 326922906670826158025988153053679875651
+  name: 2024-9-23
+  use_shelters: true
+  winrate: .nan
+- cards:
+  - alchemist
+  - bureaucrat
+  - crown
+  - fairgrounds
+  - masquerade
+  - port
+  - ranger
+  - secluded_shrine
+  - sentry
+  - war_chest
+  expansions:
+  - Adventures
+  - Alchemy
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Intrigue, 2E
+  - Plunder
+  - Prosperity, 2E
+  - Rising Sun
+  idx: 277158338602395911673940483876444642244
+  landscapes:
+  - delve
+  - receive_tribute
+  name: 2024-9-22
+  winrate: .nan
+- cards:
+  - baker
+  - cauldron
+  - coin_of_the_realm
+  - militia
+  - native_village
+  - page
+  - scholar
+  - storyteller
+  - watchtower
+  - witchs_hut
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Hinterlands, 2E
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
+  idx: 60060625991661980089997940624776231094
+  landscapes:
+  - foray
+  - invasion
+  name: 2024-9-21
+  use_colonies: true
+  winrate: .nan
+- cards:
+  - black_cat
+  - butcher
+  - capital_city
+  - cardinal
+  - highwayman
+  - kiln
+  - livery
+  - sanctuary
+  - sheepdog
+  - soothsayer
+  expansions:
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Menagerie
+  idx: 201094354446199891579475196991751427432
+  landscapes:
+  - stampede
+  name: 2024-9-20
+  winrate: .nan
+- cards:
+  - baron
+  - farmhands
+  - lurker
+  - mining_village
+  - nobles
+  - remake
+  - shop
+  - torturer
+  - trading_post
+  - upgrade
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Intrigue, 2E
+  idx: 279663003234321297242265003107572593359
+  name: 2024-9-19
+  winrate: .nan
+- cards:
+  - augurs
+  - barbarian
+  - cobbler
+  - contract
+  - courier
+  - exorcist
+  - highwayman
+  - pixie
+  - shepherd
+  - skulk
+  expansions:
+  - Allies
+  - Nocturne
+  idx: 43504228688346260782222198511630315859
+  landscapes:
+  - forest_dwellers
+  name: 2024-9-18
+  winrate: .nan
+- cards:
+  - amulet
+  - artificer
+  - bridge_troll
+  - guide
+  - haunted_woods
+  - hireling
+  - miser
+  - ranger
+  - raze
+  - wine_merchant
+  expansions:
+  - Adventures
+  idx: 220698699924082366698439556569108680448
+  landscapes:
+  - expedition
+  - scouting_party
+  name: 2024-9-17
+  winrate: .nan
+- cards:
+  - catacombs
+  - count
+  - festival
+  - gardens
+  - junk_dealer
+  - marauder
+  - moneylender
+  - pillage
+  - sentry
+  - storeroom
+  expansions:
+  - Base, 2E
+  - Dark Ages
+  idx: 241854368238867919099141694806178402622
+  name: 2024-9-16
+  use_shelters: true
+  winrate: .nan
+- cards:
+  - baron
+  - contract
+  - corsair
+  - encampment/plunder
+  - guardian
+  - hireling
+  - lost_city
+  - magnate
+  - recruiter
+  - war_chest
+  expansions:
+  - Adventures
+  - Allies
+  - Empires
+  - Intrigue, 2E
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
+  idx: 336985289512456700369583153271395862485
+  landscapes:
+  - city_gate
+  - plateau_shepherds
+  - shy
+  name: 2024-9-15
+  traits:
+  - - shy
+    - baron
+  use_colonies: true
+  winrate: .nan
+- cards:
+  - advisor
+  - change
+  - feodum
+  - imperial_envoy
+  - moat
+  - ratcatcher
+  - samurai
+  - sculptor
+  - swashbuckler
+  - wizards
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Menagerie
+  - Renaissance
+  - Rising Sun
+  idx: 184070345526934669774536497373759313850
+  landscapes:
+  - foresight
+  - league_of_shopkeepers
+  - reap
+  name: 2024-9-14
+  winrate: .nan
+- cards:
+  - cauldron
+  - council_room
+  - forge
+  - inn
+  - magnate
+  - nomads
+  - remodel
+  - trail
+  - weaver
+  - workshop
+  expansions:
+  - Base, 2E
+  - Hinterlands, 2E
+  - Prosperity, 2E
+  idx: 250614053255531027816716746210483602606
+  name: 2024-9-13
+  winrate: .nan
+- cards:
+  - counterfeit
+  - hermit
+  - knights
+  - mountain_shrine
+  - poor_house
+  - rice_broker
+  - riverboat
+  - ronin
+  - squire
+  - tanuki
+  expansions:
+  - Dark Ages
+  - Rising Sun
+  idx: 269462141716128925862711204690086175180
+  landscapes:
+  - biding_time
+  - continue
+  - gather
+  name: 2024-9-12
+  riverboat_card: bandit_camp
+  winrate: .nan
+- cards:
+  - augurs
+  - carpenter
+  - destrier
+  - gatekeeper
+  - guildmaster
+  - mastermind
+  - snowy_village
+  - specialist
+  - stockpile
+  - townsfolk
+  expansions:
+  - Allies
+  - Menagerie
+  idx: 328383177035518202639942168225400797071
+  landscapes:
+  - cave_dwellers
+  - invest
+  name: 2024-9-11
+  winrate: .nan
+- cards:
+  - bishop
+  - charlatan
+  - city
+  - crystal_ball
+  - forge
+  - hoard
+  - investment
+  - kings_court
+  - mint
+  - rabble
+  expansions:
+  - Prosperity, 2E
+  idx: 203822127596809508289072325172016982710
+  name: 2024-9-10
+  use_colonies: true
+  winrate: .nan
+- cards:
+  - artisan
+  - bandit
+  - blockade
+  - laboratory
+  - moat
+  - native_village
+  - outpost
+  - pirate
+  - sea_chart
+  - workshop
+  expansions:
+  - Base, 2E
+  - Seaside, 2E
+  idx: 240752795578398243698443468523266788456
+  name: 2024-9-9
+  winrate: .nan
+- cards:
   - conspirator
   - harbinger
   - hunter
@@ -22,6 +2743,7 @@
   landscapes:
   - way_of_the_horse
   name: 2024-9-8
+  winrate: .nan
 - cards:
   - archive
   - bauble
@@ -49,6 +2771,7 @@
   - prepare
   - transport
   name: 2024-9-7
+  winrate: .nan
 - cards:
   - caravan
   - chapel
@@ -65,6 +2788,7 @@
   - Seaside, 2E
   idx: 31612390671270635486386558033373198280
   name: 2024-9-6
+  winrate: .nan
 - cards:
   - carpenter
   - conspirator
@@ -81,6 +2805,7 @@
   - Intrigue, 2E
   idx: 40131242163337326628947423880643471846
   name: 2024-9-5
+  winrate: .nan
 - cards:
   - baron
   - groundskeeper

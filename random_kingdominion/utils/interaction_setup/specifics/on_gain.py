@@ -218,6 +218,8 @@ def _add_on_gain_set_aside_siren_interaction(set_aside_cso: str, df: pd.DataFram
 ##########################################################################################################
 ### On-Gain-to-Hand interactions
 def _add_on_gain_hand_siren_interaction(hand_cso: str, df: pd.DataFrame):
+    if hand_cso == "Silver Mine":
+        return
     rule = f"If you gain a Siren and put it in your hand using {hand_cso}, you still need to trash an Action from your hand in order to not trash the Siren."
     add_interaction("Siren", hand_cso, rule, df, add_together_if_present=True)
 
@@ -228,6 +230,8 @@ def _add_on_gain_hand_gatekeeper_interaction(hand_cso: str, df: pd.DataFrame):
 
 
 def _add_on_gain_hand_sheepdog_interaction(hand_cso: str, df: pd.DataFrame):
+    if hand_cso == "Silver Mine":
+        return
     rule = f"If you gain a Sheepdog to your hand using {hand_cso}, you can immediately react to its own gain and play it."
     add_interaction("Sheepdog", hand_cso, rule, df, add_together_if_present=True)
 
