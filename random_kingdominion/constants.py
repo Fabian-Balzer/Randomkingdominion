@@ -88,6 +88,9 @@ def _init_main_df():
     ]
     for type_ in types_of_interest:
         df["Is" + type_] = listlike_contains(df.Types, type_)
+    df["IsCampaignEffect"] = df.Types.apply(
+        lambda x: x[0] in ["Twist", "Stamp", "Setup Effect"]
+    )
     return df
 
 
@@ -143,7 +146,8 @@ FPATH_KINGDOMS_RECOMMENDED = PATH_ASSETS.joinpath("kingdoms/recommended.yml")
 FPATH_KINGDOMS_LAST100 = PATH_ASSETS.joinpath("kingdoms/last_100.yml")
 FPATH_KINGDOMS_TGG_DAILIES = PATH_ASSETS.joinpath("kingdoms/tgg_dailies.yml")
 FPATH_KINGDOMS_KOTW_REDDIT = PATH_ASSETS.joinpath("kingdoms/reddit_kotw.yml")
-FPATH_KINGDOMS_CUSTOM = PATH_ASSETS.joinpath("kingdoms/custom_kingdoms.yml")
+FPATH_KINGDOMS_FABI_RECSETS = PATH_ASSETS.joinpath("kingdoms/fabi_recsets.yml")
+FPATH_KINGDOMS_CAMPAIGNS = PATH_ASSETS.joinpath("kingdoms/campaigns.yml")
 
 
 ROTATOR_DICT = {
@@ -158,7 +162,16 @@ ROTATOR_DICT = {
 UNIQUEPILE_LIST = ["Castles", "Knights", "Loot", "Ruins"]
 LANDSCAPE_LIST = ["Event", "Project", "Way", "Landmark", "Trait"]
 EXTENDED_LANDSCAPE_LIST = LANDSCAPE_LIST + ["Ally", "Prophecy"]
-OTHER_OBJ_LIST = ["Hex", "Boon", "State", "Artifact", "Loot"]
+OTHER_OBJ_LIST = [
+    "Hex",
+    "Boon",
+    "State",
+    "Artifact",
+    "Loot",
+    "Stamp",
+    "Twist",
+    "Setup Effect",
+]
 
 SPLITPILE_DICT = {
     "Catapult/Rocks": 3,

@@ -1,0 +1,40 @@
+## Grand Campaigns
+
+
+### Two-Themes
+Two of the themes are somehow utilized
+### One Theme
+- Stow: Archive/Tavern Mat ?
+- XForm: Short for transform? Featured lots of Duplicate/Royal Carriage, Advance
+- When_Gain: Growth, Two For One, Fast Track, Extra Oomph, Forum, Pay Later
+- Variety: Peasant, Riverboat, Young Witch, Approaching Army, Snake Witch, Menagerie, Rice
+- Decktop: Haunted Woods, Poet, Patrician, ...
+- Landscape: One specific Landscape is featured in all 10 campaign levels (and usually affected by stamps or setup effects)
+- Card: One specific card is featured in all 10 campaign levels (also affected by Stamps + Setup Effects)
+- Expansion: Feature a disproportionate amount of cards (seems like 5+ at a glance) from the specified Expansion, plus Stamps and Twists (?) that align well with it?
+- Stamp: The specified Stamp is featured in each kingdom.
+- Buy: Seems to force +buy cards and stamps? Also Discounted
+- Treasure: E.g. Treasurified and stuff that cares about Treasures
+- Choose: Presents you with Choices?
+- Discard: Things that care about discarding, and things that can discard stuff (Alley, Trail, Village Green, discard attacks)
+- Like Attack: Stuff that interacts with Attacks somehow? Not sure whether this means that also attacks are more likely to be added, but there sure are lots of Diplomats, Guard Dogs, Beggars, Caravan Guards, Lighthouses, Guardians, Squires, Quest etc to be seen. Each kingdom also contained at least one Attack card, but this could've been chance.
+- Copy: Rats, Split Piles, Double and Triple Piles
+- Recursion: Throne Rooms, King's Court, Specialist, Command cards,
+- Village
+- Interact: Stuff that fosters interactions (Bishop, Prophecies, Lost City, maybe Attacks)
+- Like Trash: Stuff that cares about trashing (Setup Effect of Trash Pile, Trashing Events, Tomb, Dark Ages cards, Necromancer stuff like Estates being replaced by Zombies)
+- Treasure Duration: Lots of Durations and Treasures, the associated stamps, and cards that care about them (Stowaway, Stables)
+- Reserve
+- Cantrip: Grand Market, Daimyo, Pixie, Treasury, Cartographer, Scheme, Townsfolk
+- When Gain: Stuff that does stuff on gain (Flag Bearer, Cargo Ship, Nomads, Tracker, Abundance)
+- When Trash: Stuff that cares about stuff that's trashed (Rocks, Market Square, Transmute, Rats, Catacombs, Cemetery, Nomads, Goatherd)
+- Draw 3: Smithy-like cards, Busy Busy
+- Next Time
+- Villagers
+- Loot
+- Type Matters
+- Split
+- Doom
+- Deck Matters
+- Piles Matters: Temple, Salt The Earth, Fisherman, Farmers Market, Stockpile, City, Carpenter, Animal Fair, Old Witch, Wild Hunt,
+- 

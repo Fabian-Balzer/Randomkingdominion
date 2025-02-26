@@ -1,4 +1,122 @@
 - cards:
+  - blessed_village
+  - crystal_ball
+  - galleria
+  - hermit
+  - highwayman
+  - idol
+  - mint
+  - patrician/emporium
+  - royal_blacksmith
+  - storyteller
+  expansions:
+  - Adventures
+  - Allies
+  - Dark Ages
+  - Empires
+  - Menagerie
+  - Nocturne
+  - Prosperity, 2E
+  idx: 164006003975132354429581580689859407052
+  landscapes:
+  - seize_the_day
+  - way_of_the_mole
+  name: Blessed Shopping
+  notes: '{"Comment": "Beautiful Galleria kingdom with all engine components available.",
+    "Previous Results": "30-10 in 15 turns as second player against Hard AI, 3-pile
+    (Estate, Patrician, Blessed Village)"'
+- cards:
+  - blessed_village
+  - capital
+  - charm
+  - figurine
+  - grotto
+  - horn_of_plenty
+  - mine
+  - paddock
+  - supplies
+  - tunnel
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  idx: 302943992484423540508907517102753774661
+  landscapes:
+  - defiled_shrine
+  - friendly
+  name: Hangin' out in the Grotto
+  notes: '{"Comment": "Super interesting no-trashing board - can you build up to the
+    Horn megaturn in time? Or do you opt for other means? Keeping the Grottos up with
+    some Paddock draw seems key.", "Previous Results": "61-32 in 16 turns as second
+    player against Hard AI, Provinces (Duchy, Blessed Village)"'
+  traits:
+  - - friendly
+    - figurine
+- cards:
+  - broker
+  - farmers_market
+  - farmland
+  - first_mate
+  - grotto
+  - miser
+  - mystic
+  - scavenger
+  - seer
+  - tunnel
+  expansions:
+  - Adventures
+  - Allies
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Plunder
+  - Renaissance
+  idx: 55447444708411895612150163108347174241
+  landscapes:
+  - banish
+  - league_of_shopkeepers
+  name: Discount Apprentice
+  notes: '{"Comment": "There''s a really fun deck to build here.", "Previous Results":
+    "52-42 in 17 turns as first player against Hard AI, Provinces (Farmers'' Market,
+    Tunnel)"'
+- cards:
+  - acting_troupe
+  - artisan
+  - cemetery
+  - dismantle
+  - ferryman
+  - ghost_town
+  - menagerie
+  - pirate
+  - storyteller
+  - vault
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Promo
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
+  ferryman_pile: sage
+  idx: 147479873018089804580162452725387564861
+  landscapes:
+  - launch
+  - reap
+  name: The Golden Age
+  notes: '{"Comment": "Loadsa things to do in this one, even with just a single Buy
+    at your disposal.", "Previous Results": "34-13 in 16 turns as first player against
+    Hard AI, 3-pile (Duchies, Storyteller, Cemetery; Golds were at 6 in the end)"'
+- cards:
   - baron
   - catacombs
   - fairgrounds
@@ -754,7 +872,7 @@
   landscapes:
   - mountain_folk
   - museum
-  name: Neat Villa/Quarry stuff
+  name: 20ff-Neat Villa-Quarry st
   use_shelters: true
 - cards:
   - apprentice

@@ -1,0 +1,3809 @@
+- cards:
+  - cutpurse
+  - fishing_village
+  - haven
+  - outpost
+  - pirate
+  - remodel
+  - sentry
+  - smithy
+  - village
+  - warehouse
+  expansions:
+  - Base, 2E
+  - Seaside, 2E
+  idx: 171637574370467646962068881272035698292
+  name: Seaside 1
+- campaign_effects:
+  - durationified
+  cards:
+  - caravan
+  - corsair
+  - cutpurse
+  - lookout
+  - merchant_ship
+  - sailor
+  - treasure_map
+  - treasury
+  - warehouse
+  - witch
+  expansions:
+  - Base, 2E
+  - Seaside, 2E
+  idx: 64767634278988622584146994806121516672
+  name: Seaside 2
+  stamps_and_effects:
+  - - durationified
+    - treasury
+- campaign_effects:
+  - busy_busy
+  cards:
+  - artisan
+  - astrolabe
+  - chapel
+  - corsair
+  - fishing_village
+  - pirate
+  - poacher
+  - remodel
+  - sea_witch
+  - tactician
+  expansions:
+  - Base, 2E
+  - Seaside, 2E
+  idx: 329957275930502282016153714920208912113
+  name: Seaside 3
+- cards:
+  - astrolabe
+  - corsair
+  - fishing_village
+  - gardens
+  - lookout
+  - moat
+  - native_village
+  - outpost
+  - sea_chart
+  - throne_room
+  expansions:
+  - Base, 2E
+  - Seaside, 2E
+  idx: 242566599026971923850707158822047715680
+  name: Seaside 4
+- campaign_effects:
+  - head_start
+  cards:
+  - astrolabe
+  - bazaar
+  - caravan
+  - corsair
+  - laboratory
+  - mine
+  - monkey
+  - native_village
+  - salvager
+  - warehouse
+  expansions:
+  - Base, 2E
+  - Seaside, 2E
+  idx: 8114971187439368605179042034906204668
+  name: Seaside 5
+- campaign_effects:
+  - durationified
+  cards:
+  - bazaar
+  - council_room
+  - island
+  - laboratory
+  - lighthouse
+  - militia
+  - native_village
+  - sentry
+  - tactician
+  - treasury
+  expansions:
+  - Base, 2E
+  - Seaside, 2E
+  idx: 29094951798935475871026316222872868960
+  name: Seaside 6
+  stamps_and_effects:
+  - - durationified
+    - bazaar
+- campaign_effects:
+  - replace_copper
+  cards:
+  - bandit
+  - corsair
+  - festival
+  - fishing_village
+  - laboratory
+  - lookout
+  - sailor
+  - sea_chart
+  - village
+  - warehouse
+  expansions:
+  - Base, 2E
+  - Seaside, 2E
+  idx: 162247784005285343264953487816192815845
+  name: Seaside 7
+  stamps_and_effects:
+  - - replace_copper
+    - silver,_estate
+- campaign_effects:
+  - head_start
+  cards:
+  - blockade
+  - caravan
+  - gardens
+  - haven
+  - lookout
+  - moat
+  - pirate
+  - treasury
+  - village
+  - wharf
+  expansions:
+  - Base, 2E
+  - Seaside, 2E
+  idx: 333032794368321022417810337327936138414
+  name: Seaside 8
+- campaign_effects:
+  - durationified
+  cards:
+  - astrolabe
+  - cellar
+  - chapel
+  - corsair
+  - festival
+  - fishing_village
+  - monkey
+  - smugglers
+  - tactician
+  - warehouse
+  expansions:
+  - Base, 2E
+  - Seaside, 2E
+  idx: 299562851412406847738197312126161262662
+  name: Seaside 9
+  stamps_and_effects:
+  - - durationified
+    - cellar
+- campaign_effects:
+  - double_pile
+  - head_start
+  cards:
+  - blockade
+  - festival
+  - fishing_village
+  - haven
+  - lighthouse
+  - merchant_ship
+  - sea_witch
+  - tactician
+  - tide_pools
+  - warehouse
+  expansions:
+  - Base, 2E
+  - Seaside, 2E
+  idx: 12667465038910792968056319595089265676
+  name: Seaside 10
+  stamps_and_effects:
+  - - double_pile
+    - curse
+- cards:
+  - bureaucrat
+  - familiar
+  - herbalist
+  - library
+  - militia
+  - mine
+  - moneylender
+  - transmute
+  - university
+  - vineyard
+  expansions:
+  - Alchemy
+  - Base, 2E
+  idx: 300446565448944526064263966085466431447
+  name: Alchemy 1
+- campaign_effects:
+  - two_for_one
+  cards:
+  - apothecary
+  - cellar
+  - laboratory
+  - market
+  - militia
+  - moat
+  - possession
+  - scrying_pool
+  - transmute
+  - vineyard
+  expansions:
+  - Alchemy
+  - Base, 2E
+  idx: 215211855117072268013159048719189052149
+  name: Alchemy 2
+  stamps_and_effects:
+  - - two_for_one
+    - possession
+- campaign_effects:
+  - replace_estate
+  cards:
+  - apprentice
+  - council_room
+  - familiar
+  - herbalist
+  - merchant
+  - philosophers_stone
+  - possession
+  - scrying_pool
+  - university
+  - vineyard
+  expansions:
+  - Alchemy
+  - Base, 2E
+  idx: 70218009921448456892105571804073946577
+  name: Alchemy 3
+  stamps_and_effects:
+  - - replace_estate
+    - transmute
+- campaign_effects:
+  - double_pile
+  cards:
+  - alchemist
+  - bandit
+  - familiar
+  - herbalist
+  - laboratory
+  - militia
+  - moat
+  - moneylender
+  - vineyard
+  - workshop
+  expansions:
+  - Alchemy
+  - Base, 2E
+  idx: 170162436315860748175371402911223325971
+  name: Alchemy 4
+  stamps_and_effects:
+  - - double_pile
+    - curse
+- campaign_effects:
+  - beakers
+  cards:
+  - apothecary
+  - apprentice
+  - council_room
+  - familiar
+  - golem
+  - scrying_pool
+  - throne_room
+  - university
+  - vineyard
+  - witch
+  expansions:
+  - Alchemy
+  - Base, 2E
+  idx: 204997297584143696968846195480317677196
+  name: Alchemy 5
+- campaign_effects:
+  - two_for_one
+  cards:
+  - alchemist
+  - apprentice
+  - council_room
+  - familiar
+  - moat
+  - possession
+  - scrying_pool
+  - university
+  - village
+  - workshop
+  expansions:
+  - Alchemy
+  - Base, 2E
+  idx: 231924915643535873648074484705805602674
+  name: Alchemy 6
+  stamps_and_effects:
+  - - two_for_one
+    - scrying_pool
+- campaign_effects:
+  - replace_estate
+  cards:
+  - artisan
+  - cellar
+  - golem
+  - harbinger
+  - scrying_pool
+  - sentry
+  - smithy
+  - university
+  - village
+  - vineyard
+  expansions:
+  - Alchemy
+  - Base, 2E
+  idx: 72097402036396394862339395265020367778
+  name: Alchemy 7
+  stamps_and_effects:
+  - - replace_estate
+    - potion
+- campaign_effects:
+  - beakers
+  cards:
+  - alchemist
+  - apprentice
+  - festival
+  - militia
+  - possession
+  - remodel
+  - scrying_pool
+  - transmute
+  - university
+  - village
+  expansions:
+  - Alchemy
+  - Base, 2E
+  idx: 17060758615008752091318749124435098883
+  name: Alchemy 8
+- campaign_effects:
+  - two_for_one
+  cards:
+  - apothecary
+  - herbalist
+  - library
+  - mine
+  - poacher
+  - possession
+  - scrying_pool
+  - transmute
+  - university
+  - vineyard
+  expansions:
+  - Alchemy
+  - Base, 2E
+  idx: 242347344522718893850333954944336474747
+  name: Alchemy 9
+  stamps_and_effects:
+  - - two_for_one
+    - vineyard
+- campaign_effects:
+  - replace_estate
+  cards:
+  - apothecary
+  - apprentice
+  - familiar
+  - golem
+  - herbalist
+  - philosophers_stone
+  - possession
+  - scrying_pool
+  - university
+  - vineyard
+  expansions:
+  - Alchemy
+  idx: 38496004693458530393175682974049626768
+  name: Alchemy 10
+  stamps_and_effects:
+  - - replace_estate
+    - potion
+- cards:
+  - city
+  - clerk
+  - collection
+  - expand
+  - festival
+  - gardens
+  - investment
+  - peddler
+  - watchtower
+  - workers_village
+  expansions:
+  - Base, 2E
+  - Prosperity, 2E
+  idx: 126404209525122706719470731888915515472
+  name: Prosperity 1
+  use_colonies: true
+- campaign_effects:
+  - treasurified
+  cards:
+  - bandit
+  - bank
+  - chapel
+  - collection
+  - expand
+  - forge
+  - moat
+  - quarry
+  - sentry
+  - vault
+  expansions:
+  - Base, 2E
+  - Prosperity, 2E
+  idx: 244073995490781138127247412225940903494
+  name: Prosperity 2
+  stamps_and_effects:
+  - - treasurified
+    - vault
+  use_colonies: true
+- campaign_effects:
+  - add_each_pile
+  cards:
+  - bandit
+  - bank
+  - cellar
+  - charlatan
+  - festival
+  - library
+  - magnate
+  - war_chest
+  - watchtower
+  - workers_village
+  expansions:
+  - Base, 2E
+  - Prosperity, 2E
+  idx: 75901703840178457741764526569443127983
+  name: Prosperity 3
+  use_colonies: true
+- campaign_effects:
+  - replace_copper
+  cards:
+  - anvil
+  - charlatan
+  - forge
+  - grand_market
+  - mint
+  - rabble
+  - remodel
+  - tiara
+  - village
+  - workers_village
+  expansions:
+  - Base, 2E
+  - Prosperity, 2E
+  idx: 78707506075358589875586879052217971441
+  name: Prosperity 4
+  stamps_and_effects:
+  - - replace_copper
+    - curse,_curse,_curse,_curse,_curse,_curse,_curse
+  use_colonies: true
+- campaign_effects:
+  - sale
+  cards:
+  - crystal_ball
+  - festival
+  - forge
+  - gardens
+  - kings_court
+  - mint
+  - monument
+  - peddler
+  - rabble
+  - remodel
+  expansions:
+  - Base, 2E
+  - Prosperity, 2E
+  idx: 49322523012230096616971972600056307817
+  name: Prosperity 5
+  use_colonies: true
+- campaign_effects:
+  - treasurified
+  cards:
+  - clerk
+  - collection
+  - council_room
+  - kings_court
+  - laboratory
+  - library
+  - quarry
+  - village
+  - war_chest
+  - workers_village
+  expansions:
+  - Base, 2E
+  - Prosperity, 2E
+  idx: 220898897968159901787914519561545758684
+  name: Prosperity 6
+  stamps_and_effects:
+  - - treasurified
+    - clerk
+  use_colonies: true
+- campaign_effects:
+  - double_pile
+  cards:
+  - bishop
+  - charlatan
+  - city
+  - clerk
+  - council_room
+  - magnate
+  - mint
+  - monument
+  - remodel
+  - tiara
+  expansions:
+  - Base, 2E
+  - Prosperity, 2E
+  idx: 109615928118543250986455351047154961706
+  name: Prosperity 7
+  stamps_and_effects:
+  - - double_pile
+    - province
+  use_colonies: true
+- campaign_effects:
+  - sale
+  cards:
+  - anvil
+  - bank
+  - chapel
+  - gardens
+  - grand_market
+  - investment
+  - militia
+  - quarry
+  - sentry
+  - vault
+  expansions:
+  - Base, 2E
+  - Prosperity, 2E
+  idx: 244394450177031422924408095941329151773
+  name: Prosperity 8
+  use_colonies: true
+- campaign_effects:
+  - treasurified
+  cards:
+  - anvil
+  - bank
+  - bishop
+  - collection
+  - crystal_ball
+  - hoard
+  - laboratory
+  - mint
+  - peddler
+  - throne_room
+  expansions:
+  - Base, 2E
+  - Prosperity, 2E
+  idx: 167471561729690145687485052880702794960
+  name: Prosperity 9
+  stamps_and_effects:
+  - - treasurified
+    - bishop
+  use_colonies: true
+- campaign_effects:
+  - replace_copper
+  - sale
+  cards:
+  - anvil
+  - bank
+  - expand
+  - grand_market
+  - hoard
+  - kings_court
+  - magnate
+  - monument
+  - watchtower
+  - workers_village
+  expansions:
+  - Prosperity, 2E
+  idx: 62523421235326413948068035346950369418
+  name: Prosperity 10
+  stamps_and_effects:
+  - - replace_copper
+    - silver,_silver,_estate,_estate
+  use_colonies: true
+- cards:
+  - carnival
+  - farmhands
+  - ferryman
+  - gardens
+  - hamlet
+  - horn_of_plenty
+  - jester
+  - joust
+  - vassal
+  - workshop
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  ferryman_pile: remake
+  idx: 89304171436272276446060917241439272451
+  name: cornucopia 1
+- campaign_effects:
+  - offers_insight
+  cards:
+  - fairgrounds
+  - farmhands
+  - ferryman
+  - hamlet
+  - hunting_party
+  - menagerie
+  - mine
+  - remake
+  - village
+  - witch
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  ferryman_pile: smithy
+  idx: 169466842429663279384331413449748002288
+  name: cornucopia 2
+  stamps_and_effects:
+  - - offers_insight
+    - fairgrounds
+- campaign_effects:
+  - rebates
+  cards:
+  - bandit
+  - carnival
+  - council_room
+  - fairgrounds
+  - ferryman
+  - hamlet
+  - horn_of_plenty
+  - menagerie
+  - remodel
+  - workshop
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  ferryman_pile: smithy
+  idx: 167483849795134102528872980356806585122
+  name: cornucopia 3
+- campaign_effects:
+  - big_ideas
+  cards:
+  - cellar
+  - fairgrounds
+  - ferryman
+  - festival
+  - gardens
+  - jester
+  - joust
+  - menagerie
+  - militia
+  - moat
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  ferryman_pile: farmhands
+  idx: 2516871265134780168886455792620866546
+  name: cornucopia 4
+- campaign_effects:
+  - room_for_more
+  cards:
+  - bandit
+  - cellar
+  - festival
+  - horn_of_plenty
+  - hunting_party
+  - joust
+  - market
+  - menagerie
+  - militia
+  - remake
+  - remodel
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  idx: 24047174509816153314537040765420522933
+  name: cornucopia 5
+  stamps_and_effects:
+  - - room_for_more
+    - festival
+- bane_pile: village
+  campaign_effects:
+  - offers_insight
+  cards:
+  - artisan
+  - farmhands
+  - ferryman
+  - gardens
+  - hamlet
+  - horn_of_plenty
+  - jester
+  - library
+  - mine
+  - village
+  - young_witch
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  ferryman_pile: shop
+  idx: 29681439370342265236035908018493902343
+  name: cornucopia 6
+  stamps_and_effects:
+  - - offers_insight
+    - ferryman
+- campaign_effects:
+  - replace_copper
+  cards:
+  - farmhands
+  - ferryman
+  - hamlet
+  - horn_of_plenty
+  - hunting_party
+  - jester
+  - mine
+  - remake
+  - sentry
+  - smithy
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  ferryman_pile: gardens
+  idx: 138096802814633552831768693201050615971
+  name: cornucopia 7
+  stamps_and_effects:
+  - - replace_copper
+    - silver,_silver,_estate,_estate
+- bane_pile: harbinger
+  campaign_effects:
+  - room_for_more
+  cards:
+  - artisan
+  - chapel
+  - farmhands
+  - ferryman
+  - gardens
+  - hamlet
+  - harbinger
+  - market
+  - menagerie
+  - shop
+  - smithy
+  - young_witch
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  ferryman_pile: workshop
+  idx: 154143767898970665521719052794535477174
+  name: cornucopia 8
+  stamps_and_effects:
+  - - room_for_more
+    - gardens
+- campaign_effects:
+  - offers_insight
+  cards:
+  - farmhands
+  - festival
+  - horn_of_plenty
+  - jester
+  - joust
+  - library
+  - menagerie
+  - militia
+  - smithy
+  - workshop
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  idx: 107987958548504964105744173069634343086
+  name: cornucopia 9
+  stamps_and_effects:
+  - - offers_insight
+    - farmhands
+- bane_pile: chapel
+  campaign_effects:
+  - room_for_more
+  - same_reward
+  cards:
+  - carnival
+  - chapel
+  - farmhands
+  - ferryman
+  - hamlet
+  - horn_of_plenty
+  - hunting_party
+  - jester
+  - joust
+  - remake
+  - vassal
+  - young_witch
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  ferryman_pile: village
+  idx: 307961493529182273066728635438587634962
+  name: cornucopia 10
+  stamps_and_effects:
+  - - room_for_more
+    - vassal
+- cards:
+  - cauldron
+  - council_room
+  - develop
+  - festival
+  - fools_gold
+  - guard_dog
+  - haggler
+  - inn
+  - jack_of_all_trades
+  - wheelwright
+  expansions:
+  - Base, 2E
+  - Hinterlands, 2E
+  idx: 154284262027993254637009106065401427329
+  name: Hinterlands 1
+- campaign_effects:
+  - reactionified
+  cards:
+  - border_village
+  - farmland
+  - festival
+  - fools_gold
+  - haggler
+  - scheme
+  - spice_merchant
+  - tunnel
+  - village
+  - witchs_hut
+  expansions:
+  - Base, 2E
+  - Hinterlands, 2E
+  idx: 183017340988168172091990863278925191782
+  name: Hinterlands 2
+  stamps_and_effects:
+  - - reactionified
+    - scheme
+- campaign_effects:
+  - two_for_one
+  cards:
+  - berserker
+  - cartographer
+  - cellar
+  - develop
+  - highway
+  - poacher
+  - scheme
+  - trail
+  - vassal
+  - weaver
+  expansions:
+  - Base, 2E
+  - Hinterlands, 2E
+  idx: 52100618993468635752024808953335482929
+  name: Hinterlands 3
+  stamps_and_effects:
+  - - two_for_one
+    - vassal
+- campaign_effects:
+  - double_deck
+  cards:
+  - border_village
+  - cartographer
+  - council_room
+  - develop
+  - highway
+  - nomads
+  - spice_merchant
+  - throne_room
+  - trader
+  - witchs_hut
+  expansions:
+  - Base, 2E
+  - Hinterlands, 2E
+  idx: 195711349139839988663715396982896117648
+  name: Hinterlands 4
+- campaign_effects:
+  - incoming
+  cards:
+  - bandit
+  - festival
+  - fools_gold
+  - highway
+  - inn
+  - jack_of_all_trades
+  - margrave
+  - scheme
+  - souk
+  - weaver
+  expansions:
+  - Base, 2E
+  - Hinterlands, 2E
+  idx: 307879459526912137186871571916781275143
+  name: Hinterlands 5
+- campaign_effects:
+  - reactionified
+  cards:
+  - berserker
+  - cartographer
+  - cauldron
+  - library
+  - margrave
+  - market
+  - militia
+  - nomads
+  - trail
+  - weaver
+  expansions:
+  - Base, 2E
+  - Hinterlands, 2E
+  idx: 15262478321545446849879789865716369472
+  name: Hinterlands 6
+  stamps_and_effects:
+  - - reactionified
+    - cartographer
+- campaign_effects:
+  - replace_copper
+  cards:
+  - cauldron
+  - crossroads
+  - festival
+  - fools_gold
+  - haggler
+  - library
+  - stables
+  - trail
+  - village
+  - wheelwright
+  expansions:
+  - Base, 2E
+  - Hinterlands, 2E
+  idx: 114629863578084890256302906226222422993
+  name: Hinterlands 7
+  stamps_and_effects:
+  - - replace_copper
+    - silver,_silver,_estate,_estate
+- campaign_effects:
+  - incoming
+  cards:
+  - council_room
+  - crossroads
+  - moat
+  - oasis
+  - trader
+  - trail
+  - vassal
+  - weaver
+  - witch
+  - witchs_hut
+  expansions:
+  - Base, 2E
+  - Hinterlands, 2E
+  idx: 56548882541005639197936769538449932643
+  name: Hinterlands 8
+- campaign_effects:
+  - reactionified
+  cards:
+  - berserker
+  - cellar
+  - council_room
+  - gardens
+  - guard_dog
+  - highway
+  - inn
+  - library
+  - tunnel
+  - weaver
+  expansions:
+  - Base, 2E
+  - Hinterlands, 2E
+  idx: 272033675528429999882831010079043899573
+  name: Hinterlands 9
+  stamps_and_effects:
+  - - reactionified
+    - council_room
+- campaign_effects:
+  - big_ideas
+  - incoming
+  cards:
+  - cartographer
+  - cauldron
+  - crossroads
+  - festival
+  - guard_dog
+  - inn
+  - margrave
+  - oasis
+  - souk
+  - witchs_hut
+  expansions:
+  - Base, 2E
+  - Hinterlands, 2E
+  idx: 95686974633135809776264952269160370306
+  name: Hinterlands 10
+- cards:
+  - band_of_misfits
+  - bureaucrat
+  - catacombs
+  - cellar
+  - feodum
+  - gardens
+  - marauder
+  - rats
+  - sage
+  - scavenger
+  expansions:
+  - Base, 2E
+  - Dark Ages
+  idx: 245343224606534488895852280177031730271
+  name: Dark Ages 1
+  use_shelters: true
+- campaign_effects:
+  - with_spoils
+  cards:
+  - counterfeit
+  - death_cart
+  - feodum
+  - forager
+  - gardens
+  - hermit
+  - junk_dealer
+  - market_square
+  - moneylender
+  - rats
+  expansions:
+  - Base, 2E
+  - Dark Ages
+  idx: 16976226682260491032016195455139678685
+  name: Dark Ages 2
+  stamps_and_effects:
+  - - with_spoils
+    - rats
+  use_shelters: true
+- campaign_effects:
+  - replace_copper
+  - replace_estate
+  cards:
+  - altar
+  - count
+  - graverobber
+  - hermit
+  - ironmonger
+  - market
+  - market_square
+  - merchant
+  - moat
+  - vagrant
+  expansions:
+  - Base, 2E
+  - Dark Ages
+  idx: 259558112057710375407358379425385304620
+  name: Dark Ages 3
+  stamps_and_effects:
+  - - replace_copper
+    - ruins,_ruins
+  - - replace_estate
+    - ruins,_ruins,_ruins
+  use_shelters: true
+- campaign_effects:
+  - replace_copper
+  - replace_estate
+  cards:
+  - bandit_camp
+  - beggar
+  - death_cart
+  - merchant
+  - militia
+  - rats
+  - rogue
+  - sage
+  - smithy
+  - vagrant
+  expansions:
+  - Base, 2E
+  - Dark Ages
+  idx: 219601762145848532719238096917667276929
+  name: Dark Ages 4
+  stamps_and_effects:
+  - - replace_copper
+    - rats,_rats,_rats
+  - - replace_estate
+    - rats,_rats
+  use_shelters: true
+- campaign_effects:
+  - garbage_heap
+  cards:
+  - hermit
+  - ironmonger
+  - junk_dealer
+  - knights
+  - market_square
+  - poacher
+  - smithy
+  - squire
+  - throne_room
+  - wandering_minstrel
+  expansions:
+  - Base, 2E
+  - Dark Ages
+  idx: 322883693317062025087948725937308518527
+  name: Dark Ages 5
+  use_shelters: true
+- campaign_effects:
+  - replace_copper
+  - with_spoils
+  cards:
+  - altar
+  - band_of_misfits
+  - fortress
+  - gardens
+  - laboratory
+  - moat
+  - sage
+  - vagrant
+  - wandering_minstrel
+  - workshop
+  expansions:
+  - Base, 2E
+  - Dark Ages
+  idx: 89906558951830787841641159225173670957
+  name: Dark Ages 6
+  stamps_and_effects:
+  - - replace_copper
+    - spoils,_spoils,_spoils,_spoils,_spoils,_spoils,_spoils
+  - - with_spoils
+    - wandering_minstrel
+  use_shelters: true
+- campaign_effects:
+  - trash_pile
+  cards:
+  - armory
+  - fortress
+  - graverobber
+  - hermit
+  - mine
+  - procession
+  - sentry
+  - vagrant
+  - vassal
+  - wandering_minstrel
+  expansions:
+  - Base, 2E
+  - Dark Ages
+  idx: 276878884115612738222946875034444860167
+  name: Dark Ages 7
+  stamps_and_effects:
+  - - trash_pile
+    - ironmonger
+  use_shelters: true
+- campaign_effects:
+  - garbage_heap
+  cards:
+  - forager
+  - fortress
+  - graverobber
+  - hermit
+  - mine
+  - moneylender
+  - smithy
+  - vagrant
+  - witch
+  - workshop
+  expansions:
+  - Base, 2E
+  - Dark Ages
+  idx: 339724961949355962555607095182252777644
+  name: Dark Ages 8
+  use_shelters: true
+- campaign_effects:
+  - replace_estate
+  - with_spoils
+  cards:
+  - altar
+  - armory
+  - chapel
+  - counterfeit
+  - death_cart
+  - ironmonger
+  - market_square
+  - merchant
+  - scavenger
+  - village
+  expansions:
+  - Base, 2E
+  - Dark Ages
+  idx: 86953682897935825395980026716537553676
+  name: Dark Ages 9
+  stamps_and_effects:
+  - - replace_estate
+    - overgrown_estate,_overgrown_estate,_overgrown_estate
+  - - with_spoils
+    - ironmonger
+  use_shelters: true
+- campaign_effects:
+  - double_pile
+  - garbage_heap
+  cards:
+  - band_of_misfits
+  - counterfeit
+  - death_cart
+  - feodum
+  - forager
+  - fortress
+  - graverobber
+  - marauder
+  - poor_house
+  - ruins
+  - wandering_minstrel
+  expansions:
+  - Dark Ages
+  idx: 90875943101380841684477448704022476872
+  name: Dark Ages 10
+  stamps_and_effects:
+  - - double_pile
+    - ruins
+  use_shelters: true
+- cards:
+  - advisor
+  - artisan
+  - butcher
+  - council_room
+  - herald
+  - infirmary
+  - mine
+  - plaza
+  - sentry
+  - throne_room
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  idx: 94284189102829836504395905374346826715
+  name: Guilds 1
+- campaign_effects:
+  - discounted
+  cards:
+  - advisor
+  - artisan
+  - candlestick_maker
+  - farrier
+  - festival
+  - journeyman
+  - merchant_guild
+  - plaza
+  - remodel
+  - soothsayer
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  idx: 3384785011774952081833494903993589584
+  name: Guilds 2
+  stamps_and_effects:
+  - - discounted
+    - farrier
+- campaign_effects:
+  - 5_coffers
+  cards:
+  - advisor
+  - bureaucrat
+  - farrier
+  - footpad
+  - herald
+  - infirmary
+  - journeyman
+  - merchant
+  - smithy
+  - stonemason
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  idx: 257702423407321999291094540029395876691
+  name: Guilds 3
+- campaign_effects:
+  - double_pile
+  cards:
+  - advisor
+  - butcher
+  - herald
+  - journeyman
+  - laboratory
+  - market
+  - mine
+  - moneylender
+  - soothsayer
+  - village
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  idx: 71248768296910621378523938861183777540
+  name: Guilds 4
+  stamps_and_effects:
+  - - double_pile
+    - curse
+- campaign_effects:
+  - pennies_saved
+  cards:
+  - advisor
+  - baker
+  - cellar
+  - festival
+  - gardens
+  - journeyman
+  - merchant_guild
+  - remodel
+  - soothsayer
+  - stonemason
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  idx: 149224691124506054734627167651806829339
+  name: Guilds 5
+- campaign_effects:
+  - discounted
+  cards:
+  - farrier
+  - footpad
+  - herald
+  - journeyman
+  - market
+  - merchant
+  - plaza
+  - soothsayer
+  - vassal
+  - workshop
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  idx: 222698759299535767636401798687428841341
+  name: Guilds 6
+  stamps_and_effects:
+  - - discounted
+    - journeyman
+- campaign_effects:
+  - triple_pile
+  cards:
+  - advisor
+  - candlestick_maker
+  - farrier
+  - festival
+  - herald
+  - laboratory
+  - merchant_guild
+  - moat
+  - stonemason
+  - witch
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  idx: 120682052513167162250160722187768136094
+  name: Guilds 7
+  stamps_and_effects:
+  - - triple_pile
+    - farrier
+- campaign_effects:
+  - pennies_saved
+  cards:
+  - advisor
+  - candlestick_maker
+  - gardens
+  - infirmary
+  - library
+  - poacher
+  - soothsayer
+  - stonemason
+  - vassal
+  - workshop
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  idx: 155750888426222817972130638972862824538
+  name: Guilds 8
+- campaign_effects:
+  - discounted
+  cards:
+  - advisor
+  - butcher
+  - candlestick_maker
+  - herald
+  - journeyman
+  - laboratory
+  - merchant_guild
+  - poacher
+  - stonemason
+  - throne_room
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  idx: 162118059319023938443375901852544344177
+  name: Guilds 9
+  stamps_and_effects:
+  - - discounted
+    - merchant_guild
+- campaign_effects:
+  - landfill
+  - pennies_saved
+  cards:
+  - advisor
+  - baker
+  - butcher
+  - candlestick_maker
+  - farrier
+  - footpad
+  - herald
+  - infirmary
+  - journeyman
+  - plaza
+  expansions:
+  - Cornucopia & Guilds, 2E
+  idx: 273740318925839762225991793327761472552
+  name: Guilds 10
+- cards:
+  - cellar
+  - council_room
+  - festival
+  - giant
+  - peasant
+  - port
+  - sentry
+  - storyteller
+  - treasure_trove
+  - wine_merchant
+  expansions:
+  - Adventures
+  - Base, 2E
+  idx: 91337058653433948632142145733144820906
+  landscapes:
+  - trade
+  name: Adventures 1
+- campaign_effects:
+  - durationified
+  cards:
+  - caravan_guard
+  - festival
+  - haunted_woods
+  - magpie
+  - miser
+  - port
+  - royal_carriage
+  - village
+  - wine_merchant
+  - workshop
+  expansions:
+  - Adventures
+  - Base, 2E
+  idx: 203279507886854457555710240218701541459
+  landscapes:
+  - save
+  - travelling_fair
+  name: Adventures 2
+  stamps_and_effects:
+  - - durationified
+    - port
+- campaign_effects:
+  - so_much_stuff
+  cards:
+  - amulet
+  - cellar
+  - coin_of_the_realm
+  - distant_lands
+  - haunted_woods
+  - militia
+  - miser
+  - page
+  - peasant
+  - ratcatcher
+  expansions:
+  - Adventures
+  - Base, 2E
+  idx: 106613172180249602133071364253950252361
+  landscapes:
+  - pathfinding
+  name: Adventures 3
+- campaign_effects:
+  - tavern
+  cards:
+  - distant_lands
+  - haunted_woods
+  - hireling
+  - magpie
+  - militia
+  - miser
+  - raze
+  - throne_room
+  - transmogrify
+  - vassal
+  expansions:
+  - Adventures
+  - Base, 2E
+  idx: 141668761702606864603670549234651254434
+  landscapes:
+  - travelling_fair
+  name: Adventures 4
+  notes: 'Duplicates: {''start_tavern(copper)'': 2}
+
+    '
+  stamps_and_effects:
+  - - tavern
+    - copper
+- campaign_effects:
+  - fast_track
+  cards:
+  - bandit
+  - bridge_troll
+  - distant_lands
+  - haunted_woods
+  - hireling
+  - library
+  - messenger
+  - raze
+  - transmogrify
+  - treasure_trove
+  expansions:
+  - Adventures
+  - Base, 2E
+  idx: 145074981957043015949623038026705286619
+  landscapes:
+  - travelling_fair
+  name: Adventures 5
+- campaign_effects:
+  - durationified
+  cards:
+  - chapel
+  - coin_of_the_realm
+  - guide
+  - hireling
+  - magpie
+  - messenger
+  - page
+  - relic
+  - smithy
+  - swamp_hag
+  expansions:
+  - Adventures
+  - Base, 2E
+  idx: 85906297302395827062986272385575173876
+  landscapes:
+  - bonfire
+  - plan
+  name: Adventures 6
+  stamps_and_effects:
+  - - durationified
+    - page
+- campaign_effects:
+  - triple_pile
+  cards:
+  - amulet
+  - coin_of_the_realm
+  - gardens
+  - giant
+  - harbinger
+  - messenger
+  - mine
+  - port
+  - raze
+  - royal_carriage
+  expansions:
+  - Adventures
+  - Base, 2E
+  idx: 150424326140075745086440715613505944629
+  landscapes:
+  - ferry
+  - seaway
+  name: Adventures 7
+  stamps_and_effects:
+  - - triple_pile
+    - port
+- campaign_effects:
+  - fast_track
+  cards:
+  - dungeon
+  - hireling
+  - merchant
+  - peasant
+  - raze
+  - royal_carriage
+  - smithy
+  - storyteller
+  - treasure_trove
+  - witch
+  expansions:
+  - Adventures
+  - Base, 2E
+  idx: 298354083492579772816188124037991859828
+  landscapes:
+  - ball
+  - trade
+  name: Adventures 8
+- campaign_effects:
+  - durationified
+  cards:
+  - amulet
+  - caravan_guard
+  - coin_of_the_realm
+  - festival
+  - hireling
+  - ranger
+  - raze
+  - royal_carriage
+  - village
+  - workshop
+  expansions:
+  - Adventures
+  - Base, 2E
+  idx: 159507985422772405968070815748624554791
+  landscapes:
+  - plan
+  - travelling_fair
+  name: Adventures 9
+  stamps_and_effects:
+  - - durationified
+    - workshop
+- campaign_effects:
+  - fast_track
+  - fawning_service
+  cards:
+  - dungeon
+  - duplicate
+  - gear
+  - giant
+  - guide
+  - magpie
+  - messenger
+  - port
+  - ratcatcher
+  - transmogrify
+  expansions:
+  - Adventures
+  idx: 211701516642489263909404745193292390052
+  landscapes:
+  - mission
+  - travelling_fair
+  name: Adventures 10
+  stamps_and_effects:
+  - - fawning_service
+    - mission
+- cards:
+  - cellar
+  - engineer
+  - legionary
+  - library
+  - mine
+  - moat
+  - moneylender
+  - royal_blacksmith
+  - settlers/bustling_village
+  - villa
+  expansions:
+  - Base, 2E
+  - Empires
+  idx: 314939883923907544562448731578872672314
+  landscapes:
+  - aqueduct
+  name: Empires 1
+- campaign_effects:
+  - pay_later
+  cards:
+  - catapult/rocks
+  - encampment/plunder
+  - enchantress
+  - farmers_market
+  - forum
+  - gardens
+  - gladiator/fortune
+  - moat
+  - patrician/emporium
+  - villa
+  expansions:
+  - Base, 2E
+  - Empires
+  idx: 91766499976175530334959732288799830364
+  landscapes:
+  - labyrinth
+  name: Empires 2
+  stamps_and_effects:
+  - - pay_later
+    - villa
+- campaign_effects:
+  - make_split_pile
+  cards:
+  - archive
+  - capital
+  - castles
+  - cellar
+  - charm
+  - library
+  - royal_blacksmith
+  - sentry
+  - settlers/bustling_village
+  - vassal
+  expansions:
+  - Base, 2E
+  - Empires
+  idx: 81355502754299877304667396819536623303
+  landscapes:
+  - battlefield
+  - tomb
+  name: Empires 3
+  stamps_and_effects:
+  - - make_split_pile
+    - vassal,_groundskeeper
+- campaign_effects:
+  - double_pile
+  cards:
+  - city_quarter
+  - enchantress
+  - engineer
+  - forum
+  - groundskeeper
+  - sacrifice
+  - sentry
+  - settlers/bustling_village
+  - vassal
+  - villa
+  expansions:
+  - Base, 2E
+  - Empires
+  idx: 42748624890519214877593148414885976916
+  landscapes:
+  - advance
+  - basilica
+  name: Empires 4
+  stamps_and_effects:
+  - - double_pile
+    - estate
+- campaign_effects:
+  - real_estate_barons
+  cards:
+  - capital
+  - castles
+  - chariot_race
+  - city_quarter
+  - engineer
+  - festival
+  - laboratory
+  - smithy
+  - temple
+  - workshop
+  expansions:
+  - Base, 2E
+  - Empires
+  idx: 196057800826364020226336456947913825031
+  landscapes:
+  - arena
+  - ritual
+  name: Empires 5
+- campaign_effects:
+  - pay_later
+  cards:
+  - castles
+  - crown
+  - enchantress
+  - gladiator/fortune
+  - groundskeeper
+  - militia
+  - patrician/emporium
+  - royal_blacksmith
+  - settlers/bustling_village
+  - wild_hunt
+  expansions:
+  - Base, 2E
+  - Empires
+  idx: 101850793677156431349240288971615502900
+  landscapes:
+  - tower
+  - windfall
+  name: Empires 6
+  stamps_and_effects:
+  - - pay_later
+    - patrician/emporium
+- campaign_effects:
+  - shuffle_pile
+  cards:
+  - archive
+  - charm
+  - city_quarter
+  - harbinger
+  - overlord
+  - patrician/emporium
+  - sacrifice
+  - sentry
+  - temple
+  - village
+  expansions:
+  - Base, 2E
+  - Empires
+  idx: 334372511930682241300105033681217977237
+  landscapes:
+  - labyrinth
+  - wolf_den
+  name: Empires 7
+  stamps_and_effects:
+  - - shuffle_pile
+    - patrician/emporium
+- campaign_effects:
+  - real_estate_barons
+  cards:
+  - chariot_race
+  - farmers_market
+  - gardens
+  - groundskeeper
+  - sacrifice
+  - sentry
+  - settlers/bustling_village
+  - temple
+  - villa
+  - witch
+  expansions:
+  - Base, 2E
+  - Empires
+  idx: 334453164305733783638060006442568298545
+  landscapes:
+  - delve
+  - labyrinth
+  name: Empires 8
+- campaign_effects:
+  - pay_later
+  cards:
+  - charm
+  - city_quarter
+  - council_room
+  - crown
+  - forum
+  - moneylender
+  - patrician/emporium
+  - remodel
+  - villa
+  - witch
+  expansions:
+  - Base, 2E
+  - Empires
+  idx: 10003392266564757509531340696340718906
+  landscapes:
+  - basilica
+  - obelisk
+  name: Empires 9
+  obelisk_pile: patrician/emporium
+  stamps_and_effects:
+  - - pay_later
+    - crown
+- campaign_effects:
+  - fawning_service
+  - real_estate_barons
+  cards:
+  - archive
+  - castles
+  - chariot_race
+  - city_quarter
+  - forum
+  - legionary
+  - sacrifice
+  - settlers/bustling_village
+  - villa
+  - wild_hunt
+  expansions:
+  - Empires
+  idx: 165563120520536688717795563388883894987
+  landscapes:
+  - tomb
+  - triumph
+  name: Empires 10
+  stamps_and_effects:
+  - - fawning_service
+    - triumph
+- cards:
+  - bard
+  - gardens
+  - idol
+  - library
+  - necromancer
+  - night_watchman
+  - pixie
+  - raider
+  - skulk
+  - tormentor
+  expansions:
+  - Base, 2E
+  - Nocturne
+  idx: 120803211883607045605632663088038742101
+  name: Nocturne 1
+- campaign_effects:
+  - reactionified
+  cards:
+  - devils_workshop
+  - exorcist
+  - faithful_hound
+  - fool
+  - necromancer
+  - pixie
+  - pooka
+  - shepherd
+  - skulk
+  - werewolf
+  expansions:
+  - Nocturne
+  idx: 330385657752511303013884047710458070745
+  name: Nocturne 2
+  stamps_and_effects:
+  - - reactionified
+    - exorcist
+- campaign_effects:
+  - replace_estate
+  cards:
+  - changeling
+  - cobbler
+  - market
+  - pixie
+  - sacred_grove
+  - secret_cave
+  - shepherd
+  - tormentor
+  - tracker
+  - village
+  expansions:
+  - Base, 2E
+  - Nocturne
+  idx: 200588983694524807312767411867507650676
+  name: Nocturne 3
+  stamps_and_effects:
+  - - replace_estate
+    - zombie_apprentice,_zombie_mason,_zombie_spy
+- campaign_effects:
+  - replace_copper
+  cards:
+  - bard
+  - cursed_village
+  - druid
+  - faithful_hound
+  - fool
+  - militia
+  - sacred_grove
+  - secret_cave
+  - shepherd
+  - tracker
+  druid_boons:
+  - the_moons_gift
+  - the_mountains_gift
+  - the_suns_gift
+  expansions:
+  - Base, 2E
+  - Nocturne
+  idx: 230985851186081360986036119680982280587
+  name: Nocturne 4
+  stamps_and_effects:
+  - - replace_copper
+    - silver,_silver,_estate,_estate
+- campaign_effects:
+  - delayed_joy
+  cards:
+  - cobbler
+  - exorcist
+  - festival
+  - idol
+  - leprechaun
+  - necromancer
+  - remodel
+  - secret_cave
+  - tracker
+  - werewolf
+  expansions:
+  - Base, 2E
+  - Nocturne
+  idx: 126685519386401777681643455913662225471
+  name: Nocturne 5
+- campaign_effects:
+  - reactionified
+  cards:
+  - blessed_village
+  - cellar
+  - crypt
+  - druid
+  - fool
+  - laboratory
+  - moneylender
+  - sacred_grove
+  - tracker
+  - vampire
+  druid_boons:
+  - the_rivers_gift
+  - the_seas_gift
+  - the_skys_gift
+  expansions:
+  - Base, 2E
+  - Nocturne
+  idx: 136110046688101867492489711923830543460
+  name: Nocturne 6
+  stamps_and_effects:
+  - - reactionified
+    - sacred_grove
+- campaign_effects:
+  - double_heirloom
+  cards:
+  - cobbler
+  - cursed_village
+  - monastery
+  - necromancer
+  - raider
+  - secret_cave
+  - sentry
+  - smithy
+  - witch
+  - workshop
+  expansions:
+  - Base, 2E
+  - Nocturne
+  idx: 53357157545934247174790961039165480319
+  name: Nocturne 7
+  stamps_and_effects:
+  - - double_heirloom
+    - secret_cave
+- campaign_effects:
+  - delayed_joy
+  cards:
+  - changeling
+  - druid
+  - harbinger
+  - moat
+  - night_watchman
+  - sacred_grove
+  - shepherd
+  - tormentor
+  - vampire
+  - village
+  druid_boons:
+  - the_flames_gift
+  - the_forests_gift
+  - the_mountains_gift
+  expansions:
+  - Base, 2E
+  - Nocturne
+  idx: 336342258629743770133740610561290934891
+  name: Nocturne 8
+- campaign_effects:
+  - reactionified
+  cards:
+  - cobbler
+  - cursed_village
+  - faithful_hound
+  - mine
+  - raider
+  - secret_cave
+  - smithy
+  - throne_room
+  - vampire
+  - werewolf
+  expansions:
+  - Base, 2E
+  - Nocturne
+  idx: 255595581114622189235279387028133063845
+  name: Nocturne 9
+  stamps_and_effects:
+  - - reactionified
+    - secret_cave
+- campaign_effects:
+  - delayed_joy
+  - double_heirloom
+  cards:
+  - bard
+  - cemetery
+  - changeling
+  - cursed_village
+  - devils_workshop
+  - exorcist
+  - faithful_hound
+  - pooka
+  - skulk
+  - tormentor
+  expansions:
+  - Nocturne
+  idx: 297061362746523266718705144209240747927
+  name: Nocturne 10
+  stamps_and_effects:
+  - - double_heirloom
+    - pooka
+- cards:
+  - artisan
+  - cargo_ship
+  - research
+  - scepter
+  - scholar
+  - sculptor
+  - seer
+  - silk_merchant
+  - spices
+  - swashbuckler
+  expansions:
+  - Base, 2E
+  - Renaissance
+  idx: 189591610597430076572863489948732972740
+  landscapes:
+  - citadel
+  - road_network
+  name: Renaissance 1
+- campaign_effects:
+  - with_villager
+  cards:
+  - acting_troupe
+  - council_room
+  - ducat
+  - experiment
+  - harbinger
+  - old_witch
+  - patron
+  - scholar
+  - sculptor
+  - treasurer
+  expansions:
+  - Base, 2E
+  - Renaissance
+  idx: 147691567772199870095060531090049160676
+  landscapes:
+  - exploration
+  - innovation
+  name: Renaissance 2
+  stamps_and_effects:
+  - - with_villager
+    - ducat
+- campaign_effects:
+  - 10_villagers
+  cards:
+  - acting_troupe
+  - cargo_ship
+  - ducat
+  - flag_bearer
+  - improve
+  - inventor
+  - lackeys
+  - sculptor
+  - smithy
+  - swashbuckler
+  expansions:
+  - Base, 2E
+  - Renaissance
+  idx: 326339258481479752680188377235873316909
+  landscapes:
+  - fair
+  name: Renaissance 3
+- campaign_effects:
+  - triple_pile
+  cards:
+  - cellar
+  - experiment
+  - flag_bearer
+  - inventor
+  - lackeys
+  - moat
+  - mountain_village
+  - patron
+  - scholar
+  - workshop
+  expansions:
+  - Base, 2E
+  - Renaissance
+  idx: 78224710875716060117953286594275581968
+  landscapes:
+  - capitalism
+  - crop_rotation
+  name: Renaissance 4
+  stamps_and_effects:
+  - - triple_pile
+    - experiment
+- campaign_effects:
+  - cramped
+  cards:
+  - border_guard
+  - cargo_ship
+  - cellar
+  - chapel
+  - militia
+  - mountain_village
+  - patron
+  - swashbuckler
+  - village
+  - witch
+  expansions:
+  - Base, 2E
+  - Renaissance
+  idx: 158769889715823223464905220784182596188
+  landscapes:
+  - guildhall
+  - innovation
+  name: Renaissance 5
+- campaign_effects:
+  - 5_coffers
+  - with_villager
+  cards:
+  - cargo_ship
+  - chapel
+  - hideout
+  - improve
+  - moat
+  - moneylender
+  - old_witch
+  - silk_merchant
+  - spices
+  - treasurer
+  expansions:
+  - Base, 2E
+  - Renaissance
+  idx: 313286276688869334238967610815799137706
+  landscapes:
+  - star_chart
+  name: Renaissance 6
+  stamps_and_effects:
+  - - with_villager
+    - silk_merchant
+- campaign_effects:
+  - double_pile
+  cards:
+  - border_guard
+  - flag_bearer
+  - market
+  - old_witch
+  - patron
+  - poacher
+  - remodel
+  - seer
+  - spices
+  - village
+  expansions:
+  - Base, 2E
+  - Renaissance
+  idx: 25314054556817744707663655873962727215
+  landscapes:
+  - cathedral
+  - star_chart
+  name: Renaissance 7
+  stamps_and_effects:
+  - - double_pile
+    - curse
+- campaign_effects:
+  - cramped
+  cards:
+  - flag_bearer
+  - gardens
+  - improve
+  - inventor
+  - old_witch
+  - priest
+  - recruiter
+  - scholar
+  - sculptor
+  - village
+  expansions:
+  - Base, 2E
+  - Renaissance
+  idx: 201641104833037552499578921731705349003
+  landscapes:
+  - crop_rotation
+  - silos
+  name: Renaissance 8
+- campaign_effects:
+  - with_villager
+  cards:
+  - artisan
+  - border_guard
+  - lackeys
+  - market
+  - moat
+  - research
+  - sculptor
+  - seer
+  - spices
+  - vassal
+  expansions:
+  - Base, 2E
+  - Renaissance
+  idx: 204593973190435675439861444887607658128
+  landscapes:
+  - academy
+  - silos
+  name: Renaissance 9
+  stamps_and_effects:
+  - - with_villager
+    - seer
+- campaign_effects:
+  - cramped
+  - with_cube
+  cards:
+  - border_guard
+  - cargo_ship
+  - ducat
+  - hideout
+  - mountain_village
+  - research
+  - scepter
+  - scholar
+  - seer
+  - treasurer
+  expansions:
+  - Renaissance
+  idx: 310854084497478984259342710360317214518
+  landscapes:
+  - fleet
+  - pageant
+  name: Renaissance 10
+  stamps_and_effects:
+  - - with_cube
+    - pageant
+- cards:
+  - bureaucrat
+  - clashes
+  - contract
+  - emissary
+  - laboratory
+  - merchant
+  - royal_galley
+  - skirmisher
+  - specialist
+  - underling
+  expansions:
+  - Allies
+  - Base, 2E
+  idx: 323499191541848269587407449192304573118
+  landscapes:
+  - order_of_masons
+  name: Allies 1
+- campaign_effects:
+  - plus_buy
+  - 10_favor
+  cards:
+  - artisan
+  - augurs
+  - capital_city
+  - emissary
+  - galleria
+  - highwayman
+  - hunter
+  - laboratory
+  - sycophant
+  - townsfolk
+  expansions:
+  - Allies
+  - Base, 2E
+  idx: 75500683368871485204781138306740610694
+  landscapes:
+  - family_of_inventors
+  name: Allies 2
+  stamps_and_effects:
+  - - plus_buy
+    - hunter
+- cards:
+  - bandit
+  - broker
+  - carpenter
+  - cellar
+  - highwayman
+  - importer
+  - modify
+  - sentinel
+  - specialist
+  - townsfolk
+  expansions:
+  - Allies
+  - Base, 2E
+  idx: 52936311046810475511209129838064487578
+  landscapes:
+  - band_of_nomads
+  name: Allies 3
+- campaign_effects:
+  - favored_landlords
+  cards:
+  - broker
+  - council_room
+  - emissary
+  - gardens
+  - importer
+  - laboratory
+  - odysseys
+  - skirmisher
+  - swap
+  - town
+  expansions:
+  - Allies
+  - Base, 2E
+  idx: 328331671050755676123490692444653959467
+  landscapes:
+  - league_of_bankers
+  name: Allies 4
+- campaign_effects:
+  - turn_turn_turn
+  cards:
+  - bauble
+  - broker
+  - cellar
+  - forts
+  - gardens
+  - marquis
+  - moneylender
+  - royal_galley
+  - sycophant
+  - wizards
+  expansions:
+  - Allies
+  - Base, 2E
+  idx: 101951587910685004536373157931731674574
+  landscapes:
+  - forest_dwellers
+  name: Allies 5
+- campaign_effects:
+  - make_split_pile
+  - plus_buy
+  cards:
+  - augurs
+  - capital_city
+  - contract
+  - emissary
+  - innkeeper
+  - market
+  - swap
+  - sycophant
+  - vassal
+  - wizards
+  expansions:
+  - Allies
+  - Base, 2E
+  idx: 58346949024467478055799311982516860620
+  landscapes:
+  - forest_dwellers
+  name: Allies 6
+  stamps_and_effects:
+  - - make_split_pile
+    - vassal,_skirmisher
+  - - plus_buy
+    - contract
+- campaign_effects:
+  - shuffle_pile
+  cards:
+  - broker
+  - contract
+  - council_room
+  - courier
+  - gardens
+  - merchant_camp
+  - moat
+  - modify
+  - sycophant
+  - townsfolk
+  expansions:
+  - Allies
+  - Base, 2E
+  idx: 133644627531710247308156579812622606216
+  landscapes:
+  - gang_of_pickpockets
+  name: Allies 7
+  stamps_and_effects:
+  - - shuffle_pile
+    - townsfolk
+- campaign_effects:
+  - turn_turn_turn
+  cards:
+  - artisan
+  - augurs
+  - barbarian
+  - broker
+  - emissary
+  - library
+  - marquis
+  - merchant
+  - moneylender
+  - underling
+  expansions:
+  - Allies
+  - Base, 2E
+  idx: 239690151658796333378292109814633007072
+  landscapes:
+  - order_of_masons
+  name: Allies 8
+- campaign_effects:
+  - plus_buy
+  cards:
+  - bandit
+  - contract
+  - forts
+  - guildmaster
+  - hunter
+  - odysseys
+  - specialist
+  - swap
+  - vassal
+  - wizards
+  expansions:
+  - Allies
+  - Base, 2E
+  idx: 39088742711877224855019964584810472280
+  landscapes:
+  - city-state
+  name: Allies 9
+  stamps_and_effects:
+  - - plus_buy
+    - swap
+- campaign_effects:
+  - favored_landlords
+  - turn_turn_turn
+  cards:
+  - capital_city
+  - carpenter
+  - clashes
+  - contract
+  - highwayman
+  - innkeeper
+  - modify
+  - town
+  - townsfolk
+  - wizards
+  expansions:
+  - Allies
+  idx: 78222885550413363070993676264084306083
+  landscapes:
+  - order_of_astrologers
+  name: Allies 10
+- cards:
+  - aristocrat
+  - artist
+  - change
+  - craftsman
+  - gold_mine
+  - imperial_envoy
+  - remodel
+  - river_shrine
+  - ronin
+  - tea_house
+  expansions:
+  - Base, 2E
+  - Rising Sun
+  idx: 120544715400177571262117402651598313904
+  landscapes:
+  - enlightenment
+  - gather
+  - sea_trade
+  name: Rising Sun 1
+- campaign_effects:
+  - shadowified
+  cards:
+  - artisan
+  - change
+  - daimyo
+  - laboratory
+  - poet
+  - remodel
+  - rice_broker
+  - rustic_village
+  - tea_house
+  - workshop
+  expansions:
+  - Base, 2E
+  - Rising Sun
+  idx: 155316553098187154368000023810820478845
+  landscapes:
+  - bureaucracy
+  name: Rising Sun 2
+  stamps_and_effects:
+  - - shadowified
+    - change
+- campaign_effects:
+  - replace_estate
+  cards:
+  - aristocrat
+  - craftsman
+  - fishmonger
+  - gardens
+  - litter
+  - mountain_shrine
+  - poet
+  - rice
+  - river_shrine
+  - samurai
+  expansions:
+  - Base, 2E
+  - Rising Sun
+  idx: 148516909996359211429730711111949138712
+  landscapes:
+  - asceticism
+  - growth
+  - practice
+  name: Rising Sun 3
+  stamps_and_effects:
+  - - replace_estate
+    - aristocrat
+- campaign_effects:
+  - big_ideas
+  cards:
+  - aristocrat
+  - change
+  - daimyo
+  - fishmonger
+  - kitsune
+  - laboratory
+  - ninja
+  - samurai
+  - tea_house
+  - throne_room
+  expansions:
+  - Base, 2E
+  - Rising Sun
+  idx: 219886307679068325311037821291653908668
+  landscapes:
+  - panic
+  name: Rising Sun 4
+- campaign_effects:
+  - typhoon
+  cards:
+  - aristocrat
+  - artisan
+  - council_room
+  - gold_mine
+  - kitsune
+  - mine
+  - mountain_shrine
+  - ronin
+  - samurai
+  - snake_witch
+  expansions:
+  - Base, 2E
+  - Rising Sun
+  idx: 267334256773202767784199497243778478936
+  landscapes:
+  - credit
+  - good_harvest
+  name: Rising Sun 5
+  notes: 'Removed nested parentheses, they currently aren''t supported.
+
+    '
+  stamps_and_effects:
+  - - typhoon
+    - harbinger,_alley,_change,_gardens,_fishmonger,_chapel,_sentry,_merchant,_rustic_village,_riverboat,_village,_river_shrine,_moat,_bureaucrat,_vassal,_artist,_smithy,_witch,_poacher,_remodel
+- campaign_effects:
+  - shadowified
+  cards:
+  - alley
+  - bandit
+  - bureaucrat
+  - cellar
+  - craftsman
+  - kitsune
+  - litter
+  - poet
+  - rice_broker
+  - river_shrine
+  expansions:
+  - Base, 2E
+  - Rising Sun
+  idx: 304440149368542582004856010942657009023
+  landscapes:
+  - kintsugi
+  - rapid_expansion
+  name: Rising Sun 6
+  stamps_and_effects:
+  - - shadowified
+    - craftsman
+- campaign_effects:
+  - one_track_mind
+  cards:
+  - aristocrat
+  - artisan
+  - craftsman
+  - fishmonger
+  - market
+  - poet
+  - rice_broker
+  - river_shrine
+  - rustic_village
+  - sentry
+  expansions:
+  - Base, 2E
+  - Rising Sun
+  idx: 312813175290657001021462228364879954294
+  landscapes:
+  - credit
+  - harsh_winter
+  name: Rising Sun 7
+  stamps_and_effects:
+  - - one_track_mind
+    - credit
+- campaign_effects:
+  - typhoon
+  cards:
+  - artist
+  - bandit
+  - festival
+  - fishmonger
+  - mine
+  - poet
+  - rice_broker
+  - river_shrine
+  - samurai
+  - workshop
+  expansions:
+  - Base, 2E
+  - Rising Sun
+  idx: 181307288948455603248610789597517183580
+  landscapes:
+  - foresight
+  - harsh_winter
+  name: Rising Sun 8
+  notes: 'Removed nested parentheses, they currently aren''t supported.
+
+    '
+  stamps_and_effects:
+  - - typhoon
+    - witch,_rustic_village,_gardens,_mountain_shrine,_village,_poacher,_ninja,_litter,_harbinger,_daimyo,_sentry,_ronin,_snake_witch,_alley,_library,_change,_craftsman,_riverboat,_rice,_throne_room
+- campaign_effects:
+  - shadowified
+  cards:
+  - alley
+  - aristocrat
+  - artist
+  - council_room
+  - gold_mine
+  - militia
+  - riverboat
+  - rustic_village
+  - samurai
+  - throne_room
+  expansions:
+  - Base, 2E
+  - Rising Sun
+  idx: 12548756693370737039016096680522002152
+  landscapes:
+  - continue
+  - kind_emperor
+  name: Rising Sun 9
+  riverboat_card: ronin
+  stamps_and_effects:
+  - - shadowified
+    - throne_room
+- campaign_effects:
+  - fawning_service
+  - typhoon
+  cards:
+  - alley
+  - fishmonger
+  - gold_mine
+  - imperial_envoy
+  - ninja
+  - poet
+  - riverboat
+  - ronin
+  - rustic_village
+  - tanuki
+  expansions:
+  - Base, 2E
+  - Rising Sun
+  idx: 137685506231268340422524498930594819545
+  landscapes:
+  - progress
+  - receive_tribute
+  name: Rising Sun 10
+  riverboat_card: witch
+  stamps_and_effects:
+  - - fawning_service
+    - receive_tribute
+  - - typhoon
+    - samurai,_library,_bureaucrat,_craftsman,_militia,_snake_witch,_poacher,_rice_broker,_sentry,_artist,_change,_remodel,_village,_kitsune,_rice,_river_shrine,_litter,_aristocrat,_vassal,_harbinger
+- cards:
+  - conspirator
+  - courtier
+  - courtyard
+  - lurker
+  - mine
+  - nobles
+  - remodel
+  - torturer
+  - upgrade
+  - vassal
+  expansions:
+  - Base, 2E
+  - Intrigue, 2E
+  idx: 67743927409318946094540522832542756404
+  name: Intrigue 1
+- campaign_effects:
+  - victorified
+  cards:
+  - baron
+  - cellar
+  - courtyard
+  - duke
+  - gardens
+  - harem_farm
+  - mill
+  - throne_room
+  - upgrade
+  - wishing_well
+  expansions:
+  - Base, 2E
+  - Intrigue, 2E
+  idx: 31674912835718376301248565726524988775
+  name: Intrigue 2
+  stamps_and_effects:
+  - - victorified
+    - wishing_well
+- campaign_effects:
+  - replace_estate
+  cards:
+  - artisan
+  - courtier
+  - courtyard
+  - merchant
+  - mill
+  - minion
+  - poacher
+  - secret_passage
+  - steward
+  - vassal
+  expansions:
+  - Base, 2E
+  - Intrigue, 2E
+  idx: 143776072619320699488968632067996834396
+  name: Intrigue 3
+  stamps_and_effects:
+  - - replace_estate
+    - pawn
+- campaign_effects:
+  - curse_cost_3
+  cards:
+  - conspirator
+  - diplomat
+  - lurker
+  - masquerade
+  - mining_village
+  - nobles
+  - secret_passage
+  - smithy
+  - swindler
+  - throne_room
+  expansions:
+  - Base, 2E
+  - Intrigue, 2E
+  idx: 261975148675506901189785481440299889153
+  name: Intrigue 4
+- campaign_effects:
+  - from_the_throne
+  cards:
+  - baron
+  - laboratory
+  - library
+  - masquerade
+  - nobles
+  - pawn
+  - steward
+  - torturer
+  - vassal
+  - wishing_well
+  expansions:
+  - Base, 2E
+  - Intrigue, 2E
+  idx: 97326497407955499646530732183283402442
+  name: Intrigue 5
+- campaign_effects:
+  - victorified
+  cards:
+  - courtyard
+  - festival
+  - mining_village
+  - nobles
+  - patrol
+  - pawn
+  - replace
+  - throne_room
+  - trading_post
+  - wishing_well
+  expansions:
+  - Base, 2E
+  - Intrigue, 2E
+  idx: 82968621530718779076915383359345133091
+  name: Intrigue 6
+  stamps_and_effects:
+  - - victorified
+    - replace
+- campaign_effects:
+  - replace_copper
+  cards:
+  - baron
+  - harem_farm
+  - ironworks
+  - laboratory
+  - lurker
+  - masquerade
+  - merchant
+  - mill
+  - sentry
+  - smithy
+  expansions:
+  - Base, 2E
+  - Intrigue, 2E
+  idx: 21261027680407446999129594627084520716
+  name: Intrigue 7
+  stamps_and_effects:
+  - - replace_copper
+    - silver,_silver,_estate,_estate
+- campaign_effects:
+  - from_the_throne
+  cards:
+  - bureaucrat
+  - courtyard
+  - duke
+  - gardens
+  - harbinger
+  - mill
+  - pawn
+  - remodel
+  - trading_post
+  - vassal
+  expansions:
+  - Base, 2E
+  - Intrigue, 2E
+  idx: 272401419736484057955677667161073533634
+  name: Intrigue 8
+- campaign_effects:
+  - victorified
+  cards:
+  - bridge
+  - cellar
+  - conspirator
+  - festival
+  - gardens
+  - ironworks
+  - mine
+  - pawn
+  - replace
+  - steward
+  expansions:
+  - Base, 2E
+  - Intrigue, 2E
+  idx: 209902777954750039094475054543048291907
+  name: Intrigue 9
+  stamps_and_effects:
+  - - victorified
+    - conspirator
+- campaign_effects:
+  - big_ideas
+  - from_the_throne
+  cards:
+  - baron
+  - bridge
+  - mill
+  - minion
+  - replace
+  - secret_passage
+  - shanty_town
+  - torturer
+  - trading_post
+  - wishing_well
+  expansions:
+  - Intrigue, 2E
+  idx: 304824013959656459778254574568330027303
+  name: Intrigue 10
+- cards:
+  - bounty_hunter
+  - council_room
+  - fisherman
+  - gatekeeper
+  - library
+  - merchant
+  - sanctuary
+  - supplies
+  - village_green
+  - workshop
+  expansions:
+  - Base, 2E
+  - Menagerie
+  idx: 45801891621359163747216022283900807539
+  landscapes:
+  - invest
+  - way_of_the_owl
+  name: Menagerie 1
+  notes:
+    crucial_cards:
+    - Bounty Hunter
+    - Village Green
+    - Invest
+    - Sanctuary
+    ending:
+    - Province
+    link: https://youtu.be/z8XAsSQTiZs
+    name: Bounty Green
+    points:
+    - 34
+    - 30
+    subtitle: Fast Engine. And A Face Reveal I Guess :)
+    turns:
+    - 12
+    - 12
+- campaign_effects:
+  - with_horse
+  cards:
+  - black_cat
+  - bounty_hunter
+  - camel_train
+  - coven
+  - gardens
+  - mastermind
+  - militia
+  - stockpile
+  - supplies
+  - wayfarer
+  expansions:
+  - Base, 2E
+  - Menagerie
+  idx: 196878818701577442356744582236394998466
+  landscapes:
+  - way_of_the_horse
+  name: Menagerie 2
+  notes:
+    crucial_cards:
+    - Mastermind
+    - Coven
+    - Supplies
+    - Stockpile
+    ending:
+    - Province
+    - Curse
+    - Stockpile
+    link: https://youtu.be/DEhvDdSUtFA
+    name: Not So Mastermind
+    points:
+    - 37
+    - 36
+    subtitle: A Screwed Up Early Game Drives Us Toward A Loss - Then AI Stumbles
+    turns:
+    - 18
+    - 17
+  stamps_and_effects:
+  - - with_horse
+    - supplies
+- campaign_effects:
+  - replace_estate
+  cards:
+  - bandit
+  - cavalry
+  - council_room
+  - falconer
+  - fisherman
+  - gatekeeper
+  - goatherd
+  - mine
+  - sheepdog
+  - wayfarer
+  expansions:
+  - Base, 2E
+  - Menagerie
+  idx: 55503511427521558709808792442647229899
+  landscapes:
+  - way_of_the_pig
+  name: Menagerie 3
+  notes:
+    crucial_cards:
+    - Falconer
+    - Sheepdog
+    - Cavalry
+    - Horse
+    ending:
+    - Province
+    - Sheepdog
+    link: https://youtu.be/z8XAsSQTiZs
+    name: Fast Falconing
+    points:
+    - 37
+    - 18
+    subtitle: Incredible Takeoff, Even A Grave T3 Mistake Can't Stop It
+    turns:
+    - 8
+    - 7
+  stamps_and_effects:
+  - - replace_estate
+    - horse,_horse,_horse
+- campaign_effects:
+  - action_way
+  - double_pile
+  cards:
+  - animal_fair
+  - bounty_hunter
+  - festival
+  - mastermind
+  - militia
+  - moneylender
+  - paddock
+  - remodel
+  - sanctuary
+  - scrap
+  expansions:
+  - Base, 2E
+  - Menagerie
+  idx: 235047628827004514352820479865028944393
+  landscapes:
+  - gamble
+  - way_of_the_rat
+  name: Menagerie 4
+  notes:
+    crucial_cards:
+    - Animal Fair
+    - Paddock
+    - Mastermind
+    - Way of the Rat
+    ending:
+    - Estate
+    - Animal Fair
+    - Mastermind
+    link: https://youtu.be/aEU_RxzYF5g
+    name: Fair Gambling
+    points:
+    - 33
+    - 2
+    subtitle: We Think AI Has A Win It Missed When It Doesn't
+    turns:
+    - 14
+    - 13
+  stamps_and_effects:
+  - - action_way
+    - way_of_the_rat
+  - - double_pile
+    - province
+- campaign_effects:
+  - double_up
+  cards:
+  - animal_fair
+  - artisan
+  - destrier
+  - harbinger
+  - livery
+  - mastermind
+  - sanctuary
+  - scrap
+  - supplies
+  - wayfarer
+  expansions:
+  - Base, 2E
+  - Menagerie
+  idx: 334786634014841965593211793546299054789
+  landscapes:
+  - way_of_the_sheep
+  name: Menagerie 5
+  notes:
+    crucial_cards:
+    - Mastermind
+    - Sanctuary
+    - Artisan
+    - Animal Fair
+    ending:
+    - Animal Fair
+    - Destrier
+    - Mastermind
+    link: https://youtu.be/jt7oXbfU9JQ
+    name: Sanctuary Lost
+    points:
+    - 3
+    - 0
+    subtitle: Where We Only Almost Come Back From Hopeless Situations. Twice.
+    tries: 3
+    turns:
+    - 9
+    - 9
+- campaign_effects:
+  - with_horse
+  cards:
+  - barge
+  - bureaucrat
+  - destrier
+  - falconer
+  - gardens
+  - harbinger
+  - laboratory
+  - militia
+  - scrap
+  - village_green
+  expansions:
+  - Base, 2E
+  - Menagerie
+  idx: 23165536567376772247622800753214467340
+  landscapes:
+  - way_of_the_horse
+  name: Menagerie 6
+  notes:
+    crucial_cards:
+    - Destrier
+    - Falconer
+    - Scrap
+    - Barge
+    ending:
+    - Province
+    - Destrier
+    link: https://youtu.be/l1IzUQi9u9Q
+    name: Barging Along
+    points:
+    - 36
+    - 12
+    subtitle: Falconers Making A Huge Difference - Again
+    turns:
+    - 13
+    - 12
+  stamps_and_effects:
+  - - with_horse
+    - destrier
+- campaign_effects:
+  - double_pile
+  cards:
+  - cardinal
+  - gardens
+  - gatekeeper
+  - groom
+  - hunting_lodge
+  - laboratory
+  - stockpile
+  - supplies
+  - vassal
+  - village_green
+  expansions:
+  - Base, 2E
+  - Menagerie
+  idx: 338782082839945045130607888550647901434
+  landscapes:
+  - way_of_the_rat
+  name: Menagerie 7
+  notes:
+    crucial_cards:
+    - Groom
+    - Groom
+    - Gardens
+    - Stockpile
+    ending:
+    - Groom
+    - Gardens
+    - Stockpile
+    name: Stockpiling Grooms
+    points:
+    - 25
+    - 11
+    subtitle: My Fastest Playthrough To Date, Rushing The Kingdom In 2:20
+    turns:
+    - 9
+    - 8
+  stamps_and_effects:
+  - - double_pile
+    - estate
+- campaign_effects:
+  - double_up
+  cards:
+  - animal_fair
+  - bureaucrat
+  - camel_train
+  - falconer
+  - goatherd
+  - hostelry
+  - library
+  - paddock
+  - remodel
+  - vassal
+  expansions:
+  - Base, 2E
+  - Menagerie
+  idx: 207789687709013724488306683033232807787
+  landscapes:
+  - way_of_the_goat
+  name: Menagerie 8
+  notes:
+    crucial_cards:
+    - Hostelry
+    - Remodel
+    - Animal Fair
+    - Paddock
+    ending:
+    - Province
+    - Hostelry
+    name: Double The Fun
+    points:
+    - 45
+    - 20
+    subtitle: Crazy Spinny Remodel Hostelry Stuff
+    turns:
+    - 11
+    - 10
+- campaign_effects:
+  - with_horse
+  cards:
+  - chapel
+  - displace
+  - gardens
+  - gatekeeper
+  - kiln
+  - moat
+  - sleigh
+  - smithy
+  - snowy_village
+  - supplies
+  expansions:
+  - Base, 2E
+  - Menagerie
+  idx: 143063990996283110082263334607629966818
+  landscapes:
+  - way_of_the_ox
+  name: Menagerie 9
+  notes:
+    crucial_cards:
+      - Chapel
+      - Supplies
+      - Smithy
+      - Snowy Village
+  stamps_and_effects:
+  - - with_horse
+    - supplies
+- campaign_effects:
+  - double_up
+  - one_track_mind
+  cards:
+  - black_cat
+  - camel_train
+  - cavalry
+  - destrier
+  - displace
+  - falconer
+  - hunting_lodge
+  - sheepdog
+  - snowy_village
+  - supplies
+  expansions:
+  - Base, 2E
+  - Menagerie
+  idx: 291564070619897822146778440926258438069
+  landscapes:
+  - gamble
+  - way_of_the_pig
+  name: Menagerie 10
+  stamps_and_effects:
+  - - one_track_mind
+    - gamble
+- campaign_effects:
+  - mirror_loot
+  - one_track_mind
+  cards:
+  - cage
+  - gondola
+  - kings_cache
+  - landing_party
+  - longship
+  - maroon
+  - sack_of_loot
+  - silver_mine
+  - stowaway
+  - swamp_shacks
+  expansions:
+  - Plunder
+  idx: 156410442599597539585770608220018163411
+  landscapes:
+  - fated
+  - prepare
+  name: Plunder 10
+  notes:
+    crucial_cards:
+    - Prepare
+    - sword
+    - swamp_shacks
+    - landing_party
+    ending:
+    - Province
+    - Duchy
+    - Gondola
+    expansion: plunder
+    link: https://youtu.be/K4bCNFnxlhA
+    name: Preparation Shacks
+    points:
+    - 47
+    - 33
+    second_player: true
+    subtitle: Furious Finale Grinding Our Way Out Of A 2/5 As 2nd Player
+    turns:
+    - 16
+    - 16
+  stamps:
+  - - one_track_mind
+    - prepare
+  traits:
+  - - fated
+    - swamp_shacks
+- cards:
+  - frigate
+  - grotto
+  - harbor_village
+  - jewelled_egg
+  - longship
+  - mine
+  - moat
+  - sack_of_loot
+  - stowaway
+  - taskmaster
+  expansions:
+  - Base, 2E
+  - Plunder
+  idx: 167179510808282047287258923065769283922
+  landscapes:
+  - nearby
+  - reckless
+  name: Plunder 1
+  notes:
+    crucial_cards:
+    - frigate
+    - grotto
+    - moat
+    - mine
+    ending:
+    - Province
+    expansion: plunder
+    link: https://youtu.be/apEWbYRfnsE
+    name: Hiding In Grottos
+    points:
+    - 43
+    - 28
+    subtitle: Trying To Avoid Brutal Frigate Attacks
+    turns:
+    - 18
+    - 17
+  traits:
+  - - nearby
+    - jewelled_egg
+  - - reckless
+    - grotto
+- campaign_effects:
+  - durationified
+  - treasurified
+  cards:
+  - cage
+  - council_room
+  - frigate
+  - gondola
+  - mining_road
+  - rope
+  - sentry
+  - siren
+  - stowaway
+  - trickster
+  expansions:
+  - Base, 2E
+  - Plunder
+  idx: 117510007452968406831177835922597904717
+  landscapes:
+  - nearby
+  name: Plunder 2
+  notes:
+    crucial_cards:
+    - sentry
+    - estate
+    - rope
+    - mining road
+    ending:
+    - Curse
+    - Mining Road
+    - Rope
+    expansion: plunder
+    link: https://youtu.be/HihOv9WIO9E
+    name: Blind Sentry
+    points:
+    - 24
+    - 12
+    subtitle: In Which Our Sentry Open Is Glued To Our Estates
+    tries: 2
+    turns:
+    - 15
+    - 14
+  stamps:
+  - - durationified
+    - mining_road
+  - - treasurified
+    - mining_road
+  traits:
+  - - nearby
+    - rope
+- cards:
+  - bandit
+  - cellar
+  - first_mate
+  - gardens
+  - gondola
+  - harbor_village
+  - landing_party
+  - mapmaker
+  - shaman
+  - smithy
+  expansions:
+  - Base, 2E
+  - Plunder
+  idx: 87316853594162352378102681588239517930
+  landscapes:
+  - patient
+  - shy
+  name: Plunder 3
+  notes:
+    crucial_cards:
+    - bandit
+    - gold
+    - landing_party
+    - shaman
+    ending:
+    - Province
+    expansion: plunder
+    link: https://youtu.be/sqomBvOZ4gM
+    name: Single-Buy Fling
+    points:
+    - 39
+    - 33
+    subtitle: Competing Against A Mapmaker/Gardens Deck
+    turns:
+    - 17
+    - 16
+  traits:
+  - - patient
+    - first_mate
+  - - shy
+    - gold
+- cards:
+  - artisan
+  - cabin_boy
+  - cutthroat
+  - fortune_hunter
+  - grotto
+  - harbinger
+  - landing_party
+  - pendant
+  - rope
+  - shaman
+  expansions:
+  - Base, 2E
+  - Plunder
+  idx: 265492983107763275275636263429559155423
+  landscapes:
+  - inherited
+  name: Plunder 4
+  notes:
+    crucial_cards:
+    - shaman
+    - curse
+    - cabin_boy
+    - landing_party
+    ending:
+    - Province
+    expansion: plunder
+    extra_twists:
+    - 'Setup: 10 Curses in the Trash'
+    link: https://youtu.be/I27tc7m0ZfU
+    name: Cursed Trash
+    points:
+    - 16
+    - 7
+    subtitle: Drowning In Curses From The Cyberspace
+    tries: 3
+    turns:
+    - 17
+    - 16
+  traits:
+  - - inherited
+    - cutthroat
+- campaign_effects:
+  - mirror_loot
+  cards:
+  - abundance
+  - cabin_boy
+  - maroon
+  - mining_road
+  - pendant
+  - remodel
+  - search
+  - stowaway
+  - wealthy_village
+  - witch
+  expansions:
+  - Base, 2E
+  - Plunder
+  idx: 75603236811913540655552711236333934265
+  landscapes:
+  - fated
+  name: Plunder 5
+  notes:
+    crucial_cards:
+    - maroon
+    - abundance
+    - wealthy_village
+    - endless_chalice
+    ending:
+    - Province
+    - Wealthy Village
+    - Cabin Boy
+    expansion: plunder
+    link: https://youtu.be/MGNuHhKlvYQ
+    name: Chalice Spillage
+    points:
+    - 33
+    - 26
+    second_player: true
+    subtitle: Prevailing In A Tight Scramble As Second Player
+    turns:
+    - 16
+    - 16
+  traits:
+  - - fated
+    - abundance
+- campaign_effects:
+  - durationified
+  - treasurified
+  cards:
+  - cage
+  - crucible
+  - cutthroat
+  - festival
+  - fortune_hunter
+  - gardens
+  - harbor_village
+  - longship
+  - maroon
+  - silver_mine
+  expansions:
+  - Base, 2E
+  - Plunder
+  idx: 290786702431986169230491935824201927285
+  landscapes:
+  - cursed
+  - patient
+  name: Plunder 6
+  notes:
+    crucial_cards:
+    - maroon
+    - fortune_hunter
+    - silver_mine
+    - longship
+    ending:
+    - Province
+    - Fortune Hunter
+    expansion: plunder
+    extra_twists:
+    - Patient applies to every Action/Treasure
+    link: https://youtu.be/UlNMeMJ1g3o
+    name: Eagerly Patient
+    points:
+    - 42
+    - 4
+    subtitle: Super Fast And Super Fun With Unusual Synergies
+    turns:
+    - 11
+    - 10
+  stamps:
+  - - durationified
+    - fortune_hunter
+  - - treasurified
+    - fortune_hunter
+  traits:
+  - - cursed
+    - longship
+  - - patient
+    - harbor_village
+- cards:
+  - cabin_boy
+  - grotto
+  - harbor_village
+  - landing_party
+  - library
+  - market
+  - pickaxe
+  - search
+  - secluded_shrine
+  - smithy
+  expansions:
+  - Base, 2E
+  - Plunder
+  idx: 274481942399564109563110683555464396258
+  landscapes:
+  - inspiring
+  - prosper
+  - reckless
+  name: Plunder 7
+  notes:
+    crucial_cards:
+    - secluded_shrine
+    - pickaxe
+    - smithy
+    - harbor_village
+    ending:
+    - Province
+    - Smithy
+    expansion: plunder
+    extra_twists:
+    - 'Setup: Start with Search in play'
+    - Two Traits on Secluded Shrine
+    link: https://youtu.be/4B7Q2sYcDlU
+    name: Looting Smithies
+    points:
+    - 45
+    - 15
+    subtitle: In Which Several Smithies Fall To The Pickaxe
+    turns:
+    - 15
+    - 14
+  traits:
+  - - inspiring
+    - secluded_shrine
+  - - reckless
+    - secluded_shrine
+- campaign_effects:
+  - mirror_loot
+  cards:
+  - buried_treasure
+  - cage
+  - crucible
+  - first_mate
+  - harbinger
+  - kings_cache
+  - sentry
+  - shaman
+  - trickster
+  - wealthy_village
+  expansions:
+  - Base, 2E
+  - Plunder
+  idx: 103191986175954095608221647277124160367
+  landscapes:
+  - hasty
+  - invasion
+  - patient
+  name: Plunder 8
+  notes:
+    crucial_cards:
+    - sextant
+    - wealthy_village
+    - trickster
+    - harbinger
+    ending:
+    - Province
+    - Estate
+    - Harbinger
+    expansion: plunder
+    link: https://youtu.be/SaS336ne96w
+    name: Sextant Compression
+    points:
+    - 46
+    - 26
+    subtitle: Building A Tight, Explosive Deck With Minimal Draw
+    turns:
+    - 15
+    - 15
+  traits:
+  - - hasty
+    - harbinger
+  - - patient
+    - wealthy_village
+- campaign_effects:
+  - durationified
+  - treasurified
+  cards:
+  - abundance
+  - harbinger
+  - kings_cache
+  - landing_party
+  - library
+  - longship
+  - merchant
+  - silver_mine
+  - taskmaster
+  - vassal
+  expansions:
+  - Base, 2E
+  - Plunder
+  idx: 30111442864740180751694390185153807059
+  landscapes:
+  - cheap
+  - patient
+  - rich
+  name: Plunder 9
+  notes:
+    crucial_cards:
+    - silver_mine
+    - vassal
+    - landing_party
+    - kings_cache
+    ending:
+    - Province
+    - Landing Party
+    - Vassal
+    expansion: plunder
+    extra_twists:
+    - Three Traits
+    link: https://youtu.be/AgJHULFp7VQ
+    name: Landing Vassals
+    points:
+    - 34
+    - 30
+    subtitle: Why Does The Silver Mine Need To Come With Silver?
+    tries: 2
+    turns:
+    - 12
+    - 11
+  stamps:
+  - - durationified
+    - vassal
+  - - treasurified
+    - vassal
+  traits:
+  - - cheap
+    - taskmaster
+  - - patient
+    - library
+  - - rich
+    - silver_mine

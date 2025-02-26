@@ -1,4 +1,1560 @@
 - cards:
+  - bridge_troll
+  - dungeon
+  - giant
+  - guide
+  - lost_city
+  - messenger
+  - page
+  - ratcatcher
+  - raze
+  - treasure_trove
+  expansions:
+  - Adventures
+  idx: 30193791103697042854140292676579705113
+  landscapes:
+  - mission
+  - quest
+  name: '2025-02-25'
+  notes:
+    name: Troll Mission
+    subtitle: In Which There Are Many Tiny Impactful Decisions
+    crucial_cards:
+      - Bridge Troll
+      - Raze
+      - Mission
+      - Treasure Hunter
+    points:
+      - 21
+      - 9
+    turns:
+      - 13
+      - 12
+    ending:
+      - Duchy
+      - Bridge Troll
+      - Lost City
+    link: https://youtu.be/Jo65l3b3fGk
+- cards:
+  - artisan
+  - cellar
+  - council_room
+  - fairgrounds
+  - hamlet
+  - joust
+  - laboratory
+  - market
+  - merchant
+  - moat
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  idx: 186889718135710031604014149342249772344
+  name: '2025-02-24'
+  notes:
+    bonus_game: true
+    crucial_cards:
+    - Joust
+    - Laboratory
+    - Artisan
+    - Fairgrounds
+    ending:
+    - Hamlet
+    - Joust
+    - Laboratory
+    link: https://youtu.be/Lua9lT5Er2g
+    name: Labsided Jousting
+    points:
+    - 40
+    - 3
+    subtitle: Suboptimal Merchants Almost Lead To A Loss
+    turns:
+    - 13
+    - 12
+- campaign_effects:
+  - double_pile
+  - replace_estate
+  cards:
+  - alchemist
+  - broker
+  - familiar
+  - herbalist
+  - magpie
+  - market_square
+  - rats
+  - scrying_pool
+  - town
+  - vineyard
+  expansions:
+  - Adventures
+  - Alchemy
+  - Allies
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Menagerie
+  idx: 185836009582689319777408612101753412838
+  landscapes:
+  - cave_dwellers
+  - delay
+  - orchard
+  name: '2025-02-23'
+  notes:
+    crucial_cards:
+    - Familiar
+    - Rats
+    - Scrying Pool
+    - Broker
+    ending:
+    - Magpie
+    - Rats
+    - Curse
+    link: https://youtu.be/i7ljKGlF3dE
+    name: Familiar Faces
+    points:
+    - 24
+    - 4
+    subtitle: After The Curses Run There's Some Rats Fun
+    turns:
+    - 13
+    - 12
+  stamps_and_effects:
+  - - double_pile
+    - duchy
+  - - replace_estate
+    - potion
+- cards:
+  - apprentice
+  - idol
+  - ironworks
+  - magnate
+  - maroon
+  - remodel
+  - scrap
+  - scrying_pool
+  - shepherd
+  - swamp_hag
+  expansions:
+  - Adventures
+  - Alchemy
+  - Base, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  idx: 159680758588942123803020064910415535917
+  landscapes:
+  - ferry
+  - way_of_the_frog
+  name: '2025-02-22'
+  notes:
+    crucial_cards:
+    - Shepherd
+    - Ferry
+    - Way Of the Frog
+    - The Wind's Gift
+    ending:
+    - Province
+    - Shepherd
+    - Estate
+    highlights:
+    - 1498
+    link: https://youtu.be/Q2l01TcnMxM
+    name: Shepherd Sloggin'
+    points:
+    - 46
+    - 31
+    subtitle: Called The Wind's Hex Already In The Explanation!
+    turns:
+    - 22
+    - 21
+- cards:
+  - artisan
+  - cursed_village
+  - fool
+  - kitsune
+  - merchant
+  - poacher
+  - remodel
+  - riverboat
+  - tragic_hero
+  - werewolf
+  expansions:
+  - Base, 2E
+  - Nocturne
+  - Rising Sun
+  idx: 161723061896871396897836036159981508183
+  landscapes:
+  - continue
+  - good_harvest
+  name: '2025-02-21'
+  notes:
+    crucial_cards:
+    - Continue
+    - Remodel
+    - Cursed Village
+    - Kitsune
+    ending:
+    - Curse
+    - Estate
+    - Remodel
+    link: https://youtu.be/c4tnD40sZQo
+    name: Continued Remodeling
+    points:
+    - 21
+    - 4
+    subtitle: A Super Fast Continue Kingdom
+    turns:
+    - 9
+    - 8
+  riverboat_card: council_room
+- cards:
+  - advisor
+  - baker
+  - infirmary
+  - lackeys
+  - mountain_village
+  - priest
+  - recruiter
+  - scholar
+  - sculptor
+  - swashbuckler
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Renaissance
+  idx: 187740862893136054308589109592711482053
+  landscapes:
+  - barracks
+  - cathedral
+  name: '2025-02-20'
+  notes:
+    crucial_cards:
+    - Sculptor
+    - Cathedral
+    - Advisor
+    - Mountain Village
+    ending:
+    - Mountain Village
+    - Advisor
+    - Lackeys
+    link: https://youtu.be/AtMLY7GwMRE
+    name: Sculpting Success
+    points:
+    - 24
+    - 12
+    subtitle: A Clean Re-Recording Of A Nice Single-Buy Kingdom
+    turns:
+    - 11
+    - 10
+- cards:
+  - advisor
+  - aristocrat
+  - craftsman
+  - daimyo
+  - imperial_envoy
+  - plaza
+  - poet
+  - rice_broker
+  - river_shrine
+  - stonemason
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Rising Sun
+  idx: 299078835125888307500963832221067216476
+  landscapes:
+  - kind_emperor
+  - practice
+  name: '2025-02-19'
+  notes:
+    crucial_cards:
+    - Daimyo
+    - River Shrine
+    - Aristocrat
+    - Craftsman
+    ending:
+    - Duchy
+    - Craftsman
+    - Aristocrat
+    link: https://youtu.be/1Z6Z6Z6Z6Z6
+    name: Daimyo Dojo
+    points:
+    - 18
+    - 6
+    subtitle: Neither Golden Sombreros Nor Misplays Can Stop Us
+    turns:
+    - 10
+    - 9
+- cards:
+  - amulet
+  - caravan_guard
+  - duplicate
+  - gear
+  - magpie
+  - page
+  - port
+  - ranger
+  - raze
+  - transmogrify
+  expansions:
+  - Adventures
+  idx: 259014492187495941896700187504934181918
+  landscapes:
+  - lost_arts
+  - pilgrimage
+  name: '2025-02-18'
+  notes:
+    crucial_cards:
+    - Transmogrify
+    - Gear
+    - Champion
+    - Ranger
+    ending:
+    - Gear
+    - Magpie
+    - Ranger
+    link: https://youtu.be/kQUF9qChP6A
+    name: Geared Up
+    points:
+    - 26
+    - 12
+    subtitle: Going On An Adventure
+    turns:
+    - 13
+    - 12
+- cards:
+  - bandit
+  - chapel
+  - gardens
+  - hunter
+  - laboratory
+  - moneylender
+  - poacher
+  - smithy
+  - town
+  - townsfolk
+  expansions:
+  - Allies
+  - Base, 2E
+  idx: 208716372802814631373077666621409448935
+  name: '2025-02-17'
+  notes:
+    crucial_cards:
+    - Chapel
+    - Laboratory
+    - Bandit
+    - Town
+    ending:
+    - Province
+    - Town
+    link: https://youtu.be/DqJThWtifc8
+    name: Base Case
+    points:
+    - 30
+    - 20
+    subtitle: A Lean Chapel/Bandit/Lab Engine
+    turns:
+    - 14
+    - 14
+- campaign_effects:
+  - pay_later
+  - reactionified
+  - with_horse
+  cards:
+  - candlestick_maker
+  - catacombs
+  - clashes
+  - coven
+  - hunting_grounds
+  - innkeeper
+  - inventor
+  - raider
+  - swindler
+  - wealthy_village
+  expansions:
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Renaissance
+  idx: 286636843999304472062291464379289778856
+  landscapes:
+  - banish
+  name: '2025-02-16'
+  notes:
+    crucial_cards:
+    - Battle Plan
+    - Archer
+    - Clashes
+    - Territory
+    ending:
+    - Province
+    - Curse
+    link: https://youtu.be/pHRN1rJ0WqQ
+    name: The Big Clash
+    points:
+    - 60
+    - 2
+    subtitle: Finally Getting To Play Those Territories
+    turns:
+    - 18
+    - 17
+  stamps_and_effects:
+  - - pay_later
+    - clashes
+  - - reactionified
+    - clashes
+  - - with_horse
+    - clashes
+- army_pile: scrying_pool
+  cards:
+  - displace
+  - gladiator/fortune
+  - guard_dog
+  - guide
+  - mountain_village
+  - quartermaster
+  - riverboat
+  - rustic_village
+  - scrying_pool
+  - seer
+  - throne_room
+  expansions:
+  - Adventures
+  - Alchemy
+  - Allies
+  - Base, 2E
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Plunder
+  - Renaissance
+  - Rising Sun
+  idx: 220003209306320671266887382170613605317
+  landscapes:
+  - approaching_army
+  - crafters_guild
+  name: '2025-02-15'
+  notes:
+    crucial_cards:
+    - Quartermaster
+    - Displace
+    - Rustic Village
+    - Guard Dog
+    ending:
+    - Province
+    - Guard Dog
+    link: https://youtu.be/r689K_olx_8
+    name: Quarter Displacement
+    points:
+    - 47
+    - 24
+    subtitle: Stalling The Pileout Just Long Enough To Get The Deck Running
+    turns:
+    - 16
+    - 15
+  riverboat_card: guildmaster
+- bane_pile: hamlet
+  cards:
+  - artist
+  - bishop
+  - clerk
+  - farmhands
+  - hamlet
+  - investment
+  - menagerie
+  - peddler
+  - rabble
+  - snake_witch
+  - young_witch
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Prosperity, 2E
+  - Rising Sun
+  idx: 70541511971390190618189619440407184084
+  landscapes:
+  - receive_tribute
+  - sea_trade
+  name: '2025-02-14'
+  notes:
+    bonus_game: true
+    crucial_cards:
+    - Hamlet
+    - Peddler
+    - Sea Trade
+    - Receive Tribute
+    ending:
+    - Colonies
+    - Peddler
+    link: https://youtu.be/jHk7sk0NaaM
+    name: Variety Galore
+    points:
+    - 95
+    - 21
+    subtitle: After A Clutch First Playthrough, We Repeat For A Cleaner One
+    turns:
+    - 17
+    - 16
+  use_colonies: true
+- cards:
+  - armory
+  - crossroads
+  - develop
+  - inn
+  - ironmonger
+  - margrave
+  - mystic
+  - procession
+  - stables
+  - vagrant
+  expansions:
+  - Dark Ages
+  - Hinterlands, 2E
+  idx: 310499016148312132449363340175012933378
+  name: '2025-02-13'
+  notes:
+    crucial_cards:
+    - Develop
+    - Stables
+    - Procession
+    - Margrave
+    ending:
+    - Develop
+    - Ironmonger
+    - Stables
+    link: https://youtu.be/veyBEjbzfhU
+    name: Unstable Development
+    points:
+    - 15
+    - 0
+    subtitle: We Attempt And Fail A Stupid Line But Don't Get Punished For It
+    turns:
+    - 13
+    - 12
+- cards:
+  - advisor
+  - band_of_misfits
+  - death_cart
+  - farrier
+  - ironmonger
+  - junk_dealer
+  - marauder
+  - procession
+  - rats
+  - rogue
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  idx: 14301458312433404116448259156951947459
+  name: '2025-02-12'
+  notes:
+    crucial_cards:
+    - Rats
+    - Band Of Misfits
+    - Procession
+    - Death Cart
+    ending:
+    - Farrier
+    - Rats
+    - Band Of Misfits
+    link: https://youtu.be/kzYX_969ESE
+    name: Misfitting Rats
+    points:
+    - 1
+    - 0
+    subtitle: In Which We Wriggle Our Way Toward A Clutch Find-The-Win
+    turns:
+    - 9
+    - 8
+  use_shelters: true
+- cards:
+  - crew
+  - figurine
+  - first_mate
+  - jewelled_egg
+  - pickaxe
+  - pilgrim
+  - rope
+  - silver_mine
+  - siren
+  - wealthy_village
+  expansions:
+  - Plunder
+  idx: 266304627263533398508729272752035813968
+  landscapes:
+  - cheap
+  - prosper
+  name: '2025-02-11'
+  notes:
+    crucial_cards:
+    - Rope
+    - Wealthy Village
+    - Crew
+    - Prosper
+    ending:
+    - Wealthy Village
+    - Estate
+    - Rope
+    link: https://youtu.be/_2XMNy66gjY
+    name: Wealthy Crew
+    points:
+    - 28
+    - 16
+    subtitle: Two Loot-Filled Engines Compete In A Close Race
+    turns:
+    - 12
+    - 11
+  traits:
+  - - cheap
+    - first_mate
+- cards:
+  - ducat
+  - merchant
+  - moneylender
+  - mountain_village
+  - remodel
+  - scholar
+  - smithy
+  - swashbuckler
+  - vassal
+  - villain
+  expansions:
+  - Base, 2E
+  - Renaissance
+  idx: 267871592119484885512247792143843579993
+  landscapes:
+  - citadel
+  - sewers
+  name: '2025-02-10'
+  notes:
+    crucial_cards:
+    - Swashbuckler
+    - Remodel
+    - Citadel
+    - Mountain Village
+    ending:
+    - Province
+    link: https://youtu.be/cV_qUBSFPps
+    name: Swash Sweep
+    points:
+    - 30
+    - 12
+    subtitle: Fast Remodels For A Quick Win
+    turns:
+    - 11
+    - 10
+- campaign_effects:
+  - fawning_service
+  - sale
+  cards:
+  - anvil
+  - blessed_village
+  - city_quarter
+  - cobbler
+  - distant_lands
+  - farrier
+  - inventor
+  - mystic
+  - replace
+  - wandering_minstrel
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  idx: 190913813863624094463880503344274361823
+  landscapes:
+  - ball
+  - cathedral
+  name: '2025-02-09'
+  notes:
+    crucial_cards:
+    - Farrier
+    - Inventor
+    - Ball
+    - Cathedral
+    ending:
+    - Province
+    - Duchy
+    - Estate
+    link: https://youtu.be/6TZZcgrB010
+    name: Innovative Balls
+    points:
+    - 78
+    - 1
+    subtitle: Building For An Actual Province Autopile
+    turns:
+    - 7
+    - 6
+  stamps:
+  - - fawning_service
+    - ball
+  use_shelters: true
+- cards:
+  - bridge
+  - cobbler
+  - dungeon
+  - necromancer
+  - outpost
+  - patron
+  - procession
+  - research
+  - tormentor
+  - treasurer
+  expansions:
+  - Adventures
+  - Dark Ages
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Renaissance
+  - Seaside, 2E
+  idx: 62535132935475050139107343169687423880
+  landscapes:
+  - ball
+  - enhance
+  name: '2025-02-08'
+  notes:
+    crucial_cards:
+    - research
+    - outpost
+    - cobbler
+    - necromancer
+    ending:
+    - Treasurer
+    - Bridge
+    - Procession
+    link: https://youtu.be/LZv3UnpLs7o
+    name: Bridging Research
+    points:
+    - 7
+    - 1
+    subtitle: Beautiful Find-The-Win Situation With Lots Of Thinking
+    turns:
+    - 10
+    - 9
+- bane_pile: monastery
+  cards:
+  - bard
+  - blessed_village
+  - camel_train
+  - carnival
+  - changeling
+  - ghost_town
+  - monastery
+  - pixie
+  - snowy_village
+  - stockpile
+  - young_witch
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Menagerie
+  - Nocturne
+  idx: 64259952032806784629518758323108279147
+  landscapes:
+  - way_of_the_turtle
+  name: '2025-02-07'
+  notes:
+    crucial_cards:
+    - carnival
+    - way_of_the_turtle
+    - goat
+    - monastery
+    ending:
+    - Stockpile
+    - Carnival
+    - Ghost Town
+    link: https://youtu.be/JPZLO-ladac
+    name: Turtle Speed
+    points:
+    - 5
+    - 0
+    subtitle: Amazing draws leading to a supercharged game
+    turns:
+    - 10
+    - 9
+- cards:
+  - death_cart
+  - faithful_hound
+  - junk_dealer
+  - necromancer
+  - night_watchman
+  - sacred_grove
+  - sage
+  - tragic_hero
+  - vampire
+  - wandering_minstrel
+  expansions:
+  - Dark Ages
+  - Nocturne
+  idx: 52553272147143687092990629953990436093
+  name: '2025-02-06'
+  notes:
+    crucial_cards:
+    - necromancer
+    - zombie_spy
+    - tragic_hero
+    - wandering_minstrel
+    ending:
+    - Province
+    - Wandering Minstrel
+    link: https://youtu.be/Ju-KnnmtbMo
+    name: Wandering Heroes
+    points:
+    - 39
+    - 19
+    subtitle: Exploiting One Of Nocturne's Pleasant In-Set Synergies
+    turns:
+    - 14
+    - 13
+- cards:
+  - butcher
+  - lighthouse
+  - lookout
+  - merchant_guild
+  - monkey
+  - sea_chart
+  - stonemason
+  - treasure_map
+  - treasury
+  - wharf
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Seaside, 2E
+  idx: 190698177808539998449463149861898290810
+  name: '2025-02-05'
+  notes:
+    crucial_cards:
+    - wharf
+    - butcher
+    - silver
+    - province
+    ending:
+    - Province
+    link: https://youtu.be/VRjCCie-wIc
+    name: Butcher Wharf Money
+    points:
+    - 33
+    - 28
+    subtitle: Playing A Fast Money Strat (+Bonus 2nd Try Off 3/4)
+    turns:
+    - 12
+    - 11
+- cards:
+  - cobbler
+  - conclave
+  - exorcist
+  - ghost_town
+  - necromancer
+  - pixie
+  - pooka
+  - raider
+  - tormentor
+  - vampire
+  expansions:
+  - Nocturne
+  idx: 91334036469859885161942663247479138969
+  name: '2025-02-04'
+  notes:
+    crucial_cards:
+    - fear
+    - the_swamps_gift
+    - war
+    - plague
+    ending:
+    - Province
+    - Necromancer
+    - Pixie
+    link: https://youtu.be/ZhMyhWjoeaQ
+    name: The Long Night
+    points:
+    - 31
+    - 22
+    subtitle: Booning And Hexing Our Way To Victory
+    turns:
+    - 16
+    - 15
+- cards:
+  - advisor
+  - council_room
+  - gardens
+  - infirmary
+  - library
+  - merchant
+  - merchant_guild
+  - militia
+  - stonemason
+  - vassal
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  idx: 248885890846331237330080328473727511160
+  name: '2025-02-03'
+  notes:
+    crucial_cards:
+    - merchant_guild
+    - stonemason
+    - advisor
+    - gardens
+    ending:
+    - Province
+    - Gardens
+    link: https://youtu.be/6m0ygP8hpnc
+    name: Merchant Masonry
+    points:
+    - 42
+    - 37
+    subtitle: Close Call Against The Gardens Rush
+    turns:
+    - 18
+    - 17
+- campaign_effects:
+  - also_respect
+  - delayed_joy
+  cards:
+  - advisor
+  - bishop
+  - fool
+  - mapmaker
+  - plaza
+  - poet
+  - raze
+  - royal_galley
+  - tea_house
+  - weaver
+  expansions:
+  - Adventures
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Hinterlands, 2E
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Rising Sun
+  idx: 1978087107509882956956989225295808678
+  landscapes:
+  - good_harvest
+  - innovation
+  - seaway
+  name: '2025-02-02'
+  notes:
+    crucial_cards:
+    - weaver
+    - royal_galley
+    - innovation
+    - good_harvest
+    ending:
+    - Province
+    - Royal Galley
+    - Mapmaker
+    link: https://youtu.be/yUBeOvthycA
+    name: Weaving Galleys
+    points:
+    - 52
+    - 12
+    subtitle: Taken By Surprise By AI's Sprint
+    tries: 2
+    turns:
+    - 13
+    - 12
+  stamps:
+  - - also_respect
+    - good_harvest
+- cards:
+  - animal_fair
+  - beggar
+  - emissary
+  - nobles
+  - poacher
+  - spice_merchant
+  - upgrade
+  - vampire
+  - war_chest
+  - workers_village
+  expansions:
+  - Allies
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Prosperity, 2E
+  idx: 207968698815881869958839121126710720481
+  landscapes:
+  - arena
+  - forest_dwellers
+  name: '2025-02-01'
+  notes:
+    crucial_cards:
+    - Vampire
+    - Worker's Village
+    - Animal Fair
+    - Upgrade
+    ending:
+    - Province
+    link: https://youtu.be/AToiEX6zBtY
+    name: Working for Vamps
+    points:
+    - 46
+    - 25
+    subtitle: Exploiting AI's Vampire Skip
+    turns:
+    - 14
+    - 13
+- cards:
+  - courier
+  - cutthroat
+  - guildmaster
+  - harbor_village
+  - herald
+  - longship
+  - specialist
+  - taskmaster
+  - town
+  - underling
+  expansions:
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Plunder
+  idx: 229085758808716511430491468780933171183
+  landscapes:
+  - cave_dwellers
+  - cursed
+  - shy
+  name: '2025-01-31'
+  notes:
+    crucial_cards:
+    - Cursed
+    - Cutthroat
+    - Courier
+    - Prize Goat
+    ending:
+    - Province
+    link: https://youtu.be/ybTUqMTmG6A
+    name: Cursed Luckfest
+    points:
+    - 48
+    - 25
+    subtitle: Getting Outplayed In A Moneyish Kingdom, Underestimating Courier
+    tries: 2
+    turns:
+    - 16
+    - 16
+  traits:
+  - - cursed
+    - cutthroat
+  - - shy
+    - town
+- cards:
+  - change
+  - daimyo
+  - fairgrounds
+  - farmhands
+  - ferryman
+  - hunting_party
+  - joust
+  - litter
+  - mountain_shrine
+  - root_cellar
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Rising Sun
+  ferryman_pile: aristocrat
+  idx: 62156889494287144756574219368517478414
+  landscapes:
+  - asceticism
+  - enlightenment
+  - receive_tribute
+  name: '2025-01-30'
+  notes:
+    crucial_cards:
+    - daimyo
+    - joust
+    - renown
+    - mountain_shrine
+    ending:
+    - Province
+    link: https://youtu.be/eJEdtWTF01g
+    name: Enlightened Jousting
+    points:
+    - 62
+    - 6
+    subtitle: Exploiting Daimyo/Renown In A Super Fast Game
+    turns:
+    - 10
+    - 9
+- cards:
+  - cartographer
+  - courtyard
+  - develop
+  - harem_farm
+  - inn
+  - mill
+  - mining_village
+  - stables
+  - trading_post
+  - tunnel
+  expansions:
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  idx: 97773290422966249401384106180694619601
+  name: '2025-01-29'
+  notes:
+    crucial_cards:
+    - develop
+    - stables
+    - mining_village
+    - courtyard
+    ending:
+    - Courtyard
+    - Mill
+    - Mining Village
+    link: https://youtu.be/1GnCYYYTrhM
+    name: Stable Development
+    points:
+    - 22
+    - 14
+    subtitle: A Somewhat Tricky Develop Kingdom
+    turns:
+    - 13
+    - 12
+  winrate: .nan
+- cards:
+  - cavalry
+  - destrier
+  - displace
+  - falconer
+  - groom
+  - hostelry
+  - kiln
+  - sanctuary
+  - snowy_village
+  - village_green
+  expansions:
+  - Menagerie
+  idx: 242069017477609104393683765834285719233
+  landscapes:
+  - delay
+  - enclave
+  name: '2025-01-28'
+  notes:
+    crucial_cards:
+    - groom
+    - cavalry
+    - destrier
+    - horse
+    ending:
+    - cavalry
+    - groom
+    - destrier
+    link: https://youtu.be/7_7PpbxIwsg
+    name: Horsing Around
+    points:
+    - 9
+    - 3
+    subtitle: Fast-Paced Groom Rush With Interesting Support
+    turns:
+    - 9
+    - 8
+  winrate: .nan
+- cards:
+  - anvil
+  - bandit
+  - collection
+  - grand_market
+  - hoard
+  - investment
+  - kings_court
+  - library
+  - moat
+  - remodel
+  expansions:
+  - Base, 2E
+  - Prosperity, 2E
+  idx: 89202476235158439523155024742974488620
+  name: '2025-01-27'
+  notes:
+    crucial_cards:
+    - kings_court
+    - collection
+    - investment
+    - grand_market
+    ending:
+    - Collection
+    - Grand Market
+    - Moat
+    link: https://youtu.be/JdmIWNDbmKY
+    name: Collecting KCs
+    points:
+    - 67
+    - 27
+    subtitle: Going For The Explosive Stuff
+    turns:
+    - 17
+    - 16
+  use_colonies: true
+  winrate: .nan
+- cards:
+  - city
+  - faithful_hound
+  - fishmonger
+  - forum
+  - journeyman
+  - monument
+  - procession
+  - quartermaster
+  - scholar
+  - smithy
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Rising Sun
+  idx: 161960366896244074606834741555484137178
+  landscapes:
+  - nearby
+  name: '2025-01-26'
+  notes:
+    crucial_cards:
+    - procession
+    - quartermaster
+    - fishmonger
+    - city
+    ending:
+    - City
+    - Fishmonger
+    - Procession
+    link: https://youtu.be/Hwe3KHEwpYk
+    name: Fishing for Cities
+    points:
+    - 24
+    - 9
+    subtitle: Piling Out Faster Than We Can Process
+    turns:
+    - 13
+    - 12
+  traits:
+  - - nearby
+    - fishmonger
+  use_colonies: true
+  winrate: .nan
+- cards:
+  - carpenter
+  - daimyo
+  - emissary
+  - engineer
+  - familiar
+  - footpad
+  - secret_cave
+  - swamp_hag
+  - swap
+  - weaver
+  expansions:
+  - Adventures
+  - Alchemy
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Hinterlands, 2E
+  - Nocturne
+  - Rising Sun
+  idx: 83476980750189783314845383924085811825
+  landscapes:
+  - ferry
+  - trappers_lodge
+  name: '2025-01-25'
+  notes:
+    crucial_cards:
+    - swap
+    - footpad
+    - carpenter
+    - weaver
+    ending:
+    - Weaver
+    - Carpenter
+    - Swap
+    link: https://youtu.be/-9IxuU82zbM
+    name: Swap's Best Friend
+    points:
+    - 9
+    - 3
+    subtitle: Incredibly Fast Swapping, Brought To You By Footpad
+    turns:
+    - 7
+    - 6
+  winrate: .nan
+- cards:
+  - catapult/rocks
+  - cutthroat
+  - displace
+  - enlarge
+  - gondola
+  - groundskeeper
+  - maroon
+  - overlord
+  - patrician/emporium
+  - swamp_shacks
+  expansions:
+  - Empires
+  - Menagerie
+  - Plunder
+  idx: 254401194312983190978279705645590938485
+  landscapes:
+  - enclave
+  - orchard
+  name: '2025-01-24'
+  winrate: .nan
+- cards:
+  - alley
+  - armory
+  - band_of_misfits
+  - counterfeit
+  - graverobber
+  - hunting_grounds
+  - imperial_envoy
+  - rice_broker
+  - rustic_village
+  - squire
+  expansions:
+  - Dark Ages
+  - Rising Sun
+  idx: 79353880760038148370765795203699312709
+  landscapes:
+  - rapid_expansion
+  name: '2025-01-23'
+  use_shelters: true
+  winrate: .nan
+- cards:
+  - crew
+  - fool
+  - gondola
+  - kings_cache
+  - landing_party
+  - leprechaun
+  - monastery
+  - raider
+  - rope
+  - silver_mine
+  expansions:
+  - Nocturne
+  - Plunder
+  idx: 44745785180141077880260396156986875479
+  landscapes:
+  - hasty
+  - tireless
+  name: '2025-01-22'
+  traits:
+  - - hasty
+    - crew
+  - - tireless
+    - silver_mine
+  winrate: .nan
+- cards:
+  - anvil
+  - clerk
+  - forge
+  - hoard
+  - kings_court
+  - magnate
+  - mint
+  - quarry
+  - watchtower
+  - workers_village
+  expansions:
+  - Prosperity, 2E
+  idx: 108532746728865145106606185433085001929
+  name: '2025-01-21'
+  use_colonies: true
+  winrate: .nan
+- cards:
+  - festival
+  - margrave
+  - merchant
+  - mine
+  - oasis
+  - smithy
+  - stables
+  - trail
+  - weaver
+  - witch
+  expansions:
+  - Base, 2E
+  - Hinterlands, 2E
+  idx: 286689684954372431865113495921534507213
+  name: '2025-01-20'
+  winrate: .nan
+- cards:
+  - butcher
+  - diplomat
+  - gatekeeper
+  - guildmaster
+  - market
+  - mint
+  - rope
+  - sleigh
+  - swamp_shacks
+  - tanuki
+  expansions:
+  - Allies
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Rising Sun
+  idx: 54991562040358126003708274165179858798
+  landscapes:
+  - market_towns
+  - pageant
+  - wall
+  name: '2025-01-19'
+  winrate: .nan
+- cards:
+  - conclave
+  - crucible
+  - daimyo
+  - duplicate
+  - marauder
+  - mining_road
+  - peasant
+  - port
+  - shepherd
+  - shop
+  expansions:
+  - Adventures
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Nocturne
+  - Plunder
+  - Renaissance
+  - Rising Sun
+  idx: 8740556158607704025126358139356573218
+  landscapes:
+  - cursed
+  - fair
+  name: '2025-01-18'
+  traits:
+  - - cursed
+    - shepherd
+  winrate: .nan
+- cards:
+  - barge
+  - destrier
+  - displace
+  - horn_of_plenty
+  - mastermind
+  - menagerie
+  - scrap
+  - scrying_pool
+  - sheepdog
+  - vineyard
+  expansions:
+  - Alchemy
+  - Cornucopia & Guilds, 2E
+  - Menagerie
+  idx: 261628321733910006877897816658962202356
+  landscapes:
+  - stampede
+  - way_of_the_goat
+  name: '2025-01-17'
+  winrate: .nan
+- cards:
+  - bandit_camp
+  - counterfeit
+  - druid
+  - hermit
+  - ironmonger
+  - leprechaun
+  - necromancer
+  - pixie
+  - rats
+  - tracker
+  druid_boons:
+  - the_earths_gift
+  - the_moons_gift
+  - the_rivers_gift
+  expansions:
+  - Dark Ages
+  - Nocturne
+  idx: 54426484650360661544020203419726251771
+  name: '2025-01-16'
+  winrate: .nan
+- cards:
+  - bazaar
+  - blockade
+  - cemetery
+  - cobbler
+  - den_of_sin
+  - haven
+  - monastery
+  - sacred_grove
+  - tormentor
+  - werewolf
+  expansions:
+  - Nocturne
+  - Seaside, 2E
+  idx: 243737976137774206138597426414529690157
+  name: '2025-01-15'
+  winrate: .nan
+- cards:
+  - castles
+  - crown
+  - enchantress
+  - farmers_market
+  - forum
+  - gladiator/fortune
+  - settlers/bustling_village
+  - temple
+  - villa
+  - wild_hunt
+  expansions:
+  - Empires
+  idx: 155415555750927309360364855531705269947
+  landscapes:
+  - basilica
+  - donate
+  name: '2025-01-14'
+  winrate: .nan
+- cards:
+  - bandit
+  - chapel
+  - horn_of_plenty
+  - library
+  - market
+  - merchant
+  - mine
+  - remake
+  - throne_room
+  - village
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  idx: 249933607743093591448097000002948594039
+  name: '2025-01-13'
+  winrate: .nan
+- cards:
   - caravan
   - change
   - city_quarter
@@ -23,6 +1579,7 @@
   - bureaucracy
   - way_of_the_squirrel
   name: '2025-01-12'
+  winrate: .nan
 - cards:
   - armory
   - astrolabe
@@ -53,6 +1610,7 @@
   - way_of_the_butterfly
   name: '2025-01-11'
   use_shelters: true
+  winrate: .nan
 - cards:
   - ghost_town
   - minion
@@ -70,6 +1628,7 @@
   - Renaissance
   idx: 4920548622571064760878270518212290763
   name: '2025-01-10'
+  winrate: .nan
 - cards:
   - develop
   - farmland
@@ -91,6 +1650,7 @@
   traits:
   - - pious
     - tools
+  winrate: .nan
 - cards:
   - barbarian
   - courtyard
@@ -116,6 +1676,7 @@
   - plan
   - way_of_the_chameleon
   name: 2025-01-5
+  winrate: .nan
 - cards:
   - crypt
   - devils_workshop
@@ -141,6 +1702,7 @@
   landscapes:
   - ball
   name: 2025-01-4
+  winrate: .nan
 - cards:
   - cabin_boy
   - camel_train
@@ -161,6 +1723,7 @@
   - demand
   - way_of_the_frog
   name: 2025-01-3
+  winrate: .nan
 - cards:
   - alchemist
   - alley
@@ -181,6 +1744,7 @@
   - flourishing_trade
   - foresight
   name: 2025-01-2
+  winrate: .nan
 - cards:
   - baker
   - barbarian

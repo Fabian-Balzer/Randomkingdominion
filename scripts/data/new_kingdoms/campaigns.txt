@@ -1,0 +1,160 @@
+Plunder 1---grotto, jewelled_egg, moat, stowaway, taskmaster, harbor_village, frigate, longship, mine, sack_of_loot, nearby(jewelled_egg), reckless(grotto)
+Plunder 2---cage, siren, stowaway, gondola, rope, council_room, frigate, mining_road, sentry, trickster, nearby(rope),  stamp_treasurified(mining_road), stamp_durationified(mining_road)
+Plunder 3---cellar, shaman, gardens, gondola, harbor_village, landing_party, mapmaker, smithy, bandit, first_mate, patient(first_mate), shy(gold)
+Plunder 4---grotto, shaman, harbinger, cabin_boy, fortune_hunter, landing_party, rope, cutthroat, pendant, artisan, inherited(cutthroat),  start_trash_curses
+Plunder 5---search, stowaway, abundance, cabin_boy, maroon, remodel, mining_road, pendant, wealthy_village, witch, fated(abundance),  twist_mirror_loot
+Plunder 6---cage, crucible, fortune_hunter, gardens, harbor_village, maroon, cutthroat, festival, longship, silver_mine, cursed(longship), patient(cutthroat), patient(maroon), patient(longship), patient(fortune_hunter), patient(silver_mine), patient(harbor_village), patient(cage), patient(crucible), patient(festival),  stamp_treasurified(fortune_hunter), stamp_durationified(fortune_hunter)
+Plunder 7---grotto, search, secluded_shrine, cabin_boy, harbor_village, landing_party, smithy, library, market, pickaxe, inspiring(secluded_shrine), reckless(secluded_shrine), prosper,  start_in_play(search)
+Plunder 8---cage, shaman, harbinger, crucible, buried_treasure, first_mate, sentry, trickster, wealthy_village, kings_cache, hasty(harbinger), invasion, patient(wealthy_village),  twist_mirror_loot
+Plunder 9---harbinger, merchant, taskmaster, vassal, abundance, landing_party, library, longship, silver_mine, kings_cache, patient(library), rich(silver_mine), cheap(taskmaster),  stamp_treasurified(vassal), stamp_durationified(vassal)
+Plunder 10---cage, stowaway, gondola, landing_party, maroon, swamp_shacks, longship, silver_mine, sack_of_loot, kings_cache, fated(swamp_shacks), prepare,  stamp_one_track_mind(prepare), twist_mirror_loot
+Seaside 1---haven, fishing_village, village, warehouse, cutpurse, remodel, smithy, outpost, pirate, sentry
+Seaside 2---lookout, warehouse, caravan, cutpurse, sailor, treasure_map, corsair, merchant_ship, treasury, witch,  stamp_durationified(treasury)
+Seaside 3---chapel, astrolabe, fishing_village, poacher, remodel, corsair, pirate, sea_witch, tactician, artisan,  twist_busy_busy
+Seaside 4---moat, native_village, astrolabe, fishing_village, lookout, sea_chart, gardens, throne_room, corsair, outpost,  start_native_village(silver)
+Seaside 5---native_village, astrolabe, monkey, warehouse, caravan, salvager, bazaar, corsair, laboratory, mine,  twist_head_start
+Seaside 6---lighthouse, native_village, island, militia, bazaar, council_room, laboratory, sentry, tactician, treasury,  stamp_durationified(bazaar)
+Seaside 7---fishing_village, lookout, sea_chart, village, warehouse, sailor, bandit, corsair, festival, laboratory,  start_replace_copper(silver), start_replace_copper(estate)
+Seaside 8---haven, moat, lookout, village, blockade, caravan, gardens, pirate, treasury, wharf,  twist_head_start
+Seaside 9---cellar, chapel, astrolabe, fishing_village, monkey, smugglers, warehouse, corsair, festival, tactician,  stamp_durationified(cellar)
+Seaside 10---haven, lighthouse, fishing_village, warehouse, blockade, tide_pools, festival, merchant_ship, sea_witch, tactician,  start_double_pile(curse), twist_head_start
+Menagerie 1---supplies, merchant, workshop, bounty_hunter, village_green, council_room, gatekeeper, library, sanctuary, fisherman, way_of_the_owl, invest
+Menagerie 2---black_cat, supplies, camel_train, stockpile, bounty_hunter, gardens, militia, coven, mastermind, wayfarer, way_of_the_horse,  stamp_with_horse(supplies)
+Menagerie 3---goatherd, sheepdog, cavalry, bandit, council_room, falconer, gatekeeper, mine, fisherman, wayfarer, way_of_the_pig,  start_replace_estate_from_pile(horse), start_replace_estate_from_pile(horse), start_replace_estate_from_pile(horse)
+Menagerie 4---scrap, bounty_hunter, militia, moneylender, remodel, festival, mastermind, paddock, sanctuary, animal_fair, way_of_the_rat, gamble,  start_double_pile(province), stamp_action_way(way_of_the_rat)
+Menagerie 5---supplies, harbinger, scrap, livery, mastermind, sanctuary, artisan, destrier, wayfarer, animal_fair, way_of_the_sheep,  twist_double_up
+Menagerie 6---harbinger, scrap, bureaucrat, gardens, militia, village_green, barge, falconer, laboratory, destrier, way_of_the_horse,  stamp_with_horse(destrier)
+Menagerie 7---supplies, stockpile, vassal, cardinal, gardens, groom, village_green, gatekeeper, hunting_lodge, laboratory, way_of_the_rat,  start_double_pile(estate)
+Menagerie 8---camel_train, goatherd, vassal, bureaucrat, hostelry, remodel, falconer, library, paddock, animal_fair, way_of_the_goat,  twist_double_up
+Menagerie 9---chapel, moat, sleigh, supplies, snowy_village, gardens, smithy, displace, gatekeeper, kiln, way_of_the_ox,  stamp_with_horse(supplies)
+Menagerie 10---black_cat, supplies, camel_train, sheepdog, snowy_village, cavalry, displace, falconer, hunting_lodge, destrier, way_of_the_pig, gamble,  stamp_one_track_mind(gamble), twist_double_up
+Alchemy 1---transmute, vineyard, herbalist, university, familiar, bureaucrat, militia, moneylender, library, mine
+Alchemy 2---transmute, vineyard, cellar, moat, apothecary, scrying_pool, militia, laboratory, market, possession, stamp_two_for_one(possession)
+Alchemy 3---vineyard, herbalist, scrying_pool, university, merchant, familiar, philosophers_stone, apprentice, council_room, possession, start_replace_estate(transmute)
+Alchemy 4---vineyard, herbalist, moat, workshop, alchemist, familiar, militia, moneylender, bandit, laboratory, start_double_pile(curse)
+Alchemy 5---vineyard, apothecary, scrying_pool, university, familiar, throne_room, golem, apprentice, council_room, witch, twist_beakers
+Alchemy 6---moat, scrying_pool, university, village, workshop, alchemist, familiar, apprentice, council_room, possession, stamp_two_for_one(scrying_pool)
+Alchemy 7---vineyard, cellar, scrying_pool, university, harbinger, village, smithy, golem, sentry, artisan, start_replace_estate(potion)
+Alchemy 8---transmute, scrying_pool, university, village, alchemist, militia, remodel, apprentice, festival, possession, twist_beakers
+Alchemy 9---transmute, vineyard, herbalist, apothecary, scrying_pool, university, poacher, library, mine, possession, stamp_two_for_one(vineyard)
+Alchemy 10---vineyard, herbalist, apothecary, scrying_pool, university, familiar, philosophers_stone, golem, apprentice, possession, start_replace_estate(potion)
+Prosperity 1---watchtower, clerk, gardens, investment, workers_village, city, collection, festival, expand, peddler, colonies
+Prosperity 2---chapel, moat, quarry, bandit, collection, sentry, vault, bank, expand, forge, colonies, stamp_treasurified(vault)
+Prosperity 3---cellar, watchtower, workers_village, bandit, charlatan, festival, library, magnate, war_chest, bank, colonies, start_add_each_pile
+Prosperity 4---anvil, village, remodel, tiara, workers_village, charlatan, mint, rabble, grand_market, forge, colonies, start_replace_copper(curse), start_replace_copper(curse), start_replace_copper(curse), start_replace_copper(curse), start_replace_copper(curse), start_replace_copper(curse), start_replace_copper(curse)
+Prosperity 5---gardens, monument, remodel, crystal_ball, festival, mint, rabble, forge, kings_court, peddler, colonies, twist_sale
+Prosperity 6---village, clerk, quarry, workers_village, collection, council_room, laboratory, library, war_chest, kings_court, colonies, stamp_treasurified(clerk)
+Prosperity 7---bishop, clerk, monument, remodel, tiara, charlatan, city, council_room, magnate, mint, colonies, start_double_pile(province)
+Prosperity 8---chapel, anvil, gardens, investment, militia, quarry, sentry, vault, grand_market, bank, colonies, twist_sale
+Prosperity 9---anvil, bishop, throne_room, collection, crystal_ball, laboratory, mint, hoard, bank, peddler, colonies, stamp_treasurified(bishop)
+Prosperity 10---anvil, watchtower, monument, workers_village, magnate, hoard, grand_market, bank, expand, kings_court, colonies, start_replace_copper(silver), start_replace_copper(silver), start_replace_copper(estate), start_replace_copper(estate), twist_sale
+cornucopia 1---hamlet, vassal, workshop, farmhands, gardens, carnival, ferryman(remake), horn_of_plenty, jester, joust
+cornucopia 2---hamlet, menagerie, village, farmhands, remake, ferryman(smithy), hunting_party, mine, witch, fairgrounds, stamp_offers_insight(fairgrounds)
+cornucopia 3---hamlet, menagerie, workshop, remodel, bandit, carnival, council_room, ferryman(smithy), horn_of_plenty, fairgrounds, twist_rebates
+cornucopia 4---cellar, moat, menagerie, gardens, militia, ferryman(farmhands), festival, jester, joust, fairgrounds, twist_big_ideas
+cornucopia 5---cellar, menagerie, militia, remake, remodel, bandit, horn_of_plenty, hunting_party, joust, market, twist_room_for_more(festival)
+cornucopia 6---hamlet, farmhands, gardens, young_witch(village), ferryman(shop), horn_of_plenty, jester, library, mine, artisan, stamp_offers_insight(ferryman)
+cornucopia 7---hamlet, farmhands, remake, smithy, ferryman(gardens), horn_of_plenty, hunting_party, jester, mine, sentry, start_replace_copper(silver), start_replace_copper(silver), start_replace_copper(estate), start_replace_copper(estate)
+cornucopia 8---chapel, hamlet, menagerie, shop, farmhands, smithy, young_witch(harbinger), ferryman(workshop), market, artisan, twist_room_for_more(gardens)
+cornucopia 9---menagerie, workshop, farmhands, militia, smithy, festival, horn_of_plenty, jester, joust, library, stamp_offers_insight(farmhands)
+cornucopia 10---hamlet, farmhands, remake, young_witch(chapel), carnival, ferryman(village), horn_of_plenty, hunting_party, jester, joust, start_same_reward, twist_room_for_more(vassal)
+Hinterlands 1---fools_gold, develop, guard_dog, jack_of_all_trades, cauldron, council_room, festival, haggler, inn, wheelwright
+Hinterlands 2---fools_gold, scheme, tunnel, village, spice_merchant, festival, haggler, witchs_hut, border_village, farmland, stamp_reactionified(scheme)
+Hinterlands 3---cellar, develop, scheme, vassal, poacher, trail, weaver, berserker, cartographer, highway, stamp_two_for_one(vassal)
+Hinterlands 4---develop, nomads, spice_merchant, throne_room, trader, cartographer, council_room, highway, witchs_hut, border_village, start_double_deck
+Hinterlands 5---fools_gold, scheme, jack_of_all_trades, weaver, bandit, festival, highway, inn, margrave, souk, twist_incoming
+Hinterlands 6---militia, nomads, trail, weaver, berserker, cartographer, cauldron, library, margrave, market, stamp_reactionified(cartographer)
+Hinterlands 7---crossroads, fools_gold, village, trail, cauldron, festival, haggler, library, stables, wheelwright, start_replace_copper(silver), start_replace_copper(silver), start_replace_copper(estate), start_replace_copper(estate)
+Hinterlands 8---crossroads, moat, oasis, vassal, trader, trail, weaver, council_room, witch, witchs_hut, twist_incoming
+Hinterlands 9---cellar, guard_dog, tunnel, gardens, weaver, berserker, council_room, highway, inn, library, stamp_reactionified(council_room)
+Hinterlands 10---crossroads, guard_dog, oasis, cartographer, cauldron, festival, inn, margrave, souk, witchs_hut, twist_big_ideas, twist_incoming
+Dark Ages 1---cellar, sage, bureaucrat, feodum, gardens, marauder, rats, scavenger, band_of_misfits, catacombs, shelters
+Dark Ages 2---forager, hermit, market_square, death_cart, feodum, gardens, moneylender, rats, counterfeit, junk_dealer, shelters, stamp_with_spoils(rats)
+Dark Ages 3---moat, vagrant, hermit, market_square, merchant, ironmonger, count, graverobber, market, altar, shelters, start_replace_estate(ruined_market), start_replace_estate(ruined_village), start_replace_estate(ruined_library), start_replace_copper(abandoned_mine), start_replace_copper(survivors)
+Dark Ages 4---beggar, vagrant, merchant, sage, death_cart, militia, rats, smithy, bandit_camp, rogue, shelters, start_replace_copper(rats), start_replace_copper(rats), start_replace_copper(rats), start_replace_estate(rats), start_replace_estate(rats)
+Dark Ages 5---squire, hermit, market_square, ironmonger, poacher, smithy, throne_room, wandering_minstrel, junk_dealer, knights, shelters, twist_garbage_heap
+Dark Ages 6---moat, vagrant, sage, workshop, fortress, gardens, wandering_minstrel, band_of_misfits, laboratory, altar, shelters, stamp_with_spoils(wandering_minstrel), start_replace_copper(spoils), start_replace_copper(spoils), start_replace_copper(spoils), start_replace_copper(spoils), start_replace_copper(spoils), start_replace_copper(spoils), start_replace_copper(spoils)
+Dark Ages 7---vagrant, hermit, vassal, armory, fortress, procession, wandering_minstrel, graverobber, mine, sentry, shelters, start_trash_pile(ironmonger)
+Dark Ages 8---vagrant, forager, hermit, workshop, fortress, moneylender, smithy, graverobber, mine, witch, shelters, twist_garbage_heap
+Dark Ages 9---chapel, market_square, merchant, village, armory, death_cart, ironmonger, scavenger, counterfeit, altar, shelters, stamp_with_spoils(ironmonger), start_replace_estate(overgrown_estate), start_replace_estate(overgrown_estate), start_replace_estate(overgrown_estate)
+Dark Ages 10---poor_house, forager, death_cart, feodum, fortress, marauder, wandering_minstrel, band_of_misfits, counterfeit, graverobber, shelters, start_double_pile(ruins), twist_garbage_heap
+Guilds 1---infirmary, advisor, plaza, throne_room, herald, butcher, council_room, mine, sentry, artisan
+Guilds 2---candlestick_maker, farrier, advisor, plaza, remodel, festival, journeyman, merchant_guild, soothsayer, artisan, stamp_discounted(farrier)
+Guilds 3---farrier, stonemason, merchant, infirmary, advisor, bureaucrat, smithy, herald, footpad, journeyman, start_5_coffers
+Guilds 4---village, advisor, moneylender, herald, butcher, journeyman, laboratory, market, mine, soothsayer, start_double_pile(curse)
+Guilds 5---cellar, stonemason, advisor, gardens, remodel, baker, festival, journeyman, merchant_guild, soothsayer, twist_pennies_saved
+Guilds 6---farrier, merchant, vassal, workshop, plaza, herald, footpad, journeyman, market, soothsayer, stamp_discounted(journeyman)
+Guilds 7---candlestick_maker, moat, farrier, stonemason, advisor, herald, festival, laboratory, merchant_guild, witch, start_triple_pile(farrier)
+Guilds 8---candlestick_maker, stonemason, vassal, workshop, infirmary, advisor, gardens, poacher, library, soothsayer, twist_pennies_saved
+Guilds 9---candlestick_maker, stonemason, advisor, poacher, throne_room, herald, butcher, journeyman, laboratory, merchant_guild, stamp_discounted(merchant_guild)
+Guilds 10---candlestick_maker, farrier, infirmary, advisor, plaza, herald, baker, butcher, footpad, journeyman, twist_landfill, twist_pennies_saved
+Adventures 1---cellar, peasant, port, council_room, festival, giant, sentry, storyteller, treasure_trove, wine_merchant, trade
+Adventures 2---caravan_guard, village, workshop, magpie, miser, port, festival, haunted_woods, royal_carriage, wine_merchant, save, travelling_fair, stamp_durationified(port)
+Adventures 3---cellar, coin_of_the_realm, page, peasant, ratcatcher, amulet, militia, miser, distant_lands, haunted_woods, pathfinding, twist_so_much_stuff
+Adventures 4---raze, vassal, magpie, militia, miser, throne_room, transmogrify, distant_lands, haunted_woods, hireling, travelling_fair, start_tavern(copper), start_tavern(copper)
+Adventures 5---raze, messenger, transmogrify, bandit, bridge_troll, distant_lands, haunted_woods, library, treasure_trove, hireling, travelling_fair, twist_fast_track
+Adventures 6---chapel, coin_of_the_realm, page, guide, magpie, messenger, smithy, relic, swamp_hag, hireling, plan, bonfire, stamp_durationified(page)
+Adventures 7---coin_of_the_realm, raze, amulet, harbinger, gardens, messenger, port, giant, mine, royal_carriage, seaway, ferry, start_triple_pile(port)
+Adventures 8---peasant, raze, dungeon, merchant, smithy, royal_carriage, storyteller, treasure_trove, witch, hireling, trade, ball, twist_fast_track
+Adventures 9---coin_of_the_realm, raze, amulet, caravan_guard, village, workshop, ranger, festival, royal_carriage, hireling, plan, travelling_fair, stamp_durationified(workshop)
+Adventures 10---ratcatcher, dungeon, gear, guide, duplicate, magpie, messenger, port, transmogrify, giant, travelling_fair, mission, stamp_fawning_service(mission), twist_fast_track
+Empires 1---engineer, royal_blacksmith, cellar, moat, settlers, moneylender, villa, legionary, library, mine, aqueduct
+Empires 2---encampment, moat, patrician, catapult, enchantress, farmers_market, gladiator, gardens, villa, forum, labyrinth, stamp_pay_later(villa)
+Empires 3---royal_blacksmith, cellar, settlers, castles, vassal, archive, capital, charm, library, sentry, tomb, battlefield, start_make_split_pile(vassal,groundskeeper)
+Empires 4---engineer, city_quarter, settlers, enchantress, vassal, sacrifice, villa, forum, groundskeeper, sentry, basilica, advance, start_double_pile(estate)
+Empires 5---engineer, city_quarter, castles, chariot_race, workshop, smithy, temple, capital, festival, laboratory, arena, ritual, twist_real_estate_barons
+Empires 6---royal_blacksmith, patrician, settlers, castles, enchantress, gladiator, militia, crown, groundskeeper, wild_hunt, tower, windfall, stamp_pay_later(patrician)
+Empires 7---city_quarter, overlord, patrician, harbinger, village, sacrifice, temple, archive, charm, sentry, labyrinth, wolf_den, start_shuffle_pile(patrician)
+Empires 8---settlers, chariot_race, farmers_market, gardens, sacrifice, temple, villa, groundskeeper, sentry, witch, labyrinth, delve, twist_real_estate_barons
+Empires 9---city_quarter, patrician, moneylender, remodel, villa, charm, council_room, crown, forum, witch, obelisk(patrician), basilica, stamp_pay_later(crown)
+Empires 10---city_quarter, settlers, castles, chariot_race, sacrifice, villa, archive, forum, legionary, wild_hunt, tomb, triumph, stamp_fawning_service(triumph), twist_real_estate_barons
+Nocturne 1---pixie, night_watchman, bard, gardens, necromancer, skulk, idol, library, tormentor, raider
+Nocturne 2---faithful_hound, pixie, fool, devils_workshop, exorcist, necromancer, shepherd, skulk, pooka, werewolf, stamp_reactionified(exorcist)
+Nocturne 3---pixie, tracker, changeling, secret_cave, village, shepherd, cobbler, market, sacred_grove, tormentor, start_replace_estate(zombie_apprentice), start_replace_estate(zombie_mason), start_replace_estate(zombie_spy)
+Nocturne 4---druid(the_moons_gift, the_suns_gift, the_mountains_gift), faithful_hound, tracker, fool, secret_cave, bard, militia, shepherd, cursed_village, sacred_grove, start_replace_copper(silver), start_replace_copper(silver), start_replace_copper(estate), start_replace_copper(estate)
+Nocturne 5---tracker, leprechaun, secret_cave, exorcist, necromancer, remodel, cobbler, festival, idol, werewolf, twist_delayed_joy
+Nocturne 6---cellar, druid(the_rivers_gift, the_skys_gift, the_seas_gift), tracker, fool, blessed_village, moneylender, crypt, laboratory, sacred_grove, vampire, stamp_reactionified(sacred_grove)
+Nocturne 7---monastery, secret_cave, workshop, necromancer, smithy, cobbler, cursed_village, sentry, witch, raider, start_double_heirloom(secret_cave)
+Nocturne 8---druid(the_mountains_gift, the_forests_gift, the_flames_gift), moat, changeling, harbinger, night_watchman, village, shepherd, sacred_grove, tormentor, vampire, twist_delayed_joy
+Nocturne 9---faithful_hound, secret_cave, smithy, throne_room, cobbler, cursed_village, mine, vampire, werewolf, raider, stamp_reactionified(secret_cave)
+Nocturne 10---faithful_hound, changeling, bard, cemetery, devils_workshop, exorcist, skulk, cursed_village, pooka, tormentor, start_double_heirloom(pooka), twist_delayed_joy
+Renaissance 1---cargo_ship, research, silk_merchant, scepter, scholar, sculptor, seer, spices, swashbuckler, artisan, road_network, citadel
+Renaissance 2---ducat, acting_troupe, experiment, harbinger, patron, council_room, old_witch, scholar, sculptor, treasurer, exploration, innovation, stamp_with_villager(ducat)
+Renaissance 3---ducat, lackeys, acting_troupe, cargo_ship, improve, flag_bearer, inventor, smithy, sculptor, swashbuckler, fair, start_10_villagers
+Renaissance 4---cellar, lackeys, moat, experiment, workshop, flag_bearer, inventor, mountain_village, patron, scholar, capitalism, crop_rotation, start_triple_pile(experiment)
+Renaissance 5---border_guard, cellar, chapel, cargo_ship, village, militia, mountain_village, patron, swashbuckler, witch, guildhall, innovation, twist_cramped
+Renaissance 6---chapel, moat, cargo_ship, improve, hideout, moneylender, silk_merchant, old_witch, spices, treasurer, star_chart, stamp_with_villager(silk_merchant), start_5_coffers
+Renaissance 7---border_guard, village, flag_bearer, patron, poacher, remodel, market, old_witch, seer, spices, star_chart, cathedral, start_double_pile(curse)
+Renaissance 8---improve, village, flag_bearer, gardens, inventor, priest, old_witch, recruiter, scholar, sculptor, crop_rotation, silos, twist_cramped
+Renaissance 9---border_guard, lackeys, moat, vassal, research, market, sculptor, seer, spices, artisan, academy, silos, stamp_with_villager(seer)
+Renaissance 10---border_guard, ducat, cargo_ship, hideout, mountain_village, research, scepter, scholar, seer, treasurer, fleet, pageant, start_with_cube(pageant), twist_cramped
+Allies 1---clashes, merchant, underling, bureaucrat, royal_galley, contract, emissary, laboratory, skirmisher, specialist, order_of_masons
+Allies 2---sycophant, townsfolk, augurs, capital_city, emissary, galleria, highwayman, hunter, laboratory, artisan, family_of_inventors, stamp_plus_buy(hunter)
+Allies 3---cellar, townsfolk, importer, sentinel, broker, carpenter, bandit, highwayman, modify, specialist, band_of_nomads, start_10_favor
+Allies 4---importer, odysseys, broker, gardens, town, council_room, emissary, laboratory, skirmisher, swap, league_of_bankers, twist_favored_landlords
+Allies 5---bauble, cellar, sycophant, forts, wizards, broker, gardens, moneylender, royal_galley, marquis, forest_dwellers, twist_turn_turn_turn
+Allies 6---sycophant, augurs, vassal, wizards, innkeeper, capital_city, contract, emissary, market, swap, forest_dwellers, stamp_plus_buy(contract), start_make_split_pile(vassal,skirmisher)
+Allies 7---moat, sycophant, townsfolk, merchant_camp, broker, courier, gardens, contract, council_room, modify, gang_of_pickpockets, start_shuffle_pile(townsfolk)
+Allies 8---augurs, merchant, underling, broker, moneylender, barbarian, emissary, library, artisan, marquis, order_of_masons, twist_turn_turn_turn
+Allies 9---forts, odysseys, vassal, wizards, bandit, contract, guildmaster, hunter, specialist, swap, city-state, stamp_plus_buy(swap)
+Allies 10---townsfolk, clashes, wizards, carpenter, innkeeper, town, capital_city, contract, highwayman, modify, order_of_astrologers, twist_favored_landlords, twist_turn_turn_turn
+Rising Sun 1---artist, aristocrat, craftsman, change, remodel, river_shrine, gold_mine, imperial_envoy, ronin, tea_house, enlightenment, sea_trade, gather
+Rising Sun 2---daimyo, workshop, change, poet, remodel, rustic_village, laboratory, rice_broker, tea_house, artisan, bureaucracy, stamp_shadowified(change)
+Rising Sun 3---mountain_shrine, fishmonger, aristocrat, craftsman, gardens, poet, river_shrine, litter, samurai, rice, growth, asceticism, practice, start_replace_estate(aristocrat)
+Rising Sun 4---daimyo, fishmonger, aristocrat, change, ninja, throne_room, kitsune, laboratory, tea_house, samurai, panic, twist_big_ideas
+Rising Sun 5---mountain_shrine, snake_witch, aristocrat, council_room, gold_mine, kitsune, mine, ronin, artisan, samurai, good_harvest, credit, twist_typhoon(harbinger, alley, change, gardens, fishmonger, chapel, sentry, merchant, rustic_village, riverboat(imperial_envoy), village, river_shrine, moat, bureaucrat, vassal, artist, smithy, witch, poacher, remodel)
+Rising Sun 6---cellar, craftsman, alley, bureaucrat, poet, river_shrine, bandit, kitsune, litter, rice_broker, rapid_expansion, kintsugi, stamp_shadowified(craftsman)
+Rising Sun 7---fishmonger, aristocrat, craftsman, poet, river_shrine, rustic_village, market, rice_broker, sentry, artisan, harsh_winter, credit, stamp_one_track_mind(credit)
+Rising Sun 8---artist, fishmonger, workshop, poet, river_shrine, bandit, festival, mine, rice_broker, samurai, harsh_winter, foresight, twist_typhoon(witch, rustic_village, gardens, mountain_shrine, village, poacher, ninja, litter, harbinger, daimyo, sentry, ronin, snake_witch, alley, library, change, craftsman, riverboat(council_room), rice, throne_room)
+Rising Sun 9---artist, aristocrat, riverboat(ronin), alley, militia, rustic_village, throne_room, council_room, gold_mine, samurai, kind_emperor, continue, stamp_shadowified(throne_room)
+Rising Sun 10---fishmonger, riverboat(witch), alley, ninja, poet, rustic_village, gold_mine, imperial_envoy, ronin, tanuki, progress, receive_tribute, stamp_fawning_service(receive_tribute), twist_typhoon(samurai, library, bureaucrat, craftsman, militia, snake_witch, poacher, rice_broker, sentry, artist, change, remodel, village, kitsune, rice, river_shrine, litter, aristocrat, vassal, harbinger)
+Intrigue 1---courtyard, lurker, vassal, conspirator, remodel, courtier, mine, torturer, upgrade, nobles
+Intrigue 2---cellar, courtyard, wishing_well, baron, gardens, mill, throne_room, duke, upgrade, farm, stamp_victorified(wishing_well)
+Intrigue 3---courtyard, merchant, steward, vassal, mill, poacher, secret_passage, courtier, minion, artisan, start_replace_estate(pawn)
+Intrigue 4---lurker, masquerade, swindler, conspirator, diplomat, mining_village, secret_passage, smithy, throne_room, nobles, start_curse_cost_3
+Intrigue 5---pawn, masquerade, steward, vassal, wishing_well, baron, laboratory, library, torturer, nobles, twist_from_the_throne
+Intrigue 6---courtyard, pawn, wishing_well, mining_village, throne_room, festival, patrol, replace, trading_post, nobles, stamp_victorified(replace)
+Intrigue 7---lurker, masquerade, merchant, baron, ironworks, mill, smithy, laboratory, sentry, farm, start_replace_copper(silver), start_replace_copper(silver), start_replace_copper(estate), start_replace_copper(estate)
+Intrigue 8---courtyard, pawn, harbinger, vassal, bureaucrat, gardens, mill, remodel, duke, trading_post, twist_from_the_throne
+Intrigue 9---cellar, pawn, steward, bridge, conspirator, gardens, ironworks, festival, mine, replace, stamp_victorified(conspirator)
+Intrigue 10---shanty_town, wishing_well, baron, bridge, mill, secret_passage, minion, replace, torturer, trading_post, twist_big_ideas, twist_from_the_throne

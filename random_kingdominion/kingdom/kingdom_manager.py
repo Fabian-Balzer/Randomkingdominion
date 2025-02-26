@@ -1,22 +1,27 @@
 """File for the KingdomManager class."""
 
 from pathlib import Path
-from typing import Any
+from typing import Any, Literal
 
 import numpy as np
 import pandas as pd
 import yaml
 
 from ..constants import (
-    FPATH_KINGDOMS_CUSTOM,
+    FPATH_KINGDOMS_CAMPAIGNS,
+    FPATH_KINGDOMS_FABI_RECSETS,
     FPATH_KINGDOMS_LAST100,
     FPATH_KINGDOMS_RECOMMENDED,
     FPATH_KINGDOMS_TGG_DAILIES,
     PATH_ASSETS,
+    PATH_MAIN,
 )
 from .kingdom import Kingdom
 
-pd.set_option("future.no_silent_downcasting", True)
+try:
+    pd.set_option("future.no_silent_downcasting", True)
+except pd.errors.OptionError:
+    pass
 
 
 def _load_tgg_winrate_data() -> dict[str, float]:
@@ -64,6 +69,54 @@ class KingdomManager:
     def __len__(self):
         return len(self.kingdoms)
 
+    def _add_kingdoms_from_txt(
+        self,
+        ftype: Literal["tgg_dailies", "fabi_recsets", "campaigns"],
+        do_assertion=True,
+    ):
+        for k in self.kingdoms:
+            if "/" in k["name"]:
+                year = k["name"][-2:]
+                k["name"] = f"20{year}-" + k["name"].replace("/", "-")[:-3]
+        with open(
+            PATH_MAIN.joinpath(f"scripts/data/new_kingdoms/{ftype}.txt"), "r"
+        ) as f:
+            dombot_descs = f.read().split("\n")[::-1]
+        has_added_kingdoms = False
+        for line in dombot_descs:
+            if line.strip() == "":
+                continue
+            name, kingdom_str = line.split("---")[:2]
+            if name in [k["name"] for k in self.kingdoms] or kingdom_str.strip() == "":
+                continue
+            has_added_kingdoms = True
+            k = Kingdom.from_dombot_csv_string(kingdom_str)
+            k.name = name
+            if len(parts := (line.split("---"))) > 2:
+                if ftype == "fabi_recsets":
+                    k.notes = '{"Comment": "' + parts[2] + '"'
+                    if len(parts) > 3:
+                        k.notes += ', "Previous Results": "' + parts[3] + '"'
+                else:
+                    notes = parts[2]
+                    k.notes += notes
+            try:
+                assert k.is_valid, f"{k.name}, {k.cards}, {k.notes}"
+            except AssertionError as e:
+                if do_assertion:
+                    raise (e)
+                print(f"Unrecognized: {k.name}, {k.cards}, {k.notes}")
+            self.kingdoms.insert(0, k.get_dict_repr())
+            print(f"Added {k.name}")
+        if not has_added_kingdoms:
+            return
+        savepath = {
+            "tgg_dailies": FPATH_KINGDOMS_TGG_DAILIES,
+            "fabi_recsets": FPATH_KINGDOMS_FABI_RECSETS,
+            "campaigns": FPATH_KINGDOMS_CAMPAIGNS,
+        }[ftype]
+        self.save_kingdoms_to_yaml(savepath)
+
     def load_expansions(self):
         for kingdom in self.kingdoms:
             try:
@@ -109,6 +162,10 @@ class KingdomManager:
             return None
         return Kingdom.from_dict(kingdom_info)
 
+    def get_kingdom_by_index(self, kingdom_index: int) -> Kingdom:
+        """Try to recover the given kingdom by its index."""
+        return Kingdom.from_dict(self.kingdoms[kingdom_index])
+
     def get_kingdom_by_id(self, kingdom_id: int) -> Kingdom | None:
         """Try to recover the given kingdom by its ID."""
         kingdom_info = next(
@@ -129,14 +186,29 @@ class KingdomManager:
     def load_recommended_kingdoms(self):
         self.load_kingdoms_from_yaml(FPATH_KINGDOMS_RECOMMENDED)
 
-    def load_tgg_dailies(self):
+    def load_tgg_dailies(self, reload=False):
         self.load_kingdoms_from_yaml(FPATH_KINGDOMS_TGG_DAILIES)
+        if reload:
+            self._add_kingdoms_from_txt("tgg_dailies")
         win_data = _load_tgg_winrate_data()
         for k in self.kingdoms:
             k["winrate"] = _add_winrate(k["name"], win_data)
 
-    def load_custom_kingdoms(self):
-        self.load_kingdoms_from_yaml(FPATH_KINGDOMS_CUSTOM)
+    def load_fabi_recsets_kingdoms(self, reload=False):
+        self.load_kingdoms_from_yaml(FPATH_KINGDOMS_FABI_RECSETS)
+        if reload:
+            self._add_kingdoms_from_txt("fabi_recsets")
+
+    def load_campaigns(self, reload=False, do_assertion=True, curated_only=False):
+        self.load_kingdoms_from_yaml(FPATH_KINGDOMS_CAMPAIGNS)
+        if curated_only:
+            self.kingdoms = [
+                kingdom
+                for kingdom in self.kingdoms
+                if not kingdom.get("is_grand_campaign", False)
+            ]
+        if reload:
+            self._add_kingdoms_from_txt("campaigns", do_assertion=do_assertion)
 
     def save_last_100_kingdoms(self):
         if not self.in_last_kingdom_mode:
