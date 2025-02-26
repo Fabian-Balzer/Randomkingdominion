@@ -10,6 +10,7 @@
   "Broker": 1,
   "Bustling Village": 3,
   "Capital City": 2,
+  "Capitalism": 1,
   "Captain": 2,
   "Champion": 3,
   "Citadel": 1,
@@ -132,5 +133,15 @@
   "Kitsune": 2,
   "Divine Wind": 1,
   "Aristocrat": 2,
-  "Litter": 2
+  "Litter": 2,
+  "Action Way": 1,
+  "Durationified": 1,
+  "Plus Action": 1,
+  "Reactionified": 2,
+  "Treasurified": 1,
+  "With Villager": 1,
+  "Busy Busy": 2,
+  "Fast Track": 1,
+  "From the Throne": 2,
+  "10 Villagers": 1
 }

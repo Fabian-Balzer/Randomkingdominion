@@ -10,6 +10,7 @@
   "Broker": ["On-trash"],
   "Bustling Village": ["Handsize-neutral+"],
   "Capital City": ["Handsize-neutral"],
+  "Capitalism": ["Special"],
   "Captain": ["Special"],
   "Cemetery": ["Throne", "Single"],
   "Champion": ["Special"],
@@ -76,7 +77,6 @@
   "Mining Village": ["Handsize-neutral"],
   "Mountain Village": ["Handsize-neutral"],
   "Native Village": ["Handsize-decreasing", "Handsize-neutral*"],
-  "Handsize-decreasing": ["Single"],
   "Nobles": ["Handsize-decreasing"],
   "Paddock": ["Special"],
   "Page": ["Special"],
@@ -133,5 +133,15 @@
   "Kitsune": ["Handsize-decreasing"],
   "Divine Wind": ["Special"],
   "Aristocrat": ["Handsize-neutral", "Handsize-decreasing"],
-  "Litter": ["Handsize-neutral"]
+  "Litter": ["Handsize-neutral"],
+  "Action Way": ["Special"],
+  "Durationified": ["Special"],
+  "Plus Action": ["Special"],
+  "Reactionified": ["Special", "On-gain"],
+  "Treasurified": ["Special"],
+  "With Villager": ["On-gain", "Villagers"],
+  "Busy Busy": ["Single"],
+  "Fast Track": ["On-gain"],
+  "From the Throne": ["Single", "Throne"],
+  "10 Villagers": ["Villagers"]
 }

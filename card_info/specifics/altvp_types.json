@@ -129,5 +129,11 @@
   "Odysseys": ["Plain"],
   "Catapult/Rocks": ["Cursing"],
   "Encampment/Plunder": ["VP Chips"],
-  "Patrician/Emporium": ["VP Chips"]
+  "Patrician/Emporium": ["VP Chips"],
+  "Also Respect": ["VP Chips"],
+  "Double VP": ["Plain"],
+  "Victorified": ["Plain"],
+  "Double VP Tokens": ["VP Chips"],
+  "Plus 2 VP Tokens": ["VP Chips"],
+  "Plus 8 VP Tokens": ["VP Chips"]
 }

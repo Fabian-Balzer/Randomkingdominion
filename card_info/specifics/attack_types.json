@@ -110,5 +110,7 @@
   "Divine Wind": ["Indirect"],
   "Samurai": ["Handsize"],
   "Snake Witch": ["Junking", "Scoring"],
-  "Harsh Winter": ["Indirect"]
+  "Harsh Winter": ["Indirect"],
+  "Cramped": ["Handsize"],
+  "Also Plague": ["Junking", "Scoring"]
 }
