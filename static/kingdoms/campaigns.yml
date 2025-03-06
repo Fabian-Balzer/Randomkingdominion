@@ -3301,11 +3301,23 @@
   - way_of_the_ox
   name: Menagerie 9
   notes:
+    name: Out-Displaced
+    subtitle: AI's Province Rush Is Too Fast For Us On The First Attempt
     crucial_cards:
+      - Displace
       - Chapel
       - Supplies
-      - Smithy
       - Snowy Village
+    ending:
+      - Province
+      - Supplies
+    tries: 2
+    points:
+      - 34
+      - 30
+    turns:
+      - 12
+      - 11
   stamps_and_effects:
   - - with_horse
     - supplies

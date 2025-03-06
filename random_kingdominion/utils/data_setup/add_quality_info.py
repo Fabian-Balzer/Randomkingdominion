@@ -1,10 +1,10 @@
 import json
-from collections import defaultdict
-from functools import reduce
 
 import pandas as pd
 
 from ...constants import PATH_CARD_INFO, QUALITIES_AVAILABLE
+from ...kingdom import sanitize_cso_name
+from ...logger import LOGGER
 from ...utils.utils import ask_file_overwrite
 
 
@@ -30,11 +30,25 @@ def get_specific_info(
         fpath = PATH_CARD_INFO.joinpath(f"specifics/{info_type}.json")
         with fpath.open("r", encoding="utf-8") as f:
             data = json.load(f)
-            quality_dict = defaultdict(lambda: default_value, data)
+            quality_dict = {sanitize_cso_name(k): v for k, v in data.items()}
     except FileNotFoundError:
-        print(f"Couldn't find the {info_type} file, skipped adding that info.")
+        LOGGER.info(f"Couldn't find the {info_type} file, skipped adding that info.")
         return default_value
-    return quality_dict[cso]
+    return quality_dict.get(sanitize_cso_name(cso), default_value)
+
+
+def check_usage_of_qualities(names: pd.Series, info_type: str):
+    """Check if all entries in the names series have a quality info."""
+    fpath = PATH_CARD_INFO.joinpath(f"specifics/{info_type}.json")
+    with fpath.open("r", encoding="utf-8") as f:
+        quality_dict = json.load(f)
+    diff = set([sanitize_cso_name(k) for k in quality_dict.keys()]).difference(
+        set(names.apply(sanitize_cso_name))
+    )
+    if diff:
+        LOGGER.warning(
+            f"The following entries in the {info_type} file are not used: {diff}"
+        )
 
 
 def add_quality_info(df: pd.DataFrame) -> pd.DataFrame:
@@ -46,4 +60,5 @@ def add_quality_info(df: pd.DataFrame) -> pd.DataFrame:
         df[info_type] = df["Name"].apply(
             lambda name: get_specific_info(name, info_type, default_value)
         )
+        check_usage_of_qualities(df["Name"], info_type)
     return df

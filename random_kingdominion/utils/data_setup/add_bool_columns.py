@@ -54,6 +54,9 @@ def test_in_supply(df):
         "Ruins",
         "Zombie",
         "Shelter",
+        "Stamp",
+        "Twist",
+        "Setup Effect",
     ]
     typelist += SPLIT_CARD_TYPES
     # Some cards that are explicitly not part of the kingdom supply

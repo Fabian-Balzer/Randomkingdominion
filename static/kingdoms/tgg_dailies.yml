@@ -1,4 +1,357 @@
 - cards:
+  - anvil
+  - apprentice
+  - bishop
+  - charlatan
+  - crystal_ball
+  - grand_market
+  - hoard
+  - peddler
+  - rabble
+  - university
+  expansions:
+  - Alchemy
+  - Prosperity, 2E
+  idx: 118028168822083604636430021193637901286
+  name: '2025-03-06'
+  use_colonies: true
+  notes:
+    name: Peddling Apprenticeship
+    subtitle: Trashing Good And Bad Cards Alike To Feed The Apprentices
+    crucial_cards:
+      - Peddler
+      - University
+      - Grand Market
+      - Apprentice
+    ending:
+      - Curse
+      - Peddler
+      - Apprentice
+    points:
+      - 15
+      - 8
+    turns:
+      - 15
+      - 14
+    link: https://youtu.be/stMuHO2HfKQ
+- cards:
+  - barbarian
+  - cavalry
+  - contract
+  - gatekeeper
+  - groom
+  - importer
+  - kiln
+  - town
+  - townsfolk
+  - wizards
+  expansions:
+  - Allies
+  - Menagerie
+  idx: 142913225397864266464446372389569716845
+  landscapes:
+  - gamble
+  - order_of_astrologers
+  - way_of_the_turtle
+  name: '2025-03-05'
+  notes:
+    crucial_cards:
+    - Groom
+    - Town
+    - Way Of the Turtle
+    - Gamble
+    ending:
+    - Groom
+    - Town
+    - Estate
+    link: https://youtu.be/5aDcfMznMNI
+    name: Gambling In Groom Town
+    points:
+    - 26
+    - 18
+    subtitle: A Kingdom Seemingly Light On Draw Carried By The Presence Of Groom
+    turns:
+    - 12
+    - 11
+- cards:
+  - bishop
+  - charlatan
+  - clerk
+  - expand
+  - investment
+  - monument
+  - quarry
+  - tiara
+  - war_chest
+  - workers_village
+  expansions:
+  - Prosperity, 2E
+  idx: 307806087404486918702911440362610515719
+  name: '2025-03-04'
+  notes:
+    crucial_cards:
+    - Platinum
+    - Tiara
+    - Charlatan
+    - Expand
+    ending:
+    - Colony
+    - Curse
+    link: https://youtu.be/ZGGkG8wKn80
+    name: Drawless Sadness
+    points:
+    - 55
+    - 43
+    subtitle: A Moneyish Kingdom Finally Breaks Our 28-Day Streak
+    tries: 3
+    turns:
+    - 24
+    - 23
+  use_colonies: true
+- cards:
+  - hunting_grounds
+  - junk_dealer
+  - knights
+  - laboratory
+  - market_square
+  - poor_house
+  - remodel
+  - scavenger
+  - sentry
+  - throne_room
+  expansions:
+  - Base, 2E
+  - Dark Ages
+  idx: 171574217546307782190183895212753893996
+  name: '2025-03-03'
+  notes:
+    crucial_cards:
+    - Market Square
+    - Remodel
+    - Hunting Grounds
+    - Laboratory
+    ending:
+    - Province
+    link: https://youtu.be/IEYuUNH2m7M
+    name: Hunting On The Edge
+    points:
+    - 27
+    - 24
+    subtitle: In Which We Spectacularly Fail Trying To End It But Still Somehow Don't
+      Lose
+    turns:
+    - 14
+    - 13
+- campaign_effects:
+  - head_start
+  - replace_estate
+  cards:
+  - farrier
+  - forager
+  - fortress
+  - forum
+  - kings_court
+  - lurker
+  - rogue
+  - souk
+  - transmogrify
+  - warehouse
+  expansions:
+  - Adventures
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Prosperity, 2E
+  - Rising Sun
+  - Seaside, 2E
+  idx: 94034788306835254077185745068514059904
+  landscapes:
+  - continue
+  - tomb
+  name: '2025-03-02'
+  notes:
+    crucial_cards:
+    - Lurker
+    - Transmogrify
+    - Souk
+    - Kings Court
+    ending:
+    - Transmogrify
+    - Lurker
+    - Fortress
+    link: https://youtu.be/DvaPNLE3KC4
+    name: Lurking Around Souks
+    points:
+    - 52
+    - 15
+    subtitle: Campaign Sundays Do Not Disappoint, Wow
+    turns:
+    - 5
+    - 4
+  stamps_and_effects:
+  - - replace_estate
+    - lurker
+  use_colonies: true
+  use_shelters: true
+- cards:
+  - conspirator
+  - crystal_ball
+  - goatherd
+  - harem_farm
+  - leprechaun
+  - masquerade
+  - philosophers_stone
+  - rice
+  - tanuki
+  - watchtower
+  expansions:
+  - Alchemy
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Prosperity, 2E
+  - Rising Sun
+  idx: 176170416252068966211039144965854670029
+  landscapes:
+  - wedding
+  name: '2025-03-01'
+  notes:
+    crucial_cards:
+    - Masquerade
+    - Tanuki
+    - Platinum
+    - Rice
+    ending:
+    - Colony
+    link: https://youtu.be/U1zQUWbSRjE
+    name: Money Money
+    points:
+    - 67
+    - 59
+    subtitle: Gold, Platina, Rice, Even Farm - We Got ''Em All
+    turns:
+    - 19
+    - 19
+  use_colonies: true
+- cards:
+  - golem
+  - groom
+  - kiln
+  - litter
+  - mastermind
+  - poet
+  - rice
+  - snowy_village
+  - tanuki
+  - university
+  expansions:
+  - Alchemy
+  - Menagerie
+  - Rising Sun
+  idx: 322246274474234347496973726151732262702
+  landscapes:
+  - bureaucracy
+  - way_of_the_sheep
+  name: '2025-02-28'
+  notes:
+    crucial_cards:
+    - Poet
+    - Bureaucracy
+    - Tanuki
+    - Way Of The Sheep
+    ending:
+    - Province
+    - Poet
+    link: https://youtu.be/frMkMuxn_go
+    name: Bureaucratic Poetry
+    points:
+    - 32
+    - 18
+    subtitle: Bureaucracy Once Again Flipping The Kingdom Around
+    turns:
+    - 13
+    - 12
+- cards:
+  - blessed_village
+  - charm
+  - den_of_sin
+  - faithful_hound
+  - farmers_market
+  - ghost_town
+  - legionary
+  - raider
+  - secret_cave
+  - tormentor
+  expansions:
+  - Empires
+  - Nocturne
+  idx: 304029000439658298537387445504773481486
+  landscapes:
+  - banquet
+  - tomb
+  name: '2025-02-27'
+  notes:
+    crucial_cards:
+    - Den Of Sin
+    - Farmers Market
+    - Ghost Town
+    - Magic Lamp
+    ending:
+    - Province
+    - Ghost Town
+    - Den Of Sin
+    link: https://youtu.be/p3l6d1D53jY
+    name: Secret Sins
+    points:
+    - 50
+    - 44
+    subtitle: Almost Loosing To Banquet Spam...
+    turns:
+    - 18
+    - 17
+- cards:
+  - cobbler
+  - devils_workshop
+  - giant
+  - peasant
+  - ranger
+  - ratcatcher
+  - sacred_grove
+  - skulk
+  - swamp_hag
+  - tormentor
+  expansions:
+  - Adventures
+  - Nocturne
+  idx: 68337412147331342963725444833434352977
+  landscapes:
+  - alms
+  - quest
+  name: '2025-02-26'
+  notes:
+    crucial_cards:
+    - Disciple
+    - Ranger
+    - Ratcatcher
+    - Skulk
+    ending:
+    - Province
+    - Duchy
+    - Ranger
+    - Skulk
+    link: https://youtu.be/dxb0-kEq680
+    name: Rangers In Action
+    points:
+    - 38
+    - 34
+    subtitle: A Nice Clash Of A Fast And Nasty Money Strat Vs. Engine
+    turns:
+    - 17
+    - 16
+- cards:
   - bridge_troll
   - dungeon
   - giant
@@ -17,24 +370,24 @@
   - quest
   name: '2025-02-25'
   notes:
-    name: Troll Mission
-    subtitle: In Which There Are Many Tiny Impactful Decisions
     crucial_cards:
-      - Bridge Troll
-      - Raze
-      - Mission
-      - Treasure Hunter
-    points:
-      - 21
-      - 9
-    turns:
-      - 13
-      - 12
+    - Bridge Troll
+    - Raze
+    - Mission
+    - Treasure Hunter
     ending:
-      - Duchy
-      - Bridge Troll
-      - Lost City
+    - Duchy
+    - Bridge Troll
+    - Lost City
     link: https://youtu.be/Jo65l3b3fGk
+    name: Troll Mission
+    points:
+    - 21
+    - 9
+    subtitle: In Which There Are Many Tiny Impactful Decisions
+    turns:
+    - 13
+    - 12
 - cards:
   - artisan
   - cellar

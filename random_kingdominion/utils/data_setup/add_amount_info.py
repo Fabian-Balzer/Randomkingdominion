@@ -2,10 +2,7 @@ from functools import reduce
 
 import pandas as pd
 
-from ...constants import (
-    ROTATOR_DICT,
-    SPLITPILE_DICT,
-)
+from ...constants import ROTATOR_DICT, SPLITPILE_DICT
 
 
 def _determine_amount(cso: pd.Series) -> str:
@@ -31,6 +28,11 @@ def _determine_amount(cso: pd.Series) -> str:
     isartifact = "Artifact" in cso.Types
     isally = "Ally" in cso.Types
     isprize = ("Prize" in cso.Types) or ("Reward" in cso.Types)
+    isEffect = (
+        ("Stamp" in cso.Types)
+        or ("Twist" in cso.Types)
+        or ("Setup Effect") in cso.Types
+    )
     isProphecy = "Prophecy" in cso.Types
     iszombie = "Zombie" in cso.Name
     if any(
@@ -40,6 +42,7 @@ def _determine_amount(cso: pd.Series) -> str:
             isknight,
             isartifact,
             isally,
+            isEffect,
             isprize,
             iszombie,
             isProphecy,

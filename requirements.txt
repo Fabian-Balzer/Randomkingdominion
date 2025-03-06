@@ -5,3 +5,5 @@ numpy
 matplotlib
 PyYAML
 st-copy-to-clipboard
+scipy
+streamlit-extras

@@ -1,0 +1,567 @@
+import pandas as pd
+
+
+def add_campaign_effects(df: pd.DataFrame) -> pd.DataFrame:
+
+    effect_dict: dict[str, dict] = {
+        "Busy Busy": {
+            "Name": "Busy Busy",
+            "Text": "At the start of your turn, |+1 Action|.",
+            "Types": "Twist",
+            "Expansion": "Base",
+        },
+        "Shoppers": {
+            "Name": "Shoppers",
+            "Text": "At the start of your turn, |+1 Buy|.",
+            "Types": "Twist",
+            "Expansion": "Base",
+        },
+        "Extra Oomph": {
+            "Name": "Extra Oomph",
+            "Text": "At the start of your turn, |+[1]|.",
+            "Types": "Twist",
+            "Expansion": "Base",
+        },
+        "Big Ideas": {
+            "Name": "Big Ideas",
+            "Text": "At the start of your turn, |+1 Card|.",
+            "Types": "Twist",
+            "Expansion": "Base",
+        },
+        "Penny Party": {
+            "Name": "Penny Party",
+            "Text": "At the start of your turn, gain a Copper.",
+            "Types": "Twist",
+            "Expansion": "Base",
+        },
+        "Landfill": {
+            "Name": "Landfill",
+            "Text": "When you trash one of your cards, +1 Card.",
+            "Types": "Twist",
+            "Expansion": "Base",
+        },
+        "Rebates": {
+            "Name": "Rebates",
+            "Text": "When you gain a card, |+[1]|.",
+            "Types": "Twist",
+            "Expansion": "Base",
+        },
+        "So much Stuff": {
+            "Name": "So much Stuff",
+            "Text": "Gain non-supply copy of the first card you play each turn.",
+            "Types": "Twist",
+            "Expansion": "Base",
+        },
+        "From the Throne": {
+            "Name": "From the Throne",
+            "Text": "The first Action you play each turn is played twice.",
+            "Types": "Twist",
+            "Expansion": "Base",
+        },
+        "Head Start": {
+            "Name": "Head Start",
+            "Text": "Human gets 2 extra turns at start. //AI gets +10 VP tokens.",
+            "Types": "Twist",
+            "Expansion": "Prosperity",
+        },
+        "Beakers": {
+            "Name": "Beakers",
+            "Text": "Potion-resource stays until used, like Coffers.",
+            "Types": "Twist",
+            "Expansion": "Alchemy",
+        },
+        "Sale": {
+            "Name": "Sale",
+            "Text": "Cards cost [1] less.",
+            "Types": "Twist",
+            "Expansion": "Base",
+        },
+        "Room for More": {
+            "Name": "Room for More",
+            "Text": "Add a kingdom card pile to the Supply.",
+            "Types": "Twist",
+            "Expansion": "Base",
+        },
+        "Incoming": {
+            "Name": "Incoming",
+            "Text": "Actions/Treasures are topdecked when gained (not optional).",
+            "Types": "Twist",
+            "Expansion": "Base",
+        },
+        "Garbage Heap": {
+            "Name": "Garbage Heap",
+            "Text": "At the start of your turn, you may trash a card from your hand.",
+            "Types": "Twist",
+            "Expansion": "Base",
+        },
+        "Pennies Saved": {
+            "Name": "Pennies Saved",
+            "Text": "At the end of your Buy phase, convert your [] to Coffers.",
+            "Types": "Twist",
+            "Expansion": "Cornucopia & Guilds, 2E",
+        },
+        "Fast Track": {
+            "Name": "Fast Track",
+            "Text": "When you gain a Duration or Reserve card, set it aside, and play it at the start of the next Clean-up.",
+            "Types": "Twist",
+            "Expansion": "Adventures",
+        },
+        "Delayed Joy": {
+            "Name": "Delayed Joy",
+            "Text": "All Boons can be saved for next turn.",
+            "Types": "Twist",
+            "Expansion": "Nocturne",
+        },
+        "Cramped": {
+            "Name": "Cramped",
+            "Text": "Hands are 4 cards instead of 5.",
+            "Types": "Twist",
+            "Expansion": "Base",
+        },
+        "Double Up": {
+            "Name": "Double Up",
+            "Text": "The first time you gain an Action/Treasure each turn, gain a non-supply copy of it.",
+            "Types": "Twist",
+            "Expansion": "Base",
+        },
+        "Turn Turn Turn": {
+            "Name": "Turn Turn Turn",
+            "Text": "At the start of the human's turn, after the first, rotate all split piles.",
+            "Types": "Twist",
+            "Expansion": "Allies",
+        },
+        "Mirror Loot": {
+            "Name": "Mirror Loot",
+            "Text": "All Loots are the same.",
+            "Types": "Twist",
+            "Expansion": "Plunder",
+        },
+        "Typhoon": {
+            "Name": "Typhoon",
+            "Text": "Replaces a pile at the start of the human's turn.",
+            "Types": "Twist",
+            "Expansion": "Base",
+        },
+        "Real Estate Barons": {
+            "Name": "Real Estate Barons",
+            "Text": "You can use VP Tokens as Coffers.",
+            "Types": "Twist",
+            "Expansion": "Prosperity",
+        },
+        "Favored Landlords": {
+            "Name": "Favored Landlords",
+            "Text": "When you gain a Victory card, |+1 Favor|.",
+            "Types": "Twist",
+            "Expansion": "Allies",
+        },
+        "Favored Wealthy": {
+            "Name": "Favored Wealthy",
+            "Text": "When you gain a Treasure, |+1 Favor|.",
+            "Types": "Twist",
+            "Expansion": "Allies",
+        },
+        "Forever Favored": {
+            "Name": "Forever Favored",
+            "Text": "At the start of each of your turns, |+1 Favor|.",
+            "Types": "Twist",
+            "Expansion": "Allies",
+        },
+        "Offers Insight": {
+            "Name": "Offers Insight",
+            "Text": "When you gain this, |+1 Card| at end of turn.",
+            "Types": "Stamp",
+            "Expansion": "Base",
+        },
+        "Two For One": {
+            "Name": "Two For One",
+            "Text": "This costs [1] more, and comes with a 2nd copy not from the pile.",
+            "Types": "Stamp",
+            "Expansion": "Base",
+        },
+        "Discounted": {
+            "Name": "Discounted",
+            "Text": "This costs [1] less.",
+            "Types": "Stamp",
+            "Expansion": "Base",
+        },
+        "Victorified": {
+            "Name": "Victorified",
+            "Text": "This is also a Victory card, worth {1}.",
+            "Types": "Stamp",
+            "Expansion": "Intrigue",
+        },
+        "Durationified": {
+            "Name": "Durationified",
+            "Text": 'This is also a Duration, with "at the start of your next turn, |+1 Card| and |+1 Action|."',
+            "Types": "Stamp",
+            "Expansion": "Plunder",
+        },
+        "Treasurified": {
+            "Name": "Treasurified",
+            "Text": "This is also a Treasure.",
+            "Types": "Stamp",
+            "Expansion": "Plunder",
+        },
+        "Shadowified": {
+            "Name": "Shadowified",
+            "Text": "This is also a Shadow. You can be play this from your deck as if in your hand. When shuffling this, put it at the bottom of your deck.",
+            "Types": "Stamp",
+            "Expansion": "Rising Sun",
+        },
+        "Reactionified": {
+            "Name": "Reactionified",
+            "Text": 'This is also a Reaction, with "When you gain, trash, or discard this, other than in Clean-up, you may play it."',
+            "Types": "Stamp",
+            "Expansion": "Hinterlands",
+        },
+        "Plus Buy": {
+            "Name": "Plus Buy",
+            "Text": "|+1 Buy| when you play a card from this pile.",
+            "Types": "Stamp",
+            "Expansion": "Base",
+        },
+        "Plus Coin": {
+            "Name": "Plus Coin",
+            "Text": "|+[1]| when you play a card from this pile.",
+            "Types": "Stamp",
+            "Expansion": "Base",
+        },
+        "Plus Action": {
+            "Name": "Plus Action",
+            "Text": "|+1 Action| when you play a card from this pile.",
+            "Types": "Stamp",
+            "Expansion": "Base",
+        },
+        "Plus Card": {
+            "Name": "Plus Card",
+            "Text": "|+1 Card| when you play a card from this pile.",
+            "Types": "Stamp",
+            "Expansion": "Base",
+        },
+        "Chameleonize": {
+            "Name": "Chameleonize",
+            "Text": "|+[]| instead of |+Cards| and vice-versa.",
+            "Types": "Stamp",
+            "Expansion": "Menagerie",
+        },
+        "With Spoils": {
+            "Name": "With Spoils",
+            "Text": "When you gain this, gain a Spoils.",
+            "Types": "Stamp",
+            "Expansion": "Dark Ages",
+        },
+        "With Villager": {
+            "Name": "With Villager",
+            "Text": "When you gain this, |+1 Villager|.",
+            "Types": "Stamp",
+            "Expansion": "Renaissance",
+        },
+        "With Horse": {
+            "Name": "With Horse",
+            "Text": "When you gain this, gain a Horse.",
+            "Types": "Stamp",
+            "Expansion": "Menagerie",
+        },
+        "Pay Later": {
+            "Name": "Pay Later",
+            "Text": "This card's cost becomes Debt.",
+            "Types": "Stamp",
+            "Expansion": "Empires",
+        },
+        "Got It Already": {
+            "Name": "Got It Already",
+            "Text": "Automatically buy this Event for free on your first turn.",
+            "Types": "Stamp",
+            "Expansion": "Adventures",
+        },
+        "Bonus Money": {
+            "Name": "Bonus Money",
+            "Text": "|+[1]| when buying this Event.",
+            "Types": "Stamp",
+            "Expansion": "Adventures",
+        },
+        "One Track Mind": {
+            "Name": "One Track Mind",
+            "Text": "Automatically buy this Event for free at the start of each Buy phase.",
+            "Types": "Stamp",
+            "Expansion": "Plunder",
+        },
+        "Fawning Service": {
+            "Name": "Fawning Service",
+            "Text": "Automatically buy this Event for free when gaining a Province.",
+            "Types": "Stamp",
+            "Expansion": "Plunder",
+        },
+        "Cost 2 Less": {
+            "Name": "Cost 2 Less",
+            "Text": "This Event costs [2] less.",
+            "Types": "Stamp",
+            "Expansion": "Adventures",
+        },
+        "Cost Zero": {
+            "Name": "Cost Zero",
+            "Text": "This Event costs [0].",
+            "Types": "Stamp",
+            "Expansion": "Adventures",
+        },
+        "Cost 2D Less": {
+            "Name": "Cost 2D Less",
+            "Text": "This Event costs [2D] less.",
+            "Types": "Stamp",
+            "Expansion": "Empires",
+        },
+        "Double VP": {
+            "Name": "Double VP",
+            "Text": "This Landmark is worth double {}.",
+            "Types": "Stamp",
+            "Expansion": "Empires",
+        },
+        "Motivational": {
+            "Name": "Motivational",
+            "Text": "When you buy this Event, |+2 Cards| at end of turn.",
+            "Types": "Stamp",
+            "Expansion": "Adventures",
+        },
+        "Perks of Wealth": {
+            "Name": "Perks of Wealth",
+            "Text": "When you gain a Gold, do this Event.",
+            "Types": "Stamp",
+            "Expansion": "Adventures",
+        },
+        "Also Silver": {
+            "Name": "Also Silver",
+            "Text": "When you buy this Event, gain a Silver.",
+            "Types": "Stamp",
+            "Expansion": "Adventures",
+        },
+        "Allow Second Cube": {
+            "Name": "Allow Second Cube",
+            "Text": "You can place a second cube on this Project for double the effect.",
+            "Types": "Stamp",
+            "Expansion": "Renaissance",
+        },
+        "Plus Coin": {
+            "Name": "Plus Coin",
+            "Text": "|+[1]| when you play this card.",
+            "Types": "Stamp",
+            "Expansion": "Base",
+        },
+        "Action Way": {
+            "Name": "Action Way",
+            "Text": "|+1 Action| when you play a card using this Way.",
+            "Types": "Stamp",
+            "Expansion": "Menagerie",
+        },
+        "Coin Way": {
+            "Name": "Coin Way",
+            "Text": "|+[1]| when you play a card using this Way.",
+            "Types": "Stamp",
+            "Expansion": "Menagerie",
+        },
+        "Also Gold": {
+            "Name": "Also Gold",
+            "Text": "When this Prophecy occurs, each player gains 3 Gold, not from the pile.",
+            "Types": "Stamp",
+            "Expansion": "Rising Sun",
+        },
+        "Also Plague": {
+            "Name": "Also Plague",
+            "Text": "When this Prophecy occurs, each player gains 3 Curses, not from the pile.",
+            "Types": "Stamp",
+            "Expansion": "Rising Sun",
+        },
+        "Also Debt": {
+            "Name": "Also Debt",
+            "Text": "When this Prophecy occurs, each player gets |+[5D]|.",
+            "Types": "Stamp",
+            "Expansion": "Rising Sun",
+        },
+        "Also Respect": {
+            "Name": "Also Respect",
+            "Text": "When this Prophecy occurs, each player gets |+{}| equal to their current {}.",
+            "Types": "Stamp",
+            "Expansion": "Rising Sun",
+        },
+        "Native Village Mat": {
+            "Name": "Native Village Mat",
+            "Text": "Setup: Put a non-supply copy of the specified card onto your Native Village Mat.",
+            "Types": "Setup Effect",
+            "Expansion": "Seaside",
+        },
+        "Tavern": {
+            "Name": "Tavern",
+            "Text": "Setup: Put a non-supply copy of the specified card onto your Tavern Mat.",
+            "Types": "Setup Effect",
+            "Expansion": "Adventures",
+        },
+        "Double Pile": {
+            "Name": "Double Pile",
+            "Text": "Setup: Double the amount of cards in the specified pile.",
+            "Types": "Setup Effect",
+            "Expansion": "Base",
+        },
+        "Triple Pile": {
+            "Name": "Triple Pile",
+            "Text": "Setup: Triple the amount of cards in the specified pile.",
+            "Types": "Setup Effect",
+            "Expansion": "Base",
+        },
+        "Double Deck": {
+            "Name": "Double Deck",
+            "Text": "Setup: Each player starts with a doubled starting deck, i.e., 14 Coppers and 6 Estates in the standard case.",
+            "Types": "Setup Effect",
+            "Expansion": "Base",
+        },
+        "Add Each Pile": {
+            "Name": "Add Each Pile",
+            "Text": "Setup: In addition to the normal starting cards, each player starts with a non-supply copy of each kingdom pile card in their deck.",
+            "Types": "Setup Effect",
+            "Expansion": "Base",
+        },
+        "Add Card": {
+            "Name": "Add Card",
+            "Text": "Setup: The specified Card is added to each player's starting deck.",
+            "Types": "Setup Effect",
+            "Expansion": "Base",
+        },
+        "Replace Copper": {
+            "Name": "Replace Copper",
+            "Text": "Setup: Each player starts with one of their starting Coppers replaced by a non-supply copy of the specified card.",
+            "Types": "Setup Effect",
+            "Expansion": "Base",
+        },
+        "Replace Estate": {
+            "Name": "Replace Estate",
+            "Text": "Setup: Each player starts with one of their starting Estate replaced by a non-supply copy of the specified card.",
+            "Types": "Setup Effect",
+            "Expansion": "Base",
+        },
+        "Replace Estate From Pile": {
+            "Name": "Replace Estate From Pile",
+            "Text": "Setup: Each player starts with one of their starting Estate replaced by a Supply copy of the specified card.",
+            "Types": "Setup Effect",
+            "Expansion": "Base",
+        },
+        "Trash Pile": {
+            "Name": "Trash Pile",
+            "Text": "Setup: The Trash starts with an extra pile of the specified card.",
+            "Types": "Setup Effect",
+            "Expansion": "Base",
+        },
+        "Trash Curses": {
+            "Name": "Trash Curses",
+            "Text": "Setup: The Trash starts with an extra pile of Curses.",
+            "Types": "Setup Effect",
+            "Expansion": "Base",
+        },
+        "5 Coffers": {
+            "Name": "5 Coffers",
+            "Text": "Setup: Each player starts with 5 Coffers.",
+            "Types": "Setup Effect",
+            "Expansion": "Guilds",
+        },
+        "10 Villagers": {
+            "Name": "10 Villagers",
+            "Text": "Setup: Each player starts with 10 Villagers.",
+            "Types": "Setup Effect",
+            "Expansion": "Renaissance",
+        },
+        "10 Favor": {
+            "Name": "10 Favor",
+            "Text": "Setup: Each player starts with 10 Favor tokens.",
+            "Types": "Setup Effect",
+            "Expansion": "Allies",
+        },
+        "With Cube": {
+            "Name": "With Cube",
+            "Text": "Setup: Each player starts with a Project Cube on the specified Project.",
+            "Types": "Setup Effect",
+            "Expansion": "Renaissance",
+        },
+        "Journey Facedown": {
+            "Name": "Journey Facedown",
+            "Text": "Setup: Each player starts with their Journey token face down.",
+            "Types": "Setup Effect",
+            "Expansion": "Adventures",
+        },
+        # "Starting Suns": {
+        #     "Name": "Starting Suns",
+        #     "Text": "Setup: The Prophecy now starts with the specified amount of Sun tokens (instead of the usual 5).",
+        #     "Types": "Setup Effect",
+        #     "Expansion": "Rising Sun",
+        # },
+        "Make Split Pile": {
+            "Name": "Make Split Pile",
+            "Text": "Setup: The last 5 cards of the first pile are replaced with 5 cards of the second pile.",
+            "Types": "Setup Effect",
+            "Expansion": "Empires",
+        },
+        "Shuffle Pile": {
+            "Name": "Shuffle Pile",
+            "Text": "Setup: The specified split pile is shuffled at the start of the game.",
+            "Types": "Setup Effect",
+            "Expansion": "Empires",
+        },
+        "Double Heirloom": {
+            "Name": "Double Heirloom",
+            "Text": "Setup: The specified card comes with two Heirlooms that replace starting coppers.",
+            "Types": "Setup Effect",
+            "Expansion": "Nocturne",
+        },
+        "Same Reward": {
+            "Name": "Same Reward",
+            "Text": "Setup: All Rewards are the same.",
+            "Types": "Setup Effect",
+            "Expansion": "Cornucopia & Guilds, 2E",
+        },
+        "Multitrait": {
+            "Name": "Multitrait",
+            "Text": "Setup: The specified Trait applies to all the specified cards.",
+            "Types": "Setup Effect",
+            "Expansion": "Plunder",
+        },
+        "In Play": {
+            "Name": "In Play",
+            "Text": "Setup: Each player starts with a copy of the specified (next time?) Duration card in play.",
+            "Types": "Setup Effect",
+            "Expansion": "Plunder",
+        },
+        "Curse Cost 3": {
+            "Name": "Curse Cost 3",
+            "Text": "Setup: Curses cost [3].",
+            "Types": "Setup Effect",
+            "Expansion": "Intrigue",
+        },
+        "Plus 8 VP Tokens": {
+            "Name": "Plus 8 VP Tokens",
+            "Text": "Setup: The game starts with 8 additional VP tokens on Treasures.",
+            "Types": "Setup Effect",
+            "Expansion": "Empires",
+        },
+        "Plus 2 VP Tokens": {
+            "Name": "Plus 2 VP Tokens",
+            "Text": "Setup: The game starts with 2 additional VP tokens on Action supply piles.",
+            "Types": "Setup Effect",
+            "Expansion": "Empires",
+        },
+        "Double VP Tokens": {
+            "Name": "Double VP Tokens",
+            "Text": "Setup: The specified Landmark starts with the VP tokens on it doubled.",
+            "Types": "Setup Effect",
+            "Expansion": "Empires",
+        },
+    }
+    for pile in effect_dict.values():
+        pile["ImagePath"] = _get_effect_img_path(pile["Name"], pile["Types"])
+        pile["IsInSupply"] = False
+        pile["IsLandscape"] = False
+        pile["IsOtherThing"] = True
+        pile_dict = {key: [val] for key, val in pile.items()}
+        df = pd.concat([df, pd.DataFrame(pile_dict)])
+    return df
+
+
+def _get_effect_img_path(name: str, effect_type: str):
+    if effect_type != "Stamp":
+        return "CampaignEffects/" + "campaign_seal.png"
+    return "CampaignEffects/stamps/" + name.replace(" ", "_") + ".png"
