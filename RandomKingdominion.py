@@ -27,6 +27,8 @@ import streamlit as st
 st.set_page_config(layout="wide")
 import random_kingdominion as rk
 
+rk.LOGGER.setLevel("WARNING")
+
 quality_pages = [
     rk.get_quality_page_navigation(qual) for qual in rk.QUALITIES_AVAILABLE
 ]
@@ -34,6 +36,9 @@ quality_pages = [
 pg = st.navigation(
     {
         "": [
+            # st.Page(
+            #     "streamlit_pages/st_test.py", title="Test", url_path="test", icon="🏠"
+            # ),
             st.Page(
                 "streamlit_pages/randomizer.py",
                 title="Dominion Kingdom Randomizer",

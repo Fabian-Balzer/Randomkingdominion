@@ -13,6 +13,7 @@ from ..cso_frame_utils import sample_single_cso_from_df
 from ..utils.config import CustomConfigParser
 from .kingdom import Kingdom
 from .kingdom_helper_funcs import _get_total_quality
+from ..logger import LOGGER
 
 
 def _qual_dict_factory() -> dict[str, int]:
@@ -233,7 +234,7 @@ class RandomizedKingdom:
             return True
         if landscape_name == "Obelisk":
             self._pick_obelisk()
-        if self._get_landscape_df().loc[landscape_name]["IsTrait"]:
+        if self._get_landscape_df().loc[landscape_name]["IsTrait"]:  # type: ignore
             self._pick_trait_target(landscape_name)
         return True
 
@@ -336,7 +337,7 @@ class RandomizedKingdom:
         df = self._get_card_df()
         subset = df[df["IsAction"]]
         if len(subset) == 0:
-            print("No action available for obelisk")
+            LOGGER.info("No action available for obelisk")
             return ""
         return sample_single_cso_from_df(subset)
 
@@ -387,7 +388,7 @@ class RandomizedKingdom:
         if self.contains_landscape("obelisk") and not self.obelisk_pile:
             self._pick_obelisk()
         landscapes = self._get_landscape_df()
-        for trait in landscapes[landscapes["IsTrait"]]["Name"].tolist():
+        for trait in landscapes[landscapes["IsTrait"]].index.tolist():
             if trait not in [t[0] for t in self.traits]:
                 self._pick_trait_target(trait)
         self._determine_colony_usage(config)

@@ -62,13 +62,48 @@ def _build_shelter_select():
         )
 
 
+def _build_mechanics_selection_overview():
+    plat_col_text = "<b>Plat/Colony Usage:</b><br>\n"
+    if st.session_state.get("use_prosperity_for_colony", False):
+        plat_col_text += "Proportional to # Prosperity cards"
+    else:
+        plat_col_text += (
+            f"Flat Probability: {st.session_state.get('colony_probability', 0.0):.2f}"
+        )
+    shelter_text: str = "<b>Shelters Usage:</b><br>\n"
+    if st.session_state.get("use_dark_ages_for_shelters", False):
+        shelter_text += "Proportional to # Dark Ages cards"
+    else:
+        shelter_text += (
+            f"Flat Probability: {st.session_state.get('shelter_probability', 0.0):.2f}"
+        )
+    with st.expander("Selected Mechanics", expanded=True):
+        excluded_types = _get_excluded_types()
+        if len(excluded_types) == 0:
+            st.text("No card types excluded.")
+        else:
+            st.write(
+                "Excluded card types:<br><b>",
+                ", ".join(sorted(excluded_types)) + "</b>",
+                unsafe_allow_html=True,
+            )
+        st.write(plat_col_text, unsafe_allow_html=True)
+        st.write(shelter_text, unsafe_allow_html=True)
+
+
+def _get_excluded_types() -> list[str]:
+
+    default = load_config().getlist("Specialization", "excluded_card_types")
+    return st.session_state.get("excluded_card_types", default)
+
+
 @st.fragment
 def build_mechanics_options():
     st.write(
         "Select certain card types <s>or mechanics</s> you want to be excluded from <s>or included in</s> your kingdoms.\\\nYou can e.g. disable Allies or Prophecies by excluding Liaisons or Omens, and likewise Boons or Hexes by excluding Fate or Doom cards.\\\nNote that Looters are cards that deal with Ruins and not the ones providing Loot.\\\nExcluding Attacks is not the same as disallowing the attack quality as this obviously doesn't remove indirect attacks that don't share the type.",
         unsafe_allow_html=True,
     )
-    excluded_types = load_config().getlist("Specialization", "excluded_card_types")
+    excluded_types = _get_excluded_types()
     st.multiselect(
         "Excluded card types",
         CARD_TYPES_AVAILABLE,
@@ -79,6 +114,9 @@ def build_mechanics_options():
     )
     _build_colony_select()
     _build_shelter_select()
+
+    with st.sidebar:
+        _build_mechanics_selection_overview()
 
     st.info(
         """**Force Mechanics into the kingdom**\n

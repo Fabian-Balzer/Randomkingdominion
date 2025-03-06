@@ -16,6 +16,7 @@ from ..constants import (
     PATH_ASSETS,
     PATH_MAIN,
 )
+from ..logger import LOGGER
 from .kingdom import Kingdom
 
 try:
@@ -105,9 +106,9 @@ class KingdomManager:
             except AssertionError as e:
                 if do_assertion:
                     raise (e)
-                print(f"Unrecognized: {k.name}, {k.cards}, {k.notes}")
+                LOGGER.info(f"Unrecognized: {k.name}, {k.cards}, {k.notes}")
             self.kingdoms.insert(0, k.get_dict_repr())
-            print(f"Added {k.name}")
+            LOGGER.info(f"Added {k.name}")
         if not has_added_kingdoms:
             return
         savepath = {

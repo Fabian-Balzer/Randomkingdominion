@@ -114,7 +114,7 @@ def _add_on_gain_play_kiln_interaction(on_gain_play_cso: str, df: pd.DataFrame):
 
 
 def _add_on_gain_play_siren_interaction(on_gain_play_cso: str, df: pd.DataFrame):
-    if on_gain_play_cso == "Gondola":
+    if on_gain_play_cso in ["Gondola", "Silver Mine"]:
         return
     rule = f"If you gain a Siren and use {on_gain_play_cso} to play the Siren, Siren no longer requires you to trash an Action card from your hand in order to not trash the Siren."
     add_interaction("Siren", on_gain_play_cso, rule, df)

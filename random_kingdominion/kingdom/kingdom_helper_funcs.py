@@ -4,6 +4,7 @@ from typing import Any
 
 import numpy as np
 import pandas as pd
+from ..logger import LOGGER
 
 
 def _calculate_total_quality(values: list[int]) -> int:
@@ -106,9 +107,9 @@ def _dict_factory_func(attrs: list[tuple[str, str]], ignore_keys: set) -> dict:
     }
 
 
-def sanitize_cso_name(name: str) -> str:
+def sanitize_cso_name(name: str, replace_parent_pile: bool = False) -> str:
     """Return a sanitized version of the name of the cso."""
-    if isinstance(name, float):
+    if isinstance(name, float) or name == "":
         return ""
     name = (
         name.lower()
@@ -117,9 +118,21 @@ def sanitize_cso_name(name: str) -> str:
         .replace(" ", "_")
         .replace("'", "")
         .replace("’", "")
+        .replace("stamp_", "")
+        .replace("twist_", "")
+        .replace("start_", "")
     )
     if name == "harem" or name == "farm":
         return "harem_farm"
+    if not replace_parent_pile:
+        return name
+    from ..constants import ALL_CSOS
+
+    try:
+        if (cso := ALL_CSOS.loc[name])["IsPartOfSplitPile"]:  # type: ignore
+            name = sanitize_cso_name(cso["ParentPile"])  # type: ignore
+    except KeyError:
+        LOGGER.warning(f"Could not find cso: {name}")
     return name
 
 

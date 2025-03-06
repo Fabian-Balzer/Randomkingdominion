@@ -1,8 +1,10 @@
 """Download data from the cards-list page of the wiki"""
 
+from io import StringIO
+
 import pandas as pd
 import requests
-from bs4 import BeautifulSoup, Tag, NavigableString
+from bs4 import BeautifulSoup, NavigableString, Tag
 
 _WIKI_URL = "http://wiki.dominionstrategy.com/index.php/List_of_cards"
 
@@ -44,6 +46,7 @@ def download_wiki_data() -> pd.DataFrame:
     # print(card_table.find('span', {"class": "coin-icon"}))
     # Remove the non-breaking spaces, turning them into regular spaces:
     htmlstring = str(card_table).replace(" ", " ")
-    df = pd.read_html(htmlstring, encoding="utf-8")[0]
+    # convert to stringIO object:
+    df = pd.read_html(StringIO(htmlstring), encoding="utf-8")[0]
     df = _improve_dataframe(df)
     return df

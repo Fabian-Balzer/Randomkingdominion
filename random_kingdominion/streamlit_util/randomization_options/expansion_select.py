@@ -1,31 +1,51 @@
-from math import ceil
-
 import streamlit as st
 from PIL import Image
+from streamlit_extras.add_vertical_space import add_vertical_space
+from streamlit_extras.grid import grid
+from streamlit_extras.stylable_container import stylable_container
 
+from ...kingdom import sanitize_cso_name
 from ...utils import get_expansion_icon_path
 from ..constants import ALL_EXPANSIONS, NUM_EXPS
 from ..image_handling import display_image_with_tooltip
 from ..randomizer_util import load_config
 
 
+# @st.fragment (can't be fragment due to sidebar stuff)
+def _build_exp_num_row():
+    val = max(
+        1, load_config().getint("Expansions", "max_num_expansions", fallback=NUM_EXPS)
+    )
+    st.number_input(
+        "Max. number of expansions",
+        min_value=1,
+        max_value=NUM_EXPS,
+        value=val,
+        help="The maximum number of expansions to randomize from.",
+        key="max_num_expansions",
+    )
+
+
 def _select_non_1e():
-    for exp in ALL_EXPANSIONS:
-        st.session_state[f"{exp} enabled"] = "1E" not in exp
+    st.session_state["selected_expansions"] = [
+        exp for exp in ALL_EXPANSIONS if "1E" not in exp
+    ]
 
 
 def display_exp_image(exp: str, icon_size: int = 30, tooltip: str = ""):
 
     # Green background if enabled, red if disabled
-    bg_color = (
-        (50, 255, 50, 100) if st.session_state[f"{exp} enabled"] else (255, 50, 50, 100)
-    )
+    # bg_color = (
+    #     (50, 255, 50, 100)
+    #     if exp in st.session_state.get("selected_expansions", [])
+    #     else (255, 50, 50, 100)
+    # )
 
     fpath = "./static/" + get_expansion_icon_path(exp, relative_only=True)
     im = Image.open(fpath).convert("RGBA").resize((icon_size, icon_size))
-    bg = Image.new("RGBA", im.size, bg_color)
-    # Paste the original image onto the background
-    im = Image.alpha_composite(bg, im)
+    # bg = Image.new("RGBA", im.size, bg_color)
+    # # Paste the original image onto the background
+    # im = Image.alpha_composite(bg, im)
 
     display_image_with_tooltip(im, tooltip)
 
@@ -75,44 +95,43 @@ def display_exp_image(exp: str, icon_size: int = 30, tooltip: str = ""):
     # st.markdown(md_text, unsafe_allow_html=True)
 
 
+def _toggle_exp(exp: str):
+    sel_expansions = get_selected_expansions()
+    if exp in sel_expansions:
+        sel_expansions.remove(exp)
+    else:
+        sel_expansions.append(exp)
+    st.session_state["selected_expansions"] = sel_expansions
+
+
 def build_exp_checkbox(exp: str):
-    """Build a single row to display an expansion and its weights."""
-    configured_expansions = load_config().get_expansions()
-    with st.container(border=True):
-        col1, col2 = st.columns([0.7, 0.3])
-        with col1:
-            st.checkbox(
-                exp,
-                exp in configured_expansions,
-                key=f"{exp} enabled",
+    sel_expansions = get_selected_expansions()
+    cols = st.columns([0.3, 0.7])
+    with cols[0]:
+        display_exp_image(exp, icon_size=40, tooltip=exp)
+    with cols[1]:
+        color = "green" if exp in sel_expansions else "grey"
+        key = sanitize_cso_name(exp).replace(",", "_").replace("&", "_")
+        with stylable_container(
+            key=f"green_button_{key}",
+            css_styles=f"""
+                    button {{
+                        background-color: {color};
+                        color: white;
+                        border-radius: 20px;
+                    }}
+                    """,
+        ):
+            st.button(
+                f"{exp}",
+                key=f"color button {exp}",
+                use_container_width=True,
+                on_click=lambda: _toggle_exp(exp),
             )
-        with col2:
-            display_exp_image(exp)
-    # with col3:
-    #     if use_counts:
-    #         st.number_input("Minimum", 0, 10, key=f"{exp} count")
-    #     else:
-    #         st.number_input("Weight", 1, 100, key=f"{exp} weight")
-
-
-@st.fragment
-def _build_exp_num_row():
-    val = max(
-        1, load_config().getint("Expansions", "max_num_expansions", fallback=NUM_EXPS)
-    )
-    st.number_input(
-        "Max. number of expansions",
-        min_value=1,
-        max_value=NUM_EXPS,
-        value=val,
-        help="The maximum number of expansions to randomize from.",
-        key="max_num_expansions",
-    )
 
 
 def _toggle_all_expansions(value: bool):
-    for exp in ALL_EXPANSIONS:
-        st.session_state[f"{exp} enabled"] = value
+    st.session_state["selected_expansions"] = ALL_EXPANSIONS.copy() if value else []
 
 
 def _build_toggle_row():
@@ -138,7 +157,7 @@ def _build_toggle_row():
 
 
 def _build_sorting_options():
-    cols = st.columns(3)
+    cols = st.columns([0.2, 0.4, 0.2, 0.2])
     with cols[0]:
         st.write("Sorting options")
     with cols[1]:
@@ -151,50 +170,75 @@ def _build_sorting_options():
             label_visibility="collapsed",
         )
     with cols[2]:
-        st.checkbox("Move deselected", True, key="Exp move deselected")
+        st.checkbox("Move 1st Edition", True, key="Exp move 1e")
+    with cols[3]:
+        st.checkbox("Move deselected", False, key="Exp move deselected")
 
 
-def get_currently_selected_expansions() -> list[str]:
-    """Retrieve the expansions that are currently selected by the user."""
-    sorted_expansions = (
+def get_sorted_expansions() -> list[str]:
+    """Retrieve the expansions sorted by the user's preference."""
+    exps = (
         sorted(ALL_EXPANSIONS)
-        if st.session_state["Exp sorting"] == "Alphabetical"
+        if st.session_state.get("Exp sorting", "") == "Alphabetical"
         else ALL_EXPANSIONS
     )
-    configured_expansions = load_config().get_expansions()
-    return [
-        exp
-        for exp in sorted_expansions
-        if st.session_state.get(f"{exp} enabled", exp in configured_expansions)
-    ]
+    if st.session_state.get("Exp move 1e", True):
+        non_first_ed = [exp for exp in exps if "1E" not in exp]
+        first_ed = [exp for exp in exps if "1E" in exp]
+        exps = non_first_ed + first_ed
+    if st.session_state.get("Exp move deselected", False):
+        selected = get_selected_expansions(sort=True)
+        unselected = [exp for exp in exps if exp not in selected]
+        exps = selected + unselected
+    return exps
 
 
 def _build_selection_grid():
-    # st.multiselect(
-    #     "Selected Expansions",
-    #     options=ALL_EXPANSIONS,
-    #     default=selected_expansions,
-    #     key="expansionSelectForFilter",
-    #     help="Select the expansions you want to include in the filtered results.",
-    # )
-    # st.write(
-    #     "Currently not selected: "
-    #     + ", ".join([exp for exp in ALL_EXPANSIONS if exp not in selected_expansions])
-    # )
-    selected_expansions = get_currently_selected_expansions()
-    col_num = 5
-    row_num = ceil(NUM_EXPS / col_num)
-    cols = st.columns(col_num)
-    if st.session_state.get("Exp move deselected", True):
-        unsel = [exp for exp in ALL_EXPANSIONS if exp not in selected_expansions]
-        sorted_expansions = selected_expansions + unsel
-    for i, col in enumerate(cols):
-        start = i * row_num
-        stop = min((i + 1) * row_num, NUM_EXPS)
-        exp_subset = sorted_expansions[start:stop]
-        with col:
-            for exp in exp_subset:
+    exps = get_sorted_expansions()
+    num_cols = 5
+    num_rows = len(exps) // num_cols + 1
+    my_grid = grid([num_cols] * num_rows, vertical_align="bottom", gap="small")
+    for exp in exps:
+        with my_grid.container(border=True):
+            key = sanitize_cso_name(exp).replace(",", "_").replace("&", "_")
+            with stylable_container(
+                key=f"cont_{key}",
+                css_styles=f"""
+                        height: 100px;
+                        """,
+            ):
                 build_exp_checkbox(exp)
+
+
+def get_selected_expansions(sort=False) -> list[str]:
+    """Retrieve the selected expansions."""
+    configured_expansions = load_config().get_expansions()
+    selected = st.session_state.get("selected_expansions", configured_expansions)
+    if not sort:
+        return selected
+    exps = (
+        sorted(ALL_EXPANSIONS)
+        if st.session_state.get("Exp sorting", "") == "Alphabetical"
+        else ALL_EXPANSIONS
+    )
+    return [sel for sel in exps if sel in selected]
+
+
+def _build_exp_selection_overview():
+    exps = get_selected_expansions(sort=True)
+    num_cols = 3
+    num_rows = len(exps) // num_cols + 1
+    num_max = st.session_state.get("max_num_expansions", NUM_EXPS)
+    with st.expander("Selected Expansions", expanded=True):
+        if len(exps) == 0:
+            st.warning("No expansions selected! Please select at least one expansion.")
+        else:
+            my_grid = grid([num_rows] * num_cols, vertical_align="bottom", gap="small")
+            add_vertical_space(1)
+        st.write(f"Maximum of {num_max} expansions")
+    for exp in exps:
+        with my_grid.container():
+            display_exp_image(exp, icon_size=40, tooltip=exp)
 
 
 @st.fragment
@@ -202,21 +246,14 @@ def build_expansion_selection():
     st.write(
         "Select the expansions you want to include in the randomization. You can also set the maximum number of expansions to randomize from."
     )
-    _build_exp_num_row()
     with st.expander("Individual Selection", expanded=False):
         _build_toggle_row()
         _build_sorting_options()
         _build_selection_grid()
-    current_exps = get_currently_selected_expansions()
+    current_exps = get_selected_expansions()
     if len(current_exps) == 0:
         st.warning("No expansions selected! Please select at least one expansion.")
-    else:
-        with st.container(border=True):
-            st.write("Current selection")
-            cols = st.columns(len(current_exps))
-            st.write(" ")
-        for col, exp in zip(cols, current_exps):
-            with col:
-                display_exp_image(exp, icon_size=20, tooltip=exp)
 
-    # st.info("I'll try to improve the looks of this in the future.")
+    _build_exp_num_row()
+    with st.sidebar:
+        _build_exp_selection_overview()

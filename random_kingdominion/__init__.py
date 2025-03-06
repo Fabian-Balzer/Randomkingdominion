@@ -6,6 +6,7 @@ from .cso_frame_utils import *
 from .cso_series_utils import *
 from .kingdom import Kingdom, KingdomManager, KingdomRandomizer
 from .utils import *
+from .logger import LOGGER
 
 
 # Custom logging filter to ignore specific Streamlit warning
@@ -45,10 +46,10 @@ try:
 
 
 except ImportError as e:
-    print(f"Couldn't locate valid streamlit installation ({e})")
+    LOGGER.warning(f"Couldn't locate valid streamlit installation ({e})")
 
 try:
     from .widgets import *
 except ImportError as e:
-    # print(f"Couldn't locate valid PyQt installation ({e})")
+    # LOGGER.warning(f"Couldn't locate valid PyQt installation ({e})")
     pass

@@ -7,15 +7,16 @@ from st_copy_to_clipboard import st_copy_to_clipboard
 
 from ..constants import ALL_CSOS
 from ..kingdom import Kingdom, sanitize_cso_name
-from ..utils import get_cso_quality_description, invert_dict
-from .cso_df_display import display_stylysed_cso_df
-from .image_handling import (
+from ..utils import (
     crop_img_by_percentage,
-    display_image_with_tooltip,
     get_card_img_without_text,
+    get_cso_quality_description,
+    invert_dict,
     load_cso_img_by_key,
     overlay_cutout,
 )
+from .cso_df_display import display_stylysed_cso_df
+from .image_handling import display_image_with_tooltip
 from .plot_display import display_kingdom_plot
 from .randomizer_util import reroll_cso, reroll_selected_csos
 
@@ -29,7 +30,7 @@ def build_clipboard_button(state_key: str):
         csv_str,
         before_copy_label="📋Copy to clipboard",
         after_copy_label="Copied! Ready to be pasted in your favorite client.",
-        key="kingdom_clipboard_button",
+        key=csv_str,
     )
     # st.button(
     #     "🔼To clipboard",
@@ -134,7 +135,10 @@ def _build_reroll_selection_button(key: str):
 def display_full_kingdom_images(k: Kingdom, show_reroll=True):
     """Display the images of the cards and landscapes in the kingdom."""
 
-    cols = st.columns([0.3, 0.5, 0.2])
+    col_proportions = [0.3, 0.5, 0.2]
+    if show_reroll:
+        col_proportions.append(0.2)
+    cols = st.columns(col_proportions)
     sorting_options = {
         "Alphabetical": ["Name"],
         "Cost": ["CostSort", "Name"],
@@ -153,19 +157,25 @@ def display_full_kingdom_images(k: Kingdom, show_reroll=True):
         )
     with cols[2]:
         st.checkbox("Show full images", False, key="kingdom_view_full_image")
+    if show_reroll:
+        with cols[3]:
+            st.checkbox("Show reroll buttons", False, key="show_reroll_buttons")
     cards = k.kingdom_card_df
     cards["CostSort"] = cards["Cost"].str.replace("$", "Z")
     cards = cards.sort_values(sorting_options[st.session_state["Kingdom sorting"]])
     num_cols = ceil(len(cards) / 2)
     # First, build the card display
-    for i, (card_index, card) in enumerate(cards.iterrows()):
+    has_cost_sort = st.session_state["Kingdom sorting"] == "Cost"
+    iterable = reversed(list(cards.iterrows())) if has_cost_sort else cards.iterrows()
+    for i, (card_index, card) in enumerate(iterable):
         if i % num_cols == 0:
             cols = st.columns(num_cols)
-        with cols[i % num_cols]:
+        index = num_cols - i % num_cols - 1 if has_cost_sort else i % num_cols
+        with cols[index]:
             display_cso_image(
                 card, k, full_image=st.session_state["kingdom_view_full_image"]
             )
-            if show_reroll:
+            if show_reroll and st.session_state["show_reroll_buttons"]:
                 _build_single_reroll_button(card["Name"])
     num_cols = max(4, len(k.kingdom_landscape_df))
     # Now, build the landscape display
@@ -174,7 +184,7 @@ def display_full_kingdom_images(k: Kingdom, show_reroll=True):
             cols = st.columns(num_cols)
         with cols[i % num_cols]:
             display_cso_image(ls, k)
-            if show_reroll:
+            if show_reroll and st.session_state["show_reroll_buttons"]:
                 _build_single_reroll_button(ls["Name"])
 
 
@@ -221,7 +231,7 @@ def display_kingdom(k: Kingdom, is_randomizer_view=True):
             else:
                 display_kingdom_plot(k, with_border=True)
                 st.info(
-                    "*Hint: Hover over the images above to directly see the individual card's qualities.*"
+                    "*Hint: Hover over the images in the kingdom image display (above) to directly see the individual cards' qualities.*"
                 )
     with tabs[1]:
         # Don't add reroll here as it can lead to confusing behavior between the two tabs
@@ -245,5 +255,5 @@ def display_kingdom(k: Kingdom, is_randomizer_view=True):
 def display_current_kingdom():
     k = Kingdom.from_dombot_csv_string(st.session_state["randomized_kingdom"])
     with st.container(border=True):
-        st.write("### Current Kingdom")
+        st.write("### Current Kingdom (scroll down for new randomization)")
         display_kingdom(k)

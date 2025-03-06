@@ -178,7 +178,7 @@ def get_cso_quality_description(cso_key: str) -> str:
     cso = ALL_CSOS.loc[cso_key]
     qual_strings = []
     for qual in QUALITIES_AVAILABLE:
-        if (qualval := cso[qual + "_quality"]) == 0:
+        if (qualval := cso[qual + "_quality"]) == 0:  # type: ignore
             continue
         qual_string = f"<i>{qual.capitalize()}</i>:<br>&emsp;{qualval}"
         if qual in SPECIAL_QUAL_TYPES_AVAILABLE:

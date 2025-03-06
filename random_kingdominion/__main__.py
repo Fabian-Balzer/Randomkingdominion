@@ -2,6 +2,7 @@ import argparse
 
 
 import sys
+from .logger import LOGGER
 
 
 def start_gui():
@@ -9,7 +10,7 @@ def start_gui():
     # Check whether there is already a running QApplication (e.g. if running
     # from an IDE). This setup prevents crashes for the next run:
 
-    import PyQt5.QtWidgets as QW
+    import PyQt5.QtWidgets as QW  # type: ignore
     from .widgets import UIMainWindow
 
     qapp = QW.QApplication.instance()
@@ -41,7 +42,7 @@ def main() -> None:
     if args.run_gui:
         start_gui()
     else:
-        print(
+        LOGGER.info(
             "Started in non-gui-mode, which isn't implemented yet. Try using the -g flag."
         )
 

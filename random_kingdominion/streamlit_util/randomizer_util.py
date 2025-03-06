@@ -10,7 +10,8 @@ from .constants import ALL_EXPANSIONS, COOKIES, LIKE_BAN_OPTIONS
 
 def load_config():
     """Load the config from the session state."""
-    if COOKIES.get("cookie_consent") is None and "config" not in st.session_state:
+    # if COOKIES.get("cookie_consent") is None and
+    if "config" not in st.session_state:
         st.session_state["config"] = CustomConfigParser(load_default=True).to_json()
     elif "config" not in st.session_state:
         # TODO: Figure out how to set non-global cookies
@@ -29,9 +30,7 @@ def save_config() -> CustomConfigParser:
     config.set(
         "Expansions", "max_num_expansions", str(st.session_state["max_num_expansions"])
     )
-    config.set_expansions(
-        [exp for exp in ALL_EXPANSIONS if st.session_state[f"{exp} enabled"]]
-    )
+    config.set_expansions(st.session_state.get("selected_expansions", []))
     config.set(
         "Landscapes", "min_num_landscapes", str(st.session_state["landscape range"][0])
     )
@@ -99,12 +98,12 @@ def save_config() -> CustomConfigParser:
                 f"forbidden_{qual}_types",
                 st.session_state.get(f"forbidden_{qual}_types", []),
             )
-    if COOKIES.get("cookie_consent"):
-        COOKIES.set(
-            "config",
-            config.to_json(),
-            expires=datetime.now() + timedelta(days=365),
-        )
+    # if COOKIES.get("cookie_consent"):
+    #     COOKIES.set(
+    #         "config",
+    #         config.to_json(),
+    #         expires=datetime.now() + timedelta(days=365),
+    #     )
     st.session_state["config"] = config.to_json()
     return config
 

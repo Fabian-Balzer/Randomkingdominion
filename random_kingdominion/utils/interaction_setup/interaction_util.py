@@ -4,6 +4,7 @@ import pandas as pd
 
 from ...constants import ALL_CSOS
 from ...kingdom import get_interaction_identifier, sanitize_cso_name
+from ...logger import LOGGER
 
 
 def add_interaction(
@@ -24,12 +25,12 @@ def add_interaction(
     ident = get_interaction_identifier(c1, c2)
     if ident in df.index:
         if warn_duplicate and not add_together_if_present:
-            print(
-                f"WARNING: {c1} and {c2} already have a rule ({df.loc[ident]['Rule']})."
+            LOGGER.warning(
+                f"{c1} and {c2} already have a rule ({df.loc[ident]['Rule']})."
             )
         if add_together_if_present:
             df.loc[ident, "Rule"] += "\n" + interaction  # type: ignore
-            print(f"NOTE: Adding another interaction for {c1} and {c2}.")
+            LOGGER.info(f"Adding another interaction for {c1} and {c2}.")
             # print(
             #     f"Adding the new rule to the existing rule, which is now\n\t'{df.loc[ident, 'Rule']}'."
             # )

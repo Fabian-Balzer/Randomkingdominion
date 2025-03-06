@@ -1,8 +1,10 @@
 import os
+from pathlib import Path
 
 import requests
+
 from ...constants import PATH_CARD_PICS
-from pathlib import Path
+from ...logger import LOGGER
 
 
 def write_image_database(df):
@@ -13,20 +15,20 @@ def write_image_database(df):
         if not p.exists():
             p.mkdir()
     nums = len(df)
-    print("Starting to download pictures, this might take a while")
+    LOGGER.info("Starting to download pictures, this might take a while")
     impaths = []
     for i, card in df.iterrows():
         cname = card["Name"].replace(" ", "_")
         exp = card["Expansion"].replace(", ", "_")
         impathname = f"{exp}/{cname}.jpg"
         impath = PATH_CARD_PICS.joinpath(impathname)
-        if not impath.exists():
+        if exp == "Allies":  # not impath.exists()
             save_image(impath, cname)
         impaths.append(impathname)
         if i % 50 == 0:
-            print(f"Currently at {i} of {nums} cards ({cname})")
+            LOGGER.info(f"Currently at {i} of {nums} cards ({cname})")
     df["ImagePath"] = impaths
-    print("Card image database successfully written.")
+    LOGGER.info("Card image database successfully written.")
     return df
 
 
@@ -37,7 +39,7 @@ def save_image(impath: Path, card_name):
     try:
         from bs4 import BeautifulSoup
     except ImportError:
-        print(
+        LOGGER.error(
             "BeautifulSoup is not installed. Please install it with 'pip install beautifulsoup4'."
         )
         return
@@ -50,7 +52,7 @@ def save_image(impath: Path, card_name):
     for im in ims:
         # Find an image with a resolution between 300 and 1000, starting with
         # the lowest. This is probably pretty inefficient.
-        for i in range(300, 1000):
+        for i in range(400, 1000):
             if card_name and f"{i}px" in im["src"]:
                 pic_link = link_base + im["src"]
                 break
@@ -58,10 +60,10 @@ def save_image(impath: Path, card_name):
         for im in ims:
             if card_name in im["src"]:
                 pic_link = link_base + im["src"]
-                print(f"Reverting to alternative link for {card_name}")
+                LOGGER.debug(f"Reverting to alternative link for {card_name}")
                 break
     if pic_link is None:
-        print(f"No picture matching criteria could be found for {card_name}.")
+        LOGGER.info(f"No picture matching criteria could be found for {card_name}.")
         return
     with open(impath, "wb") as f:
         site = requests.get(pic_link)
@@ -73,7 +75,7 @@ def download_icons():
     try:
         from bs4 import BeautifulSoup
     except ImportError:
-        print(
+        LOGGER.error(
             "BeautifulSoup is not installed. Please install it with 'pip install beautifulsoup4'."
         )
         return
@@ -88,7 +90,7 @@ def download_icons():
         os.makedirs(dirname)
     for image in ims:
         impath = dirname + image["src"].split("/")[-1]
-        print(f'Downloading {image["src"].split("/")[-1]}')
+        LOGGER.info(f'Downloading {image["src"].split("/")[-1]}')
         pic_link = link_base + image["src"]
         if not os.path.exists(impath):
             with open(impath, "wb") as f:

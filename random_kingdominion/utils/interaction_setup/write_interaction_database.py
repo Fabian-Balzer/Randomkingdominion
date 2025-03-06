@@ -2,6 +2,7 @@ from ...constants import PATH_ASSETS
 from ..utils import write_dataframe_to_file
 from .interaction_util import get_empty_interaction_df
 from .specifics import *
+from ...logger import LOGGER
 
 
 def write_interaction_database(overwrite: bool = False, verbose: bool = True):
@@ -27,4 +28,6 @@ def write_interaction_database(overwrite: bool = False, verbose: bool = True):
     fpath = PATH_ASSETS.joinpath("other/interactions.csv")
     write_dataframe_to_file(df, fpath, overwrite=overwrite, verbose=verbose)
     if verbose:
-        print(f"Wrote the interaction database with {len(df)} interactions in total.")
+        LOGGER.info(
+            f"Wrote the interaction database with {len(df)} interactions in total."
+        )

@@ -6,11 +6,7 @@ from typing import Literal
 import numpy as np
 import pandas as pd
 
-from ..constants import (
-    ALL_CSOS,
-    QUALITIES_AVAILABLE,
-    SPECIAL_QUAL_TYPES_AVAILABLE,
-)
+from ..constants import ALL_CSOS, QUALITIES_AVAILABLE, SPECIAL_QUAL_TYPES_AVAILABLE
 from ..cso_frame_utils import (
     add_weight_column,
     get_sub_df_for_special_card,
@@ -19,7 +15,6 @@ from ..cso_frame_utils import (
     listlike_contains_any,
     sample_single_cso_from_df,
 )
-from ..kingdom import sanitize_cso_name
 from ..utils.config import CustomConfigParser, add_renewed_base_expansions
 
 
@@ -186,7 +181,7 @@ class PoolContainer:
         pick = sample_single_cso_from_df(pool)
         self.main_pool = self.main_pool.drop(pick)
         if special_card_to_pick_for in ["way_of_the_mouse", "riverboat"]:
-            if (ancestor := ALL_CSOS.loc[pick]["ParentPile"]) != "":
+            if (ancestor := ALL_CSOS.loc[pick]["ParentPile"]) != "":  # type: ignore
                 try:
                     self.main_pool.drop(ancestor)  # type: ignore
                 except KeyError:

@@ -1,7 +1,7 @@
 from .config import CustomConfigParser
 
 # from .pandas_extensions import ListAccessorSeries, ListFilterAccessorDataFrame
-from .plotting import add_kingdom_info_to_plot, plot_normalized_polygon
+from .plotting import *
 from .utils import (
     ask_file_overwrite,
     ask_yes_now,
@@ -17,20 +17,20 @@ from .utils import (
     write_dataframe_to_file,
 )
 
-__all__ = [
-    "get_version",
-    "get_changelog",
-    "invert_dict",
-    "ask_file_overwrite",
-    "write_dataframe_to_file",
-    "ask_yes_now",
-    "get_row_and_col",
-    "override",
-    "get_cso_quality_description",
-    "get_quality_icon_fpath",
-    "copy_to_clipboard",
-    "get_expansion_icon_path",
-    "plot_normalized_polygon",
-    "CustomConfigParser",
-    "add_kingdom_info_to_plot",
-]
+# __all__ = [
+#     "get_version",
+#     "get_changelog",
+#     "invert_dict",
+#     "ask_file_overwrite",
+#     "write_dataframe_to_file",
+#     "ask_yes_now",
+#     "get_row_and_col",
+#     "override",
+#     "get_cso_quality_description",
+#     "get_quality_icon_fpath",
+#     "copy_to_clipboard",
+#     "get_expansion_icon_path",
+#     "plot_normalized_polygon",
+#     "CustomConfigParser",
+#     "add_kingdom_info_to_plot",
+# ]

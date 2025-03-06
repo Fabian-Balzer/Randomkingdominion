@@ -15,24 +15,30 @@ def load_existing_kingdoms(selection_type: str) -> pd.DataFrame:
     manager = rk.KingdomManager()
     if selection_type == "TGG Dailies":
         manager.load_tgg_dailies()
+    if selection_type == "TGG Campaigns":
+        manager.load_campaigns(curated_only=True)
     elif selection_type == "Recommended":
         manager.load_recommended_kingdoms()
     elif selection_type == "Reddit's KOTW":
         manager.load_kingdoms_from_yaml(rk.FPATH_KINGDOMS_KOTW_REDDIT)
     elif selection_type == "Fabi's Recommendations":
-        manager.load_custom_kingdoms()
+        manager.load_fabi_recsets_kingdoms()
     df = manager.dataframe_repr
 
     # Register a name that includes the expansions
     exp_repr = df["expansions"].apply(
         lambda x: ", ".join(x) if len(x) < 4 else f"{len(x)} expansions"
     )
-    df["name_with_exps"] = df["name"] + " (" + exp_repr + ")"
     if selection_type == "TGG Dailies":
         sani_wr = df["winrate"].apply(
-            lambda x: f" [{x*100:.1f} %]" if x != "" else " [N/A]"
+            lambda x: f" [WR: {x*100:.1f} %]" if x != "" else " [WR: N/A]"
         )
-        df["name_with_exps"] = df["name_with_exps"] + sani_wr
+        extr_name = df["notes"].apply(
+            lambda x: " - " + x.get("name", "") if type(x) == dict else ""
+        )
+        df["name_with_exps"] = df["name"] + sani_wr + extr_name + " (" + exp_repr + ")"
+    else:
+        df["name_with_exps"] = df["name"] + " (" + exp_repr + ")"
     df["csos"] = df.apply(lambda x: x["cards"] + x["landscapes"], axis=1)
     return df
 
@@ -40,18 +46,25 @@ def load_existing_kingdoms(selection_type: str) -> pd.DataFrame:
 import numpy as np
 
 
-def _build_kingdom_select_box(df: pd.DataFrame):
+def _build_kingdom_select_box(
+    df: pd.DataFrame, name_extra: str = "", selbox_extra: str = ""
+):
     """Build the selection box that also sets the kingdom input and the kingdom name in the select box"""
     sel = st.selectbox(
-        f"Choose from {len(df)} Kingdoms", [""] + df["name_with_exps"].tolist()
+        f"Choose from {len(df)} Kingdoms{selbox_extra}",
+        [""] + df["name_with_exps"].tolist(),
     )
     if sel != "" and type(sel) == str:
         series = df[df["name_with_exps"] == sel].iloc[0]
         kingdom = rk.Kingdom.from_dict(series.to_dict())
         st.session_state["kingdom_input"] = kingdom.get_dombot_csv_string()
+        if name_extra != "":
+            kingdom.name += f" [{name_extra}]"
         st.session_state["kingdom_name"] = kingdom.name
+        st.session_state["kingdom_notes"] = kingdom.notes
     else:
         st.session_state["kingdom_name"] = ""
+        st.session_state["kingdom_notes"] = ""
 
 
 def _build_reference_widget():
@@ -82,6 +95,8 @@ def _get_short_info(selected_stuff: str) -> str:
         return "The kingdoms recommended by DXV himself, found in the rulebooks of the Dominion expansions, and mixing two expansions at max. Shoutout to Kieran Millar's [Extra Recommended Kingdoms page](https://kieranmillar.github.io/extra-recommended-sets/) where these these kingdoms are conveniently provided."
     elif selected_stuff == "TGG Dailies":
         return "The TGG Dailies are kingdoms provided each day in the Temple Gates Games Client, where you compete against the Hard AI.\\\nShoutout to the amazing people on the TGG discord who helped me collect these (most notably ``probably-lost``, ``igorbone`` and ``Diesel Pioneer``)."
+    elif selected_stuff == "TGG Campaigns":
+        return "The kingdoms from the curated campaigns of the Dominion expansions available on the Temple Gates Games (Steam/mobile) client. These each consist of a series of 10 kingdoms that can have surprising effects that aren't available elsewhere - have fun exploring them!"
     elif selected_stuff == "Fabi's Recommendations":
         return "My personal recommendations of kingdoms I randomly stumbled upon, played in the TGG client against the Hard AI, and deemed to be interesting.\\\nHave fun with them! They usually contain a large amount of expansions, so they might be more suited for online play."
     elif selected_stuff == "Reddit's KOTW":
@@ -160,7 +175,7 @@ def _build_csos_filter_widget(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def _build_random_selection_button(df: pd.DataFrame):
+def _build_random_selection_button(df: pd.DataFrame, name_extra: str = ""):
     if st.button(
         "Random\nSelection",
         key="kingdom_select_random_selection",
@@ -172,7 +187,10 @@ def _build_random_selection_button(df: pd.DataFrame):
             series = df.sample().iloc[0]
             kingdom = rk.Kingdom.from_dict(series.to_dict())
             st.session_state["kingdom_input"] = kingdom.get_dombot_csv_string()
+            if name_extra != "":
+                kingdom.name += f" [{name_extra}]"
             st.session_state["kingdom_name"] = kingdom.name
+            st.session_state["kingdom_notes"] = kingdom.notes
 
 
 def _build_tgg_winrate_filter_widget(df: pd.DataFrame) -> pd.DataFrame:
@@ -220,11 +238,19 @@ def build_existing_kingdom_select(selection_type: str):
         st.warning("No kingdoms available for your selection.")
         return
 
+    extra_str = (
+        selection_type[:12] + "..." if len(selection_type) > 15 else selection_type
+    )
+    selbox_extra = (
+        " (filtered)" if len(df) < len(load_existing_kingdoms(selection_type)) else ""
+    )
+    if selection_type == "TGG Dailies":
+        selbox_extra += " [with winrate if available, plus playthrough name]"
     cols = st.columns([0.75, 0.15, 0.1])
     with cols[0]:
-        _build_kingdom_select_box(df)
+        _build_kingdom_select_box(df, extra_str, selbox_extra)
     with cols[1]:
-        _build_random_selection_button(df)
+        _build_random_selection_button(df, extra_str)
     with cols[2]:
         _build_reference_widget()
 
@@ -232,7 +258,13 @@ def build_existing_kingdom_select(selection_type: str):
 with st.expander("Select existing kingdom to visualize", expanded=False):
     selection = st.radio(
         "Which set of kingdoms?",
-        ["Recommended", "TGG Dailies", "Reddit's KOTW", "Fabi's Recommendations"],
+        [
+            "Recommended",
+            "TGG Dailies",
+            "TGG Campaigns",
+            "Reddit's KOTW",
+            "Fabi's Recommendations",
+        ],
         index=0,
         horizontal=True,
         key="kingdom_select_group",
@@ -254,7 +286,7 @@ def navigate_to_randomizer():
 with cols[1]:
     if st.button(
         "To Randomizer\\\n🔀",
-        help="Use this assortment to randomize from",
+        help="Start randomization from this selection",
         use_container_width=True,
         disabled=kingdom.is_empty,
     ):
@@ -263,20 +295,20 @@ with cols[2]:
     if not kingdom.is_empty:
         rk.build_clipboard_button("kingdom_input")
 
-if kingdom.notes != "" and "['']" not in kingdom.notes:
-    notes = kingdom.notes.replace("\n", "<br>").removesuffix("<br>")
-    red_background_message = f"""
-    <div style='background-color: #ffcccc; padding: 10px; border-radius: 5px;'>
-        <p style='color: black; font-size: 16px;'>{notes}</p>
-    </div>
-    """
-    st.write(red_background_message, unsafe_allow_html=True)
+rk.build_kingdom_input_warning(kingdom, ref_to_randomizer=True)
 
 if kingdom.is_empty:
     st.write("No kingdom selected")
 else:
     rk.display_kingdom(kingdom, is_randomizer_view=False)
 
+if "link" in kingdom.unpacked_notes:
+    with st.expander("Playthrough", expanded=True):
+        st.write("Check out a video where I explain and play this kingdom!")
+        _, container, _ = st.columns([25, 50, 25])
+        with container:
+            with st.container(border=True):
+                st.video(kingdom.unpacked_notes["link"])
 
 with st.expander("Disclaimer", expanded=False):
     st.warning(

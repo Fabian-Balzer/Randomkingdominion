@@ -2,12 +2,8 @@
 
 import pandas as pd
 
-from ..constants import TGG_BUG_DISCLAIMER
-from ..interaction_util import (
-    add_interaction,
-    add_multiple_interactions,
-    add_multiple_interactions_from_single,
-)
+from ....logger import LOGGER
+from ..interaction_util import add_interaction
 
 
 def _add_all_city_state_interactions(df: pd.DataFrame):
@@ -50,4 +46,4 @@ def add_all_allies_interactions(df: pd.DataFrame, verbose=False) -> None:
     _add_all_city_state_interactions(df)
     _add_individual_allies_interactions(df)
     if verbose:
-        print(f"Added {len(df) - num_before} allies interactions.")
+        LOGGER.info(f"Added {len(df) - num_before} allies interactions.")

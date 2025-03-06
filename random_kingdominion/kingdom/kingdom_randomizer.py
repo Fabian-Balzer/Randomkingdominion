@@ -11,6 +11,7 @@ from .kingdom import Kingdom
 from .kingdom_helper_funcs import sanitize_cso_list
 from .pool_container import PoolContainer
 from .randomized_kingdom import RandomizedKingdom
+from ..logger import LOGGER
 
 
 class KingdomRandomizer:
@@ -57,51 +58,65 @@ class KingdomRandomizer:
             random_kingdom.add_landscape(pick)
         if random_kingdom.contains_omen() and not random_kingdom.contains_prophecy():
             pick = self.pool_con.pick_prophecy(random_kingdom.quality_of_selection)
-            # An ally is not different from other landscapes, only picked under different conditions,
+            if pick == "approaching_army":
+                self.pick_army_pile(random_kingdom)
+            # A prophecy is not different from other landscapes, only picked under different conditions,
             # Except that it doesn't count towards the landscape number.
             random_kingdom.add_landscape(pick)
         return was_added
 
-    def pick_bane_pile(self, random_kingdom: RandomizedKingdom):
+    def pick_bane_pile(self, random_kingdom: RandomizedKingdom, repick=True):
         """Pick the bane card."""
+        if random_kingdom.bane_pile != "" and not repick:
+            return
         bane = self.pool_con.pick_next_card(
             random_kingdom.quality_of_selection, "young_witch"
         )
         self.pick_next_card(random_kingdom, bane)
         random_kingdom.set_bane_pile(bane)
 
-    def pick_army_pile(self, random_kingdom: RandomizedKingdom):
+    def pick_army_pile(self, random_kingdom: RandomizedKingdom, repick=True):
         """Pick the army pile."""
+        if random_kingdom.army_pile != "" and not repick:
+            return
         army = self.pool_con.pick_next_card(
             random_kingdom.quality_of_selection, "approaching_army"
         )
         self.pick_next_card(random_kingdom, army)
         random_kingdom.set_army_pile(army)
 
-    def pick_ferryman_pile(self, random_kingdom: RandomizedKingdom):
+    def pick_ferryman_pile(self, random_kingdom: RandomizedKingdom, repick=True):
         """Pick the ferryman pile."""
+        if random_kingdom.ferryman_pile != "" and not repick:
+            return
         ferryman = self.pool_con.pick_next_card(
             random_kingdom.quality_of_selection, "ferryman"
         )
         self.pick_next_card(random_kingdom, ferryman, add_to_cards=False)
         random_kingdom.set_ferryman_pile(ferryman)
 
-    def pick_riverboat_card(self, random_kingdom: RandomizedKingdom):
+    def pick_riverboat_card(self, random_kingdom: RandomizedKingdom, repick=True):
         """Pick the card associated with riverboat."""
+        if random_kingdom.riverboat_card != "" and not repick:
+            return
         riverboat = self.pool_con.pick_next_card(
             random_kingdom.quality_of_selection, "riverboat"
         )
         self.pick_next_card(random_kingdom, riverboat, add_to_cards=False)
         random_kingdom.set_riverboat_card(riverboat)
 
-    def pick_druid_boons(self, random_kingdom: RandomizedKingdom):
+    def pick_druid_boons(self, random_kingdom: RandomizedKingdom, repick=True):
         """Pick the card associated with riverboat."""
+        if random_kingdom.druid_boons != [] and not repick:
+            return
         boons = ALL_CSOS[ALL_CSOS["IsBoon"]].index.to_list()
         selected_boons = random.sample(boons, 3)
         random_kingdom.set_druid_boons(selected_boons)
 
-    def pick_mouse_card(self, random_kingdom: RandomizedKingdom):
+    def pick_mouse_card(self, random_kingdom: RandomizedKingdom, repick=True):
         """Pick the card for Way of the Mouse."""
+        if random_kingdom.mouse_card != "" and not repick:
+            return
         mouse = self.pool_con.pick_next_card(
             random_kingdom.quality_of_selection, "way_of_the_mouse"
         )
@@ -127,13 +142,12 @@ class KingdomRandomizer:
         cso = ALL_CSOS.loc[pick]
         # If an ally is picked, pick a liaison if there is none in the kingdom.
         # Should only happen if the ally is directly set.
-        if cso["IsAlly"]:
+        if cso["IsAlly"]:  # type: ignore
             pick = self.pool_con.pick_liaison(random_kingdom.quality_of_selection)
             was_added = self.pick_next_card(random_kingdom, pick)
-            print(f"Picking {pick}")
         # If a prophecy is picked, pick an omen if there is none in the kingdom.
         # Should only happen if the prophecy is directly set.
-        if cso["IsProphecy"]:
+        if cso["IsProphecy"]:  # type: ignore
             pick = self.pool_con.pick_omen(random_kingdom.quality_of_selection)
             was_added = self.pick_next_card(random_kingdom, pick)
         return was_added
@@ -146,18 +160,41 @@ class KingdomRandomizer:
         num_landscapes = self._determine_landscape_number()
         if (partial_str := self.config.get("General", "partial_random_kingdom")) != "":
             try:
-                _partial_kingdom = Kingdom.from_dombot_csv_string(partial_str)
+                _partial_kingdom = Kingdom.from_dombot_csv_string(
+                    partial_str,
+                    add_invalidity_notes=False,
+                    add_unrecognized_notes=False,
+                )
             except ValueError:
                 _partial_kingdom = Kingdom([], notes="Invalid partial kingdom input.")
             random_kingdom = RandomizedKingdom.from_kingdom(_partial_kingdom)
             random_kingdom.num_desired_landscapes = num_landscapes
+            if random_kingdom.contains_ally() and not random_kingdom.contains_liaison():
+                pick = self.pool_con.pick_liaison(random_kingdom.quality_of_selection)
+                random_kingdom.add_card(pick)
+            if (
+                random_kingdom.contains_prophecy()
+                and not random_kingdom.contains_omen()
+            ):
+                pick = self.pool_con.pick_omen(random_kingdom.quality_of_selection)
+                random_kingdom.add_card(pick)
         else:
             random_kingdom = RandomizedKingdom(num_desired_landscapes=num_landscapes)
         random_kingdom = self.add_required_csos(random_kingdom)
         if len(self.config.get_expansions(False)) == 0:
             return random_kingdom.get_kingdom()
         num_cards -= random_kingdom.num_selected_cards
+        bane_incl = random_kingdom.contains_card(
+            "young_witch"
+        ) and random_kingdom.contains_card(random_kingdom.bane_pile)
+        if bane_incl:
+            num_cards += 1
         num_landscapes -= random_kingdom.num_selected_landscapes
+        army_incl = random_kingdom.contains_landscape(
+            "approaching_army"
+        ) and random_kingdom.contains_card(random_kingdom.army_pile)
+        if army_incl:
+            num_cards += 1
 
         for _ in range(max(num_cards, 0)):
             self.pick_next_card(random_kingdom)
@@ -167,8 +204,19 @@ class KingdomRandomizer:
                 current_qual, random_kingdom.contains_way()
             )
             random_kingdom.add_landscape(pick)
-        # Pick Ally in case a Liaison is in the kingdom
-        # Pick a mouse card in case Way of the Mouse is amongst the picks:
+        # try to pick targets if they haven't been set
+        for special, func in {
+            "young_witch": self.pick_bane_pile,
+            "ferryman": self.pick_ferryman_pile,
+            "riverboat": self.pick_riverboat_card,
+            "druid": self.pick_druid_boons,
+            "approaching_army": self.pick_army_pile,
+            "way_of_the_mouse": self.pick_mouse_card,
+        }.items():
+            if random_kingdom.contains_card(
+                special
+            ) or random_kingdom.contains_landscape(special):
+                func(random_kingdom, repick=False)
         random_kingdom.finish_randomization(self.config)
         return random_kingdom.get_kingdom()
 
@@ -192,7 +240,7 @@ class KingdomRandomizer:
                 if self.pick_next_landscape(random_kingdom, cso):
                     added_landscapes += 1
             else:
-                print(f"Couldn't find {cso} in cards or landscapes")
+                LOGGER.warning(f"Couldn't find {cso} in cards or landscapes")
         return random_kingdom
 
     def _determine_landscape_number(self) -> int:
@@ -220,6 +268,8 @@ class KingdomRandomizer:
                 random_kingdom.add_landscape(pick)
             elif "Prophecy" in removed_types:
                 pick = self.pool_con.pick_prophecy(random_kingdom.quality_of_selection)
+                if pick == "approaching_army":
+                    self.pick_army_pile(random_kingdom)
                 random_kingdom.add_landscape(pick)
             else:
                 self.pick_next_landscape(random_kingdom)
@@ -233,7 +283,7 @@ class KingdomRandomizer:
             random_kingdom.remove_card_and_test_bane_army(cso_name)
             self.pick_mouse_card(random_kingdom)
         else:
-            print(
+            LOGGER.error(
                 f"Something went wrong on the reroll: Couldn't find {cso_name} in the old kingdom."
             )
 
