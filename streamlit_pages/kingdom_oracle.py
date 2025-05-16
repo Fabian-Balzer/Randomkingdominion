@@ -149,7 +149,7 @@ def _build_exps_filter_widget(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def _build_csos_filter_widget(df: pd.DataFrame) -> pd.DataFrame:
-    available_csos = np.unique([cso for cso_list in df["csos"] for cso in cso_list])
+    available_csos = rk.sanitize_cso_list(np.unique([cso for cso_list in df["csos"] for cso in cso_list]), sort=False)  # type: ignore
     available_csos = sorted(rk.ALL_CSOS.loc[available_csos]["Name"])
     cols = st.columns([0.8, 0.2])
     with cols[1]:
