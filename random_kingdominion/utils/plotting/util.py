@@ -6,21 +6,40 @@ import numpy as np
 from matplotlib.axes import Axes
 from matplotlib.offsetbox import AnnotationBbox, OffsetImage
 from scipy.ndimage import zoom as zoom_image
+from matplotlib.figure import Figure
+
+from ...constants import PATH_ASSETS
 
 if TYPE_CHECKING:
     from ...kingdom import Kingdom
 
+def annotate_dominion_logo(ax: Axes, x0: float, y0: float, zoom=0.6):
+    img = plt.imread(PATH_ASSETS.joinpath("icons/logo.png"))  # type: ignore
+    imagebox = OffsetImage(img, zoom=zoom)
+    ab = AnnotationBbox(imagebox, (x0, y0), frameon=False, box_alignment=(1, 0), pad=0)
+    ax.add_artist(ab)
+
+def set_up_fig_and_ax_for_img(figsize=(12.8, 7.2)) -> tuple[Figure, Axes]:
+    """Prepare the ax and fig for the plot"""
+    fig, ax = plt.subplots(figsize=figsize)
+    ax.xaxis.set_visible(False)
+    ax.yaxis.set_visible(False)
+    ax.set_frame_on(False)
+    ax.set_clip_on(False)
+    fig.set_facecolor("black")
+    return fig, ax
 
 def plot_gradient_image(
-    ax: Axes, extent: tuple, direction: str = "horizontal", cmap: str = "viridis"
+    ax: Axes, extent: tuple, direction: str = "horizontal", cmap: str = "viridis", gradient: np.ndarray | None = None, **kwargs
 ) -> None:
     """Set a gradient background for the given axes."""
-    gradient = np.linspace(80, 200, 500)
-    gradient = np.vstack((gradient, gradient))
+    if gradient is None:
+        gradient = np.linspace(80, 200, 500)
+        gradient = np.vstack((gradient, gradient))
     if direction == "vertical":
         gradient = gradient.T
     ax.imshow(
-        gradient, aspect="auto", extent=extent, cmap=cmap, vmin=0, vmax=255, zorder=-1
+        gradient, aspect="auto", extent=extent, cmap=cmap, vmin=0, vmax=255, zorder=-1, **kwargs
     )
 
 

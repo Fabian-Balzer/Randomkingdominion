@@ -13,21 +13,14 @@ from uuid import uuid4
 import numpy as np
 import pandas as pd
 
-from ..constants import (
-    ALL_CSOS,
-    ALL_INTERACTIONS,
-    QUALITIES_AVAILABLE,
-    RENEWED_EXPANSIONS,
-)
+from ..constants import (ALL_CSOS, ALL_INTERACTIONS, QUALITIES_AVAILABLE,
+                         RENEWED_EXPANSIONS)
 from ..logger import LOGGER
-from ..utils.utils import copy_to_clipboard
-from .kingdom_helper_funcs import (
-    _dict_factory_func,
-    _get_total_quality,
-    sanitize_cso_list,
-    sanitize_cso_name,
-    sort_kingdom,
-)
+from ..utils.utils import copy_to_clipboard, get_cso_name
+from .invalidity_stuff import InvalidityReason
+from .kingdom_helper_funcs import (_dict_factory_func, _get_total_quality,
+                                   sanitize_cso_list, sanitize_cso_name,
+                                   sort_kingdom)
 
 
 def remove_deep_nested_parentheses(s: str) -> str:
@@ -71,9 +64,6 @@ def _handle_replacements(full_list: list[str]) -> list[str]:
             full_list.append(f"{thing}(" + ", ".join(replacements) + ")")
     return full_list
 
-
-def get_cso_name(cso_key: str) -> str:
-    return ALL_CSOS["Name"].to_dict().get(cso_key, "NOT FOUND")
 
 
 @dataclass(order=True)
@@ -144,6 +134,7 @@ class Kingdom:
 
     name: str = ""
     notes: str = field(default="", compare=False)
+    invalidity_reasons: list[InvalidityReason] = field(default_factory=list, compare=False)
     idx: int = field(default_factory=lambda: int(uuid4()), compare=False)
 
     # TODO: Find a more lightweight way to do this as it causes load times > 1 sec for > 100 kingdoms
@@ -171,7 +162,7 @@ class Kingdom:
         csv_string: str,
         name: str = "",
         add_unrecognized_notes=True,
-        add_invalidity_notes=True,
+        check_validity=True,
     ) -> Kingdom:
         """Try to initialize the kingdom from a given comma-separated value string similar to
         the one that DomBot produces using the !kingdom -r -l command.
@@ -314,7 +305,8 @@ class Kingdom:
         if "bane" in unrecognized_csos:
             unrecognized_csos.remove("bane")
         if add_unrecognized_notes and len(unrecognized_csos) > 0:
-            note_str += f"Unrecognized: {unrecognized_csos}\n"
+            un_str = ", ".join([f"'{cso}'" for cso in unrecognized_csos])
+            note_str += f"The following inputs could not be associated with any known CSOs: {un_str}\n"
         if add_unrecognized_notes and len(duplicates) > 0:
             dup_counts = {entry: duplicates.count(entry) for entry in duplicates}
             note_str += f"Duplicates: {dup_counts}\n"
@@ -336,11 +328,8 @@ class Kingdom:
             name=name,
             stamps_and_effects=stamps_and_effects,
         )
-        if (
-            add_invalidity_notes
-            and len(invalid_reasons := k.get_reasons_for_invalidity()) > 0
-        ):
-            k.notes += f"This is only a partial kingdom, reason(s): {invalid_reasons}"
+        if check_validity:
+            k.invalidity_reasons = InvalidityReason.check_kingdom_validity(k)
         return k
 
     @classmethod
@@ -394,6 +383,16 @@ class Kingdom:
                 if "Action" in c["Types"] or "Treasure" in c["Types"]:
                     starting_deck.append(card)
         return starting_deck
+    
+    @property
+    def buy_availability(self) -> Literal["Nothing", "Buys*", "Buys"]:
+        """Check whether the kingdom has any cards that provide +buy."""
+        g_qualities = self.get_unique_qualtypes("gain")
+        if "Buys" in g_qualities:
+            return "Buys"
+        elif "Buys*" in g_qualities:
+            return "Buys*"
+        return "Nothing"
 
     @property
     def has_modified_starting_deck(self) -> bool:
@@ -465,12 +464,14 @@ class Kingdom:
         full_kingdom_df = ALL_CSOS.loc[key_list]
         self.full_kingdom_df = sort_kingdom(full_kingdom_df)
 
-        self.kingdom_card_df = sort_kingdom(self.full_kingdom_df.loc[self.cards])
+        self.kingdom_card_df = sort_kingdom(
+            self.full_kingdom_df.loc[self.cards]  # type: ignore
+        )
         self.kingdom_landscape_df = sort_kingdom(
-            self.full_kingdom_df.loc[self.landscapes]
+            self.full_kingdom_df.loc[self.landscapes]  # type: ignore
         )
         self.kingdom_campaign_effects_df = sort_kingdom(
-            self.full_kingdom_df.loc[self.campaign_effects]
+            self.full_kingdom_df.loc[self.campaign_effects]  # type: ignore
         )
         self._set_quality_values()
 
@@ -542,7 +543,7 @@ class Kingdom:
     @property
     def is_valid(self) -> bool:
         """Check whether this kingdom is valid."""
-        return len(self.get_reasons_for_invalidity()) == 0
+        return len(self.invalidity_reasons) == 0
 
     @property
     def unpacked_notes(self) -> dict[str, Any]:
@@ -554,110 +555,7 @@ class Kingdom:
         except JSONDecodeError:
             LOGGER.warning(f"Could not decode kingdom notes: {self.notes}")
             return {"Notes": self.notes}
-
-    def _get_reasons_young_witch(self) -> list[str]:
-        reasons = []
-        bane = self.bane_pile
-        if bane != "" and "young_witch" not in self.cards:
-            reasons.append("no_young_witch_but_bane")
-        if bane == "" and "young_witch" in self.cards:
-            reasons.append("young_witch_but_no_bane")
-        if bane != "" and bane not in self.cards:
-            reasons.append(f"bane_{bane}_not_in_cards")
-        return reasons
-
-    def _get_reasons_army(self) -> list[str]:
-        reasons = []
-        army = self.army_pile
-        if army != "" and "approaching_army" not in self.landscapes:
-            reasons.append("no_approaching_army_but_army_pile")
-        if army == "" and "approaching_army" in self.landscapes:
-            reasons.append("approaching_army_but_no_army")
-        if army != "" and army not in self.cards:
-            reasons.append(f"army_{army}_not_in_cards")
-        return reasons
-
-    def _get_reasons_ally_prophecy(self) -> list[str]:
-        reasons = []
-        contains_liaison = self.check_cards_for_type("IsLiaison")
-        contains_omen = self.check_cards_for_type("IsOmen")
-        if contains_liaison and not self.contains_ally():
-            reasons.append("no_ally")
-        if contains_omen and not self.contains_prophecy():
-            reasons.append("no_prophecy")
-        if self.contains_ally() and not contains_liaison:
-            reasons.append("no_liaison")
-        if self.contains_prophecy() and not contains_omen:
-            reasons.append("no_omen")
-        return reasons
-
-    def _get_reasons_traits(self) -> list[str]:
-        reasons = []
-        trait_dict = self.trait_dict
-        ls = self.kingdom_landscape_df
-        traits = ls[ls["IsTrait"]].index.tolist()
-        for trait in traits:
-            if trait not in trait_dict:
-                reasons.append(f"no_trait_{trait}_target")
-            if (target := trait_dict.get(trait, "")) not in self.cards:
-                reasons.append(f"trait_{trait}_target_{target}_not_in_cards")
-        for trait in trait_dict:
-            if trait not in traits:
-                reasons.append(f"trait_{trait}_not_in_landscapes")
-        return reasons
-
-    def _get_reasons_extras(self) -> list[str]:
-        reasons = []
-        if self.ferryman_pile != "" and "ferryman" not in self.cards:
-            reasons.append("no_ferryman_but_target")
-        if "ferrymen" in self.cards and self.ferryman_pile == "":
-            reasons.append("no_ferryman_target")
-        if self.riverboat_card != "" and "riverboat" not in self.cards:
-            reasons.append("no_riverboat_but_target")
-        if "riverboat" in self.cards and self.riverboat_card == "":
-            reasons.append("no_riverboat_target")
-        if self.mouse_card != "" and "way_of_the_mouse" not in self.landscapes:
-            reasons.append("no_mouse_but_target")
-        if "way_of_the_mouse" in self.landscapes and self.mouse_card == "":
-            reasons.append("no_mouse_target")
-        if self.obelisk_pile != "" and "obelisk" not in self.landscapes:
-            reasons.append("obelisk_but_no_ob")
-        if "obelisk" in self.landscapes and self.obelisk_pile == "":
-            reasons.append("no_obelisk_target")
-        if "druid" in self.cards and len(self.druid_boons) != 3:
-            reasons.append("no_druid_boons")
-        if "druid" not in self.cards and len(self.druid_boons) > 0:
-            reasons.append("no_druid_but_boons")
-        return reasons
-
-    def get_reasons_for_invalidity(self) -> list[str]:
-        """Check whether this kingdom represents a valid kingdom."""
-        cards = self.cards
-        reasons = []
-        expected_card_num = 10
-        if "ruins" in self.cards:
-            expected_card_num += 1
-        if self.bane_pile != "":
-            expected_card_num += 1
-        if self.army_pile != "":
-            expected_card_num += 1
-        if "room_for_more" in self.campaign_effects:
-            expected_card_num += 1
-        if len(cards) != expected_card_num:
-            reasons.append(
-                f"wrong_card_num_of_{len(cards)}, {expected_card_num} expected ({cards})"
-            )
-        if len(self.landscapes) > 4:
-            reasons.append("too_many_landscapes")
-        reason_funcs = [
-            self._get_reasons_ally_prophecy,
-            self._get_reasons_traits,
-            self._get_reasons_extras,
-            self._get_reasons_young_witch,
-            self._get_reasons_army,
-        ]
-        return reasons + [reason for func in reason_funcs for reason in func()]
-
+        
     def get_cso_name_with_extra(self, cso_key: str) -> str:
         """Get the name of the card or landscape with the extra information."""
         return get_cso_name(cso_key) + self._get_cso_extras(cso_key)
@@ -880,7 +778,6 @@ class Kingdom:
 
     def copy_to_clipboard(self):
         """Copies the kingdom to the clipboard."""
-
         copy_to_clipboard(self.get_dombot_csv_string())
 
     def get_interactions(self) -> pd.DataFrame:

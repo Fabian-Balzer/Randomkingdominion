@@ -1,4 +1,3625 @@
 - cards:
+  - collection
+  - expand
+  - grand_market
+  - hoard
+  - investment
+  - philosophers_stone
+  - quarry
+  - rabble
+  - vault
+  - workers_village
+  expansions:
+  - Alchemy
+  - Prosperity, 2E
+  idx: 234612072493915408890391314692875297182
+  name: '2025-05-16'
+  use_colonies: true
+- cards:
+  - bank
+  - blessed_village
+  - crystal_ball
+  - expand
+  - grand_market
+  - kings_court
+  - mint
+  - necromancer
+  - tragic_hero
+  - war_chest
+  expansions:
+  - Nocturne
+  - Prosperity, 2E
+  idx: 335200232761004659625785024488037496261
+  name: '2025-05-15'
+  use_colonies: true
+- cards:
+  - bank
+  - blessed_village
+  - crystal_ball
+  - expand
+  - grand_market
+  - kings_court
+  - mint
+  - necromancer
+  - tragic_hero
+  - war_chest
+  expansions:
+  - Nocturne
+  - Prosperity, 2E
+  idx: 191348977334194306590182891474632509681
+  name: '2025-05-14'
+  use_colonies: true
+- cards:
+  - blessed_village
+  - cobbler
+  - fool
+  - ghost_town
+  - guardian
+  - raider
+  - secret_cave
+  - shepherd
+  - tragic_hero
+  - vampire
+  expansions:
+  - Nocturne
+  idx: 245554584531814206890162611171208866327
+  name: '2025-05-13'
+- cards:
+  - footpad
+  - gardens
+  - journeyman
+  - library
+  - merchant
+  - plaza
+  - stonemason
+  - throne_room
+  - village
+  - workshop
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  idx: 121405498761466028211047697248876700327
+  name: '2025-05-12'
+- cards:
+  - collection
+  - develop
+  - galleria
+  - haven
+  - marauder
+  - pawn
+  - port
+  - secret_passage
+  - transmogrify
+  - wharf
+  expansions:
+  - Adventures
+  - Allies
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Plunder
+  - Prosperity, 2E
+  - Seaside, 2E
+  idx: 316503967337754534980997846750347435478
+  landscapes:
+  - mountain_pass
+  - shy
+  name: '2025-05-11'
+  traits:
+  - - shy
+    - wharf
+- cards:
+  - bard
+  - bureaucrat
+  - chapel
+  - herbalist
+  - plaza
+  - sanctuary
+  - shop
+  - tormentor
+  - warehouse
+  - wishing_well
+  expansions:
+  - Alchemy
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Seaside, 2E
+  idx: 204743289236335002745180540475762839282
+  landscapes:
+  - deliver
+  - reap
+  name: '2025-05-10'
+- cards:
+  - candlestick_maker
+  - crew
+  - figurine
+  - harbor_village
+  - herald
+  - kings_cache
+  - pickaxe
+  - rice_broker
+  - root_cellar
+  - stowaway
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Plunder
+  - Rising Sun
+  idx: 98507876969443167042568440931007867739
+  landscapes:
+  - journey
+  - sea_trade
+  name: '2025-05-09'
+- cards:
+  - alchemist
+  - craftsman
+  - familiar
+  - fishmonger
+  - kitsune
+  - litter
+  - mountain_shrine
+  - rice
+  - scrying_pool
+  - tanuki
+  expansions:
+  - Alchemy
+  - Rising Sun
+  idx: 322212453758303113270789642371802089810
+  landscapes:
+  - credit
+  - flourishing_trade
+  name: '2025-05-08'
+- cards:
+  - apprentice
+  - distant_lands
+  - familiar
+  - gear
+  - messenger
+  - miser
+  - peasant
+  - port
+  - storyteller
+  - treasure_trove
+  expansions:
+  - Adventures
+  - Alchemy
+  idx: 47364369477518030147565131053762820461
+  landscapes:
+  - ferry
+  - inheritance
+  name: '2025-05-07'
+- cards:
+  - armory
+  - count
+  - forager
+  - hunting_grounds
+  - market_square
+  - poor_house
+  - procession
+  - rats
+  - rogue
+  - storeroom
+  expansions:
+  - Dark Ages
+  idx: 136318303796754701855029849946483152599
+  name: '2025-05-06'
+  use_shelters: true
+- cards:
+  - bandit
+  - cellar
+  - chapel
+  - council_room
+  - harbinger
+  - philosophers_stone
+  - scrying_pool
+  - throne_room
+  - vineyard
+  - workshop
+  expansions:
+  - Alchemy
+  - Base, 2E
+  idx: 12968063736113720667853965206831956761
+  name: '2025-05-05'
+  notes:
+    crucial_cards:
+    - Scrying Pool
+    - Throne Room
+    - Workshop
+    - Vineyard
+    ending:
+    - Workshop
+    - Throne Room
+    - Harbinger
+    link: https://youtu.be/2Drv1yZeSWE
+    name: Potion Poof
+    openings:
+    - grade: B
+      t1: Buy Potion; or Workshop?; or Silver?; or Harbinger?
+      t1_csos:
+      - Potion
+      t2: Buy Chapel
+      t2_csos:
+      - Chapel
+      type: 4/3|3/4
+    - grade: B
+      t1: Buy Potion; or Council Room
+      t1_csos:
+      - Potion
+      t2: Buy Chapel
+      t2_csos:
+      - Chapel
+      type: 5/2|2/5
+    points:
+    - 29
+    - 6
+    subtitle: Even With Awful Starting Draws This Kingdom Is Insane
+    turns:
+    - 12
+    - 11
+- campaign_effects:
+  - pay_later
+  cards:
+  - artificer
+  - bard
+  - bauble
+  - clerk
+  - conclave
+  - faithful_hound
+  - monastery
+  - pilgrim
+  - rope
+  - storeroom
+  expansions:
+  - Adventures
+  - Allies
+  - Dark Ages
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  idx: 50745408912008795516867922902818108628
+  landscapes:
+  - cheap
+  - fellowship_of_scribes
+  - way_of_the_owl
+  name: '2025-05-04'
+  notes:
+    crucial_cards:
+    - Way Of The Owl
+    - Rope
+    - Artificer
+    - Necropolis
+    ending:
+    - Province
+    link: https://youtu.be/SSfEswJ0n7s
+    name: Necrowlpowlis
+    openings:
+    - grade: B
+      t1: Buy Clerk
+      t1_csos:
+      - Clerk
+      t2: Buy Rope
+      t2_csos:
+      - Rope
+      type: 4/3
+    - grade: C+
+      t1: Buy Rope
+      t1_csos:
+      - Rope
+      t2: Buy Rope
+      t2_csos:
+      - Rope
+      type: 3/4
+    - grade: B+
+      t1: Buy Artificer; or Pilgrim
+      t1_csos:
+      - Artificer
+      t2: Buy Rope
+      t2_csos:
+      - Rope
+      type: 5/2
+    - grade: C+
+      t1: Buy Rope
+      t1_csos:
+      - Rope
+      t2: Buy Rope
+      t2_csos:
+      - Rope
+      type: 2/5
+    - grade: A+
+      t1: Buy Rope accidentally without playing Treasures
+      t1_csos:
+      - Rope
+      t2: Profit.
+      t2_csos:
+      - Rope
+      type: 4/3
+    points:
+    - 30
+    - 18
+    subtitle: Fast Kingdom Due To Shelters, Owl, And A Bunch Of Roping
+    turns:
+    - 11
+    - 10
+  stamps_and_effects:
+  - - pay_later
+    - rope
+  traits:
+  - - cheap
+    - rope
+  use_shelters: true
+- cards:
+  - archive
+  - butcher
+  - feodum
+  - horn_of_plenty
+  - joust
+  - library
+  - mining_road
+  - pooka
+  - tragic_hero
+  - wealthy_village
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Nocturne
+  - Plunder
+  idx: 163152185424615125110737933612578382392
+  landscapes:
+  - seaway
+  - tax
+  name: '2025-05-03'
+  notes:
+    crucial_cards:
+    - Tax
+    - Butcher
+    - Horn Of Plenty
+    - Joust
+    ending:
+    - Province
+    link: https://youtu.be/VfWA-9Zf854
+    name: Expensive Taxation
+    openings:
+    - grade: D
+      t1: Play Cursed Gold, buy Butcher
+      t1_csos:
+      - Cursed Gold
+      - Curse
+      - Butcher
+      t2: Buy Silver (maybe more if there's no debt for it); or tax Butcher if AI
+        hasn't gotten it
+      t2_csos:
+      - Silver
+      type: 5/4|4/5
+    - grade: D
+      t1: Play Cursed Gold, buy Butcher
+      t1_csos:
+      - Cursed Gold
+      - Curse
+      - Butcher
+      t2: Buy Silver (maybe more if there's no debt for it); or tax Butcher if AI
+        hasn't gotten it
+      t2_csos:
+      - Silver
+      type: 6/3|3/6
+    - grade: D
+      t1: Play Cursed Gold, buy Butcher
+      t1_csos:
+      - Cursed Gold
+      - Curse
+      - Butcher
+      t2: Tax... Butcher? Or Archive?
+      t2_csos:
+      - Tax
+      - Butcher
+      type: 7/2|2/7
+    points:
+    - 50
+    - 7
+    subtitle: The Most Expensive Kingdom We've Seen So Far. Ouch.
+    turns:
+    - 18
+    - 17
+- cards:
+  - bounty_hunter
+  - charlatan
+  - daimyo
+  - hostelry
+  - imperial_envoy
+  - kings_court
+  - root_cellar
+  - sleigh
+  - snake_witch
+  - tiara
+  expansions:
+  - Menagerie
+  - Prosperity, 2E
+  - Rising Sun
+  idx: 66872684091600600513423128131859742741
+  landscapes:
+  - kintsugi
+  - way_of_the_pig
+  name: '2025-05-02'
+  notes:
+    crucial_cards:
+    - Daimyo
+    - King's Court
+    - Horse
+    - Bounty Hunter
+    ending:
+    - Province
+    - Curse
+    link: https://youtu.be/eDWcrB-qDFU
+    name: Royal Piglets
+    openings:
+    - grade: B
+      t1: Buy Bounty Hunter
+      t1_csos:
+      - Bounty Hunter
+      t2: Buy Sleigh; or Kintsugi, trashing Estate
+      t2_csos:
+      - Sleigh
+      type: 4/3|3/4
+    - grade: B
+      t1: Buy Bounty Hunter; or Imperial Envoy; or Charlatan
+      t1_csos:
+      - Bounty Hunter
+      t2: Buy Sleigh
+      t2_csos:
+      - Sleigh
+      type: 5/2
+    - grade: B
+      t1: Buy Sleigh
+      t1_csos:
+      - Sleigh
+      t2: Buy Bounty Hunter; or Imperial Envoy; or Charlatan; or Daimyo if you feel
+        lucky
+      t2_csos:
+      - Bounty Hunter
+      type: 2/5
+    points:
+    - 39
+    - 12
+    subtitle: Crazy Daimyo Stuff Once Again. That Card Delivers...
+    turns:
+    - 12
+    - 11
+- cards:
+  - altar
+  - animal_fair
+  - black_cat
+  - count
+  - forager
+  - kiln
+  - paddock
+  - scavenger
+  - snowy_village
+  - wayfarer
+  expansions:
+  - Dark Ages
+  - Menagerie
+  idx: 115530175606272458245392039751782668428
+  landscapes:
+  - bargain
+  - way_of_the_pig
+  name: '2025-05-01'
+  notes:
+    crucial_cards:
+    - Way of the Pig
+    - Black Cat
+    - Snowy Village
+    - Paddock
+    ending:
+    - Black Cat
+    - Paddock
+    - Snowy Village
+    link: https://youtu.be/Z6RFp9v1akM
+    name: Snowy Piglets
+    openings:
+    - grade: C
+      t1: Buy Scavenger; or Bargain for Count?
+      t1_csos:
+      - Scavenger
+      t2: Buy Forager
+      t2_csos:
+      - Forager
+      type: 4/3|3/4
+    - grade: C+
+      t1: Buy Count
+      t1_csos:
+      - Count
+      t2: Buy Black Cat
+      t2_csos:
+      - Black Cat
+      type: 5/2|2/5
+    points:
+    - 9
+    - 2
+    subtitle: Lots Of Dynamics Around Emptying Piles
+    turns:
+    - 13
+    - 12
+- cards:
+  - duke
+  - farm
+  - native_village
+  - patrol
+  - pirate
+  - shanty_town
+  - tactician
+  - tide_pools
+  - trading_post
+  - upgrade
+  expansions:
+  - Intrigue, 2E
+  - Seaside, 2E
+  idx: 135593834665442031947137655882895736554
+  name: '2025-04-30'
+  notes:
+    crucial_cards:
+    - Upgrade
+    - Tide Pools
+    - Farm
+    - Pirate
+    ending:
+    - Province
+    - Shanty Town
+    - Farm
+    link: https://youtu.be/UEWTl7zRMZ0
+    name: Pirating Farms
+    openings:
+    - grade: D
+      t1: Buy Shanty Town; or Tide Pools
+      t1_csos:
+      - Shanty Town
+      t2: Buy Silver
+      t2_csos:
+      - Silver
+      type: 4/3|3/4
+    - grade: B
+      t1: Buy Upgrade
+      t1_csos:
+      - Upgrade
+      t2: Buy Native Village
+      t2_csos:
+      - Native Village
+      type: 5/2|2/5
+    points:
+    - 37
+    - 34
+    subtitle: Tight Kingdom Where AI Seems Ahead The Whole Game
+    turns:
+    - 16
+    - 15
+- cards:
+  - abundance
+  - cutthroat
+  - figurine
+  - harbor_village
+  - kings_cache
+  - landing_party
+  - pendant
+  - pickaxe
+  - shaman
+  - tools
+  expansions:
+  - Plunder
+  idx: 75895915464151068340560036007336656585
+  landscapes:
+  - looting
+  - rush
+  name: '2025-04-29'
+  notes:
+    crucial_cards:
+    - King's Cache
+    - Figurine
+    - Landing Party
+    - Shaman
+    ending:
+    - Province
+    - Duchy
+    - Estate
+    - Figurine
+    - King's Cache
+    - Landing Party
+    - Pendant
+    - Tools
+    link: https://youtu.be/V9frIpZDtpE
+    name: Rushed Junk Party
+    openings:
+    - grade: A-
+      t1: Buy Rush, buy Shaman and trash Estate
+      t1_csos:
+      - Rush
+      - Shaman
+      - Estate
+      t2: Buy Shaman; or Silver
+      t2_csos:
+      - Shaman
+      type: 4/3|3/4
+    - grade: C
+      t1: Buy Pickaxe
+      t1_csos:
+      - Pickaxe
+      t2: Buy Shaman
+      t2_csos:
+      - Shaman
+      type: 5/2|2/5
+    points:
+    - 54
+    - 32
+    subtitle: King's Cache/Figurine Sure Can Be Explosive
+    turns:
+    - 18
+    - 17
+- cards:
+  - bandit
+  - bandit_camp
+  - counterfeit
+  - marauder
+  - mine
+  - poacher
+  - rats
+  - squire
+  - throne_room
+  - vagrant
+  expansions:
+  - Base, 2E
+  - Dark Ages
+  idx: 325758899528910342703151855323255578836
+  name: '2025-04-28'
+  notes:
+    crucial_cards:
+    - Marauder
+    - Vagrant
+    - Counterfeit
+    - Survivors
+    ending:
+    - Province
+    - Duchy
+    - Ruins
+    link: https://youtu.be/ho7HhXOBsyo
+    name: Marauders On The Loose
+    openings:
+    - grade: C
+      t1: Buy Marauder
+      t1_csos:
+      - Marauder
+      t2: Buy Silver
+      t2_csos:
+      - Silver
+      type: 4/3|3/4
+    - grade: B
+      t1: Buy Counterfeit
+      t1_csos:
+      - Counterfeit
+      t2: Buy Vagrant
+      t2_csos:
+      - Vagrant
+      type: 5/2|2/5
+    points:
+    - 45
+    - 33
+    subtitle: Dark Ages At It Again With Emphasis On Sloggyness
+    turns:
+    - 21
+    - 20
+  use_shelters: true
+- campaign_effects:
+  - favored_landlords
+  - replace_copper
+  cards:
+  - border_village
+  - bounty_hunter
+  - city
+  - craftsman
+  - encampment/plunder
+  - importer
+  - pooka
+  - replace
+  - skirmisher
+  - war_chest
+  expansions:
+  - Allies
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Rising Sun
+  idx: 3647000609925342195099796518291474130
+  landscapes:
+  - inspiring
+  - plateau_shepherds
+  name: '2025-04-27'
+  notes:
+    crucial_cards:
+    - Encampment
+    - City
+    - Replace
+    - Plateau Shepherds
+    ending:
+    - Curse
+    - Estate
+    - Encampment
+    link: https://youtu.be/Rf2Gn8Ux1Xk
+    name: Replace Rumble
+    openings:
+    - grade: D
+      t1: Play War Chest for Replace if possible, else Pooka, buy Bounty Hunter
+      t1_csos:
+      - War Chest
+      - Replace
+      - Bounty Hunter
+      t2: Play Cursed Gold, buy Bounty Hunter; or skip turn (don't play Cursed Gold)
+      t2_csos:
+      - Cursed Gold
+      - Bounty Hunter
+      type: 4/4
+    - grade: B-
+      t1: Play War Chest for Bounty Hunter if possible, else Replace, buy Replace
+        (or BH)
+      t1_csos:
+      - War Chest
+      - Bounty Hunter
+      - Replace
+      t2: Skip turn (don't play Cursed Gold), or buy Encampment if Cursed Gold was
+        in the other hand
+      t2_csos: []
+      type: 5/3|3/5
+    - grade: B
+      t1: Play War Chest for Bounty Hunter if possible, else Replace, play Cursed
+        Gold, buy Border Village -> Replace (or BH)
+      t1_csos:
+      - War Chest
+      - Bounty Hunter
+      - Cursed Gold
+      - Replace
+      t2: Buy Encampment
+      t2_csos:
+      - Encampment
+      type: 6/2|2/6
+    - grade: C
+      t1: Buy Border Village -> Replace; or skip Cursed Gold play and just buy Bounty
+        Hunter
+      t1_csos:
+      - Cursed Gold
+      - Replace
+      t2: Play War Chest for Replace or Bounty Hunter
+      t2_csos:
+      - War Chest
+      - Bounty Hunter
+      type: 7/1|1/7
+    points:
+    - 49
+    - 24
+    subtitle: Super Fast And Complicated Stuff Going On
+    tries: 2
+    turns:
+    - 10
+    - 9
+  stamps_and_effects:
+  - - replace_copper
+    - war_chest
+  traits:
+  - - inspiring
+    - war_chest
+  use_colonies: true
+- cards:
+  - artificer
+  - bishop
+  - council_room
+  - frigate
+  - hunter
+  - lookout
+  - siren
+  - stowaway
+  - tide_pools
+  - tragic_hero
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
+  idx: 97858483403359566515832533711597729110
+  landscapes:
+  - fated
+  - sewers
+  name: '2025-04-26'
+  notes:
+    crucial_cards:
+    - Siren
+    - Tide Pools
+    - Lookout
+    - Artificer
+    ending:
+    - Province
+    link: https://youtu.be/1LaDKhJKx38
+    name: Siren's Calling
+    openings:
+    - grade: B
+      t1: Buy Lookout
+      t1_csos:
+      - Lookout
+      t2: Buy Sewers; or Lookout
+      t2_csos:
+      - Sewers
+      type: 4/3|3/4
+    - grade: C
+      t1: Buy Artificer
+      t1_csos:
+      - Artificer
+      t2: Skip turn
+      t2_csos: []
+      type: 5/2|2/5
+    points:
+    - 36
+    - 16
+    subtitle: Building A Beautiful Deck Relying On Tide Pools/Siren
+    turns:
+    - 14
+    - 13
+  traits:
+  - - fated
+    - tide_pools
+- cards:
+  - bridge_troll
+  - fishing_village
+  - lighthouse
+  - lookout
+  - pirate
+  - relic
+  - treasure_map
+  - treasury
+  - wandering_minstrel
+  - warehouse
+  expansions:
+  - Adventures
+  - Dark Ages
+  - Seaside, 2E
+  idx: 311476524669790165366829629077205984541
+  landscapes:
+  - ball
+  - seaway
+  name: '2025-04-25'
+  notes:
+    crucial_cards: []
+    ending: []
+    link: ''
+    name: ''
+    openings:
+    - grade: ''
+      t1: ''
+      t1_csos: []
+      t2: ''
+      t2_csos: []
+      type: 4/3|3/4
+    - grade: ''
+      t1: ''
+      t1_csos: []
+      t2: ''
+      t2_csos: []
+      type: 5/2|2/5
+    points: []
+    subtitle: ''
+    turns: []
+- cards:
+  - artificer
+  - berserker
+  - bridge_troll
+  - cartographer
+  - crossroads
+  - dungeon
+  - haggler
+  - hireling
+  - port
+  - swamp_hag
+  expansions:
+  - Adventures
+  - Hinterlands, 2E
+  idx: 102949752694460198109433128934479498598
+  landscapes:
+  - plan
+  - save
+  name: '2025-04-24'
+  notes:
+    crucial_cards: []
+    ending: []
+    link: ''
+    name: ''
+    openings:
+    - grade: ''
+      t1: ''
+      t1_csos: []
+      t2: ''
+      t2_csos: []
+      type: 4/3|3/4
+    - grade: ''
+      t1: ''
+      t1_csos: []
+      t2: ''
+      t2_csos: []
+      type: 5/2|2/5
+    points: []
+    subtitle: ''
+    turns: []
+- bane_pile: settlers/bustling_village
+  cards:
+  - city_quarter
+  - encampment/plunder
+  - enchantress
+  - farmhands
+  - ferryman
+  - groundskeeper
+  - horn_of_plenty
+  - jester
+  - settlers/bustling_village
+  - villa
+  - young_witch
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Empires
+  ferryman_pile: castles
+  idx: 301275320161233057902746418642845186882
+  landscapes:
+  - arena
+  - triumph
+  name: '2025-04-23'
+  notes:
+    crucial_cards: []
+    ending: []
+    link: ''
+    name: ''
+    openings:
+    - grade: ''
+      t1: ''
+      t1_csos: []
+      t2: ''
+      t2_csos: []
+      type: 4/3|3/4
+    - grade: ''
+      t1: ''
+      t1_csos: []
+      t2: ''
+      t2_csos: []
+      type: 5/2|2/5
+    points: []
+    subtitle: ''
+    turns: []
+- cards:
+  - berserker
+  - farmland
+  - haggler
+  - inn
+  - spice_merchant
+  - trader
+  - tunnel
+  - weaver
+  - wheelwright
+  - witchs_hut
+  expansions:
+  - Hinterlands, 2E
+  idx: 15455965884528843709010004619648535247
+  name: '2025-04-22'
+  notes:
+    crucial_cards: []
+    ending: []
+    link: ''
+    name: ''
+    openings:
+    - grade: ''
+      t1: ''
+      t1_csos: []
+      t2: ''
+      t2_csos: []
+      type: 4/3|3/4
+    - grade: ''
+      t1: ''
+      t1_csos: []
+      t2: ''
+      t2_csos: []
+      type: 5/2|2/5
+    points: []
+    subtitle: ''
+    turns: []
+- cards:
+  - chapel
+  - gardens
+  - gear
+  - harbinger
+  - haunted_woods
+  - lost_city
+  - page
+  - remodel
+  - swamp_hag
+  - throne_room
+  expansions:
+  - Adventures
+  - Base, 2E
+  idx: 263199216426928063790714636961665967049
+  landscapes:
+  - expedition
+  - trade
+  name: '2025-04-21'
+  notes:
+    crucial_cards:
+    - Chapel
+    - Page
+    - Warrior
+    - Remodel
+    ending: []
+    link: ''
+    name: ''
+    openings:
+    - grade: B
+      t1: Buy Page (prioritize over Chapel in case of Lost City buy by AI)
+      t1_csos:
+      - Page
+      t2: Chapel
+      t2_csos:
+      - Chapel
+      type: 4/3|5/2
+    - grade: B
+      t1: Buy Chapel (prioritize over Page in case of Lost City buy by AI)
+      t1_csos:
+      - Chapel
+      t2: Buy Page
+      t2_csos:
+      - Page
+      type: 3/4
+    - grade: B
+      t1: Buy Chapel
+      t1_csos:
+      - Chapel
+      t2: Buy Lost City; or Page
+      t2_csos:
+      - Lost City
+      type: 2/5
+    points: []
+    subtitle: ''
+    turns: []
+- campaign_effects:
+  - plus_coin
+  - replace_copper
+  cards:
+  - alchemist
+  - conclave
+  - duke
+  - farmland
+  - figurine
+  - fortress
+  - pixie
+  - settlers/bustling_village
+  - smugglers
+  - souk
+  expansions:
+  - Alchemy
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Seaside, 2E
+  idx: 309257274635859635711514611795042058756
+  landscapes:
+  - way_of_the_otter
+  name: '2025-04-20'
+  notes:
+    bonus_game: true
+    crucial_cards:
+    - Souk
+    - Fortress
+    - Way of the Otter
+    - Spoils
+    ending:
+    - Province
+    link: https://youtu.be/yqoxzrbQMC4
+    name: Spoiled Souks
+    openings:
+    - grade: A
+      t1: Play 2 Spoils + Goat, Trash Estate, buy Conclave
+      t1_csos:
+      - Spoils
+      - Goat
+      - Estate
+      - Conclave
+      t2: Play 2 Spoils, buy Souk, trash 2 Estates
+      t2_csos:
+      - Spoils
+      - Spoils
+      - Souk
+      - Estate
+      - Estate
+      type: 10/9|9/10
+    - grade: B
+      t1: Play 2 Spoils, Buy Fortress
+      t1_csos:
+      - Spoils
+      - Fortress
+      t2: Play 2 Spoils + Goat, buy Souk, trash 2 Estates
+      t2_csos:
+      - Spoils
+      - Goat
+      - Souk
+      - Estate
+      type: 12/7|7/12
+    - grade: B
+      t1: Play 2 Spoils + Goat, buy Fortress
+      t1_csos:
+      - Spoils
+      - Goat
+      - Fortress
+      t2: Play 2 Spoils, buy Souk, trash 2 Estates
+      t2_csos:
+      - Spoils
+      - Spoils
+      - Souk
+      - Estate
+      - Estate
+      type: 13/6|6/13
+    - grade: C
+      t1: Cry a bit. Then play 4 Spoils, buy Souk
+      t1_csos:
+      - Spoils
+      - Souk
+      t2: Play Spoils + Goat, trash Estate, Buy Fortress
+      t2_csos:
+      - Spoils
+      - Goat
+      - Estate
+      - Fortress
+      type: 15/4|4/15
+    points:
+    - 48
+    - 21
+    subtitle: Campaign Sunday Presenting Us With A Supercharged Kingdom
+    turns:
+    - 9
+    - 8
+  stamps_and_effects:
+  - - plus_coin
+    - way_of_the_otter
+  - - replace_copper
+    - spoils,_spoils,_spoils,_spoils,_spoils,_spoils
+- cards:
+  - capital
+  - catacombs
+  - fool
+  - guildmaster
+  - hunting_party
+  - leprechaun
+  - stowaway
+  - swamp_hag
+  - trader
+  - workshop
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Nocturne
+  - Plunder
+  idx: 167799175816599894629059716958706006614
+  landscapes:
+  - bury
+  - league_of_shopkeepers
+  - tower
+  name: '2025-04-19'
+  notes:
+    crucial_cards:
+    - Hunting Party
+    - Lucky Coin
+    - Guildmaster
+    - Silver
+    ending:
+    - Province
+    - Silver
+    link: https://youtu.be/t8wCuXS_8vw
+    name: League Of Slogkeepers
+    openings:
+    - grade: D
+      t1: Play Lucky Coin, buy Silver
+      t1_csos:
+      - Lucky Coin
+      - Silver
+      - Silver
+      t2: Buy Fool
+      t2_csos:
+      - Fool
+      type: 4/3
+    - grade: D+
+      t1: Play Lucky Coin, buy Fool
+      t1_csos:
+      - Lucky Coin
+      - Silver
+      - Fool
+      t2: Bury Fool, Buy Silver
+      t2_csos:
+      - Silver
+      type: 3/4
+    - grade: B
+      t1: Play Lucky Coin, buy Guildmaster
+      t1_csos:
+      - Lucky Coin
+      - Silver
+      - Guildmaster
+      t2: Bury Guildmaster, bury Lucky Coin
+      t2_csos:
+      - Guildmaster
+      - Lucky Coin
+      type: 5/2
+    - grade: C
+      t1: Skip Turn
+      t1_csos: []
+      t2: Play Lucky Coin, buy Guildmaster
+      t2_csos:
+      - Lucky Coin
+      - Silver
+      - Guildmaster
+      type: 2/5
+    points:
+    - 61
+    - 49
+    subtitle: A Sloggy Kingdom In Which Our First Game Plan Doesn't Work Out
+    tries: 2
+    turns:
+    - 18
+    - 17
+- cards:
+  - abundance
+  - crucible
+  - first_mate
+  - fishing_village
+  - fortune_hunter
+  - rice_broker
+  - sea_chart
+  - stowaway
+  - tanuki
+  - tea_house
+  expansions:
+  - Plunder
+  - Rising Sun
+  - Seaside, 2E
+  idx: 114413299322978503387224464695285870634
+  landscapes:
+  - continue
+  - good_harvest
+  - journey
+  name: '2025-04-18'
+  notes:
+    crucial_cards:
+    - Journey
+    - Tanuki
+    - Sea Chart
+    - Abundance
+    ending:
+    - Province
+    - Tea House
+    find_the_win: true
+    link: https://youtu.be/0cxlDXWw2sE
+    name: Continuous Journey
+    openings:
+    - grade: C
+      t1: Buy Crucible
+      t1_csos:
+      - Crucible
+      t2: Buy Silver
+      t2_csos:
+      - Silver
+      type: 4/3|3/4
+    - grade: A
+      t1: Buy Tanuki
+      t1_csos:
+      - Tanuki
+      t2: Play Coppers, buy Continue to play Sea Chart, Tanuki Estate into Crucible
+      t2_csos:
+      - Copper
+      - Continue
+      - Sea Chart
+      - Tanuki
+      - Estate
+      - Crucible
+      type: 5/2
+    - grade: C
+      t1: Skip Turn
+      t1_csos: []
+      t2: Buy Tanuki
+      t2_csos:
+      - Tanuki
+      type: 2/5
+    points:
+    - 24
+    - 13
+    subtitle: Pairing Up Two Of Dominion's Strongest Events? And Tanuki? Madness.
+    turns:
+    - 10
+    - 9
+- cards:
+  - blockade
+  - cobbler
+  - cursed_village
+  - island
+  - lookout
+  - necromancer
+  - night_watchman
+  - shepherd
+  - vampire
+  - warehouse
+  expansions:
+  - Nocturne
+  - Seaside, 2E
+  idx: 312070345698596653885811224878416430126
+  name: '2025-04-17'
+  notes:
+    crucial_cards:
+    - Shepherd
+    - Cobbler
+    - Vampire
+    - Blockade
+    ending:
+    - Duchy
+    - Island
+    - Shepherd
+    link: https://youtu.be/iKT1IgYlqrw
+    name: Cobbled Greens
+    openings:
+    - grade: B
+      t1: Buy Blockade
+      t1_csos:
+      - Blockade
+      t2: Buy Silver
+      t2_csos:
+      - Silver
+      type: 4/3|3/4
+    - grade: B
+      t1: Buy Vampire; or Cobbler
+      t1_csos:
+      - Vampire
+      t2: Skip turn
+      t2_csos: []
+      type: 5/2|2/5
+    points:
+    - 47
+    - 31
+    subtitle: Simply Supported Shepherd Stuff Seems Super Satisfying
+    turns:
+    - 14
+    - 13
+- cards:
+  - bank
+  - border_guard
+  - ducat
+  - expand
+  - flag_bearer
+  - investment
+  - mint
+  - monument
+  - mountain_village
+  - scholar
+  expansions:
+  - Prosperity, 2E
+  - Renaissance
+  idx: 237068536770567827441991804117299260481
+  landscapes:
+  - sewers
+  - sinister_plot
+  name: '2025-04-16'
+  notes:
+    crucial_cards: []
+    ending: []
+    link: ''
+    name: ''
+    openings:
+    - grade: ''
+      t1: ''
+      t1_csos: []
+      t2: ''
+      t2_csos: []
+      type: 4/3|3/4
+    - grade: ''
+      t1: ''
+      t1_csos: []
+      t2: ''
+      t2_csos: []
+      type: 5/2|2/5
+    points: []
+    subtitle: ''
+    turns: []
+  use_colonies: true
+- cards:
+  - acting_troupe
+  - border_guard
+  - cargo_ship
+  - ducat
+  - hideout
+  - lackeys
+  - patron
+  - priest
+  - research
+  - sculptor
+  expansions:
+  - Renaissance
+  idx: 145090171385851353406552555849887012641
+  landscapes:
+  - city_gate
+  - star_chart
+  name: '2025-04-15'
+  notes:
+    crucial_cards: []
+    ending: []
+    link: ''
+    name: ''
+    openings:
+    - grade: ''
+      t1: ''
+      t1_csos: []
+      t2: ''
+      t2_csos: []
+      type: 4/3|3/4
+    - grade: ''
+      t1: ''
+      t1_csos: []
+      t2: ''
+      t2_csos: []
+      type: 5/2|2/5
+    points: []
+    subtitle: ''
+    turns: []
+- cards:
+  - artisan
+  - augurs
+  - clashes
+  - council_room
+  - highwayman
+  - innkeeper
+  - poacher
+  - specialist
+  - village
+  - wizards
+  expansions:
+  - Allies
+  - Base, 2E
+  idx: 133423643882843210469053952527338986459
+  landscapes:
+  - family_of_inventors
+  name: '2025-04-14'
+  notes:
+    crucial_cards:
+    - Highwayman
+    - Clashes
+    - Artisan
+    - Family of Inventors
+    ending:
+    - Specialist
+    - Duchy
+    - Artisan
+    link: https://youtu.be/4pOME9nEb-8
+    name: Inventive Artisanry
+    openings:
+    - grade: C
+      t1: Put Family of Inventors (FoI) Favor on Highwayman, buy Highwayman; or buy
+        Battle Plan?
+      t1_csos:
+      - Family of Inventors
+      - Highwayman
+      t2: Buy Student
+      t2_csos:
+      - Student
+      type: 4/3
+    - grade: B
+      t1: Buy Student
+      t1_csos:
+      - Student
+      t2: If AI placed Favor on Highwayman, buy it and save Favor, else use it for
+        Highwayman
+      t2_csos:
+      - Family of Inventors
+      - Highwayman
+      type: 3/4
+    - grade: C
+      t1: Buy Highwayman; or place Favor on Artisan, buy Artisan
+      t1_csos:
+      - Highwayman
+      t2: Place FoI Favor on Wizards, buy Student
+      t2_csos:
+      - Family of Inventors
+      - Wizards
+      - Student
+      type: 5/2
+    - grade: C+
+      t1: Place FoI Favor on Wizards, buy Student
+      t1_csos:
+      - Family of Inventors
+      - Wizards
+      - Student
+      t2: If AI placed Favor on Artisan, buy it, otherwise buy Highwayman
+      t2_csos:
+      - Highwayman
+      type: 5/2|2/5
+    points:
+    - 26
+    - 0
+    subtitle: Fun Gain-Train-Stuff With A Confused AI
+    turns:
+    - 11
+    - 10
+- campaign_effects:
+  - replace_copper
+  - replace_estate
+  cards:
+  - capital
+  - galleria
+  - litter
+  - livery
+  - minion
+  - patron
+  - squire
+  - swamp_hag
+  - taskmaster
+  - upgrade
+  expansions:
+  - Adventures
+  - Allies
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
+  - Renaissance
+  - Rising Sun
+  idx: 160567043120934857363140044891283778553
+  landscapes:
+  - wedding
+  name: '2025-04-13'
+  notes:
+    crucial_cards:
+    - Survivors
+    - Upgrade
+    - Livery
+    - Patron
+    ending:
+    - Copper
+    - Livery
+    - Patron
+    link: https://youtu.be/__iTIrWKTCY
+    name: Surviving The Ruins
+    openings:
+    - grade: E
+      t1: '[With neither Ruined Library nor Survivors] Buy Patron; or Silver'
+      t1_csos:
+      - Patron
+      t2: Play Survivors, skip turn?
+      t2_csos:
+      - Survivors
+      type: 4/2|3/3
+    - grade: D-
+      t1: '[With either RL or Survivors] Play RL/Survivors (discarding), buy Patron;
+        or Silver'
+      t1_csos:
+      - Ruined Library
+      - Patron
+      t2: Pray to hit $5 for Upgrade
+      t2_csos:
+      - Upgrade
+      type: 4/2|3/3
+    - grade: A
+      t1: Buy Upgrade
+      t1_csos:
+      - Upgrade
+      t2: Trigger shuffle, preferentially with Survivors
+      t2_csos:
+      - Survivors
+      type: 5/1
+    - grade: F
+      t1: Skip Turn? Or resign
+      t1_csos: []
+      t2: Buy Patron, don't trigger shuffle
+      t2_csos:
+      - Patron
+      type: 2/4
+    points:
+    - 6
+    - 0
+    subtitle: Where A Weird Starting Deck Can Lead To A Lotta Variance
+    turns:
+    - 14
+    - 13
+  stamps_and_effects:
+  - - replace_copper
+    - ruins,_ruins
+  - - replace_estate
+    - ruins,_ruins
+- cards:
+  - graverobber
+  - guildmaster
+  - legionary
+  - merchant_camp
+  - paddock
+  - peasant
+  - royal_blacksmith
+  - sanctuary
+  - siren
+  - vagrant
+  expansions:
+  - Adventures
+  - Allies
+  - Dark Ages
+  - Empires
+  - Menagerie
+  - Plunder
+  idx: 280882662718294448010134778555543042259
+  landscapes:
+  - order_of_masons
+  - save
+  name: '2025-04-12'
+  notes:
+    crucial_cards:
+    - Save
+    - Sanctuary
+    - Siren
+    - Disciple
+    ending:
+    - Curse
+    - Vagrant
+    - Sanctuary
+    link: https://youtu.be/MzDaaNvlVhI
+    name: Safe Sanctuary
+    openings:
+    - grade: B+
+      t1: Buy Peasant
+      t1_csos:
+      - Peasant
+      t2: Buy Save, Save Copper, buy Peasant, remove Estates from shuffle
+      t2_csos:
+      - Save
+      - Copper
+      - Peasant
+      type: 3/4
+    - grade: B+
+      t1: Buy Save, Save Copper, Buy Peasant
+      t1_csos:
+      - Save
+      - Copper
+      - Peasant
+      t2: Buy Save, Save Copper, buy Peasant, remove Estates from shuffle
+      t2_csos:
+      - Save
+      - Copper
+      - Peasant
+      type: 4/3
+    - grade: B+
+      t1: Buy Sanctuary; or Paddock
+      t1_csos:
+      - Sanctuary
+      t2: Buy Peasant, remove Estates from shuffle
+      t2_csos:
+      - Peasant
+      type: 5/2|2/5
+    points:
+    - 7
+    - 4
+    subtitle: Intricate Kingdom, Explosive Engine That Takes Time To Set Up
+    turns:
+    - 14
+    - 13
+- cards:
+  - bard
+  - hunting_party
+  - idol
+  - imperial_envoy
+  - litter
+  - night_watchman
+  - poet
+  - remake
+  - shepherd
+  - tormentor
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Nocturne
+  - Rising Sun
+  idx: 95556091640835174643719315718616771997
+  landscapes:
+  - sickness
+  name: '2025-04-11'
+  notes:
+    crucial_cards:
+    - Hunting Party
+    - Sickness
+    - Remake
+    - Shepherd
+    ending:
+    - Province
+    - Curse
+    link: https://youtu.be/ByfAZzOlevE
+    name: Sick Hunting
+    openings:
+    - grade: C
+      t1: Buy Shepherd; or Poet; or Remake
+      t1_csos:
+      - Shepherd
+      t2: Buy Silver
+      t2_csos:
+      - Silver
+      type: 4/3|3/4
+    - grade: C
+      t1: Buy Tormentor
+      t1_csos:
+      - Tormentor
+      t2: Skip turn
+      t2_csos: []
+      type: 5/2|2/5
+    points:
+    - 38
+    - 24
+    subtitle: Coming Down With Sickness Turns Out Pretty Fine
+    turns:
+    - 17
+    - 16
+- cards:
+  - abundance
+  - grotto
+  - harem_farm
+  - jewelled_egg
+  - landing_party
+  - mapmaker
+  - maroon
+  - minion
+  - nobles
+  - siren
+  expansions:
+  - Intrigue, 2E
+  - Plunder
+  idx: 21496026597368330806959031632279701598
+  landscapes:
+  - reckless
+  - rush
+  name: '2025-04-10'
+  notes:
+    crucial_cards:
+    - Rush
+    - Siren
+    - Maroon
+    - Grotto
+    ending:
+    - Province
+    - Grotto
+    - Curse
+    link: https://youtu.be/gPNHMH0zn-s
+    name: The Minion
+    openings:
+    - grade: C
+      t1: Buy Maroon
+      t1_csos:
+      - Maroon
+      t2: Buy Silver; or Grotto (but I think Silver is better)
+      t2_csos:
+      - Silver
+      type: 4/3|3/4
+    - grade: A+
+      t1: Buy Rush, then Siren
+      t1_csos:
+      - Rush
+      - Siren
+      t2: Buy Rush, then Siren (and feel a bit disgusted about yourself)
+      t2_csos:
+      - Rush
+      - Siren
+      type: 5/2
+    - grade: A-
+      t1: Buy Grotto, or skip turn if you want to guarantee Siren t3 (but Grotto seems
+        better)
+      t1_csos:
+      - Grotto
+      t2: Buy Rush, then Siren (and feel a bit disgusted about yourself)
+      t2_csos:
+      - Rush
+      - Siren
+      type: 2/5
+    points:
+    - 36
+    - 31
+    subtitle: Getting Punished For Laughing About AI's Minion
+    turns:
+    - 19
+    - 18
+  traits:
+  - - reckless
+    - harem_farm
+- cards:
+  - aristocrat
+  - bridge
+  - daimyo
+  - replace
+  - rice
+  - root_cellar
+  - rustic_village
+  - tanuki
+  - trading_post
+  - upgrade
+  expansions:
+  - Intrigue, 2E
+  - Rising Sun
+  idx: 83199806002501537777531411570617634101
+  landscapes:
+  - growth
+  - practice
+  name: '2025-04-09'
+  notes:
+    crucial_cards:
+    - Daimyo
+    - Bridge
+    - Tanuki
+    - Practice
+    ending:
+    - Province
+    find_the_win: true
+    link: https://youtu.be/9bxlW5IFlEM
+    name: Bridging Up
+    openings:
+    - grade: C
+      t1: Buy Bridge
+      t1_csos:
+      - Bridge
+      t2: Buy Silver
+      t2_csos:
+      - Silver
+      type: 4/3|3/4
+    - grade: A-
+      t1: Buy Tanuki
+      t1_csos:
+      - Tanuki
+      t2: Buy Daimyo
+      t2_csos:
+      - Daimyo
+      type: 5/2
+    - grade: B
+      t1: Skip turn
+      t1_csos: []
+      t2: Buy Tanuki
+      t2_csos:
+      - Tanuki
+      type: 2/5
+    points:
+    - 54
+    - 2
+    subtitle: A Really Cool Find-The-Win-Situation Brought To You By REDACTED
+    turns:
+    - 10
+    - 9
+- cards:
+  - cobbler
+  - crypt
+  - devils_workshop
+  - fool
+  - pooka
+  - raider
+  - sacred_grove
+  - skulk
+  - tragic_hero
+  - vampire
+  expansions:
+  - Nocturne
+  idx: 179366053682694237894456828193343027079
+  name: '2025-04-08'
+  notes:
+    bonus_game: true
+    crucial_cards:
+    - Cursed Gold
+    - Raider
+    - Skulk
+    - Crypt
+    ending:
+    - Province
+    link: https://youtu.be/VopB55zsTwY
+    name: Raiding Crypts
+    openings:
+    - grade: C
+      t1: Play Cursed Gold, buy Vampire
+      t1_csos:
+      - Cursed Gold
+      - Vampire
+      t2: Buy Silver; or nothing; or Skulk; or maybe Fool might be fine, don't play
+        Lucky Coin if possible
+      t2_csos:
+      - Silver
+      type: 5/4|4/5
+    - grade: C
+      t1: Play Cursed Gold, buy Vampire, don't play Lucky Coin if possible
+      t1_csos:
+      - Cursed Gold
+      - Vampire
+      t2: Buy Silver; or nothing; or maybe Fool might be fine
+      t2_csos:
+      - Silver
+      type: 6/3|3/6
+    - grade: C
+      t1: Play Cursed Gold, buy Vampire, don't play Lucky Coin
+      t1_csos:
+      - Cursed Gold
+      - Vampire
+      t2: Nothing (also don't play Lucky Coin)
+      t2_csos: []
+      type: 7/2|2/7
+    points:
+    - 42
+    - 31
+    subtitle: A Sloggy Game With Lots Of Sadness
+    turns:
+    - 19
+    - 18
+- cards:
+  - bazaar
+  - blockade
+  - corsair
+  - gardens
+  - haven
+  - market
+  - remodel
+  - sailor
+  - treasury
+  - witch
+  expansions:
+  - Base, 2E
+  - Seaside, 2E
+  idx: 44419290123588137140184995953639880481
+  name: '2025-04-07'
+  notes:
+    crucial_cards:
+    - witch
+    - Blockade
+    - Sailor
+    - Gardens
+    ending:
+    - Curse
+    - Blockade
+    - Sailor
+    link: https://youtu.be/QCmRUaB_uUo
+    name: Miraculous Blockades
+    openings:
+    - grade: C+
+      t1: Buy Blockade; or Sailor
+      t1_csos:
+      - Blockade
+      t2: Buy Silver
+      t2_csos:
+      - Silver
+      type: 4/3|3/4
+    - grade: B
+      t1: Buy Witch
+      t1_csos:
+      - Witch
+      t2: Buy Haven
+      t2_csos:
+      - Haven
+      type: 5/2|2/5
+    points:
+    - 15
+    - 6
+    subtitle: Eating Curses T3 and T4? Somehow, We Hold On...
+    turns:
+    - 14
+    - 13
+- campaign_effects:
+  - victorified
+  - shoppers
+  cards:
+  - alchemist
+  - apprentice
+  - castles
+  - contract
+  - forager
+  - herbalist
+  - scrying_pool
+  - shaman
+  - university
+  - wild_hunt
+  expansions:
+  - Alchemy
+  - Allies
+  - Dark Ages
+  - Empires
+  - Menagerie
+  - Plunder
+  idx: 148792144457634026776577380885413406259
+  landscapes:
+  - crafters_guild
+  - friendly
+  - way_of_the_camel
+  name: '2025-04-06'
+  notes:
+    crucial_cards:
+    - Shaman
+    - Scrying Pool
+    - University
+    - Wild Hunt
+    ending:
+    - Estate
+    - Shaman
+    - Wild Hunt
+    link: https://youtu.be/MQVsz6SUl5Y
+    name: Pooling Shamans
+    openings:
+    - grade: B-
+      t1: Buy double Shaman
+      t1_csos:
+      - Shaman
+      - Shaman
+      t2: Buy Shaman
+      t2_csos:
+      - Shaman
+      type: 4/3|3/4
+    - grade: B
+      t1: Buy Apprentice; or double Shaman
+      t1_csos:
+      - Apprentice
+      t2: Buy Shaman
+      t2_csos:
+      - Shaman
+      type: 5/2|2/5
+    points:
+    - 20
+    - 8
+    subtitle: Another One Where AI Seemed To Be On The Wrong Track
+    turns:
+    - 12
+    - 11
+  stamps_and_effects:
+  - - victorified
+    - university
+  traits:
+  - - friendly
+    - scrying_pool
+- cards:
+  - border_guard
+  - crypt
+  - encampment/plunder
+  - imperial_envoy
+  - necromancer
+  - peasant
+  - rabble
+  - search
+  - treasure_map
+  - vineyard
+  expansions:
+  - Adventures
+  - Alchemy
+  - Empires
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Rising Sun
+  - Seaside, 2E
+  idx: 250257428379853016500773204093382542689
+  landscapes:
+  - avoid
+  - expedition
+  name: '2025-04-05'
+  notes:
+    crucial_cards:
+    - Avoid
+    - Disciple
+    - Border Guard
+    - Rabble
+    ending:
+    - Peasant
+    - Rabble
+    - Border Guard
+    link: https://youtu.be/PJbGBPCM_Wc
+    name: Avoid Party
+    openings:
+    - grade: C
+      t1: Buy Necromancer; or Border Guard; or Peasant
+      t1_csos:
+      - Necromancer
+      t2: Buy Peasant; or Avoid
+      t2_csos:
+      - Peasant
+      type: 4/3
+    - grade: B
+      t1: Buy Peasant
+      t1_csos:
+      - Peasant
+      t2: Buy Avoid/Border Guard; or Necromancer
+      t2_csos:
+      - Avoid
+      - Border Guard
+      type: 3/4
+    - grade: B-
+      t1: Buy Crypt
+      t1_csos:
+      - Crypt
+      t2: Buy Peasant
+      t2_csos:
+      - Peasant
+      type: 5/2
+    - grade: B
+      t1: Buy Peasant
+      t1_csos:
+      - Peasant
+      t2: Buy Avoid/Border Guard; or Necromancer; or Crypt; or Avoid/Expedition
+      t2_csos:
+      - Avoid
+      - Border Guard
+      type: 2/5
+    points:
+    - 78
+    - 4
+    subtitle: Cycling Like Crazy And Skipping Encampments For Profit
+    turns:
+    - 14
+    - 13
+- cards:
+  - bandit_camp
+  - ironmonger
+  - library
+  - poor_house
+  - quartermaster
+  - shaman
+  - storeroom
+  - taskmaster
+  - throne_room
+  - workshop
+  expansions:
+  - Base, 2E
+  - Dark Ages
+  - Plunder
+  idx: 235326563682413984338652420625853806376
+  landscapes:
+  - hasty
+  - rich
+  name: '2025-04-04'
+  notes:
+    crucial_cards:
+    - Library
+    - Storeroom
+    - Quartermaster
+    - Ironmonger
+    ending:
+    - Ironmonger
+    - Estate
+    - Storeroom
+    link: https://youtu.be/lfnXGWPhLyQ
+    name: Happy Librarians
+    openings:
+    - grade: C
+      t1: Buy Ironmonger; or Shaman
+      t1_csos:
+      - Ironmonger
+      t2: Buy Quartermaster; or Shaman
+      t2_csos:
+      - Quartermaster
+      type: 4/3
+    - grade: A-
+      t1: Buy Shaman
+      t1_csos:
+      - Shaman
+      t2: Buy Ironmonger
+      t2_csos:
+      - Ironmonger
+      type: 3/4|2/5
+    - grade: B
+      t1: Buy Quartermaster
+      t1_csos:
+      - Quartermaster
+      t2: Buy Shaman
+      t2_csos:
+      - Shaman
+      type: 5/2
+    points:
+    - 42
+    - 23
+    subtitle: Slow Early Draws Lead To A Close Finish, But The Deck Is Beautiful
+    turns:
+    - 13
+    - 12
+  traits:
+  - - hasty
+    - ironmonger
+  - - rich
+    - throne_room
+  use_shelters: true
+- cards:
+  - astrolabe
+  - caravan
+  - courtier
+  - courtyard
+  - haven
+  - merchant_ship
+  - nobles
+  - patrol
+  - sea_chart
+  - trading_post
+  expansions:
+  - Intrigue, 2E
+  - Seaside, 2E
+  idx: 12727591922612142361694775831285883032
+  name: '2025-04-03'
+  notes:
+    crucial_cards:
+    - Trading Post
+    - Nobles
+    - Patrol
+    - Caravan
+    ending:
+    - Province
+    - Nobles
+    link: https://youtu.be/gUImuIIJSok
+    name: Noble Trading
+    openings:
+    - grade: C
+      t1: Buy Caravan; or Silver
+      t1_csos:
+      - Caravan
+      t2: Buy Silver; or Haven; or Courtyard
+      t2_csos:
+      - Silver
+      type: 4/3|3/4
+    - grade: B+
+      t1: Buy Trading Post
+      t1_csos:
+      - Trading Post
+      t2: Buy Haven; or Courtyard
+      t2_csos:
+      - Haven
+      type: 5/2|2/5
+    points:
+    - 40
+    - 36
+    subtitle: Engine Vs. Some Money Variant - Pretty Close!
+    turns:
+    - 17
+    - 16
+- bane_pile: fishmonger
+  cards:
+  - alley
+  - carnival
+  - craftsman
+  - fishmonger
+  - horn_of_plenty
+  - litter
+  - mountain_shrine
+  - river_shrine
+  - riverboat
+  - root_cellar
+  - young_witch
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Rising Sun
+  idx: 263502279782955334299114386451985201068
+  landscapes:
+  - bureaucracy
+  - credit
+  - receive_tribute
+  name: '2025-04-02'
+  notes:
+    crucial_cards:
+    - Root Cellar
+    - River Shrine
+    - Craftsman
+    - Horn Of Plenty
+    ending:
+    - Province
+    - Duchy
+    - Copper
+    - Horn Of Plenty
+    - Litter
+    link: https://youtu.be/MRL2JyaORQQ
+    name: Eternal Debt
+    openings:
+    - grade: B
+      t1: Buy River Shrine
+      t1_csos:
+      - River Shrine
+      t2: Buy Craftsman; or Root Cellar; or Credit for another River Shrine
+      t2_csos:
+      - Craftsman
+      type: 4/3
+    - grade: B-
+      t1: Buy Craftsman; or Root Cellar
+      t1_csos:
+      - Craftsman
+      t2: Buy River Shrine
+      t2_csos:
+      - River Shrine
+      type: 3/4
+    - grade: C-
+      t1: Buy River Shrine
+      t1_csos:
+      - River Shrine
+      t2: Buy Fishmonger; or Nothing; or Credit for Craftsman
+      t2_csos:
+      - Fishmonger
+      type: 5/2
+    - grade: C-
+      t1: Buy Fishmonger; or Nothing
+      t1_csos:
+      - Fishmonger
+      t2: Buy River Shrine
+      t2_csos:
+      - River Shrine
+      type: 2/5
+    points:
+    - 58
+    - 16
+    subtitle: A Kingdom Fostering Quite The Unique Strategy
+    turns:
+    - 12
+    - 11
+  riverboat_card: tea_house
+- cards:
+  - berserker
+  - border_village
+  - cartographer
+  - fools_gold
+  - inn
+  - jack_of_all_trades
+  - oasis
+  - trader
+  - tunnel
+  - witchs_hut
+  expansions:
+  - Hinterlands, 2E
+  idx: 81839311867900599395746408469780875210
+  name: '2025-04-01'
+  notes:
+    crucial_cards:
+    - Border Village
+    - Jack Of All Trades
+    - Witch's Hut
+    - Tunnel
+    ending:
+    - Province
+    - Tunnel
+    link: https://youtu.be/RUDlJY7LQZ4
+    name: Tunnel Im Grenzhaus
+    openings:
+    - grade: B
+      t1: Buy Jack of All Trades
+      t1_csos:
+      - Jack of All Trades
+      t2: Buy Silver; or Oasis
+      t2_csos:
+      - Silver
+      type: 4/3|3/4
+    - grade: C
+      t1: Buy Witch's Hut; or Jack of All Trades
+      t1_csos:
+      - Witch's Hut
+      t2: Nothing
+      t2_csos: []
+      type: 5/2|2/5
+    points:
+    - 37
+    - 24
+    subtitle: In Einem Deck Mit Viel Zeugs Bauen Wir Eine Komfortable Fuehrung Auf
+    turns:
+    - 18
+    - 17
+- cards:
+  - alchemist
+  - familiar
+  - festival
+  - herbalist
+  - library
+  - moat
+  - philosophers_stone
+  - remodel
+  - sentry
+  - university
+  expansions:
+  - Alchemy
+  - Base, 2E
+  idx: 198631718657158808910707091179520226645
+  name: '2025-03-31'
+  notes:
+    crucial_cards:
+    - Festival
+    - University
+    - Sentry
+    - Remodel
+    ending:
+    - Province
+    - Festival
+    link: https://youtu.be/6aakzfwdz_A
+    name: Sentries In Libraries
+    openings:
+    - grade: B
+      t1: Potion
+      t1_csos:
+      - Potion
+      t2: Moat; or Silver
+      t2_csos:
+      - Moat
+      type: 4/3|3/4
+    - grade: A
+      t1: Sentry
+      t1_csos:
+      - Sentry
+      t2: Nothing; or Moat
+      t2_csos: []
+      type: 5/2|2/5
+    points:
+    - 32
+    - 21
+    subtitle: Catching Up With Some Nice Final Turns
+    turns:
+    - 14
+    - 13
+- campaign_effects:
+  - double_pile
+  - offers_insight
+  - pay_later
+  cards:
+  - band_of_misfits
+  - cartographer
+  - coven
+  - horn_of_plenty
+  - importer
+  - minion
+  - pillage
+  - rabble
+  - stonemason
+  - war_chest
+  expansions:
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Prosperity, 2E
+  - Rising Sun
+  idx: 111569259316858101235873176703977573198
+  landscapes:
+  - city-state
+  - credit
+  - invest
+  name: '2025-03-30'
+  notes:
+    crucial_cards:
+    - Coven
+    - City-State
+    - Minion
+    - Curse
+    ending:
+    - Estate
+    - Curse
+    - Coven
+    link: https://youtu.be/kUVaYHS3qxQ
+    name: Cursed Covens
+    openings:
+    - grade: D
+      t1: Buy Coven, play Coven via City-State
+      t1_csos:
+      - Coven
+      - City-State
+      t2: Buy Coven, play Coven via City-State if you only hit $3, else save City-State
+      t2_csos:
+      - Coven
+      - City-State
+      type: 3/4|2/5
+    - grade: D
+      t1: Invest in Coven
+      t1_csos:
+      - Invest
+      - Coven
+      t2: Coven, play Coven via City-State
+      t2_csos:
+      - Coven
+      - City-State
+      type: 5/2|4/3
+    points:
+    - 10
+    - 6
+    subtitle: An Awful Set Of Stamps In A Miserable Kingdom, But Weirdly Fun
+    turns:
+    - 15
+    - 14
+  stamps_and_effects:
+  - - double_pile
+    - curse
+  - - offers_insight
+    - coven
+  - - pay_later
+    - coven
+- cards:
+  - augurs
+  - charlatan
+  - falconer
+  - footpad
+  - highwayman
+  - laboratory
+  - mining_road
+  - remake
+  - scholar
+  - tiara
+  expansions:
+  - Allies
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Menagerie
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  idx: 103034790609065155956977134693245145
+  landscapes:
+  - exploration
+  - prosper
+  name: '2025-03-29'
+  notes:
+    crucial_cards:
+    - Remake
+    - Laboratory
+    - Prosper
+    - Exploration
+    ending:
+    - Province
+    - Laboratory
+    link: https://youtu.be/3DcmQ1BrMJw
+    name: Prospering Remakes
+    openings:
+    - grade: A
+      t1: Exploration
+      t1_csos:
+      - Exploration
+      t2: Remake
+      t2_csos:
+      - Remake
+      type: 4/3
+    - grade: C
+      t1: Silver
+      t1_csos:
+      - Silver
+      t2: Remake
+      t2_csos:
+      - Remake
+      type: 3/4
+    - grade: C
+      t1: Remake
+      t1_csos:
+      - Remake
+      t2: Nothing
+      type: 5/2|2/5
+    points:
+    - 43
+    - 18
+    subtitle: We Get To Run Circles Around AI Due To Its Remake Skip
+    turns:
+    - 14
+    - 13
+- cards:
+  - altar
+  - catacombs
+  - hunting_grounds
+  - island
+  - merchant_ship
+  - native_village
+  - rogue
+  - sea_chart
+  - shop
+  - tactician
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Seaside, 2E
+  idx: 80631174814667911052440730826154080870
+  name: '2025-03-28'
+- cards:
+  - broker
+  - ducat
+  - flag_bearer
+  - hunter
+  - modify
+  - seer
+  - specialist
+  - spices
+  - swashbuckler
+  - treasurer
+  expansions:
+  - Allies
+  - Renaissance
+  idx: 164491118028601860222099748855790504999
+  landscapes:
+  - barracks
+  - fair
+  - league_of_shopkeepers
+  name: '2025-03-27'
+  notes:
+    crucial_cards:
+    - League Of Shopkeepers
+    - Broker
+    - Spices
+    - Treasurer
+    ending:
+    - Province
+    - Specialist
+    - Duchy
+    link: https://youtu.be/Nfj0YxBQ8Tg
+    name: Special Broker
+    openings:
+    - grade: B
+      t1: Broker
+      t1_csos:
+      - Broker
+      t2: Silver; or Ducat
+      t2_csos:
+      - Silver
+      type: 4/3|3/4
+    - grade: A
+      t1: Treasurer; or Modify
+      t1_csos:
+      - Treasurer
+      t2: Nothing (as Ducat isn't worth without trashing Copper for it)
+      type: 5/2|2/5
+    points:
+    - 54
+    - 22
+    subtitle: A Neat DIY-Apprentice-Deck
+    turns:
+    - 14
+    - 13
+- cards:
+  - alchemist
+  - cutpurse
+  - familiar
+  - fishing_village
+  - native_village
+  - sea_chart
+  - sea_witch
+  - smugglers
+  - treasury
+  - wharf
+  expansions:
+  - Alchemy
+  - Seaside, 2E
+  idx: 100650534994961607205653988503146144627
+  name: '2025-03-26'
+  notes:
+    crucial_cards:
+    - Sea Witch
+    - Fishing Village
+    - Cutpurse
+    - Wharf
+    name: Unplayed Two
+    openings:
+    - grade: C
+      t1: Cutpurse; or Silver
+      t1_csos:
+      - Cutpurse
+      - Silver
+      t2: Fishing Village
+      t2_csos:
+      - Fishing Village
+      type: 4/3|3/4
+    - grade: A
+      t1: Sea Witch
+      t1_csos:
+      - Sea Witch
+      t2: Nothing
+      type: 5/2|2/5
+    subtitle: This is probably how the thumbnail would've looked like
+- cards:
+  - devils_workshop
+  - exorcist
+  - fool
+  - ghost_town
+  - leprechaun
+  - night_watchman
+  - raider
+  - sacred_grove
+  - tormentor
+  - tracker
+  expansions:
+  - Nocturne
+  idx: 160361846947327577550814807358224073177
+  name: '2025-03-25'
+  notes:
+    bonus_game: true
+    crucial_cards:
+    - Exorcist
+    - Imp
+    - Fool
+    - Lost In The Woods
+    ending:
+    - Province
+    - Ghost Town
+    link: https://youtu.be/yHk_Qqxf-UQ
+    name: Fool's Grove
+    openings:
+    - grade: B
+      t1: '[Engine-strat]: Exorcist'
+      t1_csos:
+      - Exorcist
+      t2: Fool if no Lucky Coin, else nothing
+      t2_csos:
+      - Fool
+      type: 4/3|3/4
+    - grade: B-
+      t1: '[Money-strat]: Silver'
+      t1_csos:
+      - Silver
+      t2: Fool, make sure to play Lucky Coin
+      t2_csos:
+      - Fool
+      - Lucky Coin
+      type: 4/3|3/4
+    - grade: C
+      t1: '[Engine-strat]: Tormentor; or Exorcist and don''t play Lucky Coin'
+      t1_csos:
+      - Tormentor
+      - Exorcist
+      t2: Nothing (and don't play Lucky Coin)
+      type: 5/2|2/5
+    - grade: C+
+      t1: '[Money-strat]: Sacred Grove'
+      t1_csos:
+      - Sacred Grove
+      t2: Nothing, but make sure to play Lucky Coin
+      t2_csos:
+      - Lucky Coin
+      type: 5/2|2/5
+    points:
+    - 50
+    - 24
+    subtitle: Trying Both Money And Engine Strategies
+    tries: 2
+    turns:
+    - 17
+    - 16
+- cards:
+  - bandit
+  - farrier
+  - festival
+  - gardens
+  - merchant
+  - militia
+  - moneylender
+  - vassal
+  - village
+  - workshop
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  idx: 227738412796491677611334283353165157262
+  name: '2025-03-24'
+  notes:
+    crucial_cards:
+    - Gardens
+    - Militia
+    - Workshop
+    - Farrier
+    name: Unplayed One
+    subtitle: This is probably how the thumbnail would've looked like
+- campaign_effects:
+  - 5_coffers
+  - double_up
+  cards:
+  - blessed_village
+  - border_village
+  - cargo_ship
+  - catapult/rocks
+  - crucible
+  - encampment/plunder
+  - giant
+  - gladiator/fortune
+  - royal_carriage
+  - settlers/bustling_village
+  expansions:
+  - Adventures
+  - Empires
+  - Hinterlands, 2E
+  - Nocturne
+  - Plunder
+  - Renaissance
+  idx: 141057585506231040753990063766669595309
+  name: '2025-03-23'
+  notes:
+    crucial_cards:
+    - Border Village
+    - Catapult
+    - Encampment
+    - Fortune
+    ending:
+    - Province
+    - Border Village
+    link: https://youtu.be/-AiwaIVdPzs
+    name: Encamping Up
+    openings:
+    - grade: A
+      t1: Double Border Village, double Catapult; or Double Border Village, Catapult/Crucible
+      t1_csos:
+      - Border Village
+      - Border Village
+      - Catapult
+      - Crucible
+      t2: Double Encampment
+      t2_csos:
+      - Encampment
+      - Encampment
+      type: 5/2|4/3
+    - grade: A
+      t1: Same as above, just with the order swapped as the Coffers allow to have
+        a flexible one
+      t2: Same as above, just swapped
+      type: 2/5|3/4
+    points:
+    - 46
+    - 5
+    subtitle: A Weird Campaign Twist Turns An Attack-Heavy Kingdom Around
+    tries: 2
+    turns:
+    - 16
+    - 15
+- army_pile: highwayman
+  cards:
+  - cabin_boy
+  - caravan
+  - duke
+  - gondola
+  - hideout
+  - highwayman
+  - kitsune
+  - mining_road
+  - outpost
+  - pillage
+  - shop
+  expansions:
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
+  - Renaissance
+  - Rising Sun
+  - Seaside, 2E
+  idx: 77055996614930558772795277293358988338
+  landscapes:
+  - approaching_army
+  - piazza
+  - way_of_the_camel
+  name: '2025-03-22'
+  notes:
+    crucial_cards:
+    - Highwayman
+    - Kitsune
+    - Outpost
+    - Approaching Army
+    ending:
+    - Province
+    - Curse
+    link: https://youtu.be/t5UaGrJ63z4
+    name: Kitsune Swing
+    openings:
+    - grade: B
+      t1: Kitsune
+      t1_csos:
+      - Kitsune
+      t2: Nothing
+      type: 5/2|2/5
+    - grade: D
+      t1: Gondola; or Hideout; or Cabin Boy
+      t1_csos:
+      - Gondola
+      t2: Shop; or Silver
+      t2_csos:
+      - Shop
+      type: 4/3|3/4
+    points:
+    - 52
+    - 5
+    subtitle: Turns Out Cursing Early Is Strong
+    tries: 2
+    turns:
+    - 19
+    - 18
+- cards:
+  - catacombs
+  - city_quarter
+  - crown
+  - festival
+  - forum
+  - hunting_grounds
+  - patrician/emporium
+  - sacrifice
+  - sentry
+  - village
+  expansions:
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  idx: 193824335478032263543090273722509733811
+  landscapes:
+  - tax
+  - windfall
+  name: '2025-03-21'
+  notes:
+    crucial_cards:
+    - City Quarter
+    - Tax
+    - Windfall
+    - Festival
+    ending:
+    - Province
+    link: https://youtu.be/59AqDbmWuXY
+    name: Taxing Festival
+    openings:
+    - grade: C
+      t1: Sacrifice; or Silver
+      t1_csos:
+      - Sacrifice
+      t2: Pay off Debt and Tax Sentry; or Silver
+      t2_csos:
+      - Tax
+      type: 4/3
+    - grade: C
+      t1: Tax Sentry; or Patrician, pay off Debt; or Silver
+      t1_csos:
+      - Tax
+      t2: Sacrifice; or Silver
+      t2_csos:
+      - Sacrifice
+      type: 3/4
+    - grade: A
+      t1: Sentry
+      t1_csos:
+      - Sentry
+      t2: Pay off Debt
+      t2_csos: []
+      type: 5/2
+    - grade: B
+      t1: Buy Tax for Sacrifice
+      t1_csos:
+      - Tax
+      t2: Buy Sentry
+      t2_csos:
+      - Sentry
+      type: 2/5
+    points:
+    - 37
+    - 26
+    subtitle: Narrowly Avoiding A Second Dud For The Win
+    turns:
+    - 16
+    - 15
+- cards:
+  - cabin_boy
+  - conspirator
+  - grotto
+  - landing_party
+  - longship
+  - masquerade
+  - mining_road
+  - secluded_shrine
+  - shaman
+  - shanty_town
+  expansions:
+  - Intrigue, 2E
+  - Plunder
+  idx: 122011707554402211579250027713223971165
+  landscapes:
+  - deliver
+  - journey
+  name: '2025-03-20'
+  notes:
+    crucial_cards:
+    - Cabin Boy
+    - Shaman
+    - Journey
+    - Deliver
+    ending:
+    - Province
+    - Longship
+    link: https://youtu.be/CIU-wdDhHEM
+    name: Shaman Cabin
+    openings:
+    - grade: C
+      t1: Buy Masquerade
+      t1_csos:
+      - Masquerade
+      t2: Either buy Deliver/Shaman; or Journey with 5/7 chance to find Masq and trash
+        Estate
+      t2_csos:
+      - Deliver
+      - Shaman
+      type: 3/4
+    - grade: A
+      t1: Buy Deliver/Shaman
+      t1_csos:
+      - Deliver
+      - Shaman
+      t2: Trash Estate, then buy Deliver Shaman
+      t2_csos:
+      - Deliver
+      - Shaman
+      type: 4/3
+    - grade: A-
+      t1: Deliver/Masquerade; or Deliver/Shaman
+      t1_csos:
+      - Deliver
+      - Masquerade
+      t2: Play Masquerade, Pass and Trash Estate, then Cabin Boy; or Deliver/Shaman;
+        or buy Grotto
+      t2_csos:
+      - Masquerade
+      - Cabin Boy
+      type: 5/2
+    - grade: D
+      t1: Shaman
+      t1_csos:
+      - Shaman
+      t2: Buy Deliver/Shaman; or maybe play all Coppers, Journey for 5/6 chance to
+        find Shaman and trash Estate, buy Masquerade or Deliver Shaman?
+      t2_csos:
+      - Deliver
+      - Shaman
+      type: 2/5
+    points:
+    - 50
+    - 13
+    subtitle: In Which We Turn A Suboptimal Opening Into A Decent Engine
+    turns:
+    - 14
+    - 13
+- cards:
+  - archive
+  - baron
+  - castles
+  - chariot_race
+  - legionary
+  - royal_blacksmith
+  - secret_passage
+  - shanty_town
+  - swindler
+  - temple
+  expansions:
+  - Empires
+  - Intrigue, 2E
+  idx: 336080344796605992585746925710848071967
+  landscapes:
+  - annex
+  - triumph
+  name: '2025-03-19'
+  notes:
+    crucial_cards:
+    - Swindler
+    - Archive
+    - Temple
+    - Chariot Race
+    ending:
+    - Province
+    - Castles
+    link: https://youtu.be/pmjX4_HM7OY
+    name: Castle Swindle
+    openings:
+    - grade: B
+      t1: Buy Temple; or Baron (if going for the engine)
+      t1_csos:
+      - Temple
+      t2: Buy Silver; or Chariot Race, or Swindler
+      t2_csos:
+      - Silver
+      type: 4/3|3/4
+    - grade: C
+      t1: Buy Archive; or Temple
+      t1_csos:
+      - Archive
+      t2: Nothing
+      type: 5/2|2/5
+    points:
+    - 87
+    - 46
+    subtitle: My Tired Self Just Slogging Through This Awful Kingdom
+    turns:
+    - 24
+    - 23
+- cards:
+  - astrolabe
+  - corsair
+  - haven
+  - lighthouse
+  - lookout
+  - sailor
+  - sea_witch
+  - smugglers
+  - treasure_map
+  - treasury
+  expansions:
+  - Seaside, 2E
+  idx: 327522870455337866659380872265317001279
+  name: '2025-03-18'
+  notes:
+    crucial_cards:
+    - Sailor
+    - Sea Witch
+    - Haven
+    - Astrolabe
+    ending:
+    - Province
+    - Curse
+    link: https://youtu.be/5iCNaLXm9Z4
+    name: Sailing Sea Witches
+    points:
+    - 37
+    - 25
+    subtitle: Lots Of Orange, Lots Of Tricky Draws
+    turns:
+    - 18
+    - 17
+- cards:
+  - chapel
+  - coin_of_the_realm
+  - gardens
+  - merchant
+  - militia
+  - poacher
+  - relic
+  - storyteller
+  - throne_room
+  - witch
+  expansions:
+  - Adventures
+  - Base, 2E
+  idx: 96123141078912949502278675603950048486
+  landscapes:
+  - pathfinding
+  - save
+  name: '2025-03-17'
+  notes:
+    crucial_cards:
+    - Throne Room
+    - Chapel
+    - Pathfinding
+    - Militia
+    ending:
+    - Province
+    - Curse
+    link: https://youtu.be/HxYQQ0vS9Z4
+    name: Save The Gains
+    points:
+    - 48
+    - 7
+    subtitle: We Face The First Truly Gainless Daily, So I Prepared A Surprise
+    turns:
+    - 23
+    - 22
+- campaign_effects:
+  - durationified
+  - victorified
+  cards:
+  - conclave
+  - legionary
+  - leprechaun
+  - longship
+  - lookout
+  - masquerade
+  - storyteller
+  - tactician
+  - war_chest
+  - warehouse
+  expansions:
+  - Adventures
+  - Empires
+  - Intrigue, 2E
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
+  idx: 89842223336419334659739440334387331432
+  landscapes:
+  - museum
+  - sinister_plot
+  name: '2025-03-16'
+  notes:
+    crucial_cards:
+    - Leprechaun
+    - Legionary
+    - Storyteller
+    - Tactician
+    ending:
+    - Province
+    link: https://youtu.be/7aGoYfEBkgM
+    name: The Golden Age
+    points:
+    - 74
+    - 42
+    subtitle: Two Stamps On Leprechaun Enable A Beautiful Double Tac Deck
+    turns:
+    - 14
+    - 13
+  stamps_and_effects:
+  - - durationified
+    - leprechaun
+  - - victorified
+    - leprechaun
+- cards:
+  - barbarian
+  - bard
+  - clashes
+  - hunting_grounds
+  - investment
+  - mastermind
+  - mining_village
+  - remodel
+  - sculptor
+  - specialist
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Prosperity, 2E
+  - Renaissance
+  idx: 123829504514140057367351197659367758932
+  landscapes:
+  - scouting_party
+  - wedding
+  name: '2025-03-15'
+  notes:
+    crucial_cards:
+    - Sculptor
+    - Remodel
+    - Clashes
+    - Specialist
+    ending:
+    - Remodel
+    - Investment
+    - Mining Village
+    link: https://youtu.be/8e2jyOq5-3U
+    name: Masterclash
+    points:
+    - 32
+    - 4
+    subtitle: Building A Nice Engine Even In Face Of The Clashes
+    turns:
+    - 16
+    - 15
+- cards:
+  - barbarian
+  - bauble
+  - berserker
+  - broker
+  - courtyard
+  - crossroads
+  - mill
+  - oasis
+  - trail
+  - witchs_hut
+  expansions:
+  - Allies
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  idx: 182678387214703104562056796864024197480
+  landscapes:
+  - order_of_astrologers
+  name: '2025-03-14'
+  notes:
+    crucial_cards:
+    - Trail
+    - Berserker
+    - Witch's Hut
+    - Broker
+    ending:
+    - Curse
+    - Mill
+    - Trail
+    link: https://youtu.be/Nnm4Aegqo-E
+    name: Trailblazing
+    points:
+    - 12
+    - -6
+    subtitle: Playing A Kingdom Seemingly Built Around Trail Synergies
+    turns:
+    - 13
+    - 12
+- cards:
+  - anvil
+  - clerk
+  - cobbler
+  - ghost_town
+  - guardian
+  - leprechaun
+  - night_watchman
+  - raider
+  - tiara
+  - war_chest
+  expansions:
+  - Nocturne
+  - Prosperity, 2E
+  idx: 168762697984463683554664604086301939695
+  name: '2025-03-13'
+  notes:
+    crucial_cards:
+    - Platinum
+    - Clerk
+    - Tiara
+    - Night Watchman
+    ending:
+    - Colony
+    - Clerk
+    link: https://youtu.be/OqS84sWlO80
+    name: The Longer Night
+    points:
+    - 63
+    - 34
+    subtitle: Another 'Fun' Slog To Continue This Week
+    turns:
+    - 24
+    - 24
+  use_colonies: true
+- cards:
+  - apothecary
+  - cutthroat
+  - first_mate
+  - fortune_hunter
+  - frigate
+  - grotto
+  - pendant
+  - taskmaster
+  - trickster
+  - vineyard
+  expansions:
+  - Alchemy
+  - Plunder
+  idx: 273683709420532945117177596814694521268
+  landscapes:
+  - hasty
+  - invasion
+  name: '2025-03-12'
+  notes:
+    crucial_cards:
+    - Fortune Hunter
+    - Grotto
+    - Invasion
+    - Trickster
+    ending:
+    - Duchy
+    - Grotto
+    - Curse
+    link: https://youtu.be/XqaFHQdsXyI
+    name: Tricky Mate Slog
+    points:
+    - 45
+    - 25
+    subtitle: Another Slog, At Least With A Few Nice Turns
+    turns:
+    - 24
+    - 23
+  traits:
+  - - hasty
+    - fortune_hunter
+- cards:
+  - animal_fair
+  - black_cat
+  - camel_train
+  - hunting_lodge
+  - livery
+  - scrap
+  - sleigh
+  - snowy_village
+  - stockpile
+  - wayfarer
+  expansions:
+  - Menagerie
+  idx: 266899319561892175650333318878951883741
+  landscapes:
+  - delay
+  - way_of_the_horse
+  name: '2025-03-11'
+  notes:
+    crucial_cards:
+    - Hunting Lodge
+    - Wayfarer
+    - Stockpile
+    - Scrap
+    ending:
+    - Province
+    link: https://youtu.be/41XBJmA1cmQ
+    name: Hunting For Stocks
+    points:
+    - 52
+    - 12
+    subtitle: Showing That Not Buying A $5 On 5/2 Is Sometimes The Right Call
+    turns:
+    - 13
+    - 12
+- cards:
+  - bandit_camp
+  - cellar
+  - counterfeit
+  - festival
+  - knights
+  - poacher
+  - procession
+  - sage
+  - witch
+  - workshop
+  expansions:
+  - Base, 2E
+  - Dark Ages
+  idx: 181149404041895826929326267111642421370
+  name: '2025-03-10'
+  notes:
+    crucial_cards:
+    - Curse
+    - Witch
+    - Counterfeit
+    - Cellar
+    ending:
+    - Estate
+    - Curse
+    - Cellar
+    highlights:
+    - 21:10 - Relieved laughter until the end of the video
+    link: https://youtu.be/ehVvpBZn_m8
+    name: Truly Dark Ages
+    points:
+    - 36
+    - 31
+    subtitle: A Witch Slog Leads To My Longest Recorded Game So Far
+    turns:
+    - 33
+    - 32
+- campaign_effects:
+  - allow_second_cube
+  - sale
+  cards:
+  - alley
+  - bard
+  - bounty_hunter
+  - cage
+  - fools_gold
+  - grand_market
+  - hermit
+  - masquerade
+  - treasurer
+  - wealthy_village
+  expansions:
+  - Dark Ages
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Rising Sun
+  idx: 160517298077571188726136388966087251394
+  landscapes:
+  - crop_rotation
+  - inspiring
+  name: '2025-03-09'
+  notes:
+    crucial_cards:
+    - Crop Rotation
+    - Treasurer
+    - Bounty Hunter
+    - Grand Market
+    ending:
+    - Province
+    link: https://youtu.be/u7qkOLn1CJw
+    name: Grand Sale
+    points:
+    - 56
+    - 21
+    subtitle: Fast Kingdom Paired With Steep Pricepoint Swing
+    tries: 2
+    turns:
+    - 12
+    - 11
+  stamps_and_effects:
+  - - allow_second_cube
+    - crop_rotation
+  traits:
+  - - inspiring
+    - bard
+- cards:
+  - familiar
+  - gladiator/fortune
+  - guardian
+  - hermit
+  - magpie
+  - mountain_shrine
+  - rats
+  - tanuki
+  - villain
+  - wizards
+  expansions:
+  - Adventures
+  - Alchemy
+  - Allies
+  - Dark Ages
+  - Empires
+  - Nocturne
+  - Renaissance
+  - Rising Sun
+  idx: 149908422053303386656893920096371391247
+  landscapes:
+  - sickness
+  - woodworkers_guild
+  name: '2025-03-08'
+  notes:
+    crucial_cards:
+    - Lich
+    - Tanuki
+    - Magpie
+    - Madman
+    ending:
+    - Province
+    - Magpie
+    link: https://youtu.be/keRa5R5CTps
+    name: Woodworking Liches
+    points:
+    - 21
+    - 18
+    subtitle: AI's Magpies Snowballing Like Crazy Lead To A Close Finish
+    turns:
+    - 12
+    - 11
+- cards:
+  - advisor
+  - enchantress
+  - farrier
+  - footpad
+  - gladiator/fortune
+  - litter
+  - merchant_guild
+  - rice
+  - rustic_village
+  - snake_witch
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Rising Sun
+  idx: 321379985933483489610094751744184014978
+  landscapes:
+  - bandit_fort
+  - banquet
+  - enlightenment
+  name: '2025-03-07'
+  notes:
+    crucial_cards:
+    - Enlightenment
+    - Banquet
+    - Copper
+    - Merchant Guild
+    ending:
+    - Province
+    - Copper
+    link: https://youtu.be/4X1GPEVV4Hg
+    name: Enlightened Banquets
+    points:
+    - 48
+    - 21
+    subtitle: Racking Up Coffers While A Villageless AI Struggles
+    turns:
+    - 11
+    - 10
+- cards:
   - anvil
   - apprentice
   - bishop
@@ -14,26 +3635,26 @@
   - Prosperity, 2E
   idx: 118028168822083604636430021193637901286
   name: '2025-03-06'
-  use_colonies: true
   notes:
-    name: Peddling Apprenticeship
-    subtitle: Trashing Good And Bad Cards Alike To Feed The Apprentices
     crucial_cards:
-      - Peddler
-      - University
-      - Grand Market
-      - Apprentice
+    - Peddler
+    - University
+    - Grand Market
+    - Apprentice
     ending:
-      - Curse
-      - Peddler
-      - Apprentice
-    points:
-      - 15
-      - 8
-    turns:
-      - 15
-      - 14
+    - Curse
+    - Peddler
+    - Apprentice
     link: https://youtu.be/stMuHO2HfKQ
+    name: Peddling Apprenticeship
+    points:
+    - 15
+    - 8
+    subtitle: Trashing Good And Bad Cards Alike To Feed The Apprentices
+    turns:
+    - 15
+    - 14
+  use_colonies: true
 - cards:
   - barbarian
   - cavalry

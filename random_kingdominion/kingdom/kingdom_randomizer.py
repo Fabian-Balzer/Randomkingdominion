@@ -5,13 +5,14 @@ from __future__ import annotations
 import random
 
 from ..constants import ALL_CSOS
-from ..single_cso_utils import is_card, is_cso_in_expansions, is_extended_landscape
+from ..logger import LOGGER
+from ..single_cso_utils import (is_card, is_cso_in_expansions,
+                                is_extended_landscape)
 from ..utils.config import CustomConfigParser
 from .kingdom import Kingdom
 from .kingdom_helper_funcs import sanitize_cso_list
 from .pool_container import PoolContainer
 from .randomized_kingdom import RandomizedKingdom
-from ..logger import LOGGER
 
 
 class KingdomRandomizer:
@@ -162,7 +163,7 @@ class KingdomRandomizer:
             try:
                 _partial_kingdom = Kingdom.from_dombot_csv_string(
                     partial_str,
-                    add_invalidity_notes=False,
+                    check_validity=False,
                     add_unrecognized_notes=False,
                 )
             except ValueError:
@@ -287,4 +288,5 @@ class KingdomRandomizer:
                 f"Something went wrong on the reroll: Couldn't find {cso_name} in the old kingdom."
             )
 
+        return random_kingdom.get_kingdom()
         return random_kingdom.get_kingdom()

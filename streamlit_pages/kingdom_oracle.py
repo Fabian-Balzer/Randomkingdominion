@@ -54,7 +54,14 @@ def _build_kingdom_select_box(
         f"Choose from {len(df)} Kingdoms{selbox_extra}",
         [""] + df["name_with_exps"].tolist(),
     )
-    if sel != "" and type(sel) == str:
+    old_select = st.session_state.get("old_selected_kingdom", "")
+    if sel == old_select:
+        # In this case, we should not update the kingdom input, otherwise
+        # it will overwrite user input.
+        # This leads to a slight bug (user selecting kingdom, then modifying 
+        # it, then selecting it again), but I think that's negligible.
+        pass
+    elif sel != "" and type(sel) == str:
         series = df[df["name_with_exps"] == sel].iloc[0]
         kingdom = rk.Kingdom.from_dict(series.to_dict())
         st.session_state["kingdom_input"] = kingdom.get_dombot_csv_string()
@@ -65,6 +72,7 @@ def _build_kingdom_select_box(
     else:
         st.session_state["kingdom_name"] = ""
         st.session_state["kingdom_notes"] = ""
+    st.session_state["old_selected_kingdom"] = sel
 
 
 def _build_reference_widget():
@@ -296,7 +304,6 @@ with cols[2]:
         rk.build_clipboard_button("kingdom_input")
 
 rk.build_kingdom_input_warning(kingdom, ref_to_randomizer=True)
-
 if kingdom.is_empty:
     st.write("No kingdom selected")
 else:

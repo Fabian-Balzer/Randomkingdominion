@@ -3240,6 +3240,7 @@
     turns:
     - 9
     - 8
+    link: https://youtu.be/x6PCwHq2Fyk
   stamps_and_effects:
   - - double_pile
     - estate
@@ -3280,6 +3281,7 @@
     turns:
     - 11
     - 10
+    link: https://youtu.be/2gDZMz-7tqw
 - campaign_effects:
   - with_horse
   cards:
@@ -3318,6 +3320,7 @@
     turns:
       - 12
       - 11
+    link: https://youtu.be/ENdhfq49qjY
   stamps_and_effects:
   - - with_horse
     - supplies
@@ -3346,6 +3349,14 @@
   stamps_and_effects:
   - - one_track_mind
     - gamble
+  notes:
+    name: Gambling Addiction
+    subtitle: Crazy, Just Utterly Crazy Stuff.
+    turns: [6, 6]
+    ending: [Cavalry, Destrier, Supplies]
+    crucial_cards: [Gamble, Cavalry, Falconer, Way Of The Pig]
+    points: [14, 9]
+    link: https://youtu.be/zr4If30LPgo
 - campaign_effects:
   - mirror_loot
   - one_track_mind

@@ -117,7 +117,7 @@ def build_interactions_filter_for_csos(df: pd.DataFrame) -> pd.DataFrame:
     try:
         if kingdom_input != "":
             kingdom = rk.Kingdom.from_dombot_csv_string(
-                kingdom_input, add_invalidity_notes=False
+                kingdom_input, check_validity=False
             )
         else:
             kingdom = rk.Kingdom(cards=[])
@@ -178,7 +178,7 @@ def _reset_all_filters():
     st.session_state["inter_require_all_exps"] = False
     st.session_state["inter_exclude_first_edition"] = True
 
-
+st.warning("These interactions do not cover the latest Duration/Command errata, so stuff like Overlord or Band of Misfits might have some wrong interactions with Duration cards.")
 with st.container(border=True):
     with st.container():
         cols = st.columns([0.8, 0.2])

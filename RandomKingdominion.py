@@ -27,7 +27,7 @@ import streamlit as st
 st.set_page_config(layout="wide")
 import random_kingdominion as rk
 
-rk.LOGGER.setLevel("WARNING")
+rk.LOGGER.setLevel("ERROR")
 
 quality_pages = [
     rk.get_quality_page_navigation(qual) for qual in rk.QUALITIES_AVAILABLE

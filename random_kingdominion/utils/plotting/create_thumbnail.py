@@ -9,40 +9,20 @@ from matplotlib.offsetbox import AnnotationBbox, OffsetImage
 from matplotlib.patches import FancyBboxPatch
 from scipy.ndimage import zoom as zoom_image
 
-from ...logger import LOGGER
-
 from ...constants import ALL_CSOS, EXPANSION_LIST, PATH_ASSETS, PATH_CARD_PICS
-from .constants import (
-    CAMPAIGN_COLOR,
-    DAILY_COLOR,
-    DOM_BEIGE,
-    DOM_BLUE,
-    FIRST_PLAYER_COLOR,
-    SECOND_PLAYER_COLOR,
-    XKCD_FONT,
-)
+from ...logger import LOGGER
+from .constants import (CAMPAIGN_COLOR, DAILY_COLOR, DOM_BEIGE, DOM_BLUE,
+                        FIRST_PLAYER_COLOR, SECOND_PLAYER_COLOR, XKCD_FONT)
 from .image_handling import crop_img_by_percentage, load_cso_img_by_key
-from .quality_plot_helper import plot_normalized_polygon
-from .util import (
-    annotate_icon,
-    annotate_single_expansion_icon,
-    get_video_title,
-    plot_gradient_image,
-)
+from .quality_plot_helper import plot_kingdom_qualities
+from .util import (annotate_dominion_logo, annotate_icon,
+                   annotate_single_expansion_icon, get_video_title,
+                   plot_gradient_image, set_up_fig_and_ax_for_img)
 
 if TYPE_CHECKING:
     from ...kingdom import Kingdom
 
 
-def _get_fig_and_ax(figsize=(12.8, 7.2)) -> tuple[Figure, Axes]:
-    """Prepare the ax and fig for the plot"""
-    fig, ax = plt.subplots(figsize=figsize)
-    ax.xaxis.set_visible(False)
-    ax.yaxis.set_visible(False)
-    ax.set_frame_on(False)
-    ax.set_clip_on(False)
-    fig.set_facecolor("black")
-    return fig, ax
 
 
 def _annotate_title(
@@ -117,7 +97,7 @@ def _annotate_kingdom_plot(
     ax: Axes, k: "Kingdom", x0, y0, zoom=0.75, fc="none", fc_ax="white"
 ):
     """Annotate the kingdom plot by temporarily saving it."""
-    inset_fig = plot_normalized_polygon(k.total_qualities)
+    inset_fig = plot_kingdom_qualities(k.total_qualities, buy_str=k.buy_availability)
     inset_fig.set_facecolor(fc)
     inset_fig.gca().set_facecolor(fc_ax)
     p = PATH_ASSETS.joinpath("other/youtube/current_kingdom_plot.png")
@@ -227,7 +207,7 @@ def _annotate_single_card_img(
         or entry["IsOtherThing"]
         and not "Loot" in entry["Types"]
     ):  # type: ignore
-        crop_rect = [0.31, 0.11, 0.69, 0.692]
+        crop_rect = [0.31, 0.13, 0.69, 0.692]
         zoom = 0.9
     if card in [
         "copper",
@@ -321,6 +301,21 @@ def _annotate_cards_landscapes(ax: Axes, k: "Kingdom"):
                 fontsize=15,
                 zorder=0,
             )
+        if k.unpacked_notes.get("find_the_win", False):
+            ax.text(
+                0.55,
+                0.78,
+                "+ Find-The-Win!",
+                ha="right",
+                bbox={
+                    "boxstyle": "round,pad=0.4",
+                    "facecolor": DOM_BLUE,
+                    "linewidth": 2,
+                },
+                color="white",
+                fontsize=15,
+                zorder=0,
+            )
     rect = FancyBboxPatch(
         (0, 0),
         0.508,
@@ -337,20 +332,14 @@ def _annotate_cards_landscapes(ax: Axes, k: "Kingdom"):
     from ...kingdom import sanitize_cso_list
 
     crucial_cards = sanitize_cso_list(crucial_cards, sort=False)
-    for i, card in enumerate(crucial_cards):
+    for i, cso in enumerate(crucial_cards):
         stamps = [
             s
             for s in k.campaign_effects
-            if k.stamp_and_effects_dict.get(s, "_") == card
+            if k.stamp_and_effects_dict.get(s, "_") == cso
         ]
-        _annotate_single_card_img(ax, card, 0.01, 0.63, i, stamps=stamps)
+        _annotate_single_card_img(ax, cso, 0.01, 0.63, i, stamps=stamps)
 
-
-def _annotate_logo(ax: Axes, x0: float, y0: float, zoom=0.6):
-    img = plt.imread(PATH_ASSETS.joinpath("icons/logo.png"))  # type: ignore
-    imagebox = OffsetImage(img, zoom=zoom)
-    ab = AnnotationBbox(imagebox, (x0, y0), frameon=False, box_alignment=(1, 0), pad=0)
-    ax.add_artist(ab)
 
 
 def _annotate_campaign_seal(ax: Axes, x0=0.01, y0=0.87, zoom=0.4):
@@ -364,9 +353,9 @@ def do_daily_extras(ax: Axes, k: "Kingdom") -> Path:
     if len(k.campaign_effects) > 0:
         _annotate_campaign_seal(ax, 0.518, 0.655, 0.3)
     _annotate_kingdom_plot(ax, k, 1, 0.707, 0.68, fc_ax=DOM_BEIGE)
-    _annotate_logo(ax, 0.95, 0.67, 0.55)
-
-    _annotate_twists(ax, k, 0.4, 0.85)
+    annotate_dominion_logo(ax, 0.95, 0.67, 0.55)
+    twist_y0 = 0.75 if k.unpacked_notes.get("bonus_game", False) else 0.825
+    _annotate_twists(ax, k, 0.4, twist_y0)
     fname = f"{k.name.replace(" ", "_")}_thumbnail.png"
     return PATH_ASSETS.joinpath(f"other/youtube/dailies/{fname}")
 
@@ -374,7 +363,7 @@ def do_daily_extras(ax: Axes, k: "Kingdom") -> Path:
 def do_recset_extras(ax: Axes, k: "Kingdom") -> Path:
     _annotate_expansion_icons(k.expansions, ax, 0.01, 0.83)
     _annotate_kingdom_plot(ax, k, 1, 0.707, 0.68, fc_ax=DOM_BEIGE)
-    _annotate_logo(ax, 0.95, 0.67, 0.55)
+    annotate_dominion_logo(ax, 0.95, 0.67, 0.55)
     fname = f"{k.name.replace(" ", "_")}_thumbnail.png"
     return PATH_ASSETS.joinpath(f"other/youtube/recsets/{fname}")
 
@@ -429,7 +418,7 @@ def create_thumbnail(
     ] = "Daily Dominion",
 ):
     """Create a standardized thumnail for a yt video"""
-    fig, ax = _get_fig_and_ax()
+    fig, ax = set_up_fig_and_ax_for_img()
 
     # Generate a simple gradient as the background
     plot_gradient_image(ax, extent=(0, 1, 0, 1), direction="horizontal", cmap="gray_r")

@@ -7,7 +7,7 @@ from matplotlib.figure import Figure
 from ...constants import PATH_ASSETS
 from ..utils import get_version
 from .constants import DOM_BEIGE, XKCD_FONT
-from .quality_plot_helper import plot_normalized_polygon
+from .quality_plot_helper import plot_kingdom_qualities
 from .util import annotate_single_expansion_icon, get_video_title
 
 if TYPE_CHECKING:
@@ -84,7 +84,7 @@ def _annotate_expansion_icons(ax: Axes, k: "Kingdom"):
 
 
 def get_kingdom_quality_fig(k: "Kingdom", save=False) -> Figure:
-    fig = plot_normalized_polygon(k.total_qualities)
+    fig = plot_kingdom_qualities(k.total_qualities)
     fig.set_size_inches(8.5, 6)
     fig.set_facecolor(DOM_BEIGE)
     ax = plt.gca()

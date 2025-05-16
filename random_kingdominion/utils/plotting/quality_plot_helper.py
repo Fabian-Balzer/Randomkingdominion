@@ -1,31 +1,76 @@
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Literal
 
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.axes import Axes
+from matplotlib.figure import Figure
 from matplotlib.offsetbox import AnnotationBbox, OffsetImage
 from PIL import Image
-from matplotlib.figure import Figure
 
+from ...constants import PATH_ASSETS
 from ..utils import get_quality_icon_fpath, get_version
-from .constants import XKCD_FONT, DOM_BEIGE, DOM_BLUE
+from .constants import DOM_BEIGE, DOM_BLUE, XKCD_FONT
+from .image_handling import crop_img_by_percentage, load_cso_img_by_key
+from .util import annotate_icon
 
 if TYPE_CHECKING:
     from ...kingdom import Kingdom
 
+def _annotate_buy_icon(ax: Axes, buy_type: Literal["Buys", "Buys*", "Nothing"], position: tuple[float, float]):
+    fname_dict = {
+        "Buys": "yes",
+        "Buys*": "maybe",
+        "Nothing": "no",}
+    fpath = PATH_ASSETS.joinpath(f"icons/qualities/buys_icon_{fname_dict[buy_type]}.png")
+    annotate_icon(fpath, ax, 0.8*np.pi, 1, 0.25, 240)
+    # icon_dict = {
+    #     "Buys": {"cso": "market", "color": "darkgreen", "text": "Yes!"},
+    #     "Buys*": {"cso": "city", "color": "sandybrown", "text": "Finicky."},
+    #     "Nothing": {"cso": "bandit", "color": "darkred", "text": "No :/"},
+    # }
+    # icon_to_use = icon_dict[buy_type]
+    # img = load_cso_img_by_key(icon_to_use["cso"])
+    # crop_rect = [0.15, 0.11, 0.85, 0.51]
+    # zoom = 0.17
+    # icon = crop_img_by_percentage(img, crop_rect)
+    # ab = AnnotationBbox(
+    #     OffsetImage(icon, zoom=zoom, transform=ax.transAxes),  # type: ignore
+    #     (0.8*np.pi, 0.8),
+    #     frameon=True,
+    #     box_alignment=(0.5, 1),
+    #     pad=0.2,
+    #     bboxprops=dict(facecolor="k", edgecolor="k", linewidth=1),
+    #     transform=ax.transAxes
+    # )
+    # fdict = {"size": 10, "color": "white", "weight": "bold", "fontproperties": XKCD_FONT}
+    # ax.text(position[0], position[1]+0.035, "Buys?", bbox=dict(facecolor=icon_to_use["color"]), ha="center", transform=ax.transAxes, fontdict=fdict)
+    # ax.text(position[0], position[1]-0.125, icon_to_use["text"], bbox=dict(facecolor=icon_to_use["color"]), ha="center", transform=ax.transAxes, fontdict=fdict)
+    # ax.add_artist(ab)
 
-def plot_normalized_polygon(
+
+def plot_kingdom_qualities(
     data: dict[str, float] | dict[str, int],
     ax: Axes | None = None,
     max_val: int = 4,
     add_pics: bool = True,
     skip_interactivity: bool = True,
+    buy_str: Literal["Buys", "Buys*", "Nothing"] | None = None
 ) -> Figure:
     """
     Plots an N-sided polygon (radar chart) where each side represents a fraction of the maximum value from the input dictionary.
 
-    Parameters:
-    - data (dict): A dictionary where keys are labels and values are numeric data points.
+    Parameters
+    ----------
+    data : dict[str, float] | dict[str, int]
+        A dictionary with the quality names as keys and the corresponding values as values.
+    ax : Axes | None, optional
+        The Matplotlib axes to plot the figure on. If None, a new figure is created. Default is None.
+    max_val : int, optional
+        The maximum value for the qualities. Default is 4.
+    add_pics : bool, optional
+        Whether to add icons (for draw, village, etc.) to the plot. Default is True.
+    skip_interactivity : bool, optional
+        Whether to skip the "interactivity" quality when plotting. Default is True.
 
     The function normalizes the values in the dictionary to fractions of the maximum value, calculates the angles for the polygon vertices,
     and plots the resulting figure using Matplotlib.
@@ -73,6 +118,9 @@ def plot_normalized_polygon(
     ax.set_yticklabels([])
     ax.set_xticklabels([])
     ax.set_xticks(angles[:-1])
+
+    if buy_str is not None:
+        _annotate_buy_icon(ax, buy_str, (0.177, 0.725))
 
     if not add_pics:
         return fig

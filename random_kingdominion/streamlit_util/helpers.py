@@ -1,4 +1,3 @@
-import re
 
 import streamlit as st
 
@@ -10,7 +9,6 @@ def toggle_showing_info():
     st.session_state["show_further_info"] = not st.session_state.get(
         "show_further_info", False
     )
-
 
 @st.fragment
 def _build_page_info(desc: str, link_help: str = ""):
@@ -47,22 +45,10 @@ def build_page_header(title: str, desc: str, link_help: str = ""):
         _build_page_info(desc, link_help)
 
 
-def extract_and_convert(value):
-    """Extract the first number from a string and convert it to an integer."""
-    # Use regular expression to find all digits in the string
-    numbers = re.findall(r"\d+", str(value))
-    if numbers:
-        # Convert the first found number to integer
-        return int(numbers[0])
-    else:
-        # Return some default value or raise an error if no number is found
-        return 0  # or use `raise ValueError(f"No numbers found in '{value}'")` for stricter handling
-
 
 @st.cache_data
 def load_main_df():
     """Cache the CSOs for streamlit (Not sure this is the correct way)"""
-    ALL_CSOS["Sanitized Cost"] = ALL_CSOS["Cost"].apply(extract_and_convert)
     ALL_CSOS["Name and Expansion"] = ALL_CSOS.apply(
         lambda x: f"{x['Name']} ({x['Expansion']})", axis=1
     )

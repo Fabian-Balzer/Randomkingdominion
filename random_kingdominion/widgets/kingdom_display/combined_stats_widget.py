@@ -1,20 +1,16 @@
 import PyQt5.QtCore as QC
 import PyQt5.QtGui as QG
 import PyQt5.QtWidgets as QW
-from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
-from matplotlib.figure import Figure
 from matplotlib import pyplot as plt
+from matplotlib.backends.backend_qt5agg import \
+    FigureCanvasQTAgg as FigureCanvas
+from matplotlib.figure import Figure
 
 from ...constants import COLOR_PALETTE, QUALITIES_AVAILABLE
 from ...kingdom import Kingdom
-from ...utils import (
-    get_expansion_icon_path,
-    get_row_and_col,
-    plot_normalized_polygon,
-)
+from ...utils import (get_expansion_icon_path, get_row_and_col,
+                      plot_kingdom_qualities)
 from ..qt_util import clear_layout
-
-
 from .single_quality_display import SingleQualityDisplay
 
 
@@ -125,5 +121,5 @@ class KingdomStatsDisplay(QW.QGroupBox):
             self.quality_wid_dict[qual].set_total_quality_value(kingdom)
         self.expansion_widget.set_expansions(kingdom)
         self.ax.clear()
-        plot_normalized_polygon(kingdom.total_qualities, self.ax)  # type: ignore
+        plot_kingdom_qualities(kingdom.total_qualities, self.ax)  # type: ignore
         self.figure_canvas.draw()

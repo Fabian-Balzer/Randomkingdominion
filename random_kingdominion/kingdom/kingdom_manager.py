@@ -1,5 +1,6 @@
 """File for the KingdomManager class."""
 
+import json
 from pathlib import Path
 from typing import Any, Literal
 
@@ -7,15 +8,9 @@ import numpy as np
 import pandas as pd
 import yaml
 
-from ..constants import (
-    FPATH_KINGDOMS_CAMPAIGNS,
-    FPATH_KINGDOMS_FABI_RECSETS,
-    FPATH_KINGDOMS_LAST100,
-    FPATH_KINGDOMS_RECOMMENDED,
-    FPATH_KINGDOMS_TGG_DAILIES,
-    PATH_ASSETS,
-    PATH_MAIN,
-)
+from ..constants import (FPATH_KINGDOMS_CAMPAIGNS, FPATH_KINGDOMS_FABI_RECSETS,
+                         FPATH_KINGDOMS_LAST100, FPATH_KINGDOMS_RECOMMENDED,
+                         FPATH_KINGDOMS_TGG_DAILIES, PATH_ASSETS, PATH_MAIN)
 from ..logger import LOGGER
 from .kingdom import Kingdom
 
@@ -59,10 +54,12 @@ def custom_fillna(column: pd.Series) -> pd.Series:
 class KingdomManager:
     """A Manager to keep track of the kingdoms currently loaded."""
 
-    def __init__(self, load_last=False, max_amount: int | None = None):
+    def __init__(self, load_last=False, max_amount: int | None = None, add_yt_note_basics=False):
+        """Initialize the KingdomManager."""
         self.max_amount = max_amount
         self.kingdoms: list[dict[str, Any]] = []
         self.in_last_kingdom_mode = load_last
+        self.add_yt_note_basics = add_yt_note_basics
         if load_last:
             self.load_last_100_kingdoms()
         # self.load_recommended_kingdoms()
@@ -101,6 +98,8 @@ class KingdomManager:
                 else:
                     notes = parts[2]
                     k.notes += notes
+            elif self.add_yt_note_basics:
+                k.notes = {"crucial_cards": [], "name": "", "subtitle": "", "openings": [{"type": "4/3|3/4", "t1": "", "t1_csos": [], "t2": "", "t2_csos": [], "grade": ""}, {"type": "5/2|2/5", "t1": "", "t1_csos": [], "t2": "", "t2_csos": [], "grade": ""}], "ending": [], "points": [], "turns": [], "link": ""}
             try:
                 assert k.is_valid, f"{k.name}, {k.cards}, {k.notes}"
             except AssertionError as e:
@@ -149,7 +148,9 @@ class KingdomManager:
 
     @property
     def dataframe_repr(self) -> pd.DataFrame:
-        """Return the kingdoms as a DataFrame."""
+        """Return the kingdoms as a DataFrame.
+
+        Use 'load_qualities' on the manager first to add the 'qualities' columns."""
         return pd.DataFrame(self.kingdoms).set_index("idx").apply(custom_fillna)
 
     def get_kingdom_by_name(self, kingdom_name: str) -> Kingdom | None:
