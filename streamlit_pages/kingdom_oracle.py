@@ -119,16 +119,18 @@ def _build_exps_filter_widget(df: pd.DataFrame) -> pd.DataFrame:
     )
     cols = st.columns([0.8, 0.2])
     with cols[1]:
+        selected_exps_only = st.checkbox(
+            "Fully contained",
+            help="If checked, only kingdoms that have all selected expansions in them will be filtered for.",
+        )
         require_all_exps = st.checkbox(
-            "Require all",
+            "All expansions included",
             help="If checked, all selected expansions need to be in the sets, otherwise, any of them will do.",
         )
     with cols[0]:
-        placeholder = (
-            "Choose expansions (all required)"
-            if require_all_exps
-            else "Choose expansions (any required)"
-        )
+        any_all = "all" if require_all_exps else "any"
+        limit_or_not = "selected only" if selected_exps_only else "contains at least those"
+        placeholder = f"Choose expansions ({any_all} required, {limit_or_not})"
         exp_filters = st.multiselect(
             "Allowed expansions",
             available_exps,
@@ -140,6 +142,9 @@ def _build_exps_filter_widget(df: pd.DataFrame) -> pd.DataFrame:
 
     # If no expansion is selected, allow for all sets
     if len(exp_filters) > 0:
+        if selected_exps_only:
+            mask = df["expansions"].apply(lambda x: len(set(x).difference(exp_filters)) == 0)
+            df = df[mask]
         filt_func = all if require_all_exps else any
         exp_mask = df["expansions"].apply(
             lambda x: filt_func([exp in x for exp in exp_filters])
@@ -149,6 +154,8 @@ def _build_exps_filter_widget(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def _build_csos_filter_widget(df: pd.DataFrame) -> pd.DataFrame:
+    if len(df) == 0:
+        return df
     available_csos = rk.sanitize_cso_list(np.unique([cso for cso_list in df["csos"] for cso in cso_list]), sort=False)  # type: ignore
     available_csos = sorted(rk.ALL_CSOS.loc[available_csos]["Name"])
     cols = st.columns([0.8, 0.2])
