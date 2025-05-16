@@ -3,7 +3,7 @@
 import os
 from dataclasses import dataclass
 from pathlib import Path
-
+import re
 import pandas as pd
 from matplotlib import colormaps as cm  # type: ignore
 
@@ -49,6 +49,17 @@ def read_dataframe_from_file(fpath: str | Path, eval_lists=False):
         )
     return df
 
+def extract_and_convert_cost(value: str) -> int:
+    """Extract the first number from a string and convert it to an integer."""
+    # Use regular expression to find all digits in the string
+    numbers = re.findall(r"\d+", str(value))
+    if numbers:
+        # Convert the first found number to integer
+        return int(numbers[0])
+    else:
+        # Return some default value or raise an error if no number is found
+        return 0  # or use `raise ValueError(f"No numbers found in '{value}'")` for stricter handling
+
 
 def _init_main_df():
     """Sets up the main DataFrame."""
@@ -91,6 +102,7 @@ def _init_main_df():
     df["IsCampaignEffect"] = df.Types.apply(
         lambda x: x[0] in ["Twist", "Stamp", "Setup Effect"]
     )
+    df["Sanitized Cost"] = df["Cost"].apply(extract_and_convert_cost)
     return df
 
 

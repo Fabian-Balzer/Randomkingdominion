@@ -4,6 +4,7 @@ from typing import Any
 
 import numpy as np
 import pandas as pd
+
 from ..logger import LOGGER
 
 
@@ -122,8 +123,8 @@ def sanitize_cso_name(name: str, replace_parent_pile: bool = False) -> str:
         .replace("twist_", "")
         .replace("start_", "")
     )
-    if name == "harem" or name == "farm":
-        return "harem_farm"
+    if name == "harem" or name == "harem_farm":
+        return "farm"
     if not replace_parent_pile:
         return name
     from ..constants import ALL_CSOS

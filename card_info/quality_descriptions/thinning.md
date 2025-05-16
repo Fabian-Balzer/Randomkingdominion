@@ -2,7 +2,7 @@
 ## <div style="display: flex; align-items: center;"><img src="../../assets/icons/qualities/thinning.jpg" alt="Thinning icon" width="50"> <span style="margin-left: 10px;">Thinning</span></div>
 
 By thinning I consider effects that allow you to thin your deck.\
-You might be surprised that I've also opted to include Remodel variants in here, even though they technically sometimes improve the quality of the cards in your deck (e.g. Enhance or even Mine).\
+You might be surprised that I've also opted to include Remodel variants in here, even though they technically sometimes just improve the quality of the cards in your deck (e.g. Enhance or even Mine) and not lower the total amount of cards. These at least all have the 'Remodel' or 'Remodel*' tag.\
 I am deliberately including exiling here.\
 Other exotic thinning includes CSOs like Ambassador that allow you to return cards from your deck.
 
