@@ -83,8 +83,8 @@ def _annotate_expansion_icons(ax: Axes, k: "Kingdom"):
         annotate_single_expansion_icon(expansion, ax, x, y, zoom)
 
 
-def get_kingdom_quality_fig(k: "Kingdom", save=False) -> Figure:
-    fig = plot_kingdom_qualities(k.total_qualities)
+def get_kingdom_quality_fig(k: "Kingdom", save=False, add_buy_str=False) -> Figure:
+    fig = plot_kingdom_qualities(k.total_qualities, buy_str=k.buy_availability)
     fig.set_size_inches(8.5, 6)
     fig.set_facecolor(DOM_BEIGE)
     ax = plt.gca()

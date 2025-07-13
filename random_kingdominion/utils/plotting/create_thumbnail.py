@@ -156,6 +156,9 @@ def _annotate_twists(
 ):
     for i, effect in enumerate(k.campaign_effects):
         x0, y0 = _annotate_single_twist(ax, effect, k, x0, y0)
+        if y0 < 0.7:
+            x0 += 0.15
+            y0 += 0.14
     extra_twists = k.unpacked_notes.get("extra_twists", [])
     for i, twist in enumerate(extra_twists):
         x0, y0 = _annotate_single_twist(ax, twist, k, x0, y0)
@@ -359,6 +362,48 @@ def do_daily_extras(ax: Axes, k: "Kingdom") -> Path:
     fname = f"{k.name.replace(" ", "_")}_thumbnail.png"
     return PATH_ASSETS.joinpath(f"other/youtube/dailies/{fname}")
 
+def _annotate_ftw_img(ax: Axes, ftw_num: int, x0: float, y0: float, zoom=0.3):
+    """Annotate the Find-the-win image."""
+    fpath = PATH_ASSETS.joinpath(f"other/youtube/ftw/ftw_{ftw_num}.png")
+    img = plt.imread(PATH_ASSETS.joinpath(fpath))  # type: ignore
+    imagebox = OffsetImage(img, zoom=zoom)
+    ab = AnnotationBbox(imagebox, (x0, y0), frameon=False, box_alignment=(1, 1), pad=0)
+    ax.add_artist(ab)
+
+def _annotate_difficulty(ax: Axes, difficulty: str, x0: float, y0: float):
+    """Annotate the difficulty of the Find-the-win."""
+    if difficulty == "medium":
+        color = "#FF8C00"  # Dark Orange
+    elif difficulty == "hard":
+        color = "#A30808"  # Red
+    else:
+        color = "#32CD32"  # Lime Green
+    ax.text(
+        x0,
+        y0,
+        f"Difficulty: {difficulty.capitalize()}",
+        ha="left",
+        va="bottom",
+        fontsize=13,
+        fontdict={"fontproperties": XKCD_FONT, "color": "black"},
+        bbox={
+            "boxstyle": "round,pad=0.4",
+            "facecolor": color,
+            "linewidth": 2,
+        },
+    )
+
+def do_ftw_extras(ax: Axes, k: "Kingdom") -> Path:
+    ftw_num = k.unpacked_notes["ftw_num"]
+    _annotate_expansion_icons(k.expansions, ax, 0.01, 0.83)
+    if len(k.campaign_effects) > 0:
+        _annotate_campaign_seal(ax, 0.518, 0.655, 0.3)
+    annotate_dominion_logo(ax, 0.95, 0.67, 0.55)
+    _annotate_ftw_img(ax, ftw_num, 0.965, 0.65, 0.4)
+    _annotate_twists(ax, k, 0.4, 0.75)
+    _annotate_difficulty(ax, k.unpacked_notes["difficulty"], 0.72, 0.1)
+    fname = f"ftw_{ftw_num}_thumbnail.png"
+    return PATH_ASSETS.joinpath(f"other/youtube/ftw/{fname}")
 
 def do_recset_extras(ax: Axes, k: "Kingdom") -> Path:
     _annotate_expansion_icons(k.expansions, ax, 0.01, 0.83)
@@ -414,7 +459,7 @@ def do_campaign_extras(ax: Axes, k: "Kingdom") -> Path:
 def create_thumbnail(
     k: "Kingdom",
     video_type: Literal[
-        "Daily Dominion", "Dominion RecSets", "Dominion Campaigns"
+        "Daily Dominion", "Dominion RecSets", "Dominion Campaigns", "Find-the-win"
     ] = "Daily Dominion",
 ):
     """Create a standardized thumnail for a yt video"""
@@ -426,6 +471,7 @@ def create_thumbnail(
         "Daily Dominion": DAILY_COLOR,
         "Dominion RecSets": "#90EE90",
         "Dominion Campaigns": CAMPAIGN_COLOR,
+        "Find-the-win": "#089308",
     }
     assert video_type in video_type_dict, f"Unknown video type {video_type}"
     title = get_video_title(k)
@@ -456,6 +502,7 @@ def create_thumbnail(
         "Daily Dominion": do_daily_extras,
         "Dominion RecSets": do_recset_extras,
         "Dominion Campaigns": do_campaign_extras,
+        "Find-the-win": do_ftw_extras,
     }[video_type]
     fpath = special(ax, k)
     fig.savefig(fpath, pad_inches=0.2, bbox_inches="tight", dpi=200)

@@ -1,3 +1,1303 @@
+- campaign_effects:
+  - 5_coffers
+  - replace_estate
+  cards:
+  - familiar
+  - imperial_envoy
+  - importer
+  - lackeys
+  - poet
+  - rice
+  - riverboat
+  - samurai
+  - skirmisher
+  - warehouse
+  expansions:
+  - Alchemy
+  - Allies
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
+  - Renaissance
+  - Rising Sun
+  - Seaside, 2E
+  idx: 125086603769175258235334230067421287092
+  landscapes:
+  - cheap
+  - great_leader
+  - island_folk
+  - way_of_the_pig
+  name: '2025-07-13'
+  riverboat_card: replace
+  stamps_and_effects:
+  - - replace_estate
+    - samurai
+  traits:
+  - - cheap
+    - rice
+- cards:
+  - cursed_village
+  - cutthroat
+  - faithful_hound
+  - farmers_market
+  - ghost_town
+  - herbalist
+  - moneylender
+  - sack_of_loot
+  - storeroom
+  - wealthy_village
+  expansions:
+  - Adventures
+  - Alchemy
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Menagerie
+  - Nocturne
+  - Plunder
+  idx: 300998355932364240271464226017034483495
+  landscapes:
+  - lost_arts
+  - ride
+  name: '2025-07-12'
+- cards:
+  - apothecary
+  - apprentice
+  - hunting_party
+  - inventor
+  - lackeys
+  - priest
+  - recruiter
+  - scepter
+  - scholar
+  - swashbuckler
+  expansions:
+  - Alchemy
+  - Cornucopia & Guilds, 2E
+  - Renaissance
+  idx: 332341070987920404168585987690038985994
+  landscapes:
+  - capitalism
+  - cathedral
+  name: '2025-07-11'
+- cards:
+  - advisor
+  - bard
+  - cemetery
+  - crypt
+  - cursed_village
+  - faithful_hound
+  - guardian
+  - infirmary
+  - pooka
+  - sacred_grove
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Nocturne
+  idx: 107500607630458421743678813960188185705
+  name: '2025-07-10'
+- cards:
+  - blockade
+  - caravan
+  - crown
+  - farmers_market
+  - lighthouse
+  - native_village
+  - tactician
+  - treasury
+  - warehouse
+  - wharf
+  expansions:
+  - Empires
+  - Seaside, 2E
+  idx: 297694323816793065048686773069630281096
+  landscapes:
+  - banquet
+  - ritual
+  name: '2025-07-09'
+- cards:
+  - barbarian
+  - capital_city
+  - contract
+  - emissary
+  - guildmaster
+  - modify
+  - sentinel
+  - town
+  - townsfolk
+  - underling
+  expansions:
+  - Allies
+  idx: 311601129859822230263098999116688036892
+  landscapes:
+  - gang_of_pickpockets
+  name: '2025-07-08'
+- cards:
+  - border_guard
+  - bureaucrat
+  - experiment
+  - gardens
+  - inventor
+  - market
+  - patron
+  - remodel
+  - sculptor
+  - workshop
+  expansions:
+  - Base, 2E
+  - Renaissance
+  idx: 233769768424842045292847963754678538037
+  landscapes:
+  - crop_rotation
+  - silos
+  name: '2025-07-07'
+- campaign_effects:
+  - double_pile
+  - with_spoils
+  cards:
+  - blockade
+  - catapult/rocks
+  - clashes
+  - clerk
+  - forge
+  - grotto
+  - patrol
+  - rice_broker
+  - sculptor
+  - stockpile
+  expansions:
+  - Allies
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Rising Sun
+  - Seaside, 2E
+  idx: 69752103221761026167021064879519810491
+  landscapes:
+  - ritual
+  - way_of_the_butterfly
+  name: '2025-07-06'
+  stamps_and_effects:
+  - - with_spoils
+    - stockpile
+  - - double_pile
+    - colony
+  - - double_pile
+    - province
+  - - double_pile
+    - duchy
+  use_colonies: true
+- cards:
+  - animal_fair
+  - cardinal
+  - changeling
+  - clerk
+  - ducat
+  - fool
+  - gatekeeper
+  - lackeys
+  - ratcatcher
+  - vault
+  expansions:
+  - Adventures
+  - Empires
+  - Menagerie
+  - Nocturne
+  - Prosperity, 2E
+  - Renaissance
+  idx: 129149354126232938035640923865149349212
+  landscapes:
+  - bonfire
+  - obelisk
+  name: '2025-07-05'
+  obelisk_pile: ratcatcher
+- cards:
+  - caravan
+  - fairgrounds
+  - haven
+  - island
+  - lackeys
+  - outpost
+  - patron
+  - priest
+  - research
+  - warehouse
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Renaissance
+  - Seaside, 2E
+  idx: 238864791733037393781917081181419055082
+  landscapes:
+  - fair
+  - silos
+  name: '2025-07-04'
+- cards:
+  - berserker
+  - carnival
+  - crossroads
+  - fools_gold
+  - highway
+  - jack_of_all_trades
+  - oasis
+  - souk
+  - spice_merchant
+  - witchs_hut
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Hinterlands, 2E
+  idx: 325156535853491100836816467033476766072
+  name: '2025-07-03'
+- cards:
+  - anvil
+  - chariot_race
+  - charlatan
+  - city
+  - gladiator/fortune
+  - groundskeeper
+  - mint
+  - peddler
+  - watchtower
+  - wild_hunt
+  expansions:
+  - Empires
+  - Prosperity, 2E
+  idx: 152468717961040514477134534168972167004
+  landscapes:
+  - aqueduct
+  - labyrinth
+  name: '2025-07-02'
+- cards:
+  - berserker
+  - cartographer
+  - crossroads
+  - fools_gold
+  - guard_dog
+  - scheme
+  - trader
+  - trail
+  - tunnel
+  - witchs_hut
+  expansions:
+  - Hinterlands, 2E
+  idx: 148066990686243438002049468415698579434
+  name: '2025-07-01'
+- cards:
+  - artisan
+  - chapel
+  - gardens
+  - imperial_envoy
+  - library
+  - militia
+  - poacher
+  - rice_broker
+  - snake_witch
+  - vassal
+  expansions:
+  - Base, 2E
+  - Rising Sun
+  idx: 26313654629668866460142749795566640607
+  landscapes:
+  - receive_tribute
+  name: '2025-06-30'
+- campaign_effects:
+  - 10_villagers
+  cards:
+  - blockade
+  - cobbler
+  - crucible
+  - crystal_ball
+  - horn_of_plenty
+  - hunter
+  - minion
+  - ranger
+  - storeroom
+  - watchtower
+  expansions:
+  - Adventures
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Intrigue, 2E
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Seaside, 2E
+  idx: 151796968101040765070271231304308513906
+  landscapes:
+  - invasion
+  - tireless
+  name: '2025-06-29'
+  traits:
+  - - tireless
+    - ranger
+  use_colonies: true
+- cards:
+  - broker
+  - council_room
+  - crypt
+  - develop
+  - enlarge
+  - jewelled_egg
+  - library
+  - mastermind
+  - pawn
+  - raze
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  idx: 7821934606404331790644032090111453672
+  landscapes:
+  - commerce
+  - island_folk
+  - march
+  name: '2025-06-28'
+- cards:
+  - bureaucrat
+  - cargo_ship
+  - farrier
+  - flag_bearer
+  - inventor
+  - merchant_guild
+  - old_witch
+  - silk_merchant
+  - treasurer
+  - village
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Renaissance
+  idx: 155243016847875071388804980077249687928
+  landscapes:
+  - barracks
+  - guildhall
+  name: '2025-06-27'
+- cards:
+  - cabin_boy
+  - cage
+  - figurine
+  - flagship
+  - gondola
+  - pendant
+  - pickaxe
+  - root_cellar
+  - rope
+  - siren
+  expansions:
+  - Plunder
+  - Rising Sun
+  idx: 46889527187334598013390501992681058399
+  landscapes:
+  - cursed
+  - looting
+  name: '2025-06-26'
+  traits:
+  - - cursed
+    - siren
+- bane_pile: hamlet
+  cards:
+  - anvil
+  - city
+  - crystal_ball
+  - fairgrounds
+  - farmhands
+  - forge
+  - hamlet
+  - horn_of_plenty
+  - peddler
+  - quarry
+  - young_witch
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Prosperity, 2E
+  idx: 27189027267599916909114728354072632176
+  name: '2025-06-25'
+  use_colonies: true
+- cards:
+  - catacombs
+  - count
+  - feodum
+  - fortress
+  - graverobber
+  - hunting_grounds
+  - junk_dealer
+  - marauder
+  - market_square
+  - wandering_minstrel
+  expansions:
+  - Dark Ages
+  idx: 131791987000218392236450290044809353902
+  name: '2025-06-24'
+  use_shelters: true
+- cards:
+  - charlatan
+  - clerk
+  - laboratory
+  - poacher
+  - quarry
+  - sentry
+  - smithy
+  - throne_room
+  - vault
+  - workers_village
+  expansions:
+  - Base, 2E
+  - Prosperity, 2E
+  idx: 148615757355213105175717133551957234427
+  name: '2025-06-23'
+  use_colonies: true
+- campaign_effects:
+  - double_pile
+  - with_spoils
+  cards:
+  - aristocrat
+  - cursed_village
+  - death_cart
+  - ducat
+  - duplicate
+  - legionary
+  - lighthouse
+  - minion
+  - sea_witch
+  - wild_hunt
+  expansions:
+  - Adventures
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Renaissance
+  - Rising Sun
+  - Seaside, 2E
+  idx: 241497029177082210242502395824715382023
+  landscapes:
+  - invest
+  - nearby
+  name: '2025-06-22'
+  stamps_and_effects:
+  - - double_pile
+    - minion
+  - - with_spoils
+    - death_cart
+  traits:
+  - - nearby
+    - death_cart
+- cards:
+  - acting_troupe
+  - catacombs
+  - chapel
+  - guardian
+  - lurker
+  - quartermaster
+  - root_cellar
+  - sacrifice
+  - secluded_shrine
+  - witch
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Renaissance
+  - Rising Sun
+  idx: 37067291039993626054304249079888142425
+  landscapes:
+  - march
+  - mission
+  name: '2025-06-21'
+- cards:
+  - cargo_ship
+  - conspirator
+  - haven
+  - improve
+  - inventor
+  - scepter
+  - seer
+  - swindler
+  - torturer
+  - treasurer
+  expansions:
+  - Intrigue, 2E
+  - Renaissance
+  - Seaside, 2E
+  idx: 223234889574115399335006667150539634714
+  landscapes:
+  - capitalism
+  - star_chart
+  name: '2025-06-20'
+- cards:
+  - apprentice
+  - border_village
+  - cartographer
+  - inn
+  - nomads
+  - oasis
+  - philosophers_stone
+  - scheme
+  - scrying_pool
+  - spice_merchant
+  expansions:
+  - Alchemy
+  - Hinterlands, 2E
+  idx: 189890186669755700275587932263268440790
+  name: '2025-06-19'
+- cards:
+  - develop
+  - enlarge
+  - first_mate
+  - fools_gold
+  - fortune_hunter
+  - grotto
+  - pendant
+  - stowaway
+  - wealthy_village
+  - weaver
+  expansions:
+  - Hinterlands, 2E
+  - Plunder
+  idx: 187444045348474036508768614160774256769
+  landscapes:
+  - journey
+  - rush
+  name: '2025-06-18'
+- cards:
+  - cage
+  - flagship
+  - fortune_hunter
+  - grotto
+  - harbor_village
+  - mapmaker
+  - pickaxe
+  - sack_of_loot
+  - siren
+  - trickster
+  expansions:
+  - Plunder
+  idx: 256548545303880823945222326206291417280
+  landscapes:
+  - fated
+  - fawning
+  name: '2025-06-17'
+  traits:
+  - - fated
+    - cage
+  - - fawning
+    - trickster
+- cards:
+  - cellar
+  - charlatan
+  - crystal_ball
+  - gardens
+  - moneylender
+  - monument
+  - tiara
+  - vassal
+  - workers_village
+  - workshop
+  expansions:
+  - Base, 2E
+  - Prosperity, 2E
+  idx: 167809941729119923874691960435470487905
+  name: '2025-06-16'
+- campaign_effects:
+  - chameleonized
+  - replace_copper
+  cards:
+  - band_of_misfits
+  - cauldron
+  - collection
+  - hunting_grounds
+  - patrol
+  - samurai
+  - scavenger
+  - specialist
+  - treasury
+  - university
+  expansions:
+  - Adventures
+  - Alchemy
+  - Allies
+  - Dark Ages
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Plunder
+  - Prosperity, 2E
+  - Rising Sun
+  - Seaside, 2E
+  idx: 58942873550672922585074894962517537089
+  landscapes:
+  - expedition
+  - tireless
+  name: '2025-06-15'
+  stamps_and_effects:
+  - - chameleonized
+    - hunting_grounds
+  - - replace_copper
+    - wizards
+  traits:
+  - - tireless
+    - treasury
+  use_colonies: true
+  use_shelters: true
+- cards:
+  - hideout
+  - improve
+  - innkeeper
+  - library
+  - margrave
+  - merchant_ship
+  - mining_village
+  - mystic
+  - procession
+  - swindler
+  expansions:
+  - Allies
+  - Base, 2E
+  - Dark Ages
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Plunder
+  - Renaissance
+  - Seaside, 2E
+  idx: 813096031668881000225913478613140373
+  landscapes:
+  - launch
+  - maelstrom
+  name: '2025-06-14'
+  use_shelters: true
+- cards:
+  - advisor
+  - farm
+  - haggler
+  - mill
+  - replace
+  - shanty_town
+  - soothsayer
+  - trading_post
+  - trail
+  - weaver
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  idx: 312140253664614543147915853670919794738
+  name: '2025-06-13'
+- cards:
+  - abundance
+  - cabin_boy
+  - carnival
+  - ferryman
+  - grotto
+  - jewelled_egg
+  - mapmaker
+  - pickaxe
+  - sack_of_loot
+  - taskmaster
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Plunder
+  ferryman_pile: shop
+  idx: 264678985538502294281577529917932343121
+  landscapes:
+  - fawning
+  - prosper
+  name: '2025-06-12'
+  traits:
+  - - fawning
+    - pickaxe
+- cards:
+  - bard
+  - blessed_village
+  - changeling
+  - conclave
+  - cursed_village
+  - devils_workshop
+  - hamlet
+  - joust
+  - menagerie
+  - night_watchman
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Nocturne
+  idx: 130801966904604110461714079595024287359
+  name: '2025-06-11'
+- cards:
+  - bridge_troll
+  - caravan_guard
+  - distant_lands
+  - gear
+  - haunted_woods
+  - miser
+  - port
+  - ranger
+  - ratcatcher
+  - treasure_trove
+  expansions:
+  - Adventures
+  idx: 120969645328830251914818080109702205378
+  landscapes:
+  - quest
+  - seaway
+  name: '2025-06-10'
+- cards:
+  - bank
+  - bureaucrat
+  - city
+  - crystal_ball
+  - festival
+  - kings_court
+  - library
+  - monument
+  - peddler
+  - village
+  expansions:
+  - Base, 2E
+  - Prosperity, 2E
+  idx: 97315372622364126704480330731079374410
+  name: '2025-06-09'
+  use_colonies: true
+- campaign_effects:
+  - replace_estate
+  - sale
+  cards:
+  - acting_troupe
+  - apothecary
+  - armory
+  - camel_train
+  - falconer
+  - legionary
+  - outpost
+  - rice
+  - supplies
+  - trail
+  expansions:
+  - Alchemy
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Renaissance
+  - Rising Sun
+  - Seaside, 2E
+  idx: 64764098638677895341641005541580552812
+  landscapes:
+  - cathedral
+  - receive_tribute
+  name: '2025-06-08'
+  stamps_and_effects:
+  - - replace_estate
+    - falconer
+  use_shelters: true
+- cards:
+  - gatekeeper
+  - goatherd
+  - jack_of_all_trades
+  - monument
+  - pixie
+  - quarry
+  - scholar
+  - transmogrify
+  - treasure_map
+  - vineyard
+  expansions:
+  - Adventures
+  - Alchemy
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
+  idx: 298483913899598796445589993590896093443
+  landscapes:
+  - baths
+  - tomb
+  name: '2025-06-07'
+  use_colonies: true
+- cards:
+  - artisan
+  - bridge
+  - courtyard
+  - diplomat
+  - farm
+  - lurker
+  - scrying_pool
+  - steward
+  - throne_room
+  - university
+  expansions:
+  - Alchemy
+  - Base, 2E
+  - Intrigue, 2E
+  idx: 136916521951754438908133151543770197917
+  name: '2025-06-06'
+- cards:
+  - artist
+  - ducat
+  - gold_mine
+  - improve
+  - inventor
+  - litter
+  - mountain_shrine
+  - samurai
+  - silk_merchant
+  - snake_witch
+  expansions:
+  - Renaissance
+  - Rising Sun
+  idx: 190482973105528892083189767143614276936
+  landscapes:
+  - citadel
+  - great_leader
+  - sea_trade
+  name: '2025-06-05'
+- cards:
+  - aristocrat
+  - change
+  - footpad
+  - gold_mine
+  - journeyman
+  - merchant_guild
+  - plaza
+  - poet
+  - river_shrine
+  - rustic_village
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Rising Sun
+  idx: 91516706481409883738088209141424950248
+  landscapes:
+  - foresight
+  - harsh_winter
+  name: '2025-06-04'
+- cards:
+  - buried_treasure
+  - figurine
+  - fortune_hunter
+  - grotto
+  - landing_party
+  - pendant
+  - pilgrim
+  - quartermaster
+  - siren
+  - trickster
+  expansions:
+  - Plunder
+  idx: 5590446959855276591050732182008880798
+  landscapes:
+  - mirror
+  - peril
+  name: '2025-06-03'
+- cards:
+  - bureaucrat
+  - capital
+  - cellar
+  - council_room
+  - encampment/plunder
+  - festival
+  - forum
+  - groundskeeper
+  - remodel
+  - wild_hunt
+  expansions:
+  - Base, 2E
+  - Empires
+  idx: 185502897847615482334779598895810050346
+  landscapes:
+  - colonnade
+  - keep
+  name: '2025-06-02'
+- campaign_effects:
+  - 5_coffers
+  - sale
+  cards:
+  - exorcist
+  - guardian
+  - herbalist
+  - inventor
+  - native_village
+  - nomads
+  - rogue
+  - rope
+  - sacrifice
+  - temple
+  expansions:
+  - Alchemy
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Renaissance
+  - Seaside, 2E
+  idx: 140294760159950869686648021992683608746
+  landscapes:
+  - enclave
+  - way_of_the_pig
+  name: '2025-06-01'
+- cards:
+  - butcher
+  - changeling
+  - crown
+  - duke
+  - falconer
+  - groundskeeper
+  - scrying_pool
+  - taskmaster
+  - throne_room
+  - vault
+  expansions:
+  - Alchemy
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  idx: 47945031463520723926848546962947954807
+  landscapes:
+  - delay
+  - star_chart
+  name: '2025-05-31'
+- cards:
+  - bandit_camp
+  - bridge
+  - courtier
+  - crossroads
+  - farm
+  - hermit
+  - patrol
+  - rats
+  - rogue
+  - tunnel
+  expansions:
+  - Dark Ages
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  idx: 191604536558269453309235755476999615562
+  name: '2025-05-30'
+  use_shelters: true
+- cards:
+  - animal_fair
+  - barge
+  - cabin_boy
+  - enlarge
+  - first_mate
+  - fortune_hunter
+  - harbor_village
+  - sack_of_loot
+  - wayfarer
+  - wealthy_village
+  expansions:
+  - Menagerie
+  - Plunder
+  idx: 165760632500553685415138602434257066623
+  landscapes:
+  - pious
+  - rush
+  name: '2025-05-29'
+  traits:
+  - - pious
+    - fortune_hunter
+- cards:
+  - artist
+  - contract
+  - emissary
+  - litter
+  - merchant_camp
+  - modify
+  - poet
+  - rice_broker
+  - skirmisher
+  - town
+  expansions:
+  - Allies
+  - Rising Sun
+  idx: 103423912482263316017552690687621332380
+  landscapes:
+  - desert_guides
+  - good_harvest
+  - receive_tribute
+  name: '2025-05-28'
+- cards:
+  - armory
+  - band_of_misfits
+  - count
+  - fortress
+  - hermit
+  - ironmonger
+  - market_square
+  - poor_house
+  - squire
+  - vagrant
+  expansions:
+  - Dark Ages
+  idx: 167569990548256979930335734025087238574
+  name: '2025-05-27'
+  use_shelters: true
+- cards:
+  - cellar
+  - festival
+  - laboratory
+  - mine
+  - old_witch
+  - scepter
+  - scholar
+  - seer
+  - swashbuckler
+  - treasurer
+  expansions:
+  - Base, 2E
+  - Renaissance
+  idx: 123658975406144393046892605471157889594
+  landscapes:
+  - citadel
+  - star_chart
+  name: '2025-05-26'
+- campaign_effects:
+  - replace_estate
+  cards:
+  - devils_workshop
+  - grotto
+  - joust
+  - riverboat
+  - root_cellar
+  - royal_galley
+  - shop
+  - swindler
+  - temple
+  - tools
+  expansions:
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Intrigue, 2E
+  - Nocturne
+  - Plunder
+  - Rising Sun
+  idx: 21343523118438019678948391204345641949
+  landscapes:
+  - salt_the_earth
+  name: '2025-05-25'
+  riverboat_card: torturer
+  stamps_and_effects:
+  - - replace_estate
+    - zombie_apprentice,_zombie_mason,_shop
+- cards:
+  - bridge
+  - caravan_guard
+  - council_room
+  - courtier
+  - guide
+  - marquis
+  - recruiter
+  - spice_merchant
+  - swamp_shacks
+  - swap
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
+  - Renaissance
+  idx: 232646484083792012983096177224981720299
+  landscapes:
+  - reap
+  - trade
+  name: '2025-05-24'
+- cards:
+  - bazaar
+  - catapult/rocks
+  - corsair
+  - crown
+  - farmers_market
+  - legionary
+  - pirate
+  - salvager
+  - temple
+  - warehouse
+  expansions:
+  - Empires
+  - Seaside, 2E
+  idx: 47617422739890693316232066553744421816
+  landscapes:
+  - labyrinth
+  - ritual
+  name: '2025-05-23'
+- cards:
+  - cemetery
+  - coin_of_the_realm
+  - cursed_village
+  - dungeon
+  - fool
+  - giant
+  - haunted_woods
+  - peasant
+  - werewolf
+  - wine_merchant
+  expansions:
+  - Adventures
+  - Nocturne
+  idx: 307860988733521740191763109135275716496
+  landscapes:
+  - borrow
+  - raid
+  name: '2025-05-22'
+- cards:
+  - bandit_camp
+  - carnival
+  - death_cart
+  - forager
+  - fortress
+  - ironmonger
+  - jester
+  - rogue
+  - scavenger
+  - shop
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  idx: 315909941259839833362678585287090528578
+  name: '2025-05-21'
+- cards:
+  - baron
+  - bridge
+  - courtyard
+  - diplomat
+  - ironworks
+  - masquerade
+  - mining_village
+  - minion
+  - replace
+  - steward
+  expansions:
+  - Intrigue, 2E
+  idx: 20209671116035275212250504433262745121
+  name: '2025-05-20'
+- cards:
+  - bureaucrat
+  - catapult/rocks
+  - encampment/plunder
+  - engineer
+  - farmers_market
+  - gardens
+  - library
+  - overlord
+  - settlers/bustling_village
+  - wild_hunt
+  expansions:
+  - Base, 2E
+  - Empires
+  idx: 146172401750797903745918018583462008166
+  landscapes:
+  - delve
+  - mountain_pass
+  name: '2025-05-19'
+- campaign_effects:
+  - big_ideas
+  - chameleonized
+  - extra_oomph
+  - fast_track
+  cards:
+  - baron
+  - catacombs
+  - coin_of_the_realm
+  - distant_lands
+  - engineer
+  - herbalist
+  - horn_of_plenty
+  - royal_blacksmith
+  - supplies
+  - village_green
+  expansions:
+  - Adventures
+  - Alchemy
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  idx: 311845971785669484532706437529245231474
+  landscapes:
+  - way_of_the_owl
+  name: '2025-05-18'
+  notes:
+    crucial_cards:
+    - Catacombs
+    - Horn of Plenty
+    - Village Green
+    - Distant Lands
+    ending:
+    - Village Green
+    - Catacombs
+    - Horn of Plenty
+    link: ''
+    name: Horn Of Oomph
+    openings:
+    - grade: ''
+      t1: ''
+      t1_csos: []
+      t2: ''
+      t2_csos: []
+      type: 4/3|3/4
+    - grade: ''
+      t1: ''
+      t1_csos: []
+      t2: ''
+      t2_csos: []
+      type: 5/2|2/5
+    points:
+    - 20
+    - 3
+    subtitle: No Thinning? Big Ideas Got Ya Covered In This Crazy Kingdom
+    turns:
+    - 9
+    - 8
+  stamps_and_effects:
+  - - chameleonized
+    - catacombs
+- cards:
+  - baron
+  - cauldron
+  - diplomat
+  - ducat
+  - lurker
+  - masquerade
+  - patron
+  - spices
+  - steward
+  - treasurer
+  expansions:
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Renaissance
+  idx: 79930223940655740724309036598539456163
+  landscapes:
+  - citadel
+  - star_chart
+  name: '2025-05-17'
 - cards:
   - collection
   - expand

@@ -238,8 +238,8 @@ def add_campaign_effects(df: pd.DataFrame) -> pd.DataFrame:
             "Types": "Stamp",
             "Expansion": "Base",
         },
-        "Chameleonize": {
-            "Name": "Chameleonize",
+        "Chameleonized": {
+            "Name": "Chameleonized",
             "Text": "|+[]| instead of |+Cards| and vice-versa.",
             "Types": "Stamp",
             "Expansion": "Menagerie",

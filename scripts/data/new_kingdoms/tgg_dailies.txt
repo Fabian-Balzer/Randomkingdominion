@@ -1,24 +1,85 @@
-2025-05-31---
-2025-05-30---
-2025-05-29---
-2025-05-28---
-2025-05-27---
-2025-05-26---
-2025-05-25---
-2025-05-24---
-2025-05-23---
-2025-05-22---
-2025-05-21---
-2025-05-20---
-2025-05-19---
-2025-05-18---
-2025-05-17---
+2025-07-31---
+2025-07-30---
+2025-07-29---
+2025-07-28---
+2025-07-27---
+2025-07-26---
+2025-07-25---
+2025-07-24---
+2025-07-23---
+2025-07-22---
+2025-07-21---
+2025-07-20---
+2025-07-19---
+2025-07-18---
+2025-07-17---
+2025-07-16---
+2025-07-15---
+2025-07-14---
+2025-07-13---lackeys, importer, riverboat(replace), warehouse, familiar, poet, imperial_envoy, skirmisher, samurai, rice, great_leader, island_folk, way_of_the_pig, cheap(rice), start_5_coffers, start_replace_estate(samurai)
+2025-07-12---faithful_hound, herbalist, farmers_market, ghost_town, storeroom, moneylender, cursed_village, cutthroat, wealthy_village, sack_of_loot, lost_arts, ride
+2025-07-11---lackeys, apothecary, inventor, priest, apprentice, hunting_party, recruiter, scepter, scholar, swashbuckler, capitalism, cathedral
+2025-07-10---faithful_hound, guardian, infirmary, advisor, bard, cemetery, crypt, cursed_village, pooka, sacred_grove
+2025-07-09---lighthouse, native_village, farmers_market, warehouse, blockade, caravan, crown, tactician, treasury, wharf, ritual, banquet
+2025-07-08--- townsfolk, sentinel, underling, town, barbarian, capital_city, contract, emissary, guildmaster, modify, gang_of_pickpockets
+2025-07-07---border_guard, experiment, workshop, bureaucrat, gardens, inventor, patron, remodel, market, sculptor, crop_rotation, silos
+2025-07-06---grotto, catapult, clashes, stockpile, blockade, clerk, patrol, rice_broker, sculptor, forge, way_of_the_butterfly, ritual, colonies, start_double_pile(province), start_double_pile(colony), stamp_with_spoils(stockpile), start_double_pile(duchy)
+2025-07-05---ducat, lackeys, ratcatcher, changeling, fool, cardinal, clerk, gatekeeper, vault, animal_fair, obelisk(ratcatcher), bonfire
+2025-07-04---haven, lackeys, warehouse, caravan, island, patron, priest, research, outpost, fairgrounds, fair, silos
+2025-07-03---crossroads, fools_gold, oasis, jack_of_all_trades, spice_merchant, berserker, carnival, highway, souk, witchs_hut
+2025-07-02---anvil, chariot_race, gladiator, watchtower, charlatan, city, groundskeeper, mint, wild_hunt, peddler, aqueduct, labyrinth
+2025-07-01---crossroads, fools_gold, guard_dog, scheme, tunnel, trader, trail, berserker, cartographer, witchs_hut
+2025-06-30---chapel, snake_witch, vassal, gardens, militia, poacher, imperial_envoy, library, rice_broker, artisan, receive_tribute
+2025-06-29---storeroom, watchtower, blockade, crucible, ranger, cobbler, crystal_ball, horn_of_plenty, hunter, minion, tireless(horn_of_plenty), tireless(ranger), invasion, colonies, start_10_villagers
+2025-06-28---jewelled_egg, pawn, raze, develop, broker, council_room, crypt, enlarge, library, mastermind, commerce, march, island_folk
+2025-06-27---farrier, cargo_ship, village, bureaucrat, flag_bearer, inventor, silk_merchant, merchant_guild, old_witch, treasurer, barracks, guildhall
+2025-06-26---cage, root_cellar, siren, cabin_boy, flagship, gondola, rope, figurine, pendant, pickaxe, looting, cursed(siren)
+2025-06-25---anvil, farmhands, quarry, young_witch(hamlet), city, crystal_ball, horn_of_plenty, fairgrounds, forge, peddler, colonies
+2025-06-24---market_square, feodum, fortress, marauder, wandering_minstrel, catacombs, count, graverobber, junk_dealer, hunting_grounds, shelters
+2025-06-23---clerk, poacher, quarry, smithy, throne_room, workers_village, charlatan, laboratory, sentry, vault, colonies
+2025-06-22---ducat, lighthouse, aristocrat, death_cart, duplicate, cursed_village, legionary, minion, sea_witch, wild_hunt, nearby(death_cart), invest, start_double_pile(minion), start_double_pile(ruins), stamp_with_spoils(death_cart)
+2025-06-21---chapel, guardian, lurker, acting_troupe, root_cellar, secluded_shrine, sacrifice, catacombs, quartermaster, witch, march, mission
+2025-06-20---haven, cargo_ship, improve, swindler, conspirator, inventor, scepter, seer, torturer, treasurer, star_chart, capitalism
+2025-06-19---scrying_pool, oasis, scheme, philosophers_stone, nomads, spice_merchant, apprentice, cartographer, inn, border_village
+2025-06-18---fools_gold, grotto, develop, stowaway, fortune_hunter, weaver, enlarge, first_mate, pendant, wealthy_village, rush, journey
+2025-06-17---cage, grotto, siren, flagship, fortune_hunter, harbor_village, mapmaker, pickaxe, trickster, sack_of_loot, fawning(trickster), fated(cage)
+2025-06-16---cellar, vassal, workshop, gardens, moneylender, monument, tiara, workers_village, charlatan, crystal_ball
+2025-06-15---university, scavenger, band_of_misfits, cauldron, collection, patrol, specialist, treasury, hunting_grounds, samurai, expedition, tireless(treasury), colonies, shelters, stamp_chameleonized(hunting_grounds), start_replace_copper(lich)
+2025-06-14---improve, swindler, hideout, innkeeper, mining_village, procession, library, margrave, merchant_ship, mystic, maelstrom, launch, shelters
+2025-06-13---shanty_town, advisor, mill, trail, weaver, haggler, replace, soothsayer, trading_post, farm
+2025-06-12---grotto, jewelled_egg, taskmaster, abundance, cabin_boy, mapmaker, carnival, ferryman(shop), pickaxe, sack_of_loot, fawning(pickaxe), prosper
+2025-06-11---hamlet, changeling, menagerie, night_watchman, bard, blessed_village, conclave, devils_workshop, cursed_village, joust
+2025-06-10---ratcatcher, caravan_guard, gear, miser, port, ranger, bridge_troll, distant_lands, haunted_woods, treasure_trove, quest, seaway
+2025-06-09---village, bureaucrat, monument, city, crystal_ball, festival, library, bank, kings_court, peddler, colonies
+2025-06-08---supplies, apothecary, acting_troupe, camel_train, armory, trail, falconer, legionary, outpost, rice, cathedral, receive_tribute, shelters, twist_sale, start_replace_estate(falconer)
+2025-06-07---vineyard, pixie, goatherd, jack_of_all_trades, monument, quarry, transmogrify, treasure_map, gatekeeper, scholar, tomb, baths, colonies
+2025-06-06---courtyard, lurker, scrying_pool, university, steward, bridge, diplomat, throne_room, artisan, farm
+2025-06-05---mountain_shrine, artist, ducat, snake_witch, improve, inventor, silk_merchant, gold_mine, litter, samurai, sea_trade, citadel, great_leader
+2025-06-04---aristocrat, change, plaza, poet, river_shrine, rustic_village, footpad, gold_mine, journeyman, merchant_guild, harsh_winter, foresight
+2025-06-03---grotto, siren, fortune_hunter, landing_party, buried_treasure, figurine, pendant, pilgrim, quartermaster, trickster, peril, mirror
+2025-06-02---cellar, encampment, bureaucrat, remodel, capital, council_room, festival, forum, groundskeeper, wild_hunt, colonnade, keep
+2025-06-01--- guardian, herbalist, native_village, exorcist, inventor, nomads, rope, sacrifice, temple, rogue, way_of_the_pig, enclave, twist_sale, start_5_coffers
+2025-05-31---scrying_pool, changeling, taskmaster, throne_room, butcher, crown, duke, falconer, groundskeeper, vault, delay, star_chart
+2025-05-30--- crossroads, hermit, tunnel, bridge, rats, bandit_camp, courtier, patrol, rogue, farm, shelters
+2025-05-29---cabin_boy, fortune_hunter, harbor_village, barge, enlarge, first_mate, wealthy_village, sack_of_loot, wayfarer, animal_fair, rush, pious(fortune_hunter)
+2025-05-28---artist, merchant_camp, poet, town, contract, emissary, litter, modify, rice_broker, skirmisher, receive_tribute, desert_guides, good_harvest
+2025-05-27---poor_house, squire, vagrant, hermit, market_square, armory, fortress, ironmonger, band_of_misfits, count, shelters
+2025-05-26---cellar, festival, laboratory, mine, old_witch, scepter, scholar, seer, swashbuckler, treasurer, citadel, star_chart
+2025-05-25---grotto, riverboat(torturer), root_cellar, shop, swindler, devils_workshop, royal_galley, temple, tools, joust, salt_the_earth, start_replace_estate(zombie_apprentice), start_replace_estate(zombie_mason), start_replace_estate(shop)
+2025-05-24---caravan_guard, guide, bridge, spice_merchant, swamp_shacks, council_room, courtier, recruiter, swap, marquis, trade, reap
+2025-05-23---catapult, farmers_market, warehouse, salvager, temple, bazaar, corsair, crown, legionary, pirate, labyrinth, ritual
+2025-05-22---coin_of_the_realm, peasant, dungeon, fool, cemetery, cursed_village, giant, haunted_woods, werewolf, wine_merchant, borrow, raid
+2025-05-21---forager, shop, death_cart, fortress, ironmonger, scavenger, bandit_camp, carnival, jester, rogue
+2025-05-20---courtyard, masquerade, steward, baron, bridge, diplomat, ironworks, mining_village, minion, replace
+2025-05-19---engineer, overlord, encampment, settlers, catapult, farmers_market, bureaucrat, gardens, library, wild_hunt, delve, mountain_pass
+2025-05-18---engineer, royal_blacksmith, coin_of_the_realm, herbalist, supplies, baron, village_green, catacombs, distant_lands, horn_of_plenty, way_of_the_owl, twist_extra_oomph, twist_fast_track, twist_big_ideas, stamp_chameleonized(catacombs)
+2025-05-17---ducat, lurker, masquerade, steward, baron, diplomat, patron, cauldron, spices, treasurer, citadel, star_chart
 2025-05-16---philosophers_stone, investment, quarry, workers_village, collection, rabble, vault, hoard, grand_market, expand, colonies
 2025-05-15---blessed_village, necromancer, crystal_ball, mint, tragic_hero, war_chest, grand_market, bank, expand, kings_court, colonies
 2025-05-14---blessed_village, necromancer, crystal_ball, mint, tragic_hero, war_chest, grand_market, bank, expand, kings_court, colonies
 2025-05-13---guardian, fool, ghost_town, secret_cave, blessed_village, shepherd, cobbler, tragic_hero, vampire, raider
 2025-05-12---stonemason, merchant, village, workshop, gardens, plaza, throne_room, footpad, journeyman, library
-2025-05-11---haven, pawn, develop, marauder, port, secret_passage, transmogrify, collection, galleria, wharf, mountain_pass, shy(wharf)
+2025-05-11---haven, pawn, develop, marauder, port, secret_passage, transmogrify, collection, galleria, wharf, mountain_pass, shy(wharf), stamp_plus_coin(galleria)
 2025-05-10---chapel, herbalist, shop, warehouse, wishing_well, bard, bureaucrat, plaza, sanctuary, tormentor, reap, deliver
 2025-05-09---candlestick_maker, root_cellar, stowaway, harbor_village, herald, crew, figurine, pickaxe, rice_broker, kings_cache, journey, sea_trade
 2025-05-08---mountain_shrine, fishmonger, scrying_pool, craftsman, alchemist, familiar, kitsune, litter, tanuki, rice, credit, flourishing_trade

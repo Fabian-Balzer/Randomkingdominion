@@ -1,4 +1,32 @@
 - cards:
+  - bank
+  - church
+  - crossroads
+  - farmhands
+  - hostelry
+  - hunter
+  - knights
+  - lighthouse
+  - patron
+  - storeroom
+  expansions:
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Hinterlands, 2E
+  - Menagerie
+  - Promo
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
+  idx: 240643912651007047829111887759528650820
+  landscapes:
+  - way_of_the_chameleon
+  name: Crazy Chameleon
+  notes: '{"Comment": "How fast can you get Church/Crossroads going?", "Previous Results":
+    ""'
+  use_shelters: true
+- cards:
   - blessed_village
   - crystal_ball
   - galleria
