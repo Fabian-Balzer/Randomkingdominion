@@ -1,4 +1,34 @@
 - cards:
+  - contract
+  - enchantress
+  - farmers_market
+  - first_mate
+  - fortune_hunter
+  - imperial_envoy
+  - lurker
+  - priest
+  - rogue
+  - watchtower
+  expansions:
+  - Allies
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Rising Sun
+  idx: 175217433423914911295323150315572445980
+  landscapes:
+  - alliance
+  - forest_dwellers
+  name: Mating Confusion
+  notes: '{"Comment": "This one can become really complicated really quickly, but
+    also be super fun to make work. Do you see the wombo combo, and can you set it
+    up in time?", "Previous Results": "50-30 in 14 turns as first player against Hard
+    AI, Provinces"'
+- cards:
   - bank
   - church
   - crossroads

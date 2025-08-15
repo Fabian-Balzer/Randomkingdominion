@@ -340,12 +340,6 @@ def add_campaign_effects(df: pd.DataFrame) -> pd.DataFrame:
             "Types": "Stamp",
             "Expansion": "Renaissance",
         },
-        "Plus Coin": {
-            "Name": "Plus Coin",
-            "Text": "|+[1]| when you play this card.",
-            "Types": "Stamp",
-            "Expansion": "Base",
-        },
         "Action Way": {
             "Name": "Action Way",
             "Text": "|+1 Action| when you play a card using this Way.",

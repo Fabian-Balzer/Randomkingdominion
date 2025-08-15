@@ -1,17 +1,34 @@
-import pandas as pd
-import streamlit as st
+from typing import Literal
 
-import random_kingdominion as rk
+import numpy as np
+import pandas as pd
+import random_kingdominion as rk  # type: ignore
+import streamlit as st
 
 rk.build_page_header(
     "Dominion Kingdom Oracle",
-    "This page allows you to easily input a kingdom to visualize its engine qualities and take a more detailed look on its Card-Shaped Objects (CSOs). The resulting plot also shows any extra components you'd need to set up the kingdom in its physical form.",
+    (
+        "This page allows you to easily input a kingdom to visualize its engine qualities "
+        "and take a more detailed look on its Card-Shaped Objects (CSOs). "
+        "The resulting plot also shows any extra components you'd need to set up the kingdom in its physical form."
+    ),
     "Learn more about the CSO and kingdom qualities on the about page.",
 )
 
+_SelectionType = Literal[
+    "TGG Dailies",
+    "TGG Campaigns",
+    "Recommended",
+    "Reddit's KOTW",
+    "Fabi's Recommendations",
+]
+
 
 @st.cache_data
-def load_existing_kingdoms(selection_type: str) -> pd.DataFrame:
+def load_existing_kingdoms(
+    selection_type: _SelectionType,
+) -> pd.DataFrame:
+    """Load kingdoms from the given selection type and return them as a DataFrame."""
     manager = rk.KingdomManager()
     if selection_type == "TGG Dailies":
         manager.load_tgg_dailies()
@@ -34,7 +51,7 @@ def load_existing_kingdoms(selection_type: str) -> pd.DataFrame:
             lambda x: f" [WR: {x*100:.1f} %]" if x != "" else " [WR: N/A]"
         )
         extr_name = df["notes"].apply(
-            lambda x: " - " + x.get("name", "") if type(x) == dict else ""
+            lambda x: " - " + x.get("name", "") if isinstance(x, dict) else ""
         )
         df["name_with_exps"] = df["name"] + sani_wr + extr_name + " (" + exp_repr + ")"
     else:
@@ -43,13 +60,11 @@ def load_existing_kingdoms(selection_type: str) -> pd.DataFrame:
     return df
 
 
-import numpy as np
-
-
 def _build_kingdom_select_box(
     df: pd.DataFrame, name_extra: str = "", selbox_extra: str = ""
 ):
-    """Build the selection box that also sets the kingdom input and the kingdom name in the select box"""
+    """Build the selection box that also sets the kingdom input and
+    the kingdom name in the select box"""
     sel = st.selectbox(
         f"Choose from {len(df)} Kingdoms{selbox_extra}",
         [""] + df["name_with_exps"].tolist(),
@@ -58,10 +73,10 @@ def _build_kingdom_select_box(
     if sel == old_select:
         # In this case, we should not update the kingdom input, otherwise
         # it will overwrite user input.
-        # This leads to a slight bug (user selecting kingdom, then modifying 
+        # This leads to a slight bug (user selecting kingdom, then modifying
         # it, then selecting it again), but I think that's negligible.
         pass
-    elif sel != "" and type(sel) == str:
+    elif sel != "" and isinstance(sel, str):
         series = df[df["name_with_exps"] == sel].iloc[0]
         kingdom = rk.Kingdom.from_dict(series.to_dict())
         st.session_state["kingdom_input"] = kingdom.get_dombot_csv_string()
@@ -129,7 +144,9 @@ def _build_exps_filter_widget(df: pd.DataFrame) -> pd.DataFrame:
         )
     with cols[0]:
         any_all = "all" if require_all_exps else "any"
-        limit_or_not = "selected only" if selected_exps_only else "contains at least those"
+        limit_or_not = (
+            "selected only" if selected_exps_only else "contains at least those"
+        )
         placeholder = f"Choose expansions ({any_all} required, {limit_or_not})"
         exp_filters = st.multiselect(
             "Allowed expansions",
@@ -143,7 +160,9 @@ def _build_exps_filter_widget(df: pd.DataFrame) -> pd.DataFrame:
     # If no expansion is selected, allow for all sets
     if len(exp_filters) > 0:
         if selected_exps_only:
-            mask = df["expansions"].apply(lambda x: len(set(x).difference(exp_filters)) == 0)
+            mask = df["expansions"].apply(
+                lambda x: len(set(x).difference(exp_filters)) == 0
+            )
             df = df[mask]
         filt_func = all if require_all_exps else any
         exp_mask = df["expansions"].apply(
@@ -208,6 +227,20 @@ def _build_random_selection_button(df: pd.DataFrame, name_extra: str = ""):
             st.session_state["kingdom_notes"] = kingdom.notes
 
 
+_winrate_info_str = (
+    "The winrate of the TGG Hard AI was kindly "
+    "provided to me by Jeff - thanks a lot!\\\n"
+    "The winrate $\\eta$ is defined as "
+    "$\\eta = \\frac{{N_{{\\rm First Wins}}}}{{N_{{\\rm First Wins}} + N_{{\\rm First Losses}}}}$ "
+    "where $N_{{\\rm First Wins}}$ and $N_{{\\rm First Losses}}$ "
+    "are the number of games the players won against Hard AI or lost against any AI "
+    "(so a bit biased as many people don't play against Hard AI!) on their first playthrough."
+    "It is only available for kingdoms played after mid December 2023, "
+    "which is when AI difficulty settings were introduced to the Daily.\\\n"
+    "If you're filtering for it, all kingdoms where it's unavailable are excluded."
+)
+
+
 def _build_tgg_winrate_filter_widget(df: pd.DataFrame) -> pd.DataFrame:
     cols = st.columns([0.8, 0.2])
     with cols[1]:
@@ -228,16 +261,16 @@ def _build_tgg_winrate_filter_widget(df: pd.DataFrame) -> pd.DataFrame:
             disabled=not apply_winrate_filter,
         )
     if apply_winrate_filter:
-        st.info(
-            f"The winrate of the TGG Hard AI was kindly provided to me by Jeff - thanks a lot!\\\nThe winrate $\\eta$ is defined as $\\eta = \\frac{{N_{{\\rm First Wins}}}}{{N_{{\\rm First Wins}} + N_{{\\rm First Losses}}}}$ where $N_{{\\rm First Wins}}$ and $N_{{\\rm First Losses}}$ are the number of games the players won or lost against the AI on their first playthrough. It is only available for kingdoms played after mid December 2023 (when AI difficulty settings were introduced to the Daily).\\\nIf you're filtering for it, all kingdoms where it's unavailable are excluded."
-        )
+        st.info(_winrate_info_str)
     if apply_winrate_filter:
         df = df[df["winrate"] != ""]
         df = df[df["winrate"].between(*winrate_slider)]
     return df
 
 
-def build_existing_kingdom_select(selection_type: str):
+def build_existing_kingdom_select(
+    selection_type: _SelectionType,
+):
     """Build a way for the user to select one of the given existing kingdoms
     provided via the dataframe.
     """
@@ -294,6 +327,7 @@ with cols[0]:
 
 
 def navigate_to_randomizer():
+    """Navigate to the randomizer page with the current kingdom."""
     st.session_state["partial_random_kingdom"] = kingdom.get_dombot_csv_string()
     st.switch_page("streamlit_pages/randomizer.py")
 
@@ -316,15 +350,15 @@ if kingdom.is_empty:
 else:
     rk.display_kingdom(kingdom, is_randomizer_view=False)
 
-if "link" in kingdom.unpacked_notes:
+if (link := kingdom.unpacked_notes.get("link", "")) != "":
     with st.expander("Playthrough", expanded=True):
         st.write("Check out a video where I explain and play this kingdom!")
         _, container, _ = st.columns([25, 50, 25])
         with container:
             with st.container(border=True):
-                st.video(kingdom.unpacked_notes["link"])
+                st.video(link)
 
 with st.expander("Disclaimer", expanded=False):
     st.warning(
-        "Be aware that this is a very superficial view of the kingdom and does not take into account special card interactions, and that some of my takes on individual cards' qualities might seem surprising. Check out the about page for more information on those."
+        "Be aware that this is a very superficial view of the kingdom and does not take into account special card interactions, and that some of my takes on individual cards' qualities might seem surprising. Check out the about page for more information on those."  # type: ignore
     )

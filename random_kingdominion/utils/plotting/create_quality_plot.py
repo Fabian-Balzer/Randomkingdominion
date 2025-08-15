@@ -84,7 +84,9 @@ def _annotate_expansion_icons(ax: Axes, k: "Kingdom"):
 
 
 def get_kingdom_quality_fig(k: "Kingdom", save=False, add_buy_str=False) -> Figure:
-    fig = plot_kingdom_qualities(k.total_qualities, buy_str=k.buy_availability)
+    fig = plot_kingdom_qualities(
+        k.total_qualities, buy_str=k.buy_availability if add_buy_str else None
+    )
     fig.set_size_inches(8.5, 6)
     fig.set_facecolor(DOM_BEIGE)
     ax = plt.gca()
@@ -115,7 +117,7 @@ def get_kingdom_quality_fig(k: "Kingdom", save=False, add_buy_str=False) -> Figu
     )
     if save:
 
-        fname = f"{k.name.replace(" ", "_")}_thumbnail.png"
+        fname = f'{k.name.replace(" ", "_")}_thumbnail.png'
         fpath = PATH_ASSETS.joinpath(f"other/youtube/{fname}")
-        fig.savefig(fpath, pad_inches=0.2, bbox_inches="tight", dpi=300)
+        fig.savefig(str(fpath), pad_inches=0.2, bbox_inches="tight", dpi=300)
     return fig

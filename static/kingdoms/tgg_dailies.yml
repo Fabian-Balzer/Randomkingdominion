@@ -1,3 +1,864 @@
+- cards:
+  - bounty_hunter
+  - cabin_boy
+  - first_mate
+  - jewelled_egg
+  - kiln
+  - maroon
+  - merchant_guild
+  - pilgrim
+  - supplies
+  - swamp_shacks
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Menagerie
+  - Plunder
+  idx: 229630215217992105204360272942694960276
+  landscapes:
+  - march
+  - prepare
+  name: '2025-08-15'
+  notes:
+    crucial_cards: [March, Merchant Guild, Supplies, Swamp Shacks]
+    ending: [Province]
+    link: 'https://youtu.be/xZP3lNLCXN0'
+    name: 'Marching Guild'
+    points: [39, 34]
+    subtitle: 'Racking Up Loads Of Coffers With Weird Prepare Shenanigans'
+    turns: [14, 14]
+- cards:
+  - farmhands
+  - farrier
+  - ferryman
+  - horn_of_plenty
+  - hunting_party
+  - joust
+  - merchant_guild
+  - remake
+  - soothsayer
+  - stonemason
+  expansions:
+  - Cornucopia & Guilds, 2E
+  ferryman_pile: plaza
+  idx: 71589899075635080357927781025587314934
+  name: '2025-08-14'
+  notes:
+    crucial_cards:
+    - Remake
+    - Farrier
+    - Joust
+    - Hunting Party
+    ending:
+    - Province
+    - Estate
+    - Farrier
+    link: 'https://youtu.be/i5yHnAcc6KA'
+    name: Farriemake
+    openings:
+    - grade: B
+      t1: Remake
+      t1_csos:
+      - remake
+      t2: Farrier, overpaying $1
+      t2_csos:
+      - Farrier
+      type: 4/3
+    - grade: C
+      t1: Silver
+      t1_csos:
+      - Silver
+      t2: Remake
+      t2_csos:
+      - Remake
+      type: 3/4
+    - grade: C-
+      t1: Remake
+      t1_csos:
+      - remake
+      t2: Farrier
+      t2_csos:
+      - Farrier
+      type: 5/2|2/5
+    points:
+    - 47
+    - 12
+    subtitle: Single Expansion On Thursday? Replaying Due To Microphone Issues
+    turns:
+    - 11
+    - 10
+- cards:
+  - coin_of_the_realm
+  - dungeon
+  - journeyman
+  - magpie
+  - messenger
+  - miser
+  - soothsayer
+  - storyteller
+  - swamp_hag
+  - wine_merchant
+  expansions:
+  - Adventures
+  - Cornucopia & Guilds, 2E
+  idx: 239453790555436421758189681339173727888
+  landscapes:
+  - ferry
+  - trade
+  name: '2025-08-13'
+  notes:
+    crucial_cards:
+    - soothsayer
+    - storyteller
+    - magpie
+    - messenger
+    ending:
+    - Province
+    - Magpie
+    - Curse
+    link: https://youtu.be/8V-gh_0UCzE
+    name: Storytrading
+    openings:
+    - grade: C+
+      t1: Magpie, or Ferry on Soothsayer?
+      t1_csos:
+      - magpie
+      t2: Dungeon, or Sooth?
+      t2_csos:
+      - dungeon
+      type: 4/3|3/4
+    - grade: C+
+      t1: Soothsayer, or Journeyman
+      t1_csos:
+      - soothsayer
+      t2: Coin of the Realm, or skip turn
+      t2_csos:
+      - coin_of_the_realm
+      type: 5/2|2/5
+    points:
+    - 37
+    - 17
+    subtitle: Finishing The Game With 23 Treasures In Deck
+    turns:
+    - 14
+    - 13
+- cards:
+  - bard
+  - crypt
+  - devils_workshop
+  - exorcist
+  - fool
+  - idol
+  - monastery
+  - pixie
+  - secret_cave
+  - skulk
+  expansions:
+  - Nocturne
+  idx: 231071645916982943904095180774850940653
+  name: '2025-08-12'
+  notes:
+    crucial_cards:
+    - exorcist
+    - wish
+    - imp
+    - secret_cave
+    ending:
+    - Province
+    - Pixie
+    - Duchy
+    link: https://youtu.be/G4H0V0W6cEM
+    name: Spirit Brawl
+    points:
+    - 39
+    - 30
+    subtitle: No Exorcism In Crypts Allowed
+    turns:
+    - 19
+    - 18
+- cards:
+  - anvil
+  - artisan
+  - bank
+  - charlatan
+  - collection
+  - crystal_ball
+  - peddler
+  - vault
+  - witch
+  - workers_village
+  expansions:
+  - Base, 2E
+  - Prosperity, 2E
+  idx: 16713331084439596088475128784252811224
+  name: '2025-08-11'
+  notes:
+    crucial_cards:
+    - crystal_ball
+    - artisan
+    - peddler
+    - charlatan
+    ending:
+    - workers_village
+    - peddler
+    - curse
+    link: https://youtu.be/7F9vDtR1NIk
+    name: Crystal Charlatans
+    openings:
+    - grade: C+
+      t1: Silver
+      t1_csos:
+      - Silver
+      t2: Silver
+      t2_csos:
+      - Silver
+      type: 4/3|3/4
+    - grade: B+
+      t1: Charlatan, or Witch, or Crystal Ball
+      t1_csos:
+      - Charlatan
+      t2: Skip Turn
+      t2_csos: []
+      type: 5/2|2/5
+    points:
+    - 21
+    - 1
+    subtitle: Brutal Draws Combined With A Fast AI In The First Two Attempts
+    tries: 3
+    turns:
+    - 13
+    - 12
+  use_colonies: true
+- campaign_effects:
+  - offers_insight
+  cards:
+  - abundance
+  - band_of_misfits
+  - carnival
+  - changeling
+  - collection
+  - dungeon
+  - mountain_village
+  - royal_galley
+  - rustic_village
+  - wizards
+  expansions:
+  - Adventures
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Rising Sun
+  idx: 86032312218080640850483534826867445179
+  landscapes:
+  - band_of_nomads
+  - harsh_winter
+  - hasty
+  - wolf_den
+  name: '2025-08-10'
+  notes:
+    crucial_cards:
+    - Dungeon
+    - band_of_misfits
+    - collection
+    - changeling
+    ending:
+    - dungeon
+    - changeling
+    - collection
+    link: https://youtu.be/ag43FrOrmgo
+    name: Insightful Dungeons
+    points:
+    - 67
+    - 21
+    subtitle: A Lot Of Good Stuff Going On
+    turns:
+    - 11
+    - 10
+  stamps_and_effects:
+  - - offers_insight
+    - dungeon
+  traits:
+  - - hasty
+    - dungeon
+- cards:
+  - bandit
+  - border_guard
+  - city
+  - count
+  - crypt
+  - kiln
+  - merchant_camp
+  - minion
+  - sleigh
+  - treasure_map
+  expansions:
+  - Allies
+  - Base, 2E
+  - Dark Ages
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
+  idx: 131850128168947621608201148375193953404
+  landscapes:
+  - demand
+  name: '2025-08-09'
+  notes:
+    crucial_cards:
+    - kiln
+    - city
+    - count
+    - border_guard
+    ending:
+    - city
+    - kiln
+    - border_guard
+    link: https://youtu.be/tluiSyh2xLg
+    name: Counting On Kilns
+    points:
+    - 44
+    - 21
+    subtitle: Patient Building Paying Off Big Time
+    turns:
+    - 16
+    - 15
+  use_colonies: true
+- cards:
+  - astrolabe
+  - cabin_boy
+  - crew
+  - crucible
+  - cutthroat
+  - footpad
+  - grotto
+  - sea_witch
+  - swamp_shacks
+  - trickster
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Plunder
+  - Seaside, 2E
+  idx: 164845431489538068603292958909899635954
+  landscapes:
+  - avoid
+  - looting
+  name: '2025-08-08'
+- cards:
+  - cartographer
+  - cauldron
+  - craftsman
+  - fishmonger
+  - haggler
+  - highway
+  - riverboat
+  - scheme
+  - snake_witch
+  - wheelwright
+  expansions:
+  - Hinterlands, 2E
+  - Rising Sun
+  idx: 264232182253213360802725543915110596752
+  landscapes:
+  - asceticism
+  - gather
+  name: '2025-08-07'
+  riverboat_card: inn
+- cards:
+  - buried_treasure
+  - cage
+  - crew
+  - familiar
+  - sack_of_loot
+  - search
+  - secluded_shrine
+  - siren
+  - stowaway
+  - university
+  expansions:
+  - Alchemy
+  - Plunder
+  idx: 229576982849689729760583955549551137163
+  landscapes:
+  - reckless
+  name: '2025-08-06'
+  traits:
+  - - reckless
+    - secluded_shrine
+- cards:
+  - animal_fair
+  - black_cat
+  - camel_train
+  - cardinal
+  - destrier
+  - falconer
+  - fisherman
+  - mastermind
+  - sheepdog
+  - wayfarer
+  expansions:
+  - Menagerie
+  idx: 143305899795474347033613889890403483897
+  landscapes:
+  - march
+  - way_of_the_seal
+  name: '2025-08-05'
+- cards:
+  - cardinal
+  - fisherman
+  - groom
+  - mastermind
+  - merchant
+  - remodel
+  - sanctuary
+  - sentry
+  - throne_room
+  - vassal
+  expansions:
+  - Base, 2E
+  - Menagerie
+  idx: 174898817612823107199557144302683650160
+  landscapes:
+  - pursue
+  - ride
+  name: '2025-08-04'
+- campaign_effects:
+  - chameleonized
+  - pennies_saved
+  cards:
+  - fools_gold
+  - journeyman
+  - page
+  - plaza
+  - secret_cave
+  - seer
+  - swamp_hag
+  - treasure_trove
+  - war_chest
+  - warehouse
+  expansions:
+  - Adventures
+  - Cornucopia & Guilds, 2E
+  - Hinterlands, 2E
+  - Nocturne
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
+  idx: 64924941348493512563049101849245080269
+  name: '2025-08-03'
+  stamps_and_effects:
+  - - chameleonized
+    - journeyman
+- cards:
+  - advisor
+  - bureaucrat
+  - chariot_race
+  - moat
+  - rice
+  - scepter
+  - seer
+  - skirmisher
+  - stables
+  - swashbuckler
+  expansions:
+  - Allies
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Hinterlands, 2E
+  - Renaissance
+  - Rising Sun
+  idx: 237581585287024498135015666976122092334
+  landscapes:
+  - tax
+  - triumphal_arch
+  name: '2025-08-02'
+- cards:
+  - bandit_camp
+  - berserker
+  - border_village
+  - junk_dealer
+  - knights
+  - market_square
+  - nobles
+  - sage
+  - shanty_town
+  - upgrade
+  expansions:
+  - Dark Ages
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  idx: 253231808926643595329092265887711467559
+  name: '2025-08-01'
+- cards:
+  - acting_troupe
+  - amulet
+  - border_guard
+  - ducat
+  - old_witch
+  - page
+  - ratcatcher
+  - transmogrify
+  - villain
+  - wine_merchant
+  expansions:
+  - Adventures
+  - Renaissance
+  idx: 50484078068176693048445512030218756173
+  landscapes:
+  - pathfinding
+  - sinister_plot
+  name: '2025-07-31'
+- cards:
+  - butcher
+  - candlestick_maker
+  - flag_bearer
+  - herald
+  - mountain_village
+  - priest
+  - research
+  - scepter
+  - silk_merchant
+  - soothsayer
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Renaissance
+  idx: 13613155759769918750718934989766693249
+  landscapes:
+  - star_chart
+  name: '2025-07-30'
+- cards:
+  - changeling
+  - conclave
+  - crypt
+  - druid
+  - exorcist
+  - faithful_hound
+  - ghost_town
+  - monastery
+  - raider
+  - sacred_grove
+  druid_boons:
+  - the_flames_gift
+  - the_forests_gift
+  - the_winds_gift
+  expansions:
+  - Nocturne
+  idx: 131760887767192780513306337614075770414
+  name: '2025-07-29'
+- cards:
+  - berserker
+  - festival
+  - gardens
+  - harbinger
+  - laboratory
+  - library
+  - militia
+  - scheme
+  - stables
+  - workshop
+  expansions:
+  - Base, 2E
+  - Hinterlands, 2E
+  idx: 166549611145352558231156177470050063618
+  name: '2025-07-28'
+- campaign_effects:
+  - incoming
+  cards:
+  - apprentice
+  - capital
+  - changeling
+  - clashes
+  - devils_workshop
+  - exorcist
+  - fishing_village
+  - leprechaun
+  - raider
+  - wandering_minstrel
+  expansions:
+  - Alchemy
+  - Allies
+  - Dark Ages
+  - Empires
+  - Nocturne
+  - Plunder
+  - Seaside, 2E
+  idx: 183651758943175950632514353527734795967
+  landscapes:
+  - shy
+  name: '2025-07-27'
+  traits:
+  - - shy
+    - fishing_village
+  use_shelters: true
+- cards:
+  - advisor
+  - archive
+  - bazaar
+  - daimyo
+  - hostelry
+  - messenger
+  - minion
+  - native_village
+  - ninja
+  - squire
+  expansions:
+  - Adventures
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Renaissance
+  - Rising Sun
+  - Seaside, 2E
+  idx: 253583508786263210903792405877859528935
+  landscapes:
+  - ball
+  - exploration
+  name: '2025-07-26'
+- cards:
+  - beggar
+  - cobbler
+  - crypt
+  - investment
+  - kings_court
+  - mint
+  - skulk
+  - storeroom
+  - wandering_minstrel
+  - watchtower
+  expansions:
+  - Dark Ages
+  - Nocturne
+  - Prosperity, 2E
+  idx: 115196182593770237125855620237755410812
+  name: '2025-07-25'
+- cards:
+  - ducat
+  - farmland
+  - improve
+  - inn
+  - patron
+  - priest
+  - scepter
+  - sculptor
+  - swashbuckler
+  - weaver
+  expansions:
+  - Hinterlands, 2E
+  - Renaissance
+  idx: 265674066565627089219075059256637614800
+  landscapes:
+  - fair
+  - piazza
+  name: '2025-07-24'
+- cards:
+  - bank
+  - black_cat
+  - cavalry
+  - destrier
+  - goatherd
+  - hoard
+  - monument
+  - stockpile
+  - tiara
+  - watchtower
+  expansions:
+  - Menagerie
+  - Prosperity, 2E
+  idx: 50198030802741283862519475054581565491
+  landscapes:
+  - commerce
+  - way_of_the_pig
+  name: '2025-07-23'
+  use_colonies: true
+- cards:
+  - barbarian
+  - bauble
+  - clashes
+  - contract
+  - hunter
+  - modify
+  - odysseys
+  - royal_galley
+  - specialist
+  - underling
+  expansions:
+  - Allies
+  idx: 267059561421590625054092573698321003076
+  landscapes:
+  - cave_dwellers
+  name: '2025-07-22'
+- cards:
+  - chapel
+  - festival
+  - laboratory
+  - library
+  - militia
+  - moat
+  - remodel
+  - sentry
+  - vassal
+  - witch
+  expansions:
+  - Base, 2E
+  idx: 310685470885915332234412143733511133903
+  name: '2025-07-21'
+- campaign_effects:
+  - pay_later
+  - replace_estate
+  cards:
+  - barbarian
+  - contract
+  - galleria
+  - merchant_guild
+  - mining_village
+  - pirate
+  - supplies
+  - townsfolk
+  - treasury
+  - underling
+  expansions:
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Seaside, 2E
+  idx: 233596052700026506494367846980168479018
+  landscapes:
+  - mountain_folk
+  - reap
+  - ride
+  name: '2025-07-20'
+  stamps_and_effects:
+  - - pay_later
+    - underling
+  - - replace_estate
+    - duchy,_duchy,_duchy
+- cards:
+  - bandit_camp
+  - changeling
+  - clerk
+  - exorcist
+  - groundskeeper
+  - kings_court
+  - merchant_guild
+  - monument
+  - pixie
+  - swindler
+  expansions:
+  - Adventures
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  idx: 294448907221577748202809452464848102306
+  landscapes:
+  - expedition
+  - nearby
+  name: '2025-07-19'
+  traits:
+  - - nearby
+    - groundskeeper
+- cards:
+  - cabin_boy
+  - crew
+  - cutthroat
+  - flagship
+  - fortune_hunter
+  - gondola
+  - mapmaker
+  - mining_road
+  - pilgrim
+  - rope
+  expansions:
+  - Plunder
+  idx: 185276356635026317074215634376520194021
+  landscapes:
+  - hasty
+  - prepare
+  name: '2025-07-18'
+  traits:
+  - - hasty
+    - mining_road
+- cards:
+  - develop
+  - fools_gold
+  - hunting_party
+  - margrave
+  - nomads
+  - oasis
+  - souk
+  - stables
+  - weaver
+  - wheelwright
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Hinterlands, 2E
+  idx: 265824179034023518230631430526354404793
+  name: '2025-07-17'
+- cards:
+  - advisor
+  - astrolabe
+  - candlestick_maker
+  - farrier
+  - infirmary
+  - merchant_guild
+  - merchant_ship
+  - monkey
+  - outpost
+  - wharf
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Seaside, 2E
+  idx: 276889163611421667518494855798959242663
+  name: '2025-07-16'
+- cards:
+  - acting_troupe
+  - border_guard
+  - cargo_ship
+  - hideout
+  - improve
+  - lackeys
+  - priest
+  - silk_merchant
+  - swashbuckler
+  - treasurer
+  expansions:
+  - Renaissance
+  idx: 234331341750840706584513388553389798350
+  landscapes:
+  - academy
+  - capitalism
+  name: '2025-07-15'
+- cards:
+  - bandit
+  - bureaucrat
+  - cellar
+  - moat
+  - moneylender
+  - old_witch
+  - remodel
+  - sentry
+  - swashbuckler
+  - vassal
+  expansions:
+  - Base, 2E
+  - Renaissance
+  idx: 36034918758105476323101059712066830988
+  landscapes:
+  - barracks
+  - citadel
+  name: '2025-07-14'
 - campaign_effects:
   - 5_coffers
   - replace_estate
@@ -1253,21 +2114,8 @@
     - Village Green
     - Catacombs
     - Horn of Plenty
-    link: ''
+    link: https://youtu.be/ZFTtRg-VXLE
     name: Horn Of Oomph
-    openings:
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
-      type: 4/3|3/4
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
-      type: 5/2|2/5
     points:
     - 20
     - 3
@@ -2722,27 +3570,6 @@
   - sewers
   - sinister_plot
   name: '2025-04-16'
-  notes:
-    crucial_cards: []
-    ending: []
-    link: ''
-    name: ''
-    openings:
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
-      type: 4/3|3/4
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
-      type: 5/2|2/5
-    points: []
-    subtitle: ''
-    turns: []
   use_colonies: true
 - cards:
   - acting_troupe

@@ -49,6 +49,7 @@ def read_dataframe_from_file(fpath: str | Path, eval_lists=False):
         )
     return df
 
+
 def extract_and_convert_cost(value: str) -> int:
     """Extract the first number from a string and convert it to an integer."""
     # Use regular expression to find all digits in the string
@@ -142,7 +143,9 @@ QUALITIES_AVAILABLE = [
 SPECIAL_QUAL_TYPES_AVAILABLE = sorted(["attack", "thinning", "gain", "draw", "village"])
 
 PATH_MODULE = Path(__file__).resolve().parent
+"""Path to the random_kingdominion python module."""
 PATH_MAIN = PATH_MODULE.parent
+"""Main path of the randomizer."""
 PATH_CARD_INFO = PATH_MAIN.joinpath("card_info")
 PATH_CARD_PICS = PATH_MAIN.joinpath("static/card_pictures")
 PATH_ASSETS = PATH_MAIN.joinpath("static")

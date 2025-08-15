@@ -48,16 +48,16 @@ Prosperity 7---bishop, clerk, monument, remodel, tiara, charlatan, city, council
 Prosperity 8---chapel, anvil, gardens, investment, militia, quarry, sentry, vault, grand_market, bank, colonies, twist_sale
 Prosperity 9---anvil, bishop, throne_room, collection, crystal_ball, laboratory, mint, hoard, bank, peddler, colonies, stamp_treasurified(bishop)
 Prosperity 10---anvil, watchtower, monument, workers_village, magnate, hoard, grand_market, bank, expand, kings_court, colonies, start_replace_copper(silver), start_replace_copper(silver), start_replace_copper(estate), start_replace_copper(estate), twist_sale
-cornucopia 1---hamlet, vassal, workshop, farmhands, gardens, carnival, ferryman(remake), horn_of_plenty, jester, joust
-cornucopia 2---hamlet, menagerie, village, farmhands, remake, ferryman(smithy), hunting_party, mine, witch, fairgrounds, stamp_offers_insight(fairgrounds)
-cornucopia 3---hamlet, menagerie, workshop, remodel, bandit, carnival, council_room, ferryman(smithy), horn_of_plenty, fairgrounds, twist_rebates
-cornucopia 4---cellar, moat, menagerie, gardens, militia, ferryman(farmhands), festival, jester, joust, fairgrounds, twist_big_ideas
-cornucopia 5---cellar, menagerie, militia, remake, remodel, bandit, horn_of_plenty, hunting_party, joust, market, twist_room_for_more(festival)
-cornucopia 6---hamlet, farmhands, gardens, young_witch(village), ferryman(shop), horn_of_plenty, jester, library, mine, artisan, stamp_offers_insight(ferryman)
-cornucopia 7---hamlet, farmhands, remake, smithy, ferryman(gardens), horn_of_plenty, hunting_party, jester, mine, sentry, start_replace_copper(silver), start_replace_copper(silver), start_replace_copper(estate), start_replace_copper(estate)
-cornucopia 8---chapel, hamlet, menagerie, shop, farmhands, smithy, young_witch(harbinger), ferryman(workshop), market, artisan, twist_room_for_more(gardens)
-cornucopia 9---menagerie, workshop, farmhands, militia, smithy, festival, horn_of_plenty, jester, joust, library, stamp_offers_insight(farmhands)
-cornucopia 10---hamlet, farmhands, remake, young_witch(chapel), carnival, ferryman(village), horn_of_plenty, hunting_party, jester, joust, start_same_reward, twist_room_for_more(vassal)
+Cornucopia 1---hamlet, vassal, workshop, farmhands, gardens, carnival, ferryman(remake), horn_of_plenty, jester, joust
+Cornucopia 2---hamlet, menagerie, village, farmhands, remake, ferryman(smithy), hunting_party, mine, witch, fairgrounds, stamp_offers_insight(fairgrounds)
+Cornucopia 3---hamlet, menagerie, workshop, remodel, bandit, carnival, council_room, ferryman(smithy), horn_of_plenty, fairgrounds, twist_rebates
+Cornucopia 4---cellar, moat, menagerie, gardens, militia, ferryman(farmhands), festival, jester, joust, fairgrounds, twist_big_ideas
+Cornucopia 5---cellar, menagerie, militia, remake, remodel, bandit, horn_of_plenty, hunting_party, joust, market, twist_room_for_more(festival)
+Cornucopia 6---hamlet, farmhands, gardens, young_witch(village), ferryman(shop), horn_of_plenty, jester, library, mine, artisan, stamp_offers_insight(ferryman)
+Cornucopia 7---hamlet, farmhands, remake, smithy, ferryman(gardens), horn_of_plenty, hunting_party, jester, mine, sentry, start_replace_copper(silver), start_replace_copper(silver), start_replace_copper(estate), start_replace_copper(estate)
+Cornucopia 8---chapel, hamlet, menagerie, shop, farmhands, smithy, young_witch(harbinger), ferryman(workshop), market, artisan, twist_room_for_more(gardens)
+Cornucopia 9---menagerie, workshop, farmhands, militia, smithy, festival, horn_of_plenty, jester, joust, library, stamp_offers_insight(farmhands)
+Cornucopia 10---hamlet, farmhands, remake, young_witch(chapel), carnival, ferryman(village), horn_of_plenty, hunting_party, jester, joust, start_same_reward, twist_room_for_more(vassal)
 Hinterlands 1---fools_gold, develop, guard_dog, jack_of_all_trades, cauldron, council_room, festival, haggler, inn, wheelwright
 Hinterlands 2---fools_gold, scheme, tunnel, village, spice_merchant, festival, haggler, witchs_hut, border_village, farmland, stamp_reactionified(scheme)
 Hinterlands 3---cellar, develop, scheme, vassal, poacher, trail, weaver, berserker, cartographer, highway, stamp_two_for_one(vassal)

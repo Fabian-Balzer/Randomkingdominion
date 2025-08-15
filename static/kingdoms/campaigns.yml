@@ -610,7 +610,7 @@
   - Cornucopia & Guilds, 2E
   ferryman_pile: remake
   idx: 89304171436272276446060917241439272451
-  name: cornucopia 1
+  name: Cornucopia 1
 - campaign_effects:
   - offers_insight
   cards:
@@ -629,7 +629,7 @@
   - Cornucopia & Guilds, 2E
   ferryman_pile: smithy
   idx: 169466842429663279384331413449748002288
-  name: cornucopia 2
+  name: Cornucopia 2
   stamps_and_effects:
   - - offers_insight
     - fairgrounds
@@ -651,7 +651,7 @@
   - Cornucopia & Guilds, 2E
   ferryman_pile: smithy
   idx: 167483849795134102528872980356806585122
-  name: cornucopia 3
+  name: Cornucopia 3
 - campaign_effects:
   - big_ideas
   cards:
@@ -670,7 +670,7 @@
   - Cornucopia & Guilds, 2E
   ferryman_pile: farmhands
   idx: 2516871265134780168886455792620866546
-  name: cornucopia 4
+  name: Cornucopia 4
 - campaign_effects:
   - room_for_more
   cards:
@@ -689,7 +689,7 @@
   - Base, 2E
   - Cornucopia & Guilds, 2E
   idx: 24047174509816153314537040765420522933
-  name: cornucopia 5
+  name: Cornucopia 5
   stamps_and_effects:
   - - room_for_more
     - festival
@@ -713,7 +713,7 @@
   - Cornucopia & Guilds, 2E
   ferryman_pile: shop
   idx: 29681439370342265236035908018493902343
-  name: cornucopia 6
+  name: Cornucopia 6
   stamps_and_effects:
   - - offers_insight
     - ferryman
@@ -735,7 +735,7 @@
   - Cornucopia & Guilds, 2E
   ferryman_pile: gardens
   idx: 138096802814633552831768693201050615971
-  name: cornucopia 7
+  name: Cornucopia 7
   stamps_and_effects:
   - - replace_copper
     - silver,_silver,_estate,_estate
@@ -760,7 +760,7 @@
   - Cornucopia & Guilds, 2E
   ferryman_pile: workshop
   idx: 154143767898970665521719052794535477174
-  name: cornucopia 8
+  name: Cornucopia 8
   stamps_and_effects:
   - - room_for_more
     - gardens
@@ -781,7 +781,7 @@
   - Base, 2E
   - Cornucopia & Guilds, 2E
   idx: 107987958548504964105744173069634343086
-  name: cornucopia 9
+  name: Cornucopia 9
   stamps_and_effects:
   - - offers_insight
     - farmhands
@@ -807,7 +807,7 @@
   - Cornucopia & Guilds, 2E
   ferryman_pile: village
   idx: 307961493529182273066728635438587634962
-  name: cornucopia 10
+  name: Cornucopia 10
   stamps_and_effects:
   - - room_for_more
     - vassal
@@ -3232,6 +3232,7 @@
     - Groom
     - Gardens
     - Stockpile
+    link: https://youtu.be/x6PCwHq2Fyk
     name: Stockpiling Grooms
     points:
     - 25
@@ -3240,7 +3241,6 @@
     turns:
     - 9
     - 8
-    link: https://youtu.be/x6PCwHq2Fyk
   stamps_and_effects:
   - - double_pile
     - estate
@@ -3273,6 +3273,7 @@
     ending:
     - Province
     - Hostelry
+    link: https://youtu.be/2gDZMz-7tqw
     name: Double The Fun
     points:
     - 45
@@ -3281,7 +3282,6 @@
     turns:
     - 11
     - 10
-    link: https://youtu.be/2gDZMz-7tqw
 - campaign_effects:
   - with_horse
   cards:
@@ -3303,24 +3303,24 @@
   - way_of_the_ox
   name: Menagerie 9
   notes:
-    name: Out-Displaced
-    subtitle: AI's Province Rush Is Too Fast For Us On The First Attempt
     crucial_cards:
-      - Displace
-      - Chapel
-      - Supplies
-      - Snowy Village
+    - Displace
+    - Chapel
+    - Supplies
+    - Snowy Village
     ending:
-      - Province
-      - Supplies
-    tries: 2
-    points:
-      - 34
-      - 30
-    turns:
-      - 12
-      - 11
+    - Province
+    - Supplies
     link: https://youtu.be/ENdhfq49qjY
+    name: Out-Displaced
+    points:
+    - 34
+    - 30
+    subtitle: AI's Province Rush Is Too Fast For Us On The First Attempt
+    tries: 2
+    turns:
+    - 12
+    - 11
   stamps_and_effects:
   - - with_horse
     - supplies
@@ -3346,17 +3346,28 @@
   - gamble
   - way_of_the_pig
   name: Menagerie 10
+  notes:
+    crucial_cards:
+    - Gamble
+    - Cavalry
+    - Falconer
+    - Way Of The Pig
+    ending:
+    - Cavalry
+    - Destrier
+    - Supplies
+    link: https://youtu.be/zr4If30LPgo
+    name: Gambling Addiction
+    points:
+    - 14
+    - 9
+    subtitle: Crazy, Just Utterly Crazy Stuff.
+    turns:
+    - 6
+    - 6
   stamps_and_effects:
   - - one_track_mind
     - gamble
-  notes:
-    name: Gambling Addiction
-    subtitle: Crazy, Just Utterly Crazy Stuff.
-    turns: [6, 6]
-    ending: [Cavalry, Destrier, Supplies]
-    crucial_cards: [Gamble, Cavalry, Falconer, Way Of The Pig]
-    points: [14, 9]
-    link: https://youtu.be/zr4If30LPgo
 - campaign_effects:
   - mirror_loot
   - one_track_mind
