@@ -17,7 +17,7 @@ from ..utils import (
 )
 from .cso_df_display import display_stylysed_cso_df
 from .image_handling import display_image_with_tooltip
-from .plot_display import display_kingdom_plot
+from .plot_display import st_display_kingdom_plot
 from .randomizer_util import reroll_cso, reroll_selected_csos
 
 
@@ -227,9 +227,9 @@ def display_kingdom(k: Kingdom, is_randomizer_view=True):
                     if is_randomizer_view:
                         _build_reroll_selection_button("Reroll selection")
                 with cols[1]:
-                    display_kingdom_plot(k)
+                    st_display_kingdom_plot(k)
             else:
-                display_kingdom_plot(k, with_border=True)
+                st_display_kingdom_plot(k, with_border=True)
                 st.info(
                     "*Hint: Hover over the images in the kingdom image display (above) to directly see the individual cards' qualities.*"
                 )
@@ -238,7 +238,7 @@ def display_kingdom(k: Kingdom, is_randomizer_view=True):
         display_stylysed_cso_df(df)
     if is_randomizer_view:
         with tabs[2]:
-            display_kingdom_plot(k, with_border=True)
+            st_display_kingdom_plot(k, with_border=True)
         build_csv_display()
     if len(inter := k.get_interactions()) > 0:
         st.write("#### Special Interactions (rules-wise)")

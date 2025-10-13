@@ -4,7 +4,8 @@ import pandas as pd
 
 from ....constants import ROTATOR_DICT, SPLITPILE_DICT
 from ..constants import KNIGHTS, RUINS, TOKEN_EVENTS
-from ..interaction_util import add_interaction, add_multiple_interactions_from_single
+from ..interaction_util import (add_interaction,
+                                add_multiple_interactions_from_single)
 
 
 def _add_populate_split_pile_interaction(pile_name: str, df: pd.DataFrame):
@@ -83,6 +84,12 @@ def _add_individual_event_interactions(df: pd.DataFrame):
     add_multiple_interactions_from_single(ruins_stuff, df)
     for event, token in TOKEN_EVENTS.items():
         _add_token_event_interactions(event, token, df)
+    add_interaction(
+        "Borrow",
+        "Relic",
+        "If the -Card token is already on your deck, buying Borrow will not give you +1$. Note that as of 2025-10, this is bugged in the TGG app, and you will get +1$ anyway.",
+        df,
+    )
 
 
 ##########################################################################################################

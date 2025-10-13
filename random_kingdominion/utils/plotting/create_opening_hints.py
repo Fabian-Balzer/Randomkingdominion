@@ -160,6 +160,7 @@ def _annotate_single_opening(ax: Axes, opening_info: dict[str, Any], ycoord: flo
 def create_opening_hints(k: "Kingdom"):
     openings = k.unpacked_notes.get("openings", [])
     assert all([all([x in subdict.keys() for x in ["grade", "type", "t1", "t2"]]) for subdict in openings]), f"Some part of the openings are missing information ({openings})"
+    assert all([subdict.get("grade") != "" for subdict in openings]), "Some openings are missing a grade"
 
     fig, ax = set_up_fig_and_ax_for_img()
 

@@ -12,17 +12,16 @@ from ..constants import (
     SPECIAL_QUAL_TYPES_AVAILABLE,
 )
 
+
 def get_cso_name(cso_key: str, default_val: str = "NOT FOUND") -> str:
     """Savely return the name of the card with the given key."""
     return ALL_CSOS["Name"].to_dict().get(cso_key, default_val)
 
 
-
 def convert_upper_camel_to_snake_case(name: str) -> str:
     """Converts a string in UpperCamelCase to snake_case."""
-    return "".join(
-        ["_" + c.lower() if c.isupper() else c for c in name]
-    ).lstrip("_")
+    return "".join(["_" + c.lower() if c.isupper() else c for c in name]).lstrip("_")
+
 
 def get_version() -> str:
     """Return the version of the package."""
@@ -100,7 +99,7 @@ def ask_file_overwrite(fpath: str | Path) -> bool:
     if not os.path.exists(fpath):
         print(f"Writing the file '{fpath}'")
         return True
-    question = f"The file '{fname}' already exists at {path}. Continue and replace it (y/n)?\n>>> "
+    question = f"The file '{fname}' already exists at {path}. Continue and Replace it (y/n)?\n>>> "
     if ask_yes_now(question):
         print(f"Overwriting '{fpath}'")
         return True

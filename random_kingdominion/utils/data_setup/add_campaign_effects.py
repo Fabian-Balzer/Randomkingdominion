@@ -298,8 +298,14 @@ def add_campaign_effects(df: pd.DataFrame) -> pd.DataFrame:
             "Types": "Stamp",
             "Expansion": "Adventures",
         },
-        "Cost Zero": {
-            "Name": "Cost Zero",
+        # "Cost Zero": {
+        #     "Name": "Cost Zero",
+        #     "Text": "This Event costs [0].",
+        #     "Types": "Stamp",
+        #     "Expansion": "Adventures",
+        # },
+        "Free": {
+            "Name": "Free",
             "Text": "This Event costs [0].",
             "Types": "Stamp",
             "Expansion": "Adventures",

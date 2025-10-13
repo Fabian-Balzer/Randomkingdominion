@@ -7,7 +7,7 @@ from collections import defaultdict
 from dataclasses import asdict, dataclass, field
 from functools import reduce
 from json import JSONDecodeError, dumps, loads
-from typing import Any, Literal
+from typing import Any, Callable, Literal
 from uuid import uuid4
 
 import numpy as np
@@ -601,35 +601,41 @@ class Kingdom:
             text += f" >>>{get_cso_name(stamp)}<<<"
         return text
 
+    def _get_special_dict(self, sani_func: Callable[[str], str], add_stamps=True) -> dict[str, str]:
+        """Get a dictionary with all of the special cards and their extra information."""
+        special_dict = {}
+        if self.bane_pile:
+            special_dict["young_witch"] = sani_func(self.bane_pile)
+        if self.army_pile:
+            special_dict["approaching_army"] = sani_func(self.army_pile)
+        if self.druid_boons:
+            boon_str = ", ".join([sani_func(boon) for boon in self.druid_boons])
+            special_dict["druid"] = boon_str
+        if self.obelisk_pile:
+            special_dict["obelisk"] = sani_func(self.obelisk_pile)
+        if self.ferryman_pile:
+            special_dict["ferryman"] = sani_func(self.ferryman_pile)
+        if self.riverboat_card:
+            special_dict["riverboat"] = sani_func(self.riverboat_card)
+        if self.mouse_card:
+            special_dict["way_of_the_mouse"] = sani_func(self.mouse_card)
+        for trait, target in self.traits:
+            special_dict[trait] = sani_func(target)
+        if add_stamps:
+            for stamp, target in self.stamps_and_effects:
+                special_dict[stamp] = sani_func(target)
+        special_dict = defaultdict(
+            lambda: "", {key: f" ({val})" for key, val in special_dict.items()}
+        )
+        return special_dict
+
     def get_dombot_csv_string(self, ignore_col_shelt=False) -> str:
         """Construct a comma-separated string that can be fed to DomBot to generate
         the kingdom.
         """
         # Remove the / for split piles:
         cards = [card.split("/")[0] for card in self.cards]
-        special_dict = {}
-        if self.bane_pile:
-            special_dict["young_witch"] = get_cso_name(self.bane_pile)
-        if self.army_pile:
-            special_dict["approaching_army"] = get_cso_name(self.army_pile)
-        if self.druid_boons:
-            boon_str = ", ".join([ALL_CSOS.loc[boon].Name for boon in self.druid_boons])
-            special_dict["druid"] = boon_str
-        if self.obelisk_pile:
-            special_dict["obelisk"] = get_cso_name(self.obelisk_pile)
-        if self.ferryman_pile:
-            special_dict["ferryman"] = get_cso_name(self.ferryman_pile)
-        if self.riverboat_card:
-            special_dict["riverboat"] = get_cso_name(self.riverboat_card)
-        if self.mouse_card:
-            special_dict["way_of_the_mouse"] = get_cso_name(self.mouse_card)
-        for trait, target in self.traits:
-            special_dict[trait] = get_cso_name(target)
-        for stamp, target in self.stamps_and_effects:
-            special_dict[stamp] = get_cso_name(target)
-        special_dict = defaultdict(
-            lambda: "", {key: f" ({val})" for key, val in special_dict.items()}
-        )
+        special_dict = self._get_special_dict(get_cso_name)
         proper_strings = [
             get_cso_name(cso) + special_dict[cso]
             for cso in cards + self.landscapes + self.campaign_effects
@@ -639,6 +645,24 @@ class Kingdom:
             proper_strings.append("Colonies" if self.use_colonies else "No Colonies")
         sep_string = ", ".join(sorted(proper_strings))
         return sep_string
+
+    def get_sanitized_tgg_string(self) -> str:
+        """Get a sanitized string representation of the kingdom."""
+        special_dict = self._get_special_dict(sanitize_cso_name, add_stamps=False)
+        proper_strings = [
+            sanitize_cso_name(cso) + special_dict[cso]
+            for cso in self.cards + self.landscapes + self.campaign_effects
+        ]
+
+        k_str = ", ".join(sorted(proper_strings))
+        if self.use_shelters:
+            k_str += ", shelters"
+        if self.use_colonies:
+            k_str += ", colonies"
+        if self.campaign_effects:
+            k_str += " -x "
+            k_str += ", ".join([eff if eff not in self.stamp_and_effects_dict else f"{eff}({self.stamp_and_effects_dict[eff]})" for eff in sorted(self.campaign_effects) if eff ])
+        return k_str
 
     def check_cards_for_type(self, key: Literal["IsLiaison", "IsOmen"]) -> bool:
         """Check whether this kingdom contains a card of the given type."""

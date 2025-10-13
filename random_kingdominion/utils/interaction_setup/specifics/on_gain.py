@@ -307,6 +307,18 @@ def _add_other_on_gain_interactions(df: pd.DataFrame):
         df,
     )
     add_interaction(
+        "Spell Scroll",
+        "Hasty",
+        "When you gain a Hasty card with Spell Scroll, you won't be able to play it this turn as it is set aside before that.",
+        df,
+    )
+    add_interaction(
+        "Spell Scroll",
+        "Rapid Expansion",
+        "When you gain a card with Spell Scroll while Rapid Expansion is active, you won't be able to play it this turn as it is set aside before that.",
+        df,
+    )
+    add_interaction(
         "blockade",
         "rapid expansion",
         "Once Rapid Expansion (RE) is triggered, any Actions or Treasures gained by Blockade will be set aside by RE and thus not truly be Blockaded (you clean up the Blockade during Clean-up).",

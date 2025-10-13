@@ -3410,7 +3410,7 @@
     turns:
     - 16
     - 16
-  stamps:
+  stamps_and_effects:
   - - one_track_mind
     - prepare
   traits:
@@ -3500,7 +3500,7 @@
     turns:
     - 15
     - 14
-  stamps:
+  stamps_and_effects:
   - - durationified
     - mining_road
   - - treasurified
@@ -3679,7 +3679,7 @@
     turns:
     - 11
     - 10
-  stamps:
+  stamps_and_effects:
   - - durationified
     - fortune_hunter
   - - treasurified
@@ -3829,7 +3829,7 @@
     turns:
     - 12
     - 11
-  stamps:
+  stamps_and_effects:
   - - durationified
     - vassal
   - - treasurified

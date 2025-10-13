@@ -10,7 +10,7 @@ The three stages that are assigned had the following distinctions in mind:
 
 1. Stuff that draws you once in a while or is just kinda weak, e.g. Settlers/BV, Ride, Summon and the likes. Capital City and Way of the Cameleon can also draw given things that generate $. Also, the weaker Moat-like things are in this category, as they require a good Village to be viable.
 2. Lab- and Smithy-like things.
-3. Very few things that draw a lot just on their own, e.g. Hunting Grounds, Council Room, or Scrying Pool.
+3. Very few things that draw a lot just on their own, e.g., Hunting Grounds, Wharf, Scrying Pool.
 
 ### Draw Types
 
