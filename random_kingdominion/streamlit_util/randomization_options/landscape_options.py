@@ -1,5 +1,7 @@
 import streamlit as st
 
+from random_kingdominion.streamlit_util.constants import ST_ICONS
+
 from ..randomizer_util import load_config
 
 _LANDSCAPE_LIST = ["Event", "Landmark", "Project", "Trait", "Way"]
@@ -44,8 +46,9 @@ def build_landscape_option_selection():
         key="landscape range",
     )
     st.write("Here you may allow/disable certain landscape types.")
-    st.info(
-        "To disable Allies or Prophecies, put Liaisons/Omens in the excluded Mechanics."
+    st.warning(
+        f"To disable Allies or Prophecies, put Liaisons/Omens in the excluded Mechanics {ST_ICONS['mechanics']}.",
+        icon="⚠️",
     )
 
     type_default = config.getlist("Landscapes", "allowed_landscape_types")
@@ -64,7 +67,7 @@ def build_landscape_option_selection():
             "No landscape types selected, you might only roll Allies and Prophecies."
         )
     elif len(excluded) > 0:
-        st.info(f"Excluded: {'s, '.join(excluded)}s")
+        st.info(f"Excluded: {'s, '.join(excluded)}s", icon=ST_ICONS["filter"])
     else:
         st.info("All landscape types allowed.")
     st.write(

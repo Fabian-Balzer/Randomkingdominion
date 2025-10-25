@@ -16,7 +16,7 @@ from .quality_options import build_quality_selection
 def build_partial_kingdom_input():
 
     expanded = st.session_state.get("partial_random_kingdom", "") != ""
-    with st.expander("Starting from...", expanded=expanded):
+    with st.expander("Starting from...", expanded=expanded, icon=ST_ICONS["changelog"]):
         k = build_kingdom_text_input(
             key="partial_random_kingdom",
             description_text="Enter a (partial) kingdom in the DomBot-typical-csv Format 'card1, card2, ..., cardN' to start the randomization from.\\\nTakes precedence over the other options (e.g. will force cards even if they are banned or not in the selected expansions).",

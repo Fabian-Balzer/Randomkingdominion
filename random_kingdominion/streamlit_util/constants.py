@@ -142,4 +142,5 @@ ST_ICONS = {
     "components": "📤",
     "other": "🔧",
     "video": "📹",
+    "filter": "🔍",
 }

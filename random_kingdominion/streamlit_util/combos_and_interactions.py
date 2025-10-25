@@ -222,9 +222,13 @@ def st_build_combo_inter_filters(
 ) -> pd.DataFrame:
     name = _get_name(pair_type)
     num_initial = len(df)
-    tab_names = ["🗂️CSO Filter", "🗃️Expansion Filter", "🔧Other Filter"]
+    tab_names = [
+        f"{ST_ICONS['cso_overview']}CSO Filter",
+        f"{ST_ICONS['expansions']}Expansion Filter",
+        f"{ST_ICONS['other']}Other Filter",
+    ]
     filt_str = ""
-    exp = st.expander("Filtering options", expanded=True, icon="🔍")
+    exp = st.expander("Filtering options", expanded=True, icon=ST_ICONS["filter"])
     exp.write(
         f"""You may filter the {name}s by providing a list of CSOs, by expansions, or by other criteria."""
     )

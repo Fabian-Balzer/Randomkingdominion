@@ -165,9 +165,9 @@ with st.expander("Filtering options", expanded=False, icon="🔍"):
             is_card = st.checkbox("Require CSOs to be cards", value=False)
         with cols[2]:
             is_landscape = st.checkbox(
-                "Require CSOs to be exteneded landscapes",
+                "Require CSOs to be extended landscapes",
                 value=False,
-                help=f"Filter for extended landscapes (i.e. {','.join(rk.EXTENDED_LANDSCAPE_LIST)})",
+                help=f"Filter for extended landscapes (i.e., {','.join(rk.EXTENDED_LANDSCAPE_LIST)})",
             )
         with cols[3]:
             has_extra_components = st.checkbox(

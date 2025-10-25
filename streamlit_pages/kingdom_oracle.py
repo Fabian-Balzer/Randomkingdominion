@@ -44,6 +44,8 @@ def load_existing_kingdoms(
         manager.load_fabi_recsets_kingdoms()
     df = manager.dataframe_repr
     df = rk.add_combo_inter_info_for_kingdoms(df)
+    if "notes" not in df.columns:
+        df["notes"] = ""
     df["has_video_link"] = df["notes"].apply(
         lambda x: isinstance(x, dict) and x.get("link", "") != ""
     )
@@ -299,13 +301,13 @@ _winrate_info_str = (
 
 def _build_tgg_winrate_filter_widget(df: pd.DataFrame) -> pd.DataFrame:
     cols = st.columns([0.8, 0.2])
-    with cols[1]:
+    with cols[0]:
         apply_winrate_filter = st.checkbox(
-            "Filter by winrate",
+            f"{ST_ICONS['winrate']}Activate Winrate Filter",
             help="If checked, you can filter the kingdoms by the winrate of the TGG Hard AI. The winrate is an approximation and might not be accurate.",
             key="kingdom_select_winrate_filter_checkbox",
         )
-    with cols[0]:
+    with cols[1]:
         winrate_slider = st.slider(
             "Winrate",
             min_value=0.0,
