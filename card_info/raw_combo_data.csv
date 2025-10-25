@@ -41,11 +41,9 @@ Beggar/Guildhall;Hammering in Beggars and buying Guildhall ASAP is a strong 2-CS
 Beggar/Panic;Once Panic is active, the Coppers gained from Beggar are returned after playing them, so essentially Beggar becomes a terminal Gold with 6 Buys attached to it.;Weak Synergy;;
 Biding Time/City Quarter;Biding Time being active lets you easily kick off with City Quarters.;Weak Synergy;;
 Biding Time/Crossroads;Insane start-of-turn draw if you have stashed away a few Victory cards.;Combo;;
-Quartermaster/Tools;With Tools, you can easily snatch Quartermasters once your opponent has put one in play.;Weak Synergy;;
 Biding Time/Donate;Once Biding Time is active, unless there is a way to discard them, you won't be able to trash any unplayable cards (like Curses) via Donate anymore as the Donate trashing happens before the Biding Time cards are put back into your hand.;Nombo;;
 Biding Time/Frigate;Frigate can shut down Biding Time pretty well.;Counter;;
 Biding Time/Haunted Woods;Haunted Woods can shut down strategies relying on Biding Time pretty well.;Counter;;
-Guide/Outpost;Guides are a great way to start the Outpost turn with a full hand.;Weak Synergy;;
 Biding Time/Magnate;Biding Time being active lets you easily kick off with Magnate, and drawing dead Village isn't as bad as you will get to play them on the next turn.;Synergy;;
 Biding Time/Mission;Mission is super nice once Biding Time is active, as it allows you to stash away the cards you don't use on your extra turn, essentially trading $4 and a buy for at least 5 extra cards in your next-turn hand.;Synergy;;
 Biding Time/Odysseys;Voyage is super nice once Biding Time is active, as it allows you to stash away the cards you don't use.;Synergy;;
@@ -207,6 +205,7 @@ Grand Market/Vault;Playing Vault and discarding your hand allows to buy Grand Ma
 Groom/Island;Just as with Gardens, going for Grooms and then Islands is a strong rush strategy. You even get Horses on Island gains, what more do you want?;Rush;;
 Groom/Mill;Just as with Gardens, going for Grooms and then Mills is a strong rush strategy. You even get Horses on Mill gains, what more do you want?;Rush;;
 Growth/Wealthy Village;As soon as you gain the first Loot from Wealthy Village with Growth active, you will be able to gain all remaining Wealthy Villages, as well as (if desired) some Golds along the way.;Combo;;
+Guide/Outpost;Guides are a great way to start the Outpost turn with a full hand.;Weak Synergy;;
 Guildhall/Panic;You can easily buy a load of Coppers to get a load of Coffers with Panic active.;Synergy;;
 Guildhall/Shaman;In Shaman games, you might gain a lot of Coppers at the start of your turn, increasing the value of Guildhall a bit.;Weak Synergy;;
 Guildhall/Spices;On weak boards, a variation of Guildhall/Spices/Money might be the best strategy.;Weak Synergy;;
@@ -295,6 +294,7 @@ Prince/Way of the Turtle;Way of the Turtle can help immensely to set up a good c
 Procession/Way of the Turtle;When Processing Actions, you can opt to play them as Way of the Turtle on one of their plays, which sets them aside for next turn, avoiding to be trashed, while still gaining that Action costing $1 more.;Synergy;;
 Progress/Summon;Once Progress is active, the set-aside card by Summon will be topdecked and not played at the start of the next turn.;Nombo;;
 Quarry/Villa;Having two Quarries in play lets you autopile Villas while generating lots of extra Actions and a bit of $$.;Synergy;;
+Quartermaster/Tools;With Tools, you can easily snatch Quartermasters once your opponent has put one in play.;Weak Synergy;;
 Rebuild/Road Network;The presence of Road Network should slightly disincentivize going for a Rebuild strategy.;Counter;;
 Rebuild/Scrounge;With Scrounge, you can get Rebuilds into deck quickly, but it also heavily depends on your opponent leaving Estates in the trash for you.;Weak Synergy;;
 Rebuild/Sewers;Sometimes, Sewers can help you to trash out Coppers in order to find your Rebuilds more often, although it usually needs support.;Weak Synergy;;

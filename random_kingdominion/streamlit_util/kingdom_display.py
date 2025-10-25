@@ -365,6 +365,10 @@ def display_kingdom(k: Kingdom, is_randomizer_view=True):
         st.info(
             "*Hint: Hover over the images in the kingdom image display in the standard view to directly see the individual cards' qualities.*"
         )
+        with st.expander("Disclaimer", expanded=False, icon="⚠️"):
+            st.warning(
+                "Be aware that these plots are a very superficial view of the kingdom and do not take into account special card interactions. Check out the about page for more information on those."
+            )
     if selected_tab == f"{ST_ICONS['interactions']}{ST_ICONS['combos']}Interactions":
         interactions = filter_combo_or_inter_df_for_csos(
             get_cached_inter_df(), k.full_kingdom_df.index, require_all=True

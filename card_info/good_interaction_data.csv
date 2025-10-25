@@ -577,6 +577,13 @@ fisherman;stonemason;Even if you have an empty discard pile while overpaying on 
 fisherman;taskmaster;For Taskmaster, the cost of Fisherman when you gain it is important, you will not renew Taskmaster's ability if Fisherman costs $2 when (before) you gain it.
 fisherman;wayfarer;After gaining a Fisherman to your Discard pile, even if it only cost $2, Wayfarer will cost $5 afterwards.
 fishing_village;way_of_the_chameleon;If you play Fishing Village using Way of the Chameleon, remember that Way of the Chameleon only affects stuff happening *this turn*, so on your next turn, you will get the normal bonus from Fishing Village.
+fleet;island_folk;If you activate Island Folk on your Fleet turn, you will only get an extra turn from it if any other turns (like from your opponent) would follow.
+fleet;journey;If you buy Journey on your Fleet turn, you will only get an extra turn from it if any other turns (like from your opponent) would follow.
+fleet;mission;If you buy Mission on your Fleet turn, you will only get an extra turn from it if any other turns (like from your opponent) would follow.
+fleet;outpost;If you play Outpost on your Fleet turn, you will only get an extra turn from it if any other turns (like from your opponent) would follow.
+fleet;possession;If you play Possession on your Fleet turn, you will only get an extra turn from it if any other turns (like from your opponent) would follow.
+fleet;seize_the_day;If you buy Seize the Day on your Fleet turn, you will only get an extra turn from it if any other turns (like from your opponent) would follow.
+fleet;voyage;If you play Voyage on your Fleet turn, you will only get an extra turn from it if any other turns (like from your opponent) would follow.
 footpad;innovation;If you gain a card and use Footpad to cause a shuffle, you cannot play it using Innovation anymore (but you could choose to resolve the on-gain play first).
 footpad;rush;If you gain a card and use Footpad to cause a shuffle, you cannot play it using Rush anymore (but you could choose to resolve the on-gain play first).
 footpad;siren;If you gain a Siren and somehow trigger a shuffle by drawing a card using Footpad, you are no longer required to trash an Action card for the Siren to stay in your deck.
@@ -892,11 +899,11 @@ opulent_castle;populate;Buying Populate will never gain Opulent Castle, even if 
 orb;panic;When you discard Orb from play while Panic is active, you return it to the top of the Loot pile. When discarding multiple, you get to choose the order.
 orb;voyage;Playing a card from your discard pile using Orb does not count as playing it from hand as far as Voyage turns are concerned.
 orb;warlord;Playing an Action card using Orb from your discard pile does not count as playing it from hand as far as Warlord's attack is concerned.
-outpost;procession;If you play an Outpost using Procession, you will still only take one extra turn, but the Procession will stay out with it anyways.
 outpost;royal_carriage;If you play an Outpost using Royal Carriage, you will still only take one extra turn, but the Royal Carriage will stay out with it anyways.
 outpost;scepter;If you play an Outpost using Scepter, you will still only take one extra turn, but the Scepter will stay out with it anyways.
 outpost;specialist;If you play an Outpost using Specialist, you will still only take one extra turn, but the Specialist will stay out with it anyways.
 outpost;throne_room;If you play an Outpost using Throne Room, you will still only take one extra turn, but the Throne Room will stay out with it anyways.
+outpost;voyage;if you play Outpost and Voyage, then in Clean-up you don't discard either of them and only draw 3 cards. In between turns, you choose to take the Voyage turn next. (Outpost hasn't failed yet because another player might somehow be able to take an extra turn first.) In Clean-up of the Voyage turn, you discard Voyage but not Outpost and draw 5 cards. In between turns again, Outpost now fails - it is up next but would be your 3rd turn in a row. The next player takes their turn and during their Clean-up, you discard Outpost.
 page;pathfinding;Putting the + Card token on the Page pile using Pathfinding will affect only Page, not any card you exchange it for.
 page;plan;Putting the trashing token on the Page pile using Plan will affect only Page, not any card you exchange it for.
 page;seaway;Putting the + Buy token on the Page pile using Seaway will affect only Page, not any card you exchange it for.
