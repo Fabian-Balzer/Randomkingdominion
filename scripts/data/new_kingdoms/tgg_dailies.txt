@@ -4,18 +4,18 @@
 2025-10-28---
 2025-10-27---
 2025-10-26---
-2025-10-25---
-2025-10-24---
-2025-10-23---
-2025-10-22---
-2025-10-21---
-2025-10-20---
-2025-10-19---
-2025-10-18---
-2025-10-17---
-2025-10-16---
-2025-10-15---
-2025-10-14---
+2025-10-25---chapel, herbalist, harbinger, sentinel, blessed_village, clerk, contract, joust, mint, border_village, league_of_shopkeepers
+2025-10-24---jewelled_egg, townsfolk, taskmaster, flagship, landing_party, tools, gatekeeper, kiln, mastermind, animal_fair, patient(flagship), way_of_the_worm
+2025-10-23---haven, lackeys, astrolabe, fishing_village, improve, monkey, bazaar, outpost, scepter, treasury, piazza, innovation
+2025-10-22---anvil, bishop, nomads, quarry, cauldron, collection, haggler, magnate, war_chest, border_village
+2025-10-21---grotto, abundance, flagship, gondola, swamp_shacks, figurine, longship, silver_mine, trickster, sack_of_loot, tireless(trickster), journey
+2025-10-20---chapel, harbinger, underling, wizards, innkeeper, bandit, emissary, library, specialist, swap, cave_dwellers
+2025-10-19---mountain_shrine, grotto, shanty_town, blessed_village, courier, research, imperial_envoy, journeyman, fairgrounds, hoard, mountain_pass, rich(blessed_village), harsh_winter, colonies, stamp_double_vp(mountain_pass)
+2025-10-18---fools_gold, harbinger, menagerie, armory, inventor, militia, throne_room, count, first_mate, lost_city, way_of_the_sheep, maelstrom
+2025-10-17---border_guard, acting_troupe, flag_bearer, inventor, mountain_village, bazaar, council_room, library, scepter, sculptor
+2025-10-16---herbalist, scrying_pool, university, forts, alchemist, broker, barbarian, capital_city, emissary, skirmisher, trappers_lodge
+2025-10-15---engineer, mountain_shrine, city_quarter, encampment, aristocrat, catapult, enchantress, temple, litter, tanuki, credit, foresight, divine_wind(fishmonger, poet, farmers_market, rustic_village, alley, gladiator, gold_mine, rice, castles, villa)
+2025-10-14---sheepdog, snowy_village, cardinal, cavalry, hostelry, village_green, kiln, mastermind, paddock, sanctuary, toil, pursue
 2025-10-13---poor_house, workshop, death_cart, feodum, throne_room, knights, market, mine, rogue, altar, shelters
 2025-10-12---haven, stowaway, tools, bridge_troll, catacombs, collection, courtier, hunter, replace, farmland, silos, start_replace_copper(conjurer), stamp_with_horse(haven)
 2025-10-11---sleigh, augurs, enchantress, gear, guide, abundance, fortune_hunter, mining_road, rabble, witchs_hut, sinister_plot

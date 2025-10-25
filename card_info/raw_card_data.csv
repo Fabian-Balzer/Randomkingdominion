@@ -227,7 +227,7 @@ Procession;Dark Ages;Action;$4;You may play a non-Duration Action card from your
 Rats;Dark Ages;Action;$4;+1 Card +1 Action Gain a Rats. Trash a card from your hand other than a Rats (or reveal a hand of all Rats).When you trash this, +1 Card.;+1;+1 *1;;;1;;;1;;Dark Ages/Rats.jpg
 Scavenger;Dark Ages;Action;$4;+$2 You may put your deck into your discard pile. Look through your discard pile and put one card from it onto your deck.;;;;+$2;;;;;;Dark Ages/Scavenger.jpg
 Wandering Minstrel;Dark Ages;Action;$4;+1 Card +2 Actions Reveal the top 3 cards of your deck. Put the Action cards back in any order and discard the rest.;+2;+1;;;;;;;;Dark Ages/Wandering_Minstrel.jpg
-Band of Misfits;Dark Ages;Action - Command;$5;Play a non-Command Action card from the Supply that costs less than this, leaving it there.;(P1);;;;;;;;;Dark Ages/Band_of_Misfits.jpg
+Band of Misfits;Dark Ages;Action - Command;$5;Play a non-Command non-Duration Action card from the Supply that costs less than this, leaving it there.;(P1);;;;;;;;;Dark Ages/Band_of_Misfits.jpg
 Bandit Camp;Dark Ages;Action;$5;+1 Card +2 Actions Gain a Spoils.;+2;+1;;;;;;1;;Dark Ages/Bandit_Camp.jpg
 Catacombs;Dark Ages;Action;$5;"Look at the top 3 cards of your deck. Choose one: Put them into your hand; or discard them and +3 Cards.When you trash this, gain a cheaper card.";;+3;;;;;;*1;;Dark Ages/Catacombs.jpg
 Count;Dark Ages;Action;$5;"Choose one: Discard 2 cards; or put a card from your hand onto your deck; or gain a Copper. Choose one: +$3; or trash your hand; or gain a Duchy.";;-1?, -2?;;+$3?;X?;;Self?;1?, 1?;(3 ?);Dark Ages/Count.jpg
@@ -337,7 +337,7 @@ Seaway;Adventures;Event;$5;Gain an Action card costing up to $4. Move your +1 Bu
 Trade;Adventures;Event;$5;Trash up to 2 cards from your hand. Gain a Silver per card you trashed.;;;;;0-2?;;;!0-2;;Adventures/Trade.jpg
 Lost Arts;Adventures;Event;$6;Move your +1 Action token to an Action Supply pile. (When you play a card from that pile, you first get +1 Action.);**+1;;;;;;;;;Adventures/Lost_Arts.jpg
 Training;Adventures;Event;$6;Move your +$1 token to an Action Supply pile. (When you play a card from that pile, you first get +$1.);;;;**+$1;;;;;;Adventures/Training.jpg
-Inheritance;Adventures;Event;$7;Once per game: Set aside a non-Command Action card from the Supply costing up to $4. Move your Estate token to it. (During your turns, Estates are also Command Actions with “Play the card with your Estate token, leaving it there.”);(P1);;;;;;;;;Adventures/Inheritance.jpg
+Inheritance;Adventures;Event;$7;Once per game: Set aside a non-Command non-Duration Action card from the Supply costing up to $4. Move your Estate token to it. (During your turns, Estates are also Command Actions with "Play the card with your Estate token, leaving it there.");(P1);;;;;;;;;Adventures/Inheritance.jpg
 Pathfinding;Adventures;Event;$8;Move your +1 Card token to an Action Supply pile. (When you play a card from that pile, you first get +1 Card.);;**+1;;;;;;;;Adventures/Pathfinding.jpg
 Soldier;Adventures;Action - Attack - Traveller;$3*;+$2 +$1 per other Attack you have in play. Each other player with 4 or more cards in hand discards a card.When you discard this from play, you may exchange it for a Fugitive. (This is not in the Supply.);;;;+$2, +$X;Self?;;;;;Adventures/Soldier.jpg
 Fugitive;Adventures;Action - Traveller;$4*;+2 Cards +1 Action Discard a card.When you discard this from play, you may exchange it for a Disciple. (This is not in the Supply.);+1;+2, -1;;;Self?;;;;;Adventures/Fugitive.jpg
@@ -350,22 +350,22 @@ Champion;Adventures;Action - Duration;$6*;+1 Action For the rest of the game, wh
 Engineer;Empires;Action;4D;Gain a card costing up to $4. You may trash this. If you do, gain a card costing up to $4.;;;;;Self?;;;1, !1;;Empires/Engineer.jpg
 City Quarter;Empires;Action;8D;+2 Actions Reveal your hand. +1 Card per Action card revealed.;+2;+X;;;;;;;;Empires/City_Quarter.jpg
 Royal Blacksmith;Empires;Action;8D;"+5 Cards Reveal your hand; discard the Coppers.";;+5, -X;;;;;;;;Empires/Royal_Blacksmith.jpg
-Overlord;Empires;Action - Command;8D;Play a non-Command Action card from the Supply costing up to $5, leaving it there.;(P1);;;;;;;;;Empires/Overlord.jpg
+Overlord;Empires;Action - Command;8D;Play a non-Command non-Duration Action card from the Supply costing up to $5, leaving it there.;(P1);;;;;;;;;Empires/Overlord.jpg
 Encampment;Empires;Action;$2;+2 Cards +2 Actions You may reveal a Gold or Plunder from your hand. If you do not, set this aside, and return it to its pile at the start of Clean-up.;+2;+2;;;!Self;;;;;Empires/Encampment.jpg
 Patrician;Empires;Action;$2;+1 Card +1 Action Reveal the top card of your deck. If it costs $5 or more, put it into your hand.;+1;+1, !+1;;;;;;;;Empires/Patrician.jpg
 Settlers;Empires;Action;$2;+1 Card +1 Action Look through your discard pile. You may reveal a Copper from it and put it into your hand.;+1;+1, +1?;;(+$1)?;;;;;;Empires/Settlers.jpg
 Catapult;Empires;Action - Attack;$3;+$1 Trash a card from your hand. If it costs $3 or more, each other player gains a Curse. If it's a Treasure, each other player discards down to 3 cards in hand.;;;;+$1;1;;!1;;;Empires/Catapult.jpg
-Chariot Race;Empires;Action;$3;+1 Action Reveal the top card of your deck and put it into your hand. The player to your left reveals the top card of their deck. If your card costs more, +$1 and +1 .;+1;+1;;!+$1;;;;;!+1;Empires/Chariot_Race.jpg
+Chariot Race;Empires;Action;$3;+1 Action +1 Card, revealing it. The player to your left reveals the top card of their deck. If your card costs more, +$1 and +1VP.;+1;+1;;!+$1;;;;;!+1;Empires/Chariot_Race.jpg
 Enchantress;Empires;Action - Attack - Duration;$3;Until your next turn, the first time each other player plays an Action card on their turn, they get +1 Card and +1 Action instead of following its instructions. At the start of your next turn, +2 Cards.;;N +2;;;;;;;;Empires/Enchantress.jpg
 Farmers' Market;Empires;Action - Gathering;$3;+1 Buy If there are 4 or more on the Farmers' Market pile, take them and trash this. Otherwise, add 1 to the pile and then +$1 per 1 on the pile.;;;+1;!+ $1-$4;!Self;;;;!+4;Empires/Farmers'_Market.jpg
-Gladiator;Empires;Action;$3;+$2 Reveal a card from your hand. The player to your left may reveal a copy from their hand. If they don't, +$1 and trash a Gladiator from the Supply.;;;;+$2, !+$1;!1 Supply;;;;;Empires/Gladiator.jpg
+Gladiator;Empires;Action;$3;+$2 Reveal a card from your hand. The player to your left may reveal a copy from their hand. If they do not, +$1 and trash a Gladiator from its pile.;;;;+$2, !+$1;!1 Supply;;;;;Empires/Gladiator.jpg
 Rocks;Empires;Treasure;$4;$1When you gain or trash this: If it's your Buy phase, gain a Silver onto your deck, otherwise gain a Silver to your hand.;;*(+1);;+$1;;;;*1;;Empires/Rocks.jpg
 Sacrifice;Empires;Action;$4;Trash a card from your hand. If it's an... Action card, +2 Cards and +2 Actions Treasure card, +$2 Victory card, +2;!+2;!+2;;!+$2;1;;;;!+2;Empires/Sacrifice.jpg
 Temple;Empires;Action - Gathering;$4;+1 Trash from 1 to 3 differently named cards from your hand. Add 1 to the Temple pile.When you gain this, take the from the Temple pile.;;;;;1-3;;;;+1 *+X;Empires/Temple.jpg
 Villa;Empires;Action;$4;+2 Actions +1 Buy +$1When you gain this, put it into your hand, +1 Action, and if it's your Buy phase return to your Action phase.;+2 *+1;*(+Self);+1;+$1;;;;;;Empires/Villa.jpg
 Archive;Empires;Action - Duration;$5;+1 Action Set aside the top 3 cards of your deck face down (you may look at them). Now and at the start of your next two turns, put one into your hand.;+1;+1, N +1, NN +1;;;;;;;;Empires/Archive.jpg
 Bustling Village;Empires;Action;$5;+1 Card +3 Actions Look through your discard pile. You may reveal a Settlers from it and put it into your hand.;+3;+1, +1?;;;;;;;;Empires/Bustling_Village.jpg
-Capital;Empires;Treasure;$5;$6 +1 BuyWhen you discard this from play, take 6D, and then you may pay off D.;;;+1;+$6, *+$;;;;;;Empires/Capital.jpg
+Capital;Empires;Treasure;$5;$6 +1 Buy When you discard this from play, +6D.;;;+1;+$6, *+$;;;;;;Empires/Capital.jpg
 Charm;Empires;Treasure;$5;"Choose one: +1 Buy and +$2; or the next time you gain a card this turn, you may also gain a differently named card with the same cost.";;;+1?;+$2?;;;;1?;;Empires/Charm.jpg
 Crown;Empires;Action - Treasure;$5;If it's your Action phase, you may play an Action from your hand twice. If it's your Buy phase, you may play a Treasure from your hand twice.;!P2?;;;!P2?;;;;;;Empires/Crown.jpg
 Emporium;Empires;Action;$5;+1 Card +1 Action +$1When you gain this, if you have at least 5 Action cards in play, +2 .;+1;+1;;+$1;;;;;*+2;Empires/Emporium.jpg
@@ -390,7 +390,7 @@ Advance;Empires;Event;$0;You may trash an Action card from your hand. If you do,
 Delve;Empires;Event;$2;+1 Buy Gain a Silver.;;;+1;;;;;1;;Empires/Delve.jpg
 Tax;Empires;Event;$2;Add 2D to a Supply pile.Setup: Add 1D to each Supply pile. When a player gains a card in their Buy phase, they take the D from its pile.;;;;;;;;;;Empires/Tax.jpg
 Banquet;Empires;Event;$3;Gain 2 Coppers and a non-Victory card costing up to $5.;;;;;;;2Self;3;;Empires/Banquet.jpg
-Ritual;Empires;Event;$4;Gain a Curse. If you do, trash a card from your hand. +1 per $1 it cost.;;;;;1;;Self;1;(-1 ), +X;Empires/Ritual.jpg
+Ritual;Empires;Event;$4;Gain a Curse. If you do, trash a card from your hand. +1 VP per $1 it costs.;;;;;1;;Self;1;(-1 ), +X;Empires/Ritual.jpg
 Salt the Earth;Empires;Event;$4;+1 Trash a Victory card from the Supply.;;;;;1 Supply;;;;+1;Empires/Salt_the_Earth.jpg
 Wedding;Empires;Event;$4 3D;+1 Gain a Gold.;;;;;;;;1;+1;Empires/Wedding.jpg
 Windfall;Empires;Event;$5;If your deck and discard pile are empty, gain 3 Golds.;;;;;;;;!3;;Empires/Windfall.jpg
@@ -577,7 +577,7 @@ Wayfarer;Menagerie;Action;$6*;+3 Cards You may gain a Silver.This has the same c
 Animal Fair;Menagerie;Action;$7*;+$4 +1 Buy per empty supply pile.Instead of paying this card's cost, you may trash an Action card from your hand.;;;+X;+$4, !Rself;;;;;;Menagerie/Animal_Fair.jpg
 Delay;Menagerie;Event;$0;You may set aside an Action card from your hand. At the start of your next turn, play it.;!N P1;-1?;;;;;;;;Menagerie/Delay.jpg
 Desperation;Menagerie;Event;$0;Once per turn: You may gain a Curse. If you do, +1 Buy and +$2.;;;!+1;!+$2;;;Self?;1?;;Menagerie/Desperation.jpg
-Gamble;Menagerie;Event;$2;+1 Buy Reveal the top card of your deck. If it's a Treasure or Action, you may play it. Otherwise, discard it.;!P1?;;+1;!P1?;;;;;;Menagerie/Gamble.jpg
+Gamble;Menagerie;Event;$2;+1 Buy Discard the top card of your deck. If it's an Action or Treasure, you may play it.;!P1?;;+1;!P1?;;;;;;Menagerie/Gamble.jpg
 Pursue;Menagerie;Event;$2;+1 Buy Name a card. Reveal the top 4 cards from your deck. Put the matches back and discard the rest.;;;+1;;;;;;;Menagerie/Pursue.jpg
 Ride;Menagerie;Event;$2;Gain a Horse.;;;;;;;;1;;Menagerie/Ride.jpg
 Toil;Menagerie;Event;$2;+1 Buy You may play an Action card from your hand.;P1?;;+1;;;;;;;Menagerie/Toil.jpg
@@ -591,7 +591,7 @@ Seize the Day;Menagerie;Event;$4;Once per game: Take an extra turn after this on
 Commerce;Menagerie;Event;$5;Gain a Gold per differently named card you've gained this turn.;;;;;;;;X;;Menagerie/Commerce.jpg
 Demand;Menagerie;Event;$5;Gain a Horse and a card costing up to $4, both onto your deck.;;;;;;;;2;;Menagerie/Demand.jpg
 Stampede;Menagerie;Event;$5;If you have 5 or fewer cards in play, gain 5 Horses onto your deck.;;;;;;;;5;;Menagerie/Stampede.jpg
-Reap;Menagerie;Event;$7;Gain a Gold. Set it aside. If you do, at the start of your next turn, play it.;;;;(N +$3);;;;1;;Menagerie/Reap.jpg
+Reap;Menagerie;Event;$7;Gain a Gold, setting it aside. At the start of your next turn, play it.;;;;(N +$3);;;;1;;Menagerie/Reap.jpg
 Enclave;Menagerie;Event;$8;Gain a Gold. Exile a Duchy from the Supply.;;;;;;1 Supply;;1;(3 );Menagerie/Enclave.jpg
 Alliance;Menagerie;Event;$10;Gain a Province, a Duchy, an Estate, a Gold, a Silver, and a Copper.;;;;;;;;6;(10 );Menagerie/Alliance.jpg
 Populate;Menagerie;Event;$10;Gain one card from each Action Supply pile.;;;;;;;;X;;Menagerie/Populate.jpg
@@ -603,7 +603,7 @@ Way of the Goat;Menagerie;Way;;Trash a card from your hand.;;;;;1;;;;;Menagerie/
 Way of the Horse;Menagerie;Way;;+2 Cards +1 Action Return this to its pile.;+1;+2;;;Self;;;;;Menagerie/Way_of_the_Horse.jpg
 Way of the Mole;Menagerie;Way;;+1 Action Discard your hand. +3 Cards.;+1;-X, +3;;;;;;;;Menagerie/Way_of_the_Mole.jpg
 Way of the Monkey;Menagerie;Way;;+1 Buy +$1;;;+1;+$1;;;;;;Menagerie/Way_of_the_Monkey.jpg
-Way of the Mouse;Menagerie;Way;;Play the set-aside card, leaving it there.Setup: Set aside an unused Action costing $2 or $3.;(P1);;;;;;;;;Menagerie/Way_of_the_Mouse.jpg
+Way of the Mouse;Menagerie;Way;;Play the set-aside card, leaving it there.Setup: Set aside an unused non-Duration Action costing $2 or $3.;(P1);;;;;;;;;Menagerie/Way_of_the_Mouse.jpg
 Way of the Mule;Menagerie;Way;;+1 Action +$1;+1;;;+$1;;;;;;Menagerie/Way_of_the_Mule.jpg
 Way of the Otter;Menagerie;Way;;+2 Cards;;+2;;;;;;;;Menagerie/Way_of_the_Otter.jpg
 Way of the Ox;Menagerie;Way;;+2 Actions;+2;;;;;;;;;Menagerie/Way_of_the_Ox.jpg

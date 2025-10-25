@@ -10,15 +10,18 @@ Other exotic thinning includes CSOs like Ambassador that allow you to return car
 
 The three quality values had the following distinctions in mind:
 
-1. Weakish thinning stuff that tends to be somewhat niche (at thinning) such as most Remodel variants, Acolyte, Improve, Enlarge, or Governor.
+1. Weakish thinning stuff that tends to be somewhat niche (at thinning) such as most Remodel variants, Acolyte, Enlarge, or Governor.
 2. All of the trashers and exilers that can thin one card at a time, and reliable but not necessarily fast trashers.
 3. Super powerful stuff that can get you thin really quickly by trashing 2+ cards early in the game, like Donate, Chapel, Sentry and Peaceful Cult.
+
+Improve is one of the exceptions where I found its capability to Remodel Actions so weak that I also gave it a thinning quality of 0.
 
 ### Thinning Types
 
 I have assigned one or more of the following thinning types to each of the thinners to be able to distinguish between them and allow for a gauge what kingdoms are able to trash. They include multiple types of information - which types of cards can be thinned, whether some sort of remodelling is possible, and whether the thinner does exile.
 For this, I've defined the following categories:
 
+- **Action**: This CSO can only thin Actions.
 - **Any**: This CSO can in principle thin any other card (not necessarily itself). Examples are Chapel, Remodel, or Sanctuary.
 - **Copper**: Restriction to Copper thinning, e.g. Moneylender or Bonfire.
 - **Exile**: The thinning is not actual trashing, but rather exiling. Can be assigned in addition to 'Any'. I have also labelled Island and Miser as Exilers as it's basically the same interaction.

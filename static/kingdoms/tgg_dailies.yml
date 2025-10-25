@@ -1,4 +1,693 @@
 - cards:
+  - blessed_village
+  - border_village
+  - chapel
+  - clerk
+  - contract
+  - harbinger
+  - herbalist
+  - joust
+  - mint
+  - sentinel
+  expansions:
+  - Alchemy
+  - Allies
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Hinterlands, 2E
+  - Nocturne
+  - Prosperity, 2E
+  idx: 303129198577863254054615440530007086381
+  landscapes:
+  - league_of_shopkeepers
+  name: '2025-10-25'
+  notes:
+    crucial_cards: [Joust, Courser, Clerk, Chapel]
+    ending: [Province]
+    link: ''
+    name: 'Minimalist Jousting'
+    openings:
+    - grade: 'B'
+      t1: 'Clerk'
+      t1_csos: [clerk]
+      t2: 'Chapel'
+      t2_csos: [chapel]
+      type: 4/3|3/4
+    - grade: 'B'
+      t1: 'Clerk'
+      t1_csos: [clerk]
+      t2: 'Chapel'
+      t2_csos: [chapel]
+      type: 5/2|2/5
+    points: [39, 21]
+    subtitle: 'Abundant Thinning, Little Draw? Minimalist Deck Time.'
+    turns: [14, 14]
+- cards:
+  - animal_fair
+  - flagship
+  - gatekeeper
+  - jewelled_egg
+  - kiln
+  - landing_party
+  - mastermind
+  - taskmaster
+  - tools
+  - townsfolk
+  expansions:
+  - Allies
+  - Menagerie
+  - Plunder
+  idx: 49476368156295080245093590112025334741
+  landscapes:
+  - patient
+  - way_of_the_worm
+  name: '2025-10-24'
+  notes:
+    crucial_cards:
+    - Way of the worm
+    - flagship
+    - tools
+    - animal fair
+    ending:
+    - Estate
+    - Mastermind
+    - Flagship
+    link: https://youtu.be/ViUxzTPNcms
+    name: Fairship
+    openings:
+    - grade: D
+      t1: Flagship, or Tools, or ???
+      t1_csos:
+      - Flagship
+      t2: Town Crier, or Silver
+      t2_csos:
+      - Town Crier
+      type: 4/3|3/4
+    - grade: D
+      t1: Flagship, or Tools, or ???
+      t1_csos:
+      - Flagship
+      t2: Town Crier, or Silver
+      t2_csos:
+      - Town Crier
+      type: 5/2|2/5
+    points:
+    - 15
+    - 5
+    subtitle: Rolling The Dice For The Stacked Collisions. Still Weirdly Fun.
+    tries: 2
+    turns:
+    - 13
+    - 12
+  traits:
+  - - patient
+    - flagship
+- cards:
+  - astrolabe
+  - bazaar
+  - fishing_village
+  - haven
+  - improve
+  - lackeys
+  - monkey
+  - outpost
+  - scepter
+  - treasury
+  expansions:
+  - Renaissance
+  - Seaside, 2E
+  idx: 154383672001664150028245442838639019164
+  landscapes:
+  - innovation
+  - piazza
+  name: '2025-10-23'
+  notes:
+    crucial_cards:
+    - Monkey
+    - Lackeys
+    - Astrolabe
+    - Innovation
+    ending:
+    - Duchy
+    - Monkey
+    - Lackeys
+    link: https://youtu.be/nLOXm9bgsTA
+    name: Innovative Monkeys
+    openings:
+    - grade: C+
+      t1: Lackeys
+      t1_csos:
+      - Lackeys
+      t2: Astrolabe
+      t2_csos:
+      - Astrolabe
+      type: 4/3|3/4
+    - grade: B-
+      t1: Treasury
+      t1_csos:
+      - Treasury
+      t2: Lackeys
+      t2_csos:
+      - Lackeys
+      type: 5/2|2/5
+    points:
+    - 34
+    - 28
+    subtitle: Climbing Back From An Insane T3 High-Roll Of AI
+    turns:
+    - 17
+    - 16
+- cards:
+  - anvil
+  - bishop
+  - border_village
+  - cauldron
+  - collection
+  - haggler
+  - magnate
+  - nomads
+  - quarry
+  - war_chest
+  expansions:
+  - Hinterlands, 2E
+  - Prosperity, 2E
+  idx: 52565093587135884083606268395208674917
+  name: '2025-10-22'
+  notes:
+    crucial_cards:
+    - Magnate
+    - Quarry
+    - Border Village
+    - Nomads
+    ending:
+    - Magnate
+    - Border Village
+    - Nomads
+    link: https://youtu.be/LHF7XFclDQk
+    name: Border Quarry
+    openings:
+    - grade: C
+      t1: Quarry
+      t1_csos:
+      - Quarry
+      t2: Anvil, or Silver
+      t2_csos:
+      - Anvil
+      type: 4/3|3/4
+    - grade: D
+      t1: Quarry, or War Chest
+      t1_csos:
+      - Quarry
+      t2: Skip turn and cry silently
+      t2_csos: []
+      type: 5/2|2/5
+    points:
+    - 19
+    - 16
+    subtitle: It's All About Getting Lucky Enough To Connect Draw And Villages
+    turns:
+    - 12
+    - 11
+- cards:
+  - abundance
+  - figurine
+  - flagship
+  - gondola
+  - grotto
+  - longship
+  - sack_of_loot
+  - silver_mine
+  - swamp_shacks
+  - trickster
+  expansions:
+  - Plunder
+  idx: 278524980648200005696249967374405082788
+  landscapes:
+  - journey
+  - tireless
+  name: '2025-10-21'
+  notes:
+    crucial_cards:
+    - Grotto
+    - Trickster
+    - Journey
+    - Swamp Shacks
+    ending:
+    - Curse
+    - Grotto
+    - Flagship
+    link: https://youtu.be/nUURCo6sbig
+    name: Grotto Tricks
+    openings:
+    - grade: B-
+      t1: Buy Journey, buy Grotto
+      t1_csos:
+      - Journey
+      - Grotto
+      t2: Buy another Grotto. If Grotto in hand, set aside 2.
+      t2_csos:
+      - Grotto
+      type: 4/3
+    - grade: B+
+      t1: Buy Grotto
+      t1_csos:
+      - Grotto
+      t2: Buy Journey. Buy another Grotto. If Grotto in hand, set aside 2.
+      t2_csos:
+      - Journey
+      - Grotto
+      type: 3/4
+    - grade: A
+      t1: Buy Trickster
+      t1_csos:
+      - Trickster
+      t2: Buy Grotto
+      t2_csos:
+      - Grotto
+      type: 5/2|2/5
+    points:
+    - 22
+    - 5
+    subtitle: AI Skipping Tireless Tricksters Turns Out To Be Game-Deciding
+    turns:
+    - 14
+    - 13
+  traits:
+  - - tireless
+    - trickster
+- cards:
+  - bandit
+  - chapel
+  - emissary
+  - harbinger
+  - innkeeper
+  - library
+  - specialist
+  - swap
+  - underling
+  - wizards
+  expansions:
+  - Allies
+  - Base, 2E
+  idx: 241939863626906203242854436858560887257
+  landscapes:
+  - cave_dwellers
+  name: '2025-10-20'
+  notes:
+    crucial_cards:
+    - Specialist
+    - Emissary
+    - Swap
+    - Cave Dwellers
+    ending:
+    - Estate
+    - Emissary
+    - Specialist
+    link: https://youtu.be/1jQQ_G4viEo
+    name: Specialized Swapping
+    openings:
+    - grade: B
+      t1: Use Cave Dwellers, buy Chapel
+      t1_csos:
+      - Cave Dwellers
+      - Chapel
+      t2: Buy Silver (or trash down)
+      t2_csos:
+      - Silver
+      type: 4/3
+    - grade: B
+      t1: Buy Chapel
+      t1_csos:
+      - Chapel
+      t2: Use Cave Dwellers on Estate, buy Silver (or trash down), or buy Emissary
+      t2_csos:
+      - Cave Dwellers
+      - Silver
+      type: 3/4|2/5
+    - grade: A
+      t1: Buy Emissary
+      t1_csos:
+      - Emissary
+      t2: Use Cave Dwellers on Estate, buy Chapel
+      t2_csos:
+      - Cave Dwellers
+      - Chapel
+      type: 5/2
+    points:
+    - 8
+    - 6
+    subtitle: Taking Complete Control, Starkly Contrasting AI's 6-Card Deck
+    turns:
+    - 11
+    - 10
+- campaign_effects:
+  - double_vp
+  cards:
+  - blessed_village
+  - courier
+  - fairgrounds
+  - grotto
+  - hoard
+  - imperial_envoy
+  - journeyman
+  - mountain_shrine
+  - research
+  - shanty_town
+  expansions:
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Intrigue, 2E
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Rising Sun
+  idx: 76462651986283897907154770657821826616
+  landscapes:
+  - harsh_winter
+  - mountain_pass
+  - rich
+  name: '2025-10-19'
+  notes:
+    crucial_cards:
+    - Harsh Winter
+    - Blessed Village
+    - Mountain Pass
+    - Mountain Shrine
+    ending:
+    - Colony
+    link: https://youtu.be/nhgkUV6aeSI
+    name: Harsh Mountains
+    points:
+    - 66
+    - 50
+    subtitle: Winning The Weird Debt Dynamics Around Harsh Winter
+    turns:
+    - 15
+    - 14
+  stamps_and_effects:
+  - - double_vp
+    - mountain_pass
+  traits:
+  - - rich
+    - blessed_village
+  use_colonies: true
+- cards:
+  - armory
+  - count
+  - first_mate
+  - fools_gold
+  - harbinger
+  - inventor
+  - lost_city
+  - menagerie
+  - militia
+  - throne_room
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Hinterlands, 2E
+  - Menagerie
+  - Plunder
+  - Renaissance
+  idx: 243683086980719468129734735569416962273
+  landscapes:
+  - maelstrom
+  - way_of_the_sheep
+  name: '2025-10-18'
+  notes:
+    crucial_cards: []
+    ending: []
+    link: ''
+    name: ''
+    openings:
+    - grade: ''
+      t1: ''
+      t1_csos: []
+      t2: ''
+      t2_csos: []
+      type: 4/3|3/4
+    - grade: ''
+      t1: ''
+      t1_csos: []
+      t2: ''
+      t2_csos: []
+      type: 5/2|2/5
+    points: []
+    subtitle: ''
+    turns: []
+- cards:
+  - acting_troupe
+  - bazaar
+  - border_guard
+  - council_room
+  - flag_bearer
+  - inventor
+  - library
+  - mountain_village
+  - scepter
+  - sculptor
+  expansions:
+  - Base, 2E
+  - Renaissance
+  - Seaside, 2E
+  idx: 158367851183392448247877020940398371977
+  name: '2025-10-17'
+  notes:
+    crucial_cards: []
+    ending: []
+    link: ''
+    name: ''
+    openings:
+    - grade: ''
+      t1: ''
+      t1_csos: []
+      t2: ''
+      t2_csos: []
+      type: 4/3|3/4
+    - grade: ''
+      t1: ''
+      t1_csos: []
+      t2: ''
+      t2_csos: []
+      type: 5/2|2/5
+    points: []
+    subtitle: ''
+    turns: []
+- cards:
+  - alchemist
+  - barbarian
+  - broker
+  - capital_city
+  - emissary
+  - forts
+  - herbalist
+  - scrying_pool
+  - skirmisher
+  - university
+  expansions:
+  - Alchemy
+  - Allies
+  idx: 101621718358971469924142172866402838027
+  landscapes:
+  - trappers_lodge
+  name: '2025-10-16'
+  notes:
+    crucial_cards:
+    - Emissary
+    - trappers_lodge
+    - University
+    - Potion
+    ending:
+    - Broker
+    - Capital City
+    - Emissary
+    link: https://youtu.be/PF7Jx5RZIPk
+    name: Lodging Emissaries
+    openings:
+    - grade: A-
+      t1: Buy Broker, topdeck it.
+      t1_csos:
+      - Broker
+      - trappers_lodge
+      t2: Trash Estate for $, buy Potion (or buy Uni)
+      t2_csos:
+      - Estate
+      - Potion
+      type: 4/3
+    - grade: D+
+      t1: Buy Silver
+      t1_csos:
+      - Silver
+      t2: Buy Broker, or Potion. Optionally topdeck it.
+      t2_csos:
+      - Broker
+      type: 3/4
+    - grade: A-
+      t1: Buy Emissary, topdecking it. Alternatively, buy Barbarian and topdeck.
+      t1_csos:
+      - Emissary
+      - trappers_lodge
+      t2: Play Emissary, buy Potion, topdeck Potion
+      t2_csos:
+      - Emissary
+      - Potion
+      - trappers_lodge
+      type: 5/2|2/5
+    - grade: D
+      t1: Skip turn and cry a bit.
+      t1_csos: []
+      t2: Buy Emissary, or Barbarian, or Capital City, or Broker, or Potion
+      t2_csos:
+      - Emissary
+      type: 2/5
+    points:
+    - 27
+    - 5
+    subtitle: Where AI Luckily Refuses To Play Properly, Skipping Barbarian
+    turns:
+    - 12
+    - 11
+- cards:
+  - aristocrat
+  - catapult/rocks
+  - city_quarter
+  - encampment/plunder
+  - enchantress
+  - engineer
+  - litter
+  - mountain_shrine
+  - tanuki
+  - temple
+  divine_wind_cso_str: fishmonger, poet, farmers_market, rustic_village, alley, gladiator,
+    gold_mine, rice, castles, villa
+  expansions:
+  - Empires
+  - Rising Sun
+  idx: 306607380541560492189561665828428347074
+  landscapes:
+  - credit
+  - divine_wind
+  - foresight
+  name: '2025-10-15'
+  notes:
+    crucial_cards:
+    - Divine Wind
+    - Villa
+    - Tanuki
+    - Encampment
+    ending:
+    - Estate
+    - Villa
+    - Rice
+    find_the_win: true
+    ftw_difficulty: easy
+    ftw_timestamp: 1318
+    link: https://youtu.be/w3CiNnrfKCk
+    name: Divine Rice
+    openings:
+    - grade: C
+      t1: Buy Encampment
+      t1_csos:
+      - Encampment
+      t2: Buy Credit for Tanuki
+      t2_csos:
+      - Credit
+      - Tanuki
+      type: 4/3|4/3
+    - grade: A
+      t1: Tanuki
+      t1_csos:
+      - Tanuki
+      t2: Encampment
+      t2_csos:
+      - Encampment
+      type: 5/2|2/5
+    points:
+    - 26
+    - 10
+    subtitle: Probably The Craziest Assortment Of Unique Cards So Far
+    turns:
+    - 14
+    - 13
+- cards:
+  - cardinal
+  - cavalry
+  - hostelry
+  - kiln
+  - mastermind
+  - paddock
+  - sanctuary
+  - sheepdog
+  - snowy_village
+  - village_green
+  expansions:
+  - Menagerie
+  idx: 75917003955581177857230594090770163098
+  landscapes:
+  - pursue
+  - toil
+  name: '2025-10-14'
+  notes:
+    crucial_cards:
+    - Kiln
+    - Mastermind
+    - Cavalry
+    - Sheepdog
+    ending:
+    - Mastermind
+    - Kiln
+    - Cavalry
+    find_the_win: true
+    ftw_difficulty: medium
+    ftw_timestamp: 1477
+    link: https://youtu.be/zJy9Cn2Kt0A
+    name: Mastering Kilns
+    openings:
+    - grade: B-
+      t1: Silver
+      t1_csos:
+      - Silver
+      t2: Sheepdog
+      t2_csos:
+      - Sheepdog
+      type: 4/3
+    - grade: B+
+      t1: Silver
+      t1_csos:
+      - Silver
+      t2: Buy Cavalry. If you hit $3, buy Sheepdog
+      t2_csos:
+      - Cavalry
+      type: 3/4
+    - grade: B-
+      t1: Buy Sanctuary, or Paddock
+      t1_csos:
+      - Sanctuary
+      t2: Pursue the t1 buy
+      t2_csos:
+      - Pursue
+      - Sanctuary
+      type: 5/2
+    - grade: C+
+      t1: Buy Toil and be sad :)
+      t1_csos:
+      - Toil
+      t2: Buy Sanctuary, or Paddock
+      t2_csos:
+      - Sanctuary
+      type: 2/5
+    points:
+    - 33
+    - 3
+    subtitle: Even Though AI Starts Well, It Overlooks Crazy Powerful G&P Stuff
+    turns:
+    - 13
+    - 12
+- cards:
   - altar
   - death_cart
   - feodum
@@ -15,26 +704,40 @@
   idx: 2662641861057992239077030545488357736
   name: '2025-10-13'
   notes:
-    crucial_cards: [Feodum, Market, Altar, Mine]
-    ending: [Duchy, Market, Feodum]
-    link: 'https://youtu.be/mrXRqKQbccU'
-    name: 'Silver Haze'
+    crucial_cards:
+    - Feodum
+    - Market
+    - Altar
+    - Mine
+    ending:
+    - Duchy
+    - Market
+    - Feodum
+    link: https://youtu.be/mrXRqKQbccU
+    name: Silver Haze
     openings:
-    - grade: 'C'
-      t1: 'Silver'
-      t1_csos: [Silver]
-      t2: 'Silver'
-      t2_csos: [Silver]
+    - grade: C
+      t1: Silver
+      t1_csos:
+      - Silver
+      t2: Silver
+      t2_csos:
+      - Silver
       type: 4/3|3/4
-    - grade: 'B'
-      t1: 'Mine'
-      t1_csos: [Mine]
-      t2: 'Skip turn, or buy Estate, trashing Hovel'
+    - grade: B
+      t1: Mine
+      t1_csos:
+      - Mine
+      t2: Skip turn, or buy Estate, trashing Hovel
       t2_csos: []
       type: 5/2|2/5
-    points: [66, 53]
-    subtitle: 'No Draw? No Problem To Slog Through With Feoda As Main Scoring'
-    turns: [23, 22]
+    points:
+    - 66
+    - 53
+    subtitle: No Draw? No Problem To Slog Through With Feoda As Main Scoring
+    turns:
+    - 23
+    - 22
   use_shelters: true
 - campaign_effects:
   - replace_copper
@@ -116,7 +819,7 @@
     - 10
   stamps_and_effects:
   - - replace_copper
-    - wizards
+    - conjurer
   - - with_horse
     - haven
 - cards:
@@ -152,7 +855,7 @@
     ending:
     - Province
     - Duchy
-    link: ''
+    link: https://youtu.be/SnrBMY6szGM
     name: Gearing and Plotting
     openings:
     - grade: B-
@@ -371,7 +1074,7 @@
     - Harbinger
     ending:
     - Province
-    link: ''
+    link: https://youtu.be/6gQDjIp5Gco
     name: Commanding Inventions
     points:
     - 39
@@ -5486,6 +6189,8 @@
     - Province
     - Tea House
     find_the_win: true
+    ftw_difficulty: medium
+    ftw_timestamp: 1460
     link: https://youtu.be/0cxlDXWw2sE
     name: Continuous Journey
     openings:
@@ -6022,6 +6727,8 @@
     ending:
     - Province
     find_the_win: true
+    ftw_difficulty: hard
+    ftw_timestamp: 1298
     link: https://youtu.be/9bxlW5IFlEM
     name: Bridging Up
     openings:
@@ -8687,6 +9394,9 @@
     - Farrier
     - Rats
     - Band Of Misfits
+    find_the_win: true
+    ftw_difficulty: medium
+    ftw_timestamp: 1068
     link: https://youtu.be/kzYX_969ESE
     name: Misfitting Rats
     points:
@@ -8860,9 +9570,11 @@
     - Treasurer
     - Bridge
     - Procession
+    find_the_win: true
+    ftw_difficulty: medium
+    ftw_timestamp: 1500
     link: https://youtu.be/LZv3UnpLs7o
     name: Bridging Research
-    find_the_win: true
     points:
     - 7
     - 1
@@ -8961,6 +9673,7 @@
   idx: 190698177808539998449463149861898290810
   name: '2025-02-05'
   notes:
+    bonus_game: true
     crucial_cards:
     - wharf
     - butcher
@@ -8974,7 +9687,6 @@
     - 33
     - 28
     subtitle: Playing A Fast Money Strat (+Bonus 2nd Try Off 3/4)
-    bonus_game: true
     turns:
     - 12
     - 11
@@ -16274,6 +16986,7 @@
   - Intrigue, 2E
   - Menagerie
   - Nocturne
+  ferryman_pile: village_green
   idx: 98146010034921853045697535639739440395
   landscapes:
   - dominate
