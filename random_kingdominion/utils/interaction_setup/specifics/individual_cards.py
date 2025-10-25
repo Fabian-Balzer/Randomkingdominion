@@ -2,11 +2,13 @@
 
 import pandas as pd
 
+from random_kingdominion.constants import ALL_CSOS, ROTATOR_DICT, SPLITPILE_DICT
+
 from ..constants import (
     ACTION_TREASURES,
+    ALL_THRONE_CARDS,
     ALL_THRONES,
     CAN_PLAY_TREASURES_IN_ACTION_PHASE,
-    CARD_IMPOSTORS,
     GATHERING_CARDS,
     TRAVELLER_BASE_CARDS,
 )
@@ -40,7 +42,7 @@ def _add_all_black_market_interactions(df: pd.DataFrame):
     add_interaction(
         "black_market",
         "experiment",
-        "If you play an Experiment that was bought from the Black Market deck, you get +2 Cards and +1 Action, but it does not return to a pile. This is because Experiment does not have a pile to return to.",
+        "If you play an Experiment that was bought from the Black Market deck, you get +2 Cards and +1 Action, but it does not return to a pile and stays in play/in your deck instead. This is because Experiment does not have a pile to return to.",
         df,
     )
     add_interaction(
@@ -286,19 +288,6 @@ def _add_all_experiment_interactions(df: pd.DataFrame):
     )
 
 
-def _add_garrison_interaction(other: str, df: pd.DataFrame):
-    token_target = other if other != "Inheritance" else "Estate"
-    rule = f"If you play a Garrison using {other}, you can't put tokens on Garrison because it's not in play, and you don't put tokens on {token_target} either. This means it won't draw any cards next turn and will be discarded this turn."
-    add_interaction("Garrison", other, rule, df)
-
-
-def _add_all_garrison_interactions(df: pd.DataFrame):
-    for impostor in CARD_IMPOSTORS:
-        if impostor == "Captain":
-            continue
-        _add_garrison_interaction(impostor, df)
-
-
 def _add_all_grand_market_interactions(df: pd.DataFrame):
     add_interaction(
         "Grand Market",
@@ -416,6 +405,16 @@ def _add_all_necromancer_interactions(df: pd.DataFrame):
     )
 
 
+def _add_all_outpost_interactions(df: pd.DataFrame):
+    for throne in ALL_THRONE_CARDS:
+        if throne == "Procession":
+            continue
+        rule = f"If you play an Outpost using {throne}, you will still only take one extra turn, but the {throne} will stay out with it anyways."
+        add_interaction("Outpost", throne, rule, df)
+    rule = "if you play Outpost and Voyage, then in Clean-up you don't discard either of them and only draw 3 cards. In between turns, you choose to take the Voyage turn next. (Outpost hasn't failed yet because another player might somehow be able to take an extra turn first.) In Clean-up of the Voyage turn, you discard Voyage but not Outpost and draw 5 cards. In between turns again, Outpost now fails - it is up next but would be your 3rd turn in a row. The next player takes their turn and during their Clean-up, you discard Outpost."
+    add_interaction("Outpost", "Voyage", rule, df)
+
+
 def _add_all_prince_interactions(df: pd.DataFrame):
     # PRINCE [see also WotHorse, WotButterfly]
     add_interaction(
@@ -488,7 +487,7 @@ def _add_all_patron_interactions(df: pd.DataFrame):
     add_interaction(
         "Patron",
         "Bad Omens",
-        "If you reveal the cards in your discard pile since you don't have any Coppers, you will get +1 Coffers for each Patron in there as long as it's during an Action phase.",
+        "If you reveal the cards in your discard pile when you don't have any Coppers, you will get +1 Coffers for each Patron in there as long as it's during an Action phase.",
         df,
     )
     add_interaction(
@@ -509,6 +508,23 @@ def _add_all_patron_interactions(df: pd.DataFrame):
         "If Patron is Fated, you will get +1 Coffers from each Patron as long as you shuffle during an Action phase, and put them onto the top or bottom of your deck.",
         df,
     )
+
+
+def _add_all_peasant_interactions(df: pd.DataFrame):
+    rule = f"You can never put any token on the Castles pile (even with Small or Opulent Castle on top) using Teacher because they are only a Victory Supply pile, not an Action supply pile."
+    add_interaction("Castles", "Peasant", rule, df)
+    splitpiles = (
+        list(SPLITPILE_DICT.keys()) + list(ROTATOR_DICT.keys()) + ["Ruins", "Knights"]
+    )
+    for pile in splitpiles:
+        rule = f"You may put any token on the {pile} pile using Teacher. This will affect all of its cards."
+        add_interaction(pile, "Peasant", rule, df)
+    rule = f"Once Divine Wind is triggered, any token is removed from its pile upon the pile's removal."
+    add_interaction("Peasant", "Divine Wind", rule, df)
+    rule = f"Even after buying Inheritance, you may not put any token on the Estate pile using Teacher as it's not natively an Action supply pile."
+    add_interaction("Inheritance", "Peasant", rule, df)
+    rule = f"Even if Enlightenment is active, you may not put any token on any Treasure pile using Teacher as it's not natively an Action supply pile."
+    add_interaction("Enlightenment", "Peasant", rule, df)
 
 
 def _add_all_procession_interactions(df: pd.DataFrame):
@@ -645,7 +661,6 @@ def add_all_individual_card_interactions(df: pd.DataFrame, verbose=False) -> Non
     _add_all_enchantress_interactions(df)
     _add_all_experiment_interactions(df)
     _add_all_farmland_interactions(df)
-    _add_all_garrison_interactions(df)
     _add_all_grand_market_interactions(df)
     _add_all_harbor_village_interactions(df)
     _add_all_highwayman_interactions(df)
@@ -654,7 +669,9 @@ def add_all_individual_card_interactions(df: pd.DataFrame, verbose=False) -> Non
     _add_all_market_square_interactions(df)
     _add_all_monkey_interactions(df)
     _add_all_necromancer_interactions(df)
+    _add_all_outpost_interactions(df)
     _add_all_patron_interactions(df)
+    _add_all_peasant_interactions(df)
     _add_all_prince_interactions(df)
     _add_all_procession_interactions(df)
     _add_all_possession_interactions(df)

@@ -3,9 +3,8 @@ import json
 import pandas as pd
 
 from ...constants import PATH_CARD_INFO, QUALITIES_AVAILABLE
-from ...kingdom import sanitize_cso_name
 from ...logger import LOGGER
-from ...utils.utils import ask_file_overwrite
+from ...utils import ask_file_overwrite, sanitize_cso_name
 
 
 def write_dict_to_json_nicely(

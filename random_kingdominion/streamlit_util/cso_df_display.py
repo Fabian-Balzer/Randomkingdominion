@@ -2,8 +2,8 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 
-from ..kingdom import sanitize_cso_name
-from .helpers import MAIN_DF
+from ..utils import sanitize_cso_name
+from .constants import ALL_CACHED_CSOS, ST_ICONS
 
 
 # Define the style function
@@ -19,13 +19,13 @@ def colorize(val):
     elif val == 3:
         color = "rgba(255, 100, 100, 0.6)"
     else:  # Assuming only 0-3 are the values
-        color = ""
+        color = "#B64AE8AB"
     return f"background-color: {color}"
 
 
 def get_stylized_df(df: pd.DataFrame) -> pd.DataFrame:
     styled_df = df.style.map(colorize)  # type: ignore
-    return styled_df
+    return styled_df  # type: ignore
 
 
 def get_short_qual_name(qual: str, long=False) -> str:
@@ -42,7 +42,7 @@ def get_col_config() -> dict[str, dict]:
             "width": 40,
             "help": col.replace("_", " ").title(),
         }
-        for col in MAIN_DF.columns
+        for col in ALL_CACHED_CSOS.columns
         if "quality" in col
     }
     col_config |= {
@@ -51,22 +51,32 @@ def get_col_config() -> dict[str, dict]:
             "width": 100,
             "help": col.replace("_", " ").title(),
         }
-        for col in MAIN_DF.columns
+        for col in ALL_CACHED_CSOS.columns
         if "types" in col
+    }
+    col_config["num_combos"] = {
+        "label": ST_ICONS["combos"],
+        "help": "Number of pairwise combos (or synergies, nombos, or counters) this CSO is involved in",
+        "width": 30,
+    }
+    col_config["num_interactions"] = {
+        "label": ST_ICONS["interactions"],
+        "help": "Number of special pairwise rules interactions this CSO is involved in",
+        "width": 30,
     }
     col_config["IsExtendedLandscape"] = {
         "label": "Landscape",
-        "width": 50,
+        "width": 40,
         "help": "Whether this CSO is an extended landscape (including Allies/Prophecies)",
     }
     col_config["IsOtherThing"] = {
         "label": "Other Thing",
-        "width": 50,
+        "width": 40,
         "help": "Whether this CSO is neither card nor landscape",
     }
     col_config["IsInSupply"] = {
         "label": "In Supply",
-        "width": 50,
+        "width": 40,
         "help": "Whether this CSO in the supply of a kingdom",
     }
     col_config["Extra Components"] = {
@@ -102,8 +112,8 @@ def get_column_order() -> list[str]:
     return [
         "Image",
         "Cost",
-        "Types",
         "Expansion",
+        "Types",
         "village_quality",
         "draw_quality",
         "thinning_quality",
@@ -118,6 +128,8 @@ def get_column_order() -> list[str]:
         "attack_types",
         "altvp_types",
         "Extra Components",
+        "num_combos",
+        "num_interactions",
         "Text",
         "IsExtendedLandscape",
         "IsOtherThing",

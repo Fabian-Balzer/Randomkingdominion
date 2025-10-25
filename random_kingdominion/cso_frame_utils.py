@@ -229,6 +229,8 @@ def get_sub_df_for_special_card(
         ]
         pool = _get_sub_df_for_cost(pool, ["$2", "$3", "$2+", "$3+"])
         pool = pool[listlike_contains(pool["Types"], "Action")]
+        # As per the 2025 Duration errata, Mouse can't pick Durations anymore
+        pool = pool[~listlike_contains(pool["Types"], "Duration")]  
         pool = pool[~np.isin(pool["Name"], banned_for_mouse)]
     elif special_card_to_pick_for == "riverboat":
         banned_for_riverboat = ["Royal Carriage", "Ferryman", "Distant Lands"]

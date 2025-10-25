@@ -268,6 +268,7 @@ coronet;crown;If Coronet's ability lets you play a Treasure in your Action phase
 coronet;crypt;If you play a Duration card using Coronet, you can still set it aside with Crypt that turn and will NOT get the duration effect off of both plays for the next turn (e.g. Coronet on Wharf, you can Crypt the Coronet away and will draw only 2 cards on the next turn). With Gear, this might even strand cards. Having played Coronet on a previous turn on a Duration card, you can still set it aside with Crypt. Future throned Duration effects (like with Hireling) will then not occur any more.
 coronet;enchantress;If Enchantress affects Coronet played in a Buy phase, its player gets +1 Card +1 Action, but has no way to use the +1 Action, since it is their Buy phase (but it might matter e.g. if the player buys Villa).
 coronet;enlightenment;If Enlightenment is active, Coronet's Action phase mode is overwritten by Enlightenment.
+coronet;outpost;If you play an Outpost using Coronet, you will still only take one extra turn, but the Coronet will stay out with it anyways.
 coronet;urchin;If you play an Urchin multiple times using Coronet, you may not trash this Urchin, since you need to play *another* attack card to be able to trash it.
 coronet;way_of_the_butterfly;When you play Coronet, you can still decide to play it as Way of the Butterfly, whether you are in your Action or in your Buy phase.
 coronet;way_of_the_camel;When you play Coronet, you can still decide to play it as Way of the Camel, whether you are in your Action or in your Buy phase.
@@ -314,6 +315,7 @@ crown;farmhands;If Farmhands's ability lets you play a Treasure in your Action p
 crown;fortune_hunter;If Fortune Hunter's ability lets you play a Treasure in your Action phase, and this Treasure is a Crown, then because it is your Action phase, Crown lets you play an Action card (and not a Treasure) from your hand twice.
 crown;herb_gatherer;If Herb Gatherer's ability lets you play a Treasure in your Action phase, and this Treasure is a Crown, then because it is your Action phase, Crown lets you play an Action card (and not a Treasure) from your hand twice.
 crown;mining_road;If Mining Road's ability lets you play a Treasure in your Action phase, and this Treasure is a Crown, then because it is your Action phase, Crown lets you play an Action card (and not a Treasure) from your hand twice.
+crown;outpost;If you play an Outpost using Crown, you will still only take one extra turn, but the Crown will stay out with it anyways.
 crown;panic;Even if you play Crown before Panic becomes active, if Panic becomes active later that turn, you need to return the Crown to its pile when you discard it from play.
 crown;specialist;If Specialist's ability lets you play a Treasure in your Action phase, and this Treasure is a Crown, then because it is your Action phase, Crown lets you play an Action card (and not a Treasure) from your hand twice.
 crown;spell_scroll;If Spell Scroll's ability lets you play a Treasure in your Action phase, and this Treasure is a Crown, then because it is your Action phase, Crown lets you play an Action card (and not a Treasure) from your hand twice.
@@ -346,6 +348,7 @@ crypt;tiara;If you play a Duration Treasure using Tiara, you can still set it as
 cultist;market_square;When trashing a Cultist with Market Square in hand, you get to decide which effect to resolve first, and can even react a Market Square you have just drawn from the on-trash draw ability of Cultist.
 cursed;panic;When you discard a Loot gained from cursed from play while Panic is active, you need to return it to the top of the Loot pile. When discarding multiple, you get to choose the order. Endless Chalice and Jewels are exceptions as they (bar e.g. Highwayman) never get discarded from play.
 cutthroat;panic;When you discard a Loot gained from cutthroat from play while Panic is active, you need to return it to the top of the Loot pile. When discarding multiple, you get to choose the order. Endless Chalice and Jewels are exceptions as they (bar e.g. Highwayman) never get discarded from play.
+daimyo;outpost;If you play an Outpost using Daimyo, you will still only take one extra turn, but the Daimyo will stay out with it anyways.
 daimyo;urchin;If you play an Urchin multiple times using Daimyo, you may not trash this Urchin, since you need to play *another* attack card to be able to trash it.
 dame_anna;invest;You can Invest in Knights, but this will never draw you cards (since your opponent will never gain a copy of them) and they might be stranded in Exile.
 dame_josephine;invest;You can Invest in Knights, but this will never draw you cards (since your opponent will never gain a copy of them) and they might be stranded in Exile.
@@ -411,6 +414,7 @@ diplomat;way_of_the_sheep;You can react your Diplomat's ability to an opponent p
 diplomat;way_of_the_squirrel;You can react your Diplomat's ability to an opponent playing an Attack card even if they play it as Way of the Squirrel.
 diplomat;way_of_the_turtle;You can react your Diplomat's ability to an opponent playing an Attack card even if they play it as Way of the Turtle.
 diplomat;way_of_the_worm;You can react your Diplomat's ability to an opponent playing an Attack card even if they play it as Way of the Worm.
+disciple;outpost;If you play an Outpost using Disciple, you will still only take one extra turn, but the Disciple will stay out with it anyways.
 disciple;urchin;If you play an Urchin multiple times using Disciple, you may not trash this Urchin, since you need to play *another* attack card to be able to trash it.
 divine_wind;encampment;Once Divine Wind has been triggered, when you play an Encampment that came from the initial supply, if you don't reveal a Gold or Plunder, then you set aside the Encampment but since it has no pile to return to, it stays set aside for the rest of the game (it still counts as one of your cards for scoring).
 divine_wind;experiment;Once Divine Wind has been triggered, when you play an Experiment that came from the initial supply, you get +2 Cards and +1 Action, but it does not return to a pile and stays in play. This is because Experiment does not have a pile to return to.
@@ -611,6 +615,7 @@ gatekeeper;transmogrify;If you gain a card and put it in your hand using Transmo
 gatekeeper;villa;If you return to your Action phase using Villa, you get to choose whether you first resolve Villa or Gatekeeper.
 gatekeeper;way_of_the_chameleon;If you play Gatekeeper using Way of the Chameleon, remember that Way of the Chameleon only affects stuff happening *this turn*, so on your next turn, you will get the normal bonus from Gatekeeper.
 gatekeeper;wish;If you gain a card and put it in your hand using Wish while under the Gatekeeper attack, you still need to Exile it if you don't have a copy of it in Exile.
+ghost;outpost;If you play an Outpost using Ghost, you will still only take one extra turn, but the Ghost will stay out with it anyways.
 ghost;patron;If you reveal a Patron by playing Ghost, you will not get +1 Coffers since that happens during a Night (and not Action) phase.
 ghost;urchin;If you play an Urchin multiple times using Ghost, you may not trash this Urchin, since you need to play *another* attack card to be able to trash it.
 ghost_town;graverobber;If you gain a Ghost Town using Graverobber, it is topdecked instead of being gained to your hand.
@@ -793,6 +798,7 @@ kiln;rush;When you gain a Kiln and play it immediately using Rush, you will not 
 kiln;spell_scroll;When you gain a Kiln and play it immediately using Spell Scroll, you will not be able to gain another Kiln due to its 'Next Time' wording. Instead, the next card you play will be subject to its effect.
 kind_emperor;sheepdog;If you gain a Sheepdog to your hand using Kind Emperor, you can immediately react to its own gain and play it.
 kind_emperor;siren;If you gain a Siren and put it in your hand using Kind Emperor, you still need to trash an Action from your hand in order to not trash the Siren.
+kings_court;outpost;If you play an Outpost using King's Court, you will still only take one extra turn, but the King's Court will stay out with it anyways.
 kings_court;urchin;If you play an Urchin multiple times using King's Court, you may not trash this Urchin, since you need to play *another* attack card to be able to trash it.
 knights;lost_arts;You may put the + Action token on the Knights pile using Lost Arts. This will affect all of its cards.
 knights;pathfinding;You may put the + Card token on the Knights pile using Pathfinding. This will affect all of its cards.
@@ -853,6 +859,7 @@ market_square;overgrown_estate;When trashing a Overgrown Estate with Market Squa
 market_square;rats;When trashing a Rats with Market Square in hand, you get to decide which effect to resolve first, and can even react a Market Square you have just drawn from the on-trash draw ability of Rats.
 market_square;trail;When trashing a Trail with Market Square in hand, you get to decide which effect to resolve first, and can even react a Market Square you have just drawn from the on-trash draw ability of Trail.
 marquis;way_of_the_chameleon;If you play Marquis using Way of the Chameleon, getting +$ instead of drawing cards, Marquis's condition will still be checked afterwards.
+mastermind;outpost;If you play an Outpost using Mastermind, you will still only take one extra turn, but the Mastermind will stay out with it anyways.
 mastermind;samurai;If you play Samurai at the start of your turn using Mastermind, you will get +$3 immediately.
 mastermind;urchin;If you play an Urchin multiple times using Mastermind, you may not trash this Urchin, since you need to play *another* attack card to be able to trash it.
 merchant;way_of_the_chameleon;If you play Merchant using Way of the Chameleon, you will first get +$1, +1 Action. Then, when you later play a Silver for the first time this turn, you draw a card.
@@ -885,6 +892,11 @@ opulent_castle;populate;Buying Populate will never gain Opulent Castle, even if 
 orb;panic;When you discard Orb from play while Panic is active, you return it to the top of the Loot pile. When discarding multiple, you get to choose the order.
 orb;voyage;Playing a card from your discard pile using Orb does not count as playing it from hand as far as Voyage turns are concerned.
 orb;warlord;Playing an Action card using Orb from your discard pile does not count as playing it from hand as far as Warlord's attack is concerned.
+outpost;procession;If you play an Outpost using Procession, you will still only take one extra turn, but the Procession will stay out with it anyways.
+outpost;royal_carriage;If you play an Outpost using Royal Carriage, you will still only take one extra turn, but the Royal Carriage will stay out with it anyways.
+outpost;scepter;If you play an Outpost using Scepter, you will still only take one extra turn, but the Scepter will stay out with it anyways.
+outpost;specialist;If you play an Outpost using Specialist, you will still only take one extra turn, but the Specialist will stay out with it anyways.
+outpost;throne_room;If you play an Outpost using Throne Room, you will still only take one extra turn, but the Throne Room will stay out with it anyways.
 page;pathfinding;Putting the + Card token on the Page pile using Pathfinding will affect only Page, not any card you exchange it for.
 page;plan;Putting the trashing token on the Page pile using Plan will affect only Page, not any card you exchange it for.
 page;seaway;Putting the + Buy token on the Page pile using Seaway will affect only Page, not any card you exchange it for.

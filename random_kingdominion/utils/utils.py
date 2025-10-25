@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+from typing import Collection
 
 import pandas as pd
 import yaml
@@ -11,10 +12,23 @@ from ..constants import (
     RENEWED_EXPANSIONS,
     SPECIAL_QUAL_TYPES_AVAILABLE,
 )
+from .kingdom_helper_funcs import sanitize_cso_list
+
+
+def filter_combo_or_inter_df_for_csos(
+    df: pd.DataFrame, csos: Collection[str], require_all=False
+) -> pd.DataFrame:
+    """Filter the interaction dataframe for interactions involving any of the given CSOs."""
+    csos = sanitize_cso_list(csos)
+    if not require_all:
+        mask = df["CSO1"].isin(csos) | df["CSO2"].isin(csos)
+        return df[mask]
+    mask = df["CSO1"].isin(csos) & df["CSO2"].isin(csos)
+    return df[mask]
 
 
 def get_cso_name(cso_key: str, default_val: str = "NOT FOUND") -> str:
-    """Savely return the name of the card with the given key."""
+    """Savely return the name of the cso with the given key."""
     return ALL_CSOS["Name"].to_dict().get(cso_key, default_val)
 
 
@@ -132,10 +146,10 @@ def write_dataframe_to_file(
     if not overwrite and not ask_file_overwrite(fpath):
         return
     elif overwrite and os.path.exists(fpath):
-        print(f"Overwriting '{fpath}'")
+        print(f"Overwriting '{fpath}' with {len(df)} rows.")
     df.to_csv(fpath, sep=";", index=False)
     if verbose:
-        print(f"Successfully wrote the file '{fpath}'")
+        print(f"Successfully wrote the file '{fpath}' with {len(df)} rows.")
 
 
 def override(func):

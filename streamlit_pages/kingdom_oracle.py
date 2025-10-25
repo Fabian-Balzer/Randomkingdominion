@@ -2,8 +2,10 @@ from typing import Literal
 
 import numpy as np
 import pandas as pd
-import random_kingdominion as rk  # type: ignore
 import streamlit as st
+
+import random_kingdominion as rk
+from random_kingdominion.streamlit_util.constants import ST_ICONS  # type: ignore
 
 rk.build_page_header(
     "Dominion Kingdom Oracle",
@@ -41,21 +43,28 @@ def load_existing_kingdoms(
     elif selection_type == "Fabi's Recommendations":
         manager.load_fabi_recsets_kingdoms()
     df = manager.dataframe_repr
-
+    df = rk.add_combo_inter_info_for_kingdoms(df)
+    df["has_video_link"] = df["notes"].apply(
+        lambda x: isinstance(x, dict) and x.get("link", "") != ""
+    )
     # Register a name that includes the expansions
     exp_repr = df["expansions"].apply(
         lambda x: ", ".join(x) if len(x) < 4 else f"{len(x)} expansions"
     )
+    sani_wr = ""
     if selection_type == "TGG Dailies":
         sani_wr = df["winrate"].apply(
             lambda x: f" [WR: {x*100:.1f} %]" if x != "" else " [WR: N/A]"
         )
-        extr_name = df["notes"].apply(
-            lambda x: " - " + x.get("name", "") if isinstance(x, dict) else ""
+    vid_icon = ST_ICONS["video"]
+    extr_name = df["notes"].apply(
+        lambda x: (
+            " - " + (vid_icon if x.get("link", "") != "" else "") + x.get("name", "")
+            if isinstance(x, dict)
+            else ""
         )
-        df["name_with_exps"] = df["name"] + sani_wr + extr_name + " (" + exp_repr + ")"
-    else:
-        df["name_with_exps"] = df["name"] + " (" + exp_repr + ")"
+    )
+    df["name_with_exps"] = df["name"] + sani_wr + extr_name + " (" + exp_repr + ")"
     df["csos"] = df.apply(lambda x: x["cards"] + x["landscapes"], axis=1)
     return df
 
@@ -68,6 +77,7 @@ def _build_kingdom_select_box(
     sel = st.selectbox(
         f"Choose from {len(df)} Kingdoms{selbox_extra}",
         [""] + df["name_with_exps"].tolist(),
+        key="kingdom_select_existing",
     )
     old_select = st.session_state.get("old_selected_kingdom", "")
     if sel == old_select:
@@ -117,13 +127,13 @@ def _get_short_info(selected_stuff: str) -> str:
     if selected_stuff == "Recommended":
         return "The kingdoms recommended by DXV himself, found in the rulebooks of the Dominion expansions, and mixing two expansions at max. Shoutout to Kieran Millar's [Extra Recommended Kingdoms page](https://kieranmillar.github.io/extra-recommended-sets/) where these these kingdoms are conveniently provided."
     elif selected_stuff == "TGG Dailies":
-        return "The TGG Dailies are kingdoms provided each day in the Temple Gates Games Client, where you compete against the Hard AI.\\\nShoutout to the amazing people on the TGG discord who helped me collect these (most notably ``probably-lost``, ``igorbone`` and ``Diesel Pioneer``)."
+        return "The TGG Dailies are kingdoms provided each day in the Temple Gates Games (TGG) (Steam/mobile) client, where you compete against the Hard AI.\\\nShoutout to the amazing people on the TGG discord who helped me collect these (most notably ``probably-lost``, ``igorbone`` and ``Diesel Pioneer``).\\\nThese will only contain the kingdoms up to the point when I've last updated this website."
     elif selected_stuff == "TGG Campaigns":
         return "The kingdoms from the curated campaigns of the Dominion expansions available on the Temple Gates Games (Steam/mobile) client. These each consist of a series of 10 kingdoms that can have surprising effects that aren't available elsewhere - have fun exploring them!"
     elif selected_stuff == "Fabi's Recommendations":
-        return "My personal recommendations of kingdoms I randomly stumbled upon, played in the TGG client against the Hard AI, and deemed to be interesting.\\\nHave fun with them! They usually contain a large amount of expansions, so they might be more suited for online play."
+        return "My personal recommendations of kingdoms I randomly stumbled upon, played in the TGG client against the Hard AI, and deemed to be interesting.\\\nHave fun with those!\\\nThey usually contain a large amount of expansions, so they might be more suitable for online play than in-person setup, but go for whatever you prefer!"
     elif selected_stuff == "Reddit's KOTW":
-        return "The Kingdom of the Week (KOTW) is a weekly event on the Dominion subreddit, where a curated kingdom is covered. These usually offer especially interesting interactions.\\\nCheck out the [Dominion subreddit](https://www.reddit.com/r/dominion/) for more information."
+        return "The Kingdom of the Week (KOTW) is a weekly event on the Dominion subreddit, where a curated kingdom is covered. These usually offer especially interesting interactions.\\\nCheck out the [Dominion subreddit](https://www.reddit.com/r/dominion/) for more information; the selection available here might not be fully up to date."
     else:
         return "Unknown"
 
@@ -148,10 +158,12 @@ def _build_exps_filter_widget(df: pd.DataFrame) -> pd.DataFrame:
             "selected only" if selected_exps_only else "contains at least those"
         )
         placeholder = f"Choose expansions ({any_all} required, {limit_or_not})"
+        default_exps = st.session_state.get("kingdom_select_exp_filters", [])
+        default_exps = [e for e in default_exps if e in available_exps]
         exp_filters = st.multiselect(
             "Allowed expansions",
             available_exps,
-            default=st.session_state.get("kingdom_select_exp_filters", []),
+            default=default_exps,
             key="kingdom_select_exp_filters",
             placeholder=placeholder + " to filter for",
             help="If no expansions are provided, no filters are applied.",
@@ -190,10 +202,13 @@ def _build_csos_filter_widget(df: pd.DataFrame) -> pd.DataFrame:
             if require_all_csos
             else "Choose CSOs (any required)"
         )
+        # Need to filter if somehow an inaccessible CSO ends up in the filters
+        default_vals = st.session_state.get("kingdom_select_cso_filters", [])
+        default_vals = [v for v in default_vals if v in available_csos]
         cso_filters = st.multiselect(
             "Allowed CSOs",
             available_csos,
-            default=st.session_state.get("kingdom_select_cso_filters", []),
+            default=default_vals,
             key="kingdom_select_cso_filters",
             placeholder=placeholder + " to filter for",
             help="If no CSOs are provided, no filters are applied.",
@@ -209,11 +224,52 @@ def _build_csos_filter_widget(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
+def _build_combo_inter_filter_widget(df: pd.DataFrame) -> pd.DataFrame:
+    selected_stuff = st.session_state.get("kingdom_select_group", "Recommended")
+    vid_available = selected_stuff in ["TGG Dailies", "TGG Campaigns"]
+    col_spec = [0.6, 0.2, 0.2] if vid_available else [0.67, 0.33]
+    cols = st.columns(col_spec)
+    combo_req = cols[0].segmented_control(
+        options=rk.VALID_COMBO_TYPES,
+        selection_mode="multi",
+        label=f"{ST_ICONS['combos']}Synergy types to require",
+        help="Which synergy types to filter for (if none selected, no filtering is applied).",
+        key="kingdom_select_combos_to_require",
+        width="stretch",
+    )
+    inter_req = cols[1].radio(
+        label=f"{ST_ICONS['interactions']}Quirky rules interactions",
+        options=["No filter", "At least one", "Exclude"],
+        index=0,
+        horizontal=False,
+        help="Decide how to filter for quirky rules interactions.",
+        key="kingdom_select_inters_to_filter",
+    )
+    if vid_available:
+        video_req = cols[2].checkbox(
+            f"{ST_ICONS['video']}Require playthrough link",
+            help="If checked, only kingdoms with a playthrough by me will be kept.",
+            key="kingdom_select_require_all_videos",
+        )
+        if video_req:
+            df = df[df["has_video_link"]]
+
+    if inter_req == "At least one":
+        df = df[df["num_interactions"] > 0]
+    elif inter_req == "Exclude":
+        df = df[df["num_interactions"] == 0]
+
+    if len(combo_req) > 0:
+        df = df[rk.listlike_contains_any(df["combo_types"], combo_req)]
+    return df
+
+
 def _build_random_selection_button(df: pd.DataFrame, name_extra: str = ""):
     if st.button(
         "Random\nSelection",
         key="kingdom_select_random_selection",
         use_container_width=True,
+        icon="🎲",
         type="primary",
         help="Select a random kingdom from those currently eligible.",
     ):
@@ -268,6 +324,45 @@ def _build_tgg_winrate_filter_widget(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
+def _build_filter_widget(
+    df: pd.DataFrame,
+    selection_type: _SelectionType,
+) -> pd.DataFrame:
+    """Build filtering widgets for the given selection type and return
+    the filtered DataFrame."""
+    filt_str = ""
+    num_initial = len(df)
+    with st.expander("Filtering options", expanded=True, icon="🔍"):
+        tab_spec = [
+            f"{ST_ICONS['cso_overview']}By CSOs",
+            f"{ST_ICONS['expansions']}By Expansions",
+            f"{ST_ICONS['combos']}{ST_ICONS['interactions']}By Combos/Interactions and more",
+        ]
+        if selection_type == "TGG Dailies":
+            tab_spec.insert(2, f"{ST_ICONS['winrate']}By Winrate")
+        tabs = st.tabs(tab_spec)
+        with tabs[0]:
+            df = _build_csos_filter_widget(df)
+        if num_initial > (num_after_first := len(df)):
+            filt_str += ST_ICONS["cso_overview"]
+        with tabs[1]:
+            df = _build_exps_filter_widget(df)
+        if num_after_first > (num_after_second := len(df)):
+            filt_str += ST_ICONS["expansions"]
+        combo_tab_index = 2 if selection_type != "TGG Dailies" else 3
+        with tabs[combo_tab_index]:
+            df = _build_combo_inter_filter_widget(df)
+        if num_after_second > (num_after_third := len(df)):
+            filt_str += ST_ICONS["combos"]
+        if selection_type == "TGG Dailies":
+            with tabs[2]:
+                df = _build_tgg_winrate_filter_widget(df)
+            if num_after_third > (num_after_fourth := len(df)):
+                filt_str += ST_ICONS["winrate"]
+    st.session_state["kingdom_select_filter_str"] = filt_str
+    return df
+
+
 def build_existing_kingdom_select(
     selection_type: _SelectionType,
 ):
@@ -275,12 +370,7 @@ def build_existing_kingdom_select(
     provided via the dataframe.
     """
     df = load_existing_kingdoms(selection_type)
-    with st.container(border=True):
-        st.write("Filtering options")
-        df = _build_exps_filter_widget(df)
-        df = _build_csos_filter_widget(df)
-        if selection_type == "TGG Dailies":
-            df = _build_tgg_winrate_filter_widget(df)
+    df = _build_filter_widget(df, selection_type)
 
     if len(df) == 0:
         st.warning("No kingdoms available for your selection.")
@@ -289,11 +379,12 @@ def build_existing_kingdom_select(
     extra_str = (
         selection_type[:12] + "..." if len(selection_type) > 15 else selection_type
     )
-    selbox_extra = (
-        " (filtered)" if len(df) < len(load_existing_kingdoms(selection_type)) else ""
-    )
+    filt_str = st.session_state.get("kingdom_select_filter_str", "")
+    selbox_extra = f" (FILTERED{filt_str})" if filt_str else ""
     if selection_type == "TGG Dailies":
-        selbox_extra += " [with winrate if available, plus playthrough name]"
+        selbox_extra += (
+            f" [with winrate if available, plus {ST_ICONS['video']} name if available]"
+        )
     cols = st.columns([0.75, 0.15, 0.1])
     with cols[0]:
         _build_kingdom_select_box(df, extra_str, selbox_extra)
@@ -303,9 +394,9 @@ def build_existing_kingdom_select(
         _build_reference_widget()
 
 
-with st.expander("Select existing kingdom to visualize", expanded=False):
-    selection = st.radio(
-        "Which set of kingdoms?",
+with st.container(border=True):
+    selection = st.segmented_control(
+        "Set of existing kingdoms to visualize:",
         [
             "Recommended",
             "TGG Dailies",
@@ -313,15 +404,16 @@ with st.expander("Select existing kingdom to visualize", expanded=False):
             "Reddit's KOTW",
             "Fabi's Recommendations",
         ],
-        index=0,
-        horizontal=True,
+        default=st.session_state.get("kingdom_select_group", None),
         key="kingdom_select_group",
+        width="stretch",
     )
     if selection is not None:
-        build_existing_kingdom_select(selection)
-        st.info(_get_short_info(selection))
+        with st.expander("More info on these kingdoms", expanded=False, icon="ℹ️"):
+            st.info(_get_short_info(selection))
+        build_existing_kingdom_select(selection)  # type: ignore
 
-cols = st.columns([0.7, 0.2, 0.1])
+cols = st.columns([0.8, 0.2])
 with cols[0]:
     kingdom = rk.build_kingdom_text_input()
 
@@ -334,31 +426,33 @@ def navigate_to_randomizer():
 
 with cols[1]:
     if st.button(
-        "To Randomizer\\\n🔀",
+        "To Randomizer",
+        icon=rk.ST_ICONS["randomizer"],
         help="Start randomization from this selection",
         use_container_width=True,
         disabled=kingdom.is_empty,
     ):
         navigate_to_randomizer()
-with cols[2]:
-    if not kingdom.is_empty:
-        rk.build_clipboard_button("kingdom_input")
 
 rk.build_kingdom_input_warning(kingdom, ref_to_randomizer=True)
 if kingdom.is_empty:
     st.write("No kingdom selected")
 else:
-    rk.display_kingdom(kingdom, is_randomizer_view=False)
+    with st.container(border=True):
+        rk.display_kingdom(kingdom, is_randomizer_view=False)
+
+    with st.sidebar:
+        rk.display_sidebar_kingdom_info(kingdom, loc="oracle")
 
 if (link := kingdom.unpacked_notes.get("link", "")) != "":
-    with st.expander("Playthrough", expanded=True):
+    with st.expander("Playthrough", expanded=True, icon=ST_ICONS["video"]):
         st.write("Check out a video where I explain and play this kingdom!")
-        _, container, _ = st.columns([25, 50, 25])
+        _, container, _ = st.columns([20, 60, 20])
         with container:
             with st.container(border=True):
                 st.video(link)
 
 with st.expander("Disclaimer", expanded=False):
     st.warning(
-        "Be aware that this is a very superficial view of the kingdom and does not take into account special card interactions, and that some of my takes on individual cards' qualities might seem surprising. Check out the about page for more information on those."  # type: ignore
+        "Be aware that this is a very superficial view of the kingdom and does not take into account special card interactions, and that some of my takes on individual cards' qualities might seem surprising. Check out the about page for more information on those."
     )

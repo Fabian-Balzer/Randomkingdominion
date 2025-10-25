@@ -43,59 +43,41 @@ pg = st.navigation(
                 "streamlit_pages/randomizer.py",
                 title="Dominion Kingdom Randomizer",
                 url_path="randomizer",
-                icon="🔀",
+                icon=rk.ST_ICONS["randomizer"],
             ),
             st.Page(
                 "streamlit_pages/kingdom_oracle.py",
                 title="Kingdom Oracle",
                 url_path="oracle",
-                icon="💥",
+                icon=rk.ST_ICONS["oracle"],
             ),
             st.Page(
                 "streamlit_pages/database_display.py",
                 title="CSO Database",
                 url_path="cso_overview",
-                icon="📂",
+                icon=rk.ST_ICONS["cso_overview"],
             ),
             st.Page(
                 "streamlit_pages/interactions.py",
                 title="CSO Interactions",
                 url_path="interactions",
-                icon="↔️",
+                icon=rk.ST_ICONS["interactions"],
+            ),
+            st.Page(
+                "streamlit_pages/combos.py",
+                title="CSO Combos",
+                url_path="combos",
+                icon=rk.ST_ICONS["combos"],
             ),
             st.Page(
                 "streamlit_pages/about.py",
                 title="About this page",
                 url_path="about",
-                icon="❓",
+                icon=rk.ST_ICONS["about"],
             ),
         ],
-        "Card/Landscape and Kingdom Qualities": quality_pages,
-    }
+        f"{rk.ST_ICONS['cso_qualities']}CSO Quality Descriptions": quality_pages,
+    },
+    expanded=False,
 )
 pg.run()
-
-rk.build_cookie_options()
-
-# %%
-
-# import sys
-
-# import PyQt5.QtWidgets as QW
-
-# from random_kingdominion.widgets.main_ui import UIMainWindow
-
-# def start_program():
-#     """A function to include everything needed to start the application"""
-#     # Check whether there is already a running QApplication (e.g. if running
-#     # from an IDE). This setup prevents crashes for the next run:
-#     qapp = QW.QApplication.instance()
-#     if not qapp:
-#         qapp = QW.QApplication(sys.argv)
-#     app = UIMainWindow()  # creating the instance
-#     app.show()
-#     qapp.exec_()  # Start the Qt event loop
-
-
-# if __name__ == "__main__":
-#     start_program()

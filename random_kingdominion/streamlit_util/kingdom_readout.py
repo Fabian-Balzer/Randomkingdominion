@@ -16,14 +16,15 @@ def build_kingdom_text_input(
     config = load_config()
     if description_text is None:
         description_text = "Enter a (partial) kingdom in the DomBot-typical-csv Format 'card1, card2, ..., cardN'. You may specify the bane card with 'Young Witch: card' or 'Young Witch(Card)'."
-    cols = st.columns([0.9, 0.1])
+    cols = st.columns([0.85, 0.15])
     with cols[1]:
-        st.text("\n")
         if st.button(
-            "",
+            "Clear\n",
             "clearinput",
             help="Clear input",
+            type="primary",
             icon="❌",
+            use_container_width=True,
             disabled=st.session_state.get(key, "") == "",
         ):
             _clear_text(key)
@@ -42,6 +43,8 @@ def build_kingdom_text_input(
             if not kingdom.is_valid:
                 st.session_state["kingdom_name"] = kingdom.name
                 st.session_state["kingdom_notes"] = kingdom.notes
+            else:
+                st.session_state["kingdom_notes"] = ""
         else:
             kingdom = Kingdom([])
             st.session_state["kingdom_name"] = ""
@@ -54,10 +57,22 @@ def build_kingdom_text_input(
     return kingdom
 
 
+def _get_invalidity_issues_text(k: Kingdom) -> str:
+    warn_text = k.notes
+    if not k.is_valid:
+        warn_text += "\nThis kingdom is invalid for the following reasons:\n- "
+        warn_text += "\n- ".join(
+            [f"{r.name}: {r.get_description()}" for r in k.invalidity_reasons]
+        )
+    return warn_text
+
+
 def build_kingdom_input_warning(k: Kingdom, ref_to_randomizer=False):
     """Build a warning if the kingdom input is invalid."""
 
-    if (k.notes != "" and not k.notes.startswith("{") or not k.is_valid) and ref_to_randomizer:
+    if (
+        k.notes != "" and not k.notes.startswith("{") or not k.is_valid
+    ) and ref_to_randomizer:
         amount_wrong = k.notes.count(", ") + 1 if k.notes != "" else 0
         if not k.is_valid:
             amount_wrong += len(k.invalidity_reasons)
@@ -65,15 +80,14 @@ def build_kingdom_input_warning(k: Kingdom, ref_to_randomizer=False):
         # we should try to use it.
         # Currently, whenever the number in the label changes, the expander is reset to its
         # default state, which is pretty annoying.
-        expander_label = f"Incomplete kingdom input ({amount_wrong} issues)"
+        pl_suffix = "s" if amount_wrong > 1 else ""
+        expander_label = f"Incomplete kingdom input ({amount_wrong} issue{pl_suffix})"
         with st.expander(expander_label, expanded=True):
-            warn_text = k.notes
-            if not k.is_valid:
-                warn_text += "\nThis kingdom is invalid for the following reasons:\n- "
-                warn_text += "\n- ".join([f"{r.name}: {r.get_description()}" for r in k.invalidity_reasons])
-            st.warning(warn_text)
-            
-            st.info("Feel free to follow the link to the randomizer to complete the kingdom.")
+            st.warning(_get_invalidity_issues_text(k))
+            if len(k) > 0:
+                st.info(
+                    "Feel free to follow the link to the randomizer to complete the kingdom."
+                )
     elif k.notes != "" and not k.notes.startswith("{"):
         notes = k.notes.replace("\n", "<br>").removesuffix("<br>")
         red_background_message = f"""
@@ -82,3 +96,18 @@ def build_kingdom_input_warning(k: Kingdom, ref_to_randomizer=False):
         </div>
         """
         st.write(red_background_message, unsafe_allow_html=True)
+
+
+def build_incomplete_randomization_warning(k: Kingdom):
+    """Build a warning if the current kingdom in the randomizer is incomplete."""
+    if k.is_empty:
+        st.warning(
+            "**You have managed to randomize an empty kingdom! Please adjust the randomization options to allow for a valid kingdom.**"
+        )
+    elif not k.is_valid:
+        amount_wrong = len(k.invalidity_reasons)
+        pl_suffix = "s" if amount_wrong > 1 else ""
+        expander_label = f"Randomization failed ({amount_wrong} issue{pl_suffix})"
+        with st.expander(expander_label, expanded=True):
+            pretext = "**The Randomization was only partially successful. Maybe the constraints were too strict. Try adjusting/loosening them below.\n\n"
+            st.warning(pretext + _get_invalidity_issues_text(k) + "**")

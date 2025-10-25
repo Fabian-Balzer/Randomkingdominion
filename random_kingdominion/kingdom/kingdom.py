@@ -13,14 +13,64 @@ from uuid import uuid4
 import numpy as np
 import pandas as pd
 
-from ..constants import (ALL_CSOS, ALL_INTERACTIONS, QUALITIES_AVAILABLE,
-                         RENEWED_EXPANSIONS)
+from ..constants import (
+    ALL_COMBOS,
+    ALL_CSOS,
+    ALL_INTERACTIONS,
+    QUALITIES_AVAILABLE,
+    RENEWED_EXPANSIONS,
+)
 from ..logger import LOGGER
-from ..utils.utils import copy_to_clipboard, get_cso_name
+from ..utils import (
+    copy_to_clipboard,
+    get_cso_name,
+    get_total_quality,
+    sanitize_cso_list,
+    sanitize_cso_name,
+    sort_kingdom,
+)
 from .invalidity_stuff import InvalidityReason
-from .kingdom_helper_funcs import (_dict_factory_func, _get_total_quality,
-                                   sanitize_cso_list, sanitize_cso_name,
-                                   sort_kingdom)
+
+
+def _is_value_not_empty_or_true(val: Any) -> bool:
+    """Check whether the given value is not empty, or true if it's a boolean."""
+    if isinstance(val, bool):
+        return val  # If it's false, we want
+    if val is None:
+        return False
+    if isinstance(val, (str, list)):
+        return len(val) != 0
+    return True
+
+
+def _dict_factory_func(attrs: list[tuple[str, str]], ignore_keys: set) -> dict:
+    """Custom dictionary factory function to make sure no unnecessary empty
+    values are saved.
+    This includes all booleans since they are false by default.
+    """
+    return {
+        k: v
+        for (k, v) in attrs
+        if _is_value_not_empty_or_true(v) and k not in ignore_keys
+    }
+
+
+def _handle_replacements(full_list: list[str]) -> list[str]:
+    """Handle the replace_copper and replace_estate entries in the list as they can potentially appear multiple times and should not be handled as duplicates."""
+    specials = ["replace_copper", "replace_estate", "add_card"]
+    if not any([s in str(full_list) for s in specials]):
+        return full_list
+    full_list = [entry.replace("start_", "") for entry in full_list]
+    for thing in specials:
+        if thing in str(full_list):
+            replacements = []
+            for entry in full_list:
+                # This also handles start_replace_estate_from_pile
+                if thing in entry:
+                    replacements.append(entry.split("(")[1].strip(")"))
+            full_list = [entry for entry in full_list if thing not in entry]
+            full_list.append(f"{thing}(" + ", ".join(replacements) + ")")
+    return full_list
 
 
 def remove_deep_nested_parentheses(s: str) -> str:
@@ -45,25 +95,6 @@ def remove_deep_nested_parentheses(s: str) -> str:
                 result.append(char)
 
     return "".join(result)
-
-
-def _handle_replacements(full_list: list[str]) -> list[str]:
-    """Handle the replace_copper and replace_estate entries in the list as they can potentially appear multiple times and should not be handled as duplicates."""
-    specials = ["replace_copper", "replace_estate", "add_card"]
-    if not any([s in str(full_list) for s in specials]):
-        return full_list
-    full_list = [entry.replace("start_", "") for entry in full_list]
-    for thing in specials:
-        if thing in str(full_list):
-            replacements = []
-            for entry in full_list:
-                # This also handles start_replace_estate_from_pile
-                if thing in entry:
-                    replacements.append(entry.split("(")[1].strip(")"))
-            full_list = [entry for entry in full_list if thing not in entry]
-            full_list.append(f"{thing}(" + ", ".join(replacements) + ")")
-    return full_list
-
 
 
 @dataclass(order=True)
@@ -101,6 +132,9 @@ class Kingdom:
             Which card is the target for the Approaching Army pile (optional)
         druid_boons : list[str], by default []
             An array of boons, 3 max (optional)
+        divine_wind_cso_str : str, by default ""
+            A string describing the csos that replace the original kingdom when
+            Divine Wind is triggered (optional)
         traits : list[tuple[str, str]], by default []
             An array containing a comma separated list with pairs of cards,
             a trait first then the card it applies to next,
@@ -129,12 +163,15 @@ class Kingdom:
     mouse_card: str = ""
     army_pile: str = ""
     druid_boons: list[str] = field(default_factory=list)
+    divine_wind_cso_str: str = ""
     traits: list[list[str]] = field(default_factory=list)
     stamps_and_effects: list[list[str]] = field(default_factory=list)
 
     name: str = ""
     notes: str = field(default="", compare=False)
-    invalidity_reasons: list[InvalidityReason] = field(default_factory=list, compare=False)
+    invalidity_reasons: list[InvalidityReason] = field(
+        default_factory=list, compare=False
+    )
     idx: int = field(default_factory=lambda: int(uuid4()), compare=False)
 
     # TODO: Find a more lightweight way to do this as it causes load times > 1 sec for > 100 kingdoms
@@ -221,6 +258,9 @@ class Kingdom:
             if "druid" in special_dict
             else []
         )
+        divine_wind_cso_str = (
+            special_dict["divine_wind"] if "divine_wind" in special_dict else ""
+        )
         bane_pile = (
             sanitize_cso_name(special_dict["young_witch"], True)
             if "young_witch" in special_dict
@@ -260,23 +300,28 @@ class Kingdom:
             )
         # Add Stamps plus their targets (if not in there already):
         stamps_and_effects = []
-        for stamp, _ in campaign_effects.iterrows():
-            raw_target = special_dict[stamp]  # type: ignore
+        for campaign_effect, _ in campaign_effects.iterrows():
+            raw_target = special_dict[campaign_effect]  # type: ignore
             if raw_target == "":
                 continue
+            # We don't want to replace a starting conjurer with Wizards
+            replace_parent_pile = not str(campaign_effect).startswith("replace")
             if "," in raw_target:
-                targets = [sanitize_cso_name(t, True) for t in raw_target.split(",")]
+                targets = [
+                    sanitize_cso_name(t, replace_parent_pile)
+                    for t in raw_target.split(",")
+                ]
                 good_targets = [t for t in targets if t in ALL_CSOS.index]
                 bad_targets = [t for t in targets if t not in good_targets]
                 for target in bad_targets:
                     unrecognized_csos.append(target)
-                stamps_and_effects.append([stamp, ", ".join(good_targets)])
+                stamps_and_effects.append([campaign_effect, ", ".join(good_targets)])
             else:
-                target: str = sanitize_cso_name(raw_target, True)
+                target: str = sanitize_cso_name(raw_target, replace_parent_pile)
                 if target not in ALL_CSOS.index:
                     unrecognized_csos.append(target)
                 else:
-                    stamps_and_effects.append([stamp, target])
+                    stamps_and_effects.append([campaign_effect, target])
         if len(stamps_and_effects) > 0:
             new_targets = ALL_CSOS.loc[
                 [
@@ -323,6 +368,7 @@ class Kingdom:
             mouse_card=mouse_card,
             druid_boons=druid_boons,
             army_pile=army_pile,
+            divine_wind_cso_str=divine_wind_cso_str,
             traits=traits,
             notes=note_str,
             name=name,
@@ -383,7 +429,7 @@ class Kingdom:
                 if "Action" in c["Types"] or "Treasure" in c["Types"]:
                     starting_deck.append(card)
         return starting_deck
-    
+
     @property
     def buy_availability(self) -> Literal["Nothing", "Buys*", "Buys"]:
         """Check whether the kingdom has any cards that provide +buy."""
@@ -393,6 +439,12 @@ class Kingdom:
         elif "Buys*" in g_qualities:
             return "Buys*"
         return "Nothing"
+
+    @property
+    def divine_wind_subkingdom(self) -> Kingdom | None:
+        if len(self.divine_wind_cso_str) == 0:
+            return None
+        return Kingdom.from_dombot_csv_string(self.divine_wind_cso_str)
 
     @property
     def has_modified_starting_deck(self) -> bool:
@@ -555,7 +607,7 @@ class Kingdom:
         except JSONDecodeError:
             LOGGER.warning(f"Could not decode kingdom notes: {self.notes}")
             return {"Notes": self.notes}
-        
+
     def get_cso_name_with_extra(self, cso_key: str) -> str:
         """Get the name of the card or landscape with the extra information."""
         return get_cso_name(cso_key) + self._get_cso_extras(cso_key)
@@ -601,7 +653,9 @@ class Kingdom:
             text += f" >>>{get_cso_name(stamp)}<<<"
         return text
 
-    def _get_special_dict(self, sani_func: Callable[[str], str], add_stamps=True) -> dict[str, str]:
+    def _get_special_dict(
+        self, sani_func: Callable[[str], str], add_stamps=True
+    ) -> dict[str, str]:
         """Get a dictionary with all of the special cards and their extra information."""
         special_dict = {}
         if self.bane_pile:
@@ -619,6 +673,10 @@ class Kingdom:
             special_dict["riverboat"] = sani_func(self.riverboat_card)
         if self.mouse_card:
             special_dict["way_of_the_mouse"] = sani_func(self.mouse_card)
+        if self.divine_wind_cso_str:
+            special_dict["divine_wind"] = Kingdom.from_dombot_csv_string(
+                self.divine_wind_cso_str
+            ).get_dombot_csv_string(ignore_col_shelt=True)
         for trait, target in self.traits:
             special_dict[trait] = sani_func(target)
         if add_stamps:
@@ -661,7 +719,17 @@ class Kingdom:
             k_str += ", colonies"
         if self.campaign_effects:
             k_str += " -x "
-            k_str += ", ".join([eff if eff not in self.stamp_and_effects_dict else f"{eff}({self.stamp_and_effects_dict[eff]})" for eff in sorted(self.campaign_effects) if eff ])
+            k_str += ", ".join(
+                [
+                    (
+                        eff
+                        if eff not in self.stamp_and_effects_dict
+                        else f"{eff}({self.stamp_and_effects_dict[eff]})"
+                    )
+                    for eff in sorted(self.campaign_effects)
+                    if eff
+                ]
+            )
         return k_str
 
     def check_cards_for_type(self, key: Literal["IsLiaison", "IsOmen"]) -> bool:
@@ -687,7 +755,7 @@ class Kingdom:
             for qual, val in self.total_qualities.items()
         )
         text += "\n" + quality_summary + "\n"
-        text += "CSV representation:\n\n" + self.get_csv_repr()
+        text += "CSV representation:\n\n" + self._get_csv_repr()
         return text
 
     def get_dict_repr(self) -> dict[str, Any]:
@@ -698,14 +766,14 @@ class Kingdom:
             self, dict_factory=lambda x: _dict_factory_func(x, self.__yaml_ignore__)
         )
 
-    def get_csv_repr(self) -> str:
+    def _get_csv_repr(self) -> str:
         """TODO: proper Bane/Trait/Mouse/Druid Boons representation, currently you should use the dombot str"""
         return ", ".join(card for card in self.full_kingdom_df["Name"])
 
     def _set_quality_values(self):
         """Update the quality values for this kingdom by summing them up."""
         for qual in QUALITIES_AVAILABLE:
-            val = _get_total_quality(qual, self.full_kingdom_df)
+            val = get_total_quality(qual, self.full_kingdom_df)
             self.total_qualities[qual] = val
 
     def get_card_string_for_quality(self, qual_name: str) -> str:
@@ -739,6 +807,8 @@ class Kingdom:
         if not qual in self.full_kingdom_df.columns:
             return {}
         df = self.full_kingdom_df
+        if len(df) == 0:
+            return {}
         avail_types = reduce(lambda x, y: x + y, df[qual])
         if len(avail_types) == 0:
             return {}
@@ -759,16 +829,23 @@ class Kingdom:
             text = text[:cutoff_len] + "..."
         return text
 
-    def get_component_string(self, cutoff_len: int | None = 180) -> str:
+    def get_component_string(
+        self, cutoff_len: int | None = 180, show_exp=False, exclude_trash_mat=True
+    ) -> str:
         """Retrieve the string describing the extra components and csos needed for this kingdom."""
         comp = self.full_kingdom_df["Extra Components"].tolist()
-        excluded = ["Trash mat", "-"]
+        excluded = ["Trash mat", "-"] if exclude_trash_mat else ["-"]
         unzipped = [cso for cso_list in comp for cso in cso_list if cso not in excluded]
         uni_comp = list(np.unique(unzipped))
+        # TODO: Add expansions from which they come
         if self.use_shelters:
-            uni_comp.append("Shelters")
+            shelt = "Shelters (Dark Ages)" if show_exp else "Shelters"
+            uni_comp.append(shelt)
         if self.use_colonies:
-            uni_comp.append("Colonies/Platinum")
+            colplat = (
+                "Colonies/Platinum (Prosperity)" if show_exp else "Colonies/Platinum"
+            )
+            uni_comp.append(colplat)
         text = "EXTRAS:   "
         comp_str = text + (", ".join(uni_comp) if len(uni_comp) > 0 else "None needed")
         if cutoff_len is not None and len(comp_str) > cutoff_len:
@@ -803,16 +880,3 @@ class Kingdom:
     def copy_to_clipboard(self):
         """Copies the kingdom to the clipboard."""
         copy_to_clipboard(self.get_dombot_csv_string())
-
-    def get_interactions(self) -> pd.DataFrame:
-        """Get all interactions between the cards in this kingdom."""
-        combinations = []
-        keys = self.full_kingdom_df.index.tolist()
-        for key1 in keys:
-            for key2 in keys:
-                if key1 >= key2:
-                    continue
-                combinations.append(f"{key1}___{key2}")
-        combinations = [c for c in combinations if c in ALL_INTERACTIONS.index]
-        interactions = ALL_INTERACTIONS.loc[combinations]
-        return interactions

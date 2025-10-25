@@ -4,23 +4,32 @@ from streamlit_extras.add_vertical_space import add_vertical_space
 from streamlit_extras.grid import grid
 from streamlit_extras.stylable_container import stylable_container
 
-from ...kingdom import sanitize_cso_name
-from ...utils import get_expansion_icon_path
+from ...utils import get_expansion_icon_path, sanitize_cso_name
 from ..constants import ALL_EXPANSIONS, NUM_EXPS
 from ..image_handling import display_image_with_tooltip
-from ..randomizer_util import load_config
+from ..randomizer_util import get_or_initialize_key, load_config
 
 
 # @st.fragment (can't be fragment due to sidebar stuff)
 def _build_exp_num_row():
+    cols = st.columns([0.4, 0.6])
+    enable_max = cols[0].checkbox(
+        "Limit number of expansions",
+        value=load_config().getboolean("Expansions", "enable_max", fallback=False),
+        key="enable_max_num_expansions",
+        help="When checked, the maximum number of expansions to randomize from can be set.",
+    )
+
     val = max(
         1, load_config().getint("Expansions", "max_num_expansions", fallback=NUM_EXPS)
     )
-    st.number_input(
+
+    cols[1].number_input(
         "Max. number of expansions",
         min_value=1,
         max_value=NUM_EXPS,
         value=val,
+        disabled=not enable_max,
         help="The maximum number of expansions to randomize from.",
         key="max_num_expansions",
     )
@@ -136,24 +145,27 @@ def _toggle_all_expansions(value: bool):
 
 def _build_toggle_row():
     cols = st.columns(3)
-    with cols[0]:
-        st.button(
-            "Deselect all",
-            on_click=lambda: _toggle_all_expansions(False),
-            use_container_width=True,
-        )
-    with cols[1]:
-        st.button(
-            "Select all",
-            on_click=lambda: _toggle_all_expansions(True),
-            use_container_width=True,
-        )
-    with cols[2]:
-        st.button(
-            "Select all except 1E",
-            on_click=_select_non_1e,
-            use_container_width=True,
-        )
+    cols[0].button(
+        "Select all",
+        on_click=lambda: _toggle_all_expansions(True),
+        use_container_width=True,
+        type="primary",
+        icon="✅",
+    )
+    cols[1].button(
+        "Clear selection",
+        on_click=lambda: _toggle_all_expansions(False),
+        use_container_width=True,
+        type="primary",
+        icon="❌",
+    )
+    cols[2].button(
+        "Select all except 1E",
+        on_click=_select_non_1e,
+        use_container_width=True,
+        type="primary",
+        icon="☑️",
+    )
 
 
 def _build_sorting_options():
@@ -213,7 +225,7 @@ def _build_selection_grid():
 def get_selected_expansions(sort=False) -> list[str]:
     """Retrieve the selected expansions."""
     configured_expansions = load_config().get_expansions()
-    selected = st.session_state.get("selected_expansions", configured_expansions)
+    selected = get_or_initialize_key("selected_expansions", configured_expansions)
     if not sort:
         return selected
     exps = (
@@ -228,14 +240,21 @@ def _build_exp_selection_overview():
     exps = get_selected_expansions(sort=True)
     num_cols = 3
     num_rows = len(exps) // num_cols + 1
-    num_max = st.session_state.get("max_num_expansions", NUM_EXPS)
-    with st.expander("Selected Expansions", expanded=True):
+    configured_max_num = load_config().get("Expansions", "max_num_expansions")
+    num_max = get_or_initialize_key("max_num_expansions", configured_max_num)
+    exp_limit_enabled = get_or_initialize_key("enable_max_num_expansions", False)
+    exp_limit_str = (
+        f"At most {num_max} different expansions"
+        if exp_limit_enabled
+        else "No limit to number of expansions"
+    )
+    with st.expander("🗃️Selected Expansions", expanded=True):
         if len(exps) == 0:
             st.warning("No expansions selected! Please select at least one expansion.")
         else:
             my_grid = grid([num_rows] * num_cols, vertical_align="bottom", gap="small")
             add_vertical_space(1)
-        st.write(f"Maximum of {num_max} expansions")
+        st.write(exp_limit_str)
     for exp in exps:
         with my_grid.container():
             display_exp_image(exp, icon_size=40, tooltip=exp)

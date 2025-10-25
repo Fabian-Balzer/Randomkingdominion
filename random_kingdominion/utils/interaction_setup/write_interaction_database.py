@@ -1,8 +1,9 @@
-from ...constants import PATH_ASSETS
+from ...constants import ALL_CSOS, PATH_CARD_INFO, VALID_COMBO_TYPES
+from ...logger import LOGGER
 from ..utils import write_dataframe_to_file
+from .combo_util import get_combo_df
 from .interaction_util import get_empty_interaction_df
 from .specifics import *
-from ...logger import LOGGER
 
 
 def write_interaction_database(overwrite: bool = False, verbose: bool = True):
@@ -25,9 +26,30 @@ def write_interaction_database(overwrite: bool = False, verbose: bool = True):
     # INDIVIDUALS
     add_all_individual_card_interactions(df, verbose=verbose)
     # Write to file
-    fpath = PATH_ASSETS.joinpath("other/interactions.csv")
+    fpath = PATH_CARD_INFO.joinpath("good_interaction_data.csv")
     write_dataframe_to_file(df, fpath, overwrite=overwrite, verbose=verbose)
     if verbose:
         LOGGER.info(
             f"Wrote the interaction database with {len(df)} interactions in total."
         )
+
+
+def write_combo_database(overwrite: bool = True, verbose: bool = True):
+    """Basic Sanitization of the human-readable raw combo data into"""
+    df = get_combo_df(verbose)
+    error_occured = False
+    for cso in set(df["CSO1"].tolist() + df["CSO2"].tolist()):
+        if cso not in ALL_CSOS.index:
+            LOGGER.warning(f"Found unknown CSO '{cso}' in combo data.")
+            error_occured = True
+    for _, row in df.iterrows():
+        if row["Type"] not in VALID_COMBO_TYPES:
+            LOGGER.warning(f"Found unknown combo type '{row['Type']}' in combo data for entry {row['CSO1']}/{row['CSO2']}.")
+            error_occured = True
+    if error_occured:
+        LOGGER.error("Errors occured while processing the combo data.\nABORTING writing the combo database. Please fix the issues in 'raw_combo_data' and try again.")
+        return
+    fpath = PATH_CARD_INFO.joinpath("good_combo_data.csv")
+    write_dataframe_to_file(df, fpath, overwrite=overwrite, verbose=verbose)
+    if verbose:
+        LOGGER.info(f"Wrote the combo database with {len(df)} combos in total.")

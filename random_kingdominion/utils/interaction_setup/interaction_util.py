@@ -3,8 +3,8 @@
 import pandas as pd
 
 from ...constants import ALL_CSOS
-from ...kingdom import get_interaction_identifier, sanitize_cso_name
 from ...logger import LOGGER
+from .. import get_interaction_identifier, sanitize_cso_name
 
 
 def add_interaction(
@@ -77,7 +77,7 @@ def add_multiple_interactions_from_single(
 
 def get_empty_interaction_df() -> pd.DataFrame:
     """Set up an an empty interactions DataFrame."""
-    cols = ["Card1", "Card2", "Rule", "ident"]
+    cols = ["CSO1", "CSO2", "Rule", "ident"]
     df = pd.DataFrame(columns=cols)
     df.set_index("ident", inplace=True)
     return df

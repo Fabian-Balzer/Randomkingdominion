@@ -1,6 +1,7 @@
 import streamlit as st
 
 import random_kingdominion as rk
+from random_kingdominion.kingdom import kingdom
 
 rk.build_page_header(
     "RandomKingDominion - Dominion Randomizer",
@@ -21,15 +22,19 @@ HISTORY = load_history()
 
 
 if st.session_state.get("show_randomization_toast", False):
-    st.toast("Randomization successful!", icon="🎉")
+    msg = st.session_state.get("randomization_toast", "Randomization successful!")
+    icon = "🎉" if "successful" in msg else "⚠️" if "invalid" in msg else "❌"
+    st.toast(msg, icon=icon, duration=7)
     del st.session_state["show_randomization_toast"]
 if st.session_state.get("randomized_kingdom", "") != "":
-    rk.display_current_kingdom()
+    rk.display_current_randomized_kingdom()
 
 if st.button(
-    label="🔀 Randomize new Kingdom with the options selected below!",
+    label=f"Randomize a new Kingdom with the options selected below!",
     use_container_width=True,
     on_click=rk.randomize_kingdom,
+    icon=rk.ST_ICONS["randomizer"],
+    type="primary",
 ):
     st.session_state["show_randomization_toast"] = True
     st.rerun()

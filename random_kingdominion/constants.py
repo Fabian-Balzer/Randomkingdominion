@@ -1,9 +1,11 @@
 """Module containing constants, not to be modified!"""
 
 import os
+import re
 from dataclasses import dataclass
 from pathlib import Path
-import re
+from typing import Literal
+
 import pandas as pd
 from matplotlib import colormaps as cm  # type: ignore
 
@@ -45,7 +47,7 @@ def read_dataframe_from_file(fpath: str | Path, eval_lists=False):
                     df[colname] = df[colname].apply(eval)
     else:
         raise FileNotFoundError(
-            2, "Couldn't find the raw card data file, please download it first."
+            2, f"Couldn't find the file at {fpath}, please download it first."
         )
     return df
 
@@ -348,13 +350,27 @@ ALL_CARDS = ALL_CSOS[
 ALL_LANDSCAPES = ALL_CSOS[(ALL_CSOS["IsExtendedLandscape"])].index.to_list()
 """All landscapes, allies and prophecies in a big list."""
 
-ALL_INTERACTIONS = read_dataframe_from_file(
-    PATH_ASSETS.joinpath("other/interactions.csv")
-)
-ALL_INTERACTIONS["ident"] = (
-    ALL_INTERACTIONS["Card1"] + "___" + ALL_INTERACTIONS["Card2"]
-)
-ALL_INTERACTIONS.set_index("ident", inplace=True)
+
+VALID_COMBO_TYPES = ["Rush", "Combo", "Synergy", "Weak Synergy", "Counter", "Nombo"]
+
+
+def _load_combo_or_inter_df(pair_type: Literal["combo", "interaction"]) -> pd.DataFrame:
+    """Load all interactions from file."""
+    fpath = PATH_CARD_INFO.joinpath(f"good_{pair_type}_data.csv")
+    df = read_dataframe_from_file(fpath)
+    df["ident"] = df["CSO1"] + "___" + df["CSO2"]
+    df = df[
+        df["CSO1"].isin(ALL_CSOS.index) & df["CSO2"].isin(ALL_CSOS.index)
+    ].set_index("ident")
+    if pair_type == "interaction":
+        return df.sort_values(["CSO1", "CSO2"])
+    df["type_order"] = df["Type"].apply(lambda x: VALID_COMBO_TYPES.index(x))
+    df = df.sort_values(["type_order", "CSO1", "CSO2"]).drop("type_order", axis=1)
+    return df
+
+
+ALL_INTERACTIONS = _load_combo_or_inter_df("interaction")
+ALL_COMBOS = _load_combo_or_inter_df("combo")
 
 COLOR_PALETTE = ColorPalette()
 

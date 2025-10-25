@@ -86,6 +86,7 @@ def plot_kingdom_qualities(
     if skip_interactivity:
         data = {key: value for key, value in data.items() if key != "interactivity"}
     normalized_data = [value / max_val for value in data.values()]
+    normalized_data = [d if d != 0 else 0.02 for d in normalized_data]  # Avoid zero values
 
     # Number of variables (sides of the polygon)
     num_vars = len(data)
@@ -102,9 +103,14 @@ def plot_kingdom_qualities(
     else:
         fig: Figure = ax.get_figure()  # type: ignore
 
-    fontprops = {"fontproperties": XKCD_FONT, "color": "black", "size": 18}
+    fontprops = {"fontproperties": XKCD_FONT, "color": "black", "size": 18, "fontweight": "bold",}# "bbox": dict(facecolor="white", edgecolor="none", alpha=0.4, boxstyle="round,pad=0.15")}
     ax.fill(angles, normalized_data, color=DOM_BLUE, alpha=0.25)
-    ax.plot(angles, normalized_data, color=DOM_BLUE, linewidth=2, alpha=0.9)
+    ax.plot(angles, normalized_data, color=DOM_BLUE, linewidth=3, alpha=0.8)
+    mask = np.array([d >= 0.025 for d in normalized_data])
+    ax.scatter(np.array(angles)[mask], np.array(normalized_data)[mask], color=DOM_BLUE, s=100, marker="H", fc="none", lw=3, alpha=0.8)
+
+    # if any(~mask):
+    #     ax.scatter(0, 0, color=DOM_BLUE, s=100, marker="H", zorder=100)
     ax.set_facecolor(DOM_BEIGE)
 
     # Set radial ticks and labels
@@ -142,8 +148,9 @@ def plot_kingdom_qualities(
         )
         va = "center"
         ha = "left" if angle < np.pi / 2 or angle > 3 * np.pi / 2 else "right"
+        angle_offset =  np.pi/15 if ha == "left" else -np.pi/15
         ax.text(
-            angle,
+            angle+angle_offset,
             0.35,
             label.capitalize(),
             horizontalalignment=ha,

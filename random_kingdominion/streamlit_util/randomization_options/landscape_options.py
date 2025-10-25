@@ -24,7 +24,7 @@ def _build_landscape_overview():
         exclude_text += ", ".join(included_types)
     note_text = "** Allies and Prophecies are not affected here."
     # note_text = f'<div style="font-size: 8px;">{note_text}</div>'
-    with st.expander("Selected Landscape Options**", expanded=True):
+    with st.expander("🖼️Selected Landscape Options**", expanded=True):
         if len(included_types) != 0:
             st.write(landscape_text, unsafe_allow_html=True)
         st.write(exclude_text, unsafe_allow_html=True)

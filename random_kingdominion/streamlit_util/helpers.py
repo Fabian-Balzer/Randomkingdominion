@@ -1,7 +1,6 @@
-
 import streamlit as st
 
-from ..constants import ALL_CSOS
+from .constants import ALL_CACHED_CSOS
 from .image_handling import img_to_html
 
 
@@ -9,6 +8,7 @@ def toggle_showing_info():
     st.session_state["show_further_info"] = not st.session_state.get(
         "show_further_info", False
     )
+
 
 @st.fragment
 def _build_page_info(desc: str, link_help: str = ""):
@@ -45,23 +45,10 @@ def build_page_header(title: str, desc: str, link_help: str = ""):
         _build_page_info(desc, link_help)
 
 
-
-@st.cache_data
-def load_main_df():
-    """Cache the CSOs for streamlit (Not sure this is the correct way)"""
-    ALL_CSOS["Name and Expansion"] = ALL_CSOS.apply(
-        lambda x: f"{x['Name']} ({x['Expansion']})", axis=1
-    )
-    return ALL_CSOS
-
-
-MAIN_DF = load_main_df()
-
-
 @st.cache_data
 def get_cached_unique_types():
     unique_types = set()
-    MAIN_DF["Types"].apply(lambda x: unique_types.update(x))
+    ALL_CACHED_CSOS["Types"].apply(lambda x: unique_types.update(x))
     return sorted(unique_types)
 
 

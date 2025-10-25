@@ -1,6 +1,6 @@
 """Helper functions needed for kingdom creation and manipulation."""
 
-from typing import Any
+from typing import Any, Collection
 
 import numpy as np
 import pandas as pd
@@ -8,7 +8,7 @@ import pandas as pd
 from ..logger import LOGGER
 
 
-def _calculate_total_quality(values: list[int]) -> int:
+def _calculate_total_quality(values: Collection[int]) -> int:
     """Calculate the total quality value of a list of integers.
     The total quality value is a number between 0 and 4 that represents the overall quality
     of a list of integers, which is at least the maximum of the values in the list.
@@ -59,7 +59,8 @@ def _calculate_total_quality(values: list[int]) -> int:
     return np.nonzero(counts)[0][-1] if np.any(counts) else 0
 
 
-def _get_total_quality(qual_name: str, kingdom_df: pd.DataFrame) -> int:
+def get_total_quality(qual_name: str, kingdom_df: pd.DataFrame) -> int:
+    """Get the total quality value for a given quality name in the kingdom dataframe."""
     value_list = kingdom_df[qual_name + "_quality"].to_list()
     return _calculate_total_quality(value_list)
 
@@ -84,28 +85,6 @@ def sort_kingdom(df: pd.DataFrame) -> pd.DataFrame:
     )
     return df.drop(["NameSort", "CostSort"], axis=1)
 
-
-def _is_value_not_empty_or_true(val: Any) -> bool:
-    """Check whether the given value is not empty, or true if it's a boolean."""
-    if isinstance(val, bool):
-        return val  # If it's false, we want
-    if val is None:
-        return False
-    if isinstance(val, (str, list)):
-        return len(val) != 0
-    return True
-
-
-def _dict_factory_func(attrs: list[tuple[str, str]], ignore_keys: set) -> dict:
-    """Custom dictionary factory function to make sure no unnecessary empty
-    values are saved.
-    This includes all booleans since they are false by default.
-    """
-    return {
-        k: v
-        for (k, v) in attrs
-        if _is_value_not_empty_or_true(v) and k not in ignore_keys
-    }
 
 
 def sanitize_cso_name(name: str, replace_parent_pile: bool = False) -> str:
@@ -146,11 +125,11 @@ def get_interaction_identifier(card1: str, card2: str, sanitize=False) -> str:
     return card1 + "___" + card2
 
 
-def sanitize_cso_list(cso_list: list[str], sort=True) -> list[str]:
+def sanitize_cso_list(cso_list: Collection[str], sort=True, replace_parent_pile: bool = False) -> list[str]:
     """Sanitize each cso in a list of csos."""
     if isinstance(cso_list, float):
         return []
-    san_list = [sanitize_cso_name(cso) for cso in cso_list]
+    san_list = [sanitize_cso_name(cso, replace_parent_pile=replace_parent_pile) for cso in cso_list]
     if sort:
         return sorted(san_list)
     return san_list

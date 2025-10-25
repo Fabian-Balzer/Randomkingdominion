@@ -145,6 +145,3 @@ def build_quality_selection():
     for i, qual in enumerate(QUALITIES_AVAILABLE):
         with cols[i]:
             st.write(_get_qual_header(qual))
-    st.info(
-        "Why does this section look so ugly, you might ask? Well, I tried my best to use a proper tabbed view, but streamlit's state management doesn't seem to be up for the task. Sorry!"
-    )

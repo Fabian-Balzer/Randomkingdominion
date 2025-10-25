@@ -3,14 +3,15 @@ from PIL import Image
 from ...constants import ALL_CSOS, PATH_CARD_PICS
 
 
-def load_cso_img_by_key(cso_key: str) -> Image.Image:
+def load_cso_img_by_key(cso_key: str, resize: bool = True) -> Image.Image:
     """Load the image of the card specified by the cso_key"""
-
     cso = ALL_CSOS.loc[cso_key]
     fpath = PATH_CARD_PICS.joinpath(cso["ImagePath"])  # type: ignore
     if not fpath.exists():
         raise FileNotFoundError(f"Couldn't find the image at {fpath}")
     img = Image.open(fpath)
+    if not resize:
+        return img
     if img.width > img.height:
         img = img.resize((367, 224))
     else:
@@ -27,6 +28,33 @@ def crop_img_by_percentage(img: Image.Image, crop_rect: list[float]) -> Image.Im
     vals = [crop_rect[0] * w, crop_rect[1] * h, crop_rect[2] * w, crop_rect[3] * h]
     return img.crop(vals)  # type: ignore
 
+
+def get_square_cutout(cso_key: str) -> Image.Image:
+    """Get a more or less square cutout of the central region of the given cso."""
+    entry = ALL_CSOS.loc[cso_key]
+    crop_rect = [0.15, 0.11, 0.85, 0.51]
+    if (
+        entry["IsExtendedLandscape"]
+        or entry["IsOtherThing"]
+        and not "Loot" in entry["Types"]
+    ):  # type: ignore
+        crop_rect = [0.31, 0.13, 0.69, 0.71]
+    if cso_key in [
+        "copper",
+        "silver",
+        "gold",
+        "platinum",
+        "potion",
+        "estate",
+        "duchy",
+        "province",
+        "colony",
+        "curse",
+    ]:
+        crop_rect = [0.15, 0.15, 0.85, 0.55]
+    img = load_cso_img_by_key(cso_key)
+
+    return crop_img_by_percentage(img, crop_rect)
 
 def crop_img_symmetrically(
     img: Image.Image, width_crop: float, height_crop: float

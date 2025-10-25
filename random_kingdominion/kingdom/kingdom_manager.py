@@ -107,7 +107,7 @@ class KingdomManager:
                     notes = parts[2]
                     k.notes += notes
             elif self.add_yt_note_basics:
-                k.notes = {
+                k.notes = {  # type: ignore
                     "crucial_cards": [],
                     "name": "",
                     "subtitle": "",
@@ -135,7 +135,7 @@ class KingdomManager:
                     "link": "",
                 }
             try:
-                assert k.is_valid, f"{k.name}, {k.cards}, {k.notes}"
+                assert k.is_valid, f"{k.invalidity_reasons}, {k.name}, {k.cards}, {k.notes}"
             except AssertionError as e:
                 if do_assertion:
                     raise (e)

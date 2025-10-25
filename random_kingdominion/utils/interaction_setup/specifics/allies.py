@@ -21,6 +21,27 @@ def _add_all_city_state_interactions(df: pd.DataFrame):
         df,
         add_together_if_present=True,
     )
+    add_interaction(
+        "Voyage",
+        "City-State",
+        "On your Voyage turn, when you gain an Action, you can (bar some exceptions) play it using City-State without that counting towards the three-card limit, even if you have already played three cards from your hand. Exceptions are gain-to-hand effects (like Swap or Sculptor).",
+        df,
+        add_together_if_present=True,
+    )
+    add_interaction(
+        "Voyage",
+        "Buried Treasure",
+        "On your Voyage turn, when you gain a Buried Treasure, you can (bar some exceptions) play it immediately without that counting towards the three-card limit, even if you have already played three cards from your hand. Exceptions are gain-to-hand effects (like Swap or Sculptor).",
+        df,
+        add_together_if_present=True,
+    )
+    add_interaction(
+        "Voyage",
+        "Berserker",
+        "On your Voyage turn, when you gain a Berserker, you can (bar some exceptions) play it immediately without that counting towards the three-card limit, even if you have already played three cards from your hand. Exceptions are gain-to-hand effects (like Swap or Sculptor).",
+        df,
+        add_together_if_present=True,
+    )
 
 
 def _add_individual_allies_interactions(df: pd.DataFrame):

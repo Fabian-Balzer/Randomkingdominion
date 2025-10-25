@@ -1,8 +1,12 @@
+from io import BytesIO
 from typing import TYPE_CHECKING
 
 import matplotlib.pyplot as plt
+import numpy as np
 from matplotlib.axes import Axes
+from matplotlib.backends.backend_agg import FigureCanvasAgg
 from matplotlib.figure import Figure
+from PIL import Image
 
 from ...constants import PATH_ASSETS
 from ..utils import get_version
@@ -82,6 +86,15 @@ def _annotate_expansion_icons(ax: Axes, k: "Kingdom"):
         y = 1 - yoff * (i % num_rows)
         annotate_single_expansion_icon(expansion, ax, x, y, zoom)
 
+def _fig_to_img(fig):
+    """Convert a Matplotlib figure to a numpy array image."""
+    buf = BytesIO()
+    fig.savefig(buf, format='png', bbox_inches='tight', pad_inches=0.2, dpi=200)
+    buf.seek(0)
+    img = Image.open(buf)
+    arr = np.asarray(img)
+    buf.close()
+    return arr
 
 def get_kingdom_quality_fig(k: "Kingdom", save=False, add_buy_str=False) -> Figure:
     fig = plot_kingdom_qualities(
@@ -111,12 +124,25 @@ def get_kingdom_quality_fig(k: "Kingdom", save=False, add_buy_str=False) -> Figu
     _annotate_qualities(ax2, k, _text_args)
     _annotate_expansion_icons(ax2, k)
 
+    # If Divine Wind is in the kingdom, add an inset for the DW kingdom.
+    if (dw_k := k.divine_wind_subkingdom) is not None:
+        extra_fig = get_kingdom_quality_fig(dw_k, save=False, add_buy_str=add_buy_str)
+        extra_fig.get_axes()[0].set_title("")
+        extra_fig.suptitle("Divine Wind Kingdom", y=1.1, fontsize=20, **_text_args | {"ha": "center"})
+
+        img = _fig_to_img(extra_fig)
+        plt.close(extra_fig)
+        inset_ax = fig.add_axes([1, 0.01, 0.8, 0.8], zorder=1)  # type: ignore
+        inset_ax.xaxis.set_visible(False)
+        inset_ax.yaxis.set_visible(False)
+        inset_ax.set_frame_on(True)
+        inset_ax.imshow(img)
+
     title = get_video_title(k)
     ax.set_title(
         title, **(_text_args | {"ha": "center"}), y=1.078, fontsize=15  # type: ignore
     )
     if save:
-
         fname = f'{k.name.replace(" ", "_")}_thumbnail.png'
         fpath = PATH_ASSETS.joinpath(f"other/youtube/{fname}")
         fig.savefig(str(fpath), pad_inches=0.2, bbox_inches="tight", dpi=300)

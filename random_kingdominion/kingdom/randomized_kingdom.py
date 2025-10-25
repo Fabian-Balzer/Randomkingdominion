@@ -10,10 +10,10 @@ import pandas as pd
 
 from ..constants import ALL_CSOS, QUALITIES_AVAILABLE
 from ..cso_frame_utils import sample_single_cso_from_df
-from ..utils.config import CustomConfigParser
-from .kingdom import Kingdom
-from .kingdom_helper_funcs import _get_total_quality
 from ..logger import LOGGER
+from ..utils.config import CustomConfigParser
+from ..utils.kingdom_helper_funcs import get_total_quality
+from .kingdom import Kingdom
 
 
 def _qual_dict_factory() -> dict[str, int]:
@@ -99,7 +99,7 @@ class RandomizedKingdom:
         """Update the quality values for the selected dataframe by summing them up."""
         df = self._get_full_df()
         for qual in QUALITIES_AVAILABLE:
-            val = _get_total_quality(qual, df)
+            val = get_total_quality(qual, df)
             self.quality_of_selection[qual] = val
 
     @property

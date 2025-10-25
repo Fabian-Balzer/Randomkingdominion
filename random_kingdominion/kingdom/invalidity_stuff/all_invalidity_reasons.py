@@ -3,6 +3,8 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import TYPE_CHECKING
 
+from random_kingdominion.kingdom.kingdom import Kingdom
+
 from ...constants import ALL_CSOS
 from ...utils.utils import get_cso_name
 from .invalidity_reason import InvalidityReason
@@ -25,6 +27,25 @@ class YoungWitchButNoBane(InvalidityReason):
 
     def check_if_invalid(self, k: Kingdom) -> bool:
         return k.bane_pile == "" and "young_witch" in k.cards
+
+@dataclass
+class DivineWindIncorrect(InvalidityReason):
+    def get_description(self) -> str:
+        return "Could not parse the provided Divine Wind kingdom;\n\tinvalidities: " + self.params.get("subk_invalidity", "unknown error")
+    
+    def check_if_invalid(self, k: Kingdom) -> bool:
+        dw_k = k.divine_wind_subkingdom
+        if dw_k is None:
+            return False
+        # A missing prophecy is correct for a DW kingdom as DW is already out.
+        dw_k.invalidity_reasons = [t for t in dw_k.invalidity_reasons if not isinstance(t, OmenButNoProphecy)]
+        if "divine_wind" not in k.landscapes:
+            self.params["subk_invalidity"] = "Divine Wind landscape not in kingdom"
+            return True
+        if dw_k.is_valid:
+            return False
+        self.params["subk_invalidity"] = ", ".join(r.get_description() for r in dw_k.invalidity_reasons)
+        return True
 
 @dataclass
 class BaneNotInCards(InvalidityReason):

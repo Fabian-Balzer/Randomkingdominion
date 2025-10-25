@@ -2,14 +2,11 @@
 
 import pandas as pd
 
-from ..constants import (
-    ACTION_TREASURES,
-    ALL_LOOTS,
-    GATHERING_CARDS,
-    TGG_BUG_DISCLAIMER,
-    TRAVELLER_BASE_CARDS,
-)
-from ..interaction_util import add_interaction, add_multiple_interactions_from_single
+from ..constants import (ACTION_TREASURES, ALL_LOOT_GIVERS, ALL_LOOTS,
+                         GATHERING_CARDS, TGG_BUG_DISCLAIMER,
+                         TRAVELLER_BASE_CARDS)
+from ..interaction_util import (add_interaction,
+                                add_multiple_interactions_from_single)
 
 
 def _add_gathering_divine_wind_interaction(other: str, df: pd.DataFrame):
@@ -79,7 +76,7 @@ def _add_all_divine_wind_interactions(df: pd.DataFrame):
 
 
 def _add_enlightenment_interactions(df: pd.DataFrame):
-    # More interactions at Black Market
+    # More interactions at Black Market, and also at Events (concerning the tokens)
     act_treas_str = (
         "|".join(ACTION_TREASURES)
         + "/Enlightenment---If Enlightenment is active, {card_a}'s Action phase mode is overwritten by Enlightenment."
@@ -100,9 +97,27 @@ def _add_enlightenment_interactions(df: pd.DataFrame):
         df,
     )
     add_interaction(
-        "Capital",
+        "Highwayman",
         "Enlightenment",
-        "Once Enlightenment is active, even if you play Capital during your Action phase, you will still get +6 Debt when discarding it from play.",
+        "Once Enlightenment is active, while you're under Highwayman attack, for the first Treasure you play during your Action phase, you will get to choose which effect should apply first, so you can still get +1 Card, +1 Action.",
+        df,
+    )
+    add_interaction(
+        "Sauna",
+        "Enlightenment",
+        "Once Enlightenment is active, when you play Silver during your Action phase after having played a Sauna, you will first be prompted to trash a card, and only afterwards get +1 Card, +1 Action.",
+        df,
+    )
+    add_interaction(
+        "Clashes",
+        "Enlightenment",
+        "Once Enlightenment is active and Treasures become Actions, you may only play at most two of each during your turns while under Warlord attack.",
+        df,
+    )
+    add_interaction(
+        "Delusion",
+        "Enlightenment",
+        "Once Enlightenment is active and Treasures become Actions, Delusion will disallow you from buying Treasures.",
         df,
     )
 
@@ -114,6 +129,9 @@ def _add_panic_interactions(df: pd.DataFrame):
         else:
             inter = f"When you discard {loot} from play while Panic is active, you return it to the top of the Loot pile. When discarding multiple, you get to choose the order."
         add_interaction("Panic", loot, inter, df)
+    for loot_giver in ALL_LOOT_GIVERS:
+        inter = f"When you discard a Loot gained from {loot_giver} from play while Panic is active, you need to return it to the top of the Loot pile. When discarding multiple, you get to choose the order. Endless Chalice and Jewels are exceptions as they (bar e.g. Highwayman) never get discarded from play."
+        add_interaction("Panic", loot_giver, inter, df)
     add_interaction(
         "panic",
         "tireless",
@@ -124,6 +142,12 @@ def _add_panic_interactions(df: pd.DataFrame):
         "panic",
         "capital",
         f"When discarding Capital from play and Panic is active, you need to return it to its pile and also get +6 Debt.",
+        df,
+    )
+    add_interaction(
+        "panic",
+        "crown",
+        f"Even if you play Crown before Panic becomes active, if Panic becomes active later that turn, you need to return the Crown to its pile when you discard it from play.",
         df,
     )
 

@@ -56,21 +56,21 @@ def _determine_extra_components(cso: pd.Series) -> list[str]:
         ]
     # Mats and tokens
     if "Liaison" in cso_types or "Ally" in cso_types:
-        extra_components += ["Favor tokens", "Favor mats"]
+        extra_components += ["Favor mats/tokens"]
     if "Omen" in cso_types or "Prophecy" in cso_types:
         extra_components.append("Sun tokens")
     if "D" in cost or name in DEBT_INDUCERS:
         extra_components.append("Debt tokens")
     if name in COFFER_GIVERS:
-        extra_components += ["Coffer tokens", "Coffer mats"]
+        extra_components += ["Coffer mats/tokens"]
     if "Villagers" in cso["village_types"] or name in [
         "Silk Merchant",
         "Patron",
         "Sculptor",
     ]:
-        extra_components += ["Villager tokens", "Villager mats"]
+        extra_components += ["Villager mats/tokens"]
     if "VP Chips" in cso["altvp_types"]:
-        extra_components += ["VP tokens", "VP mats"]
+        extra_components += ["VP mats/tokens"]
     if "Reserve" in cso_types or name in ["Miser", "Page"]:
         extra_components.append("Tavern Mat")
     if (
@@ -163,6 +163,7 @@ def _determine_extra_components(cso: pd.Series) -> list[str]:
         "Procession",
         "Engineer",
         "Ritual",
+        "Improve",
         "Gladiator",
         "Gladiator/Fortune",
         "Salt the Earth",
@@ -184,8 +185,8 @@ def _determine_extra_components(cso: pd.Series) -> list[str]:
         "Black Market",
     ]
     if (
-        "Exile" not in cso["thinning_types"]
-        and cso["thinning_quality"] > 0
+        ("Exile" not in cso["thinning_types"])
+        and (cso["thinning_quality"] > 0)
         or name in other_trashers
         or "Trashing" in cso["attack_types"]
         or "Fate" in cso_types

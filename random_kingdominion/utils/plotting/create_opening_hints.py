@@ -123,7 +123,7 @@ def _annotate_cso_imgs(ax: Axes, x0: float, y0: float, csos: list[str], num_open
         ax.add_artist(ab)
 
 def _annotate_text_and_imgs_for_turn(ax: Axes, x0: float, y0: float, turn: Literal[1, 2], opening_info: dict[str, Any], num_openings: int):
-    from ...kingdom import sanitize_cso_list
+    from .. import sanitize_cso_list
 
     # First, unpack the turn information
     turn_desc = opening_info[f"t{turn}"]

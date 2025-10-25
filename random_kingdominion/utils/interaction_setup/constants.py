@@ -66,6 +66,9 @@ WAY_DICT: dict[str, list[str]] = {
 ALL_TRAITS = ALL_CSOS[ALL_CSOS["IsTrait"]]["Name"].tolist()
 
 ALL_LOOTS = ALL_CSOS[listlike_contains(ALL_CSOS["Types"], "Loot")]["Name"].tolist()
+ALL_LOOT_GIVERS = ALL_CSOS[
+    listlike_contains(ALL_CSOS["gain_types"], "Loot")
+].index.tolist()
 
 KNIGHTS = ALL_CSOS[listlike_contains(ALL_CSOS["Types"], "Knight")]["Name"].tolist()
 RUINS = ALL_CSOS[listlike_contains(ALL_CSOS["Types"], "Ruins")]["Name"].tolist()
@@ -75,9 +78,17 @@ not_actual_throne = [
     "exorcist",
     "peasant",
 ]  # Things with Village Quality classified as throne room due to other effects
-ALL_THRONES = ALL_CSOS[
-    listlike_contains(ALL_CSOS["village_types"], "Throne")
-    & ~np.isin(ALL_CSOS.index, not_actual_throne)
+_throne_mask = listlike_contains(ALL_CSOS["village_types"], "Throne") & ~np.isin(
+    ALL_CSOS.index, not_actual_throne
+)
+
+ALL_THRONES = ALL_CSOS[_throne_mask]["Name"].tolist()
+
+ALL_THRONE_CARDS = ALL_CSOS[
+    ALL_CSOS["Types"].apply(
+        lambda x: any(stuff in x for stuff in {"Action", "Treasure", "Night"})
+    )
+    & _throne_mask
 ]["Name"].tolist()
 
 TOKEN_EVENTS = {

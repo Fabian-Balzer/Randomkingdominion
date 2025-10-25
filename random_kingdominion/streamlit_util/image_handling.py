@@ -5,9 +5,6 @@ from pathlib import Path
 import streamlit as st
 from PIL import Image
 
-from ..constants import PATH_CARD_PICS
-from .constants import ALL_CACHED_CSOS
-
 
 # img_to_bytes and img_to_html inspired from https://pmbaumgartner.github.io/streamlitopedia/sizing-and-images.html
 def img_to_bytes(img: Image.Image | str | Path) -> str:

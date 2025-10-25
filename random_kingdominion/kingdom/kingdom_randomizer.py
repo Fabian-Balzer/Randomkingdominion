@@ -6,10 +6,11 @@ import random
 
 from ..constants import ALL_CSOS
 from ..logger import LOGGER
-from ..single_cso_utils import is_card, is_cso_in_expansions, is_extended_landscape
+from ..single_cso_utils import (is_card, is_cso_in_expansions,
+                                is_extended_landscape)
+from ..utils import sanitize_cso_list
 from ..utils.config import CustomConfigParser
 from .kingdom import Kingdom
-from .kingdom_helper_funcs import sanitize_cso_list
 from .pool_container import PoolContainer
 from .randomized_kingdom import RandomizedKingdom
 
@@ -287,5 +288,4 @@ class KingdomRandomizer:
                 f"Something went wrong on the reroll: Couldn't find {cso_name} in the old kingdom."
             )
 
-        return random_kingdom.get_kingdom()
         return random_kingdom.get_kingdom()

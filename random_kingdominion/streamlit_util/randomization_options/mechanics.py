@@ -77,7 +77,7 @@ def _build_mechanics_selection_overview():
         shelter_text += (
             f"Flat Probability: {st.session_state.get('shelter_probability', 0.0):.2f}"
         )
-    with st.expander("Selected Mechanics", expanded=True):
+    with st.expander("⚙️Selected Mechanics", expanded=True):
         excluded_types = _get_excluded_types()
         if len(excluded_types) == 0:
             st.text("No card types excluded.")

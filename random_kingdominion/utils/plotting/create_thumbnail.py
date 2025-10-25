@@ -12,8 +12,10 @@ from scipy.ndimage import zoom as zoom_image
 from ...constants import ALL_CSOS, EXPANSION_LIST, PATH_ASSETS, PATH_CARD_PICS
 from ...logger import LOGGER
 from .constants import (CAMPAIGN_COLOR, DAILY_COLOR, DOM_BEIGE, DOM_BLUE,
-                        FIRST_PLAYER_COLOR, SECOND_PLAYER_COLOR, XKCD_FONT)
-from .image_handling import crop_img_by_percentage, load_cso_img_by_key
+                        FIRST_PLAYER_COLOR, FTW_COLOR, SECOND_PLAYER_COLOR,
+                        XKCD_FONT)
+from .image_handling import (crop_img_by_percentage, get_square_cutout,
+                             load_cso_img_by_key)
 from .quality_plot_helper import plot_kingdom_qualities
 from .util import (annotate_dominion_logo, annotate_icon,
                    annotate_single_expansion_icon, get_video_title,
@@ -101,10 +103,10 @@ def _annotate_kingdom_plot(
     inset_fig.set_facecolor(fc)
     inset_fig.gca().set_facecolor(fc_ax)
     p = PATH_ASSETS.joinpath("other/youtube/current_kingdom_plot.png")
-    inset_fig.savefig(p, bbox_inches="tight")
+    inset_fig.savefig(p, bbox_inches="tight", dpi=200)
     plt.close()
     img = plt.imread(p)
-    imagebox = OffsetImage(img, zoom=zoom)
+    imagebox = OffsetImage(img, zoom=zoom/2)
     ab = AnnotationBbox(
         imagebox, (x0, y0), frameon=False, box_alignment=(1, 1), pad=0.1
     )
@@ -190,42 +192,50 @@ def _annotate_kingdom_cards_landscapes(
         fontsize=fontsize,
         **kwargs,
     )
+    # for i, card in enumerate(k.cards):
+    #     icon = get_square_cutout(card)
+    #     icon = icon.resize((15, 15))
+    #     position = x0, y0 - 0.052 - 0.0415*i
+    #     ab = AnnotationBbox(
+    #         OffsetImage(icon, zoom=1),  # type: ignore
+    #         position,
+    #         frameon=False
+    #     )
+    #     ax.add_artist(ab)
+    
+    # for i, ls in enumerate(k.landscapes):
+    #     icon = get_square_cutout(ls)
+    #     icon = icon.resize((15, 15))
+    #     position = x0, y0 - 0.052 - 0.0415*i - len(k.cards)*0.0465
+    #     ab = AnnotationBbox(
+    #         OffsetImage(icon, zoom=1),  # type: ignore
+    #         position,
+    #         frameon=False
+    #     )
+    #     ax.add_artist(ab)
+    
 
 
-def _annotate_single_card_img(
+
+
+def _annotate_single_crucial_cso(
     ax: Axes,
-    card: str,
+    cso_key: str,
     x0: float,
     y0: float,
     index: int = 0,
     zoom=0.8,
-    stamps: list[str] = [],
+    stamps_traits: list[str] = [],
 ):
     position = x0 + 0.19 * (index % 2), y0 - 0.32 * (index // 2)
-    img = load_cso_img_by_key(card)
-    crop_rect = [0.15, 0.11, 0.85, 0.51]
-    entry = ALL_CSOS.loc[card]
+    icon = get_square_cutout(cso_key)
+    entry = ALL_CSOS.loc[cso_key]
     if (
         entry["IsExtendedLandscape"]
         or entry["IsOtherThing"]
         and not "Loot" in entry["Types"]
     ):  # type: ignore
-        crop_rect = [0.31, 0.13, 0.69, 0.692]
         zoom = 0.9
-    if card in [
-        "copper",
-        "silver",
-        "gold",
-        "platinum",
-        "potion",
-        "estate",
-        "duchy",
-        "province",
-        "colony",
-        "curse",
-    ]:
-        crop_rect = [0.15, 0.15, 0.85, 0.55]
-    icon = crop_img_by_percentage(img, crop_rect)
     ab = AnnotationBbox(
         OffsetImage(icon, zoom=zoom),  # type: ignore
         position,
@@ -235,34 +245,48 @@ def _annotate_single_card_img(
         bboxprops=dict(facecolor="darkgray", edgecolor="white", linewidth=4),
     )
     ax.add_artist(ab)
-    if len(stamps) > 0:
-        for i, stamp in enumerate(stamps):
-            s = ALL_CSOS.loc[stamp]
-            ax.text(
-                position[0] + 0.026,
-                position[1] - 0.27 + i * 0.07,
-                "  " + s["Name"],  # type: ignore
-                ha="left",
-                va="bottom",
-                fontsize=13,
-                fontdict={"fontproperties": XKCD_FONT, "color": "black"},
-                bbox={
-                    "boxstyle": "round,pad=0.4",
-                    "facecolor": CAMPAIGN_COLOR,
-                    "linewidth": 2,
-                },
+    if len(stamps_traits) == 0:
+        return
+    for i, stamp_or_trait in enumerate(stamps_traits):
+        s = ALL_CSOS.loc[stamp_or_trait]
+        ax.text(
+            position[0] + 0.028,
+            position[1] - 0.27 + i * 0.07,
+            "  " + s["Name"],  # type: ignore
+            ha="left",
+            va="bottom",
+            fontsize=13,
+            fontdict={"fontproperties": XKCD_FONT, "color": "black"},
+            bbox={
+                "boxstyle": "round,pad=0.4",
+                "facecolor": CAMPAIGN_COLOR,
+                "linewidth": 2,
+            },
+        )
+        if "Trait" in s["Types"]:
+            t_icon = get_square_cutout(stamp_or_trait)
+            t_pos = position[0]+0.005, position[1] - 0.231 + i * 0.07
+            ab = AnnotationBbox(
+                OffsetImage(t_icon, zoom=0.14),  # type: ignore
+                t_pos,
+                frameon=True,
+                box_alignment=(0, 1),
+                pad=0.1,
+                bboxprops=dict(facecolor="darkgray", edgecolor="black", linewidth=2),
             )
+            ax.add_artist(ab)
+        else:
             annotate_icon(
-                PATH_CARD_PICS.joinpath(s["ImagePath"]),  # type: ignore
-                ax,
-                position[0],
-                position[1] - 0.218 + i * 0.07,
-                0.26,
-            )
+            PATH_CARD_PICS.joinpath(s["ImagePath"]),  # type: ignore
+            ax,
+            position[0],
+            position[1] - 0.218 + i * 0.07,
+            0.26,
+        )
+
 
 
 def _annotate_cards_landscapes(ax: Axes, k: "Kingdom"):
-
     if "crucial_cards" not in k.unpacked_notes:
         _annotate_kingdom_cards_landscapes(
             k,
@@ -306,19 +330,20 @@ def _annotate_cards_landscapes(ax: Axes, k: "Kingdom"):
             )
         if k.unpacked_notes.get("find_the_win", False):
             ax.text(
-                0.55,
+                0.382,
                 0.78,
                 "+ Find-The-Win!",
-                ha="right",
+                ha="left",
                 bbox={
                     "boxstyle": "round,pad=0.4",
-                    "facecolor": DOM_BLUE,
+                    "facecolor": FTW_COLOR,
                     "linewidth": 2,
                 },
                 color="white",
                 fontsize=15,
                 zorder=0,
             )
+            _annotate_difficulty(ax, k.unpacked_notes["ftw_difficulty"], 0.382, 0.715)
     rect = FancyBboxPatch(
         (0, 0),
         0.508,
@@ -330,18 +355,23 @@ def _annotate_cards_landscapes(ax: Axes, k: "Kingdom"):
         clip_on=True,
     )
     ax.add_patch(rect)
-    _annotate_kingdom_cards_landscapes(k, ax, 0.385, 0.635)
+    _annotate_kingdom_cards_landscapes(k, ax, 0.39, 0.635)
     crucial_cards: list = k.unpacked_notes["crucial_cards"]
-    from ...kingdom import sanitize_cso_list
+    from .. import sanitize_cso_list
 
     crucial_cards = sanitize_cso_list(crucial_cards, sort=False)
     for i, cso in enumerate(crucial_cards):
-        stamps = [
+        stamps_traits = [
             s
             for s in k.campaign_effects
             if k.stamp_and_effects_dict.get(s, "_") == cso
         ]
-        _annotate_single_card_img(ax, cso, 0.01, 0.63, i, stamps=stamps)
+        stamps_traits += [
+            s
+            for s in k.trait_dict
+            if k.trait_dict.get(s, "_") == cso
+        ]
+        _annotate_single_crucial_cso(ax, cso, 0.01, 0.63, i, stamps_traits=stamps_traits)
 
 
 
@@ -401,7 +431,7 @@ def do_ftw_extras(ax: Axes, k: "Kingdom") -> Path:
     annotate_dominion_logo(ax, 0.95, 0.67, 0.55)
     _annotate_ftw_img(ax, ftw_num, 0.965, 0.65, 0.4)
     _annotate_twists(ax, k, 0.4, 0.75)
-    _annotate_difficulty(ax, k.unpacked_notes["difficulty"], 0.72, 0.1)
+    _annotate_difficulty(ax, k.unpacked_notes["ftw_difficulty"], 0.72, 0.1)
     fname = f"ftw_{ftw_num}_thumbnail.png"
     return PATH_ASSETS.joinpath(f"other/youtube/ftw/{fname}")
 
@@ -433,7 +463,7 @@ def do_campaign_extras(ax: Axes, k: "Kingdom") -> Path:
     )
     _annotate_twists(ax, k, 0.17, 0.8)
     if "expansion" in k.unpacked_notes:
-        from ...kingdom import sanitize_cso_name
+        from .. import sanitize_cso_name
 
         exp = sanitize_cso_name(k.unpacked_notes["expansion"])
         fname = f"{k.name.replace(" ", "_")}_thumbnail.png"
@@ -471,7 +501,7 @@ def create_thumbnail(
         "Daily Dominion": DAILY_COLOR,
         "Dominion RecSets": "#90EE90",
         "Dominion Campaigns": CAMPAIGN_COLOR,
-        "Find-the-win": "#089308",
+        "Find-the-win": FTW_COLOR,
     }
     assert video_type in video_type_dict, f"Unknown video type {video_type}"
     title = get_video_title(k)

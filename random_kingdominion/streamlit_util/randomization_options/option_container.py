@@ -2,6 +2,8 @@
 
 import streamlit as st
 
+from random_kingdominion.streamlit_util.constants import ST_ICONS
+
 from ..kingdom_readout import build_kingdom_input_warning, build_kingdom_text_input
 from .expansion_select import build_expansion_selection
 from .landscape_options import build_landscape_option_selection
@@ -27,7 +29,7 @@ def build_partial_kingdom_input():
 def _build_randomization_sidebar():
     """Build the sidebar for the randomization options."""
 
-    st.sidebar.write("### Selected Option Overview")
+    st.sidebar.write("### Randomizer Option Overview")
     # The rest has to be done inside the fragments for the sidebar to be updated correctly
 
 
@@ -39,7 +41,13 @@ def build_randomization_options():
         st.write("### Randomization Options")
         build_partial_kingdom_input()
         TABS = st.tabs(
-            ["Expansions", "Mechanics", "Landscapes", "Engine Qualities", "Likes/Bans"]
+            [
+                f"{ST_ICONS['expansions']}Expansions",
+                f"{ST_ICONS['mechanics']}Mechanics",
+                f"{ST_ICONS['landscapes']}Landscapes",
+                f"{ST_ICONS['cso_qualities']}Engine Qualities",
+                f"{ST_ICONS['bans']}Likes/Bans",
+            ]
         )
     with TABS[0]:
         build_expansion_selection()

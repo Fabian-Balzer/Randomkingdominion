@@ -40,6 +40,12 @@ def _add_populate_interactions(df: pd.DataFrame):
         "If you have bought Inheritance, you still will not gain an Estate from buying Populate since Populate only gains cards from Action Supply piles, and Estate is still just a Victory Supply pile.",
         df,
     )
+    add_interaction(
+        "Populate",
+        "Enlightenment",
+        "Even if Enlightenment is active, you will not gain Treasures that you wouldn't otherwise have gained, as they do not become Action Supply piles.",
+        df,
+    )
     for pile_name in [
         "Gladiator/Fortune",
         "Catapult/Rocks",
@@ -54,11 +60,15 @@ def _add_token_event_interactions(event: str, token: str, df: pd.DataFrame):
     splitpiles = (
         list(SPLITPILE_DICT.keys()) + list(ROTATOR_DICT.keys()) + ["Ruins", "Knights"]
     )
+    add_interaction("Castles", event, rule, df)
     for pile in splitpiles:
         rule = f"You may put the {token} token on the {pile} pile using {event}. This will affect all of its cards."
         add_interaction(pile, event, rule, df)
     for traveller in ["Page", "Peasant"]:
         rule = f"Putting the {token} token on the {traveller} pile using {event} will affect only {traveller}, not any card you exchange it for."
+        add_interaction(traveller, event, rule, df)
+    rule = f"If you have put the {token} token on any pile using {event}, you may not put further tokens on it with Teacher."
+    add_interaction("Peasant", event, rule, df, add_together_if_present=True)
     if event not in ["Plan", "Ferry"]:
         rule = f"Once Divine Wind is triggered, the {token} token is removed from its pile upon the pile's removal if you have bought {event} before that."
         add_interaction(event, "Divine Wind", rule, df)
@@ -68,9 +78,8 @@ def _add_token_event_interactions(event: str, token: str, df: pd.DataFrame):
         return
     rule = f"Even after buying Inheritance, you may not put the {token} token on the Estate pile using {event} as it's not an Action supply pile."
     add_interaction("Inheritance", event, rule, df)
-    for castle in ["Small Castle", "Opulent Castle", "Castles"]:
-        add_interaction(castle, event, rule, df)
-
+    rule = f"Even if Enlightenment is active, you may not put the {token} token on any Treasure pile using {event} as it's not natively an Action supply pile."
+    add_interaction("Enlightenment", event, rule, df)
 
 def _add_individual_event_interactions(df: pd.DataFrame):
     # INVEST
