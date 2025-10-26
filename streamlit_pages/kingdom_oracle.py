@@ -96,6 +96,9 @@ def _build_kingdom_select_box(
             kingdom.name += f" [{name_extra}]"
         st.session_state["kingdom_name"] = kingdom.name
         st.session_state["kingdom_notes"] = kingdom.notes
+        st.session_state["existing_selected_kingdom_str"] = (
+            kingdom.get_dombot_csv_string()
+        )
     else:
         st.session_state["kingdom_name"] = ""
         st.session_state["kingdom_notes"] = ""
@@ -283,6 +286,9 @@ def _build_random_selection_button(df: pd.DataFrame, name_extra: str = ""):
                 kingdom.name += f" [{name_extra}]"
             st.session_state["kingdom_name"] = kingdom.name
             st.session_state["kingdom_notes"] = kingdom.notes
+            st.session_state["existing_selected_kingdom_str"] = (
+                kingdom.get_dombot_csv_string()
+            )
 
 
 _winrate_info_str = (
@@ -453,8 +459,3 @@ if (link := kingdom.unpacked_notes.get("link", "")) != "":
         with container:
             with st.container(border=True):
                 st.video(link)
-
-with st.expander("Disclaimer", expanded=False):
-    st.warning(
-        "Be aware that this is a very superficial view of the kingdom and does not take into account special card interactions, and that some of my takes on individual cards' qualities might seem surprising. Check out the about page for more information on those."
-    )

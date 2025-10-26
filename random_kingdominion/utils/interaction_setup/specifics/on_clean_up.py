@@ -3,8 +3,7 @@
 import pandas as pd
 
 from ..constants import TGG_BUG_DISCLAIMER, WAY_DICT
-from ..interaction_util import (add_interaction,
-                                add_multiple_interactions_from_single)
+from ..interaction_util import add_interaction, add_multiple_interactions_from_single
 
 
 def _add_single_way_reckless_inter(way: str, df: pd.DataFrame):
@@ -111,19 +110,19 @@ def _add_individual_on_cleanup_interactions(df: pd.DataFrame):
     add_interaction(
         "Trickster",
         "capital",
-        "Even if you set aside Capital using Trickster's ability, you will still get 6D since you still discard it from play.",
+        "Even if you set aside Capital using Trickster's ability, you will still get 6D since you discard it from play.",
         df,
     )
     add_interaction(
-        "Trickster",
+        "Capital",
         "herbalist",
-        "Even if you topdeck Capital using Herbalist's ability, you will still get 6D since you still discard it from play.",
+        "Even if you topdeck Capital using Herbalist's ability, you will still get 6D since you discard it from play.",
         df,
     )
     add_interaction(
         "Crypt",
         "Capital",
-        "If you play Capital and set it aside with Crypt, you will still get 6D when discarding Capital from play.",
+        "If you play Capital and set it aside with Crypt, not get 6D since you did not discard Capital from play.",
         df,
     )
     crypt_stuff = "Crypt/Coronet|Crown---If you play a Duration card using {card_b}, you can still set it aside with Crypt that turn and will NOT get the duration effect off of both plays for the next turn (e.g. {card_b} on Wharf, you can Crypt the {card_b} away and will draw only 2 cards on the next turn). With Gear, this might even strand cards. Having played {card_b} on a previous turn on a Duration card, you can still set it aside with Crypt. Future throned Duration effects (like with Hireling) will then not occur any more."

@@ -102,11 +102,12 @@ buried_treasure;voyage;On your Voyage turn, when you gain a Buried Treasure, you
 cabin_boy;elder;If you play a Cabin Boy using Elder, due to the 'this turn' wording, it does not have an effect on the next turn, so you don't get to both receive +$2 and trash the Cabin Boy for a Duration card.
 cabin_boy;way_of_the_chameleon;If you play Cabin Boy using Way of the Chameleon, remember that Way of the Chameleon only affects stuff happening *this turn*, so on your next turn, you will get the normal bonus from Cabin Boy.
 cage;mandarin;If you gain a Mandarin and have played Cage before that, you put it on top of your deck, but the duration effect still persists.
-capital;crypt;If you play Capital and set it aside with Crypt, you will still get 6D when discarding Capital from play.
+capital;crypt;If you play Capital and set it aside with Crypt, not get 6D since you did not discard Capital from play.
+capital;herbalist;Even if you topdeck Capital using Herbalist's ability, you will still get 6D since you discard it from play.
 capital;highwayman;"If you are under Highwayman attack and play Capital as your first Treasure, you do not get +6$ and +1 Buy; however, you will still get 6D when discarding Capital from play."
 capital;panic;When discarding Capital from play and Panic is active, you need to return it to its pile and also get +6 Debt.
 capital;reckless;If Capital is Reckless, you get +$12 and +2 Buys when playing it. When you discard it from play, you get +6 Debt and have to return it to its pile.
-capital;trickster;Even if you set aside Capital using Trickster's ability, you will still get 6D since you still discard it from play.
+capital;trickster;Even if you set aside Capital using Trickster's ability, you will still get 6D since you discard it from play.
 capitalism;enlightenment;Once Enlightenment is active, Capitalism will turn all of its targets into cantrips during the Action phase.
 capitalism;fishmonger;During your buy phase, you can play Fishmongers from your deck if you have bought Capitalism. [This used to be bugged in the TGG client, let us know if it's resolved!]
 capitalism;way_of_the_butterfly;Once Capitalism is active, you can choose to play your new-found Action-Treasures as Way of the Butterfly both in your Action and Buy phase.
@@ -719,7 +720,6 @@ haunted_castle;road_network;If you have bought Road Network and your opponent ga
 haunted_woods;way_of_the_chameleon;If you play Haunted Woods using Way of the Chameleon, remember that Way of the Chameleon only affects stuff happening *this turn*, so on your next turn, you will get the normal bonus from Haunted Woods.
 herb_gatherer;voyage;Playing a card from your discard pile using Herb Gatherer does not count as playing it from hand as far as Voyage turns are concerned.
 herb_gatherer;warlord;Playing an Action card using Herb Gatherer from your discard pile does not count as playing it from hand as far as Warlord's attack is concerned.
-herbalist;trickster;Even if you topdeck Capital using Herbalist's ability, you will still get 6D since you still discard it from play.
 hermit;launch;When you return to your Action phase using Launch, you are ending your Buy phase, so Hermit can trigger.
 hermit;necromancer;If you play a Hermit from the trash using Necromancer, you cannot exchange the Hermit for a Madman, it will stay in the trash even if you don't gain any cards during your Buy phase.
 hermit;villa;When you return to your Action phase using Villa, you are ending your Buy phase but gain a card at the same time, so Hermit can't trigger. Hermit can still trigger at the end of a future buy phase.

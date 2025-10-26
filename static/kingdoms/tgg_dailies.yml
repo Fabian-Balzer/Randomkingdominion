@@ -1,3 +1,52 @@
+- campaign_effects:
+  - replace_copper
+  cards:
+  - charm
+  - city_quarter
+  - distant_lands
+  - enchantress
+  - gear
+  - haunted_woods
+  - highway
+  - port
+  - taskmaster
+  - wine_merchant
+  expansions:
+  - Adventures
+  - Empires
+  - Hinterlands, 2E
+  - Plunder
+  idx: 128739118064656727548885712749642806264
+  landscapes:
+  - cursed
+  name: '2025-10-26'
+  notes:
+    crucial_cards: [Wine Merchant, Highway, Spoils, City Quarter]
+    ending: [Provine]
+    link: 'https://youtu.be/QJTr4g2_22U'
+    name: 'Debt Locked'
+    openings:
+    - grade: 'A'
+      t1: 'Play only two Spoils, buy Charm'
+      t1_csos: [charm]
+      t2: 'Play only two Spoils, buy Wine Merchant'
+      t2_csos: [wine_merchant]
+      type: 4/3|3/4
+    - grade: 'A'
+      t1: 'Play only two Spoils, buy Charm'
+      t1_csos: [charm]
+      t2: 'Play only two Spoils, buy Wine Merchant'
+      t2_csos: [wine_merchant]
+      type: 5/2|2/5
+    points: [54, 3]
+    subtitle: 'In Which AI Softlocks Itself Out Of The Game'
+    turns: [11, 10]
+  stamps_and_effects:
+  - - replace_copper
+    - spoils,_spoils,_spoils,_spoils,_spoils,_spoils,_spoils
+  traits:
+  - - cursed
+    - distant_lands
 - cards:
   - blessed_village
   - border_village
@@ -22,26 +71,39 @@
   - league_of_shopkeepers
   name: '2025-10-25'
   notes:
-    crucial_cards: [Joust, Courser, Clerk, Chapel]
-    ending: [Province]
-    link: ''
-    name: 'Minimalist Jousting'
+    crucial_cards:
+    - Joust
+    - Courser
+    - Clerk
+    - Chapel
+    ending:
+    - Province
+    link: https://youtu.be/TmvbYomZxZw
+    name: Minimalist Jousting
     openings:
-    - grade: 'B'
-      t1: 'Clerk'
-      t1_csos: [clerk]
-      t2: 'Chapel'
-      t2_csos: [chapel]
+    - grade: B
+      t1: Clerk
+      t1_csos:
+      - clerk
+      t2: Chapel
+      t2_csos:
+      - chapel
       type: 4/3|3/4
-    - grade: 'B'
-      t1: 'Clerk'
-      t1_csos: [clerk]
-      t2: 'Chapel'
-      t2_csos: [chapel]
+    - grade: B
+      t1: Clerk
+      t1_csos:
+      - clerk
+      t2: Chapel
+      t2_csos:
+      - chapel
       type: 5/2|2/5
-    points: [39, 21]
-    subtitle: 'Abundant Thinning, Little Draw? Minimalist Deck Time.'
-    turns: [14, 14]
+    points:
+    - 39
+    - 21
+    subtitle: Abundant Thinning, Little Draw? Minimalist Deck Time.
+    turns:
+    - 14
+    - 14
 - cards:
   - animal_fair
   - flagship

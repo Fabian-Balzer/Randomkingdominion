@@ -40,11 +40,11 @@ def build_kingdom_text_input(
             kingdom = Kingdom.from_dombot_csv_string(
                 kingdom_input, check_validity=full_kingdom_expected
             )
-            if not kingdom.is_valid:
+            select = st.session_state.get("existing_selected_kingdom_str", "")
+            if not kingdom.is_valid or kingdom_input != select:
                 st.session_state["kingdom_name"] = kingdom.name
                 st.session_state["kingdom_notes"] = kingdom.notes
-            else:
-                st.session_state["kingdom_notes"] = ""
+                st.session_state["existing_selected_kingdom_str"] = ""
         else:
             kingdom = Kingdom([])
             st.session_state["kingdom_name"] = ""

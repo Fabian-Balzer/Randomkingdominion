@@ -11,20 +11,33 @@ from scipy.ndimage import zoom as zoom_image
 
 from ...constants import ALL_CSOS, EXPANSION_LIST, PATH_ASSETS, PATH_CARD_PICS
 from ...logger import LOGGER
-from .constants import (CAMPAIGN_COLOR, DAILY_COLOR, DOM_BEIGE, DOM_BLUE,
-                        FIRST_PLAYER_COLOR, FTW_COLOR, SECOND_PLAYER_COLOR,
-                        XKCD_FONT)
-from .image_handling import (crop_img_by_percentage, get_square_cutout,
-                             load_cso_img_by_key)
+from .constants import (
+    CAMPAIGN_COLOR,
+    DAILY_COLOR,
+    DOM_BEIGE,
+    DOM_BLUE,
+    FIRST_PLAYER_COLOR,
+    FTW_COLOR,
+    SECOND_PLAYER_COLOR,
+    XKCD_FONT,
+)
+from .image_handling import (
+    crop_img_by_percentage,
+    get_square_cutout,
+    load_cso_img_by_key,
+)
 from .quality_plot_helper import plot_kingdom_qualities
-from .util import (annotate_dominion_logo, annotate_icon,
-                   annotate_single_expansion_icon, get_video_title,
-                   plot_gradient_image, set_up_fig_and_ax_for_img)
+from .util import (
+    annotate_dominion_logo,
+    annotate_icon,
+    annotate_single_expansion_icon,
+    get_video_title,
+    plot_gradient_image,
+    set_up_fig_and_ax_for_img,
+)
 
 if TYPE_CHECKING:
     from ...kingdom import Kingdom
-
-
 
 
 def _annotate_title(
@@ -67,7 +80,7 @@ def _annotate_hard_ai(ax: Axes, x0: float, y0: float, final_zoom=0.4, ec="k"):
     # Resize the image
     img_resized = zoom_image(img, zoom_factors)
     # Convert back to array for matplotlib
-    image_rgb = np.clip(img_resized, 0, 1)
+    image_rgb = np.clip(img_resized, 0, 1)  # type: ignore
     img = OffsetImage(image_rgb, zoom=final_zoom)
     ab = AnnotationBbox(
         img,
@@ -106,7 +119,7 @@ def _annotate_kingdom_plot(
     inset_fig.savefig(p, bbox_inches="tight", dpi=200)
     plt.close()
     img = plt.imread(p)
-    imagebox = OffsetImage(img, zoom=zoom/2)
+    imagebox = OffsetImage(img, zoom=zoom / 2)
     ab = AnnotationBbox(
         imagebox, (x0, y0), frameon=False, box_alignment=(1, 1), pad=0.1
     )
@@ -202,7 +215,7 @@ def _annotate_kingdom_cards_landscapes(
     #         frameon=False
     #     )
     #     ax.add_artist(ab)
-    
+
     # for i, ls in enumerate(k.landscapes):
     #     icon = get_square_cutout(ls)
     #     icon = icon.resize((15, 15))
@@ -213,9 +226,6 @@ def _annotate_kingdom_cards_landscapes(
     #         frameon=False
     #     )
     #     ax.add_artist(ab)
-    
-
-
 
 
 def _annotate_single_crucial_cso(
@@ -265,7 +275,7 @@ def _annotate_single_crucial_cso(
         )
         if "Trait" in s["Types"]:
             t_icon = get_square_cutout(stamp_or_trait)
-            t_pos = position[0]+0.005, position[1] - 0.231 + i * 0.07
+            t_pos = position[0] + 0.005, position[1] - 0.231 + i * 0.07
             ab = AnnotationBbox(
                 OffsetImage(t_icon, zoom=0.14),  # type: ignore
                 t_pos,
@@ -277,13 +287,12 @@ def _annotate_single_crucial_cso(
             ax.add_artist(ab)
         else:
             annotate_icon(
-            PATH_CARD_PICS.joinpath(s["ImagePath"]),  # type: ignore
-            ax,
-            position[0],
-            position[1] - 0.218 + i * 0.07,
-            0.26,
-        )
-
+                PATH_CARD_PICS.joinpath(s["ImagePath"]),  # type: ignore
+                ax,
+                position[0],
+                position[1] - 0.218 + i * 0.07,
+                0.26,
+            )
 
 
 def _annotate_cards_landscapes(ax: Axes, k: "Kingdom"):
@@ -362,17 +371,12 @@ def _annotate_cards_landscapes(ax: Axes, k: "Kingdom"):
     crucial_cards = sanitize_cso_list(crucial_cards, sort=False)
     for i, cso in enumerate(crucial_cards):
         stamps_traits = [
-            s
-            for s in k.campaign_effects
-            if k.stamp_and_effects_dict.get(s, "_") == cso
+            s for s in k.campaign_effects if k.stamp_and_effects_dict.get(s, "_") == cso
         ]
-        stamps_traits += [
-            s
-            for s in k.trait_dict
-            if k.trait_dict.get(s, "_") == cso
-        ]
-        _annotate_single_crucial_cso(ax, cso, 0.01, 0.63, i, stamps_traits=stamps_traits)
-
+        stamps_traits += [s for s in k.trait_dict if k.trait_dict.get(s, "_") == cso]
+        _annotate_single_crucial_cso(
+            ax, cso, 0.01, 0.63, i, stamps_traits=stamps_traits
+        )
 
 
 def _annotate_campaign_seal(ax: Axes, x0=0.01, y0=0.87, zoom=0.4):
@@ -392,6 +396,7 @@ def do_daily_extras(ax: Axes, k: "Kingdom") -> Path:
     fname = f"{k.name.replace(" ", "_")}_thumbnail.png"
     return PATH_ASSETS.joinpath(f"other/youtube/dailies/{fname}")
 
+
 def _annotate_ftw_img(ax: Axes, ftw_num: int, x0: float, y0: float, zoom=0.3):
     """Annotate the Find-the-win image."""
     fpath = PATH_ASSETS.joinpath(f"other/youtube/ftw/ftw_{ftw_num}.png")
@@ -399,6 +404,7 @@ def _annotate_ftw_img(ax: Axes, ftw_num: int, x0: float, y0: float, zoom=0.3):
     imagebox = OffsetImage(img, zoom=zoom)
     ab = AnnotationBbox(imagebox, (x0, y0), frameon=False, box_alignment=(1, 1), pad=0)
     ax.add_artist(ab)
+
 
 def _annotate_difficulty(ax: Axes, difficulty: str, x0: float, y0: float):
     """Annotate the difficulty of the Find-the-win."""
@@ -423,6 +429,7 @@ def _annotate_difficulty(ax: Axes, difficulty: str, x0: float, y0: float):
         },
     )
 
+
 def do_ftw_extras(ax: Axes, k: "Kingdom") -> Path:
     ftw_num = k.unpacked_notes["ftw_num"]
     _annotate_expansion_icons(k.expansions, ax, 0.01, 0.83)
@@ -434,6 +441,7 @@ def do_ftw_extras(ax: Axes, k: "Kingdom") -> Path:
     _annotate_difficulty(ax, k.unpacked_notes["ftw_difficulty"], 0.72, 0.1)
     fname = f"ftw_{ftw_num}_thumbnail.png"
     return PATH_ASSETS.joinpath(f"other/youtube/ftw/{fname}")
+
 
 def do_recset_extras(ax: Axes, k: "Kingdom") -> Path:
     _annotate_expansion_icons(k.expansions, ax, 0.01, 0.83)

@@ -52,7 +52,7 @@ def get_changelog() -> dict[str, list[str]]:
 
 def copy_to_clipboard_pyperclip(text: str):
     """Copy text to clipboard, compatible with desktop and web environments."""
-    import pyperclip
+    import pyperclip  # type: ignore
     import streamlit as st
     import streamlit.components.v1 as components
 
