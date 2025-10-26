@@ -31,6 +31,7 @@ def load_existing_kingdoms(
     selection_type: _SelectionType,
 ) -> pd.DataFrame:
     """Load kingdoms from the given selection type and return them as a DataFrame."""
+    x = 1 + 1
     manager = rk.KingdomManager()
     if selection_type == "TGG Dailies":
         manager.load_tgg_dailies()

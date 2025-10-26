@@ -3,7 +3,7 @@
 2025-10-29---
 2025-10-28---
 2025-10-27---
-2025-10-26---
+2025-10-26---city_quarter, enchantress, gear, taskmaster, port, charm, distant_lands, haunted_woods, highway, wine_merchant, cursed(distant_lands), start_replace_copper(spoils), start_replace_copper(spoils), start_replace_copper(spoils), start_replace_copper(spoils), start_replace_copper(spoils), start_replace_copper(spoils), start_replace_copper(spoils)
 2025-10-25---chapel, herbalist, harbinger, sentinel, blessed_village, clerk, contract, joust, mint, border_village, league_of_shopkeepers
 2025-10-24---jewelled_egg, townsfolk, taskmaster, flagship, landing_party, tools, gatekeeper, kiln, mastermind, animal_fair, patient(flagship), way_of_the_worm
 2025-10-23---haven, lackeys, astrolabe, fishing_village, improve, monkey, bazaar, outpost, scepter, treasury, piazza, innovation
