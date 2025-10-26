@@ -20,7 +20,7 @@ def filter_combo_or_inter_df_for_csos(
 ) -> pd.DataFrame:
     """Filter the interaction dataframe for interactions involving any of the given CSOs."""
     csos = sanitize_cso_list(csos)
-    if not require_all:
+    if not require_all or len(csos) <= 1:
         mask = df["CSO1"].isin(csos) | df["CSO2"].isin(csos)
         return df[mask]
     mask = df["CSO1"].isin(csos) & df["CSO2"].isin(csos)

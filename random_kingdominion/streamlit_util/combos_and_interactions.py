@@ -183,10 +183,7 @@ def build_combo_inter_filter_for_csos(
         return df
     if len(csos_to_filter) == 0:
         return df
-    if require_all and len(csos_to_filter) > 1:
-        df = filter_combo_or_inter_df_for_csos(df, csos_to_filter, require_all=True)
-    else:
-        df = df[df.index.str.contains("|".join(csos_to_filter))]
+    df = filter_combo_or_inter_df_for_csos(df, csos_to_filter, require_all=require_all)
     return df
 
 
