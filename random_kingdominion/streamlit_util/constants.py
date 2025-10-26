@@ -65,7 +65,7 @@ def get_cached_inter_df() -> pd.DataFrame:
     """Loads the available interactions and adds some
     streamlit-relevant columns to them."""
     df = ALL_INTERACTIONS.copy()
-    x = 1 + 1  # for debugging cache issues
+    x = 1 + 2  # for debugging cache issues
     return _prepare_combo_inter_df(df)
 
 

@@ -43,14 +43,14 @@ band_of_nomads;siren;If you gain a Siren and somehow trigger a shuffle by drawin
 band_of_nomads;spell_scroll;If you gain a card and use Band of Nomads to cause a shuffle, you cannot play it using Spell Scroll anymore (but you could choose to resolve the on-gain play first).
 bandit;charlatan;If a Bandit reveals a Curse with Charlatan in the kingdom, the Curse (or another non-Copper Treasure) is trashed.
 barge;way_of_the_chameleon;If you play Barge using Way of the Chameleon, remember that Way of the Chameleon only affects stuff happening *this turn*, so on your next turn, you will get the normal bonus from Barge.
-bauble;city-state;When you gain a card using Bauble and immediately play it using City-State, you will not be able to topdeck it.
+bauble;city-state;When you gain a card, you can decide whether to immediately play it using City-State, or topdeck it using Bauble.
 bauble;den_of_sin;If you gain a Den of Sin, you can decide whether to topdeck it using Bauble, or gain it to your hand.
 bauble;ghost_town;If you gain a Ghost Town, you can decide whether to topdeck it using Bauble, or gain it to your hand.
 bauble;guardian;If you gain a Guardian, you can decide whether to topdeck it using Bauble, or gain it to your hand.
-bauble;innovation;When you gain a card using Bauble and immediately play it using Innovation, you will not be able to topdeck it.
+bauble;innovation;When you gain a card, you can decide whether to immediately play it using Innovation, or topdeck it using Bauble.
 bauble;night_watchman;If you gain a Night Watchman, you can decide whether to topdeck it using Bauble, or gain it to your hand.
 bauble;rapid_expansion;When you gain a card while Rapid Expansion is active, you can decide to topdeck it using Bauble instead of setting it aside.
-bauble;rush;When you gain a card using Bauble and immediately play it using Rush, you will not be able to topdeck it.
+bauble;rush;When you gain a card, you can decide whether to immediately play it using Rush, or topdeck it using Bauble.
 bauble;siren;If you gain a Siren and topdeck it using Bauble, you don't need to trash an Action card in order for it to stay in your deck.
 bauble;villa;If you gain a Villa, you can decide whether to topdeck it using Bauble, or gain it to your hand. In any case, you will receive +1 Action and return to you Action phase if you're in your buy phase.
 berserker;gatekeeper;"If your opponent has played Gatekeeper, you gain a Berserker and you don't have a copy of Berserker in Exile, you may choose whether to resolve playing the Berserker or the exiling first; if you play it, it cannot be moved to Exile and vice versa."
@@ -216,26 +216,26 @@ city-state;haggler;When you buy and gain a Haggler and play it immediately using
 city-state;hill_fort;If you gain a card and use Hill Fort to cause a shuffle, you cannot play it using City-State anymore (but you could choose to resolve the on-gain play first).
 city-state;improve;You can play cards you gain via an Improve trash using City-State during your Clean-up phase. This might lead to weird effects such as Encampment immediately returning to its pile, and Crown being useless.
 city-state;infirmary;When you overpay for Infirmary, you choose between the effect of the overpay and City-State triggering. If you choose City-State, Infirmary's overpay will be unable to play itself any number of times (because Infirmary already moved). City-State will also be unable to play Infirmary if you choose the overpay first, for the same reason.
-city-state;insignia;When you gain a card using Insignia and immediately play it using City-State, you will not be able to topdeck it.
+city-state;insignia;When you gain a card, you can decide whether to immediately play it using City-State, or topdeck it using Insignia.
 city-state;invasion;When you gain a card using Invasion and immediately play it using City-State, you will not be able to topdeck it.
 city-state;kiln;When you gain a Kiln and play it immediately using City-State, you will not be able to gain another Kiln due to its 'Next Time' wording. Instead, the next card you play will be subject to its effect.
 city-state;livery;When you gain a Livery and play it immediately using City-State, you gain a Horse from its gain.
 city-state;progress;When you gain a card while Progress is active, you get to choose between topdecking it and playing it immediately using City-State (you can only do one).
-city-state;royal_seal;When you gain a card using Royal Seal and immediately play it using City-State, you will not be able to topdeck it.
+city-state;royal_seal;When you gain a card, you can decide whether to immediately play it using City-State, or topdeck it using Royal Seal.
 city-state;search;When you gain the last Search and play it immediately using City-State, it will not be trashed and you will not gain a Loot due to its 'Next Time' wording. [This used to be bugged in the TGG client, let us know if it's resolved!]
 city-state;sheepdog;If you gain a card and use Sheepdog to cause a shuffle, you cannot play it using City-State anymore (but you could choose to resolve the on-gain play first).
 city-state;siren;If you gain a Siren and use City-State to play the Siren, Siren no longer requires you to trash an Action card from your hand in order to not trash the Siren.
 city-state;skirmisher;When you gain a Skirmisher and play it immediately using City-State, its effect will trigger, causing your opponents to discard.
-city-state;sleigh;When you gain a card using Sleigh and immediately play it using City-State, you will not be able to topdeck it.
+city-state;sleigh;When you gain a card, you can decide whether to immediately play it using City-State, or topdeck it using Sleigh.
 city-state;sycophant;You can immediately use the Favors from gaining Sycophant to play it using City-State.
-city-state;tiara;When you gain a card using Tiara and immediately play it using City-State, you will not be able to topdeck it.
-city-state;tracker;When you gain a card using Tracker and immediately play it using City-State, you will not be able to topdeck it.
+city-state;tiara;When you gain a card, you can decide whether to immediately play it using City-State, or topdeck it using Tiara.
+city-state;tracker;When you gain a card, you can decide whether to immediately play it using City-State, or topdeck it using Tracker.
 city-state;trail;If you gain a card and use Trail to cause a shuffle, you cannot play it using City-State anymore (but you could choose to resolve the on-gain play first).
-city-state;trappers_lodge;When you gain a card using Trapper's Lodge and immediately play it using City-State, you will not be able to topdeck it.
-city-state;travelling_fair;When you gain a card using Travelling Fair and immediately play it using City-State, you will not be able to topdeck it.
+city-state;trappers_lodge;When you gain a card, you can decide whether to immediately play it using City-State, or topdeck it using Trapper's Lodge.
+city-state;travelling_fair;When you gain a card, you can decide whether to immediately play it using City-State, or topdeck it using Travelling Fair.
 city-state;voyage;On your Voyage turn, when you gain an Action, you can (bar some exceptions) play it using City-State without that counting towards the three-card limit, even if you have already played three cards from your hand. Exceptions are gain-to-hand effects (like Swap or Sculptor).
-city-state;watchtower;When you gain a card using Watchtower and immediately play it using City-State, you will not be able to topdeck it.
-city-state;way_of_the_seal;When you gain a card using Way of the Seal and immediately play it using City-State, you will not be able to topdeck it.
+city-state;watchtower;When you gain a card, you can decide whether to immediately play it using City-State, or topdeck it using Watchtower.
+city-state;way_of_the_seal;When you gain a card, you can decide whether to immediately play it using City-State, or topdeck it using Way of the Seal.
 clashes;enlightenment;Once Enlightenment is active and Treasures become Actions, you may only play at most two of each during your turns while under Warlord attack.
 clashes;ferry;You may put the -$2 token on the Clashes pile using Ferry. This will affect all of its cards.
 clashes;lost_arts;You may put the + Action token on the Clashes pile using Lost Arts. This will affect all of its cards.
@@ -750,28 +750,28 @@ inheritance;seaway;After buying Inheritance, you may gain an Estate and put your
 inheritance;training;Even after buying Inheritance, you may not put the + $1 token on the Estate pile using Training as it's not an Action supply pile.
 inheritance;warlord;If you have inherited a card (e.g. Battle Plan) and are under Warlord attack, you may both play two copies of said card and two Estates during your turn.
 inn;patron;If you gain an Inn during your Buy phase and reveal a Patron from your discard, you will not get +1 Coffers since it's not an Action phase.
-innovation;insignia;When you gain a card using Insignia and immediately play it using Innovation, you will not be able to topdeck it.
+innovation;insignia;When you gain a card, you can decide whether to immediately play it using Innovation, or topdeck it using Insignia.
 innovation;invasion;When you gain a card using Invasion and immediately play it using Innovation, you will not be able to topdeck it.
 innovation;kiln;When you gain a Kiln and play it immediately using Innovation, you will not be able to gain another Kiln due to its 'Next Time' wording. Instead, the next card you play will be subject to its effect.
 innovation;livery;When you gain a Livery and play it immediately using Innovation, you gain a Horse from its gain.
 innovation;progress;When you gain a card while Progress is active, you get to choose between topdecking it and playing it immediately using Innovation (you can only do one).
-innovation;royal_seal;When you gain a card using Royal Seal and immediately play it using Innovation, you will not be able to topdeck it.
+innovation;royal_seal;When you gain a card, you can decide whether to immediately play it using Innovation, or topdeck it using Royal Seal.
 innovation;search;When you gain the last Search and play it immediately using Innovation, it will not be trashed and you will not gain a Loot due to its 'Next Time' wording. [This used to be bugged in the TGG client, let us know if it's resolved!]
 innovation;sheepdog;If you gain a card and use Sheepdog to cause a shuffle, you cannot play it using Innovation anymore (but you could choose to resolve the on-gain play first).
 innovation;siren;If you gain a Siren and use Innovation to play the Siren, Siren no longer requires you to trash an Action card from your hand in order to not trash the Siren.
 innovation;skirmisher;When you gain a Skirmisher and play it immediately using Innovation, its effect will trigger, causing your opponents to discard.
-innovation;sleigh;When you gain a card using Sleigh and immediately play it using Innovation, you will not be able to topdeck it.
-innovation;tiara;When you gain a card using Tiara and immediately play it using Innovation, you will not be able to topdeck it.
-innovation;tracker;When you gain a card using Tracker and immediately play it using Innovation, you will not be able to topdeck it.
+innovation;sleigh;When you gain a card, you can decide whether to immediately play it using Innovation, or topdeck it using Sleigh.
+innovation;tiara;When you gain a card, you can decide whether to immediately play it using Innovation, or topdeck it using Tiara.
+innovation;tracker;When you gain a card, you can decide whether to immediately play it using Innovation, or topdeck it using Tracker.
 innovation;trail;If you gain a card and use Trail to cause a shuffle, you cannot play it using Innovation anymore (but you could choose to resolve the on-gain play first).
-innovation;trappers_lodge;When you gain a card using Trapper's Lodge and immediately play it using Innovation, you will not be able to topdeck it.
-innovation;travelling_fair;When you gain a card using Travelling Fair and immediately play it using Innovation, you will not be able to topdeck it.
-innovation;watchtower;When you gain a card using Watchtower and immediately play it using Innovation, you will not be able to topdeck it.
-innovation;way_of_the_seal;When you gain a card using Way of the Seal and immediately play it using Innovation, you will not be able to topdeck it.
+innovation;trappers_lodge;When you gain a card, you can decide whether to immediately play it using Innovation, or topdeck it using Trapper's Lodge.
+innovation;travelling_fair;When you gain a card, you can decide whether to immediately play it using Innovation, or topdeck it using Travelling Fair.
+innovation;watchtower;When you gain a card, you can decide whether to immediately play it using Innovation, or topdeck it using Watchtower.
+innovation;way_of_the_seal;When you gain a card, you can decide whether to immediately play it using Innovation, or topdeck it using Way of the Seal.
 insignia;night_watchman;If you gain a Night Watchman, you can decide whether to topdeck it using Insignia, or gain it to your hand.
 insignia;panic;When you discard Insignia from play while Panic is active, you return it to the top of the Loot pile. When discarding multiple, you get to choose the order.
 insignia;rapid_expansion;When you gain a card while Rapid Expansion is active, you can decide to topdeck it using Insignia instead of setting it aside.
-insignia;rush;When you gain a card using Insignia and immediately play it using Rush, you will not be able to topdeck it.
+insignia;rush;When you gain a card, you can decide whether to immediately play it using Rush, or topdeck it using Insignia.
 insignia;siren;If you gain a Siren and topdeck it using Insignia, you don't need to trash an Action card in order for it to stay in your deck.
 insignia;villa;If you gain a Villa, you can decide whether to topdeck it using Insignia, or gain it to your hand. In any case, you will receive +1 Action and return to you Action phase if you're in your buy phase.
 invasion;night_watchman;If you gain a Night Watchman using Invasion, it is topdecked instead of being gained to your hand.
@@ -1034,7 +1034,7 @@ river_shrine;villa;You can only gain cards via River Shrine if you didn't gain a
 riverboat;way_of_the_butterfly;If you play the Riverboat card (not Riverboat) using Way of the Butterfly, it fails to return to its pile, and nothing will happen.
 riverboat;way_of_the_horse;If you play the Riverboat card (not Riverboat) using Way of the Horse, it stays set aside.
 royal_carriage;urchin;If you play an Urchin multiple times using Royal Carriage, you may not trash this Urchin, since you need to play *another* attack card to be able to trash it.
-royal_seal;rush;When you gain a card using Royal Seal and immediately play it using Rush, you will not be able to topdeck it.
+royal_seal;rush;When you gain a card, you can decide whether to immediately play it using Rush, or topdeck it using Royal Seal.
 royal_seal;siren;If you gain a Siren and topdeck it using Royal Seal, you don't need to trash an Action card in order for it to stay in your deck.
 royal_seal;villa;If you gain a Villa, you can decide whether to topdeck it using Royal Seal, or gain it to your hand. In any case, you will receive +1 Action and return to you Action phase if you're in your buy phase.
 ruins;seaway;You may put the + Buy token on the Ruins pile using Seaway. This will affect all of its cards.
@@ -1043,14 +1043,14 @@ rush;search;When you gain the last Search and play it immediately using Rush, it
 rush;sheepdog;If you gain a card and use Sheepdog to cause a shuffle, you cannot play it using Rush anymore (but you could choose to resolve the on-gain play first).
 rush;siren;If you gain a Siren and use Rush to play the Siren, Siren no longer requires you to trash an Action card from your hand in order to not trash the Siren.
 rush;skirmisher;When you gain a Skirmisher and play it immediately using Rush, its effect will trigger, causing your opponents to discard.
-rush;sleigh;When you gain a card using Sleigh and immediately play it using Rush, you will not be able to topdeck it.
-rush;tiara;When you gain a card using Tiara and immediately play it using Rush, you will not be able to topdeck it.
-rush;tracker;When you gain a card using Tracker and immediately play it using Rush, you will not be able to topdeck it.
+rush;sleigh;When you gain a card, you can decide whether to immediately play it using Rush, or topdeck it using Sleigh.
+rush;tiara;When you gain a card, you can decide whether to immediately play it using Rush, or topdeck it using Tiara.
+rush;tracker;When you gain a card, you can decide whether to immediately play it using Rush, or topdeck it using Tracker.
 rush;trail;If you gain a card and use Trail to cause a shuffle, you cannot play it using Rush anymore (but you could choose to resolve the on-gain play first).
-rush;trappers_lodge;When you gain a card using Trapper's Lodge and immediately play it using Rush, you will not be able to topdeck it.
-rush;travelling_fair;When you gain a card using Travelling Fair and immediately play it using Rush, you will not be able to topdeck it.
-rush;watchtower;When you gain a card using Watchtower and immediately play it using Rush, you will not be able to topdeck it.
-rush;way_of_the_seal;When you gain a card using Way of the Seal and immediately play it using Rush, you will not be able to topdeck it.
+rush;trappers_lodge;When you gain a card, you can decide whether to immediately play it using Rush, or topdeck it using Trapper's Lodge.
+rush;travelling_fair;When you gain a card, you can decide whether to immediately play it using Rush, or topdeck it using Travelling Fair.
+rush;watchtower;When you gain a card, you can decide whether to immediately play it using Rush, or topdeck it using Watchtower.
+rush;way_of_the_seal;When you gain a card, you can decide whether to immediately play it using Rush, or topdeck it using Way of the Seal.
 sailor;search;When you gain the last Search and play it immediately using Sailor, it will not be trashed and you will not gain a Loot due to its 'Next Time' wording. [This used to be bugged in the TGG client, let us know if it's resolved!]
 sailor;siren;If you gain a Siren and use Sailor to play the Siren, Siren no longer requires you to trash an Action card from your hand in order to not trash the Siren.
 sailor;way_of_the_chameleon;If you play Sailor using Way of the Chameleon, remember that Way of the Chameleon only affects stuff happening *this turn*, so on your next turn, you will get the normal bonus from Sailor.

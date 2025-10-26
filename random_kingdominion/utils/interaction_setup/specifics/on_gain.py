@@ -373,7 +373,9 @@ def add_all_on_gain_interactions(df: pd.DataFrame, verbose=False):
             for topdecker in WILL_TOPDECK_ON_GAIN:
                 _add_on_gain_play_topdecker_interaction(topdecker, on_play_cso, df)
             for topdecker in CAN_TOPDECK_ON_GAIN:
-                _add_on_gain_play_topdecker_interaction(topdecker, on_play_cso, df)
+                _add_on_gain_play_topdecker_interaction(
+                    topdecker, on_play_cso, df, choice=True
+                )
     for on_play_cso in ["Innovation", "City-State"]:
         _add_on_gain_play_improve_interaction(on_play_cso, df)
     # Sailor can also play durations on gain

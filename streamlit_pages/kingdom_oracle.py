@@ -307,7 +307,7 @@ _winrate_info_str = (
 
 
 def _build_tgg_winrate_filter_widget(df: pd.DataFrame) -> pd.DataFrame:
-    cols = st.columns([0.8, 0.2])
+    cols = st.columns([0.2, 0.8])
     with cols[0]:
         apply_winrate_filter = st.checkbox(
             f"{ST_ICONS['winrate']}Activate Winrate Filter",

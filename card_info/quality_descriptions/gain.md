@@ -19,7 +19,7 @@ I have decided to label each gainer with one or multiple of the following catego
 
 - **Buys**: Provides +Buy for an extra gain in some way (not included are events like Bury that state +1 Buy but don't gain anything). CSOs that only provide Buys in a conditional way or a way that requires a trash (such as Animal Fair, or Salvager/Forager) are marked as **Buys\***.
 - **Specific**: The gain is restricted to a single card or a single class of cards, e.g. Procession (only Actions), Hoard (Gold only). An asterisk indicates some condition to be met.
-- **Workshop**: Resembles a Workshop-like behaviour in that it can gain you any card up to $4 (else it's also labelled as 'specific'). Cards that allow to gain cards at $>\$4$ (e.g. Artisan) are marked as **Workshop+**, cards that are conditional Workshops as **Workshop\*** (e.g. Sunken Treasure).
+- **Workshop**: Resembles a Workshop-like behaviour in that it can gain you any card up to \$4 (else it's also labelled as 'specific'). Cards that allow to gain cards at $>$\$4 (e.g. Artisan) are marked as **Workshop+**, cards that are conditional Workshops as **Workshop\*** (e.g. Sunken Treasure).
 - **Remodel**: Stuff that trashes other stuff or itself in order to gain stuff. An asterisk denotes further complications, such as Mine's restriction to only remodel treasures.
 - **Haggling**: Stuff that gains you cheaper stuff on-buy or on-gain.
 - **Extra-turn**: CSOs that give you an extra turn such as Outpost (without requiring a buy, so Journey and Mission are not listed here).

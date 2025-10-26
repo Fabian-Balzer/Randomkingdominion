@@ -37,15 +37,15 @@ To calculate the total qualities of a given kingdom (which are e.g. displayed in
 
 For the total given quality in category:
 
-- four cards with qualities of 1 equal to a single quality of 2, while 
-- three cards (or combined ones in the above step) with qualities of 2 equal to a single quality of 4, and 
-- two of 3 equal to a single quality of 4.
+- four cards with qualities of **1** equal to a single quality of **2**, while 
+- three cards (or combined ones in the above step) with qualities of **2** equal to a single quality of **3**, and 
+- two with a quality of **3** equal to a single quality of **4**.
 
 **The total kingdom quality value is just the maximum reached this way.**
 
 ### Example
 
-$\\implies$ As an example, a kingdom with 4 CSOs of quality 1 and 2 cards of quality 2 would have a total quality of 3, as there would virtually be three of quality 2.
+$\\implies$ As an example, a kingdom with four CSOs with a Draw quality of **1** and **2** CSOs of quality **2** would have a total quality of **3**, as there would virtually be three of quality **2**.
 
 ### Visualization and Buy indicator
 
