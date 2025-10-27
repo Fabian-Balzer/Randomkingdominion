@@ -33,7 +33,7 @@ def _add_reckless_interactions(df: pd.DataFrame):
     add_interaction(
         "Reckless",
         "Scheme",
-        "If Reckless is on an Action card and you play a Scheme, topdecking the Reckless card circumvents Reckless' return-to-pile prompt.",
+        "If Reckless is on any Action card and you play Scheme, topdecking the Reckless Action card before returning it to its pile will circumvent Reckless' return-to-pile prompt.",
         df,
     )
     add_interaction(
@@ -45,7 +45,13 @@ def _add_reckless_interactions(df: pd.DataFrame):
     add_interaction(
         "Reckless",
         "Trickster",
-        "If Reckless is on a Treasure and you played a Trickster on a turn you play said Treasure, you may set it aside, in which case you cannot return it to its pile, and will put it into your next hand instead.",
+        "If Reckless is on a Treasure and you played a Trickster on a turn you play said Treasure, you may set it aside before returning it to its pile, in which case you cannot return it to its pile, and will put it into your next hand instead.",
+        df,
+    )
+    add_interaction(
+        "Reckless",
+        "Herbalist",
+        "If Reckless is on a Treasure and you played a Herbalist on a turn you play said Treasure, you may topdeck it before returning it to its pile, in which case you cannot return it to its pile.",
         df,
     )
     add_interaction(
@@ -64,6 +70,12 @@ def _add_reckless_interactions(df: pd.DataFrame):
         "Reckless",
         "Enchantress",
         "If you are under the Enchantress Attack and play a Reckless Action card as the first Action during your turn, you will only get +1 Card, +1 Action, fail to follow the instructions the second time, but still have to return the Reckless Action when you discard it from play.",
+        df,
+    )
+    add_interaction(
+        "Reckless",
+        "Prince",
+        "If you set aside a Reckless Action card with Prince, you never discard it from play, so you never have to return it to its pile.",
         df,
     )
     for way in WAY_DICT:

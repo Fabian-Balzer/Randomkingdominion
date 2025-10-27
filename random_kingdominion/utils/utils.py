@@ -16,10 +16,13 @@ from .kingdom_helper_funcs import sanitize_cso_list
 
 
 def filter_combo_or_inter_df_for_csos(
-    df: pd.DataFrame, csos: Collection[str], require_all=False
+    df: pd.DataFrame,
+    csos: Collection[str],
+    require_all=False,
+    convert_to_parent_pile=True,
 ) -> pd.DataFrame:
     """Filter the interaction dataframe for interactions involving any of the given CSOs."""
-    csos = sanitize_cso_list(csos)
+    csos = sanitize_cso_list(csos, replace_parent_pile=convert_to_parent_pile)
     if not require_all or len(csos) <= 1:
         mask = df["CSO1"].isin(csos) | df["CSO2"].isin(csos)
         return df[mask]

@@ -1,3 +1,40 @@
+- cards:
+  - bureaucrat
+  - carnival
+  - chapel
+  - fairgrounds
+  - horn_of_plenty
+  - market
+  - poacher
+  - shop
+  - witch
+  - workshop
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  idx: 203881157154100867420600555973743451927
+  name: '2025-10-27'
+  notes:
+    crucial_cards: [Market, Poacher, Witch, Shop]
+    ending: [Curse, Poacher, Market]
+    link: 'https://youtu.be/62NMJHb_rac'
+    name: 'Market Poaching'
+    openings:
+    - grade: 'B-'
+      t1: 'Poacher'
+      t1_csos: [poacher]
+      t2: 'Chapel'
+      t2_csos: [chapel]
+      type: 4/3|3/4
+    - grade: 'B'
+      t1: 'Witch, or Market'
+      t1_csos: [witch]
+      t2: 'Chapel'
+      t2_csos: [chapel]
+      type: 5/2|2/5
+    points: [36, 30]
+    subtitle: 'After The Brief Notion Of Control, We Embrace The Slog'
+    turns: [21, 20]
 - campaign_effects:
   - replace_copper
   cards:
@@ -21,26 +58,39 @@
   - cursed
   name: '2025-10-26'
   notes:
-    crucial_cards: [Wine Merchant, Highway, Spoils, City Quarter]
-    ending: [Provine]
-    link: 'https://youtu.be/QJTr4g2_22U'
-    name: 'Debt Locked'
+    crucial_cards:
+    - Wine Merchant
+    - Highway
+    - Spoils
+    - City Quarter
+    ending:
+    - Provine
+    link: https://youtu.be/QJTr4g2_22U
+    name: Debt Locked
     openings:
-    - grade: 'A'
-      t1: 'Play only two Spoils, buy Charm'
-      t1_csos: [charm]
-      t2: 'Play only two Spoils, buy Wine Merchant'
-      t2_csos: [wine_merchant]
+    - grade: A
+      t1: Play only two Spoils, buy Charm
+      t1_csos:
+      - charm
+      t2: Play only two Spoils, buy Wine Merchant
+      t2_csos:
+      - wine_merchant
       type: 4/3|3/4
-    - grade: 'A'
-      t1: 'Play only two Spoils, buy Charm'
-      t1_csos: [charm]
-      t2: 'Play only two Spoils, buy Wine Merchant'
-      t2_csos: [wine_merchant]
+    - grade: A
+      t1: Play only two Spoils, buy Charm
+      t1_csos:
+      - charm
+      t2: Play only two Spoils, buy Wine Merchant
+      t2_csos:
+      - wine_merchant
       type: 5/2|2/5
-    points: [54, 3]
-    subtitle: 'In Which AI Softlocks Itself Out Of The Game'
-    turns: [11, 10]
+    points:
+    - 54
+    - 3
+    subtitle: In Which AI Softlocks Itself Out Of The Game
+    turns:
+    - 11
+    - 10
   stamps_and_effects:
   - - replace_copper
     - spoils,_spoils,_spoils,_spoils,_spoils,_spoils,_spoils

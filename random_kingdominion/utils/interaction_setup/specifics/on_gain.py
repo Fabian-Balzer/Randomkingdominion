@@ -206,6 +206,17 @@ def _add_on_gain_topdeck_night_to_hand_interaction(
     add_interaction(night_to_hand_card, topdeck_cso, rule, df)
 
 
+def _add_on_gain_to_hand_haunted_woods_interactions(
+    df: pd.DataFrame, to_hand_card: str
+):
+    add_interaction(
+        "Haunted Woods",
+        to_hand_card,
+        f"If you buy a {to_hand_card} while under the Haunted Woods attack, you are forced to topdeck it (the {to_hand_card}) immediately.",
+        df,
+    )
+
+
 ##########################################################################################################
 ### On-Gain-Set-Aside interactions
 def _add_on_gain_set_aside_siren_interaction(set_aside_cso: str, df: pd.DataFrame):
@@ -292,6 +303,99 @@ def _add_all_haunted_castle_interactions(df: pd.DataFrame):
         "Road Network",
         "Haunted Castle",
         "If you have bought Road Network and your opponent gains a Haunted Castle, you first topdeck two cards, and then draw due to Road Network since the different things happen in turn order.",
+        df,
+    )
+
+
+def _add_all_haunted_woods_interactions(df: pd.DataFrame):
+    add_interaction(
+        "Haunted Woods",
+        "Falconer",
+        "If you buy a dual-or-more-type card with a Falconer in hand while under the Haunted Woods attack, you can choose to first react the Falconer to gain a cheaper card to hand and then topdeck your hand afterwards, or first topdeck your hand (including the Falconer).",
+        df,
+    )
+    add_interaction(
+        "Sheepdog",
+        "Haunted Woods",
+        "If you buy a card with a Sheepdog in hand while under the Haunted Woods attack, you can choose to first play the Sheepdog and then topdeck your hand afterwards, or first topdeck your hand (including the Sheepdog).",
+        df,
+    )
+    add_interaction(
+        "Haunted Woods",
+        "Marchland",
+        "If you buy a Marchland while under the Haunted Woods attack, you can choose whether to discard cards from your hand for $ from Marchland's on-gain effect, or to topdeck the cards in your hand.",
+        df,
+    )
+    add_interaction(
+        "Haunted Woods",
+        "Souk",
+        "If you buy a Souk while under the Haunted Woods attack, you can choose whether to first trash up to two cards from your hand, or whether to first topdeck your hand.",
+        df,
+    )
+    add_interaction(
+        "Haunted Woods",
+        "Farmland",
+        "If you buy a Farmland while under the Haunted Woods attack, you can choose whether to first trash a card from your hand to gain one costing $2 more, or whether to first topdeck your hand.",
+        df,
+    )
+    add_interaction(
+        "Haunted Woods",
+        "Farmhands",
+        "If you buy a Farmhands while under the Haunted Woods attack, you can choose whether to first set aside an Action or Treasure from your hand, or whether to first topdeck your hand.",
+        df,
+    )
+    add_interaction(
+        "Haunted Woods",
+        "Grand Castle",
+        "If you buy a Grand Castle while under the Haunted Woods attack, you can choose whether to first reveal your hand for VP, or whether to first topdeck your hand.",
+        df,
+    )
+    add_interaction(
+        "Haunted Woods",
+        "Cemetery",
+        "If you buy a Cemetery while under the Haunted Woods attack, you can choose whether to first trash cards from your hand, or whether to first topdeck your hand.",
+        df,
+    )
+    add_interaction(
+        "Haunted Woods",
+        "Blessed Village",
+        "If you buy a Blessed Village while under the Haunted Woods attack, you can choose whether to first take a Boon, or whether to first topdeck your hand.",
+        df,
+    )
+    add_interaction(
+        "Haunted Woods",
+        "Cursed Village",
+        "If you buy a Cursed Village while under the Haunted Woods attack, you can choose whether to first receive the next Hex, or whether to first topdeck your hand.",
+        df,
+    )
+    add_interaction(
+        "Haunted Woods",
+        "Ducat",
+        "If you buy a Ducat while under the Haunted Woods attack, you can choose whether to first trash a Copper from your hand, or whether to first topdeck your hand.",
+        df,
+    )
+    add_interaction(
+        "Haunted Woods",
+        "Cavalry",
+        "If you buy a Cavalry while under the Haunted Woods attack, you can choose whether to first draw two cards and then topdeck your hand, or whether to first topdeck your hand and then draw.",
+        df,
+    )
+    add_interaction(
+        "Haunted Woods",
+        "Gondola",
+        "If you buy a Gondola while under the Haunted Woods attack, you can choose whether to first play an Action card from your hand and then topdeck, or whether to first topdeck your hand.",
+        df,
+    )
+    add_interaction(
+        "Haunted Woods",
+        "Hostelry",
+        "If you buy a Hostelry while under the Haunted Woods attack, you can choose whether to discard Treasures for Horses and then topdeck your hand, or to first topdeck the cards in your hand.",
+        df,
+    )
+    add_interaction(
+        "Haunted Woods",
+        "Villa",
+        "If you buy a Villa while under the Haunted Woods attack, you can put it into your hand after topdecking it (and your hand).",
         df,
     )
 
@@ -405,6 +509,7 @@ def add_all_on_gain_interactions(df: pd.DataFrame, verbose=False):
     for night_to_hand_gain in GAINS_SELF_TO_HAND_CARDS:
         if night_to_hand_gain == "Villa":
             continue
+        _add_on_gain_to_hand_haunted_woods_interactions(df, night_to_hand_gain)
         for topdeck_cso in CAN_TOPDECK_ON_GAIN:
             _add_on_gain_topdeck_night_to_hand_interaction(
                 topdeck_cso, night_to_hand_gain, df, choice=True
@@ -420,8 +525,9 @@ def add_all_on_gain_interactions(df: pd.DataFrame, verbose=False):
         _add_on_gain_hand_siren_interaction(hand_cso, df)
         _add_on_gain_hand_gatekeeper_interaction(hand_cso, df)
         _add_on_gain_hand_sheepdog_interaction(hand_cso, df)
-    _add_all_skirmisher_interactions(df)
+    _add_all_haunted_woods_interactions(df)
     _add_all_haunted_castle_interactions(df)
+    _add_all_skirmisher_interactions(df)
     _add_other_on_gain_interactions(df)
 
     if verbose:

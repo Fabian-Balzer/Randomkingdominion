@@ -100,7 +100,7 @@ def _add_special_chameleon_interactions(df: pd.DataFrame):
         "If you play a Poor House as Way of the Chameleon, you will draw 4 cards, and then after drawing lose $1 for each card you have in your hand, without going below $0.",
         df,
     )
-    chameleon_next_turn_stuff = "Way of the Chameleon/Lighthouse|Fishing Village|Monkey|Caravan|Sailor|Corsair|Tactician|Wharf|Merchant Ship|Sea Witch|Amulet|Caravan Guard|Dungeon|Haunted Woods|Swamp Hag|Enchantress|Secret Cave|Village Green|Barge|Gatekeeper|Highwayman|Garrison|Warlord|Stronghold|Grotto|Stowaway|Taskmaster|Cabin Boy|Longship---If you play {card_b} using {card_a}, remember that {card_a} only affects stuff happening *this turn*, so on your next turn, you will get the normal bonus from {card_b}."
+    chameleon_next_turn_stuff = "Way of the Chameleon/Lighthouse|Fishing Village|Monkey|Caravan|Sailor|Corsair|Tactician|Wharf|Merchant Ship|Sea Witch|Amulet|Caravan Guard|Dungeon|Haunted Woods|Swamp Hag|Enchantress|Secret Cave|Village Green|Barge|Gatekeeper|Highwayman|Garrison|Warlord|Stronghold|Grotto|Stowaway|Taskmaster|Cabin Boy|Longship|Riverboat---If you play {card_b} using {card_a}, remember that {card_a} only affects stuff happening *this turn*, so on your next turn, you will get the normal bonus from {card_b}."
     add_multiple_interactions_from_single(
         chameleon_next_turn_stuff, df, add_together_if_present=True
     )

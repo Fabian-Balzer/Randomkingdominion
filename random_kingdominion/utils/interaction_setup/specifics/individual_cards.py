@@ -223,15 +223,9 @@ def _add_all_elder_interactions(df: pd.DataFrame):
         df,
     )
     add_interaction(
-        "Elder",
-        "Blacksmith",
-        "If you play a Blacksmith using Elder, the options you choose are resolved in the order they are on the card; if you e.g. choose to draw to 6 cards in hand and get +1 Card, +1 Action, you'll do the latter after the former, ending up with 7 cards in hand.",
-        df,
-    )
-    add_interaction(
-        "Elder",
-        "Town Crier",
-        "If you play a Town Crier using Elder, the options you choose are resolved in the order they are on the card; if you e.g. choose to gain a Silver and get +1 Card, +1 Action, you'll be able to draw the Silver you just gained.",
+        "Townsfolk",
+        "Townsfolk",
+        "If you play a Blacksmith or Town Crier using Elder, the options you choose are resolved in the order they are on the card; if you e.g. choose to draw to 6 cards in hand and get +1 Card, +1 Action, you'll do the latter after the former, ending up with 7 cards in hand.",
         df,
     )
     add_interaction(
@@ -286,6 +280,25 @@ def _add_all_experiment_interactions(df: pd.DataFrame):
         "When you play an Experiment with Procession, you return it to its pile after its first play, so it doesn't get trashed. Nevertheless, you gain a card costing $1 more than it.",
         df,
     )
+
+
+def _add_all_ferryman_interactions(df: pd.DataFrame):
+    rule_str = "Ferryman/Rats|Magpie---When you set aside a {card_b} with Ferryman, it can gain a copy of itself on play as it is specifically named in the card."
+    add_multiple_interactions_from_single(rule_str, df)
+    for rot_pile, cards in ROTATOR_DICT.items():
+        rule = f"Ferryman/{rot_pile}---When you set aside the {rot_pile} with Ferryman, the next player to gain a Ferryman will gain the top card of the pile, and choosing to rotate it using {cards[0]} still works."
+        add_interaction("Ferryman", rot_pile, rule, df)
+    for splitpile in list(SPLITPILE_DICT) + ["Castles", "Knights"]:
+        rule = f"Ferryman/{splitpile}---When you set aside the {splitpile} pile with Ferryman, the next player to gain a Ferryman will gain the top card of the pile with it."
+        add_interaction("Ferryman", splitpile, rule, df)
+    rule = "Ferryman/Changeling---When you gain a card that was set aside with Ferryman, you may exchange it for a Changeling and return it to the set aside pile."
+    add_interaction("Ferryman", "Changeling", rule, df)
+    rule = "Ferryman/Trader---When you gain a card that was set aside with Ferryman, you may exchange it for a Silver and return it to the set aside pile."
+    add_interaction("Ferryman", "Silver", rule, df)
+    rule_str = "Ferryman/Farmers' Market|Temple---When you set aside a {card_b} with Ferryman, it still works as the Gathering pile normally does, by collecting and dispersing VP as stated on the card."
+    add_multiple_interactions_from_single(rule_str, df)
+    rule_str = "Ferryman/Duplicate|Specialist|Smugglers|Disciple|Mint|Jester|Pilgrimage|Kiln|Tools|Way of the Rat---{card_b} does not allow you to gain a copy of a card from a pile set aside by Ferryman."
+    add_multiple_interactions_from_single(rule_str, df)
 
 
 def _add_all_grand_market_interactions(df: pd.DataFrame):
@@ -520,7 +533,7 @@ def _add_all_peasant_interactions(df: pd.DataFrame):
         rule = f"You may put any token on the {pile} pile using Teacher. This will affect all of its cards."
         add_interaction(pile, "Peasant", rule, df)
     rule = f"Once Divine Wind is triggered, any token is removed from its pile upon the pile's removal."
-    add_interaction("Peasant", "Divine Wind", rule, df)
+    add_interaction("Peasant", "Divine Wind", rule, df, add_together_if_present=True)
     rule = f"Even after buying Inheritance, you may not put any token on the Estate pile using Teacher as it's not natively an Action supply pile."
     add_interaction("Inheritance", "Peasant", rule, df)
     rule = f"Even if Enlightenment is active, you may not put any token on any Treasure pile using Teacher as it's not natively an Action supply pile."
@@ -642,8 +655,6 @@ def _add_all_warlord_interactions(df: pd.DataFrame):
 def _add_all_farmland_interactions(df: pd.DataFrame):
     rule = "If you gain a Farmland and exchange it for a Changeling, you will still have to trash a card from your hand and gain one costing exactly $2 more than the trashed card."
     add_interaction("Farmland", "Changeling", rule, df)
-    rule = "If you buy a Farmland while under the Haunted Woods attack, you get to choose which effect (topdecking or remodeling) to resolve first."
-    add_interaction("Haunted Woods", "Farmland", rule, df)
 
 
 ##########################################################################################################
@@ -661,6 +672,7 @@ def add_all_individual_card_interactions(df: pd.DataFrame, verbose=False) -> Non
     _add_all_enchantress_interactions(df)
     _add_all_experiment_interactions(df)
     _add_all_farmland_interactions(df)
+    _add_all_ferryman_interactions(df)
     _add_all_grand_market_interactions(df)
     _add_all_harbor_village_interactions(df)
     _add_all_highwayman_interactions(df)

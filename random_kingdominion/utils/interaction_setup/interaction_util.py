@@ -17,8 +17,8 @@ def add_interaction(
     warn_duplicate=True,
 ) -> None:
     """Add a new interaction to the interactions dataframe, and sort it."""
-    c1 = sanitize_cso_name(c1)
-    c2 = sanitize_cso_name(c2)
+    c1 = sanitize_cso_name(c1, replace_parent_pile=True)
+    c2 = sanitize_cso_name(c2, replace_parent_pile=True)
     assert c1 in ALL_CSOS.index, f"{c1} not in the card list."
     assert c2 in ALL_CSOS.index, f"{c2} not in the card list."
     c1, c2 = sorted([c1, c2])
