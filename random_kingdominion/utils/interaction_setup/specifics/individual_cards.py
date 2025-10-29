@@ -359,6 +359,21 @@ def _add_all_highwayman_interactions(df: pd.DataFrame):
     )
 
 
+def _add_all_old_witch_interactions(df: pd.DataFrame):
+    add_interaction(
+        "sheepdog",
+        "old_witch",
+        "If an opponent plays Old Witch and you gain a Curse, you may react with Sheepdogs, and will be able to trash a Curse afterwards, even if you have only then drawn it.",
+        df,
+    )
+    add_interaction(
+        "guard_dog",
+        "old_witch",
+        "If an opponent plays Old Witch and you gain a Curse, you may react with Guard Dogs, and will be able to trash a Curse afterwards, even if you have only then drawn it.",
+        df,
+    )
+
+
 def _add_all_leprechaun_interactions(df: pd.DataFrame):
     add_interaction(
         "Sheepdog",
@@ -390,13 +405,13 @@ def _add_all_market_square_interactions(df: pd.DataFrame):
     add_interaction(
         "Market Square",
         "Gladiator",
-        "If a Gladiator is trashed from the supply, since it is none of your cards, you cannot react Market Square to gain a Gold.",
+        "If a Gladiator is trashed from the supply, since it is not one of your cards, you cannot react Market Square to gain a Gold.",
         df,
     )
     add_interaction(
         "Market Square",
         "Lurker",
-        "If Lurker trashes a card from the supply, since it is none of your cards, you cannot react Market Square to gain a Gold.",
+        "If Lurker trashes a card from the supply, since it is not one of your cards, you cannot react Market Square to gain a Gold.",
         df,
     )
     draws_on_trash_str = "Rats|Trail|Cultist|Overgrown Estate/Market Square---When trashing a {card_a} with Market Square in hand, you get to decide which effect to resolve first, and can even react a Market Square you have just drawn from the on-trash draw ability of {card_a}."
@@ -424,8 +439,19 @@ def _add_all_outpost_interactions(df: pd.DataFrame):
             continue
         rule = f"If you play an Outpost using {throne}, you will still only take one extra turn, but the {throne} will stay out with it anyways."
         add_interaction("Outpost", throne, rule, df)
-    rule = "if you play Outpost and Voyage, then in Clean-up you don't discard either of them and only draw 3 cards. In between turns, you choose to take the Voyage turn next. (Outpost hasn't failed yet because another player might somehow be able to take an extra turn first.) In Clean-up of the Voyage turn, you discard Voyage but not Outpost and draw 5 cards. In between turns again, Outpost now fails - it is up next but would be your 3rd turn in a row. The next player takes their turn and during their Clean-up, you discard Outpost."
-    add_interaction("Outpost", "Voyage", rule, df)
+
+
+def _add_all_reserve_interactions(df: pd.DataFrame):
+    cheap_reserves = "Ratcatcher|Guide|Duplicate|Transmogrify"
+    reserve_inter = f"Band of Misfits|Captain/{cheap_reserves}---If you play a {{card_b}} using {{card_a}}, you don't put anything onto your Tavern mat."
+    add_multiple_interactions_from_single(reserve_inter, df)
+    reserve_inter = f"Summon/Ratcatcher|Guide|Transmogrify---If you buy Summon to set aside a {{card_b}} and play it at the start of your next turn, you'll immediately be able to call it then."
+    add_multiple_interactions_from_single(reserve_inter, df)
+    rule = "If you buy Summon to set aside a Royal Carriage (e.g. by having Cost Reduction) and play it at the start of your next turn, you'll immediately be able to call it then."
+    add_interaction("Summon", "Royal Carriage", rule, df)
+    reserves = "Ratcatcher|Guide|Duplicate|Transmogrify|Distant Lands|Royal Carriage|Wine Merchant"
+    reserve_inter = f"Overlord/{reserves}---If you play a {{card_b}} using Overlord, you don't put anything onto your Tavern mat."
+    add_multiple_interactions_from_single(reserve_inter, df)
 
 
 def _add_all_prince_interactions(df: pd.DataFrame):
@@ -687,6 +713,7 @@ def add_all_individual_card_interactions(df: pd.DataFrame, verbose=False) -> Non
     _add_all_prince_interactions(df)
     _add_all_procession_interactions(df)
     _add_all_possession_interactions(df)
+    _add_all_reserve_interactions(df)
     _add_all_soothsayer_interactions(df)
     _add_all_urchin_interactions(df)
     _add_all_voyage_interactions(df)

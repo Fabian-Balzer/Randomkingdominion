@@ -3,10 +3,7 @@
 import pandas as pd
 
 from ..constants import TGG_BUG_DISCLAIMER
-from ..interaction_util import (
-    add_interaction,
-    add_multiple_interactions_from_single,
-)
+from ..interaction_util import add_interaction, add_multiple_interactions_from_single
 
 
 def _add_individual_trait_interactions(df: pd.DataFrame):
@@ -27,6 +24,12 @@ def _add_individual_trait_interactions(df: pd.DataFrame):
         "Reckless",
         "Conspirator",
         "A Reckless card is not played twice as far as Conspirator is concerned. That means if you e.g. Reckless were on Conspirator and you would play it as the second Action this turn, you would only get +$4, not +$4 and +1 Card, +1 Action.",
+        df,
+    )
+    add_interaction(
+        "Reckless",
+        "Crossroads",
+        "If Crossroads is Reckless, the first time you play one will give you +6 Actions.",
         df,
     )
     add_interaction(

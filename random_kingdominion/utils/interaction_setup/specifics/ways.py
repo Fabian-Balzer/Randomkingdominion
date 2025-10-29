@@ -71,9 +71,9 @@ def _add_way_harbor_village_interactions(
     way: str, df: pd.DataFrame, way_extras: list[str]
 ):
     if way == "Way of the Chameleon":
-        rule = "If you play Harbor Village using Way of the Chameleon, you will first get +$1, +2 Actions, and if a card you play later gives you +$1 (such as another Chameleon'd Harbor Village), you draw a card.\nAlso, Harbor Village will not give you +$1 if you play a card as Way of the Chameleon that gives you would giv you +$ but no +Cards."
+        rule = "If you play Harbor Village using Way of the Chameleon, you will first get +$1, +2 Actions, and if a card you play later gives you +$1 (such as another Chameleon'd Harbor Village), you draw a card.\nAlso, Harbor Village will not give you +$1 if you play a card as Way of the Chameleon that would give you +$ but no +Cards."
     elif way == "Way of the Mouse":
-        rule = "If you play a card as Way of the Mouse and get +$ because of that, you will get never get +$1 from Harbor Village as Way of the Mouse plays another card."
+        rule = "If you play a card as Way of the Mouse and get +$ because of that, you will never get +$1 from Harbor Village as Way of the Mouse plays another card."
     elif "$" not in way_extras:
         return
     else:
@@ -100,12 +100,14 @@ def _add_special_chameleon_interactions(df: pd.DataFrame):
         "If you play a Poor House as Way of the Chameleon, you will draw 4 cards, and then after drawing lose $1 for each card you have in your hand, without going below $0.",
         df,
     )
-    chameleon_next_turn_stuff = "Way of the Chameleon/Lighthouse|Fishing Village|Monkey|Caravan|Sailor|Corsair|Tactician|Wharf|Merchant Ship|Sea Witch|Amulet|Caravan Guard|Dungeon|Haunted Woods|Swamp Hag|Enchantress|Secret Cave|Village Green|Barge|Gatekeeper|Highwayman|Garrison|Warlord|Stronghold|Grotto|Stowaway|Taskmaster|Cabin Boy|Longship|Riverboat---If you play {card_b} using {card_a}, remember that {card_a} only affects stuff happening *this turn*, so on your next turn, you will get the normal bonus from {card_b}."
+    chameleon_next_turn_stuff = "Way of the Chameleon/Lighthouse|Fishing Village|Monkey|Caravan|Sailor|Corsair|Tactician|Wharf|Merchant Ship|Sea Witch|Amulet|Caravan Guard|Dungeon|Haunted Woods|Swamp Hag|Enchantress|Secret Cave|Village Green|Barge|Gatekeeper|Highwayman|Warlord|Grotto|Stowaway|Taskmaster|Cabin Boy|Longship|Riverboat---If you play {card_b} using {card_a}, remember that {card_a} only affects stuff happening *this turn*, so on your next turn, you will get the normal bonus from {card_b}."
     add_multiple_interactions_from_single(
         chameleon_next_turn_stuff, df, add_together_if_present=True
     )
     chameleon_stay_in_play = "Way of the Chameleon/Samurai|Hireling---If you play {card_b} using {card_a}, remember that {card_a} only affects stuff happening *this turn*, so on your future turns you will get the normal bonus from {card_b}."
     add_multiple_interactions_from_single(chameleon_stay_in_play, df)
+    chameleon_forts = "Way of the Chameleon/Forts---If you play Garrison or Stronghold using {card_a}, remember that {card_a} only affects stuff happening *this turn*, so on your next turn, you will get the normal bonus from Garrison or Stronghold."
+    add_multiple_interactions_from_single(chameleon_forts, df)
     # Chameleon/Handsize stuff - Only Diplo states the obvious, THero, Guard Dog and Marquis do not
     csos = "Way of the Chameleon/Tragic Hero|Guard Dog|Marquis"
     inter = "If you play {card_b} using Way of the Chameleon, getting +$ instead of drawing cards, {card_b}'s condition will still be checked afterwards."
@@ -141,13 +143,13 @@ def _add_special_butterfly_horse_interactions(df: pd.DataFrame):
     add_interaction(
         "way of the horse",
         "riverboat",
-        "If you play the Riverboat card (not Riverboat) using Way of the Horse, it stays set aside.",
+        "If you play the Riverboat card (not Riverboat itself) using Way of the Horse, it stays set aside.",
         df,
     )
     add_interaction(
         "way of the butterfly",
         "riverboat",
-        "If you play the Riverboat card (not Riverboat) using Way of the Butterfly, it fails to return to its pile, and nothing will happen.",
+        "If you play the Riverboat card (not Riverboat itself) using Way of the Butterfly, it fails to return to its pile, and nothing will happen.",
         df,
     )
     add_interaction(
@@ -171,6 +173,13 @@ def _add_smugglers_mouse_interaction(df: pd.DataFrame):
         "If Smugglers is the Mouse card and you are able to somehow play it during your opponent's turn, you are able to gain the cards they gained on their previous turn.",
         df,
     )
+
+
+def _add_reaction_with_first_way_interactions(df: pd.DataFrame):
+    ways = "|".join(WAY_DICT.keys())
+    first_reactants = "Moat|Diplomat|Caravan Guard|Guard Dog|Beggar"
+    rule_str = f"{first_reactants}/{ways}---If you play an Attack card and your opponent reacts with a {{card_a}}, you may then again choose whether to play the Attack normally, or using {{card_b}}."
+    add_multiple_interactions_from_single(rule_str, df, add_together_if_present=True)
 
 
 ##########################################################################################################
@@ -203,5 +212,6 @@ def add_all_way_interactions(df: pd.DataFrame, verbose=False) -> None:
     _add_special_chameleon_interactions(df)
     _add_special_butterfly_horse_interactions(df)
     _add_smugglers_mouse_interaction(df)
+    _add_reaction_with_first_way_interactions(df)
     if verbose:
         print(f"Added {len(df) - num_before} interactions involving ways.")

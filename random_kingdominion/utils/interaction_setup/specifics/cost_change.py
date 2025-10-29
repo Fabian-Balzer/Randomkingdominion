@@ -82,7 +82,7 @@ def _add_individual_cost_change_interactions(df: pd.DataFrame):
     add_interaction(
         "Taskmaster",
         "Destrier",
-        "For Taskmaster, the cost of Destrier when you gain it is important, you will only renew Taskmaster's ability if Destrier costs $5 the when (before) you gain it.",
+        "For Taskmaster, the cost of Destrier when you gain it is important. You will only renew Taskmaster's ability if Destrier costs $5 at the moment you gain it.",
         df,
     )
     add_interaction(
@@ -147,11 +147,32 @@ def _add_individual_cost_change_interactions(df: pd.DataFrame):
     )
 
 
+def _add_stonemason_potion_interactions(df: pd.DataFrame):
+    potion_cost_cards = [
+        "Alchemist",
+        "Apothecary",
+        "Familiar",
+        "Golem",
+        "Scrying Pool",
+        "University",
+        "Possession",
+    ]
+
+    for card in potion_cost_cards:
+        add_interaction(
+            "Stonemason",
+            card,
+            f"You may overpay with Potions when buying Stonemason to gain two {card}s.",
+            df,
+        )
+
+
 ##########################################################################################################
 # Final function
 def add_all_cost_change_interactions(df: pd.DataFrame, verbose=False) -> None:
     """Adds all cost change interactions to the DataFrame."""
     num_before = len(df)
     _add_individual_cost_change_interactions(df)
+    _add_stonemason_potion_interactions(df)
     if verbose:
         print(f"Added {len(df) - num_before} cost change interactions.")

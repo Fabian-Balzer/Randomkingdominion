@@ -15,7 +15,7 @@ def _add_end_buy_interaction(card_a: str, card_b: str, df: pd.DataFrame):
 
 
 def _add_end_buy_river_shrine_interaction(buy_ending_cso: str, df: pd.DataFrame):
-    rule = f"You can only gain cards via River Shrine if you didn't gain any cards in any buy phase during your turn. Therefore, you ."
+    rule = f"You can only gain cards via River Shrine if you didn't gain any cards in any buy phase during your turn. Therefore, you "
     if buy_ending_cso == "Launch":
         rule += f"can only do so if you didn't gain any cards both in the Launch- and after-Launch buy phase."
     else:

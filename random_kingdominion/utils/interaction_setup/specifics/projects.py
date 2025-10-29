@@ -22,30 +22,15 @@ def _add_sewers_interactions(df: pd.DataFrame):
     add_interaction(
         "forager",
         "sewers",
-        "If you trash a Treasure that is unique to the trash with Sewers in reaction to Forager's trashing, said Treasure will be considered by Forager's check for unique Treasures, i.e. yield $.'",
+        "If you trash a Treasure that is unique to the trash with Sewers in reaction to Forager's trashing, said Treasure will be considered by Forager's check for unique Treasures, i.e. yield $.",
         df,
     )
     add_interaction(
         "mountain shrine",
         "sewers",
-        "If you trash an Action card using Sewers in reaction to Mountain Shrine's trashing, said Action will be considered by Mountain Shrine's check for Actions, and you will draw 2 cards even if that's the only Action in the trash.'",
+        "If you trash an Action card using Sewers in reaction to Mountain Shrine's trashing, said Action will be considered by Mountain Shrine's check for Actions, and you will draw 2 cards even if that's the only Action in the trash.",
         df,
     )
-
-
-def _add_fleet_interactions(df: pd.DataFrame):
-    for extra_turn_giver, acquire_str in [
-        ("outpost", "play"),
-        ("voyage", "play"),
-        ("journey", "buy"),
-        ("mission", "buy"),
-        ("possession", "play"),
-        ("island_folk", "activate"),
-        ("seize_the_day", "buy"),
-    ]:
-        name = get_cso_name(extra_turn_giver)
-        rule = f"If you {acquire_str} {name} on your Fleet turn, you will only get an extra turn from it if any other turns (like from your opponent) would follow."
-        add_interaction("Fleet", extra_turn_giver, rule, df)
 
 
 ##########################################################################################################
@@ -54,6 +39,6 @@ def add_all_project_interactions(df: pd.DataFrame, verbose=False) -> None:
     """Adds all project interactions to the DataFrame."""
     num_before = len(df)
     _add_sewers_interactions(df)
-    _add_fleet_interactions(df)
+    # Fleet interactions on extra turn page.
     if verbose:
         print(f"Added {len(df) - num_before} project interactions.")

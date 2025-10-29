@@ -20,6 +20,13 @@ def _add_vassal_interactions(df: pd.DataFrame):
     add_multiple_interactions_from_single(vassal_disc, df)
 
 
+def _add_all_deck_into_discard_interactions(df: pd.DataFrame):
+    deck_disc = "Scavenger|Chancellor|Messenger|Herb Gatherer|Trusty Steed/Trail|Village Green|Weaver|Tunnel---Playing {card_a} with a {card_b} in your deck does not count as discarding {card_b}, so you do not get to react."
+    add_multiple_interactions_from_single(deck_disc, df)
+    deck_disc = "Order of Masons|Avoid|Bad Omens/Trail|Village Green|Weaver|Tunnel---Putting cards into your discard pile via {card_a} with a {card_b} in your deck does not count as discarding {card_b}, so you do not get to react."
+    add_multiple_interactions_from_single(deck_disc, df)
+
+
 ##########################################################################################################
 # Final function
 def add_all_on_discard_interactions(df: pd.DataFrame, verbose=False) -> None:
@@ -27,5 +34,6 @@ def add_all_on_discard_interactions(df: pd.DataFrame, verbose=False) -> None:
     num_before = len(df)
     _add_arena_interactions(df)
     _add_vassal_interactions(df)
+    _add_all_deck_into_discard_interactions(df)
     if verbose:
         print(f"Added {len(df) - num_before} discarding interactions.")

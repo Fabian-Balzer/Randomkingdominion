@@ -13,7 +13,7 @@ from ..constants import (
     TGG_BUG_DISCLAIMER,
     WILL_TOPDECK_ON_GAIN,
 )
-from ..interaction_util import add_interaction
+from ..interaction_util import add_interaction, add_multiple_interactions_from_single
 
 
 ### On-Gain/Overpay interactions
@@ -161,6 +161,30 @@ def _add_on_gain_play_topdecker_interaction(
     add_interaction(topdecker, on_play_cso, rule, df)
 
 
+def _add_all_on_gain_basilica_interactions(df: pd.DataFrame):
+    add_interaction(
+        "Basilica",
+        "Nomads",
+        "Gaining a Nomads in your Buy phase will give you $2, and thus also give you 2 Basilica VP even if you have $0 prior to gaining them.",
+        df,
+    )
+    add_interaction(
+        "Basilica",
+        "Marchland",
+        "Gaining Marchlands in your Buy phase and discarding at least 2 cards for $ will also give you 2 Basilica VP even if you have $0 prior to gaining them.",
+        df,
+    )
+
+
+def _add_all_on_gain_colonnade_interactions(df: pd.DataFrame):
+    rule = "Colonnade/City-State|Innovation---If you use {card_b} to immediately play an Action you gained, you can take 2 VP from Colonnade."
+    add_multiple_interactions_from_single(rule, df)
+    rule = "Colonnade/Inheritance---If you have bought Inheritance, Estates count as Actions on your turn, and therefore will give you 2 VP when bought with an Estate in play."
+    add_multiple_interactions_from_single(rule, df)
+    rule = "Colonnade/Trail|Berserker---If you gain a {card_b} during your Buy phase and play it immediately, you can take 2 VP from Colonnade."
+    add_multiple_interactions_from_single(rule, df)
+
+
 ##########################################################################################################
 # Shuffle trigger Interactions
 def _add_on_shuffle_trigger_siren_interaction(other: str, df: pd.DataFrame):
@@ -188,7 +212,7 @@ def _add_on_gain_topdeck_villa_interaction(
     topdeck_cso: str, df: pd.DataFrame, choice=False
 ):
     if choice:
-        rule = f"If you gain a Villa, you can decide whether to topdeck it using {topdeck_cso}, or gain it to your hand. In any case, you will receive +1 Action and return to you Action phase if you're in your buy phase."
+        rule = f"If you gain a Villa, you can decide whether to topdeck it using {topdeck_cso}, or gain it to your hand. In any case, you will receive +1 Action and return to your Action phase if you're in your buy phase."
     elif topdeck_cso == "Progress":
         rule = f"If you gain a Villa while Progress is active, it is topdecked instead of put into your hand (unless you gain it on top of your deck directly with e.g. Armory, in which case it paradoxically is put into your hand afterwards)."
     else:
@@ -330,6 +354,12 @@ def _add_all_haunted_woods_interactions(df: pd.DataFrame):
         "Haunted Woods",
         "Souk",
         "If you buy a Souk while under the Haunted Woods attack, you can choose whether to first trash up to two cards from your hand, or whether to first topdeck your hand.",
+        df,
+    )
+    add_interaction(
+        "Haunted Woods",
+        "Siren",
+        "If you buy a Siren while under the Haunted Woods attack, you can choose whether to first trash an Action from your hand, or whether to first topdeck your hand.",
         df,
     )
     add_interaction(
@@ -529,6 +559,7 @@ def add_all_on_gain_interactions(df: pd.DataFrame, verbose=False):
     _add_all_haunted_castle_interactions(df)
     _add_all_skirmisher_interactions(df)
     _add_other_on_gain_interactions(df)
-
+    _add_all_on_gain_basilica_interactions(df)
+    _add_all_on_gain_colonnade_interactions(df)
     if verbose:
         print(f"Added {len(df) - num_before} on-gain interactions.")

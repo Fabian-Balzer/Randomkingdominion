@@ -84,6 +84,10 @@ def set_up_all_replacements(df: pd.DataFrame, verbose: bool = False) -> pd.DataF
         listlike_contains(ALL_CSOS["gain_types"], "Horses")
     ].index.tolist()
     df = _set_up_replacements_for_combos(df, "Horse", horse_gainers, verbose)
+    night_cards = ALL_CSOS[listlike_contains(ALL_CSOS["Types"], "Night")].index.tolist()
+    df = _set_up_replacements_for_combos(df, "Night", night_cards, verbose)
+    # Remove Werewolf/Prepare as it's not a nombo
+    df = df[df["CSO1/CSO2"] != "prepare/werewolf"]
     return df
 
 

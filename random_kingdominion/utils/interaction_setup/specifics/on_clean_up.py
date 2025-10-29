@@ -27,7 +27,19 @@ def _add_reckless_interactions(df: pd.DataFrame):
     add_interaction(
         "Reckless",
         "Alchemist",
-        "If Alchemist is Reckless, you may topdeck if you have a Potion in play, circumventing Reckless' return-to-pile prompt.",
+        "If Alchemist is Reckless, you may topdeck it during Clean-up if you have a Potion in play, circumventing Reckless' return-to-pile prompt.",
+        df,
+    )
+    add_interaction(
+        "Reckless",
+        "Merchant Camp",
+        "If Merchant Camp is Reckless, you may topdeck it during Clean-up, circumventing Reckless' return-to-pile prompt.",
+        df,
+    )
+    add_interaction(
+        "Reckless",
+        "Walled Village",
+        "If Walled Village is Reckless, you may topdeck it during Clean-up if you only have this and at most one other Action in play, circumventing Reckless' return-to-pile prompt.",
         df,
     )
     add_interaction(
@@ -86,7 +98,7 @@ def _add_individual_on_cleanup_interactions(df: pd.DataFrame):
     add_interaction(
         "Journey",
         "Alchemist",
-        "If you play Alchemists and Potion and buy Journey, you may topdeck the Alchemists for the Journey turn.",
+        "If you play Alchemists and buy Journey, if you have a Potion in play, you may topdeck the Alchemists for the Journey turn, and also on the Journey turn.",
         df,
     )
     add_interaction(
@@ -153,12 +165,30 @@ def _add_individual_on_cleanup_interactions(df: pd.DataFrame):
     )
 
 
+def _add_all_merchant_camp_interactions(df: pd.DataFrame):
+    rule = "Merchant Camp/Enchantress---Even if you don't play Merchant Camp normally, you may still topdeck it when you discard it from play."
+    add_multiple_interactions_from_single(rule, df)
+    ways = "|".join(WAY_DICT.keys())
+    way_rule = f"Merchant Camp/{ways}---If you play Merchant Camp using {{card_b}}, you may still topdeck it when you discard it from play."
+    add_multiple_interactions_from_single(way_rule, df)
+
+
+def _add_all_tent_interactions(df: pd.DataFrame):
+    rule = "Tent/Enchantress---Even if you don't play Tent normally, you may still topdeck it when you discard it from play."
+    add_multiple_interactions_from_single(rule, df)
+    ways = "|".join(WAY_DICT.keys())
+    way_rule = f"Tent/{ways}---If you play Tent using {{card_b}}, you may still topdeck it when you discard it from play."
+    add_multiple_interactions_from_single(way_rule, df)
+
+
 ##########################################################################################################
 # Final function
 def add_all_on_clean_up_interactions(df: pd.DataFrame, verbose=False) -> None:
     """Adds all on_clean_up interactions to the DataFrame."""
     num_before = len(df)
     _add_reckless_interactions(df)
+    _add_all_merchant_camp_interactions(df)
+    _add_all_tent_interactions(df)
     _add_individual_on_cleanup_interactions(df)
     if verbose:
         print(f"Added {len(df) - num_before} on_clean_up interactions.")

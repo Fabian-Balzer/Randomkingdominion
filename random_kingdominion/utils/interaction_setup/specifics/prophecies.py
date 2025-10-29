@@ -2,11 +2,15 @@
 
 import pandas as pd
 
-from ..constants import (ACTION_TREASURES, ALL_LOOT_GIVERS, ALL_LOOTS,
-                         GATHERING_CARDS, TGG_BUG_DISCLAIMER,
-                         TRAVELLER_BASE_CARDS)
-from ..interaction_util import (add_interaction,
-                                add_multiple_interactions_from_single)
+from ..constants import (
+    ACTION_TREASURES,
+    ALL_LOOT_GIVERS,
+    ALL_LOOTS,
+    GATHERING_CARDS,
+    TGG_BUG_DISCLAIMER,
+    TRAVELLER_BASE_CARDS,
+)
+from ..interaction_util import add_interaction, add_multiple_interactions_from_single
 
 
 def _add_gathering_divine_wind_interaction(other: str, df: pd.DataFrame):
@@ -41,7 +45,7 @@ def _add_individual_divine_wind_interactions(df: pd.DataFrame):
     add_interaction(
         "divine wind",
         "way of the butterfly",
-        "Once Divine Wind has been triggered, if you play any card from the initial supply using Way of the Butterfly, it cannot to its pile, and will fail to do anything except for going into your play area.",
+        "Once Divine Wind has been triggered, if you play any card from the initial supply using Way of the Butterfly, it cannot return to its pile, and will fail to do anything except for going into your play area.",
         df,
     )
     add_interaction(

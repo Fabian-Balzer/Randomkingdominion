@@ -16,7 +16,10 @@ def add_interaction(
     add_together_if_present=False,
     warn_duplicate=True,
 ) -> None:
-    """Add a new interaction to the interactions dataframe, and sort it."""
+    """Add a new interaction to the interactions dataframe, and sort it.
+
+    Will replace the given CSO with its parent pile if applicable, e.g. Elder -> Townsfolk.
+    """
     c1 = sanitize_cso_name(c1, replace_parent_pile=True)
     c2 = sanitize_cso_name(c2, replace_parent_pile=True)
     assert c1 in ALL_CSOS.index, f"{c1} not in the card list."
@@ -26,11 +29,11 @@ def add_interaction(
     if ident in df.index:
         if warn_duplicate and not add_together_if_present:
             LOGGER.warning(
-                f"{c1} and {c2} already have a rule ({df.loc[ident]['Rule']})."
+                f"{c1} and {c2} already have a rule ({df.loc[ident]['Rule']}), discarding the proposed one ({interaction})."
             )
         if add_together_if_present:
             df.loc[ident, "Rule"] += "\n" + interaction  # type: ignore
-            LOGGER.info(f"Adding another interaction for {c1} and {c2}.")
+            LOGGER.debug(f"Adding another interaction for {c1} and {c2}.")
             # print(
             #     f"Adding the new rule to the existing rule, which is now\n\t'{df.loc[ident, 'Rule']}'."
             # )

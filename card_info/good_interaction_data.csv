@@ -1,11 +1,13 @@
 CSO1;CSO2;Rule
 abundance;mandarin;If you gain a Mandarin and have played Abundance before that, you put it on top of your deck, but the duration effect still persists.
-alchemist;journey;If you play Alchemists and Potion and buy Journey, you may topdeck the Alchemists for the Journey turn.
-alchemist;reckless;If Alchemist is Reckless, you may topdeck if you have a Potion in play, circumventing Reckless' return-to-pile prompt.
+alchemist;journey;If you play Alchemists and buy Journey, if you have a Potion in play, you may topdeck the Alchemists for the Journey turn, and also on the Journey turn.
+alchemist;reckless;If Alchemist is Reckless, you may topdeck it during Clean-up if you have a Potion in play, circumventing Reckless' return-to-pile prompt.
+alchemist;stonemason;You may overpay with Potions when buying Stonemason to gain two Alchemists.
 amphora;mandarin;If you gain a Mandarin and have played Amphora before that, you put it on top of your deck, but the duration effect still persists.
 amphora;panic;When you discard Amphora from play while Panic is active, you return it to the top of the Loot pile. When discarding multiple, you get to choose the order.
 amulet;townsfolk;If you play an Amulet using Elder, you get to pick two of the options this turn, but only one option on the next turn.
 amulet;way_of_the_chameleon;If you play Amulet using Way of the Chameleon, remember that Way of the Chameleon only affects stuff happening *this turn*, so on your next turn, you will get the normal bonus from Amulet.
+apothecary;stonemason;You may overpay with Potions when buying Stonemason to gain two Apothecarys.
 approaching_army;harbor_village;Even if Approaching Army is active, Harbor Village does not give you +$1 when you play an Attack (that doesn't give +$) after it, since it's Approaching Army providing the +$1, not the Attack card itself.
 architects_guild;destrier;Destrier's cost will be evaluated after each gain, so if you gain a Destrier costing $6, you may gain a card cheaper than $5 afterwards using Architect's Guild. On the other hand, you may gain an initially $6-costing Destrier off of a Gold gain using Architect's Guild.
 architects_guild;fisherman;Fisherman's cost will be evaluated after each gain, so if you e.g. gain a Fisherman for $2, you may use two Favors to gain a card costing less than $5 (as long as the Fisherman is in the Discard Pile). On the other hand, you normally cannot gain a Fisherman for $2 off of a $5 cost gain using Architect's Guild.
@@ -36,9 +38,25 @@ augurs;pathfinding;You may put the + Card token on the Augurs pile using Pathfin
 augurs;peasant;You may put any token on the Augurs pile using Teacher. This will affect all of its cards.
 augurs;plan;You may put the trashing token on the Augurs pile using Plan. This will affect all of its cards.
 augurs;seaway;You may put the + Buy token on the Augurs pile using Seaway. This will affect all of its cards.
+augurs;trail;Playing Herb Gatherer with a Trail in your deck does not count as discarding Trail, so you do not get to react.
 augurs;training;You may put the + $1 token on the Augurs pile using Training. This will affect all of its cards.
+augurs;tunnel;Playing Herb Gatherer with a Tunnel in your deck does not count as discarding Tunnel, so you do not get to react.
+augurs;village_green;Playing Herb Gatherer with a Village Green in your deck does not count as discarding Village Green, so you do not get to react.
+augurs;weaver;Playing Herb Gatherer with a Weaver in your deck does not count as discarding Weaver, so you do not get to react.
+avoid;trail;Putting cards into your discard pile via Avoid with a Trail in your deck does not count as discarding Trail, so you do not get to react.
+avoid;tunnel;Putting cards into your discard pile via Avoid with a Tunnel in your deck does not count as discarding Tunnel, so you do not get to react.
+avoid;village_green;Putting cards into your discard pile via Avoid with a Village Green in your deck does not count as discarding Village Green, so you do not get to react.
+avoid;weaver;Putting cards into your discard pile via Avoid with a Weaver in your deck does not count as discarding Weaver, so you do not get to react.
 bad_omens;patron;If you reveal the cards in your discard pile when you don't have any Coppers, you will get +1 Coffers for each Patron in there as long as it's during an Action phase.
+bad_omens;trail;Putting cards into your discard pile via Bad Omens with a Trail in your deck does not count as discarding Trail, so you do not get to react.
+bad_omens;tunnel;Putting cards into your discard pile via Bad Omens with a Tunnel in your deck does not count as discarding Tunnel, so you do not get to react.
+bad_omens;village_green;Putting cards into your discard pile via Bad Omens with a Village Green in your deck does not count as discarding Village Green, so you do not get to react.
+bad_omens;weaver;Putting cards into your discard pile via Bad Omens with a Weaver in your deck does not count as discarding Weaver, so you do not get to react.
 ball;harbor_village;If you play a card giving only +$1 and use that to remove the -Coin token after playing Harbor Village, you don't get +$1 from Harbor Village as the card didn't produce any $.
+band_of_misfits;duplicate;If you play a Duplicate using Band of Misfits, you don't put anything onto your Tavern mat.
+band_of_misfits;guide;If you play a Guide using Band of Misfits, you don't put anything onto your Tavern mat.
+band_of_misfits;ratcatcher;If you play a Ratcatcher using Band of Misfits, you don't put anything onto your Tavern mat.
+band_of_misfits;transmogrify;If you play a Transmogrify using Band of Misfits, you don't put anything onto your Tavern mat.
 band_of_nomads;city-state;If you gain a card and use Band of Nomads to cause a shuffle, you cannot play it using City-State anymore (but you could choose to resolve the on-gain play first).
 band_of_nomads;innovation;If you gain a card and use Band of Nomads to cause a shuffle, you cannot play it using Innovation anymore (but you could choose to resolve the on-gain play first).
 band_of_nomads;rush;If you gain a card and use Band of Nomads to cause a shuffle, you cannot play it using Rush anymore (but you could choose to resolve the on-gain play first).
@@ -46,6 +64,8 @@ band_of_nomads;siren;If you gain a Siren and somehow trigger a shuffle by drawin
 band_of_nomads;spell_scroll;If you gain a card and use Band of Nomads to cause a shuffle, you cannot play it using Spell Scroll anymore (but you could choose to resolve the on-gain play first).
 bandit;charlatan;If a Bandit reveals a Curse with Charlatan in the kingdom, the Curse (or another non-Copper Treasure) is trashed.
 barge;way_of_the_chameleon;If you play Barge using Way of the Chameleon, remember that Way of the Chameleon only affects stuff happening *this turn*, so on your next turn, you will get the normal bonus from Barge.
+basilica;marchland;Gaining Marchlands in your Buy phase and discarding at least 2 cards for $ will also give you 2 Basilica VP even if you have $0 prior to gaining them.
+basilica;nomads;Gaining a Nomads in your Buy phase will give you $2, and thus also give you 2 Basilica VP even if you have $0 prior to gaining them.
 bauble;city-state;When you gain a card, you can decide whether to immediately play it using City-State, or topdeck it using Bauble.
 bauble;den_of_sin;If you gain a Den of Sin, you can decide whether to topdeck it using Bauble, or gain it to your hand.
 bauble;ghost_town;If you gain a Ghost Town, you can decide whether to topdeck it using Bauble, or gain it to your hand.
@@ -55,7 +75,28 @@ bauble;night_watchman;If you gain a Night Watchman, you can decide whether to to
 bauble;rapid_expansion;When you gain a card while Rapid Expansion is active, you can decide to topdeck it using Bauble instead of setting it aside.
 bauble;rush;When you gain a card, you can decide whether to immediately play it using Rush, or topdeck it using Bauble.
 bauble;siren;If you gain a Siren and topdeck it using Bauble, you don't need to trash an Action card in order for it to stay in your deck.
-bauble;villa;If you gain a Villa, you can decide whether to topdeck it using Bauble, or gain it to your hand. In any case, you will receive +1 Action and return to you Action phase if you're in your buy phase.
+bauble;villa;If you gain a Villa, you can decide whether to topdeck it using Bauble, or gain it to your hand. In any case, you will receive +1 Action and return to your Action phase if you're in your buy phase.
+beggar;way_of_the_butterfly;If you play an Attack card and your opponent reacts with a Beggar, you may then again choose whether to play the Attack normally, or using Way of the Butterfly.
+beggar;way_of_the_camel;If you play an Attack card and your opponent reacts with a Beggar, you may then again choose whether to play the Attack normally, or using Way of the Camel.
+beggar;way_of_the_chameleon;If you play an Attack card and your opponent reacts with a Beggar, you may then again choose whether to play the Attack normally, or using Way of the Chameleon.
+beggar;way_of_the_frog;If you play an Attack card and your opponent reacts with a Beggar, you may then again choose whether to play the Attack normally, or using Way of the Frog.
+beggar;way_of_the_goat;If you play an Attack card and your opponent reacts with a Beggar, you may then again choose whether to play the Attack normally, or using Way of the Goat.
+beggar;way_of_the_horse;If you play an Attack card and your opponent reacts with a Beggar, you may then again choose whether to play the Attack normally, or using Way of the Horse.
+beggar;way_of_the_mole;If you play an Attack card and your opponent reacts with a Beggar, you may then again choose whether to play the Attack normally, or using Way of the Mole.
+beggar;way_of_the_monkey;If you play an Attack card and your opponent reacts with a Beggar, you may then again choose whether to play the Attack normally, or using Way of the Monkey.
+beggar;way_of_the_mouse;If you play an Attack card and your opponent reacts with a Beggar, you may then again choose whether to play the Attack normally, or using Way of the Mouse.
+beggar;way_of_the_mule;If you play an Attack card and your opponent reacts with a Beggar, you may then again choose whether to play the Attack normally, or using Way of the Mule.
+beggar;way_of_the_otter;If you play an Attack card and your opponent reacts with a Beggar, you may then again choose whether to play the Attack normally, or using Way of the Otter.
+beggar;way_of_the_owl;If you play an Attack card and your opponent reacts with a Beggar, you may then again choose whether to play the Attack normally, or using Way of the Owl.
+beggar;way_of_the_ox;If you play an Attack card and your opponent reacts with a Beggar, you may then again choose whether to play the Attack normally, or using Way of the Ox.
+beggar;way_of_the_pig;If you play an Attack card and your opponent reacts with a Beggar, you may then again choose whether to play the Attack normally, or using Way of the Pig.
+beggar;way_of_the_rat;If you play an Attack card and your opponent reacts with a Beggar, you may then again choose whether to play the Attack normally, or using Way of the Rat.
+beggar;way_of_the_seal;If you play an Attack card and your opponent reacts with a Beggar, you may then again choose whether to play the Attack normally, or using Way of the Seal.
+beggar;way_of_the_sheep;If you play an Attack card and your opponent reacts with a Beggar, you may then again choose whether to play the Attack normally, or using Way of the Sheep.
+beggar;way_of_the_squirrel;If you play an Attack card and your opponent reacts with a Beggar, you may then again choose whether to play the Attack normally, or using Way of the Squirrel.
+beggar;way_of_the_turtle;If you play an Attack card and your opponent reacts with a Beggar, you may then again choose whether to play the Attack normally, or using Way of the Turtle.
+beggar;way_of_the_worm;If you play an Attack card and your opponent reacts with a Beggar, you may then again choose whether to play the Attack normally, or using Way of the Worm.
+berserker;colonnade;If you gain a Berserker during your Buy phase and play it immediately, you can take 2 VP from Colonnade.
 berserker;gatekeeper;"If your opponent has played Gatekeeper, you gain a Berserker and you don't have a copy of Berserker in Exile, you may choose whether to resolve playing the Berserker or the exiling first; if you play it, it cannot be moved to Exile and vice versa."
 berserker;odysseys;On your Voyage turn, when you gain a Berserker, you can (bar some exceptions) play it immediately without that counting towards the three-card limit, even if you have already played three cards from your hand. Exceptions are gain-to-hand effects (like Swap or Sculptor).
 black_cat;way_of_the_butterfly;When you react and play Black Cat during another player's turn, you can decide to play it as Way of the Butterfly.
@@ -142,29 +183,53 @@ capitalism;way_of_the_sheep;Once Capitalism is active, you can choose to play yo
 capitalism;way_of_the_squirrel;Once Capitalism is active, you can choose to play your new-found Action-Treasures as Way of the Squirrel both in your Action and Buy phase.
 capitalism;way_of_the_turtle;Once Capitalism is active, you can choose to play your new-found Action-Treasures as Way of the Turtle both in your Action and Buy phase.
 capitalism;way_of_the_worm;Once Capitalism is active, you can choose to play your new-found Action-Treasures as Way of the Worm both in your Action and Buy phase.
+captain;duplicate;If you play a Duplicate using Captain, you don't put anything onto your Tavern mat.
+captain;guide;If you play a Guide using Captain, you don't put anything onto your Tavern mat.
+captain;ratcatcher;If you play a Ratcatcher using Captain, you don't put anything onto your Tavern mat.
+captain;transmogrify;If you play a Transmogrify using Captain, you don't put anything onto your Tavern mat.
 caravan;way_of_the_chameleon;If you play Caravan using Way of the Chameleon, remember that Way of the Chameleon only affects stuff happening *this turn*, so on your next turn, you will get the normal bonus from Caravan.
 caravan_guard;soothsayer;If an opponent plays Soothsayer, you may react with Caravan Guard immediately, and then gain a Curse. Once you're done reacting, you draw a card due to Soothsayer, and if that card is a Caravan Guard, it is too late for you to react with that one.
-caravan_guard;way_of_the_butterfly;When you react and play Caravan Guard during another player's turn, you can decide to play it as Way of the Butterfly.
-caravan_guard;way_of_the_camel;When you react and play Caravan Guard during another player's turn, you can decide to play it as Way of the Camel.
+caravan_guard;way_of_the_butterfly;"When you react and play Caravan Guard during another player's turn, you can decide to play it as Way of the Butterfly.
+If you play an Attack card and your opponent reacts with a Caravan Guard, you may then again choose whether to play the Attack normally, or using Way of the Butterfly."
+caravan_guard;way_of_the_camel;"When you react and play Caravan Guard during another player's turn, you can decide to play it as Way of the Camel.
+If you play an Attack card and your opponent reacts with a Caravan Guard, you may then again choose whether to play the Attack normally, or using Way of the Camel."
 caravan_guard;way_of_the_chameleon;"When you react and play Caravan Guard during another player's turn, you can decide to play it as Way of the Chameleon. Remember that +$ can't normally be used on other player's turns.
-If you play Caravan Guard using Way of the Chameleon, remember that Way of the Chameleon only affects stuff happening *this turn*, so on your next turn, you will get the normal bonus from Caravan Guard."
-caravan_guard;way_of_the_frog;When you react and play Caravan Guard during another player's turn, you can decide to play it as Way of the Frog. Remember that + Action can't normally be used on other player's turns.
-caravan_guard;way_of_the_goat;When you react and play Caravan Guard during another player's turn, you can decide to play it as Way of the Goat.
-caravan_guard;way_of_the_horse;When you react and play Caravan Guard during another player's turn, you can decide to play it as Way of the Horse. Remember that + Action can't normally be used on other player's turns.
-caravan_guard;way_of_the_mole;When you react and play Caravan Guard during another player's turn, you can decide to play it as Way of the Mole. Remember that + Action can't normally be used on other player's turns.
-caravan_guard;way_of_the_monkey;When you react and play Caravan Guard during another player's turn, you can decide to play it as Way of the Monkey. Remember that +$ and + Buy can't normally be used on other player's turns.
-caravan_guard;way_of_the_mouse;When you react and play Caravan Guard during another player's turn, you can decide to play it as Way of the Mouse. Remember that +$ and + Action and + Buy can't normally be used on other player's turns.
-caravan_guard;way_of_the_mule;When you react and play Caravan Guard during another player's turn, you can decide to play it as Way of the Mule. Remember that +$ and + Action can't normally be used on other player's turns.
-caravan_guard;way_of_the_otter;When you react and play Caravan Guard during another player's turn, you can decide to play it as Way of the Otter.
-caravan_guard;way_of_the_owl;When you react and play Caravan Guard during another player's turn, you can decide to play it as Way of the Owl.
-caravan_guard;way_of_the_ox;When you react and play Caravan Guard during another player's turn, you can decide to play it as Way of the Ox. Remember that + Action can't normally be used on other player's turns.
-caravan_guard;way_of_the_pig;When you react and play Caravan Guard during another player's turn, you can decide to play it as Way of the Pig. Remember that + Action can't normally be used on other player's turns.
-caravan_guard;way_of_the_rat;When you react and play Caravan Guard during another player's turn, you can decide to play it as Way of the Rat.
-caravan_guard;way_of_the_seal;When you react and play Caravan Guard during another player's turn, you can decide to play it as Way of the Seal. Remember that +$ can't normally be used on other player's turns.
-caravan_guard;way_of_the_sheep;When you react and play Caravan Guard during another player's turn, you can decide to play it as Way of the Sheep. Remember that +$ can't normally be used on other player's turns.
-caravan_guard;way_of_the_squirrel;When you react and play Caravan Guard during another player's turn, you can decide to play it as Way of the Squirrel.
-caravan_guard;way_of_the_turtle;When you react and play Caravan Guard during another player's turn, you can decide to play it as Way of the Turtle.
-caravan_guard;way_of_the_worm;When you react and play Caravan Guard during another player's turn, you can decide to play it as Way of the Worm.
+If you play Caravan Guard using Way of the Chameleon, remember that Way of the Chameleon only affects stuff happening *this turn*, so on your next turn, you will get the normal bonus from Caravan Guard.
+If you play an Attack card and your opponent reacts with a Caravan Guard, you may then again choose whether to play the Attack normally, or using Way of the Chameleon."
+caravan_guard;way_of_the_frog;"When you react and play Caravan Guard during another player's turn, you can decide to play it as Way of the Frog. Remember that + Action can't normally be used on other player's turns.
+If you play an Attack card and your opponent reacts with a Caravan Guard, you may then again choose whether to play the Attack normally, or using Way of the Frog."
+caravan_guard;way_of_the_goat;"When you react and play Caravan Guard during another player's turn, you can decide to play it as Way of the Goat.
+If you play an Attack card and your opponent reacts with a Caravan Guard, you may then again choose whether to play the Attack normally, or using Way of the Goat."
+caravan_guard;way_of_the_horse;"When you react and play Caravan Guard during another player's turn, you can decide to play it as Way of the Horse. Remember that + Action can't normally be used on other player's turns.
+If you play an Attack card and your opponent reacts with a Caravan Guard, you may then again choose whether to play the Attack normally, or using Way of the Horse."
+caravan_guard;way_of_the_mole;"When you react and play Caravan Guard during another player's turn, you can decide to play it as Way of the Mole. Remember that + Action can't normally be used on other player's turns.
+If you play an Attack card and your opponent reacts with a Caravan Guard, you may then again choose whether to play the Attack normally, or using Way of the Mole."
+caravan_guard;way_of_the_monkey;"When you react and play Caravan Guard during another player's turn, you can decide to play it as Way of the Monkey. Remember that +$ and + Buy can't normally be used on other player's turns.
+If you play an Attack card and your opponent reacts with a Caravan Guard, you may then again choose whether to play the Attack normally, or using Way of the Monkey."
+caravan_guard;way_of_the_mouse;"When you react and play Caravan Guard during another player's turn, you can decide to play it as Way of the Mouse. Remember that +$ and + Action and + Buy can't normally be used on other player's turns.
+If you play an Attack card and your opponent reacts with a Caravan Guard, you may then again choose whether to play the Attack normally, or using Way of the Mouse."
+caravan_guard;way_of_the_mule;"When you react and play Caravan Guard during another player's turn, you can decide to play it as Way of the Mule. Remember that +$ and + Action can't normally be used on other player's turns.
+If you play an Attack card and your opponent reacts with a Caravan Guard, you may then again choose whether to play the Attack normally, or using Way of the Mule."
+caravan_guard;way_of_the_otter;"When you react and play Caravan Guard during another player's turn, you can decide to play it as Way of the Otter.
+If you play an Attack card and your opponent reacts with a Caravan Guard, you may then again choose whether to play the Attack normally, or using Way of the Otter."
+caravan_guard;way_of_the_owl;"When you react and play Caravan Guard during another player's turn, you can decide to play it as Way of the Owl.
+If you play an Attack card and your opponent reacts with a Caravan Guard, you may then again choose whether to play the Attack normally, or using Way of the Owl."
+caravan_guard;way_of_the_ox;"When you react and play Caravan Guard during another player's turn, you can decide to play it as Way of the Ox. Remember that + Action can't normally be used on other player's turns.
+If you play an Attack card and your opponent reacts with a Caravan Guard, you may then again choose whether to play the Attack normally, or using Way of the Ox."
+caravan_guard;way_of_the_pig;"When you react and play Caravan Guard during another player's turn, you can decide to play it as Way of the Pig. Remember that + Action can't normally be used on other player's turns.
+If you play an Attack card and your opponent reacts with a Caravan Guard, you may then again choose whether to play the Attack normally, or using Way of the Pig."
+caravan_guard;way_of_the_rat;"When you react and play Caravan Guard during another player's turn, you can decide to play it as Way of the Rat.
+If you play an Attack card and your opponent reacts with a Caravan Guard, you may then again choose whether to play the Attack normally, or using Way of the Rat."
+caravan_guard;way_of_the_seal;"When you react and play Caravan Guard during another player's turn, you can decide to play it as Way of the Seal. Remember that +$ can't normally be used on other player's turns.
+If you play an Attack card and your opponent reacts with a Caravan Guard, you may then again choose whether to play the Attack normally, or using Way of the Seal."
+caravan_guard;way_of_the_sheep;"When you react and play Caravan Guard during another player's turn, you can decide to play it as Way of the Sheep. Remember that +$ can't normally be used on other player's turns.
+If you play an Attack card and your opponent reacts with a Caravan Guard, you may then again choose whether to play the Attack normally, or using Way of the Sheep."
+caravan_guard;way_of_the_squirrel;"When you react and play Caravan Guard during another player's turn, you can decide to play it as Way of the Squirrel.
+If you play an Attack card and your opponent reacts with a Caravan Guard, you may then again choose whether to play the Attack normally, or using Way of the Squirrel."
+caravan_guard;way_of_the_turtle;"When you react and play Caravan Guard during another player's turn, you can decide to play it as Way of the Turtle.
+If you play an Attack card and your opponent reacts with a Caravan Guard, you may then again choose whether to play the Attack normally, or using Way of the Turtle."
+caravan_guard;way_of_the_worm;"When you react and play Caravan Guard during another player's turn, you can decide to play it as Way of the Worm.
+If you play an Attack card and your opponent reacts with a Caravan Guard, you may then again choose whether to play the Attack normally, or using Way of the Worm."
 cargo_ship;improve;If you play a Cargo Ship and don't set anything aside with it before your Clean-up phase, Improve can trash it because it's going to be discarded as far as you know at that point. However, trashing a card from play does not negate its instructions, so you can still set aside the card you gain from Improve (or another card you gain that turn) through the instructions of Cargo Ship.
 castles;falconer;If your opponent gains Haunted Castle and you have a Falconer in hand, you first have to topdeck two cards, and only then can react the Falconer since the different things happen in turn order.
 castles;ferry;You can never put the -$2 token on the Castles pile (even with Small or Opulent Castle on top) because they are only a Victory Supply pile, not an Action supply pile.
@@ -201,11 +266,15 @@ cavalry;haunted_woods;If you buy a Cavalry while under the Haunted Woods attack,
 cavalry;hermit;When you return to your Action phase using Cavalry, you are ending your Buy phase but gain a card at the same time, so Hermit can't trigger. Hermit can still trigger at the end of a future buy phase.
 cavalry;merchant_guild;When you return to your Action phase using Cavalry, you are ending your Buy phase, so Merchant Guild can trigger.
 cavalry;pageant;When you return to your Action phase using Cavalry, you are ending your Buy phase, so Pageant can trigger.
-cavalry;river_shrine;You can only gain cards via River Shrine if you didn't gain any cards in any buy phase during your turn. Therefore, you .can never do so after buying Cavalry, even if you don't gain cards in your last buy phase.
+cavalry;river_shrine;You can only gain cards via River Shrine if you didn't gain any cards in any buy phase during your turn. Therefore, you can never do so after buying Cavalry, even if you don't gain cards in your last buy phase.
 cavalry;treasury;When you return to your Action phase using Cavalry, you are ending your Buy phase, so Treasury can trigger.
 cavalry;wine_merchant;When you return to your Action phase using Cavalry, you are ending your Buy phase, so Wine Merchant can trigger.
 cave_dwellers;clerk;"You may react Clerks both before and after using Favors for Cave Dwellers, but not in-between; you could e.g. react Clerk, use Cave Dwellers two times, and then react another Clerk you've just drawn. After that, you may not use Cave Dwellers again."
 cemetery;haunted_woods;If you buy a Cemetery while under the Haunted Woods attack, you can choose whether to first trash cards from your hand, or whether to first topdeck your hand.
+chancellor;trail;Playing Chancellor with a Trail in your deck does not count as discarding Trail, so you do not get to react.
+chancellor;tunnel;Playing Chancellor with a Tunnel in your deck does not count as discarding Tunnel, so you do not get to react.
+chancellor;village_green;Playing Chancellor with a Village Green in your deck does not count as discarding Village Green, so you do not get to react.
+chancellor;weaver;Playing Chancellor with a Weaver in your deck does not count as discarding Weaver, so you do not get to react.
 change;fisherman;It is occasionally possible for cost reduction to make the gained card cost less $ than the trashed card after gaining. In this case the D incurred is the absolute value of the new $ difference. For example, if you trash a $2 Fisherman and gain a Silver, the Fisherman now costs $5, and you take 2D.
 change;possession;When you play Change while Possessing an opponent, trash one of their cards, and gain a card costing more $ than it, since they never gain it, they would never gain debt from that play. Therefore, you also don't gain any debt from it.
 changeling;city-state;If you play a gained card using City-State, you cannot exchange it for a Changeling afterwards. Conversely, you cannot play it anymore after having exchanged it for a Changeling.
@@ -225,6 +294,7 @@ charm;spell_scroll;When you play a Charm by gaining it via Spell Scroll and choo
 charm;wayfarer;If you choose the 'Gain Card with same cost' option, you will always (unless you gain another card in-between somehow with e.g. Haggler) be able to gain a Wayfarer off of any card you gain next, since Wayfarer changes its cost to said card. This even works with Debt and Potion cost cards.
 cheap;plateau_shepherds;If Cheap is assigned to a card initially costing $3, it becomes a $2 cost card as far as Plateau Shepherds (PS) is concerned. Conversely, a card reduced to costing $1 due to Cheap will not be eligible for PS anymore.
 citadel;urchin;If you play an Urchin multiple times using Citadel, you may not trash this Urchin, since you need to play *another* attack card to be able to trash it.
+city-state;colonnade;If you use City-State to immediately play an Action you gained, you can take 2 VP from Colonnade.
 city-state;crafters_guild;When you gain a card using Crafter's Guild and immediately play it using City-State, you will not be able to topdeck it.
 city-state;demand;When you gain a card using Demand and immediately play it using City-State, you will not be able to topdeck it.
 city-state;develop;When you gain a card using Develop and immediately play it using City-State, you will not be able to topdeck it.
@@ -287,6 +357,9 @@ cobbler;gatekeeper;If you gain a card and put it in your hand using Cobbler whil
 cobbler;sheepdog;If you gain a Sheepdog to your hand using Cobbler, you can immediately react to its own gain and play it.
 cobbler;siren;If you gain a Siren and put it in your hand using Cobbler, you still need to trash an Action from your hand in order to not trash the Siren.
 coin_of_the_realm;highwayman;Calling Coin of the Realm from your Tavern mat will work and provide +2 Actions even if you are affected by the Highwayman attack because you don't *play* it there.
+colonnade;inheritance;If you have bought Inheritance, Estates count as Actions on your turn, and therefore will give you 2 VP when bought with an Estate in play.
+colonnade;innovation;If you use Innovation to immediately play an Action you gained, you can take 2 VP from Colonnade.
+colonnade;trail;If you gain a Trail during your Buy phase and play it immediately, you can take 2 VP from Colonnade.
 conspirator;reckless;A Reckless card is not played twice as far as Conspirator is concerned. That means if you e.g. Reckless were on Conspirator and you would play it as the second Action this turn, you would only get +$4, not +$4 and +1 Card, +1 Action.
 continue;enlightenment;Once Enlightenment is active, you can buy Continue to gain and play any non-Attack Action-Treasure (even Silver) costing at most $4. Since you return to your Action phase first before playing it, you will always get +1 Card and +1 Action from it.
 continue;exploration;When you return to your Action phase using Continue, you are ending your Buy phase but gain a card at the same time, so Exploration can't trigger. Exploration can still trigger at the end of a future buy phase.
@@ -297,7 +370,7 @@ continue;merchant_guild;When you return to your Action phase using Continue, you
 continue;pageant;When you return to your Action phase using Continue, you are ending your Buy phase, so Pageant can trigger.
 continue;progress;When you buy Continue while Progress is active, you have to topdeck the gained card and won't be able to play it.
 continue;rapid_expansion;When Rapid Expansion is active, the Action card gained from a Continue buy is set aside before it can be played (you still get +1 Action, +1 Buy and return to your Action phase).
-continue;river_shrine;You can only gain cards via River Shrine if you didn't gain any cards in any buy phase during your turn. Therefore, you .can never do so after buying Continue, even if you don't gain cards in your last buy phase.
+continue;river_shrine;You can only gain cards via River Shrine if you didn't gain any cards in any buy phase during your turn. Therefore, you can never do so after buying Continue, even if you don't gain cards in your last buy phase.
 continue;treasury;When you return to your Action phase using Continue, you are ending your Buy phase, so Treasury can trigger.
 continue;wine_merchant;When you return to your Action phase using Continue, you are ending your Buy phase, so Wine Merchant can trigger.
 contract;mandarin;If you gain a Mandarin and have played Contract before that, you put it on top of your deck, but the duration effect still persists.
@@ -344,6 +417,7 @@ crafters_guild;rush;When you gain a card using Crafter's Guild and immediately p
 crafters_guild;siren;If you gain a Siren and topdeck it using Crafter's Guild, you still need to trash an Action card from your hand in order to not trash the Siren.
 crafters_guild;villa;If you gain a Villa using Crafter's Guild, it is first topdecked and then you put it into your hand.
 credit;possession;When you buy Credit while Possessing an opponent, since they never gain a card from it, the 'it' in 'equal to its cost' is undefined, and they wouldn't be scheduled to gain debt. Therefore, you also don't gain any debt from it.
+crossroads;reckless;If Crossroads is Reckless, the first time you play one will give you +6 Actions.
 crown;crypt;If you play a Duration card using Crown, you can still set it aside with Crypt that turn and will NOT get the duration effect off of both plays for the next turn (e.g. Crown on Wharf, you can Crypt the Crown away and will draw only 2 cards on the next turn). With Gear, this might even strand cards. Having played Crown on a previous turn on a Duration card, you can still set it aside with Crypt. Future throned Duration effects (like with Hireling) will then not occur any more.
 crown;enchantress;If Enchantress affects Crown played in a Buy phase, its player gets +1 Card +1 Action, but has no way to use the +1 Action, since it is their Buy phase (but it might matter e.g. if the player buys Villa).
 crown;enlightenment;If Enlightenment is active, Crown's Action phase mode is overwritten by Enlightenment.
@@ -415,7 +489,7 @@ destrier;growth;Destrier's cost will be evaluated after each gain, so you may ga
 destrier;haggler;Destrier's cost will be evaluated after each gain, so if you buy a Destrier costing $6, you may gain a card cheaper than $5 afterwards from Haggler. On the other hand, you may gain an initially $6-costing Destrier off of a Gold buy.
 destrier;livery;After having played Livery, Destrier's cost is evaluated when you gain it, so you will be able to gain a Horse even if the cost of Destrier is less than $4 afterwards.
 destrier;stonemason;When you gain two Action cards each costing exactly the amount you overpaid, only one of them can ever be Destrier because its cost is checked as you gain it and not when you overpay.
-destrier;taskmaster;For Taskmaster, the cost of Destrier when you gain it is important, you will only renew Taskmaster's ability if Destrier costs $5 the when (before) you gain it.
+destrier;taskmaster;For Taskmaster, the cost of Destrier when you gain it is important. You will only renew Taskmaster's ability if Destrier costs $5 at the moment you gain it.
 destrier;wayfarer;When gaining a Destrier, Wayfarer will cost as much as the Destrier costs after the gain (e.g. if you buy Destrier for $6, Wayfarer will cost $5 afterwards).
 develop;ghost_town;If you gain a Ghost Town using Develop, it is topdecked instead of being gained to your hand.
 develop;guardian;If you gain a Guardian using Develop, it is topdecked instead of being gained to your hand.
@@ -426,30 +500,51 @@ develop;rush;When you gain a card using Develop and immediately play it using Ru
 develop;siren;If you gain a Siren and topdeck it using Develop, you still need to trash an Action card from your hand in order to not trash the Siren.
 develop;villa;If you gain a Villa using Develop, it is first topdecked and then you put it into your hand.
 diplomat;soothsayer;If an opponent plays Soothsayer, you may react with Diplomat immediately, and then gain a Curse. Once you're done reacting, you draw a card due to Soothsayer, and if that card is a Diplomat, it is too late for you to react with that one.
-diplomat;way_of_the_butterfly;You can react your Diplomat's ability to an opponent playing an Attack card even if they play it as Way of the Butterfly.
-diplomat;way_of_the_camel;You can react your Diplomat's ability to an opponent playing an Attack card even if they play it as Way of the Camel.
+diplomat;way_of_the_butterfly;"You can react your Diplomat's ability to an opponent playing an Attack card even if they play it as Way of the Butterfly.
+If you play an Attack card and your opponent reacts with a Diplomat, you may then again choose whether to play the Attack normally, or using Way of the Butterfly."
+diplomat;way_of_the_camel;"You can react your Diplomat's ability to an opponent playing an Attack card even if they play it as Way of the Camel.
+If you play an Attack card and your opponent reacts with a Diplomat, you may then again choose whether to play the Attack normally, or using Way of the Camel."
 diplomat;way_of_the_chameleon;"You can react your Diplomat's ability to an opponent playing an Attack card even if they play it as Way of the Chameleon.
-If you play Diplomat using Way of the Chameleon, getting +$2 instead of +2 cards, you still get +2 actions even though Diplomat states '(after drawing)' when you in reality didn't draw any cards, assuming you have 5 or fewer cards in hand."
-diplomat;way_of_the_frog;You can react your Diplomat's ability to an opponent playing an Attack card even if they play it as Way of the Frog.
-diplomat;way_of_the_goat;You can react your Diplomat's ability to an opponent playing an Attack card even if they play it as Way of the Goat.
-diplomat;way_of_the_horse;You can react your Diplomat's ability to an opponent playing an Attack card even if they play it as Way of the Horse.
-diplomat;way_of_the_mole;You can react your Diplomat's ability to an opponent playing an Attack card even if they play it as Way of the Mole.
-diplomat;way_of_the_monkey;You can react your Diplomat's ability to an opponent playing an Attack card even if they play it as Way of the Monkey.
-diplomat;way_of_the_mouse;You can react your Diplomat's ability to an opponent playing an Attack card even if they play it as Way of the Mouse.
-diplomat;way_of_the_mule;You can react your Diplomat's ability to an opponent playing an Attack card even if they play it as Way of the Mule.
-diplomat;way_of_the_otter;You can react your Diplomat's ability to an opponent playing an Attack card even if they play it as Way of the Otter.
-diplomat;way_of_the_owl;You can react your Diplomat's ability to an opponent playing an Attack card even if they play it as Way of the Owl.
-diplomat;way_of_the_ox;You can react your Diplomat's ability to an opponent playing an Attack card even if they play it as Way of the Ox.
-diplomat;way_of_the_pig;You can react your Diplomat's ability to an opponent playing an Attack card even if they play it as Way of the Pig.
-diplomat;way_of_the_rat;You can react your Diplomat's ability to an opponent playing an Attack card even if they play it as Way of the Rat.
-diplomat;way_of_the_seal;You can react your Diplomat's ability to an opponent playing an Attack card even if they play it as Way of the Seal.
-diplomat;way_of_the_sheep;You can react your Diplomat's ability to an opponent playing an Attack card even if they play it as Way of the Sheep.
-diplomat;way_of_the_squirrel;You can react your Diplomat's ability to an opponent playing an Attack card even if they play it as Way of the Squirrel.
-diplomat;way_of_the_turtle;You can react your Diplomat's ability to an opponent playing an Attack card even if they play it as Way of the Turtle.
-diplomat;way_of_the_worm;You can react your Diplomat's ability to an opponent playing an Attack card even if they play it as Way of the Worm.
+If you play Diplomat using Way of the Chameleon, getting +$2 instead of +2 cards, you still get +2 actions even though Diplomat states '(after drawing)' when you in reality didn't draw any cards, assuming you have 5 or fewer cards in hand.
+If you play an Attack card and your opponent reacts with a Diplomat, you may then again choose whether to play the Attack normally, or using Way of the Chameleon."
+diplomat;way_of_the_frog;"You can react your Diplomat's ability to an opponent playing an Attack card even if they play it as Way of the Frog.
+If you play an Attack card and your opponent reacts with a Diplomat, you may then again choose whether to play the Attack normally, or using Way of the Frog."
+diplomat;way_of_the_goat;"You can react your Diplomat's ability to an opponent playing an Attack card even if they play it as Way of the Goat.
+If you play an Attack card and your opponent reacts with a Diplomat, you may then again choose whether to play the Attack normally, or using Way of the Goat."
+diplomat;way_of_the_horse;"You can react your Diplomat's ability to an opponent playing an Attack card even if they play it as Way of the Horse.
+If you play an Attack card and your opponent reacts with a Diplomat, you may then again choose whether to play the Attack normally, or using Way of the Horse."
+diplomat;way_of_the_mole;"You can react your Diplomat's ability to an opponent playing an Attack card even if they play it as Way of the Mole.
+If you play an Attack card and your opponent reacts with a Diplomat, you may then again choose whether to play the Attack normally, or using Way of the Mole."
+diplomat;way_of_the_monkey;"You can react your Diplomat's ability to an opponent playing an Attack card even if they play it as Way of the Monkey.
+If you play an Attack card and your opponent reacts with a Diplomat, you may then again choose whether to play the Attack normally, or using Way of the Monkey."
+diplomat;way_of_the_mouse;"You can react your Diplomat's ability to an opponent playing an Attack card even if they play it as Way of the Mouse.
+If you play an Attack card and your opponent reacts with a Diplomat, you may then again choose whether to play the Attack normally, or using Way of the Mouse."
+diplomat;way_of_the_mule;"You can react your Diplomat's ability to an opponent playing an Attack card even if they play it as Way of the Mule.
+If you play an Attack card and your opponent reacts with a Diplomat, you may then again choose whether to play the Attack normally, or using Way of the Mule."
+diplomat;way_of_the_otter;"You can react your Diplomat's ability to an opponent playing an Attack card even if they play it as Way of the Otter.
+If you play an Attack card and your opponent reacts with a Diplomat, you may then again choose whether to play the Attack normally, or using Way of the Otter."
+diplomat;way_of_the_owl;"You can react your Diplomat's ability to an opponent playing an Attack card even if they play it as Way of the Owl.
+If you play an Attack card and your opponent reacts with a Diplomat, you may then again choose whether to play the Attack normally, or using Way of the Owl."
+diplomat;way_of_the_ox;"You can react your Diplomat's ability to an opponent playing an Attack card even if they play it as Way of the Ox.
+If you play an Attack card and your opponent reacts with a Diplomat, you may then again choose whether to play the Attack normally, or using Way of the Ox."
+diplomat;way_of_the_pig;"You can react your Diplomat's ability to an opponent playing an Attack card even if they play it as Way of the Pig.
+If you play an Attack card and your opponent reacts with a Diplomat, you may then again choose whether to play the Attack normally, or using Way of the Pig."
+diplomat;way_of_the_rat;"You can react your Diplomat's ability to an opponent playing an Attack card even if they play it as Way of the Rat.
+If you play an Attack card and your opponent reacts with a Diplomat, you may then again choose whether to play the Attack normally, or using Way of the Rat."
+diplomat;way_of_the_seal;"You can react your Diplomat's ability to an opponent playing an Attack card even if they play it as Way of the Seal.
+If you play an Attack card and your opponent reacts with a Diplomat, you may then again choose whether to play the Attack normally, or using Way of the Seal."
+diplomat;way_of_the_sheep;"You can react your Diplomat's ability to an opponent playing an Attack card even if they play it as Way of the Sheep.
+If you play an Attack card and your opponent reacts with a Diplomat, you may then again choose whether to play the Attack normally, or using Way of the Sheep."
+diplomat;way_of_the_squirrel;"You can react your Diplomat's ability to an opponent playing an Attack card even if they play it as Way of the Squirrel.
+If you play an Attack card and your opponent reacts with a Diplomat, you may then again choose whether to play the Attack normally, or using Way of the Squirrel."
+diplomat;way_of_the_turtle;"You can react your Diplomat's ability to an opponent playing an Attack card even if they play it as Way of the Turtle.
+If you play an Attack card and your opponent reacts with a Diplomat, you may then again choose whether to play the Attack normally, or using Way of the Turtle."
+diplomat;way_of_the_worm;"You can react your Diplomat's ability to an opponent playing an Attack card even if they play it as Way of the Worm.
+If you play an Attack card and your opponent reacts with a Diplomat, you may then again choose whether to play the Attack normally, or using Way of the Worm."
 disciple;ferryman;Disciple does not allow you to gain a copy of a card from a pile set aside by Ferryman.
 disciple;outpost;If you play an Outpost using Disciple, you will still only take one extra turn, but the Disciple will stay out with it anyways.
 disciple;urchin;If you play an Urchin multiple times using Disciple, you may not trash this Urchin, since you need to play *another* attack card to be able to trash it.
+distant_lands;overlord;If you play a Distant Lands using Overlord, you don't put anything onto your Tavern mat.
 divine_wind;encampment/plunder;Once Divine Wind has been triggered, when you play an Encampment that came from the initial supply, if you don't reveal a Gold or Plunder, then you set aside the Encampment but since it has no pile to return to, it stays set aside for the rest of the game (it still counts as one of your cards for scoring).
 divine_wind;experiment;Once Divine Wind has been triggered, when you play an Experiment that came from the initial supply, you get +2 Cards and +1 Action, but it does not return to a pile and stays in play. This is because Experiment does not have a pile to return to.
 divine_wind;farmers_market;Once Divine Wind is triggered and the Farmers' Market pile is removed from the supply, since there is no pile to gather VP tokens on, the gathering will have no effect.
@@ -463,7 +558,7 @@ divine_wind;seaway;Once Divine Wind is triggered, the + Buy token is removed fro
 divine_wind;snake_witch;Once Divine Wind has been triggered, previously gained Snake Witches will never be able to Curse as they do not have a pile to return to.
 divine_wind;temple;Once Divine Wind is triggered and the Temple pile is removed from the supply, since there is no pile to gather VP tokens on, the gathering will have no effect.
 divine_wind;training;Once Divine Wind is triggered, the + $1 token is removed from its pile upon the pile's removal if you have bought Training before that.
-divine_wind;way_of_the_butterfly;Once Divine Wind has been triggered, if you play any card from the initial supply using Way of the Butterfly, it cannot to its pile, and will fail to do anything except for going into your play area.
+divine_wind;way_of_the_butterfly;Once Divine Wind has been triggered, if you play any card from the initial supply using Way of the Butterfly, it cannot return to its pile, and will fail to do anything except for going into your play area.
 divine_wind;way_of_the_horse;Once Divine Wind has been triggered, if you play any card from the initial supply using Way of the Horse, you get +2 Cards and +1 Action, but it does not return to a pile as the pile to return to doesn't exist any longer.
 divine_wind;wild_hunt;Once Divine Wind is triggered and the Wild Hunt pile is removed from the supply, since there is no pile to gather VP tokens on, the gathering will have no effect.
 divine_wind;young_witch;Once Divine Wind has been triggered, cards from the initial Bane pile will continue to be the Bane.
@@ -473,6 +568,7 @@ dungeon;way_of_the_chameleon;If you play Dungeon using Way of the Chameleon, rem
 duplicate;ferryman;Duplicate does not allow you to gain a copy of a card from a pile set aside by Ferryman.
 duplicate;gondola;When you gain a Gondola and play a Duplicate from your hand, you may call it directly to gain another Gondola.
 duplicate;innovation;When you gain Duplicate and play it immediately using Innovation, you may call it directly to gain another copy of it.
+duplicate;overlord;If you play a Duplicate using Overlord, you don't put anything onto your Tavern mat.
 duplicate;rush;When you gain Duplicate and play it immediately using Rush, you may call it directly to gain another copy of it.
 duplicate;spell_scroll;When you gain Duplicate and play it immediately using Spell Scroll, you may call it directly to gain another copy of it.
 encampment/plunder;ferry;You may put the -$2 token on the Encampment/Plunder pile using Ferry. This will affect all of its cards.
@@ -486,6 +582,8 @@ encampment/plunder;prince;If you set aside an Encampment with Prince, it will fa
 encampment/plunder;royal_galley;"If you play an Encampment with Royal Galley (RG) and you fail to reveal a Gold or Plunder, you set it aside and return it to its pile at the end of the turn; the RG gets discarded during Clean-up as it doesn't have anything left to do."
 encampment/plunder;seaway;You may put the + Buy token on the Encampment/Plunder pile using Seaway. This will affect all of its cards.
 encampment/plunder;training;You may put the + $1 token on the Encampment/Plunder pile using Training. This will affect all of its cards.
+enchantress;forts;Even if you don't play Tent normally, you may still topdeck it when you discard it from play.
+enchantress;merchant_camp;Even if you don't play Merchant Camp normally, you may still topdeck it when you discard it from play.
 enchantress;reckless;If you are under the Enchantress Attack and play a Reckless Action card as the first Action during your turn, you will only get +1 Card, +1 Action, fail to follow the instructions the second time, but still have to return the Reckless Action when you discard it from play.
 enchantress;spell_scroll;If Enchantress affects Spell Scroll played in a Buy phase, its player gets +1 Card +1 Action, but has no way to use the +1 Action, since it is their Buy phase (but it might matter e.g. if the player buys Villa).
 enchantress;way_of_the_butterfly;If you are playing your first Action in a turn while being affected by the Enchantress attack, you can choose to play it as Way of the Butterfly, overriding Enchantress' spell.
@@ -572,6 +670,7 @@ falconer;way_of_the_sheep;When you react and play Falconer during another player
 falconer;way_of_the_squirrel;When you react and play Falconer during another player's turn, you can decide to play it as Way of the Squirrel.
 falconer;way_of_the_turtle;When you react and play Falconer during another player's turn, you can decide to play it as Way of the Turtle.
 falconer;way_of_the_worm;When you react and play Falconer during another player's turn, you can decide to play it as Way of the Worm.
+familiar;stonemason;You may overpay with Potions when buying Stonemason to gain two Familiars.
 family_of_inventors;wayfarer;Wayfarer will assume the cost of the card you gained last, even if a Favor token has been put on its pile. If you reduce the cost of the last-gained card with a Favor at the beginning of your Buy phase, Wayfarer's cost will change along with that.
 famine;patron;If you reveal a Patron among the three cards, you will get +1 Coffers as long as it's during an Action phase.
 farmers_market;ferryman;When you set aside a Farmers' Market with Ferryman, it still works as the Gathering pile normally does, by collecting and dispersing VP as stated on the card.
@@ -627,19 +726,19 @@ fisherman;stonemason;Even if you have an empty discard pile while overpaying on 
 fisherman;taskmaster;For Taskmaster, the cost of Fisherman when you gain it is important, you will not renew Taskmaster's ability if Fisherman costs $2 when (before) you gain it.
 fisherman;wayfarer;After gaining a Fisherman to your Discard pile, even if it only cost $2, Wayfarer will cost $5 afterwards.
 fishing_village;way_of_the_chameleon;If you play Fishing Village using Way of the Chameleon, remember that Way of the Chameleon only affects stuff happening *this turn*, so on your next turn, you will get the normal bonus from Fishing Village.
-fleet;island_folk;If you activate Island Folk on your Fleet turn, you will only get an extra turn from it if any other turns (like from your opponent) would follow.
-fleet;journey;If you buy Journey on your Fleet turn, you will only get an extra turn from it if any other turns (like from your opponent) would follow.
-fleet;mission;If you buy Mission on your Fleet turn, you will only get an extra turn from it if any other turns (like from your opponent) would follow.
-fleet;odysseys;If you play Voyage on your Fleet turn, you will only get an extra turn from it if any other turns (like from your opponent) would follow.
-fleet;outpost;If you play Outpost on your Fleet turn, you will only get an extra turn from it if any other turns (like from your opponent) would follow.
-fleet;possession;If you play Possession on your Fleet turn, you will only get an extra turn from it if any other turns (like from your opponent) would follow.
-fleet;seize_the_day;If you buy Seize the Day on your Fleet turn, you will only get an extra turn from it if any other turns (like from your opponent) would follow.
+fleet;island_folk;If you activate Island Folk on your Fleet turn, you will only get an extra turn from it if any other turns (from an opponent) would follow.
+fleet;journey;If you buy Journey on your Fleet turn, you will only get an extra turn from it if any other turns (from an opponent) would follow.
+fleet;mission;If you buy Mission on your Fleet turn, you will only get an extra turn from it if any other turns (from an opponent) would follow.
+fleet;odysseys;If you play Voyage on your Fleet turn, you will only get an extra turn from it if any other turns (from an opponent) would follow.
+fleet;outpost;If you play Outpost on your Fleet turn, you will only get an extra turn from it if any other turns (from an opponent) would follow.
+fleet;possession;If you play Possession on your Fleet turn, you will only get an extra turn from it if any other turns (from an opponent) would follow.
+fleet;seize_the_day;If you buy Seize the Day on your Fleet turn, you will only get an extra turn from it if any other turns (from an opponent) would follow.
 footpad;innovation;If you gain a card and use Footpad to cause a shuffle, you cannot play it using Innovation anymore (but you could choose to resolve the on-gain play first).
 footpad;rush;If you gain a card and use Footpad to cause a shuffle, you cannot play it using Rush anymore (but you could choose to resolve the on-gain play first).
 footpad;siren;If you gain a Siren and somehow trigger a shuffle by drawing a card using Footpad, you are no longer required to trash an Action card for the Siren to stay in your deck.
 footpad;spell_scroll;If you gain a card and use Footpad to cause a shuffle, you cannot play it using Spell Scroll anymore (but you could choose to resolve the on-gain play first).
 footpad;villa;If you return to your Action phase using Villa, you are still gaining the card during the Buy phase, so Footpad's ability doesn't trigger.
-forager;sewers;If you trash a Treasure that is unique to the trash with Sewers in reaction to Forager's trashing, said Treasure will be considered by Forager's check for unique Treasures, i.e. yield $.'
+forager;sewers;If you trash a Treasure that is unique to the trash with Sewers in reaction to Forager's trashing, said Treasure will be considered by Forager's check for unique Treasures, i.e. yield $.
 foray;panic;When you discard a Loot gained from foray from play while Panic is active, you need to return it to the top of the Loot pile. When discarding multiple, you get to choose the order. Endless Chalice and Jewels are exceptions as they (bar e.g. Highwayman) never get discarded from play.
 foray;patron;If you buy Foray during your Buy phase and reveal a Patron this way, you will not get +1 Coffers since it's not an Action phase.
 forts;gatekeeper;If you gain a card and put it in your hand using Hill Fort while under the Gatekeeper attack, you still need to Exile it if you don't have a copy of it in Exile.
@@ -655,8 +754,26 @@ forts;siren;"If you gain a Siren and somehow trigger a shuffle by drawing a card
 If you gain a Siren and put it in your hand using Hill Fort, you still need to trash an Action from your hand in order to not trash the Siren."
 forts;spell_scroll;If you gain a card and use Hill Fort to cause a shuffle, you cannot play it using Spell Scroll anymore (but you could choose to resolve the on-gain play first).
 forts;training;You may put the + $1 token on the Forts pile using Training. This will affect all of its cards.
-forts;way_of_the_chameleon;"If you play Garrison using Way of the Chameleon, remember that Way of the Chameleon only affects stuff happening *this turn*, so on your next turn, you will get the normal bonus from Garrison.
-If you play Stronghold using Way of the Chameleon, remember that Way of the Chameleon only affects stuff happening *this turn*, so on your next turn, you will get the normal bonus from Stronghold."
+forts;way_of_the_butterfly;If you play Tent using Way of the Butterfly, you may still topdeck it when you discard it from play.
+forts;way_of_the_camel;If you play Tent using Way of the Camel, you may still topdeck it when you discard it from play.
+forts;way_of_the_chameleon;If you play Tent using Way of the Chameleon, you may still topdeck it when you discard it from play.
+forts;way_of_the_frog;If you play Tent using Way of the Frog, you may still topdeck it when you discard it from play.
+forts;way_of_the_goat;If you play Tent using Way of the Goat, you may still topdeck it when you discard it from play.
+forts;way_of_the_horse;If you play Tent using Way of the Horse, you may still topdeck it when you discard it from play.
+forts;way_of_the_mole;If you play Tent using Way of the Mole, you may still topdeck it when you discard it from play.
+forts;way_of_the_monkey;If you play Tent using Way of the Monkey, you may still topdeck it when you discard it from play.
+forts;way_of_the_mouse;If you play Tent using Way of the Mouse, you may still topdeck it when you discard it from play.
+forts;way_of_the_mule;If you play Tent using Way of the Mule, you may still topdeck it when you discard it from play.
+forts;way_of_the_otter;If you play Tent using Way of the Otter, you may still topdeck it when you discard it from play.
+forts;way_of_the_owl;If you play Tent using Way of the Owl, you may still topdeck it when you discard it from play.
+forts;way_of_the_ox;If you play Tent using Way of the Ox, you may still topdeck it when you discard it from play.
+forts;way_of_the_pig;If you play Tent using Way of the Pig, you may still topdeck it when you discard it from play.
+forts;way_of_the_rat;If you play Tent using Way of the Rat, you may still topdeck it when you discard it from play.
+forts;way_of_the_seal;If you play Tent using Way of the Seal, you may still topdeck it when you discard it from play.
+forts;way_of_the_sheep;If you play Tent using Way of the Sheep, you may still topdeck it when you discard it from play.
+forts;way_of_the_squirrel;If you play Tent using Way of the Squirrel, you may still topdeck it when you discard it from play.
+forts;way_of_the_turtle;If you play Tent using Way of the Turtle, you may still topdeck it when you discard it from play.
+forts;way_of_the_worm;If you play Tent using Way of the Worm, you may still topdeck it when you discard it from play.
 from_the_throne;urchin;If you play an Urchin multiple times using From the Throne, you may not trash this Urchin, since you need to play *another* attack card to be able to trash it.
 galleria;gondola;When you gain a Gondola and play a Galleria from your hand, you will immediately get +Buy from the Gondola gain.
 galleria;innovation;"When you gain a cost-reducing card (like Highway, Bridge, or Inventor) and play it immediately using Innovation after having played a Galleria, the card's cost before the gain will determine whether you get +Buy (e.g. you won't get +Buy if Highway costs $5 before gaining and playing it).
@@ -696,13 +813,14 @@ ghost_town;travelling_fair;If you gain a Ghost Town, you can decide whether to t
 ghost_town;watchtower;If you gain a Ghost Town, you can decide whether to topdeck it using Watchtower, or gain it to your hand.
 ghost_town;way_of_the_seal;If you gain a Ghost Town, you can decide whether to topdeck it using Way of the Seal, or gain it to your hand.
 gladiator/fortune;lost_arts;You may put the + Action token on the Gladiator/Fortune pile using Lost Arts. This will affect all of its cards.
-gladiator/fortune;market_square;If a Gladiator is trashed from the supply, since it is none of your cards, you cannot react Market Square to gain a Gold.
+gladiator/fortune;market_square;If a Gladiator is trashed from the supply, since it is not one of your cards, you cannot react Market Square to gain a Gold.
 gladiator/fortune;pathfinding;You may put the + Card token on the Gladiator/Fortune pile using Pathfinding. This will affect all of its cards.
 gladiator/fortune;peasant;You may put any token on the Gladiator/Fortune pile using Teacher. This will affect all of its cards.
 gladiator/fortune;plan;You may put the trashing token on the Gladiator/Fortune pile using Plan. This will affect all of its cards.
 gladiator/fortune;populate;Buying Populate will gain the top card of the Gladiator/Fortune pile, even if it's not an Action card.
 gladiator/fortune;seaway;You may put the + Buy token on the Gladiator/Fortune pile using Seaway. This will affect all of its cards.
 gladiator/fortune;training;You may put the + $1 token on the Gladiator/Fortune pile using Training. This will affect all of its cards.
+golem;stonemason;You may overpay with Potions when buying Stonemason to gain two Golems.
 gondola;guildmaster;When you gain a Gondola and play a Guildmaster from your hand, you will receive a Favor due to the Gondola gain.
 gondola;haggler;When you buy and gain a Gondola and play a Haggler from your hand, you will gain a card costing less than the Gondola.
 gondola;haunted_woods;If you buy a Gondola while under the Haunted Woods attack, you can choose whether to first play an Action card from your hand and then topdeck, or whether to first topdeck your hand.
@@ -722,27 +840,47 @@ graverobber;siren;If you gain a Siren and topdeck it using Graverobber, you stil
 graverobber;townsfolk;If you play a Graverobber using Elder, you first try to gain a card costing $3-$6 from the trash (failing if there is no such card), and then trash an Action from your hand.
 graverobber;villa;If you gain a Villa using Graverobber, it is first topdecked and then you put it into your hand.
 grotto;way_of_the_chameleon;If you play Grotto using Way of the Chameleon, remember that Way of the Chameleon only affects stuff happening *this turn*, so on your next turn, you will get the normal bonus from Grotto.
-guard_dog;way_of_the_butterfly;When you react and play Guard Dog during another player's turn, you can decide to play it as Way of the Butterfly.
-guard_dog;way_of_the_camel;When you react and play Guard Dog during another player's turn, you can decide to play it as Way of the Camel.
+guard_dog;way_of_the_butterfly;"When you react and play Guard Dog during another player's turn, you can decide to play it as Way of the Butterfly.
+If you play an Attack card and your opponent reacts with a Guard Dog, you may then again choose whether to play the Attack normally, or using Way of the Butterfly."
+guard_dog;way_of_the_camel;"When you react and play Guard Dog during another player's turn, you can decide to play it as Way of the Camel.
+If you play an Attack card and your opponent reacts with a Guard Dog, you may then again choose whether to play the Attack normally, or using Way of the Camel."
 guard_dog;way_of_the_chameleon;"When you react and play Guard Dog during another player's turn, you can decide to play it as Way of the Chameleon. Remember that +$ can't normally be used on other player's turns.
-If you play Guard Dog using Way of the Chameleon, getting +$ instead of drawing cards, Guard Dog's condition will still be checked afterwards."
-guard_dog;way_of_the_frog;When you react and play Guard Dog during another player's turn, you can decide to play it as Way of the Frog. Remember that + Action can't normally be used on other player's turns.
-guard_dog;way_of_the_goat;When you react and play Guard Dog during another player's turn, you can decide to play it as Way of the Goat.
-guard_dog;way_of_the_horse;When you react and play Guard Dog during another player's turn, you can decide to play it as Way of the Horse. Remember that + Action can't normally be used on other player's turns.
-guard_dog;way_of_the_mole;When you react and play Guard Dog during another player's turn, you can decide to play it as Way of the Mole. Remember that + Action can't normally be used on other player's turns.
-guard_dog;way_of_the_monkey;When you react and play Guard Dog during another player's turn, you can decide to play it as Way of the Monkey. Remember that +$ and + Buy can't normally be used on other player's turns.
-guard_dog;way_of_the_mouse;When you react and play Guard Dog during another player's turn, you can decide to play it as Way of the Mouse. Remember that +$ and + Action and + Buy can't normally be used on other player's turns.
-guard_dog;way_of_the_mule;When you react and play Guard Dog during another player's turn, you can decide to play it as Way of the Mule. Remember that +$ and + Action can't normally be used on other player's turns.
-guard_dog;way_of_the_otter;When you react and play Guard Dog during another player's turn, you can decide to play it as Way of the Otter.
-guard_dog;way_of_the_owl;When you react and play Guard Dog during another player's turn, you can decide to play it as Way of the Owl.
-guard_dog;way_of_the_ox;When you react and play Guard Dog during another player's turn, you can decide to play it as Way of the Ox. Remember that + Action can't normally be used on other player's turns.
-guard_dog;way_of_the_pig;When you react and play Guard Dog during another player's turn, you can decide to play it as Way of the Pig. Remember that + Action can't normally be used on other player's turns.
-guard_dog;way_of_the_rat;When you react and play Guard Dog during another player's turn, you can decide to play it as Way of the Rat.
-guard_dog;way_of_the_seal;When you react and play Guard Dog during another player's turn, you can decide to play it as Way of the Seal. Remember that +$ can't normally be used on other player's turns.
-guard_dog;way_of_the_sheep;When you react and play Guard Dog during another player's turn, you can decide to play it as Way of the Sheep. Remember that +$ can't normally be used on other player's turns.
-guard_dog;way_of_the_squirrel;When you react and play Guard Dog during another player's turn, you can decide to play it as Way of the Squirrel.
-guard_dog;way_of_the_turtle;When you react and play Guard Dog during another player's turn, you can decide to play it as Way of the Turtle.
-guard_dog;way_of_the_worm;When you react and play Guard Dog during another player's turn, you can decide to play it as Way of the Worm.
+If you play Guard Dog using Way of the Chameleon, getting +$ instead of drawing cards, Guard Dog's condition will still be checked afterwards.
+If you play an Attack card and your opponent reacts with a Guard Dog, you may then again choose whether to play the Attack normally, or using Way of the Chameleon."
+guard_dog;way_of_the_frog;"When you react and play Guard Dog during another player's turn, you can decide to play it as Way of the Frog. Remember that + Action can't normally be used on other player's turns.
+If you play an Attack card and your opponent reacts with a Guard Dog, you may then again choose whether to play the Attack normally, or using Way of the Frog."
+guard_dog;way_of_the_goat;"When you react and play Guard Dog during another player's turn, you can decide to play it as Way of the Goat.
+If you play an Attack card and your opponent reacts with a Guard Dog, you may then again choose whether to play the Attack normally, or using Way of the Goat."
+guard_dog;way_of_the_horse;"When you react and play Guard Dog during another player's turn, you can decide to play it as Way of the Horse. Remember that + Action can't normally be used on other player's turns.
+If you play an Attack card and your opponent reacts with a Guard Dog, you may then again choose whether to play the Attack normally, or using Way of the Horse."
+guard_dog;way_of_the_mole;"When you react and play Guard Dog during another player's turn, you can decide to play it as Way of the Mole. Remember that + Action can't normally be used on other player's turns.
+If you play an Attack card and your opponent reacts with a Guard Dog, you may then again choose whether to play the Attack normally, or using Way of the Mole."
+guard_dog;way_of_the_monkey;"When you react and play Guard Dog during another player's turn, you can decide to play it as Way of the Monkey. Remember that +$ and + Buy can't normally be used on other player's turns.
+If you play an Attack card and your opponent reacts with a Guard Dog, you may then again choose whether to play the Attack normally, or using Way of the Monkey."
+guard_dog;way_of_the_mouse;"When you react and play Guard Dog during another player's turn, you can decide to play it as Way of the Mouse. Remember that +$ and + Action and + Buy can't normally be used on other player's turns.
+If you play an Attack card and your opponent reacts with a Guard Dog, you may then again choose whether to play the Attack normally, or using Way of the Mouse."
+guard_dog;way_of_the_mule;"When you react and play Guard Dog during another player's turn, you can decide to play it as Way of the Mule. Remember that +$ and + Action can't normally be used on other player's turns.
+If you play an Attack card and your opponent reacts with a Guard Dog, you may then again choose whether to play the Attack normally, or using Way of the Mule."
+guard_dog;way_of_the_otter;"When you react and play Guard Dog during another player's turn, you can decide to play it as Way of the Otter.
+If you play an Attack card and your opponent reacts with a Guard Dog, you may then again choose whether to play the Attack normally, or using Way of the Otter."
+guard_dog;way_of_the_owl;"When you react and play Guard Dog during another player's turn, you can decide to play it as Way of the Owl.
+If you play an Attack card and your opponent reacts with a Guard Dog, you may then again choose whether to play the Attack normally, or using Way of the Owl."
+guard_dog;way_of_the_ox;"When you react and play Guard Dog during another player's turn, you can decide to play it as Way of the Ox. Remember that + Action can't normally be used on other player's turns.
+If you play an Attack card and your opponent reacts with a Guard Dog, you may then again choose whether to play the Attack normally, or using Way of the Ox."
+guard_dog;way_of_the_pig;"When you react and play Guard Dog during another player's turn, you can decide to play it as Way of the Pig. Remember that + Action can't normally be used on other player's turns.
+If you play an Attack card and your opponent reacts with a Guard Dog, you may then again choose whether to play the Attack normally, or using Way of the Pig."
+guard_dog;way_of_the_rat;"When you react and play Guard Dog during another player's turn, you can decide to play it as Way of the Rat.
+If you play an Attack card and your opponent reacts with a Guard Dog, you may then again choose whether to play the Attack normally, or using Way of the Rat."
+guard_dog;way_of_the_seal;"When you react and play Guard Dog during another player's turn, you can decide to play it as Way of the Seal. Remember that +$ can't normally be used on other player's turns.
+If you play an Attack card and your opponent reacts with a Guard Dog, you may then again choose whether to play the Attack normally, or using Way of the Seal."
+guard_dog;way_of_the_sheep;"When you react and play Guard Dog during another player's turn, you can decide to play it as Way of the Sheep. Remember that +$ can't normally be used on other player's turns.
+If you play an Attack card and your opponent reacts with a Guard Dog, you may then again choose whether to play the Attack normally, or using Way of the Sheep."
+guard_dog;way_of_the_squirrel;"When you react and play Guard Dog during another player's turn, you can decide to play it as Way of the Squirrel.
+If you play an Attack card and your opponent reacts with a Guard Dog, you may then again choose whether to play the Attack normally, or using Way of the Squirrel."
+guard_dog;way_of_the_turtle;"When you react and play Guard Dog during another player's turn, you can decide to play it as Way of the Turtle.
+If you play an Attack card and your opponent reacts with a Guard Dog, you may then again choose whether to play the Attack normally, or using Way of the Turtle."
+guard_dog;way_of_the_worm;"When you react and play Guard Dog during another player's turn, you can decide to play it as Way of the Worm.
+If you play an Attack card and your opponent reacts with a Guard Dog, you may then again choose whether to play the Attack normally, or using Way of the Worm."
 guardian;haunted_woods;If you buy a Guardian while under the Haunted Woods attack, you are forced to topdeck it (the Guardian) immediately.
 guardian;insignia;If you gain a Guardian, you can decide whether to topdeck it using Insignia, or gain it to your hand.
 guardian;invasion;If you gain a Guardian using Invasion, it is topdecked instead of being gained to your hand.
@@ -755,6 +893,8 @@ guardian;trappers_lodge;If you gain a Guardian, you can decide whether to topdec
 guardian;travelling_fair;If you gain a Guardian, you can decide whether to topdeck it using Travelling Fair, or gain it to your hand.
 guardian;watchtower;If you gain a Guardian, you can decide whether to topdeck it using Watchtower, or gain it to your hand.
 guardian;way_of_the_seal;If you gain a Guardian, you can decide whether to topdeck it using Way of the Seal, or gain it to your hand.
+guide;overlord;If you play a Guide using Overlord, you don't put anything onto your Tavern mat.
+guide;summon;If you buy Summon to set aside a Guide and play it at the start of your next turn, you'll immediately be able to call it then.
 guildmaster;innovation;When you gain a Guildmaster and play it immediately using Innovation, you receive a Favor from its gain.
 guildmaster;rush;When you gain a Guildmaster and play it immediately using Rush, you receive a Favor from its gain.
 guildmaster;spell_scroll;When you gain a Guildmaster and play it immediately using Spell Scroll, you receive a Favor from its gain.
@@ -767,14 +907,15 @@ harbor_village;merchant;If you play a Merchant after Harbor Village, you do not 
 harbor_village;teacher;If you have put the +Coin token on a card (that normally doesn't give +$) and play it after a Harbor Village, you don't get +$1 from Harbor Village.
 harbor_village;training;If you have put the +Coin token on a card (that normally doesn't give +$) and play it after a Harbor Village, you don't get +$1 from Harbor Village.
 harbor_village;way_of_the_chameleon;"If you play Harbor Village using Way of the Chameleon, you will first get +$1, +2 Actions, and if a card you play later gives you +$1 (such as another Chameleon'd Harbor Village), you draw a card.
-Also, Harbor Village will not give you +$1 if you play a card as Way of the Chameleon that gives you would giv you +$ but no +Cards."
-harbor_village;way_of_the_mouse;If you play a card as Way of the Mouse and get +$ because of that, you will get never get +$1 from Harbor Village as Way of the Mouse plays another card.
+Also, Harbor Village will not give you +$1 if you play a card as Way of the Chameleon that would give you +$ but no +Cards."
+harbor_village;way_of_the_mouse;If you play a card as Way of the Mouse and get +$ because of that, you will never get +$1 from Harbor Village as Way of the Mouse plays another card.
 hasty;siren;If you gain a Siren and set it aside using Hasty, since it's set aside after being gained, it will stay there even if you fail to trash an Action.
 hasty;spell_scroll;When you gain a Hasty card with Spell Scroll, you won't be able to play it this turn as it is set aside before that.
 haunted_woods;hostelry;If you buy a Hostelry while under the Haunted Woods attack, you can choose whether to discard Treasures for Horses and then topdeck your hand, or to first topdeck the cards in your hand.
 haunted_woods;marchland;If you buy a Marchland while under the Haunted Woods attack, you can choose whether to discard cards from your hand for $ from Marchland's on-gain effect, or to topdeck the cards in your hand.
 haunted_woods;night_watchman;If you buy a Night Watchman while under the Haunted Woods attack, you are forced to topdeck it (the Night Watchman) immediately.
 haunted_woods;sheepdog;If you buy a card with a Sheepdog in hand while under the Haunted Woods attack, you can choose to first play the Sheepdog and then topdeck your hand afterwards, or first topdeck your hand (including the Sheepdog).
+haunted_woods;siren;If you buy a Siren while under the Haunted Woods attack, you can choose whether to first trash an Action from your hand, or whether to first topdeck your hand.
 haunted_woods;souk;If you buy a Souk while under the Haunted Woods attack, you can choose whether to first trash up to two cards from your hand, or whether to first topdeck your hand.
 haunted_woods;villa;If you buy a Villa while under the Haunted Woods attack, you can put it into your hand after topdecking it (and your hand).
 haunted_woods;way_of_the_chameleon;If you play Haunted Woods using Way of the Chameleon, remember that Way of the Chameleon only affects stuff happening *this turn*, so on your next turn, you will get the normal bonus from Haunted Woods.
@@ -825,7 +966,7 @@ insignia;panic;When you discard Insignia from play while Panic is active, you re
 insignia;rapid_expansion;When you gain a card while Rapid Expansion is active, you can decide to topdeck it using Insignia instead of setting it aside.
 insignia;rush;When you gain a card, you can decide whether to immediately play it using Rush, or topdeck it using Insignia.
 insignia;siren;If you gain a Siren and topdeck it using Insignia, you don't need to trash an Action card in order for it to stay in your deck.
-insignia;villa;If you gain a Villa, you can decide whether to topdeck it using Insignia, or gain it to your hand. In any case, you will receive +1 Action and return to you Action phase if you're in your buy phase.
+insignia;villa;If you gain a Villa, you can decide whether to topdeck it using Insignia, or gain it to your hand. In any case, you will receive +1 Action and return to your Action phase if you're in your buy phase.
 invasion;night_watchman;If you gain a Night Watchman using Invasion, it is topdecked instead of being gained to your hand.
 invasion;ninja;When buying Invasion, you may play a Ninja from your deck as the Attack.
 invasion;panic;When you discard a Loot gained from invasion from play while Panic is active, you need to return it to the top of the Loot pile. When discarding multiple, you get to choose the order. Endless Chalice and Jewels are exceptions as they (bar e.g. Highwayman) never get discarded from play.
@@ -838,12 +979,24 @@ invest;knights;You can Invest in Knights, but this will never draw you cards (si
 invest;ruins;You can Invest in Ruins, but you will only draw cards if another player gains a copy of the exact Ruins you exiled.
 invest;skirmisher;If you have invested in Skirmisher or another Attack card and your opponent gains one after having played Skirmisher, you first discard down to 3 cards in hand, and then draw due to Invest
 investment;patron;If you play Investment during your Buy phase and reveal a Patron this way, you will not get +1 Coffers since it's not an Action phase.
+island_folk;journey;Buying Journey on an extra Island Folk turn will not give you an extra turn, but your cards will remain in play until your opponent's Clean-up phase.
+island_folk;outpost;Playing Outpost on an extra Island Folk turn will not give you an extra turn, but you will still only draw 3 cards for your next turn.
+island_folk;seize_the_day;Buying Seize the Day on an extra Island Folk turn will still give you a normal extra turn.
+island_folk;wizards;If you play Lich and then activate Island Folk, the Island Folk turn is skipped, and your next turn proceeds as normal. If, however, you play Lich during an extra turn, even if you activate Island Folk then, your next normal turn will still be skipped.
 jack_of_all_trades;raid;If you have your -1 Card Token on your deck when drawing with Jack of all Trades, the Token is removed and the number of cards drawn to is the same as stated on Jack of all Trades as long as you are supposed to draw at least 1 card.
 jack_of_all_trades;relic;If you have your -1 Card Token on your deck when drawing with Jack of all Trades, the Token is removed and the number of cards drawn to is the same as stated on Jack of all Trades as long as you are supposed to draw at least 1 card.
 jewelled_egg;panic;When you discard a Loot gained from jewelled_egg from play while Panic is active, you need to return it to the top of the Loot pile. When discarding multiple, you get to choose the order. Endless Chalice and Jewels are exceptions as they (bar e.g. Highwayman) never get discarded from play.
 jewels;mandarin;If you gain a Mandarin and have played Jewels before that, you put it on top of your deck, but the duration effect still persists.
 jewels;panic;Since you never discard Jewels from play after playing it (bar e.g. Highwayman), you never return it for Panic.
+journey;journey;Buying Journey on an extra Journey turn will not give you an extra turn, but your cards will remain in play until your opponent's Clean-up phase.
+journey;mission;Buying Journey on an extra Mission turn will not give you an extra turn, but your cards will remain in play until your opponent's Clean-up phase.
+journey;odysseys;Buying Journey on an extra Voyage turn will not give you an extra turn, but your cards will remain in play until your opponent's Clean-up phase.
+journey;outpost;"Buying Journey on an extra Outpost turn will not give you an extra turn, but your cards will remain in play until your opponent's Clean-up phase.
+Playing Outpost on an extra Journey turn will not give you an extra turn, but you will still only draw 3 cards for your next turn."
+journey;seize_the_day;"Buying Seize the Day on an extra Journey turn will still give you a normal extra turn.
+Buying Journey on an extra Seize the Day turn will not give you an extra turn, but your cards will remain in play until your opponent's Clean-up phase."
 journey;walled_village;If you have no more than one other Action than the Walled Village in play, you can topdeck it for the Journey turn.
+journey;wizards;If you play Lich and then buy Journey, the Journey turn is skipped, but your cards remain in play until your opponent's Clean-up phase. If, however, you play Lich during an extra turn, even if you buy Journey then, your next normal turn will still be skipped.
 kiln;rush;When you gain a Kiln and play it immediately using Rush, you will not be able to gain another Kiln due to its 'Next Time' wording. Instead, the next card you play will be subject to its effect.
 kiln;spell_scroll;When you gain a Kiln and play it immediately using Spell Scroll, you will not be able to gain another Kiln due to its 'Next Time' wording. Instead, the next card you play will be subject to its effect.
 kind_emperor;sheepdog;If you gain a Sheepdog to your hand using Kind Emperor, you can immediately react to its own gain and play it.
@@ -860,7 +1013,7 @@ knights;seaway;You may put the + Buy token on the Knights pile using Seaway. Thi
 knights;training;You may put the + $1 token on the Knights pile using Training. This will affect all of its cards.
 launch;merchant_guild;When you return to your Action phase using Launch, you are ending your Buy phase, so Merchant Guild can trigger.
 launch;pageant;When you return to your Action phase using Launch, you are ending your Buy phase, so Pageant can trigger.
-launch;river_shrine;You can only gain cards via River Shrine if you didn't gain any cards in any buy phase during your turn. Therefore, you .can only do so if you didn't gain any cards both in the Launch- and after-Launch buy phase.
+launch;river_shrine;You can only gain cards via River Shrine if you didn't gain any cards in any buy phase during your turn. Therefore, you can only do so if you didn't gain any cards both in the Launch- and after-Launch buy phase.
 launch;treasury;When you return to your Action phase using Launch, you are ending your Buy phase, so Treasury can trigger.
 launch;wine_merchant;When you return to your Action phase using Launch, you are ending your Buy phase, so Wine Merchant can trigger.
 leprechaun;market_towns;At the start of your Buy phase, you may choose the order of returning Envious or Deluded, and playing Actions with Market Towns. If you play a Leprechaun at the start of your Buy phase and receive Envious or Deluded, you return it that same turn.
@@ -884,7 +1037,7 @@ lost_arts;sauna/avanto;You may put the + Action token on the Sauna/Avanto pile u
 lost_arts;settlers/bustling_village;You may put the + Action token on the Settlers/Bustling Village pile using Lost Arts. This will affect all of its cards.
 lost_arts;townsfolk;You may put the + Action token on the Townsfolk pile using Lost Arts. This will affect all of its cards.
 lost_arts;wizards;You may put the + Action token on the Wizards pile using Lost Arts. This will affect all of its cards.
-lurker;market_square;If Lurker trashes a card from the supply, since it is none of your cards, you cannot react Market Square to gain a Gold.
+lurker;market_square;If Lurker trashes a card from the supply, since it is not one of your cards, you cannot react Market Square to gain a Gold.
 lurker;necromancer;If you use a Necromancer to play a card from the trash (turning it face down), then gain it with Lurker, then trash it again, you may play it again with a subsequent Necromancer as it will be turned face up again.
 lurker;townsfolk;If you play a Lurker using Elder, you first trash an Action card and then gain one from the trash.
 mandarin;rope;If you gain a Mandarin and have played Rope before that, you put it on top of your deck, but the duration effect still persists.
@@ -916,16 +1069,64 @@ mastermind;outpost;If you play an Outpost using Mastermind, you will still only 
 mastermind;samurai;If you play Samurai at the start of your turn using Mastermind, you will get +$3 immediately.
 mastermind;urchin;If you play an Urchin multiple times using Mastermind, you may not trash this Urchin, since you need to play *another* attack card to be able to trash it.
 merchant;way_of_the_chameleon;If you play Merchant using Way of the Chameleon, you will first get +$1, +1 Action. Then, when you later play a Silver for the first time this turn, you draw a card.
+merchant_camp;reckless;If Merchant Camp is Reckless, you may topdeck it during Clean-up, circumventing Reckless' return-to-pile prompt.
+merchant_camp;way_of_the_butterfly;If you play Merchant Camp using Way of the Butterfly, you may still topdeck it when you discard it from play.
+merchant_camp;way_of_the_camel;If you play Merchant Camp using Way of the Camel, you may still topdeck it when you discard it from play.
+merchant_camp;way_of_the_chameleon;If you play Merchant Camp using Way of the Chameleon, you may still topdeck it when you discard it from play.
+merchant_camp;way_of_the_frog;If you play Merchant Camp using Way of the Frog, you may still topdeck it when you discard it from play.
+merchant_camp;way_of_the_goat;If you play Merchant Camp using Way of the Goat, you may still topdeck it when you discard it from play.
+merchant_camp;way_of_the_horse;If you play Merchant Camp using Way of the Horse, you may still topdeck it when you discard it from play.
+merchant_camp;way_of_the_mole;If you play Merchant Camp using Way of the Mole, you may still topdeck it when you discard it from play.
+merchant_camp;way_of_the_monkey;If you play Merchant Camp using Way of the Monkey, you may still topdeck it when you discard it from play.
+merchant_camp;way_of_the_mouse;If you play Merchant Camp using Way of the Mouse, you may still topdeck it when you discard it from play.
+merchant_camp;way_of_the_mule;If you play Merchant Camp using Way of the Mule, you may still topdeck it when you discard it from play.
+merchant_camp;way_of_the_otter;If you play Merchant Camp using Way of the Otter, you may still topdeck it when you discard it from play.
+merchant_camp;way_of_the_owl;If you play Merchant Camp using Way of the Owl, you may still topdeck it when you discard it from play.
+merchant_camp;way_of_the_ox;If you play Merchant Camp using Way of the Ox, you may still topdeck it when you discard it from play.
+merchant_camp;way_of_the_pig;If you play Merchant Camp using Way of the Pig, you may still topdeck it when you discard it from play.
+merchant_camp;way_of_the_rat;If you play Merchant Camp using Way of the Rat, you may still topdeck it when you discard it from play.
+merchant_camp;way_of_the_seal;If you play Merchant Camp using Way of the Seal, you may still topdeck it when you discard it from play.
+merchant_camp;way_of_the_sheep;If you play Merchant Camp using Way of the Sheep, you may still topdeck it when you discard it from play.
+merchant_camp;way_of_the_squirrel;If you play Merchant Camp using Way of the Squirrel, you may still topdeck it when you discard it from play.
+merchant_camp;way_of_the_turtle;If you play Merchant Camp using Way of the Turtle, you may still topdeck it when you discard it from play.
+merchant_camp;way_of_the_worm;If you play Merchant Camp using Way of the Worm, you may still topdeck it when you discard it from play.
 merchant_guild;villa;When you return to your Action phase using Villa, you are ending your Buy phase, so Merchant Guild can trigger.
 merchant_ship;way_of_the_chameleon;If you play Merchant Ship using Way of the Chameleon, remember that Way of the Chameleon only affects stuff happening *this turn*, so on your next turn, you will get the normal bonus from Merchant Ship.
+messenger;trail;Playing Messenger with a Trail in your deck does not count as discarding Trail, so you do not get to react.
+messenger;tunnel;Playing Messenger with a Tunnel in your deck does not count as discarding Tunnel, so you do not get to react.
+messenger;village_green;Playing Messenger with a Village Green in your deck does not count as discarding Village Green, so you do not get to react.
+messenger;weaver;Playing Messenger with a Weaver in your deck does not count as discarding Weaver, so you do not get to react.
 mining_road;progress;When you gain a Treasure while Progress is active, you can choose between playing it directly, or topdecking it (you only get to do one of these).
 mining_village;prince;If you Prince a Mining Village and choose the option to trash itself, you fail to do so and don't get +$2, and the Mining Village stays set aside.
 miser;townsfolk;If you play a Miser using Elder, you can first put a Copper on your Tavern Mat, and then immediately profit off of it.
+mission;outpost;Playing Outpost on an extra Mission turn will not give you an extra turn, but you will still only draw 3 cards for your next turn.
+mission;seize_the_day;Buying Seize the Day on an extra Mission turn will still give you a normal extra turn.
+mission;wizards;If you play Lich and then buy Mission, the Mission turn is skipped, and your next turn proceeds as normal. If, however, you play Lich during an extra turn, even if you buy Mission then, your next normal turn will still be skipped.
 moat;soothsayer;If an opponent plays Soothsayer and you gain a Curse and draw a Moat, it is too late for you to use that Moat to defend against the Soothsayer.
+moat;way_of_the_butterfly;If you play an Attack card and your opponent reacts with a Moat, you may then again choose whether to play the Attack normally, or using Way of the Butterfly.
+moat;way_of_the_camel;If you play an Attack card and your opponent reacts with a Moat, you may then again choose whether to play the Attack normally, or using Way of the Camel.
+moat;way_of_the_chameleon;If you play an Attack card and your opponent reacts with a Moat, you may then again choose whether to play the Attack normally, or using Way of the Chameleon.
+moat;way_of_the_frog;If you play an Attack card and your opponent reacts with a Moat, you may then again choose whether to play the Attack normally, or using Way of the Frog.
+moat;way_of_the_goat;If you play an Attack card and your opponent reacts with a Moat, you may then again choose whether to play the Attack normally, or using Way of the Goat.
+moat;way_of_the_horse;If you play an Attack card and your opponent reacts with a Moat, you may then again choose whether to play the Attack normally, or using Way of the Horse.
+moat;way_of_the_mole;If you play an Attack card and your opponent reacts with a Moat, you may then again choose whether to play the Attack normally, or using Way of the Mole.
+moat;way_of_the_monkey;If you play an Attack card and your opponent reacts with a Moat, you may then again choose whether to play the Attack normally, or using Way of the Monkey.
+moat;way_of_the_mouse;If you play an Attack card and your opponent reacts with a Moat, you may then again choose whether to play the Attack normally, or using Way of the Mouse.
+moat;way_of_the_mule;If you play an Attack card and your opponent reacts with a Moat, you may then again choose whether to play the Attack normally, or using Way of the Mule.
+moat;way_of_the_otter;If you play an Attack card and your opponent reacts with a Moat, you may then again choose whether to play the Attack normally, or using Way of the Otter.
+moat;way_of_the_owl;If you play an Attack card and your opponent reacts with a Moat, you may then again choose whether to play the Attack normally, or using Way of the Owl.
+moat;way_of_the_ox;If you play an Attack card and your opponent reacts with a Moat, you may then again choose whether to play the Attack normally, or using Way of the Ox.
+moat;way_of_the_pig;If you play an Attack card and your opponent reacts with a Moat, you may then again choose whether to play the Attack normally, or using Way of the Pig.
+moat;way_of_the_rat;If you play an Attack card and your opponent reacts with a Moat, you may then again choose whether to play the Attack normally, or using Way of the Rat.
+moat;way_of_the_seal;If you play an Attack card and your opponent reacts with a Moat, you may then again choose whether to play the Attack normally, or using Way of the Seal.
+moat;way_of_the_sheep;If you play an Attack card and your opponent reacts with a Moat, you may then again choose whether to play the Attack normally, or using Way of the Sheep.
+moat;way_of_the_squirrel;If you play an Attack card and your opponent reacts with a Moat, you may then again choose whether to play the Attack normally, or using Way of the Squirrel.
+moat;way_of_the_turtle;If you play an Attack card and your opponent reacts with a Moat, you may then again choose whether to play the Attack normally, or using Way of the Turtle.
+moat;way_of_the_worm;If you play an Attack card and your opponent reacts with a Moat, you may then again choose whether to play the Attack normally, or using Way of the Worm.
 modify;townsfolk;If you play a Modify using Elder, you first have to decide whether you want to pick both choices (i.e. after having drawn a card, you cannot reconsider whether you want to gain a card costing up to $2 more than the trashed one).
 monkey;skirmisher;If you have played a Monkey and your opponent gains an Attack after having played Skirmisher, you first discard down to 3 cards in hand, and then draw due to Monkey since the different things happen in turn order.
 monkey;way_of_the_chameleon;If you play Monkey using Way of the Chameleon, remember that Way of the Chameleon only affects stuff happening *this turn*, so on your next turn, you will get the normal bonus from Monkey.
-mountain_shrine;sewers;If you trash an Action card using Sewers in reaction to Mountain Shrine's trashing, said Action will be considered by Mountain Shrine's check for Actions, and you will draw 2 cards even if that's the only Action in the trash.'
+mountain_shrine;sewers;If you trash an Action card using Sewers in reaction to Mountain Shrine's trashing, said Action will be considered by Mountain Shrine's check for Actions, and you will draw 2 cards even if that's the only Action in the trash.
 necromancer;rogue;If you use a Necromancer to play a card from the trash (turning it face down), then gain it with Rogue, then trash it again, you may play it again with a subsequent Necromancer as it will be turned face up again.
 necromancer;townsfolk;You don't get to choose more than one card from the trash when playing Necromancer using Elder. Neither do you get an additional option when playing a Choice card from the trash with a Necromancer played in such a way.
 necromancer;wizards;If you use a Necromancer to play a card from the trash (turning it face down), then gain it with Lich, then trash it again, you may play it again with a subsequent Necromancer as it will be turned face up again.
@@ -941,20 +1142,35 @@ night_watchman;travelling_fair;If you gain a Night Watchman, you can decide whet
 night_watchman;watchtower;If you gain a Night Watchman, you can decide whether to topdeck it using Watchtower, or gain it to your hand.
 night_watchman;way_of_the_seal;If you gain a Night Watchman, you can decide whether to topdeck it using Way of the Seal, or gain it to your hand.
 odysseys;orb;Playing a card from your discard pile using Orb does not count as playing it from hand as far as Voyage turns are concerned.
-odysseys;outpost;if you play Outpost and Voyage, then in Clean-up you don't discard either of them and only draw 3 cards. In between turns, you choose to take the Voyage turn next. (Outpost hasn't failed yet because another player might somehow be able to take an extra turn first.) In Clean-up of the Voyage turn, you discard Voyage but not Outpost and draw 5 cards. In between turns again, Outpost now fails - it is up next but would be your 3rd turn in a row. The next player takes their turn and during their Clean-up, you discard Outpost.
+odysseys;outpost;"Playing Outpost on an extra Voyage turn will not give you an extra turn, but you will still only draw 3 cards for your next turn.
+If you play Outpost and Voyage, then in Clean-up you don't discard either of them and only draw 3 cards. In between turns, you choose to take the Voyage turn next. (Outpost hasn't failed yet because another player might somehow be able to take an extra turn first.) In Clean-up of the Voyage turn, you discard Voyage but not Outpost and draw 5 cards. In between turns again, Outpost now fails - it is up next but would be your 3rd turn in a row. The next player takes their turn and during their Clean-up, you discard Outpost."
 odysseys;pathfinding;You may put the + Card token on the Odysseys pile using Pathfinding. This will affect all of its cards.
 odysseys;peasant;You may put any token on the Odysseys pile using Teacher. This will affect all of its cards.
 odysseys;plan;You may put the trashing token on the Odysseys pile using Plan. This will affect all of its cards.
 odysseys;seaway;You may put the + Buy token on the Odysseys pile using Seaway. This will affect all of its cards.
+odysseys;seize_the_day;Buying Seize the Day on an extra Voyage turn will still give you a normal extra turn.
 odysseys;trail;Playing Trail via its on-gain/on-trash/on-discard effect does not count as playing it from hand as far as Voyage turns are concerned.
 odysseys;training;You may put the + $1 token on the Odysseys pile using Training. This will affect all of its cards.
 odysseys;village_green;Playing Village Green via its on-discard effect does not count as playing it from hand as far as Voyage turns are concerned.
 odysseys;weaver;Playing Weaver via its on-discard effect does not count as playing it from hand as far as Voyage turns are concerned.
+odysseys;wizards;If you play Lich and then play Voyage, the Voyage turn is skipped, and your next turn proceeds as normal. If, however, you play Lich during an extra turn, even if you play Voyage then, your next normal turn will still be skipped.
 orb;panic;When you discard Orb from play while Panic is active, you return it to the top of the Loot pile. When discarding multiple, you get to choose the order.
+order_of_masons;trail;Putting cards into your discard pile via Order of Masons with a Trail in your deck does not count as discarding Trail, so you do not get to react.
+order_of_masons;tunnel;Putting cards into your discard pile via Order of Masons with a Tunnel in your deck does not count as discarding Tunnel, so you do not get to react.
+order_of_masons;village_green;Putting cards into your discard pile via Order of Masons with a Village Green in your deck does not count as discarding Village Green, so you do not get to react.
+order_of_masons;weaver;Putting cards into your discard pile via Order of Masons with a Weaver in your deck does not count as discarding Weaver, so you do not get to react.
+outpost;outpost;Playing Outpost on an extra Outpost turn will not give you an extra turn, but you will still only draw 3 cards for your next turn.
 outpost;royal_carriage;If you play an Outpost using Royal Carriage, you will still only take one extra turn, but the Royal Carriage will stay out with it anyways.
 outpost;scepter;If you play an Outpost using Scepter, you will still only take one extra turn, but the Scepter will stay out with it anyways.
+outpost;seize_the_day;"Buying Seize the Day on an extra Outpost turn will still give you a normal extra turn.
+Playing Outpost on an extra Seize the Day turn will not give you an extra turn, but you will still only draw 3 cards for your next turn."
 outpost;specialist;If you play an Outpost using Specialist, you will still only take one extra turn, but the Specialist will stay out with it anyways.
 outpost;throne_room;If you play an Outpost using Throne Room, you will still only take one extra turn, but the Throne Room will stay out with it anyways.
+outpost;wizards;If you play Lich and then play Outpost, the Outpost turn is skipped, but you only draw 3 cards for your next turn. If, however, you play Lich during an extra turn, even if you play Outpost then, your next normal turn will still be skipped.
+overlord;ratcatcher;If you play a Ratcatcher using Overlord, you don't put anything onto your Tavern mat.
+overlord;royal_carriage;If you play a Royal Carriage using Overlord, you don't put anything onto your Tavern mat.
+overlord;transmogrify;If you play a Transmogrify using Overlord, you don't put anything onto your Tavern mat.
+overlord;wine_merchant;If you play a Wine Merchant using Overlord, you don't put anything onto your Tavern mat.
 page;pathfinding;Putting the + Card token on the Page pile using Pathfinding will affect only Page, not any card you exchange it for.
 page;plan;Putting the trashing token on the Page pile using Plan will affect only Page, not any card you exchange it for.
 page;seaway;Putting the + Buy token on the Page pile using Seaway will affect only Page, not any card you exchange it for.
@@ -1032,6 +1248,7 @@ plan;townsfolk;You may put the trashing token on the Townsfolk pile using Plan. 
 plan;wizards;You may put the trashing token on the Wizards pile using Plan. This will affect all of its cards.
 poor_house;way_of_the_chameleon;If you play a Poor House as Way of the Chameleon, you will draw 4 cards, and then after drawing lose $1 for each card you have in your hand, without going below $0.
 populate;ruins;Buying Populate will gain the Ruins card currently on top since they are an Action Supply pile.
+possession;stonemason;You may overpay with Potions when buying Stonemason to gain two Possessions.
 practice;urchin;If you play an Urchin multiple times using Practice, you may not trash this Urchin, since you need to play *another* attack card to be able to trash it.
 priest;sewers;If you trash a card with Sewers in reaction to Priest's trash, Sewers does not give you the extra $2 from Priest's ability. This is because Sewers triggers after Priest's 'Trash a card from your hand' which is before 'For the rest of this turn, when you trash a card, + $2.'
 priest;way_of_the_chameleon;If you play Priest using Way of the Chameleon, you will draw 2 cards, then trash a card from your hand, and then get +2 Card for each subsequent trash this turn.
@@ -1064,9 +1281,11 @@ rapid_expansion;trappers_lodge;When you gain a card while Rapid Expansion is act
 rapid_expansion;travelling_fair;When you gain a card while Rapid Expansion is active, you can decide to topdeck it using Travelling Fair instead of setting it aside.
 rapid_expansion;watchtower;When you gain a card while Rapid Expansion is active, you can decide to topdeck or trash it using Watchtower, instead of setting it aside.
 rapid_expansion;way_of_the_seal;When you gain a card while Rapid Expansion is active, you can decide to topdeck it using Way of the Seal instead of setting it aside.
+ratcatcher;summon;If you buy Summon to set aside a Ratcatcher and play it at the start of your next turn, you'll immediately be able to call it then.
 reckless;scheme;If Reckless is on any Action card and you play Scheme, topdecking the Reckless Action card before returning it to its pile will circumvent Reckless' return-to-pile prompt.
 reckless;trickster;If Reckless is on a Treasure and you played a Trickster on a turn you play said Treasure, you may set it aside before returning it to its pile, in which case you cannot return it to its pile, and will put it into your next hand instead.
 reckless;urchin;If you play an Urchin multiple times using Reckless, you may not trash this Urchin, since you need to play *another* attack card to be able to trash it.
+reckless;walled_village;If Walled Village is Reckless, you may topdeck it during Clean-up if you only have this and at most one other Action in play, circumventing Reckless' return-to-pile prompt.
 reckless;way_of_the_butterfly;If you play a Reckless Action card using Way of the Butterfly, you will only play it as Way of the Butterfly once and then fail to follow its instructions the second time.
 reckless;way_of_the_camel;If you play a Reckless Action card using Way of the Camel, you will only play it as Way of the Camel once and then fail to follow its instructions the second time, but you still have to return it when discarding it from play.
 reckless;way_of_the_chameleon;If you play a Reckless Action card using Way of the Chameleon, you follow its cards vs. $$ switched-around instructions twice, you do not get to choose in between..
@@ -1093,14 +1312,15 @@ relic;townsfolk;If you have your -1 Card Token on your deck when drawing with Bl
 relic;watchtower;If you have your -1 Card Token on your deck when drawing with Watchtower, the Token is removed and the number of cards drawn to is the same as stated on Watchtower as long as you are supposed to draw at least 1 card.
 relic;way_of_the_owl;If you have your -1 Card Token on your deck when drawing with Way of the Owl, the Token is removed and the number of cards drawn to is the same as stated on Way of the Owl as long as you are supposed to draw at least 1 card.
 river_shrine;trail;Gaining a Trail with River Shrine's ability will not trigger Trail's on-gain effect because the gaining occurs during Clean-up.
-river_shrine;villa;You can only gain cards via River Shrine if you didn't gain any cards in any buy phase during your turn. Therefore, you .can never do so after buying Villa, even if you don't gain cards in your last buy phase.
-riverboat;way_of_the_butterfly;If you play the Riverboat card (not Riverboat) using Way of the Butterfly, it fails to return to its pile, and nothing will happen.
+river_shrine;villa;You can only gain cards via River Shrine if you didn't gain any cards in any buy phase during your turn. Therefore, you can never do so after buying Villa, even if you don't gain cards in your last buy phase.
+riverboat;way_of_the_butterfly;If you play the Riverboat card (not Riverboat itself) using Way of the Butterfly, it fails to return to its pile, and nothing will happen.
 riverboat;way_of_the_chameleon;If you play Riverboat using Way of the Chameleon, remember that Way of the Chameleon only affects stuff happening *this turn*, so on your next turn, you will get the normal bonus from Riverboat.
-riverboat;way_of_the_horse;If you play the Riverboat card (not Riverboat) using Way of the Horse, it stays set aside.
+riverboat;way_of_the_horse;If you play the Riverboat card (not Riverboat itself) using Way of the Horse, it stays set aside.
+royal_carriage;summon;If you buy Summon to set aside a Royal Carriage (e.g. by having Cost Reduction) and play it at the start of your next turn, you'll immediately be able to call it then.
 royal_carriage;urchin;If you play an Urchin multiple times using Royal Carriage, you may not trash this Urchin, since you need to play *another* attack card to be able to trash it.
 royal_seal;rush;When you gain a card, you can decide whether to immediately play it using Rush, or topdeck it using Royal Seal.
 royal_seal;siren;If you gain a Siren and topdeck it using Royal Seal, you don't need to trash an Action card in order for it to stay in your deck.
-royal_seal;villa;If you gain a Villa, you can decide whether to topdeck it using Royal Seal, or gain it to your hand. In any case, you will receive +1 Action and return to you Action phase if you're in your buy phase.
+royal_seal;villa;If you gain a Villa, you can decide whether to topdeck it using Royal Seal, or gain it to your hand. In any case, you will receive +1 Action and return to your Action phase if you're in your buy phase.
 ruins;seaway;You may put the + Buy token on the Ruins pile using Seaway. This will affect all of its cards.
 ruins;training;You may put the + $1 token on the Ruins pile using Training. This will affect all of its cards.
 rush;search;When you gain the last Search and play it immediately using Rush, it will not be trashed and you will not gain a Loot due to its 'Next Time' wording. [This used to be bugged in the TGG client, let us know if it's resolved!]
@@ -1121,8 +1341,13 @@ sailor;way_of_the_chameleon;If you play Sailor using Way of the Chameleon, remem
 samurai;way_of_the_chameleon;If you play Samurai using Way of the Chameleon, remember that Way of the Chameleon only affects stuff happening *this turn*, so on your future turns you will get the normal bonus from Samurai.
 sauna/avanto;seaway;You may put the + Buy token on the Sauna/Avanto pile using Seaway. This will affect all of its cards.
 sauna/avanto;training;You may put the + $1 token on the Sauna/Avanto pile using Training. This will affect all of its cards.
+scavenger;trail;Playing Scavenger with a Trail in your deck does not count as discarding Trail, so you do not get to react.
+scavenger;tunnel;Playing Scavenger with a Tunnel in your deck does not count as discarding Tunnel, so you do not get to react.
+scavenger;village_green;Playing Scavenger with a Village Green in your deck does not count as discarding Village Green, so you do not get to react.
+scavenger;weaver;Playing Scavenger with a Weaver in your deck does not count as discarding Weaver, so you do not get to react.
 scepter;urchin;If you play an Urchin multiple times using Scepter, you may not trash this Urchin, since you need to play *another* attack card to be able to trash it.
 scrap;townsfolk;If you play a Scrap using Elder, you get to pick up to one additional option (but not a single option twice).
+scrying_pool;stonemason;You may overpay with Potions when buying Stonemason to gain two Scrying Pools.
 sculptor;sheepdog;If you gain a Sheepdog to your hand using Sculptor, you can immediately react to its own gain and play it.
 sculptor;siren;If you gain a Siren and put it in your hand using Sculptor, you still need to trash an Action from your hand in order to not trash the Siren.
 sea_witch;way_of_the_chameleon;If you play Sea Witch using Way of the Chameleon, remember that Way of the Chameleon only affects stuff happening *this turn*, so on your next turn, you will get the normal bonus from Sea Witch.
@@ -1151,6 +1376,7 @@ secret_chamber;way_of_the_sheep;You can react your Secret Chamber's ability to a
 secret_chamber;way_of_the_squirrel;You can react your Secret Chamber's ability to an opponent playing an Attack card even if they play it as Way of the Squirrel.
 secret_chamber;way_of_the_turtle;You can react your Secret Chamber's ability to an opponent playing an Attack card even if they play it as Way of the Turtle.
 secret_chamber;way_of_the_worm;You can react your Secret Chamber's ability to an opponent playing an Attack card even if they play it as Way of the Worm.
+seize_the_day;wizards;If you play Lich and then buy Seize the Day, the Seize the Day turn is skipped, and your next turn proceeds as normal.
 settlers/bustling_village;training;You may put the + $1 token on the Settlers/Bustling Village pile using Training. This will affect all of its cards.
 sheepdog;siren;If you gain a Siren and somehow trigger a shuffle by drawing a card using Sheepdog, you are no longer required to trash an Action card for the Siren to stay in your deck.
 sheepdog;soothsayer;If an opponent plays Soothsayer and you gain a Curse, you may react with Sheepdogs. Once you're done reacting, you draw a card due to Soothsayer, and if that card is a Sheepdog, it is too late for you to react with that one.
@@ -1191,7 +1417,7 @@ siren;watchtower;If you gain a Siren and topdeck it using Watchtower, you don't 
 siren;way_of_the_seal;If you gain a Siren and topdeck it using Way of the Seal, you don't need to trash an Action card in order for it to stay in your deck.
 siren;wish;If you gain a Siren and put it in your hand using Wish, you still need to trash an Action from your hand in order to not trash the Siren.
 skirmisher;spell_scroll;When you gain a Skirmisher and play it immediately using Spell Scroll, its effect will trigger, causing your opponents to discard.
-sleigh;villa;If you gain a Villa, you can decide whether to topdeck it using Sleigh, or gain it to your hand. In any case, you will receive +1 Action and return to you Action phase if you're in your buy phase.
+sleigh;villa;If you gain a Villa, you can decide whether to topdeck it using Sleigh, or gain it to your hand. In any case, you will receive +1 Action and return to your Action phase if you're in your buy phase.
 smugglers;way_of_the_mouse;If Smugglers is the Mouse card and you are able to somehow play it during your opponent's turn, you are able to gain the cards they gained on their previous turn.
 soothsayer;watchtower;If an opponent plays Soothsayer and you gain a Curse and draw a Watchtower, it is too late for you to react with that Watchtower to trash the Curse (or put the Curse onto your deck).
 souk;way_of_the_chameleon;If you play a Souk as Way of the Chameleon, you will draw 7 cards, and then after drawing lose $1 for each card you have in your hand, without going below $0. 
@@ -1219,6 +1445,7 @@ spell_scroll;way_of_the_sheep;When you play Spell Scroll, you can still decide t
 spell_scroll;way_of_the_squirrel;When you play Spell Scroll, you can still decide to play it as Way of the Squirrel, whether you are in your Action or in your Buy phase.
 spell_scroll;way_of_the_turtle;When you play Spell Scroll, you can still decide to play it as Way of the Turtle, whether you are in your Action or in your Buy phase.
 spell_scroll;way_of_the_worm;When you play Spell Scroll, you can still decide to play it as Way of the Worm, whether you are in your Action or in your Buy phase.
+stonemason;university;You may overpay with Potions when buying Stonemason to gain two Universitys.
 stonemason;wayfarer;Wayfarer will at first assume Stonemason's $2 cost after the overpay, and then the cost of whichever card you choose to gain first.
 stowaway;way_of_the_butterfly;When you react and play Stowaway during another player's turn, you can decide to play it as Way of the Butterfly.
 stowaway;way_of_the_camel;When you react and play Stowaway during another player's turn, you can decide to play it as Way of the Camel.
@@ -1241,17 +1468,19 @@ stowaway;way_of_the_sheep;When you react and play Stowaway during another player
 stowaway;way_of_the_squirrel;When you react and play Stowaway during another player's turn, you can decide to play it as Way of the Squirrel.
 stowaway;way_of_the_turtle;When you react and play Stowaway during another player's turn, you can decide to play it as Way of the Turtle.
 stowaway;way_of_the_worm;When you react and play Stowaway during another player's turn, you can decide to play it as Way of the Worm.
+summon;transmogrify;If you buy Summon to set aside a Transmogrify and play it at the start of your next turn, you'll immediately be able to call it then.
 swamp_hag;way_of_the_chameleon;If you play Swamp Hag using Way of the Chameleon, remember that Way of the Chameleon only affects stuff happening *this turn*, so on your next turn, you will get the normal bonus from Swamp Hag.
 tactician;way_of_the_chameleon;If you play Tactician using Way of the Chameleon, remember that Way of the Chameleon only affects stuff happening *this turn*, so on your next turn, you will get the normal bonus from Tactician.
 taskmaster;way_of_the_chameleon;If you play Taskmaster using Way of the Chameleon, remember that Way of the Chameleon only affects stuff happening *this turn*, so on your next turn, you will get the normal bonus from Taskmaster.
 throne_room;urchin;If you play an Urchin multiple times using Throne Room, you may not trash this Urchin, since you need to play *another* attack card to be able to trash it.
-tiara;villa;If you gain a Villa, you can decide whether to topdeck it using Tiara, or gain it to your hand. In any case, you will receive +1 Action and return to you Action phase if you're in your buy phase.
+tiara;villa;If you gain a Villa, you can decide whether to topdeck it using Tiara, or gain it to your hand. In any case, you will receive +1 Action and return to your Action phase if you're in your buy phase.
 townsfolk;townsfolk;"If you play a Blacksmith or Town Crier using Elder, the options you choose are resolved in the order they are on the card; if you e.g. choose to draw to 6 cards in hand and get +1 Card, +1 Action, you'll do the latter after the former, ending up with 7 cards in hand."
 townsfolk;training;You may put the + $1 token on the Townsfolk pile using Training. This will affect all of its cards.
 townsfolk;trusty_steed;If you play a Trusty Steed using Elder, you get to pick three of the options.
 townsfolk;wild_hunt;If you play a Wild Hunt using Elder, you can first draw and put a token on the pile, and then immediately gain an Estate to take the VP from the pile.
-tracker;villa;If you gain a Villa, you can decide whether to topdeck it using Tracker, or gain it to your hand. In any case, you will receive +1 Action and return to you Action phase if you're in your buy phase.
+tracker;villa;If you gain a Villa, you can decide whether to topdeck it using Tracker, or gain it to your hand. In any case, you will receive +1 Action and return to your Action phase if you're in your buy phase.
 tragic_hero;way_of_the_chameleon;If you play Tragic Hero using Way of the Chameleon, getting +$ instead of drawing cards, Tragic Hero's condition will still be checked afterwards.
+trail;trusty_steed;Playing Trusty Steed with a Trail in your deck does not count as discarding Trail, so you do not get to react.
 trail;vassal;If you discard a Trail with Vassal and play it due to the discard effect, you don't get to play it again from the Vassal effect.
 trail;way_of_the_butterfly;When you react and play Trail during another player's turn, you can decide to play it as Way of the Butterfly.
 trail;way_of_the_camel;When you react and play Trail during another player's turn, you can decide to play it as Way of the Camel.
@@ -1274,13 +1503,16 @@ trail;way_of_the_squirrel;When you react and play Trail during another player's 
 trail;way_of_the_turtle;When you react and play Trail during another player's turn, you can decide to play it as Way of the Turtle.
 trail;way_of_the_worm;When you react and play Trail during another player's turn, you can decide to play it as Way of the Worm.
 training;wizards;You may put the + $1 token on the Wizards pile using Training. This will affect all of its cards.
-trappers_lodge;villa;If you gain a Villa, you can decide whether to topdeck it using Trapper's Lodge, or gain it to your hand. In any case, you will receive +1 Action and return to you Action phase if you're in your buy phase.
-travelling_fair;villa;If you gain a Villa, you can decide whether to topdeck it using Travelling Fair, or gain it to your hand. In any case, you will receive +1 Action and return to you Action phase if you're in your buy phase.
+trappers_lodge;villa;If you gain a Villa, you can decide whether to topdeck it using Trapper's Lodge, or gain it to your hand. In any case, you will receive +1 Action and return to your Action phase if you're in your buy phase.
+travelling_fair;villa;If you gain a Villa, you can decide whether to topdeck it using Travelling Fair, or gain it to your hand. In any case, you will receive +1 Action and return to your Action phase if you're in your buy phase.
 treasury;villa;When you return to your Action phase using Villa, you are ending your Buy phase, so Treasury can trigger.
+trusty_steed;tunnel;Playing Trusty Steed with a Tunnel in your deck does not count as discarding Tunnel, so you do not get to react.
+trusty_steed;village_green;Playing Trusty Steed with a Village Green in your deck does not count as discarding Village Green, so you do not get to react.
+trusty_steed;weaver;Playing Trusty Steed with a Weaver in your deck does not count as discarding Weaver, so you do not get to react.
 vassal;village_green;If you discard a Village Green with Vassal and play it due to the discard effect, you don't get to play it again from the Vassal effect.
 vassal;weaver;If you discard a Weaver with Vassal and play it due to the discard effect, you don't get to play it again from the Vassal effect.
-villa;watchtower;If you gain a Villa, you can decide whether to topdeck it using Watchtower, or gain it to your hand. In any case, you will receive +1 Action and return to you Action phase if you're in your buy phase.
-villa;way_of_the_seal;If you gain a Villa, you can decide whether to topdeck it using Way of the Seal, or gain it to your hand. In any case, you will receive +1 Action and return to you Action phase if you're in your buy phase.
+villa;watchtower;If you gain a Villa, you can decide whether to topdeck it using Watchtower, or gain it to your hand. In any case, you will receive +1 Action and return to your Action phase if you're in your buy phase.
+villa;way_of_the_seal;If you gain a Villa, you can decide whether to topdeck it using Way of the Seal, or gain it to your hand. In any case, you will receive +1 Action and return to your Action phase if you're in your buy phase.
 villa;wine_merchant;When you return to your Action phase using Villa, you are ending your Buy phase, so Wine Merchant can trigger.
 village_green;way_of_the_butterfly;When you react and play Village Green during another player's turn, you can decide to play it as Way of the Butterfly.
 village_green;way_of_the_camel;When you react and play Village Green during another player's turn, you can decide to play it as Way of the Camel.

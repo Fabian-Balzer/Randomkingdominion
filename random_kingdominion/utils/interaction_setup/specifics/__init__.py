@@ -12,6 +12,7 @@ from .traits import add_all_trait_interactions
 from .victory_card_plays import add_all_victory_card_play_interactions
 from .ways import add_all_way_interactions
 from .allies import add_all_allies_interactions
+from .extra_turn import add_all_extra_turn_interactions
 
 __all__ = [
     "add_all_allies_interactions",
@@ -28,4 +29,5 @@ __all__ = [
     "add_all_event_interactions",
     "add_all_on_start_of_turn_interactions",
     "add_all_on_clean_up_interactions",
+    "add_all_extra_turn_interactions",
 ]
