@@ -32,13 +32,12 @@ sys.path.append("..")
 import argparse
 
 import random_kingdominion as rk
-from random_kingdominion.utils.data_setup import (
-    add_additional_entries,
-    add_additional_info_columns,
-    download_wiki_data,
-    write_image_database,
-)
-from random_kingdominion.utils.interaction_setup import write_interaction_database
+from random_kingdominion.utils.data_setup import (add_additional_entries,
+                                                  add_additional_info_columns,
+                                                  download_wiki_data,
+                                                  write_image_database)
+from random_kingdominion.utils.interaction_setup import (
+    write_combo_database, write_interaction_database)
 
 
 def parse_args():
@@ -58,11 +57,25 @@ def parse_args():
         help="If set, the script will overwrite the existing data files (e.g. the processed one, and, if you've downloaded it, the raw data one). Otherwise, you'll be prompted to confirm overwriting.",
     )
     parser.add_argument(
+        "--main_db",
+        "-m",
+        action="store_true",
+        default=False,
+        help="If set, rewrite the main database file.",
+    )
+    parser.add_argument(
         "--interactions",
         "-i",
         action="store_true",
         default=False,
         help="If set, rewrite the interactions file.",
+    )
+    parser.add_argument(
+        "--combos",
+        "-c",
+        action="store_true",
+        default=False,
+        help="If set, rewrite the combos file.",
     )
     parser.add_argument(
         "--verbose",
@@ -79,6 +92,9 @@ def main():
     Asks the user if they want to download the data from the wiki, and whether they want to write the image database.
     """
     args = parse_args()
+    if not (args.download or args.main_db or args.interactions or args.combos):
+        print("No action specified. Use --download, --main_db, --interactions, or --combos, or -d, -m, -i, -c flags to run any mode.")
+        return
     overwrite, verbose = args.overwrite, args.verbose
     if args.download:
         df = download_wiki_data()
@@ -86,16 +102,19 @@ def main():
         rk.write_dataframe_to_file(
             df, rk.FPATH_RAW_DATA, overwrite=overwrite, verbose=verbose
         )
-    df = rk.read_dataframe_from_file(rk.FPATH_RAW_DATA)
-    df = add_additional_entries(df)
-    df = add_additional_info_columns(df)
-    rk.write_dataframe_to_file(
-        df, rk.FPATH_CARD_DATA, overwrite=overwrite, verbose=verbose
-    )
+    if args.main_db:
+        df = rk.read_dataframe_from_file(rk.FPATH_RAW_DATA)
+        df = add_additional_entries(df)
+        df = add_additional_info_columns(df)
+        rk.write_dataframe_to_file(
+            df, rk.FPATH_CARD_DATA, overwrite=overwrite, verbose=verbose
+        )
     if args.interactions:
         write_interaction_database(overwrite=overwrite, verbose=verbose)
-    return df
+    if args.combos:
+        write_combo_database(overwrite=overwrite, verbose=verbose)
+    # return df
 
 
 if __name__ == "__main__":
-    df = main()  # For me to inspect it in variable manager
+    main()
