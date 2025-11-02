@@ -135,7 +135,9 @@ class KingdomManager:
                     "link": "",
                 }
             try:
-                assert k.is_valid, f"{k.invalidity_reasons}, {k.name}, {k.cards}, {k.notes}"
+                assert (
+                    k.is_valid
+                ), f"{k.invalidity_reasons}, {k.name}, {k.cards}, {k.notes}"
             except AssertionError as e:
                 if do_assertion:
                     raise (e)

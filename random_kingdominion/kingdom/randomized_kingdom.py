@@ -112,6 +112,15 @@ class RandomizedKingdom:
         """Returns the number of selected landscapes"""
         return len(self._selected_landscapes)
 
+    @property
+    def contained_csos(self) -> list[str]:
+        return (
+            self._selected_cards
+            + self._selected_landscapes
+            + [self.mouse_card, self.ferryman_pile, self.riverboat_card]
+            + self.druid_boons
+        )
+
     def contains_way(self) -> bool:
         """Checks whether the current selection contains a way."""
         return np.sum(self._get_landscape_df()["IsWay"]) > 0
@@ -151,7 +160,7 @@ class RandomizedKingdom:
 
     def add_card(self, card_name: str) -> bool:
         """Safely adds the given card to this kingdom"""
-        if card_name == "" or card_name in self._selected_cards:
+        if card_name == "" or card_name in self._selected_cards or card_name == "ruins":
             return False
         self._selected_cards.append(card_name)
         self._set_quality_values()

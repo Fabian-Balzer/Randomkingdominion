@@ -6,8 +6,7 @@ import random
 
 from ..constants import ALL_CSOS
 from ..logger import LOGGER
-from ..single_cso_utils import (is_card, is_cso_in_expansions,
-                                is_extended_landscape)
+from ..single_cso_utils import is_card, is_cso_in_expansions, is_extended_landscape
 from ..utils import sanitize_cso_list
 from ..utils.config import CustomConfigParser
 from .kingdom import Kingdom
@@ -159,7 +158,7 @@ class KingdomRandomizer:
 
         num_cards = self.config.getint("General", "num_cards")
         num_landscapes = self._determine_landscape_number()
-        if (partial_str := self.config.get("General", "partial_random_kingdom")) != "":
+        if (partial_str := self.config.get("General", "partial_kingdom_input")) != "":
             try:
                 _partial_kingdom = Kingdom.from_dombot_csv_string(
                     partial_str,
@@ -222,7 +221,8 @@ class KingdomRandomizer:
         return random_kingdom.get_kingdom()
 
     def add_required_csos(self, random_kingdom: RandomizedKingdom) -> RandomizedKingdom:
-        """Adds the required csos to the random kingdom"""
+        """Adds the required csos (i.e., the ones the user wants to force)
+        to the random kingdom"""
         required_csos = self.config.getlist("General", "required_csos")
         expansions = self.config.get_expansions()
         allow_required_csos_of_other_exps = self.config.getboolean(
@@ -254,6 +254,7 @@ class KingdomRandomizer:
         that card rerolled."""
         self.rerolled_csos.append(cso_name)
         random_kingdom = RandomizedKingdom.from_kingdom(old_kingdom)
+        self.pool_con.drop_rerolled_csos(random_kingdom.contained_csos)
         if random_kingdom.contains_card(cso_name):
             bane_army = random_kingdom.remove_card_and_test_bane_army(cso_name)
             if bane_army["bane"]:

@@ -6,12 +6,15 @@ from typing import Literal
 import numpy as np
 import pandas as pd
 
-from ..constants import (ALL_CSOS, QUALITIES_AVAILABLE,
-                         SPECIAL_QUAL_TYPES_AVAILABLE)
-from ..cso_frame_utils import (add_weight_column, get_sub_df_for_special_card,
-                               get_sub_df_for_true_landscape,
-                               get_sub_df_of_categories, listlike_contains_any,
-                               sample_single_cso_from_df)
+from ..constants import ALL_CSOS, QUALITIES_AVAILABLE, SPECIAL_QUAL_TYPES_AVAILABLE
+from ..cso_frame_utils import (
+    add_weight_column,
+    get_sub_df_for_special_card,
+    get_sub_df_for_true_landscape,
+    get_sub_df_of_categories,
+    listlike_contains_any,
+    sample_single_cso_from_df,
+)
 from ..utils.config import CustomConfigParser, add_renewed_base_expansions
 
 
@@ -29,6 +32,10 @@ class PoolContainer:
         self.eligible_expansions = self._determine_eligible_expansions()
 
         self.main_pool: pd.DataFrame = self.get_initial_draw_pool(rerolled_csos)
+
+    def drop_rerolled_csos(self, rerolled_csos: list[str]):
+        """Drop the given rerolled CSOs from the main pool."""
+        self.main_pool = self.main_pool.drop(rerolled_csos, errors="ignore")
 
     def get_initial_draw_pool(
         self, rerolled_csos: list[str], ignore_expansions: bool = False
@@ -63,7 +70,7 @@ class PoolContainer:
         ]
         _excluded_card_types = self.config.getlist(
             "Specialization", "excluded_card_types"
-        )
+        ) + ["Ruins"]
         pool = pool[
             pool["IsLandscape"]
             | ~listlike_contains_any(pool["Types"], _excluded_card_types)
@@ -99,7 +106,11 @@ class PoolContainer:
         user_expansions = self.config.get_expansions(add_renewed_bases=False)
         exp_limit_enabled = self.config.getboolean("Expansions", "enable_max")
         max_num_expansions = self.config.getint("Expansions", "max_num_expansions")
-        if not exp_limit_enabled or max_num_expansions == 0 or max_num_expansions >= len(user_expansions):
+        if (
+            not exp_limit_enabled
+            or max_num_expansions == 0
+            or max_num_expansions >= len(user_expansions)
+        ):
             return add_renewed_base_expansions(user_expansions)
         sampled_expansions = random.sample(user_expansions, k=max_num_expansions)
         return add_renewed_base_expansions(sampled_expansions)

@@ -13,13 +13,7 @@ from uuid import uuid4
 import numpy as np
 import pandas as pd
 
-from ..constants import (
-    ALL_COMBOS,
-    ALL_CSOS,
-    ALL_INTERACTIONS,
-    QUALITIES_AVAILABLE,
-    RENEWED_EXPANSIONS,
-)
+from ..constants import ALL_CSOS, QUALITIES_AVAILABLE, RENEWED_EXPANSIONS
 from ..logger import LOGGER
 from ..utils import (
     copy_to_clipboard,
@@ -382,7 +376,7 @@ class Kingdom:
     def from_dict(cls, kingdom_dict: dict[str, Any]) -> Kingdom:
         """Construct a kingdom from a dictionary."""
         sanitized_dict = {
-            k: v for k, v in kingdom_dict.items() if k in cls.__dataclass_fields__
+            k: v for k, v in kingdom_dict.items() if k in cls.__dataclass_fields__  # type: ignore
         }
         return Kingdom(**sanitized_dict)
 

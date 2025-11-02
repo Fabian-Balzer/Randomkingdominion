@@ -12,6 +12,7 @@ from .invalidity_reason import InvalidityReason
 if TYPE_CHECKING:
     from ..kingdom import Kingdom
 
+
 @dataclass
 class BaneButNoYoungWitch(InvalidityReason):
     def get_description(self) -> str:
@@ -19,6 +20,7 @@ class BaneButNoYoungWitch(InvalidityReason):
 
     def check_if_invalid(self, k: Kingdom) -> bool:
         return k.bane_pile != "" and "young_witch" not in k.cards
+
 
 @dataclass
 class YoungWitchButNoBane(InvalidityReason):
@@ -28,24 +30,33 @@ class YoungWitchButNoBane(InvalidityReason):
     def check_if_invalid(self, k: Kingdom) -> bool:
         return k.bane_pile == "" and "young_witch" in k.cards
 
+
 @dataclass
 class DivineWindIncorrect(InvalidityReason):
     def get_description(self) -> str:
-        return "Could not parse the provided Divine Wind kingdom;\n\tinvalidities: " + self.params.get("subk_invalidity", "unknown error")
-    
+        return (
+            "Could not parse the provided Divine Wind kingdom;\n\tinvalidities: "
+            + self.params.get("subk_invalidity", "unknown error")
+        )
+
     def check_if_invalid(self, k: Kingdom) -> bool:
         dw_k = k.divine_wind_subkingdom
         if dw_k is None:
             return False
         # A missing prophecy is correct for a DW kingdom as DW is already out.
-        dw_k.invalidity_reasons = [t for t in dw_k.invalidity_reasons if not isinstance(t, OmenButNoProphecy)]
+        dw_k.invalidity_reasons = [
+            t for t in dw_k.invalidity_reasons if not isinstance(t, OmenButNoProphecy)
+        ]
         if "divine_wind" not in k.landscapes:
             self.params["subk_invalidity"] = "Divine Wind landscape not in kingdom"
             return True
         if dw_k.is_valid:
             return False
-        self.params["subk_invalidity"] = ", ".join(r.get_description() for r in dw_k.invalidity_reasons)
+        self.params["subk_invalidity"] = ", ".join(
+            r.get_description() for r in dw_k.invalidity_reasons
+        )
         return True
+
 
 @dataclass
 class BaneNotInCards(InvalidityReason):
@@ -57,6 +68,7 @@ class BaneNotInCards(InvalidityReason):
             return False
         self.params["bane_pile"] = k.bane_pile
         return True
+
 
 @dataclass
 class IncorrectBaneCost(InvalidityReason):
@@ -70,6 +82,7 @@ class IncorrectBaneCost(InvalidityReason):
         cso = ALL_CSOS.loc[k.bane_pile]
         self.params["cost"] = cso["Cost"]
         return cso["Sanitized Cost"] not in [2, 3]
+
 
 @dataclass
 class WrongCardNumber(InvalidityReason):
@@ -95,6 +108,7 @@ class WrongCardNumber(InvalidityReason):
         self.params["actual"] = len(k.cards)
         return True
 
+
 @dataclass
 class TooManyLandscapes(InvalidityReason):
     def get_description(self) -> str:
@@ -102,6 +116,7 @@ class TooManyLandscapes(InvalidityReason):
 
     def check_if_invalid(self, k: Kingdom) -> bool:
         return len(k.landscapes) > 4
+
 
 @dataclass
 class LiaisonButNoAlly(InvalidityReason):
@@ -111,6 +126,7 @@ class LiaisonButNoAlly(InvalidityReason):
     def check_if_invalid(self, k: Kingdom) -> bool:
         return k.check_cards_for_type("IsLiaison") and not k.contains_ally()
 
+
 @dataclass
 class OmenButNoProphecy(InvalidityReason):
     def get_description(self) -> str:
@@ -118,6 +134,7 @@ class OmenButNoProphecy(InvalidityReason):
 
     def check_if_invalid(self, k: Kingdom) -> bool:
         return k.check_cards_for_type("IsOmen") and not k.contains_prophecy()
+
 
 @dataclass
 class ProphecyButNoOmen(InvalidityReason):
@@ -127,13 +144,15 @@ class ProphecyButNoOmen(InvalidityReason):
     def check_if_invalid(self, k: Kingdom) -> bool:
         return k.contains_prophecy() and not k.check_cards_for_type("IsOmen")
 
+
 @dataclass
 class AllyButNoLiaison(InvalidityReason):
     def get_description(self) -> str:
         return "An Ally has been specified, but there's no Liaison in the kingdom."
-    
+
     def check_if_invalid(self, k: Kingdom) -> bool:
         return k.contains_ally() and not k.check_cards_for_type("IsLiaison")
+
 
 @dataclass
 class ArmyPileButNoApproachingArmy(InvalidityReason):
@@ -143,6 +162,7 @@ class ArmyPileButNoApproachingArmy(InvalidityReason):
     def check_if_invalid(self, k: Kingdom) -> bool:
         return k.army_pile != "" and "approaching_army" not in k.landscapes
 
+
 @dataclass
 class ApproachingArmyButNoArmyPile(InvalidityReason):
     def get_description(self) -> str:
@@ -150,6 +170,7 @@ class ApproachingArmyButNoArmyPile(InvalidityReason):
 
     def check_if_invalid(self, k: Kingdom) -> bool:
         return k.army_pile == "" and "approaching_army" in k.landscapes
+
 
 @dataclass
 class ArmyPileNotInCards(InvalidityReason):
@@ -159,12 +180,12 @@ class ArmyPileNotInCards(InvalidityReason):
     def check_if_invalid(self, k: Kingdom) -> bool:
         return k.army_pile != "" and k.army_pile not in k.cards
 
+
 @dataclass
-class TraitsWithoutTargets(InvalidityReason):   
+class TraitsWithoutTargets(InvalidityReason):
 
     def check_if_invalid(self, k: Kingdom) -> bool:
-        """Check if there are traits in the kingdom with no targets specified, and add them to the internal params.
-        """
+        """Check if there are traits in the kingdom with no targets specified, and add them to the internal params."""
         trait_dict = k.trait_dict
         ls = k.kingdom_landscape_df
         traits = ls[ls["IsTrait"]].index.tolist()
@@ -173,17 +194,37 @@ class TraitsWithoutTargets(InvalidityReason):
                 prev = self.params.get("traits", [])
                 self.params["traits"] = prev + [trait]
         return self.params.get("traits", []) != []
-    
+
     def get_description(self) -> str:
         traits = ", ".join(self.params.get("traits", []))
         return f"There are one or more Traits in the kingdom with no targets specified: {traits}."
 
+
+@dataclass
+class TraitTargetsInvalid(InvalidityReason):
+    def get_description(self) -> str:
+        traits = ", ".join(self.params.get("traits", []))
+        return f"The following Trait targets are invalid (not Action or Treasure cards): {traits}."
+
+    def check_if_invalid(self, k: Kingdom) -> bool:
+        for trait, target in k.trait_dict.items():
+            cso = ALL_CSOS.loc[target]
+            is_action_or_treasure = (
+                len({"Action", "Treasure"}.intersection(set(cso["Types"]))) > 0
+            )
+            if is_action_or_treasure:
+                continue
+            prev = self.params.get("traits", [])
+            t_str = f"{trait} -> {target}"
+            self.params["traits"] = prev + [t_str]
+        return self.params.get("traits", []) != []
+
+
 @dataclass
 class TraitTargetNotInCards(InvalidityReason):
-    
+
     def check_if_invalid(self, k: Kingdom) -> bool:
-        """Check if there are Trait targets in the kingdom that are not in the cards, and add them to the internal params.
-        """
+        """Check if there are Trait targets in the kingdom that are not in the cards, and add them to the internal params."""
         trait_dict = k.trait_dict
         ls = k.kingdom_landscape_df
         traits = ls[ls["IsTrait"]].index.tolist()
@@ -193,35 +234,37 @@ class TraitTargetNotInCards(InvalidityReason):
                 prev = self.params.get("targets", [])
                 self.params["targets"] = prev + [target]
         return self.params.get("targets", []) != []
-    
+
     def get_description(self) -> str:
         targets = ", ".join(self.params.get("targets", []))
         return f"There are Trait targets in the kingdom that are not in the cards: {targets}."
 
+
 @dataclass
 class TraitNotInLandscapes(InvalidityReason):
-    
+
     def check_if_invalid(self, k: Kingdom) -> bool:
-        """Check if there are Traits in the kingdom that are not in the landscapes, and add them to the internal params.
-        """
+        """Check if there are Traits in the kingdom that are not in the landscapes, and add them to the internal params."""
         for trait in k.trait_dict:
             if trait not in k.landscapes:
                 prev = self.params.get("traits", [])
                 self.params["traits"] = prev + [trait]
         return self.params.get("traits", []) != []
-    
+
     def get_description(self) -> str:
         traits = ", ".join(self.params.get("traits", []))
         return f"There are Traits specified that are not in the landscapes: {traits}."
+
 
 @dataclass
 class FerrymanButNoTarget(InvalidityReason):
 
     def get_description(self) -> str:
         return "Ferryman is in the kingdom, but there's no target for it."
-    
+
     def check_if_invalid(self, k: Kingdom) -> bool:
         return "ferryman" in k.cards and k.ferryman_pile == ""
+
 
 @dataclass
 class FerrymanTargetButNoFerryman(InvalidityReason):
@@ -232,11 +275,12 @@ class FerrymanTargetButNoFerryman(InvalidityReason):
     def check_if_invalid(self, k: Kingdom) -> bool:
         return "ferryman" not in k.cards and k.ferryman_pile != ""
 
+
 @dataclass
 class FerrymanTargetInCards(InvalidityReason):
     def get_description(self) -> str:
         p = get_cso_name(self.params.get("pile", ""))
-        
+
         return f"The Ferryman target ({p}) is part of the kingdom cards."
 
     def check_if_invalid(self, k: Kingdom) -> bool:
@@ -244,6 +288,7 @@ class FerrymanTargetInCards(InvalidityReason):
             return False
         self.params["pile"] = k.ferryman_pile
         return True
+
 
 @dataclass
 class IncorrectFerrymanPileCost(InvalidityReason):
@@ -258,14 +303,16 @@ class IncorrectFerrymanPileCost(InvalidityReason):
         self.params["cost"] = cso["Cost"]
         return cso["Sanitized Cost"] not in [3, 4]
 
+
 @dataclass
 class RiverboatButNoTarget(InvalidityReason):
 
     def get_description(self) -> str:
         return "Riverboat is in the kingdom, but there's no target for it."
-    
+
     def check_if_invalid(self, k: Kingdom) -> bool:
         return "riverboat" in k.cards and k.riverboat_card == ""
+
 
 @dataclass
 class RiverboatTargetButNoRiverboat(InvalidityReason):
@@ -276,14 +323,16 @@ class RiverboatTargetButNoRiverboat(InvalidityReason):
     def check_if_invalid(self, k: Kingdom) -> bool:
         return "riverboat" not in k.cards and k.riverboat_card != ""
 
+
 @dataclass
 class WayOfTheMouseButNoTarget(InvalidityReason):
 
     def get_description(self) -> str:
         return "Way of the Mouse is in the kingdom, but there's no target for it."
-    
+
     def check_if_invalid(self, k: Kingdom) -> bool:
         return "way_of_the_mouse" in k.landscapes and k.mouse_card == ""
+
 
 @dataclass
 class MouseTargetButNoWayOfTheMouse(InvalidityReason):
@@ -292,7 +341,8 @@ class MouseTargetButNoWayOfTheMouse(InvalidityReason):
 
     def check_if_invalid(self, k: Kingdom) -> bool:
         return "way_of_the_mouse" not in k.landscapes and k.mouse_card != ""
-    
+
+
 @dataclass
 class ObeliskButNoPile(InvalidityReason):
 
@@ -301,7 +351,8 @@ class ObeliskButNoPile(InvalidityReason):
 
     def check_if_invalid(self, k: Kingdom) -> bool:
         return "obelisk" in k.landscapes and k.obelisk_pile == ""
-    
+
+
 @dataclass
 class ObeliskPileButNoObelisk(InvalidityReason):
 
@@ -310,6 +361,7 @@ class ObeliskPileButNoObelisk(InvalidityReason):
 
     def check_if_invalid(self, k: Kingdom) -> bool:
         return "obelisk" not in k.landscapes and k.obelisk_pile != ""
+
 
 @dataclass
 class DruidButNoBoons(InvalidityReason):
@@ -321,6 +373,7 @@ class DruidButNoBoons(InvalidityReason):
         self.params["boon_num"] = len(k.druid_boons)
         return "druid" in k.cards and not len(k.druid_boons) == 3
 
+
 @dataclass
 class DruidBoonsSpecifiedButNoDruid(InvalidityReason):
 
@@ -328,5 +381,4 @@ class DruidBoonsSpecifiedButNoDruid(InvalidityReason):
         return f"Druid Boons have been specified, but Druid itself hasn't been added."
 
     def check_if_invalid(self, k: Kingdom) -> bool:
-        return "druid" not in k.cards and len(k.druid_boons) > 0
         return "druid" not in k.cards and len(k.druid_boons) > 0

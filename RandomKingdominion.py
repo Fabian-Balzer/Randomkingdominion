@@ -71,7 +71,7 @@ pg = st.navigation(
             ),
             st.Page(
                 "streamlit_pages/about.py",
-                title="About this page",
+                title="About and more",
                 url_path="about",
                 icon=rk.ST_ICONS["about"],
             ),

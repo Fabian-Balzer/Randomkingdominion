@@ -5,8 +5,8 @@ from .constants import *
 from .cso_frame_utils import *
 from .cso_series_utils import *
 from .kingdom import Kingdom, KingdomManager, KingdomRandomizer
-from .utils import *
 from .logger import LOGGER
+from .utils import *
 
 
 # Custom logging filter to ignore specific Streamlit warning
@@ -17,6 +17,7 @@ class StreamlitFilter(logging.Filter):
             "No runtime found, using MemoryCacheStorageManager",
             "Session state does not function when running a script without `streamlit run`",
             "to view this Streamlit app on a browser,",
+            "missing ScriptRunContext! This warning can be ignored when running in bare mode.",
         ]
         return all([message not in record.getMessage() for message in ignored_messages])
 
@@ -39,6 +40,8 @@ def _remove_streamlit_logs():
     streamlit_logger = logging.getLogger("streamlit")
     streamlit_logger.addFilter(StreamlitFilter())
 
+
+# from .streamlit_util import *
 
 try:
     _remove_streamlit_logs()
