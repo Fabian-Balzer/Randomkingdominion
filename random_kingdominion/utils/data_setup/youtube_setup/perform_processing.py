@@ -16,9 +16,10 @@ def perform_full_yt_processing(download: bool = True) -> None:
         if download:
             load_yt_info(playlist_entry)
         processor = PROCESSOR_DICT.get(playlist_key)
+        creator_name = playlist_entry["name"]
         if processor:
             LOGGER.info(f"Applying processor for {playlist_key}")
-            idx_dicts[playlist_key] = processor()
+            idx_dicts[creator_name] = processor()
         else:
             LOGGER.warning(
                 f"No processor defined for {playlist_key}, skipping processing step."
