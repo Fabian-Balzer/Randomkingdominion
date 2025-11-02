@@ -11,7 +11,26 @@ from ..constants import (
     RENEWED_EXPANSIONS,
     VALID_COMBO_TYPES,
 )
-from ..utils import filter_combo_or_inter_df_for_csos, get_expansion_icon_path
+from ..utils import get_expansion_icon_path
+
+
+def _get_combo_color_dict() -> dict[str, str]:
+    """Returns a dictionary mapping combo types to colors for display."""
+    colors = [
+        "#856404",  # dark yellow
+        "#155724",  # dark green
+        "#198754",  # green
+        "#d4edda",  # light green
+        "#721c24",  # dark red
+        "#f8d7da",  # grey
+    ]
+    # Add alpha values:
+    colors = [f"{color}70" for color in colors]
+    color_dict = dict(zip(VALID_COMBO_TYPES, colors))
+    return color_dict
+
+
+COMBO_COLOR_DICT = _get_combo_color_dict()
 
 # from streamlit_cookies_controller import CookieController
 
@@ -65,7 +84,7 @@ def get_cached_inter_df() -> pd.DataFrame:
     """Loads the available interactions and adds some
     streamlit-relevant columns to them."""
     df = ALL_INTERACTIONS.copy()
-    x = 10
+    x = 10 + 3
     return _prepare_combo_inter_df(df)
 
 
@@ -104,25 +123,6 @@ def _load_csos():
 ALL_CACHED_CSOS = _load_csos()
 
 
-def _get_combo_color_dict() -> dict[str, str]:
-    """Returns a dictionary mapping combo types to colors for display."""
-    colors = [
-        "#856404",  # dark yellow
-        "#155724",  # dark green
-        "#198754",  # green
-        "#d4edda",  # light green
-        "#721c24",  # dark red
-        "#f8d7da",  # grey
-    ]
-    # Add alpha values:
-    colors = [f"{color}70" for color in colors]
-    color_dict = dict(zip(VALID_COMBO_TYPES, colors))
-    return color_dict
-
-
-COMBO_COLOR_DICT = _get_combo_color_dict()
-
-
 ST_ICONS = {
     "randomizer": "🔀",
     "oracle": "💥",
@@ -144,4 +144,11 @@ ST_ICONS = {
     "other": "🔧",
     "video": "📹",
     "filter": "🔍",
+    "links": "🔗",
+    "combo_type_rush": "🏃",
+    "combo_type_combo": "🎉",
+    "combo_type_synergy": "🤝",
+    "combo_type_weak_synergy": "👌",
+    "combo_type_counter": "🛡️",
+    "combo_type_nombo": "❌",
 }

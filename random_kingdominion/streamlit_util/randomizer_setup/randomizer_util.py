@@ -2,10 +2,10 @@ from typing import TypeVar
 
 import streamlit as st
 
-from ..constants import QUALITIES_AVAILABLE, SPECIAL_QUAL_TYPES_AVAILABLE
-from ..kingdom import Kingdom, KingdomRandomizer
-from ..utils import CustomConfigParser, get_cso_name, sanitize_cso_list
-from .constants import LIKE_BAN_OPTIONS
+from ...constants import QUALITIES_AVAILABLE, SPECIAL_QUAL_TYPES_AVAILABLE
+from ...kingdom import KingdomRandomizer
+from ...utils import CustomConfigParser, sanitize_cso_list
+from ..constants import LIKE_BAN_OPTIONS
 
 
 def load_config():
@@ -18,17 +18,24 @@ def load_config():
         st.session_state["config"] = CustomConfigParser(load_default=True).to_json()
     return CustomConfigParser.from_json(st.session_state["config"])
 
-T = TypeVar('T')
+
+T = TypeVar("T")
+
 
 def get_or_initialize_key(key: str, default_val: T) -> T:
     if key not in st.session_state:
         st.session_state[key] = default_val
     return st.session_state.get(key, default=default_val)
 
+
 def save_config() -> CustomConfigParser:
     """Read the session state values into the config and save it to the session state."""
     config = load_config()
-    config.set("Expansions", "enable_max", str(st.session_state.get("enable_max_num_expansions", True)))
+    config.set(
+        "Expansions",
+        "enable_max",
+        str(st.session_state.get("enable_max_num_expansions", True)),
+    )
     config.set(
         "Expansions", "max_num_expansions", str(st.session_state["max_num_expansions"])
     )
@@ -85,8 +92,8 @@ def save_config() -> CustomConfigParser:
     )
     config.set(
         "General",
-        "partial_random_kingdom",
-        st.session_state.get("partial_random_kingdom", ""),
+        "partial_kingdom_input",
+        st.session_state.get("partial_kingdom_input", ""),
     )
 
     for qual in QUALITIES_AVAILABLE:
@@ -100,17 +107,11 @@ def save_config() -> CustomConfigParser:
                 f"forbidden_{qual}_types",
                 st.session_state.get(f"forbidden_{qual}_types", []),
             )
-    # if COOKIES.get("cookie_consent"):
-    #     COOKIES.set(
-    #         "config",
-    #         config.to_json(),
-    #         expires=datetime.now() + timedelta(days=365),
-    #     )
     st.session_state["config"] = config.to_json()
     return config
 
 
-def randomize_kingdom():
+def randomize_new_kingdom():
     """Randomize a kingdom given the current session state."""
     config = save_config()
     if len(config.get_expansions()) == 0:
@@ -119,33 +120,14 @@ def randomize_kingdom():
     k = randomizer.randomize_new_kingdom()
     st.session_state["randomized_kingdom"] = k.get_dombot_csv_string()
     if k.is_empty:
-        st.session_state["randomization_toast"] = "Randomization failed. Maybe loosen randomization constraints?"
+        st.session_state["randomization_toast"] = (
+            "Randomization failed. Maybe loosen randomization constraints?"
+        )
     elif not k.is_valid:
-        st.session_state["randomization_toast"] = "Randomization resulted in an invalid kingdom. Maybe loosen randomization constraints?"
+        st.session_state["randomization_toast"] = (
+            "Randomization resulted in an invalid kingdom. Maybe loosen randomization constraints?"
+        )
     else:
-        st.session_state["randomization_toast"] = "Randomization successful!\nGood luck and have fun!"
-
-def reroll_selected_csos():
-    """Reroll the CSOs currently selected."""
-    if "CSOsToReroll" not in st.session_state:
-        return
-    config = save_config()
-    randomizer = KingdomRandomizer(config)
-    kingdom = Kingdom.from_dombot_csv_string(st.session_state["randomized_kingdom"])
-    cso_to_reroll = [k for k, do_reroll in st.session_state["CSOsToReroll"].items() if do_reroll]
-    for cso_name in cso_to_reroll:
-        name = get_cso_name(cso_name)
-        st.toast(f"🔁Rerolling {name}...", duration=7)
-        kingdom = randomizer.reroll_single_cso(kingdom, cso_name)
-    st.session_state["randomized_kingdom"] = kingdom.get_dombot_csv_string()
-
-
-def reroll_cso(cso_name: str):
-    """Reroll a single card or landscape in the kingdom."""
-    config = save_config()
-    name = get_cso_name(cso_name)
-    st.toast(f"🔁Rerolling {name}...", duration=7)
-    randomizer = KingdomRandomizer(config)
-    kingdom = Kingdom.from_dombot_csv_string(st.session_state["randomized_kingdom"])
-    new_kingdom = randomizer.reroll_single_cso(kingdom, cso_name)
-    st.session_state["randomized_kingdom"] = new_kingdom.get_dombot_csv_string()
+        st.session_state["randomization_toast"] = (
+            "Randomization successful!\nGood luck and have fun!"
+        )

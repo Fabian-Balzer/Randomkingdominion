@@ -86,7 +86,6 @@ def sort_kingdom(df: pd.DataFrame) -> pd.DataFrame:
     return df.drop(["NameSort", "CostSort"], axis=1)
 
 
-
 def sanitize_cso_name(name: str, replace_parent_pile: bool = False) -> str:
     """Return a sanitized version of the name of the cso."""
     if isinstance(name, float) or name == "":
@@ -109,7 +108,7 @@ def sanitize_cso_name(name: str, replace_parent_pile: bool = False) -> str:
     from ..constants import ALL_CSOS
 
     try:
-        if (cso := ALL_CSOS.loc[name])["IsPartOfSplitPile"]:  # type: ignore
+        if (cso := ALL_CSOS.loc[name])["HasParentPile"]:  # type: ignore
             name = sanitize_cso_name(cso["ParentPile"])  # type: ignore
     except KeyError:
         LOGGER.warning(f"Could not find cso: {name}")
@@ -125,11 +124,16 @@ def get_interaction_identifier(card1: str, card2: str, sanitize=False) -> str:
     return card1 + "___" + card2
 
 
-def sanitize_cso_list(cso_list: Collection[str], sort=True, replace_parent_pile: bool = False) -> list[str]:
+def sanitize_cso_list(
+    cso_list: Collection[str], sort=True, replace_parent_pile: bool = False
+) -> list[str]:
     """Sanitize each cso in a list of csos."""
     if isinstance(cso_list, float):
         return []
-    san_list = [sanitize_cso_name(cso, replace_parent_pile=replace_parent_pile) for cso in cso_list]
+    san_list = [
+        sanitize_cso_name(cso, replace_parent_pile=replace_parent_pile)
+        for cso in cso_list
+    ]
     if sort:
         return sorted(san_list)
     return san_list

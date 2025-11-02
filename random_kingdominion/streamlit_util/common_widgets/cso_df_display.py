@@ -1,9 +1,13 @@
+# img_to_bytes and img_to_html inspired from https://pmbaumgartner.github.io/streamlitopedia/sizing-and-images.html
+import base64
+from pathlib import Path
+
 import numpy as np
 import pandas as pd
 import streamlit as st
 
-from ..utils import sanitize_cso_name
-from .constants import ALL_CACHED_CSOS, ST_ICONS
+from ...utils import sanitize_cso_name
+from ..constants import ALL_CACHED_CSOS, ST_ICONS
 
 
 # Define the style function
@@ -105,6 +109,12 @@ def get_col_config() -> dict[str, dict]:
         "label": "Expansion",
         "help": "The expansion the CSO is from",
     }
+    col_config["WikiLink"] = st.column_config.LinkColumn(  # type: ignore
+        "Link",
+        help="Link to the Dominion Wiki page for this CSO",
+        display_text="To Wiki",
+        default="",
+    )
     return col_config
 
 
@@ -131,6 +141,7 @@ def get_column_order() -> list[str]:
         "num_combos",
         "num_interactions",
         "Text",
+        "WikiLink",
         "IsExtendedLandscape",
         "IsOtherThing",
         "IsInSupply",
@@ -169,11 +180,6 @@ def display_stylysed_cso_df(df: pd.DataFrame, with_reroll=False, **kwargs):
             column_config=get_col_config(),  # type: ignore
             **kwargs,
         )
-
-
-# img_to_bytes and img_to_html inspired from https://pmbaumgartner.github.io/streamlitopedia/sizing-and-images.html
-import base64
-from pathlib import Path
 
 
 def img_to_bytes(img_path):

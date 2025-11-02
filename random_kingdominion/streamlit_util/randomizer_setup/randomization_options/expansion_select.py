@@ -1,19 +1,19 @@
 import streamlit as st
-from PIL import Image
 from streamlit_extras.add_vertical_space import add_vertical_space
 from streamlit_extras.grid import grid
 from streamlit_extras.stylable_container import stylable_container
 
-from ...utils import get_expansion_icon_path, sanitize_cso_name
-from ..constants import ALL_EXPANSIONS, NUM_EXPS
-from ..image_handling import display_image_with_tooltip
+from ....utils import get_expansion_icon_path, sanitize_cso_name
+from ...constants import ALL_EXPANSIONS, NUM_EXPS
+from ...image_util import st_build_expansion_icon_with_tt
+from ...image_util.image_handling import img_to_bytes
 from ..randomizer_util import get_or_initialize_key, load_config
 
 
 # @st.fragment (can't be fragment due to sidebar stuff)
 def _build_exp_num_row():
-    cols = st.columns([0.4, 0.6])
-    enable_max = cols[0].checkbox(
+    flex = st.container(horizontal=True, horizontal_alignment="left")
+    enable_max = flex.checkbox(
         "Limit number of expansions",
         value=load_config().getboolean("Expansions", "enable_max", fallback=False),
         key="enable_max_num_expansions",
@@ -24,7 +24,7 @@ def _build_exp_num_row():
         1, load_config().getint("Expansions", "max_num_expansions", fallback=NUM_EXPS)
     )
 
-    cols[1].number_input(
+    flex.number_input(
         "Max. number of expansions",
         min_value=1,
         max_value=NUM_EXPS,
@@ -41,104 +41,6 @@ def _select_non_1e():
     ]
 
 
-def display_exp_image(exp: str, icon_size: int = 30, tooltip: str = ""):
-
-    # Green background if enabled, red if disabled
-    # bg_color = (
-    #     (50, 255, 50, 100)
-    #     if exp in st.session_state.get("selected_expansions", [])
-    #     else (255, 50, 50, 100)
-    # )
-
-    fpath = "./static/" + get_expansion_icon_path(exp, relative_only=True)
-    im = Image.open(fpath).convert("RGBA").resize((icon_size, icon_size))
-    # bg = Image.new("RGBA", im.size, bg_color)
-    # # Paste the original image onto the background
-    # im = Image.alpha_composite(bg, im)
-
-    display_image_with_tooltip(im, tooltip)
-
-    # A try to set it up as a nice checkbox, but doesn't work as I cannot interact with session_state....
-    # checkbox_id = f"{exp} enabled"
-    # if checkbox_id not in st.session_state:
-    #     st.session_state[checkbox_id] = True
-    # Convert the RGBA tuple to a CSS-compatible rgba string
-    # bg_color_css = (
-    #     f"rgba({bg_color[0]}, {bg_color[1]}, {bg_color[2]}, {bg_color[3] / 255})"
-    # )
-    # image_base64 = get_image_as_base64(fpath)
-    # md_text = f"""
-    # <style>
-    #     .rounded-box {{
-    #         display: flex;
-    #         align-items: center;
-    #         border: 1px solid #ccc;
-    #         border-radius: 5px;
-    #         padding: 5px;
-    #         margin-bottom: 5px;
-    #         overflow: hidden;  /* Prevent content overflow */
-    #         justify-content: space-between;  /* Distribute space between text and image */
-    #     }}
-    #     .rounded-box img {{
-    #         width: 50px;
-    #         height: 50px;
-    #         border-radius: 5px;
-    #         margin-right: 10px;
-    #     }}
-    #     .rounded-box input {{
-    #         margin-right: 10px;
-    #     }}
-    #     .rounded-box label {{
-    #         display: flex;
-    #         align-items: left;
-    #         width: 100%;
-    #     }}
-    # </style>
-    # <div class="rounded-box">
-    #     <input type="checkbox" id="{checkbox_id}" name="{exp}">
-    #     <label for="{checkbox_id}">
-    #         {exp}
-    #         <img src="data:image/png;base64,{image_base64}" alt="{exp}">
-    #     </label>
-    # </div>"""
-    # st.markdown(md_text, unsafe_allow_html=True)
-
-
-def _toggle_exp(exp: str):
-    sel_expansions = get_selected_expansions()
-    if exp in sel_expansions:
-        sel_expansions.remove(exp)
-    else:
-        sel_expansions.append(exp)
-    st.session_state["selected_expansions"] = sel_expansions
-
-
-def build_exp_checkbox(exp: str):
-    sel_expansions = get_selected_expansions()
-    cols = st.columns([0.3, 0.7])
-    with cols[0]:
-        display_exp_image(exp, icon_size=40, tooltip=exp)
-    with cols[1]:
-        color = "green" if exp in sel_expansions else "grey"
-        key = sanitize_cso_name(exp).replace(",", "_").replace("&", "_")
-        with stylable_container(
-            key=f"green_button_{key}",
-            css_styles=f"""
-                    button {{
-                        background-color: {color};
-                        color: white;
-                        border-radius: 20px;
-                    }}
-                    """,
-        ):
-            st.button(
-                f"{exp}",
-                key=f"color button {exp}",
-                use_container_width=True,
-                on_click=lambda: _toggle_exp(exp),
-            )
-
-
 def _toggle_all_expansions(value: bool):
     st.session_state["selected_expansions"] = ALL_EXPANSIONS.copy() if value else []
 
@@ -148,43 +50,42 @@ def _build_toggle_row():
     cols[0].button(
         "Select all",
         on_click=lambda: _toggle_all_expansions(True),
-        use_container_width=True,
+        width="stretch",
         type="primary",
         icon="✅",
     )
     cols[1].button(
         "Clear selection",
         on_click=lambda: _toggle_all_expansions(False),
-        use_container_width=True,
+        width="stretch",
         type="primary",
         icon="❌",
     )
     cols[2].button(
         "Select all except 1E",
         on_click=_select_non_1e,
-        use_container_width=True,
+        width="stretch",
         type="primary",
         icon="☑️",
     )
 
 
 def _build_sorting_options():
-    cols = st.columns([0.2, 0.4, 0.2, 0.2])
-    with cols[0]:
-        st.write("Sorting options")
-    with cols[1]:
-        st.radio(
-            "Expansion sorting",
-            ["Alphabetical", "Release"],
-            index=1,
-            key="Exp sorting",
-            horizontal=True,
-            label_visibility="collapsed",
-        )
-    with cols[2]:
-        st.checkbox("Move 1st Edition", True, key="Exp move 1e")
-    with cols[3]:
-        st.checkbox("Move deselected", False, key="Exp move deselected")
+    flex = st.container(
+        horizontal=True, horizontal_alignment="left", vertical_alignment="bottom"
+    )
+    flex.write("Sorting options")
+    flex.radio(
+        "Expansion sorting",
+        ["Alphabetical", "Release"],
+        index=1,
+        key="Exp sorting",
+        horizontal=True,
+        label_visibility="collapsed",
+        width="stretch",
+    )
+    flex.checkbox("Move 1st Edition", True, key="Exp move 1e")
+    flex.checkbox("Move deselected", False, key="Exp move deselected")
 
 
 def get_sorted_expansions() -> list[str]:
@@ -205,21 +106,44 @@ def get_sorted_expansions() -> list[str]:
     return exps
 
 
+def _toggle_exp(exp: str):
+    sel_expansions = get_selected_expansions()
+    if exp in sel_expansions:
+        sel_expansions.remove(exp)
+    else:
+        sel_expansions.append(exp)
+    st.session_state["selected_expansions"] = sel_expansions
+
+
+def build_exp_checkbox(exp: str):
+    sel_expansions = get_selected_expansions()
+    is_sel = exp in sel_expansions
+    fpath = "./static/" + get_expansion_icon_path(exp, relative_only=True)
+    bytes = img_to_bytes(fpath)
+    label = f"![exp_icon](data:image/png;base64,{bytes})\\\n{exp}"
+    st.button(
+        label,
+        key=f"color button {exp}",
+        width="stretch",
+        on_click=lambda: _toggle_exp(exp),
+        type="primary" if is_sel else "secondary",
+    )
+
+
 def _build_selection_grid():
     exps = get_sorted_expansions()
     num_cols = 5
     num_rows = len(exps) // num_cols + 1
     my_grid = grid([num_cols] * num_rows, vertical_align="bottom", gap="small")
+    # for _ in range(num_rows):
+    #     with st.container(horizontal=True, vertical_alignment="top"):
+    #         row_exps = exps[_ * num_cols : (_ + 1) * num_cols]
+    #         for exp in row_exps:
+    #             build_exp_checkbox(exp)
     for exp in exps:
-        with my_grid.container(border=True):
-            key = sanitize_cso_name(exp).replace(",", "_").replace("&", "_")
-            with stylable_container(
-                key=f"cont_{key}",
-                css_styles=f"""
-                        height: 100px;
-                        """,
-            ):
-                build_exp_checkbox(exp)
+        with my_grid.container(border=False):
+            # with st.container(horizontal=True, horizontal_alignment="center"):
+            build_exp_checkbox(exp)
 
 
 def get_selected_expansions(sort=False) -> list[str]:
@@ -257,7 +181,7 @@ def _build_exp_selection_overview():
         st.write(exp_limit_str)
     for exp in exps:
         with my_grid.container():
-            display_exp_image(exp, icon_size=40, tooltip=exp)
+            st_build_expansion_icon_with_tt(exp, icon_size=40, tooltip=exp)
 
 
 @st.fragment

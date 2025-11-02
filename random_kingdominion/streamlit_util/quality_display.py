@@ -2,7 +2,7 @@ import streamlit as st
 
 from ..constants import PATH_ASSETS, QUALITIES_AVAILABLE
 from .constants import ALL_CACHED_CSOS, STATIC_FPATH
-from .cso_df_display import display_stylysed_cso_df
+from .common_widgets import display_stylysed_cso_df
 from .helpers import build_page_header, img_to_html
 
 

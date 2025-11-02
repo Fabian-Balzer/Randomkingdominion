@@ -1,9 +1,12 @@
 import matplotlib.pyplot as plt
 import streamlit as st
 
-from ..kingdom import Kingdom
-from ..utils import (add_kingdom_info_to_plot, get_kingdom_quality_fig,
-                     plot_kingdom_qualities)
+from ...kingdom import Kingdom
+from ...utils import (
+    add_kingdom_info_to_plot,
+    get_kingdom_quality_fig,
+    plot_kingdom_qualities,
+)
 
 
 def st_display_kingdom_plot(k: Kingdom, with_border=False):

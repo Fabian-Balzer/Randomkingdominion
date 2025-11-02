@@ -1,6 +1,6 @@
 import streamlit as st
 
-from ..constants import ALL_CACHED_CSOS, LIKE_BAN_OPTIONS
+from ...constants import ALL_CACHED_CSOS, LIKE_BAN_OPTIONS
 from ..randomizer_util import load_config
 
 

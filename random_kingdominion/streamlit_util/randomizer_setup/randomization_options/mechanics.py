@@ -1,6 +1,6 @@
 import streamlit as st
 
-from ...constants import CARD_TYPES_AVAILABLE
+from ....constants import CARD_TYPES_AVAILABLE
 from ..randomizer_util import load_config
 
 

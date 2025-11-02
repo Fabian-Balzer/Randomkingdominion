@@ -109,11 +109,13 @@ def test_real_supply_card(df: pd.DataFrame):
     split_headers = list(ROTATOR_DICT.keys()) + list(SPLITPILE_DICT.keys())
     # Splitpile cards are not part of the supply, but still cards, while their headers are not.
     is_no_split_header = ~np.isin(df["Name"], split_headers)
+    is_no_heirloom = ~df["Types"].apply(lambda x: "Heirloom" in x)
     series = (
         ~df["IsExtendedLandscape"]
         & ~df["IsOtherThing"]
-        & (df["IsInSupply"] | df["IsPartOfSplitPile"])
+        & (df["IsInSupply"] | df["HasParentPile"])
         & is_no_split_header
+        & is_no_heirloom
     )
     return series
 
@@ -125,7 +127,7 @@ def add_bool_columns(df: pd.DataFrame) -> pd.DataFrame:
     df["IsExtendedLandscape"] = test_extended_landscape(df)
     df["IsOtherThing"] = test_other(df)
     df["IsInSupply"] = test_in_supply(df)
-    df["IsPartOfSplitPile"] = df["ParentPile"] != ""
+    df["HasParentPile"] = df["ParentPile"] != ""
     df["IsRealSupplyCard"] = test_real_supply_card(df)
     # df["IsCantrip"] = test_cantrip(df)
     return df

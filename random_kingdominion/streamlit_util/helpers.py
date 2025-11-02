@@ -1,7 +1,7 @@
 import streamlit as st
 
 from .constants import ALL_CACHED_CSOS
-from .image_handling import img_to_html
+from .image_util import img_to_html
 
 
 def toggle_showing_info():

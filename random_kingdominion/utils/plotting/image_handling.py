@@ -10,7 +10,7 @@ def load_cso_img_by_key(cso_key: str, resize: bool = True) -> Image.Image:
     if not fpath.exists():
         raise FileNotFoundError(f"Couldn't find the image at {fpath}")
     img = Image.open(fpath)
-    if not resize:
+    if not resize or cso_key == "ruins":
         return img
     if img.width > img.height:
         img = img.resize((367, 224))
@@ -56,6 +56,7 @@ def get_square_cutout(cso_key: str) -> Image.Image:
 
     return crop_img_by_percentage(img, crop_rect)
 
+
 def crop_img_symmetrically(
     img: Image.Image, width_crop: float, height_crop: float
 ) -> Image.Image:
@@ -81,9 +82,11 @@ def compose_images_vertically(img_1: Image.Image, img_2: Image.Image) -> Image.I
     return combined_image
 
 
-def get_card_img_without_text(cso_key: str):
+def get_cropped_card_img_without_text(cso_key: str):
     """Get the image of a card without the text box."""
     img = load_cso_img_by_key(cso_key)
+    if cso_key == "ruins":
+        return img
     upper_crop_rect = [0, 0, 1, 16 / 30]
     lower_crop_rect = [0, 62 / 70, 1, 1]
     crop_1 = crop_img_by_percentage(img, upper_crop_rect)

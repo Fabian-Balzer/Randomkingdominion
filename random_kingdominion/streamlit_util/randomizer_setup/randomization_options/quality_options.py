@@ -1,8 +1,8 @@
 import streamlit as st
 
-from ...constants import QUALITIES_AVAILABLE, SPECIAL_QUAL_TYPES_AVAILABLE
-from ...utils import CustomConfigParser
-from ..quality_display import EMOJI_DICT, SHORT_DESCS, get_qual_image_html
+from ....constants import QUALITIES_AVAILABLE, SPECIAL_QUAL_TYPES_AVAILABLE
+from ....utils import CustomConfigParser
+from ...quality_display import EMOJI_DICT, SHORT_DESCS, get_qual_image_html
 from ..randomizer_util import load_config
 
 

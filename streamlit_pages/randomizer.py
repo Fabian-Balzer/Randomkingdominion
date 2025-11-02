@@ -27,16 +27,16 @@ if st.session_state.get("show_randomization_toast", False):
     st.toast(msg, icon=icon, duration=7)
     del st.session_state["show_randomization_toast"]
 if st.session_state.get("randomized_kingdom", "") != "":
-    rk.display_current_randomized_kingdom()
+    rk.st_build_current_randomized_kingdom_display()
 
 if st.button(
     label=f"Randomize a new Kingdom with the options selected below!",
     use_container_width=True,
-    on_click=rk.randomize_kingdom,
+    on_click=rk.randomize_new_kingdom,
     icon=rk.ST_ICONS["randomizer"],
     type="primary",
 ):
     st.session_state["show_randomization_toast"] = True
     st.rerun()
 
-rk.build_randomization_options()
+rk.st_build_full_randomization_options()
