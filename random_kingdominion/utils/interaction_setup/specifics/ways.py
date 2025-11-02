@@ -104,10 +104,20 @@ def _add_special_chameleon_interactions(df: pd.DataFrame):
     add_multiple_interactions_from_single(
         chameleon_next_turn_stuff, df, add_together_if_present=True
     )
+    rule = "However, you get to choose whether to play the Riverboat card itself as Way of the Chameleon or normally when you play it on your next turn."
+    add_interaction(
+        "way of the chameleon",
+        "riverboat",
+        rule,
+        df,
+        add_together_if_present=True,
+    )
     chameleon_stay_in_play = "Way of the Chameleon/Samurai|Hireling---If you play {card_b} using {card_a}, remember that {card_a} only affects stuff happening *this turn*, so on your future turns you will get the normal bonus from {card_b}."
     add_multiple_interactions_from_single(chameleon_stay_in_play, df)
     chameleon_forts = "Way of the Chameleon/Forts---If you play Garrison or Stronghold using {card_a}, remember that {card_a} only affects stuff happening *this turn*, so on your next turn, you will get the normal bonus from Garrison or Stronghold."
-    add_multiple_interactions_from_single(chameleon_forts, df)
+    add_multiple_interactions_from_single(
+        chameleon_forts, df, add_together_if_present=True
+    )
     # Chameleon/Handsize stuff - Only Diplo states the obvious, THero, Guard Dog and Marquis do not
     csos = "Way of the Chameleon/Tragic Hero|Guard Dog|Marquis"
     inter = "If you play {card_b} using Way of the Chameleon, getting +$ instead of drawing cards, {card_b}'s condition will still be checked afterwards."
@@ -117,7 +127,7 @@ def _add_special_chameleon_interactions(df: pd.DataFrame):
     add_interaction(
         "way of the chameleon",
         "priest",
-        "If you play Priest using Way of the Chameleon, you will draw 2 cards, then trash a card from your hand, and then get +2 Card for each subsequent trash this turn.",
+        "If you play Priest using Way of the Chameleon, you will draw 2 cards, then trash a card from your hand, and then get +2 Cards for each subsequent trash this turn.",
         df,
     )
     add_interaction(

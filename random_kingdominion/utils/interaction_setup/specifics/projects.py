@@ -2,7 +2,7 @@
 
 import pandas as pd
 
-from random_kingdominion.utils.utils import get_cso_name
+from ...utils import get_cso_name
 
 from ..constants import TGG_BUG_DISCLAIMER
 from ..interaction_util import (

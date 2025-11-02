@@ -1,298 +1,218 @@
 
 
-## 2025-10-29 21:35:46
-Added: 115
-Changed: 13 
+## 2025-11-02 16:19:25
+Added: 37
+Changed: 32 
 Removed: 1
-### Added 115 Combos
+### Added 37 Combos
 
-#### advance - death_cart (Weak Synergy)
-With Advance around, gaining Death Cart is not as detrimental as you may trash the Ruins into something useful.
-#### advisor - patron (Weak Synergy)
-Minor reveal synergy to generate Coffers while drawing.
-#### alchemist - journey (Weak Synergy)
-If you play Alchemists and buy Journey, as long as you have a Potion in play, you may topdeck the Alchemists for the Journey turn. You may again do so on the Journey turn.
+#### advance - necropolis (Synergy)
+With Advance, you can trash your Necropolis into something more useful right in the opening.
+#### alchemist - woodworkers_guild (Weak Synergy)
+With Woodworkers' Guild, you can trash an Action card into an Alchemist without having to gain a Potion.
+#### alms - canal (Synergy)
+The cost reduction from Canal will allow Alms to gain more expensive cards, and might encourage not having Treasures in play.
+#### animal_fair - necropolis (Weak Synergy)
+Necropolis is a great Animal Fair target in the opening.
+#### arena - necropolis (Weak Synergy)
+With Necropolis around, Arena points will be gobbled up quickly.
+#### biding_time - journey (Weak Synergy)
+Journey is quite nice once Biding Time is active, as it allows you to stash away the cards you don't use on your extra turn, essentially trading $4 and a buy for possibly 5 extra cards in your next-turn hand, unless you have already played your deck.
+#### chapel - deliver (Weak Synergy)
+Don't miss out on the Deliver/Chapel opening, especially powerful on the 4/3 or 5/2 as you'll get to trash on t2 already.
+#### crypt - journey (Weak Synergy)
+Since they are still in play, you may stash away your non-Journey-turn Treasures in Crypts on your Journey turn.
+#### cultist - rice_broker (Counter)
+Ruins are great targets for Rice Broker. Thus, you might want to reconsider getting Cultists in the kingdom.
+#### deliver - improve (Weak Synergy)
+Buying Deliver before Improving will let you put the gained cards in your hand.
+#### deliver - page (Weak Synergy)
+Don't miss out on the Deliver/Page opening, especially powerful on the 4/3 or 5/2 as you'll get to Deliver another one on t2 as well.
+#### deliver - peasant (Weak Synergy)
+Don't miss out on the Deliver/Peasant opening, especially powerful on the 4/3 or 5/2 as you'll get to Deliver another one on t2 as well.
+#### deliver - prosper (Combo)
+Hitting $12 for Deliver/Prosper will let you kick off quite a bit, especially with strong kingdom Treasures - just watch out for Handsize attacks (Sword is quite nasty).
+#### deliver - river_shrine (Weak Synergy)
+Buying Deliver and not gaining any cards in your buy phase after playing River Shrine will still let you put the gained cards in your hand.
+#### haunted_woods - summon (Counter)
+Summon gets around Haunted Woods' attack, which is great as long as you don't mind only picking up cards that cost $4 or less.
+#### mapmaker - rebuild (Counter)
+The presence of Mapmakers should disincentivize going for a Rebuild strategy, as you will inevitably gain green cards, speeding up your opponents' build.
+#### marauder - rice_broker (Counter)
+Ruins are great targets for Rice Broker. Thus, you might want to reconsider getting Marauder in the kingdom.
+#### mountain_shrine - necropolis (Weak Synergy)
+With Necropolis around, it's very likely that an Action will end up in the trash to activate Mountain Shrine.
+#### necropolis - peril (Weak Synergy)
+Necropolis is a great Peril target in the opening.
+#### necropolis - siren (Weak Synergy)
+Necropolis is a great Siren target in the opening.
+#### necropolis - way_of_the_butterfly (Nombo)
+You can play Necropolis as Way of the Butterfly, but since it can't return to its pile, nothing will happen.
+#### necropolis - way_of_the_camel (Weak Synergy)
+You can play Necropolis as Way of the Camel.
+#### necropolis - way_of_the_goat (Weak Synergy)
+You can play Necropolis as Way of the Goat, especially pleasant to thin a card during the opening.
+#### necropolis - way_of_the_horse (Combo)
+You can play Necropolis as Way of the Horse without having to return it to its pile.
+#### necropolis - way_of_the_monkey (Weak Synergy)
+You can play Necropolis as Way of the Monkey, providing a bit of $ and the extra Buy especially during the opening.
+#### necropolis - way_of_the_mouse (Weak Synergy)
+You can play Necropolis as Way of the Mouse.
+#### necropolis - way_of_the_mule (Weak Synergy)
+You can play Necropolis as Way of the Mule, providing a bit of $ especially during the opening.
+#### necropolis - way_of_the_otter (Weak Synergy)
+You can play Necropolis as Way of the Otter, especially pleasant for the opening.
+#### necropolis - way_of_the_owl (Weak Synergy)
+You can play Necropolis as Way of the Owl, especially pleasant for the opening.
+#### necropolis - way_of_the_pig (Weak Synergy)
+You can play Necropolis as Way of the Pig, so you essentially start the game with a flexible Cantrip Village.
+#### necropolis - way_of_the_seal (Weak Synergy)
+You can play Necropolis as Way of the Seal, providing a bit of $ and allowing you to topdeck your opener.
+#### necropolis - way_of_the_sheep (Synergy)
+You can play Necropolis as Way of the Sheep, providing valuable $ especially during the opening.
+#### necropolis - way_of_the_squirrel (Weak Synergy)
+You can play Necropolis as Way of the Squirrel, especially pleasant for the opening.
+#### necropolis - way_of_the_turtle (Weak Synergy)
+You can play Necropolis as Way of the Turtle to remove it from your deck, and call it later on a turn you'd need a Village.
+#### necropolis - way_of_the_worm (Weak Synergy)
+You can play Necropolis as Way of the Worm.
+#### necropolis - woodworkers_guild (Synergy)
+With Woodworkers' Guild, you can trash your Necropolis into something more useful right in the opening.
+#### sewers - siren (Weak Synergy)
+[Mainly if no other thinning is available] Sometimes buying Sewers and then later on gaining Sirens is a desparate but viable way to get rid of your starting cards or Curses.
+
+### Changed 32 Combos
+
 #### alchemist - reckless (Synergy)
 If Alchemist is Reckless, you may topdeck it during Clean-up if you have a Potion in play, circumventing Reckless' return-to-pile prompt.
-#### arena - faithful_hound (Weak Synergy)
-Discarding Faithful Hound to Arena will put it in hand for your next turn, where you'll be able to discard it again.
-#### arena - weaver (Weak Synergy)
-Arena offers you to play a Weaver for free during each of your turns, initially even getting you VP for it. You can still use this even if no VP are left on Arena, just keep in mind that there might be an autoplay in the online clients preventing you.
-#### barbarian - fortress (Counter)
-Having a Fortress trashed from the top of your deck will put it into your hand and gain you a cheaper Action card.
-#### barbarian - trail (Counter)
-Having a Trail trashed from the top of your deck will allow you to draw a card, and gain a cheaper Action card.
-#### basilica - fool (Synergy)
-As long as you have $2, playing Lucky Coin will give you +2 VP from Basilica.
-#### basilica - hostelry (Weak Synergy)
-Buying a Hostelry with at least $6 will let you gobble up Basilica points for the Hostelry and each Horse you gain.
-#### basilica - marchland (Weak Synergy)
-Gaining Marchlands in your Buy phase and discarding at least 2 cards for $ will also give you 2 Basilica VP even if you have $0 prior to gaining them.
-#### basilica - nomads (Weak Synergy)
-Gaining Nomads in your Buy phase will give you $2, and thus also give you 2 Basilica VP even if you have $0 prior to gaining them.
-#### basilica - pooka (Weak Synergy)
-Playing Cursed Gold and gaining a Curse will give you +2 VP from Basilica.
-#### bat - prepare (Nombo)
-Preparing a Night card such as Bat will prevent you from being able to play it during your Night phase, and at the start of your next turn, it will just be discarded.
-#### black_market - haunted_woods (Counter)
-Haunted Woods can shut down Black Market, as you are forced to topdeck your hand when buying cards from the Black Market when under the Haunted Woods attack.
-#### black_market - museum (Synergy)
-Each unique card from the Black Market will be worth an additional 2 VP with Museum around.
+*HAS BEEN CHANGED TO*
+[Only if Alchemist is Reckless] - You may topdeck it during Clean-up if you have a Potion in play, circumventing Reckless' return-to-pile prompt.
+#### alms - mirror (Weak Synergy)
+With virtual coin available, buying Mirror before Almsing can let you gain additional Actions for $3 each without requiring the buys.
+*HAS BEEN CHANGED TO*
+[Only if virtual coin is available] Buying Mirror before Almsing can let you gain additional Actions for $3 each without requiring the buys.
+#### biding_time - mission (Weak Synergy)
+Mission is super nice once Biding Time is active, as it allows you to stash away the cards you don't use on your extra turn, essentially trading $4 and a buy for at least 5 extra cards in your next-turn hand.
+*HAS BEEN CHANGED TO*
+Mission is quite nice once Biding Time is active, as it allows you to stash away the cards you don't use on your extra turn, essentially trading $4 and a buy for at least 5 extra cards in your next-turn hand.
+#### black_cat - rebuild (Counter)
+The presence of Black Cats should disincentivize going for a Rebuild strategy, as you would inevitably gain green cards.
+*HAS BEEN CHANGED TO*
+The presence of Black Cats should disincentivize going for a Rebuild strategy, as you will inevitably gain green cards.
+#### black_market - tactician (Synergy)
+Playing Black Market before Tactician allows you to get your Treasures into play before discarding your hand.
+*HAS BEEN CHANGED TO*
+Playing Black Market before Tactician allows you to get your Treasures into play before discarding your hand. Just remember to keep a card in hand to discard for Tactician.
+#### bridge - practice (Combo)
+With lots of draw, it might be worth gunning for just having 4 Bridges and $6 in hand. Just make sure you extra Buys and you can easily pile Provinces
+*HAS BEEN CHANGED TO*
+With lots of draw, it might be worth gunning for just having 4 Bridges and $6 in hand. Just make sure you have extra Buys and you'll easily be able to pile Provinces.
+#### bureaucracy - peddler (Weak Synergy)
+You don't gain Coppers off of buying Peddlers that have been reduced to 0.
+*HAS BEEN CHANGED TO*
+Even with Bureaucracy active, you don't gain Coppers off of buying Peddlers that have been reduced to 0.
+#### bureaucracy - quarry (Weak Synergy)
+With Quarries reducing the cost of Action cards to 0, you can circumvent having to gain Coppers when buying them.
+*HAS BEEN CHANGED TO*
+With Quarries reducing the cost of Action cards to 0, you can circumvent having to gain Coppers when buying them once Bureaucracy is active.
 #### carpenter - footpad (Synergy)
 With Footpad around, Carpenter becomes super strong, and with an empty deck and discard pile, Carpenter can autopile as long as on other piles are empty.
-#### castles - museum (Weak Synergy)
-Castles are worth an extra 2 VP with Museum around.
-#### cavalry - quartermaster (Synergy)
-Gaining Cavalries with Quartermaster will start off your turn with +2 Cards, +1 Buy.
-#### cemetery - haunted_woods (Counter)
-Night cards such as Ghost gained from trashing Haunted Mirror are heavily disincentivized with Haunted Woods around, as you will have to topdeck your hand whenever buying cards, which happens before you would be able to play any Night cards.
-#### changeling - haunted_woods (Counter)
-Night cards are heavily disincentivized with Haunted Woods around, as you will have to topdeck your hand whenever buying cards, which happens before you would be able to play any Night cards.
-#### changeling - prepare (Nombo)
-Preparing a Night card such as Changeling will prevent you from being able to play it during your Night phase, and at the start of your next turn, it will just be discarded.
-#### city_gate - piazza (Synergy)
-City Gate provides reliable setup for Piazza hitting the cards you want.
-#### clerk - piazza (Counter)
-Getting hit by Clerk's attack provides reliable setup for Piazza hitting an Action card.
-#### cobbler - haunted_woods (Counter)
-Night cards are heavily disincentivized with Haunted Woods around, as you will have to topdeck your hand whenever buying cards, which happens before you would be able to play any Night cards.
-#### cobbler - prepare (Nombo)
-Preparing a Night card such as Cobbler will prevent you from being able to play it during your Night phase, and at the start of your next turn, it will just be discarded.
-#### courtier - patron (Weak Synergy)
-Minor reveal synergy to generate Coffers while revealing Patron to Courtier, and Patron is also a dual-type card.
-#### crafters_guild - piazza (Synergy)
-Crafter's Guild provides reliable setup to immediately play Action cards you gain onto the top of your deck.
+*HAS BEEN CHANGED TO*
+With Footpad around, Carpenter becomes pretty strong, and with an empty deck and discard pile, Carpenter can even autopile as long as on other piles are empty.
+#### city-state - siren (Weak Synergy)
+If you gain a Siren and use City-State to play the Siren, Siren no longer requires you to trash an Action card from your hand in order to not trash the Siren.
+*HAS BEEN CHANGED TO*
+If you gain a Siren and use City-State to play it, it no longer requires you to trash an Action card from your hand in order to not trash the Siren.
+#### city_quarter - mirror (Synergy)
+With Mirror, you can gain additional City Quarters for $3 each.
+*HAS BEEN CHANGED TO*
+With Mirror, you can gain additional City Quarters for $3 each without the need for extra buys.
 #### crossroads - reckless (Synergy)
 If Crossroads is Reckless, the first time you play one will give you +6 Actions.
-#### crypt - haunted_woods (Counter)
-Night cards are heavily disincentivized with Haunted Woods around, as you will have to topdeck your hand whenever buying cards, which happens before you would be able to play any Night cards.
-#### crypt - prepare (Nombo)
-Preparing a Night card such as Crypt will prevent you from being able to play it during your Night phase, and at the start of your next turn, it will just be discarded.
-#### cultist - maroon (Counter)
-Ruins with their dual type are great targets for Maroon. Thus, you might want to reconsider getting Cultists in the kingdom.
-#### cultist - way_of_the_horse (Counter)
-With Way of the Horse, playing Cultist will provide your opponent with free Horses. Not advised.
-#### cultist - way_of_the_pig (Counter)
-With Way of the Pig, playing Cultist to give your opponent Ruins will not do as much damage as your opponent can always pig them.
-#### cursed - museum (Weak Synergy)
-Any unique Loot you manage to pull will be worth 2 VP at the end of the game.
-#### cutpurse - patron (Counter)
-Making your opponent reveal a hand of Patrons might not have the desired effect. In games with Cutpurse, Patron and Copper trashing, this might disincentivize going for Cutpurse even more.
-#### cutthroat - museum (Weak Synergy)
-Any unique Loot you manage to pull will be worth 2 VP at the end of the game.
-#### death_cart - museum (Weak Synergy)
-With Museum around, gaining Death Cart at the end of the game can provide some important extra VP.
-#### death_cart - way_of_the_horse (Synergy)
-With Way of the Horse, by gaining Death Cart you essentially add three flexible Horses to your deck.
-#### death_cart - way_of_the_pig (Weak Synergy)
-With Way of the Pig, gaining the Ruins from Death Cart is not as detrimental as you can always pig them.
+*HAS BEEN CHANGED TO*
+[Only if Crossroads is Reckless] The first time you play one will give you +6 Actions.
+#### crown - highwayman (Counter)
+If Crown is the only Village, then Highwayman is really effective in shutting that down.
+*HAS BEEN CHANGED TO*
+[Mainly if Crown is the only Village] Highwayman is really effective in shutting that down.
 #### death_cart - woodworkers_guild (Weak Synergy)
 With Woodworkers' Guild around, gaining Death Cart is not as detrimental as you may trash the Ruins into something useful.
-#### den_of_sin - haunted_woods (Counter)
-Night cards are heavily disincentivized with Haunted Woods around, as you will have to topdeck your hand whenever buying cards, which happens before you would be able to play any Night cards. When buying Den of Sin while under the HW attack, it even topdecked immediately instead of gained to your hand.
-#### den_of_sin - prepare (Nombo)
-Preparing a Night card such as Den of Sin will prevent you from being able to play it during your Night phase, and at the start of your next turn, it will just be discarded.
-#### devils_workshop - haunted_woods (Counter)
-Night cards are heavily disincentivized with Haunted Woods around, as you will have to topdeck your hand whenever buying cards, which happens before you would be able to play any Night cards.
-#### devils_workshop - prepare (Nombo)
-Preparing a Night card such as Devil's Workshop will prevent you from being able to play it during your Night phase, and at the start of your next turn, it will just be discarded.
-#### envoy - patron (Weak Synergy)
-Minor reveal synergy to generate Coffers while drawing. The Villagers also come in pretty handy with Envoys.
-#### exorcist - haunted_woods (Counter)
-Night cards are heavily disincentivized with Haunted Woods around, as you will have to topdeck your hand whenever buying cards, which happens before you would be able to play any Night cards.
-#### exorcist - prepare (Nombo)
-Preparing a Night card such as Exorcist will prevent you from being able to play it during your Night phase, and at the start of your next turn, it will just be discarded.
+*HAS BEEN CHANGED TO*
+With Woodworkers' Guild around, gaining Death Cart is not as detrimental as you may trash the Ruins into something useful. Still usually wouldn't advise opening it.
+#### enlightenment - woodworkers_guild (Weak Synergy)
+As soon as Enlightenment is active, Coppers become great targets for Woodworkers Guild.
+*HAS BEEN CHANGED TO*
+As soon as Enlightenment is active, Coppers become great targets for Woodworkers' Guild.
 #### familiar - woodworkers_guild (Weak Synergy)
 With Woodworkers' Guild, you can trash an Action card into a Possession without having to gain a Potion.
+*HAS BEEN CHANGED TO*
+With Woodworkers' Guild, you can trash an Action card into a Familiar without having to gain a Potion.
 #### fated - patron (Weak Synergy)
 If Patron is Fated, you get to reveal Patrons whenever you shuffle your deck, so if you manage to do so during your Action phase, you will generate Coffers.
-#### footpad - ironworks (Synergy)
-With Footpad around, Ironworks becomes super strong, and with an empty deck and discard pile, Ironworks autopiles, easily threatening pileouts.
-#### footpad - magpie (Weak Synergy)
-Gaining Magpies just became even more attractive.
-#### footpad - quartermaster (Weak Synergy)
-With Footpad around, Quartermaster is supercharged.
-#### footpad - shaman (Weak Synergy)
-Junking your opponent might not be as desirable with Footpad around, as they'll draw extra cards for it, but of course it still might be the best thing to do.
-#### footpad - swap (Synergy)
-With Footpad around, Swap becomes a Laboratory that offers loads of flexibility.
-#### foray - museum (Weak Synergy)
-Any unique Loot you manage to pull will be worth 2 VP at the end of the game.
-#### forest_dwellers - piazza (Weak Synergy)
-Forest Dwellers provide semi-reliable setup for Piazza hitting the card you want.
-#### fortress - giant (Counter)
-Having a Fortress trashed from the top of your deck will put it into your hand.
-#### fortress - knights (Counter)
-Having a Fortress trashed from the top of your deck will put it into your hand.
-#### fortress - rogue (Counter)
-Having a Fortress trashed from the top of your deck will put it into your hand.
-#### fortress - swindler (Counter)
-Having a Fortress trashed from the top of your deck will put it into your hand and gain you another $4-cost card.
-#### fortress - warrior (Counter)
-Having a Fortress trashed from the top of your deck via Warrior will put it into your hand.
+*HAS BEEN CHANGED TO*
+[Only if Patron is Fated] You get to reveal Patrons whenever you shuffle your deck, so if you manage to do so during your Action phase, you will generate Coffers.
 #### forts - reckless (Synergy)
 If Forts are Reckless, you may topdeck Tent during Clean-up, essentially making it a self-topdecking Terminal +$4.
-#### ghost - prepare (Nombo)
-Preparing a Night card such as Ghost will prevent you from being able to play it during your Night phase, and at the start of your next turn, it will just be discarded.
-#### ghost_town - haunted_woods (Counter)
-Night cards are heavily disincentivized with Haunted Woods around, as you will have to topdeck your hand whenever buying cards, which happens before you would be able to play any Night cards. When buying Ghost Town while under the HW attack, it even topdecked immediately instead of gained to your hand.
-#### ghost_town - prepare (Nombo)
-Preparing a Night card such as Ghost Town will prevent you from being able to play it during your Night phase, and at the start of your next turn, it will just be discarded.
-#### giant - trail (Counter)
-Having a Trail trashed from the top of your deck will allow you to draw a card.
+*HAS BEEN CHANGED TO*
+[Only if Forts are Reckless] You may topdeck your Tents during Clean-up, essentially making it a self-topdecking Terminal +$4.
 #### golem - woodworkers_guild (Weak Synergy)
 With Woodworkers' Guild, you can trash an Action card into a Possession without having to gain a Potion.
-#### guardian - haunted_woods (Counter)
-Getting Guardian in deck before your opponent plays their first Haunted Woods might be crucial as when buying Guardian while under the HW attack, it even topdecked immediately instead of gained to your hand. Night cards are heavily disincentivized with Haunted Woods around, as you will have to topdeck your hand whenever buying cards, which happens before you would be able to play any Night cards.
-#### guardian - prepare (Nombo)
-Preparing a Night card such as Guardian will prevent you from being able to play it during your Night phase, and at the start of your next turn, it will just be discarded.
-#### haunted_woods - monastery (Counter)
-Night cards are heavily disincentivized with Haunted Woods around, as you will have to topdeck your hand whenever buying cards, which happens before you would be able to play any Night cards.
-#### haunted_woods - night_watchman (Counter)
-Night cards are heavily disincentivized with Haunted Woods around, as you will have to topdeck your hand whenever buying cards, which happens before you would be able to play any Night cards. When buying Night Watchman while under the HW attack, it even topdecked immediately instead of gained to your hand.
-#### haunted_woods - raider (Counter)
-Night cards are heavily disincentivized with Haunted Woods around, as you will have to topdeck your hand whenever buying cards, which happens before you would be able to play any Night cards.
-#### haunted_woods - vampire (Counter)
-Night cards are heavily disincentivized with Haunted Woods around, as you will have to topdeck your hand whenever buying cards, which happens before you would be able to play any Night cards.
-#### hunter - patron (Weak Synergy)
-Minor reveal synergy - revealing Patrons from your deck generates Coffers, and when revealing multiple, you can even discard them and reveal them again.
-#### invasion - museum (Weak Synergy)
-Any unique Loot you manage to pull will be worth 2 VP at the end of the game.
-#### jewelled_egg - museum (Weak Synergy)
-Any unique Loot you manage to pull will be worth 2 VP at the end of the game.
-#### knights - trail (Counter)
-Having a Trail trashed from the top of your deck will allow you to draw a card.
-#### looting - museum (Weak Synergy)
-Any unique Loot you manage to pull will be worth 2 VP at the end of the game.
-#### magnate - patron (Weak Synergy)
-Minor synergy, as playing Magnate with Patrons in hand can potentially yield a bunch of Coffers, but on the other hand won't draw you any cards.
-#### mapmaker - quartermaster (Weak Synergy)
-With one or two Quartermasters in play, you can gain an Estate at the start of your turn to kick off your Mapmakers, and even put other ones into your hand first. Just make sure you don't react too many on your opponents turn to cause Mapmakerless shuffles.
-#### marauder - maroon (Counter)
-Ruins are great targets for Maroon. Thus, you might want to reconsider getting any Marauder.
-#### marauder - way_of_the_horse (Counter)
-With Way of the Horse, playing Marauder will provide your opponent with free Horses. Not advised.
-#### marauder - way_of_the_pig (Counter)
-With Way of the Pig, playing Marauder to give your opponent Ruins will not do as much damage as your opponent can always pig them.
+*HAS BEEN CHANGED TO*
+With Woodworkers' Guild, you can trash an Action card into a Golem without having to gain a Potion.
+#### hasty - landing_party (Weak Synergy)
+(Only if Hasty is on a Treasure) - By buying a Hasty Treasure, you can ensure that you topdeck Landing Parties at the beginning of the next turn. Sometimes worth going out of your way for.
+*HAS BEEN CHANGED TO*
+[Only if Hasty is on a Treasure] - By buying a Hasty Treasure, you can ensure that you topdeck Landing Parties at the beginning of the next turn. Sometimes worth going out of your way for.
+#### hasty - siren (Weak Synergy)
+If you gain a Siren and set it aside using Hasty, since it's set aside after being gained, it will stay there even if you fail to trash an Action.
+*HAS BEEN CHANGED TO*
+[Only if Siren is Hasty] If you gain a Siren and set it aside using Hasty, since it's set aside after being gained, it will stay there even if you fail to trash an Action.
+#### landing_party - patient (Synergy)
+(Only if Patient is on a Treasure) - By setting aside a Patient Treasure, you can ensure that you topdeck Landing Parties at the beginning of the next turn.
+*HAS BEEN CHANGED TO*
+[Only if Patient is on a Treasure] - By setting aside a Patient Treasure, you can ensure that you topdeck Landing Parties at the beginning of the next turn.
+#### lurker - trail (Synergy)
+Allows to play Lurker as a Village while stuffing a Trail into your deck; especially nice if you can benefit from the trails otherwise.
+*HAS BEEN CHANGED TO*
+Allows to play Lurker as a Village while stuffing a Trail into your deck; especially nice if you can benefit from the Trails otherwise.
 #### merchant_camp - reckless (Synergy)
 If Merchant Camp is Reckless, you may topdeck it during Clean-up, essentially making it a self-topdecking +4 Actions, +$2.
-#### monastery - prepare (Nombo)
-Preparing a Night card such as Monastery will prevent you from being able to play it during your Night phase, and at the start of your next turn, it will just be discarded.
-#### museum - peril (Weak Synergy)
-Any unique Loot you manage to pull will be worth 2 VP at the end of the game.
-#### museum - pickaxe (Weak Synergy)
-Any unique Loot you manage to pull will be worth 2 VP at the end of the game.
-#### museum - prosper (Weak Synergy)
-Any unique Loot you manage to pull will be worth 2 VP at the end of the game.
-#### museum - sack_of_loot (Weak Synergy)
-Any unique Loot you manage to pull will be worth 2 VP at the end of the game.
-#### museum - search (Weak Synergy)
-Any unique Loot you manage to pull will be worth 2 VP at the end of the game.
-#### museum - wealthy_village (Weak Synergy)
-Any unique Loot you manage to pull will be worth 2 VP at the end of the game.
-#### night_watchman - prepare (Nombo)
-Preparing a Night card such as Night Watchman will prevent you from being able to play it during your Night phase, and at the start of your next turn, it will just be discarded.
-#### patron - poor_house (Weak Synergy)
-By revealing your hand with Poor House, you can generate additional Coffers with Patrons in hand.
-#### patron - rebuild (Weak Synergy)
-Adding one or two Patrons to your deck while going for a Rebuild strategy can help you generate a few Coffers along the way that might be useful to spike Province or Duchy towards the end of the game.
-#### patron - royal_blacksmith (Weak Synergy)
-Revealing a hand of Patrons can generate additional Coffers when playing Royal Blacksmiths, which might incentivize you to go for Blacksmiths in games with Copper trashing.
-#### patron - scrying_pool (Weak Synergy)
-Scrying Pool can draw Patrons while generating Coffers. However, you can also give your opponent Coffers.
-#### patron - taxman (Counter)
-Making your opponent reveal a hand of Patrons might not have the desired effect. In games with Patron, this might disincentivize going for Taxman even more.
-#### patron - wandering_minstrel (Weak Synergy)
-By revealing Patrons from your deck, you can generate additional Coffers.
-#### patron - witchs_hut (Weak Synergy)
-By discarding Patrons with Witch's Hut, you can generate Coffers while Cursing the opponent.
-#### piazza - tireless (Synergy)
-As long as the Tireless cards are Actions, them being on top of your deck provides reliable setup for Piazza hitting them. Of course this is a Nombo with Tireless Treasures.
-#### possession - woodworkers_guild (Weak Synergy)
-With Woodworkers' Guild, you can trash an Action card into a Possession without having to gain a Potion.
-#### prepare - raider (Nombo)
-Preparing a Night card such as Raider will prevent you from being able to play it during your Night phase, and at the start of your next turn, it will just be discarded.
-#### prepare - vampire (Nombo)
-Preparing a Night card such as Vampire will prevent you from being able to play it during your Night phase, and at the start of your next turn, it will just be discarded.
+*HAS BEEN CHANGED TO*
+[Only if Merchant Camp is Reckless] You may topdeck your Merchant Camps during Clean-up, essentially making it a self-topdecking +4 Actions, +$2.
+#### mountain_shrine - rush (Synergy)
+Rushing Mountain Shrine is a great opening in many cases.
+*HAS BEEN CHANGED TO*
+Rushing Mountain Shrine is a great opening in many cases as you will immediately trash a card and get back the extra $2 you spent on Rush. Sometimes it's even worth to consider double Rush/Mountain Shrine, e.g. with Great Leader as the Prophecy.
 #### prince - reckless (Synergy)
 If you manage to set aside a Reckless Action, it will be played twice at the start of each of your turns, and never return to its pile.
-#### quartermaster - sheepdog (Weak Synergy)
-Quartermaster is a great way to both gain Sheepdogs and trigger their Reaction.
-#### quartermaster - sleigh (Weak Synergy)
-With Sleigh in hand, you can immediately gain the card you would gain onto Quartermaster to your hand by discarding Sleigh.
-#### quartermaster - watchtower (Weak Synergy)
-With Watchtower in hand, you can immediately gain the card you would gain onto Quartermaster onto your deck.
+*HAS BEEN CHANGED TO*
+[Only if Reckless is on an Action] If you manage to set aside a Reckless Action, it will be played twice at the start of each of your turns, and never return to its pile.
+#### reckless - scheme (Weak Synergy)
+If Reckless is on an Action card, you can topdeck it with Scheme to prevent having to return it to the Supply.
+*HAS BEEN CHANGED TO*
+[Only if Reckless is on an Action card] You can topdeck a Reckless Action with Scheme to prevent having to return it to the Supply.
 #### reckless - walled_village (Synergy)
 If Walled Village is Reckless, you may topdeck it during Clean-up if you only have this and at most one other Action in play, circumventing Reckless' return-to-pile prompt.
-#### rogue - trail (Counter)
-Having a Trail trashed from the top of your deck will allow you to draw a card.
+*HAS BEEN CHANGED TO*
+[Only if Walled Village is Reckless] You may topdeck Walled Village during Clean-up if you only have this and at most one other Action in play, circumventing Reckless' return-to-pile prompt.
+#### scepter - sculptor (Synergy)
+If there is cost reduction (e.g., Canal, Inventor, Bridge) around, playing Scepter on Sculptor to gain Scepters autopiles Scepters while generating Villagers.
+*HAS BEEN CHANGED TO*
+[Only if there is cost reduction (e.g., Canal, Inventor, Bridge)] With cost reduction, playing Scepter on Sculptor to gain Scepters autopiles Scepters while generating Villagers.
 #### scrying_pool - woodworkers_guild (Weak Synergy)
 With Woodworkers' Guild, you can trash an Action card into a Possession without having to gain a Potion.
-#### summon - swamp_hag (Counter)
-Summon gets around Swamp Hag's attack, which is great as long as you don't mind only picking up cards that cost $4 or less.
-#### swindler - trail (Counter)
-Having a Trail trashed from the top of your deck will allow you to draw a card, and gain you another $4-cost card.
-#### trail - warrior (Counter)
-Having a Trail trashed from the top of your deck will allow you to draw a card.
+*HAS BEEN CHANGED TO*
+With Woodworkers' Guild, you can trash an Action card into a Scrying Pool without having to gain a Potion.
+#### squire - watchtower (Weak Synergy)
+With Watchtower in hand, you can immediately trash any Squires you gain and even topdeck the Attack card gained that way if you so want it.
+*HAS BEEN CHANGED TO*
+[Only if there is an Attack card in the kingdom] With Watchtower in hand, you can immediately trash any Squires you gain and even topdeck the Attack card gained that way if you so want it.
 #### university - woodworkers_guild (Weak Synergy)
 With Woodworkers' Guild, you can trash an Action card into a Possession without having to gain a Potion.
-
-### Changed 13 Combos
-
-#### alms - mission (Synergy)
-Almsing is pretty nice on Mission turns where you wouldn't be able to buy anything anyways.
 *HAS BEEN CHANGED TO*
-Almsing is pretty nice on Mission turns where you wouldn't be able to buy anything anyway.
-#### artificer - menagerie (Synergy)
-With Artificer, you can both easily gain more Menageries as well as activate their draw effect via smart discards.
-*HAS BEEN CHANGED TO*
-With Artificer, you can both easily gain more Menageries and activate their draw effect via smart discards.
-#### biding_time - rebuild (Nombo)
-If you don't have any way to discard green cards, they will accumulate in your hand and you won't be able to Rebuild them once Biding Time is active.
-*HAS BEEN CHANGED TO*
-If you don't have any way to discard green cards, they will accumulate in your hand, and you won't be able to Rebuild them once Biding Time is active.
-#### capitalism - patron (Weak Synergy)
-With bought, playing Patrons as Treasures will turn them into Villages.
-*HAS BEEN CHANGED TO*
-With Capitalism bought, playing Patrons as Treasures will turn them into Villages.
-#### chapel - travelling_fair (Synergy)
-Don't miss out on the TFair/Chapel opening, especially powerful on the 4/3 or 5/2 as you'll get to trash before shuffling.
-*HAS BEEN CHANGED TO*
-Don't miss out on the Travelling Fair/Chapel opening, especially powerful on the 4/3 or 5/2 as you'll get to trash before shuffling.
-#### crew - piazza (Synergy)
-Free set up for Piazza hitting your Crew.
-*HAS BEEN CHANGED TO*
-Crew topdecking itself at the start of your turn provides reliable setup for Piazza, letting you start with three extra cards in hand reliably.
-#### divine_wind - way_of_the_horse (Synergy)
-All cards of the initial kingdom loose access to their piles, so they become optional Labs once the Prophecy activates.
-*HAS BEEN CHANGED TO*
-All cards of the initial kingdom lose access to their piles, so they become optional Labs once the Prophecy activates.
-#### enlightenment - magpie (Weak Synergy)
-As soon as Enlightenment is active, Magpies will usually breed super fast, so it pays off to be the one triggering.
-*HAS BEEN CHANGED TO*
-As soon as Enlightenment is active, Magpies will usually breed super quickly, so it pays off to be the one triggering.
-#### enlightenment - procession (Weak Synergy)
-Aas soon as Enlightenment is active, non-Duration Treasures will be viable Procession targets, and you can also Process $5s into Golds.
-*HAS BEEN CHANGED TO*
-As soon as Enlightenment is active, non-Duration Treasures will be viable Procession targets, and you can also Process $5s into Golds.
-#### enlightenment - shanty_town (Nombo)
-As soon as Enlightenment is active, Shanty Town will be even harder to activate (although you can ofc Cantrip away your Treasures).
-*HAS BEEN CHANGED TO*
-As soon as Enlightenment is active, Shanty Town will be even harder to activate (although you can of course Cantrip away your Treasures).
-#### grand_market - quarry (Weak Synergy)
-Playing two Quarries allows you to buy Grand Markets, and having Grand Markets in combination with Quarries allows to pile stuff quickly.
-*HAS BEEN CHANGED TO*
-Playing two Quarries allows you to buy Grand Markets, and having Grand Markets in combination with Quarries allows to pile out quickly.
-#### kings_court - way_of_the_rat (Combo)
-Pairing two KCs with a draw card (at least Moat-like) and two Treasures in hand while having an empty deck/discard will allow you to pile KCs and the draw card by KC/KC, Rat the first KC play, KC the draw card, ratting its first play and then drawing those four cards, and then repeating that.
-*HAS BEEN CHANGED TO*
-Pairing two KCs with a draw card (at least Moat-like) and two Treasures in hand while having an empty deck/discard will allow you to pile out KCs and the draw card by KC/KC, Rat the first KC play, KC the draw card, ratting its first play and then drawing those four cards, and then repeating that.
-#### shaman - watchtower (Weak Synergy)
-With Shamans around, having a Watchtower in hand at the start of your turn allows you to directly trash the incoming junk. Also there is a minor synergy with Shamans being able to reduce your handsize before drawing with Watchtower.
-*HAS BEEN CHANGED TO*
-With Shamans around, having a Watchtower in hand at the start of your turn allows you to directly trash the incoming junk. There is also a minor synergy with Shamans being able to reduce your handsize before drawing with Watchtower.
+With Woodworkers' Guild, you can trash an Action card into a University without having to gain a Potion.
 
 ### Removed 1 Combos
 
-#### basilica - lucky_coin (Synergy)
-As long as you have $2, playing Lucky Coin will give you +2 VP from Basilica.
+#### biding_time - trail (Weak Synergy)
+Reacting Trails in your Buy phase once Biding Time is active will draw you cards that you can set aside for your next turn.

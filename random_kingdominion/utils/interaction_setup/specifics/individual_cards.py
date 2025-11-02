@@ -2,8 +2,7 @@
 
 import pandas as pd
 
-from random_kingdominion.constants import ALL_CSOS, ROTATOR_DICT, SPLITPILE_DICT
-
+from ....constants import ALL_CSOS, ROTATOR_DICT, SPLITPILE_DICT
 from ..constants import (
     ACTION_TREASURES,
     ALL_THRONE_CARDS,
@@ -283,12 +282,14 @@ def _add_all_experiment_interactions(df: pd.DataFrame):
 
 
 def _add_all_ferryman_interactions(df: pd.DataFrame):
-    rule_str = "Ferryman/Rats|Magpie---When you set aside a {card_b} with Ferryman, it can gain a copy of itself on play as it is specifically named in the card."
+    rule_str = "Ferryman/Rats|Magpie|Port|Experiment---When you set aside a {card_b} with Ferryman, it can gain a copy of itself on play as it is specifically named in the card."
     add_multiple_interactions_from_single(rule_str, df)
     for rot_pile, cards in ROTATOR_DICT.items():
+        if rot_pile == "Townsfolk":
+            continue
         rule = f"Ferryman/{rot_pile}---When you set aside the {rot_pile} with Ferryman, the next player to gain a Ferryman will gain the top card of the pile, and choosing to rotate it using {cards[0]} still works."
         add_interaction("Ferryman", rot_pile, rule, df)
-    for splitpile in list(SPLITPILE_DICT) + ["Castles", "Knights"]:
+    for splitpile in ["Castles", "Catapult/Rocks", "Gladiator/Fortune", "Sauna/Avanto"]:
         rule = f"Ferryman/{splitpile}---When you set aside the {splitpile} pile with Ferryman, the next player to gain a Ferryman will gain the top card of the pile with it."
         add_interaction("Ferryman", splitpile, rule, df)
     rule = "Ferryman/Changeling---When you gain a card that was set aside with Ferryman, you may exchange it for a Changeling and return it to the set aside pile."
@@ -418,6 +419,17 @@ def _add_all_market_square_interactions(df: pd.DataFrame):
     add_multiple_interactions_from_single(draws_on_trash_str, df)
 
 
+def _add_all_landing_party_interactions(df: pd.DataFrame):
+    lp_action_play = "Landing Party/Crown|Staff|Orb|Spell Scroll|Figurine|Idol|Coronet|Crystal Ball|Loan|Supplies|Venture|Sextant---When you play {card_b} as the first card on your turn with Landing Parties set aside, you first finish resolving {card_b} before topdecking the Landing Parties."
+    add_multiple_interactions_from_single(lp_action_play, df)
+
+    lp_capitalism = "Landing Party/Capitalism---When you play a Capitalized Action as your first card with Landing Parties set aside, you first finish resolving the card played before topdecking the Landing Parties."
+    add_interaction("Landing Party", "Capitalism", lp_capitalism, df)
+
+    lp_enlightenment = "Landing Party/Enlightenment---When you play a Treasure as your first card with Landing Parties set aside, you first finish resolving it before topdecking the Landing Parties, i.e., if Enlightenment is active and you play a Treasure during your Action phase, you first get +1 Card and +1 Action, and then topdeck Landing Parties."
+    add_interaction("Landing Party", "Enlightenment", lp_enlightenment, df)
+
+
 def _add_all_monkey_interactions(df: pd.DataFrame):
     pass  # Moved to on-gain skirmisher stuff
 
@@ -442,32 +454,30 @@ def _add_all_outpost_interactions(df: pd.DataFrame):
 
 
 def _add_all_reserve_interactions(df: pd.DataFrame):
+    # RESERVE
     cheap_reserves = "Ratcatcher|Guide|Duplicate|Transmogrify"
-    reserve_inter = f"Band of Misfits|Captain/{cheap_reserves}---If you play a {{card_b}} using {{card_a}}, you don't put anything onto your Tavern mat."
-    add_multiple_interactions_from_single(reserve_inter, df)
-    reserve_inter = f"Summon/Ratcatcher|Guide|Transmogrify---If you buy Summon to set aside a {{card_b}} and play it at the start of your next turn, you'll immediately be able to call it then."
-    add_multiple_interactions_from_single(reserve_inter, df)
+    bom_cap = f"Band of Misfits|Captain/{cheap_reserves}---If you play a {{card_b}} using {{card_a}}, you don't put anything onto your Tavern mat."
+    add_multiple_interactions_from_single(bom_cap, df)
+    summon = f"Summon/Ratcatcher|Guide|Transmogrify---If you buy Summon to set aside a {{card_b}} and play it at the start of your next turn, you'll immediately be able to call it then."
+    add_multiple_interactions_from_single(summon, df)
     rule = "If you buy Summon to set aside a Royal Carriage (e.g. by having Cost Reduction) and play it at the start of your next turn, you'll immediately be able to call it then."
     add_interaction("Summon", "Royal Carriage", rule, df)
     reserves = "Ratcatcher|Guide|Duplicate|Transmogrify|Distant Lands|Royal Carriage|Wine Merchant"
-    reserve_inter = f"Overlord/{reserves}---If you play a {{card_b}} using Overlord, you don't put anything onto your Tavern mat."
-    add_multiple_interactions_from_single(reserve_inter, df)
+    overlord = f"Overlord/{reserves}---If you play a {{card_b}} using Overlord, you don't put anything onto your Tavern mat."
+    add_multiple_interactions_from_single(overlord, df)
+    prince = "Prince/Ratcatcher|Guide|Duplicate|Transmogrify---If you set aside a {card_b} with Prince and play it at the start of your turn, it will not move to the Tavern mat and just stay set-aside."
+    add_multiple_interactions_from_single(prince, df)
+    inheritance = f"Inheritance/{cheap_reserves}---If you set aside a {{card_b}} using Inheritance, your Estates only get the on-play-effect and never move to the Tavern mat."
+    add_multiple_interactions_from_single(inheritance, df)
+
+
+def _add_all_royal_galley_interactions(df: pd.DataFrame):
+    thrones = "Throne Room|King's Court|Coronet|Disciple|Crown|Specialist|Daimyo"
+    rg_thrones = f"Royal Galley/{thrones}---If you play Duration card (such as Royal Galley) multiple times using a {{card_b}} that you set aside using Royal Galley, since the {{card_b}} is not in play, you will only get the Duration's this-turn effect multiple times, whereas you get the next-turn effect only once. If you set aside cards by playing Royal Galley using the {{card_b}} that you've set aside on the first Royal Galley, only the first set-aside card will be played again at the start of the next turn, while the rest will stay set-aside until the end of the game (but still count towards your deck)."
+    add_multiple_interactions_from_single(rg_thrones, df)
 
 
 def _add_all_prince_interactions(df: pd.DataFrame):
-    # PRINCE [see also WotHorse, WotButterfly]
-    add_interaction(
-        "Prince",
-        "Raze",
-        "If you Prince a Raze and choose the option to trash itself, you fail to do so and don't get to look at any other cards, and the Raze stays set aside.",
-        df,
-    )
-    add_interaction(
-        "Prince",
-        "Mining Village",
-        "If you Prince a Mining Village and choose the option to trash itself, you fail to do so and don't get +$2, and the Mining Village stays set aside.",
-        df,
-    )
     add_interaction(
         "Prince",
         "Encampment",
@@ -477,7 +487,7 @@ def _add_all_prince_interactions(df: pd.DataFrame):
     add_interaction(
         "Prince",
         "Throne Room",
-        "If you set aside a Throne Room with Prince, if you play another Duration card (such as Prince) with it at the start of on of your turns, the Duration card will be played twice, and you'll still get to play a card twice from the original Throne Room at the start of each of your future turns.",
+        "If you set aside a Throne Room with Prince, if you play another Duration card (such as Prince) with it at the start of one of your turns, the Duration card will be played twice, but since the initial Princed Throne room is not in play, its Duration effects will only apply once; If you double play e.g. a second Prince, you get to set aside two cards, but only the first one will be played again at the start of each of your turns, whil the second one will be stranded.",
         df,
     )
 
@@ -702,6 +712,8 @@ def add_all_individual_card_interactions(df: pd.DataFrame, verbose=False) -> Non
     _add_all_grand_market_interactions(df)
     _add_all_harbor_village_interactions(df)
     _add_all_highwayman_interactions(df)
+    _add_all_landing_party_interactions(df)
+    _add_all_old_witch_interactions(df)
     _add_all_leprechaun_interactions(df)
     _add_all_mandarin_interactions(df)
     _add_all_market_square_interactions(df)
@@ -714,6 +726,7 @@ def add_all_individual_card_interactions(df: pd.DataFrame, verbose=False) -> Non
     _add_all_procession_interactions(df)
     _add_all_possession_interactions(df)
     _add_all_reserve_interactions(df)
+    _add_all_royal_galley_interactions(df)
     _add_all_soothsayer_interactions(df)
     _add_all_urchin_interactions(df)
     _add_all_voyage_interactions(df)

@@ -1,4 +1,18 @@
+- 1.4.1 (2025-11-02):
+  - Interactions now only consider the parent pile. Filtering for parts of split piles (e.g. Elder) will now show all interactions of the parent pile.
+  - When entering unknown CSOs in the interactions and combos filter, the warning will now suggest close CSO names.
+  - Added a bunch of new interactions, including extra-turn stuff, Haunted Woods, Ferryman and split piles, and more.
+  - Added changelog to track both interaction and combo changes.
+  - Added link to Dominion Wiki page for each CSO in the card database.
+  - Restructured the 'about' page.
+  - Changed Daily names to consistently use leading zeros for the dates.
+  - Massive behind-the-scenes refactoring and code cleanup for the streamlit sub-pages.
+  - Improved look of the expansion selection within the randomizer
+  - Fixed a bug that could occur in interaction and combo util when first filtering for expansions and then csos that would result in a crash.
+  - Fixed a bug where rerolling CSOs could cause an existing kingdom card to be rerolled.
+  - Moved a few things into streamlit fragments for better caching and performance.
 - 1.4.0 (2025-10-25):
+  - Made a video about this website covering all features up to this point!
   - Added two-card combos! You can now browse two-card combos, synergies, rushes, counters and nombos on their own sub-page.
   - Added filter to require both CSOs for interactions/combos to be from the same expansion.
   - Added capability to handle Divine Wind and display it in kingdom plot. The randomizer itself currently still won't roll a DW kingdom for now.
@@ -81,4 +95,4 @@
   - Unified streamlit headers for the pages, reworded some of them for clarity
   - Fixed bug where the dombot string couldn't be copied to clipboard
   - Fixed minor quality issues and wrong extra components for cards
-- 1.0.0 (2024-08-21): Initial release with basic randomizer, card database and oracle page implemented, as well as descriptions of the qualities
+- 1.0.0 (2024-08-21): Initial release with basic randomizer, card database and oracle page implemented, as well as descriptions of the qualities.

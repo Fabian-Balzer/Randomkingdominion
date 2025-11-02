@@ -192,7 +192,7 @@ def _annotate_kingdom_cards_landscapes(
         card_lines = [
             line[:16] + "..." if len(line) > 19 else line for line in card_lines
         ]
-        card_text = "\n".join(card_lines)
+        card_text = "\n".join(card_lines[:19])
     cc = card_text.count("\n")
     fontsize = 12 if cc > 16 else 13 if cc >= 15 else 15
     ax.text(

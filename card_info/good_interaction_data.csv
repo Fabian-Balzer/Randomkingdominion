@@ -1,5 +1,10 @@
 CSO1;CSO2;Rule
 abundance;mandarin;If you gain a Mandarin and have played Abundance before that, you put it on top of your deck, but the duration effect still persists.
+acting_troupe;band_of_misfits;If you play Acting Troupe using Band of Misfits, it stays where it was, and *do* get the effect you would have gotten from trashing it.
+acting_troupe;captain;If you play Acting Troupe using Captain, it stays where it was, and *do* get the effect you would have gotten from trashing it.
+acting_troupe;necromancer;If you play Acting Troupe using Necromancer and try to trash itself, it stays where it was, and *do* get the effect.
+acting_troupe;overlord;If you play Acting Troupe using Overlord and try to trash itself, it stays where it was, and *do* get the effect.
+acting_troupe;prince;If you have set aside Acting Troupe with Prince and try to trash itself when you play it, it stays where it was, and you *do* get the effect.
 alchemist;journey;If you play Alchemists and buy Journey, if you have a Potion in play, you may topdeck the Alchemists for the Journey turn, and also on the Journey turn.
 alchemist;reckless;If Alchemist is Reckless, you may topdeck it during Clean-up if you have a Potion in play, circumventing Reckless' return-to-pile prompt.
 alchemist;stonemason;You may overpay with Potions when buying Stonemason to gain two Alchemists.
@@ -28,15 +33,20 @@ artisan;gatekeeper;If you gain a card and put it in your hand using Artisan whil
 artisan;sheepdog;If you gain a Sheepdog to your hand using Artisan, you can immediately react to its own gain and play it.
 artisan;siren;If you gain a Siren and put it in your hand using Artisan, you still need to trash an Action from your hand in order to not trash the Siren.
 astrolabe;mandarin;If you gain a Mandarin and have played Astrolabe before that, you put it on top of your deck, but the duration effect still persists.
+augurs;band_of_misfits;If you play Acolyte using Band of Misfits and try to trash itself, it stays where it was, and you do not get the effect you would have gotten from trashing it.
+augurs;captain;If you play Acolyte using Captain and try to trash itself, it stays where it was, and you do not get the effect you would have gotten from trashing it.
 augurs;clashes;Playing an Action card using Herb Gatherer from your discard pile does not count as playing it from hand as far as Warlord's attack is concerned.
 augurs;crown;If Herb Gatherer's ability lets you play a Treasure in your Action phase, and this Treasure is a Crown, then because it is your Action phase, Crown lets you play an Action card (and not a Treasure) from your hand twice.
 augurs;ferry;You may put the -$2 token on the Augurs pile using Ferry. This will affect all of its cards.
 augurs;ferryman;Ferryman/Augurs---When you set aside the Augurs with Ferryman, the next player to gain a Ferryman will gain the top card of the pile, and choosing to rotate it using Herb Gatherer still works.
 augurs;lost_arts;You may put the + Action token on the Augurs pile using Lost Arts. This will affect all of its cards.
+augurs;necromancer;If you play Acolyte using Necromancer and try to trash itself, it stays where it was, and you do not get the effect you would have gotten from trashing it.
 augurs;odysseys;Playing a card from your discard pile using Herb Gatherer does not count as playing it from hand as far as Voyage turns are concerned.
+augurs;overlord;If you play Acolyte using Overlord and try to trash itself, it stays where it was, and you do not get the effect you would have gotten from trashing it.
 augurs;pathfinding;You may put the + Card token on the Augurs pile using Pathfinding. This will affect all of its cards.
 augurs;peasant;You may put any token on the Augurs pile using Teacher. This will affect all of its cards.
 augurs;plan;You may put the trashing token on the Augurs pile using Plan. This will affect all of its cards.
+augurs;prince;If you have set aside Acolyte with Prince and try to trash itself when you play it, it stays where it was, and you do not get the effect you would have gotten from trashing it.
 augurs;seaway;You may put the + Buy token on the Augurs pile using Seaway. This will affect all of its cards.
 augurs;trail;Playing Herb Gatherer with a Trail in your deck does not count as discarding Trail, so you do not get to react.
 augurs;training;You may put the + $1 token on the Augurs pile using Training. This will affect all of its cards.
@@ -53,10 +63,31 @@ bad_omens;tunnel;Putting cards into your discard pile via Bad Omens with a Tunne
 bad_omens;village_green;Putting cards into your discard pile via Bad Omens with a Village Green in your deck does not count as discarding Village Green, so you do not get to react.
 bad_omens;weaver;Putting cards into your discard pile via Bad Omens with a Weaver in your deck does not count as discarding Weaver, so you do not get to react.
 ball;harbor_village;If you play a card giving only +$1 and use that to remove the -Coin token after playing Harbor Village, you don't get +$1 from Harbor Village as the card didn't produce any $.
+band_of_misfits;carpenter;If you play Carpenter using Band of Misfits, you can gain a Carpenter with it (despite Band of Misfits saying 'leaving it there', as this just refers to the card moving into play).
+band_of_misfits;change;If you play Change using Band of Misfits, trashing an appropriate card from your hand, you can gain another Change with it (despite Band of Misfits saying 'leaving it there', as this just refers to the card moving into play).
+band_of_misfits;craftsman;If you play Craftsman using Band of Misfits, you can gain a Craftsman with it (despite Band of Misfits saying 'leaving it there', as this just refers to the card moving into play).
+band_of_misfits;death_cart;If you play Death Cart using Band of Misfits and try to trash itself, it stays where it was, and you do not get the effect you would have gotten from trashing it.
 band_of_misfits;duplicate;If you play a Duplicate using Band of Misfits, you don't put anything onto your Tavern mat.
+band_of_misfits;embargo;If you play Embargo using Band of Misfits and try to trash itself, it stays where it was, and you do not get the effect you would have gotten from trashing it.
+band_of_misfits;farmers_market;If you play Farmers' Market using Band of Misfits, it stays where it was, and *do* get the effect you would have gotten from trashing it.
+band_of_misfits;feast;"If you play Feast using Band of Misfits, it stays where it was, and *do* get the effect you would have gotten from trashing it.
+If you play Feast using Band of Misfits, you can gain a Feast with it (despite Band of Misfits saying 'leaving it there', as this just refers to the card moving into play)."
+band_of_misfits;groom;If you play Groom using Band of Misfits, you can gain a Groom with it (despite Band of Misfits saying 'leaving it there', as this just refers to the card moving into play).
 band_of_misfits;guide;If you play a Guide using Band of Misfits, you don't put anything onto your Tavern mat.
+band_of_misfits;hermit;If you play Hermit using Band of Misfits, you can gain a Hermit with it (despite Band of Misfits saying 'leaving it there', as this just refers to the card moving into play).
+band_of_misfits;inventor;If you play Inventor using Band of Misfits, you can gain a Inventor with it (despite Band of Misfits saying 'leaving it there', as this just refers to the card moving into play).
+band_of_misfits;ironworks;If you play Ironworks using Band of Misfits, you can gain a Ironworks with it (despite Band of Misfits saying 'leaving it there', as this just refers to the card moving into play).
+band_of_misfits;knights;If you play Sir Martin using Band of Misfits, you do not trash it even if you trash an opponent's Knight with it.
+band_of_misfits;mining_village;If you play Mining Village using Band of Misfits and try to trash itself, it stays where it was, and you do not get the effect you would have gotten from trashing it.
+band_of_misfits;pixie;If you play Pixie using Band of Misfits and try to trash itself, it stays where it was, and you do not get the effect you would have gotten from trashing it.
 band_of_misfits;ratcatcher;If you play a Ratcatcher using Band of Misfits, you don't put anything onto your Tavern mat.
+band_of_misfits;raze;If you play Raze using Band of Misfits and try to trash itself, it stays where it was, and you do not get the effect you would have gotten from trashing it.
+band_of_misfits;remake;If you play Remake using Band of Misfits, trashing an appropriate card from your hand, you can gain another Remake with it (despite Band of Misfits saying 'leaving it there', as this just refers to the card moving into play).
+band_of_misfits;remodel;If you play Remodel using Band of Misfits, trashing an appropriate card from your hand, you can gain another Remodel with it (despite Band of Misfits saying 'leaving it there', as this just refers to the card moving into play).
 band_of_misfits;transmogrify;If you play a Transmogrify using Band of Misfits, you don't put anything onto your Tavern mat.
+band_of_misfits;treasure_map;If you play Treasure Map using Band of Misfits and try to trash itself, it stays where it was, and you do not get the effect you would have gotten from trashing it.
+band_of_misfits;urchin;If you have played Urchin using Band of Misfits, you will not get to trash it later once playing an Attack card. However, if you play Urchin and later play another Attack card using Band of Misfits, you will still get to trash the Urchin.
+band_of_misfits;workshop;If you play Workshop using Band of Misfits, you can gain a Workshop with it (despite Band of Misfits saying 'leaving it there', as this just refers to the card moving into play).
 band_of_nomads;city-state;If you gain a card and use Band of Nomads to cause a shuffle, you cannot play it using City-State anymore (but you could choose to resolve the on-gain play first).
 band_of_nomads;innovation;If you gain a card and use Band of Nomads to cause a shuffle, you cannot play it using Innovation anymore (but you could choose to resolve the on-gain play first).
 band_of_nomads;rush;If you gain a card and use Band of Nomads to cause a shuffle, you cannot play it using Rush anymore (but you could choose to resolve the on-gain play first).
@@ -163,6 +194,7 @@ capital;reckless;If Capital is Reckless, you get +$12 and +2 Buys when playing i
 capital;trickster;Even if you set aside Capital using Trickster's ability, you will still get 6D since you discard it from play.
 capitalism;enlightenment;Once Enlightenment is active, Capitalism will turn all of its targets into cantrips during the Action phase.
 capitalism;fishmonger;During your buy phase, you can play Fishmongers from your deck if you have bought Capitalism. [This used to be bugged in the TGG client, let us know if it's resolved!]
+capitalism;landing_party;Landing Party/Capitalism---When you play a Capitalized Action as your first card with Landing Parties set aside, you first finish resolving the card played before topdecking the Landing Parties.
 capitalism;way_of_the_butterfly;Once Capitalism is active, you can choose to play your new-found Action-Treasures as Way of the Butterfly both in your Action and Buy phase.
 capitalism;way_of_the_camel;Once Capitalism is active, you can choose to play your new-found Action-Treasures as Way of the Camel both in your Action and Buy phase.
 capitalism;way_of_the_chameleon;Once Capitalism is active, you can choose to play your new-found Action-Treasures as Way of the Chameleon both in your Action and Buy phase.
@@ -183,10 +215,31 @@ capitalism;way_of_the_sheep;Once Capitalism is active, you can choose to play yo
 capitalism;way_of_the_squirrel;Once Capitalism is active, you can choose to play your new-found Action-Treasures as Way of the Squirrel both in your Action and Buy phase.
 capitalism;way_of_the_turtle;Once Capitalism is active, you can choose to play your new-found Action-Treasures as Way of the Turtle both in your Action and Buy phase.
 capitalism;way_of_the_worm;Once Capitalism is active, you can choose to play your new-found Action-Treasures as Way of the Worm both in your Action and Buy phase.
+captain;carpenter;If you play Carpenter using Captain, you can gain a Carpenter with it (despite Captain saying 'leaving it there', as this just refers to the card moving into play).
+captain;change;If you play Change using Captain, trashing an appropriate card from your hand, you can gain another Change with it (despite Captain saying 'leaving it there', as this just refers to the card moving into play).
+captain;craftsman;If you play Craftsman using Captain, you can gain a Craftsman with it (despite Captain saying 'leaving it there', as this just refers to the card moving into play).
+captain;death_cart;If you play Death Cart using Captain and try to trash itself, it stays where it was, and you do not get the effect you would have gotten from trashing it.
 captain;duplicate;If you play a Duplicate using Captain, you don't put anything onto your Tavern mat.
+captain;embargo;If you play Embargo using Captain and try to trash itself, it stays where it was, and you do not get the effect you would have gotten from trashing it.
+captain;farmers_market;If you play Farmers' Market using Captain, it stays where it was, and *do* get the effect you would have gotten from trashing it.
+captain;feast;"If you play Feast using Captain, it stays where it was, and *do* get the effect you would have gotten from trashing it.
+If you play Feast using Captain, you can gain a Feast with it (despite Captain saying 'leaving it there', as this just refers to the card moving into play)."
+captain;groom;If you play Groom using Captain, you can gain a Groom with it (despite Captain saying 'leaving it there', as this just refers to the card moving into play).
 captain;guide;If you play a Guide using Captain, you don't put anything onto your Tavern mat.
+captain;hermit;If you play Hermit using Captain, you can gain a Hermit with it (despite Captain saying 'leaving it there', as this just refers to the card moving into play).
+captain;inventor;If you play Inventor using Captain, you can gain a Inventor with it (despite Captain saying 'leaving it there', as this just refers to the card moving into play).
+captain;ironworks;If you play Ironworks using Captain, you can gain a Ironworks with it (despite Captain saying 'leaving it there', as this just refers to the card moving into play).
+captain;knights;If you play Sir Martin using Captain, you do not trash it even if you trash an opponent's Knight with it.
+captain;mining_village;If you play Mining Village using Captain and try to trash itself, it stays where it was, and you do not get the effect you would have gotten from trashing it.
+captain;pixie;If you play Pixie using Captain and try to trash itself, it stays where it was, and you do not get the effect you would have gotten from trashing it.
 captain;ratcatcher;If you play a Ratcatcher using Captain, you don't put anything onto your Tavern mat.
+captain;raze;If you play Raze using Captain and try to trash itself, it stays where it was, and you do not get the effect you would have gotten from trashing it.
+captain;remake;If you play Remake using Captain, trashing an appropriate card from your hand, you can gain another Remake with it (despite Captain saying 'leaving it there', as this just refers to the card moving into play).
+captain;remodel;If you play Remodel using Captain, trashing an appropriate card from your hand, you can gain another Remodel with it (despite Captain saying 'leaving it there', as this just refers to the card moving into play).
 captain;transmogrify;If you play a Transmogrify using Captain, you don't put anything onto your Tavern mat.
+captain;treasure_map;If you play Treasure Map using Captain and try to trash itself, it stays where it was, and you do not get the effect you would have gotten from trashing it.
+captain;urchin;If you have played Urchin using Captain, you will not get to trash it later once playing an Attack card. However, if you play Urchin and later play another Attack card using Captain, you will still get to trash the Urchin.
+captain;workshop;If you play Workshop using Captain, you can gain a Workshop with it (despite Captain saying 'leaving it there', as this just refers to the card moving into play).
 caravan;way_of_the_chameleon;If you play Caravan using Way of the Chameleon, remember that Way of the Chameleon only affects stuff happening *this turn*, so on your next turn, you will get the normal bonus from Caravan.
 caravan_guard;soothsayer;If an opponent plays Soothsayer, you may react with Caravan Guard immediately, and then gain a Curse. Once you're done reacting, you draw a card due to Soothsayer, and if that card is a Caravan Guard, it is too late for you to react with that one.
 caravan_guard;way_of_the_butterfly;"When you react and play Caravan Guard during another player's turn, you can decide to play it as Way of the Butterfly.
@@ -231,6 +284,7 @@ If you play an Attack card and your opponent reacts with a Caravan Guard, you ma
 caravan_guard;way_of_the_worm;"When you react and play Caravan Guard during another player's turn, you can decide to play it as Way of the Worm.
 If you play an Attack card and your opponent reacts with a Caravan Guard, you may then again choose whether to play the Attack normally, or using Way of the Worm."
 cargo_ship;improve;If you play a Cargo Ship and don't set anything aside with it before your Clean-up phase, Improve can trash it because it's going to be discarded as far as you know at that point. However, trashing a card from play does not negate its instructions, so you can still set aside the card you gain from Improve (or another card you gain that turn) through the instructions of Cargo Ship.
+carpenter;overlord;If you play Carpenter using Overlord, you can gain a Carpenter with it (despite Overlord saying 'leaving it there', as this just refers to the card moving into play).
 castles;falconer;If your opponent gains Haunted Castle and you have a Falconer in hand, you first have to topdeck two cards, and only then can react the Falconer since the different things happen in turn order.
 castles;ferry;You can never put the -$2 token on the Castles pile (even with Small or Opulent Castle on top) because they are only a Victory Supply pile, not an Action supply pile.
 castles;ferryman;Ferryman/Castles---When you set aside the Castles pile with Ferryman, the next player to gain a Ferryman will gain the top card of the pile with it.
@@ -240,6 +294,8 @@ castles;inheritance;When you gain Grand Castle, you get points for opponent's Es
 castles;invest;You can Invest in Small Castle or Opulent Castle if it's on top, but would only draw cards if an opponent gained a copy of it (which is not possible in 2-player mode).
 castles;lost_arts;You can never put the + Action token on the Castles pile (even with Small or Opulent Castle on top) because they are only a Victory Supply pile, not an Action supply pile.
 castles;monkey;If you have played a Monkey and your opponent gains a Haunted Castle, you first topdeck two cards, and then draw due to Monkey since the different things happen in turn order.
+castles;necromancer;If you play Small Castle using Necromancer and try to trash itself, it stays where it was, and you do not get the effect you would have gotten from trashing it.
+castles;overlord;If you play Small Castle using Overlord and try to trash itself, it stays where it was, and you do not get the effect you would have gotten from trashing it.
 castles;pathfinding;You can never put the + Card token on the Castles pile (even with Small or Opulent Castle on top) because they are only a Victory Supply pile, not an Action supply pile.
 castles;patron;If you gain a Grand Castle during your Buy phase and reveal a Patron from your hand, you will not get +1 Coffers since it's not an Action phase.
 castles;peasant;You can never put any token on the Castles pile (even with Small or Opulent Castle on top) using Teacher because they are only a Victory Supply pile, not an Action supply pile.
@@ -276,6 +332,7 @@ chancellor;tunnel;Playing Chancellor with a Tunnel in your deck does not count a
 chancellor;village_green;Playing Chancellor with a Village Green in your deck does not count as discarding Village Green, so you do not get to react.
 chancellor;weaver;Playing Chancellor with a Weaver in your deck does not count as discarding Weaver, so you do not get to react.
 change;fisherman;It is occasionally possible for cost reduction to make the gained card cost less $ than the trashed card after gaining. In this case the D incurred is the absolute value of the new $ difference. For example, if you trash a $2 Fisherman and gain a Silver, the Fisherman now costs $5, and you take 2D.
+change;overlord;If you play Change using Overlord, trashing an appropriate card from your hand, you can gain another Change with it (despite Overlord saying 'leaving it there', as this just refers to the card moving into play).
 change;possession;When you play Change while Possessing an opponent, trash one of their cards, and gain a card costing more $ than it, since they never gain it, they would never gain debt from that play. Therefore, you also don't gain any debt from it.
 changeling;city-state;If you play a gained card using City-State, you cannot exchange it for a Changeling afterwards. Conversely, you cannot play it anymore after having exchanged it for a Changeling.
 changeling;farmland;If you gain a Farmland and exchange it for a Changeling, you will still have to trash a card from your hand and gain one costing exactly $2 more than the trashed card.
@@ -378,7 +435,9 @@ coronet;crown;If Coronet's ability lets you play a Treasure in your Action phase
 coronet;crypt;If you play a Duration card using Coronet, you can still set it aside with Crypt that turn and will NOT get the duration effect off of both plays for the next turn (e.g. Coronet on Wharf, you can Crypt the Coronet away and will draw only 2 cards on the next turn). With Gear, this might even strand cards. Having played Coronet on a previous turn on a Duration card, you can still set it aside with Crypt. Future throned Duration effects (like with Hireling) will then not occur any more.
 coronet;enchantress;If Enchantress affects Coronet played in a Buy phase, its player gets +1 Card +1 Action, but has no way to use the +1 Action, since it is their Buy phase (but it might matter e.g. if the player buys Villa).
 coronet;enlightenment;If Enlightenment is active, Coronet's Action phase mode is overwritten by Enlightenment.
+coronet;landing_party;When you play Coronet as the first card on your turn with Landing Parties set aside, you first finish resolving Coronet before topdecking the Landing Parties.
 coronet;outpost;If you play an Outpost using Coronet, you will still only take one extra turn, but the Coronet will stay out with it anyways.
+coronet;royal_galley;If you play Duration card (such as Royal Galley) multiple times using a Coronet that you set aside using Royal Galley, since the Coronet is not in play, you will only get the Duration's this-turn effect multiple times, whereas you get the next-turn effect only once. If you set aside cards by playing Royal Galley using the Coronet that you've set aside on the first Royal Galley, only the first set-aside card will be played again at the start of the next turn, while the rest will stay set-aside until the end of the game (but still count towards your deck).
 coronet;urchin;If you play an Urchin multiple times using Coronet, you may not trash this Urchin, since you need to play *another* attack card to be able to trash it.
 coronet;way_of_the_butterfly;When you play Coronet, you can still decide to play it as Way of the Butterfly, whether you are in your Action or in your Buy phase.
 coronet;way_of_the_camel;When you play Coronet, you can still decide to play it as Way of the Camel, whether you are in your Action or in your Buy phase.
@@ -416,6 +475,7 @@ crafters_guild;rapid_expansion;When you gain a card using Crafter's Guild, it wi
 crafters_guild;rush;When you gain a card using Crafter's Guild and immediately play it using Rush, you will not be able to topdeck it.
 crafters_guild;siren;If you gain a Siren and topdeck it using Crafter's Guild, you still need to trash an Action card from your hand in order to not trash the Siren.
 crafters_guild;villa;If you gain a Villa using Crafter's Guild, it is first topdecked and then you put it into your hand.
+craftsman;overlord;If you play Craftsman using Overlord, you can gain a Craftsman with it (despite Overlord saying 'leaving it there', as this just refers to the card moving into play).
 credit;possession;When you buy Credit while Possessing an opponent, since they never gain a card from it, the 'it' in 'equal to its cost' is undefined, and they wouldn't be scheduled to gain debt. Therefore, you also don't gain any debt from it.
 crossroads;reckless;If Crossroads is Reckless, the first time you play one will give you +6 Actions.
 crown;crypt;If you play a Duration card using Crown, you can still set it aside with Crypt that turn and will NOT get the duration effect off of both plays for the next turn (e.g. Crown on Wharf, you can Crypt the Crown away and will draw only 2 cards on the next turn). With Gear, this might even strand cards. Having played Crown on a previous turn on a Duration card, you can still set it aside with Crypt. Future throned Duration effects (like with Hireling) will then not occur any more.
@@ -423,9 +483,11 @@ crown;enchantress;If Enchantress affects Crown played in a Buy phase, its player
 crown;enlightenment;If Enlightenment is active, Crown's Action phase mode is overwritten by Enlightenment.
 crown;farmhands;If Farmhands's ability lets you play a Treasure in your Action phase, and this Treasure is a Crown, then because it is your Action phase, Crown lets you play an Action card (and not a Treasure) from your hand twice.
 crown;fortune_hunter;If Fortune Hunter's ability lets you play a Treasure in your Action phase, and this Treasure is a Crown, then because it is your Action phase, Crown lets you play an Action card (and not a Treasure) from your hand twice.
+crown;landing_party;When you play Crown as the first card on your turn with Landing Parties set aside, you first finish resolving Crown before topdecking the Landing Parties.
 crown;mining_road;If Mining Road's ability lets you play a Treasure in your Action phase, and this Treasure is a Crown, then because it is your Action phase, Crown lets you play an Action card (and not a Treasure) from your hand twice.
 crown;outpost;If you play an Outpost using Crown, you will still only take one extra turn, but the Crown will stay out with it anyways.
 crown;panic;Even if you play Crown before Panic becomes active, if Panic becomes active later that turn, you need to return the Crown to its pile when you discard it from play.
+crown;royal_galley;If you play Duration card (such as Royal Galley) multiple times using a Crown that you set aside using Royal Galley, since the Crown is not in play, you will only get the Duration's this-turn effect multiple times, whereas you get the next-turn effect only once. If you set aside cards by playing Royal Galley using the Crown that you've set aside on the first Royal Galley, only the first set-aside card will be played again at the start of the next turn, while the rest will stay set-aside until the end of the game (but still count towards your deck).
 crown;specialist;If Specialist's ability lets you play a Treasure in your Action phase, and this Treasure is a Crown, then because it is your Action phase, Crown lets you play an Action card (and not a Treasure) from your hand twice.
 crown;spell_scroll;If Spell Scroll's ability lets you play a Treasure in your Action phase, and this Treasure is a Crown, then because it is your Action phase, Crown lets you play an Action card (and not a Treasure) from your hand twice.
 crown;storyteller;If Storyteller's ability lets you play Treasures in your Action phase, and one of those Treasures is Crown, then because it is your Action phase, Crown lets you play an Action card (and not a Treasure) from your hand twice.
@@ -453,6 +515,7 @@ crown;way_of_the_worm;When you play Crown, you can still decide to play it as Wa
 crypt;kings_cache;If you play a Duration Treasure using King's Cache (KC), you can still set it aside with Crypt that turn, but NOT get the duration effect off of all three plays for the next turn (e.g. KC on Astrolabe, you can Crypt away the KC and will only get +$1 and +1 Buys on your next turn). You can also Crypt the KC on a later turn.
 crypt;reckless;If Reckless is on a Treasure and you stow it away with Crypt, you cannot return it to its pile and it will stay in the Crypt for later use.
 crypt;tiara;If you play a Duration Treasure using Tiara, you can still set it aside with Crypt that turn, but NOT get the duration effect off of both plays for the next turn (e.g. Tiara on Astrolabe, you can Crypt away the Tiara and will get +$1 and +1 Buys on your next turn). You can also Crypt the Tiara on a later turn.
+crystal_ball;landing_party;When you play Crystal Ball as the first card on your turn with Landing Parties set aside, you first finish resolving Crystal Ball before topdecking the Landing Parties.
 cultist;market_square;When trashing a Cultist with Market Square in hand, you get to decide which effect to resolve first, and can even react a Market Square you have just drawn from the on-trash draw ability of Cultist.
 cursed;panic;When you discard a Loot gained from cursed from play while Panic is active, you need to return it to the top of the Loot pile. When discarding multiple, you get to choose the order. Endless Chalice and Jewels are exceptions as they (bar e.g. Highwayman) never get discarded from play.
 cursed_village;haunted_woods;If you buy a Cursed Village while under the Haunted Woods attack, you can choose whether to first receive the next Hex, or whether to first topdeck your hand.
@@ -460,7 +523,11 @@ cursed_village;raid;If you have your -1 Card Token on your deck when drawing wit
 cursed_village;relic;If you have your -1 Card Token on your deck when drawing with Cursed Village, the Token is removed and the number of cards drawn to is the same as stated on Cursed Village as long as you are supposed to draw at least 1 card.
 cutthroat;panic;When you discard a Loot gained from cutthroat from play while Panic is active, you need to return it to the top of the Loot pile. When discarding multiple, you get to choose the order. Endless Chalice and Jewels are exceptions as they (bar e.g. Highwayman) never get discarded from play.
 daimyo;outpost;If you play an Outpost using Daimyo, you will still only take one extra turn, but the Daimyo will stay out with it anyways.
+daimyo;royal_galley;If you play Duration card (such as Royal Galley) multiple times using a Daimyo that you set aside using Royal Galley, since the Daimyo is not in play, you will only get the Duration's this-turn effect multiple times, whereas you get the next-turn effect only once. If you set aside cards by playing Royal Galley using the Daimyo that you've set aside on the first Royal Galley, only the first set-aside card will be played again at the start of the next turn, while the rest will stay set-aside until the end of the game (but still count towards your deck).
 daimyo;urchin;If you play an Urchin multiple times using Daimyo, you may not trash this Urchin, since you need to play *another* attack card to be able to trash it.
+death_cart;necromancer;If you play Death Cart using Necromancer and try to trash itself, it stays where it was, and you do not get the effect you would have gotten from trashing it.
+death_cart;overlord;If you play Death Cart using Overlord and try to trash itself, it stays where it was, and you do not get the effect you would have gotten from trashing it.
+death_cart;prince;If you have set aside Death Cart with Prince and try to trash itself when you play it, it stays where it was, and you do not get the effect you would have gotten from trashing it.
 delusion;enlightenment;Once Enlightenment is active and Treasures become Actions, Delusion will disallow you from buying Treasures.
 demand;den_of_sin;If you gain a Den of Sin using Demand, it is topdecked instead of being gained to your hand.
 demand;ghost_town;If you gain a Ghost Town using Demand, it is topdecked instead of being gained to your hand.
@@ -543,6 +610,7 @@ diplomat;way_of_the_worm;"You can react your Diplomat's ability to an opponent p
 If you play an Attack card and your opponent reacts with a Diplomat, you may then again choose whether to play the Attack normally, or using Way of the Worm."
 disciple;ferryman;Disciple does not allow you to gain a copy of a card from a pile set aside by Ferryman.
 disciple;outpost;If you play an Outpost using Disciple, you will still only take one extra turn, but the Disciple will stay out with it anyways.
+disciple;royal_galley;If you play Duration card (such as Royal Galley) multiple times using a Disciple that you set aside using Royal Galley, since the Disciple is not in play, you will only get the Duration's this-turn effect multiple times, whereas you get the next-turn effect only once. If you set aside cards by playing Royal Galley using the Disciple that you've set aside on the first Royal Galley, only the first set-aside card will be played again at the start of the next turn, while the rest will stay set-aside until the end of the game (but still count towards your deck).
 disciple;urchin;If you play an Urchin multiple times using Disciple, you may not trash this Urchin, since you need to play *another* attack card to be able to trash it.
 distant_lands;overlord;If you play a Distant Lands using Overlord, you don't put anything onto your Tavern mat.
 divine_wind;encampment/plunder;Once Divine Wind has been triggered, when you play an Encampment that came from the initial supply, if you don't reveal a Gold or Plunder, then you set aside the Encampment but since it has no pile to return to, it stays set aside for the rest of the game (it still counts as one of your cards for scoring).
@@ -567,12 +635,16 @@ ducat;haunted_woods;If you buy a Ducat while under the Haunted Woods attack, you
 dungeon;way_of_the_chameleon;If you play Dungeon using Way of the Chameleon, remember that Way of the Chameleon only affects stuff happening *this turn*, so on your next turn, you will get the normal bonus from Dungeon.
 duplicate;ferryman;Duplicate does not allow you to gain a copy of a card from a pile set aside by Ferryman.
 duplicate;gondola;When you gain a Gondola and play a Duplicate from your hand, you may call it directly to gain another Gondola.
+duplicate;inheritance;If you set aside a Duplicate using Inheritance, your Estates only get the on-play-effect and never move to the Tavern mat.
 duplicate;innovation;When you gain Duplicate and play it immediately using Innovation, you may call it directly to gain another copy of it.
 duplicate;overlord;If you play a Duplicate using Overlord, you don't put anything onto your Tavern mat.
+duplicate;prince;If you set aside a Duplicate with Prince and play it at the start of your turn, it will not move to the Tavern mat and just stay set-aside.
 duplicate;rush;When you gain Duplicate and play it immediately using Rush, you may call it directly to gain another copy of it.
 duplicate;spell_scroll;When you gain Duplicate and play it immediately using Spell Scroll, you may call it directly to gain another copy of it.
+embargo;necromancer;If you play Embargo using Necromancer and try to trash itself, it stays where it was, and you do not get the effect you would have gotten from trashing it.
+embargo;overlord;If you play Embargo using Overlord and try to trash itself, it stays where it was, and you do not get the effect you would have gotten from trashing it.
+embargo;prince;If you have set aside Embargo with Prince and try to trash itself when you play it, it stays where it was, and you do not get the effect you would have gotten from trashing it.
 encampment/plunder;ferry;You may put the -$2 token on the Encampment/Plunder pile using Ferry. This will affect all of its cards.
-encampment/plunder;ferryman;Ferryman/Encampment/Plunder---When you set aside the Encampment/Plunder pile with Ferryman, the next player to gain a Ferryman will gain the top card of the pile with it.
 encampment/plunder;lost_arts;You may put the + Action token on the Encampment/Plunder pile using Lost Arts. This will affect all of its cards.
 encampment/plunder;pathfinding;You may put the + Card token on the Encampment/Plunder pile using Pathfinding. This will affect all of its cards.
 encampment/plunder;peasant;You may put any token on the Encampment/Plunder pile using Teacher. This will affect all of its cards.
@@ -612,6 +684,7 @@ enlightenment;ferry;Even if Enlightenment is active, you may not put the -$2 tok
 enlightenment;gondola;If Enlightenment is active and you gain a Gondola in your buy phase, you can play an Treasure from your hand, which will give you the usual effect.
 enlightenment;highwayman;Once Enlightenment is active, while you're under Highwayman attack, for the first Treasure you play during your Action phase, you will get to choose which effect should apply first, so you can still get +1 Card, +1 Action.
 enlightenment;innovation;If Enlightenment is active and you gain a Treasure in your buy phase, you can play it immediately using Innovation, causing you to receive the usual effect.
+enlightenment;landing_party;Landing Party/Enlightenment---When you play a Treasure as your first card with Landing Parties set aside, you first finish resolving it before topdecking the Landing Parties, i.e., if Enlightenment is active and you play a Treasure during your Action phase, you first get +1 Card and +1 Action, and then topdeck Landing Parties.
 enlightenment;lost_arts;Even if Enlightenment is active, you may not put the + Action token on any Treasure pile using Lost Arts as it's not natively an Action supply pile.
 enlightenment;pathfinding;Even if Enlightenment is active, you may not put the + Card token on any Treasure pile using Pathfinding as it's not natively an Action supply pile.
 enlightenment;peasant;Even if Enlightenment is active, you may not put any token on any Treasure pile using Teacher as it's not natively an Action supply pile.
@@ -642,6 +715,7 @@ enlightenment;way_of_the_sheep;Once Enlightenment is active, you can choose to p
 enlightenment;way_of_the_squirrel;Once Enlightenment is active, you can choose to play your Treasures as Way of the Squirrel both in your Action and Buy phase.
 enlightenment;way_of_the_turtle;Once Enlightenment is active, you can choose to play your Treasures as Way of the Turtle both in your Action and Buy phase.
 enlightenment;way_of_the_worm;Once Enlightenment is active, you can choose to play your Treasures as Way of the Worm both in your Action and Buy phase.
+experiment;ferryman;When you set aside a Experiment with Ferryman, it can gain a copy of itself on play as it is specifically named in the card.
 experiment;procession;When you play an Experiment with Procession, you return it to its pile after its first play, so it doesn't get trashed. Nevertheless, you gain a card costing $1 more than it.
 exploration;launch;When you return to your Action phase using Launch, you are ending your Buy phase, so Exploration can trigger.
 exploration;villa;When you return to your Action phase using Villa, you are ending your Buy phase but gain a card at the same time, so Exploration can't trigger. Exploration can still trigger at the end of a future buy phase.
@@ -674,10 +748,17 @@ familiar;stonemason;You may overpay with Potions when buying Stonemason to gain 
 family_of_inventors;wayfarer;Wayfarer will assume the cost of the card you gained last, even if a Favor token has been put on its pile. If you reduce the cost of the last-gained card with a Favor at the beginning of your Buy phase, Wayfarer's cost will change along with that.
 famine;patron;If you reveal a Patron among the three cards, you will get +1 Coffers as long as it's during an Action phase.
 farmers_market;ferryman;When you set aside a Farmers' Market with Ferryman, it still works as the Gathering pile normally does, by collecting and dispersing VP as stated on the card.
+farmers_market;necromancer;If you play Farmers' Market using Necromancer and try to trash itself, it stays where it was, and *do* get the effect.
+farmers_market;overlord;If you play Farmers' Market using Overlord and try to trash itself, it stays where it was, and *do* get the effect.
+farmers_market;prince;If you have set aside Farmers' Market with Prince and try to trash itself when you play it, it stays where it was, and you *do* get the effect.
 farmhands;haunted_woods;If you buy a Farmhands while under the Haunted Woods attack, you can choose whether to first set aside an Action or Treasure from your hand, or whether to first topdeck your hand.
 farmhands;inheritance;If you gain a Farmhands during your opponent's turn (e.g. due to Barbarian, Messenger, etc.) and they have bought Inheritance, you may set aside an Estate from your hand even if you have not bought Inheritance. In that case, it will be played at the start of your next turn (doing nothing, but counting as a card in play). At the end of that turn, you discard it from play.
 farmland;haunted_woods;If you buy a Farmland while under the Haunted Woods attack, you can choose whether to first trash a card from your hand to gain one costing $2 more, or whether to first topdeck your hand.
 fated;patron;If Patron is Fated, you will get +1 Coffers from each Patron as long as you shuffle during an Action phase, and put them onto the top or bottom of your deck.
+feast;necromancer;If you play Feast using Necromancer and try to trash itself, it stays where it was, and *do* get the effect.
+feast;overlord;"If you play Feast using Overlord and try to trash itself, it stays where it was, and *do* get the effect.
+If you play Feast using Overlord, you can gain a Feast with it (despite Overlord saying 'leaving it there', as this just refers to the card moving into play)."
+feast;prince;If you have set aside Feast with Prince and try to trash itself when you play it, it stays where it was, and you *do* get the effect.
 fellowship_of_scribes;frigate;If you're under the Frigate attack, you can choose the order of discarding/drawing with Scribes, i.e. after playing an Action, you may first discard down to 4 cards in hand, and then use a Favor to draw 1 card, or (if you already had only 4 cards in hand) draw 1 card using Scribes and then discard down to 4 again.
 ferry;forts;You may put the -$2 token on the Forts pile using Ferry. This will affect all of its cards.
 ferry;gladiator/fortune;You may put the -$2 token on the Gladiator/Fortune pile using Ferry. This will affect all of its cards.
@@ -698,25 +779,23 @@ ferryman;forts;Ferryman/Forts---When you set aside the Forts with Ferryman, the 
 ferryman;gladiator/fortune;Ferryman/Gladiator/Fortune---When you set aside the Gladiator/Fortune pile with Ferryman, the next player to gain a Ferryman will gain the top card of the pile with it.
 ferryman;jester;Jester does not allow you to gain a copy of a card from a pile set aside by Ferryman.
 ferryman;kiln;Kiln does not allow you to gain a copy of a card from a pile set aside by Ferryman.
-ferryman;knights;Ferryman/Knights---When you set aside the Knights pile with Ferryman, the next player to gain a Ferryman will gain the top card of the pile with it.
 ferryman;magpie;When you set aside a Magpie with Ferryman, it can gain a copy of itself on play as it is specifically named in the card.
 ferryman;mint;Mint does not allow you to gain a copy of a card from a pile set aside by Ferryman.
 ferryman;odysseys;Ferryman/Odysseys---When you set aside the Odysseys with Ferryman, the next player to gain a Ferryman will gain the top card of the pile, and choosing to rotate it using Old Map still works.
-ferryman;patrician/emporium;Ferryman/Patrician/Emporium---When you set aside the Patrician/Emporium pile with Ferryman, the next player to gain a Ferryman will gain the top card of the pile with it.
 ferryman;pilgrimage;Pilgrimage does not allow you to gain a copy of a card from a pile set aside by Ferryman.
+ferryman;port;When you set aside a Port with Ferryman, it can gain a copy of itself on play as it is specifically named in the card.
 ferryman;rats;When you set aside a Rats with Ferryman, it can gain a copy of itself on play as it is specifically named in the card.
 ferryman;sauna/avanto;Ferryman/Sauna/Avanto---When you set aside the Sauna/Avanto pile with Ferryman, the next player to gain a Ferryman will gain the top card of the pile with it.
-ferryman;settlers/bustling_village;Ferryman/Settlers/Bustling Village---When you set aside the Settlers/Bustling Village pile with Ferryman, the next player to gain a Ferryman will gain the top card of the pile with it.
 ferryman;silver;Ferryman/Trader---When you gain a card that was set aside with Ferryman, you may exchange it for a Silver and return it to the set aside pile.
 ferryman;smugglers;Smugglers does not allow you to gain a copy of a card from a pile set aside by Ferryman.
 ferryman;specialist;Specialist does not allow you to gain a copy of a card from a pile set aside by Ferryman.
 ferryman;temple;When you set aside a Temple with Ferryman, it still works as the Gathering pile normally does, by collecting and dispersing VP as stated on the card.
 ferryman;tools;Tools does not allow you to gain a copy of a card from a pile set aside by Ferryman.
-ferryman;townsfolk;Ferryman/Townsfolk---When you set aside the Townsfolk with Ferryman, the next player to gain a Ferryman will gain the top card of the pile, and choosing to rotate it using Town Crier still works.
 ferryman;way_of_the_rat;Way of the Rat does not allow you to gain a copy of a card from a pile set aside by Ferryman.
 ferryman;wizards;Ferryman/Wizards---When you set aside the Wizards with Ferryman, the next player to gain a Ferryman will gain the top card of the pile, and choosing to rotate it using Student still works.
 figurehead;mandarin;If you gain a Mandarin and have played Figurehead before that, you put it on top of your deck, but the duration effect still persists.
 figurehead;panic;When you discard Figurehead from play while Panic is active, you return it to the top of the Loot pile. When discarding multiple, you get to choose the order.
+figurine;landing_party;When you play Figurine as the first card on your turn with Landing Parties set aside, you first finish resolving Figurine before topdecking the Landing Parties.
 first_mate;raid;If you have your -1 Card Token on your deck when drawing with First Mate, the Token is removed and the number of cards drawn to is the same as stated on First Mate as long as you are supposed to draw at least 1 card.
 first_mate;relic;If you have your -1 Card Token on your deck when drawing with First Mate, the Token is removed and the number of cards drawn to is the same as stated on First Mate as long as you are supposed to draw at least 1 card.
 fisherman;growth;Fisherman's cost will be evaluated after each gain, so you can usually not gain one after having gained a Silver when Growth is active.
@@ -756,7 +835,8 @@ forts;spell_scroll;If you gain a card and use Hill Fort to cause a shuffle, you 
 forts;training;You may put the + $1 token on the Forts pile using Training. This will affect all of its cards.
 forts;way_of_the_butterfly;If you play Tent using Way of the Butterfly, you may still topdeck it when you discard it from play.
 forts;way_of_the_camel;If you play Tent using Way of the Camel, you may still topdeck it when you discard it from play.
-forts;way_of_the_chameleon;If you play Tent using Way of the Chameleon, you may still topdeck it when you discard it from play.
+forts;way_of_the_chameleon;"If you play Tent using Way of the Chameleon, you may still topdeck it when you discard it from play.
+If you play Garrison or Stronghold using Way of the Chameleon, remember that Way of the Chameleon only affects stuff happening *this turn*, so on your next turn, you will get the normal bonus from Garrison or Stronghold."
 forts;way_of_the_frog;If you play Tent using Way of the Frog, you may still topdeck it when you discard it from play.
 forts;way_of_the_goat;If you play Tent using Way of the Goat, you may still topdeck it when you discard it from play.
 forts;way_of_the_horse;If you play Tent using Way of the Horse, you may still topdeck it when you discard it from play.
@@ -829,17 +909,21 @@ gondola;livery;When you gain a Gondola and play a Livery from your hand, you wil
 gondola;mandarin;If you gain a Mandarin and have played Gondola before that, you put it on top of your deck, but the duration effect still persists.
 gondola;search;When you gain the last Gondola and play a Search from your hand, you will not gain a Loot from the Gondola gain due to Search's 'Next Time' wording. [This used to be bugged in the TGG client, let us know if it's resolved!]
 gondola;secluded_shrine;When you gain a Gondola and play a Secluded Shrine from your hand via its on-gain ability, you may not immediately trash two cards from your hand due Secluded Shrine's 'Next Time' wording.
+governor;overlord;If you play Governor using Overlord, trashing an appropriate card from your hand, you can gain another Governor with it (despite Overlord saying 'leaving it there', as this just refers to the card moving into play).
 grand_market;mint;"Coppers that were in play earlier in the turn but are removed are not a restriction for buying Grand Market; if you have 11 Coppers in play and 2 Buys, you could buy a Mint, trash all of your played Treasures, and then buy a Grand Market."
 graverobber;guardian;If you gain a Guardian using Graverobber, it is topdecked instead of being gained to your hand.
 graverobber;innovation;When you gain a card using Graverobber and immediately play it using Innovation, you will not be able to topdeck it.
 graverobber;necromancer;If you use a Necromancer to play a card from the trash (turning it face down), then gain it with Graverobber, then trash it again, you may play it again with a subsequent Necromancer as it will be turned face up again.
 graverobber;night_watchman;If you gain a Night Watchman using Graverobber, it is topdecked instead of being gained to your hand.
+graverobber;overlord;If you play Graverobber using Overlord, trashing an appropriate card from your hand, you can gain another Graverobber with it (despite Overlord saying 'leaving it there', as this just refers to the card moving into play).
 graverobber;rapid_expansion;When you gain a card using Graverobber, it will be gained on top of your deck and then be set aside if Rapid Expansion is active.
 graverobber;rush;When you gain a card using Graverobber and immediately play it using Rush, you will not be able to topdeck it.
 graverobber;siren;If you gain a Siren and topdeck it using Graverobber, you still need to trash an Action card from your hand in order to not trash the Siren.
 graverobber;townsfolk;If you play a Graverobber using Elder, you first try to gain a card costing $3-$6 from the trash (failing if there is no such card), and then trash an Action from your hand.
 graverobber;villa;If you gain a Villa using Graverobber, it is first topdecked and then you put it into your hand.
+groom;overlord;If you play Groom using Overlord, you can gain a Groom with it (despite Overlord saying 'leaving it there', as this just refers to the card moving into play).
 grotto;way_of_the_chameleon;If you play Grotto using Way of the Chameleon, remember that Way of the Chameleon only affects stuff happening *this turn*, so on your next turn, you will get the normal bonus from Grotto.
+guard_dog;old_witch;If an opponent plays Old Witch and you gain a Curse, you may react with Guard Dogs, and will be able to trash a Curse afterwards, even if you have only then drawn it.
 guard_dog;way_of_the_butterfly;"When you react and play Guard Dog during another player's turn, you can decide to play it as Way of the Butterfly.
 If you play an Attack card and your opponent reacts with a Guard Dog, you may then again choose whether to play the Attack normally, or using Way of the Butterfly."
 guard_dog;way_of_the_camel;"When you react and play Guard Dog during another player's turn, you can decide to play it as Way of the Camel.
@@ -893,7 +977,9 @@ guardian;trappers_lodge;If you gain a Guardian, you can decide whether to topdec
 guardian;travelling_fair;If you gain a Guardian, you can decide whether to topdeck it using Travelling Fair, or gain it to your hand.
 guardian;watchtower;If you gain a Guardian, you can decide whether to topdeck it using Watchtower, or gain it to your hand.
 guardian;way_of_the_seal;If you gain a Guardian, you can decide whether to topdeck it using Way of the Seal, or gain it to your hand.
+guide;inheritance;If you set aside a Guide using Inheritance, your Estates only get the on-play-effect and never move to the Tavern mat.
 guide;overlord;If you play a Guide using Overlord, you don't put anything onto your Tavern mat.
+guide;prince;If you set aside a Guide with Prince and play it at the start of your turn, it will not move to the Tavern mat and just stay set-aside.
 guide;summon;If you buy Summon to set aside a Guide and play it at the start of your next turn, you'll immediately be able to call it then.
 guildmaster;innovation;When you gain a Guildmaster and play it immediately using Innovation, you receive a Favor from its gain.
 guildmaster;rush;When you gain a Guildmaster and play it immediately using Rush, you receive a Favor from its gain.
@@ -922,6 +1008,7 @@ haunted_woods;way_of_the_chameleon;If you play Haunted Woods using Way of the Ch
 herbalist;reckless;If Reckless is on a Treasure and you played a Herbalist on a turn you play said Treasure, you may topdeck it before returning it to its pile, in which case you cannot return it to its pile.
 hermit;launch;When you return to your Action phase using Launch, you are ending your Buy phase, so Hermit can trigger.
 hermit;necromancer;If you play a Hermit from the trash using Necromancer, you cannot exchange the Hermit for a Madman, it will stay in the trash even if you don't gain any cards during your Buy phase.
+hermit;overlord;If you play Hermit using Overlord, you can gain a Hermit with it (despite Overlord saying 'leaving it there', as this just refers to the card moving into play).
 hermit;villa;When you return to your Action phase using Villa, you are ending your Buy phase but gain a card at the same time, so Hermit can't trigger. Hermit can still trigger at the end of a future buy phase.
 highwayman;inspiring;If you play an Inspiring Treasure as your first Treasure while under the Highwayman attack, you can still play a unique Action card with it.
 highwayman;reckless;"If you play a Reckless Treasure while under the Highwayman attack as the first Treasure, it does nothing at all, but is returned to its pile when discarded from play.
@@ -931,6 +1018,7 @@ hireling;mastermind;If you play Hireling at the start of your turn using Masterm
 hireling;piazza;If you play Hireling at the start of your turn using Piazza, you will draw a card immediately.
 hireling;way_of_the_chameleon;If you play Hireling using Way of the Chameleon, remember that Way of the Chameleon only affects stuff happening *this turn*, so on your future turns you will get the normal bonus from Hireling.
 horse;procession;When you play a Horse with Procession, you return it to its pile after its first play, so it doesn't get trashed. Nevertheless, you gain a card costing $1 more than it.
+idol;landing_party;When you play Idol as the first card on your turn with Landing Parties set aside, you first finish resolving Idol before topdecking the Landing Parties.
 improve;innovation;You can play cards you gain via an Improve trash using Innovation during your Clean-up phase. This might lead to weird effects such as Encampment immediately returning to its pile, and Crown being useless.
 improve;trail;Trashing a Trail with Improve's ability will not trigger Trail's on-trash effect because the trashing occurs during Clean-up.
 infirmary;innovation;When you overpay for Infirmary, you choose between the effect of the overpay and Innovation triggering. If you choose Innovation, Infirmary's overpay will be unable to play itself any number of times (because Infirmary already moved). Innovation will also be unable to play Infirmary if you choose the overpay first, for the same reason.
@@ -940,8 +1028,10 @@ inheritance;pathfinding;Even after buying Inheritance, you may not put the + Car
 inheritance;peasant;Even after buying Inheritance, you may not put any token on the Estate pile using Teacher as it's not natively an Action supply pile.
 inheritance;plan;Even after buying Inheritance, you may not put the trashing token on the Estate pile using Plan as it's not an Action supply pile.
 inheritance;populate;If you have bought Inheritance, you still will not gain an Estate from buying Populate since Populate only gains cards from Action Supply piles, and Estate is still just a Victory Supply pile.
+inheritance;ratcatcher;If you set aside a Ratcatcher using Inheritance, your Estates only get the on-play-effect and never move to the Tavern mat.
 inheritance;seaway;After buying Inheritance, you may gain an Estate and put your +Buy token on it using Seaway.
 inheritance;training;Even after buying Inheritance, you may not put the + $1 token on the Estate pile using Training as it's not an Action supply pile.
+inheritance;transmogrify;If you set aside a Transmogrify using Inheritance, your Estates only get the on-play-effect and never move to the Tavern mat.
 inn;patron;If you gain an Inn during your Buy phase and reveal a Patron from your discard, you will not get +1 Coffers since it's not an Action phase.
 innovation;insignia;When you gain a card, you can decide whether to immediately play it using Innovation, or topdeck it using Insignia.
 innovation;invasion;When you gain a card using Invasion and immediately play it using Innovation, you will not be able to topdeck it.
@@ -975,10 +1065,12 @@ invasion;rapid_expansion;If Rapid Expansion is active, both the Action card and 
 invasion;rush;When you gain a card using Invasion and immediately play it using Rush, you will not be able to topdeck it.
 invasion;siren;If you gain a Siren and topdeck it using Invasion, you still need to trash an Action card from your hand in order to not trash the Siren.
 invasion;villa;If you gain a Villa using Invasion, it is first topdecked and then you put it into your hand.
+inventor;overlord;If you play Inventor using Overlord, you can gain a Inventor with it (despite Overlord saying 'leaving it there', as this just refers to the card moving into play).
 invest;knights;You can Invest in Knights, but this will never draw you cards (since your opponent will never gain a copy of them) and they might be stranded in Exile.
 invest;ruins;You can Invest in Ruins, but you will only draw cards if another player gains a copy of the exact Ruins you exiled.
 invest;skirmisher;If you have invested in Skirmisher or another Attack card and your opponent gains one after having played Skirmisher, you first discard down to 3 cards in hand, and then draw due to Invest
 investment;patron;If you play Investment during your Buy phase and reveal a Patron this way, you will not get +1 Coffers since it's not an Action phase.
+ironworks;overlord;If you play Ironworks using Overlord, you can gain a Ironworks with it (despite Overlord saying 'leaving it there', as this just refers to the card moving into play).
 island_folk;journey;Buying Journey on an extra Island Folk turn will not give you an extra turn, but your cards will remain in play until your opponent's Clean-up phase.
 island_folk;outpost;Playing Outpost on an extra Island Folk turn will not give you an extra turn, but you will still only draw 3 cards for your next turn.
 island_folk;seize_the_day;Buying Seize the Day on an extra Island Folk turn will still give you a normal extra turn.
@@ -1002,15 +1094,25 @@ kiln;spell_scroll;When you gain a Kiln and play it immediately using Spell Scrol
 kind_emperor;sheepdog;If you gain a Sheepdog to your hand using Kind Emperor, you can immediately react to its own gain and play it.
 kind_emperor;siren;If you gain a Siren and put it in your hand using Kind Emperor, you still need to trash an Action from your hand in order to not trash the Siren.
 kings_court;outpost;If you play an Outpost using King's Court, you will still only take one extra turn, but the King's Court will stay out with it anyways.
+kings_court;royal_galley;If you play Duration card (such as Royal Galley) multiple times using a King's Court that you set aside using Royal Galley, since the King's Court is not in play, you will only get the Duration's this-turn effect multiple times, whereas you get the next-turn effect only once. If you set aside cards by playing Royal Galley using the King's Court that you've set aside on the first Royal Galley, only the first set-aside card will be played again at the start of the next turn, while the rest will stay set-aside until the end of the game (but still count towards your deck).
 kings_court;urchin;If you play an Urchin multiple times using King's Court, you may not trash this Urchin, since you need to play *another* attack card to be able to trash it.
 kitsune;townsfolk;If you play a Kitsune using Elder, you get to pick up to three of the options (but no single option twice).
 knights;lost_arts;You may put the + Action token on the Knights pile using Lost Arts. This will affect all of its cards.
+knights;necromancer;If you play a Knight using Necromancer, you do not trash it even if you trash an opponent's Knight with it.
+knights;overlord;If you play a Knight using Overlord, you do not trash it even if you trash an opponent's Knight with it.
 knights;pathfinding;You may put the + Card token on the Knights pile using Pathfinding. This will affect all of its cards.
 knights;peasant;You may put any token on the Knights pile using Teacher. This will affect all of its cards.
 knights;plan;You may put the trashing token on the Knights pile using Plan. This will affect all of its cards.
 knights;populate;Buying Populate will gain the top card of the knights pile.
 knights;seaway;You may put the + Buy token on the Knights pile using Seaway. This will affect all of its cards.
 knights;training;You may put the + $1 token on the Knights pile using Training. This will affect all of its cards.
+landing_party;loan;When you play Loan as the first card on your turn with Landing Parties set aside, you first finish resolving Loan before topdecking the Landing Parties.
+landing_party;orb;When you play Orb as the first card on your turn with Landing Parties set aside, you first finish resolving Orb before topdecking the Landing Parties.
+landing_party;sextant;When you play Sextant as the first card on your turn with Landing Parties set aside, you first finish resolving Sextant before topdecking the Landing Parties.
+landing_party;spell_scroll;When you play Spell Scroll as the first card on your turn with Landing Parties set aside, you first finish resolving Spell Scroll before topdecking the Landing Parties.
+landing_party;staff;When you play Staff as the first card on your turn with Landing Parties set aside, you first finish resolving Staff before topdecking the Landing Parties.
+landing_party;supplies;When you play Supplies as the first card on your turn with Landing Parties set aside, you first finish resolving Supplies before topdecking the Landing Parties.
+landing_party;venture;When you play Venture as the first card on your turn with Landing Parties set aside, you first finish resolving Venture before topdecking the Landing Parties.
 launch;merchant_guild;When you return to your Action phase using Launch, you are ending your Buy phase, so Merchant Guild can trigger.
 launch;pageant;When you return to your Action phase using Launch, you are ending your Buy phase, so Pageant can trigger.
 launch;river_shrine;You can only gain cards via River Shrine if you didn't gain any cards in any buy phase during your turn. Therefore, you can only do so if you didn't gain any cards both in the Launch- and after-Launch buy phase.
@@ -1097,7 +1199,9 @@ messenger;tunnel;Playing Messenger with a Tunnel in your deck does not count as 
 messenger;village_green;Playing Messenger with a Village Green in your deck does not count as discarding Village Green, so you do not get to react.
 messenger;weaver;Playing Messenger with a Weaver in your deck does not count as discarding Weaver, so you do not get to react.
 mining_road;progress;When you gain a Treasure while Progress is active, you can choose between playing it directly, or topdecking it (you only get to do one of these).
-mining_village;prince;If you Prince a Mining Village and choose the option to trash itself, you fail to do so and don't get +$2, and the Mining Village stays set aside.
+mining_village;necromancer;If you play Mining Village using Necromancer and try to trash itself, it stays where it was, and you do not get the effect you would have gotten from trashing it.
+mining_village;overlord;If you play Mining Village using Overlord and try to trash itself, it stays where it was, and you do not get the effect you would have gotten from trashing it.
+mining_village;prince;If you have set aside Mining Village with Prince and try to trash itself when you play it, it stays where it was, and you do not get the effect you would have gotten from trashing it.
 miser;townsfolk;If you play a Miser using Elder, you can first put a Copper on your Tavern Mat, and then immediately profit off of it.
 mission;outpost;Playing Outpost on an extra Mission turn will not give you an extra turn, but you will still only draw 3 cards for your next turn.
 mission;seize_the_day;Buying Seize the Day on an extra Mission turn will still give you a normal extra turn.
@@ -1127,8 +1231,14 @@ modify;townsfolk;If you play a Modify using Elder, you first have to decide whet
 monkey;skirmisher;If you have played a Monkey and your opponent gains an Attack after having played Skirmisher, you first discard down to 3 cards in hand, and then draw due to Monkey since the different things happen in turn order.
 monkey;way_of_the_chameleon;If you play Monkey using Way of the Chameleon, remember that Way of the Chameleon only affects stuff happening *this turn*, so on your next turn, you will get the normal bonus from Monkey.
 mountain_shrine;sewers;If you trash an Action card using Sewers in reaction to Mountain Shrine's trashing, said Action will be considered by Mountain Shrine's check for Actions, and you will draw 2 cards even if that's the only Action in the trash.
+necromancer;pillage;If you play Pillage using Necromancer and try to trash itself, it stays where it was, and you do not get the effect you would have gotten from trashing it.
+necromancer;pixie;If you play Pixie using Necromancer and try to trash itself, it stays where it was, and you do not get the effect you would have gotten from trashing it.
+necromancer;raze;If you play Raze using Necromancer and try to trash itself, it stays where it was, and you do not get the effect you would have gotten from trashing it.
 necromancer;rogue;If you use a Necromancer to play a card from the trash (turning it face down), then gain it with Rogue, then trash it again, you may play it again with a subsequent Necromancer as it will be turned face up again.
 necromancer;townsfolk;You don't get to choose more than one card from the trash when playing Necromancer using Elder. Neither do you get an additional option when playing a Choice card from the trash with a Necromancer played in such a way.
+necromancer;tragic_hero;If you play Tragic Hero using Necromancer and try to trash itself, it stays where it was, and *do* get the effect.
+necromancer;treasure_map;If you play Treasure Map using Necromancer and try to trash itself, it stays where it was, and you do not get the effect you would have gotten from trashing it.
+necromancer;urchin;If you have played Urchin using Necromancer, you will not get to trash it later once playing an Attack card. However, if you play Urchin and later play another Attack card using Necromancer, you will still get to trash the Urchin.
 necromancer;wizards;If you use a Necromancer to play a card from the trash (turning it face down), then gain it with Lich, then trash it again, you may play it again with a subsequent Necromancer as it will be turned face up again.
 necropolis;way_of_the_butterfly;Since Necropolis doesn't have a pile, it will always fail to return when played using Way of the Butterfly.
 necropolis;way_of_the_horse;Since Necropolis doesn't have a pile, it will always fail to return when played using Way of the Horse, remaining in deck after providing +2 Cards and +1 Action.
@@ -1154,6 +1264,7 @@ odysseys;training;You may put the + $1 token on the Odysseys pile using Training
 odysseys;village_green;Playing Village Green via its on-discard effect does not count as playing it from hand as far as Voyage turns are concerned.
 odysseys;weaver;Playing Weaver via its on-discard effect does not count as playing it from hand as far as Voyage turns are concerned.
 odysseys;wizards;If you play Lich and then play Voyage, the Voyage turn is skipped, and your next turn proceeds as normal. If, however, you play Lich during an extra turn, even if you play Voyage then, your next normal turn will still be skipped.
+old_witch;sheepdog;If an opponent plays Old Witch and you gain a Curse, you may react with Sheepdogs, and will be able to trash a Curse afterwards, even if you have only then drawn it.
 orb;panic;When you discard Orb from play while Panic is active, you return it to the top of the Loot pile. When discarding multiple, you get to choose the order.
 order_of_masons;trail;Putting cards into your discard pile via Order of Masons with a Trail in your deck does not count as discarding Trail, so you do not get to react.
 order_of_masons;tunnel;Putting cards into your discard pile via Order of Masons with a Tunnel in your deck does not count as discarding Tunnel, so you do not get to react.
@@ -1167,10 +1278,21 @@ Playing Outpost on an extra Seize the Day turn will not give you an extra turn, 
 outpost;specialist;If you play an Outpost using Specialist, you will still only take one extra turn, but the Specialist will stay out with it anyways.
 outpost;throne_room;If you play an Outpost using Throne Room, you will still only take one extra turn, but the Throne Room will stay out with it anyways.
 outpost;wizards;If you play Lich and then play Outpost, the Outpost turn is skipped, but you only draw 3 cards for your next turn. If, however, you play Lich during an extra turn, even if you play Outpost then, your next normal turn will still be skipped.
+overlord;pillage;If you play Pillage using Overlord and try to trash itself, it stays where it was, and you do not get the effect you would have gotten from trashing it.
+overlord;pixie;If you play Pixie using Overlord and try to trash itself, it stays where it was, and you do not get the effect you would have gotten from trashing it.
 overlord;ratcatcher;If you play a Ratcatcher using Overlord, you don't put anything onto your Tavern mat.
+overlord;raze;If you play Raze using Overlord and try to trash itself, it stays where it was, and you do not get the effect you would have gotten from trashing it.
+overlord;remake;If you play Remake using Overlord, trashing an appropriate card from your hand, you can gain another Remake with it (despite Overlord saying 'leaving it there', as this just refers to the card moving into play).
+overlord;remodel;If you play Remodel using Overlord, trashing an appropriate card from your hand, you can gain another Remodel with it (despite Overlord saying 'leaving it there', as this just refers to the card moving into play).
+overlord;replace;If you play Replace using Overlord, trashing an appropriate card from your hand, you can gain another Replace with it (despite Overlord saying 'leaving it there', as this just refers to the card moving into play).
 overlord;royal_carriage;If you play a Royal Carriage using Overlord, you don't put anything onto your Tavern mat.
+overlord;tragic_hero;If you play Tragic Hero using Overlord and try to trash itself, it stays where it was, and *do* get the effect.
 overlord;transmogrify;If you play a Transmogrify using Overlord, you don't put anything onto your Tavern mat.
+overlord;treasure_map;If you play Treasure Map using Overlord and try to trash itself, it stays where it was, and you do not get the effect you would have gotten from trashing it.
+overlord;upgrade;If you play Upgrade using Overlord, trashing an appropriate card from your hand, you can gain another Upgrade with it (despite Overlord saying 'leaving it there', as this just refers to the card moving into play).
+overlord;urchin;If you have played Urchin using Overlord, you will not get to trash it later once playing an Attack card. However, if you play Urchin and later play another Attack card using Overlord, you will still get to trash the Urchin.
 overlord;wine_merchant;If you play a Wine Merchant using Overlord, you don't put anything onto your Tavern mat.
+overlord;workshop;If you play Workshop using Overlord, you can gain a Workshop with it (despite Overlord saying 'leaving it there', as this just refers to the card moving into play).
 page;pathfinding;Putting the + Card token on the Page pile using Pathfinding will affect only Page, not any card you exchange it for.
 page;plan;Putting the trashing token on the Page pile using Plan will affect only Page, not any card you exchange it for.
 page;seaway;Putting the + Buy token on the Page pile using Seaway will affect only Page, not any card you exchange it for.
@@ -1241,6 +1363,7 @@ pirate;way_of_the_squirrel;When you react and play Pirate during another player'
 pirate;way_of_the_turtle;When you react and play Pirate during another player's turn, you can decide to play it as Way of the Turtle.
 pirate;way_of_the_worm;When you react and play Pirate during another player's turn, you can decide to play it as Way of the Worm.
 pirate_ship;townsfolk;If you play a Pirate Ship using Elder, you first get +$, and then possibly trash other players' treasures.
+pixie;prince;If you have set aside Pixie with Prince and try to trash itself when you play it, it stays where it was, and you do not get the effect you would have gotten from trashing it.
 plan;ruins;You may put the trashing token on the Ruins pile using Plan. This will affect all of its cards.
 plan;sauna/avanto;You may put the trashing token on the Sauna/Avanto pile using Plan. This will affect all of its cards.
 plan;settlers/bustling_village;You may put the trashing token on the Settlers/Bustling Village pile using Plan. This will affect all of its cards.
@@ -1251,10 +1374,14 @@ populate;ruins;Buying Populate will gain the Ruins card currently on top since t
 possession;stonemason;You may overpay with Potions when buying Stonemason to gain two Possessions.
 practice;urchin;If you play an Urchin multiple times using Practice, you may not trash this Urchin, since you need to play *another* attack card to be able to trash it.
 priest;sewers;If you trash a card with Sewers in reaction to Priest's trash, Sewers does not give you the extra $2 from Priest's ability. This is because Sewers triggers after Priest's 'Trash a card from your hand' which is before 'For the rest of this turn, when you trash a card, + $2.'
-priest;way_of_the_chameleon;If you play Priest using Way of the Chameleon, you will draw 2 cards, then trash a card from your hand, and then get +2 Card for each subsequent trash this turn.
-prince;raze;If you Prince a Raze and choose the option to trash itself, you fail to do so and don't get to look at any other cards, and the Raze stays set aside.
+priest;way_of_the_chameleon;If you play Priest using Way of the Chameleon, you will draw 2 cards, then trash a card from your hand, and then get +2 Cards for each subsequent trash this turn.
+prince;ratcatcher;If you set aside a Ratcatcher with Prince and play it at the start of your turn, it will not move to the Tavern mat and just stay set-aside.
+prince;raze;If you have set aside Raze with Prince and try to trash itself when you play it, it stays where it was, and you do not get the effect you would have gotten from trashing it.
 prince;reckless;If you set aside a Reckless Action card with Prince, you never discard it from play, so you never have to return it to its pile.
-prince;throne_room;If you set aside a Throne Room with Prince, if you play another Duration card (such as Prince) with it at the start of on of your turns, the Duration card will be played twice, and you'll still get to play a card twice from the original Throne Room at the start of each of your future turns.
+prince;throne_room;"If you set aside a Throne Room with Prince, if you play another Duration card (such as Prince) with it at the start of one of your turns, the Duration card will be played twice, but since the initial Princed Throne room is not in play, its Duration effects will only apply once; If you double play e.g. a second Prince, you get to set aside two cards, but only the first one will be played again at the start of each of your turns, whil the second one will be stranded."
+prince;tragic_hero;If you have set aside Tragic Hero with Prince and try to trash itself when you play it, it stays where it was, and you *do* get the effect.
+prince;transmogrify;If you set aside a Transmogrify with Prince and play it at the start of your turn, it will not move to the Tavern mat and just stay set-aside.
+prince;treasure_map;If you have set aside Treasure Map with Prince and try to trash itself when you play it, it stays where it was, and you do not get the effect you would have gotten from trashing it.
 prince;way_of_the_butterfly;If you play the Princed Action using Way of the Butterfly, it fails to return to its pile, and nothing will happen.
 prince;way_of_the_horse;If you play the Princed Action using Way of the Horse, it stays set aside.
 procession;urchin;If you play an Urchin multiple times using Procession, you may not trash this Urchin, since you need to play *another* attack card to be able to trash it.
@@ -1314,10 +1441,13 @@ relic;way_of_the_owl;If you have your -1 Card Token on your deck when drawing wi
 river_shrine;trail;Gaining a Trail with River Shrine's ability will not trigger Trail's on-gain effect because the gaining occurs during Clean-up.
 river_shrine;villa;You can only gain cards via River Shrine if you didn't gain any cards in any buy phase during your turn. Therefore, you can never do so after buying Villa, even if you don't gain cards in your last buy phase.
 riverboat;way_of_the_butterfly;If you play the Riverboat card (not Riverboat itself) using Way of the Butterfly, it fails to return to its pile, and nothing will happen.
-riverboat;way_of_the_chameleon;If you play Riverboat using Way of the Chameleon, remember that Way of the Chameleon only affects stuff happening *this turn*, so on your next turn, you will get the normal bonus from Riverboat.
+riverboat;way_of_the_chameleon;"If you play Riverboat using Way of the Chameleon, remember that Way of the Chameleon only affects stuff happening *this turn*, so on your next turn, you will get the normal bonus from Riverboat.
+However, you get to choose whether to play the Riverboat card itself as Way of the Chameleon or normally when you play it on your next turn."
 riverboat;way_of_the_horse;If you play the Riverboat card (not Riverboat itself) using Way of the Horse, it stays set aside.
 royal_carriage;summon;If you buy Summon to set aside a Royal Carriage (e.g. by having Cost Reduction) and play it at the start of your next turn, you'll immediately be able to call it then.
 royal_carriage;urchin;If you play an Urchin multiple times using Royal Carriage, you may not trash this Urchin, since you need to play *another* attack card to be able to trash it.
+royal_galley;specialist;If you play Duration card (such as Royal Galley) multiple times using a Specialist that you set aside using Royal Galley, since the Specialist is not in play, you will only get the Duration's this-turn effect multiple times, whereas you get the next-turn effect only once. If you set aside cards by playing Royal Galley using the Specialist that you've set aside on the first Royal Galley, only the first set-aside card will be played again at the start of the next turn, while the rest will stay set-aside until the end of the game (but still count towards your deck).
+royal_galley;throne_room;If you play Duration card (such as Royal Galley) multiple times using a Throne Room that you set aside using Royal Galley, since the Throne Room is not in play, you will only get the Duration's this-turn effect multiple times, whereas you get the next-turn effect only once. If you set aside cards by playing Royal Galley using the Throne Room that you've set aside on the first Royal Galley, only the first set-aside card will be played again at the start of the next turn, while the rest will stay set-aside until the end of the game (but still count towards your deck).
 royal_seal;rush;When you gain a card, you can decide whether to immediately play it using Rush, or topdeck it using Royal Seal.
 royal_seal;siren;If you gain a Siren and topdeck it using Royal Seal, you don't need to trash an Action card in order for it to stay in your deck.
 royal_seal;villa;If you gain a Villa, you can decide whether to topdeck it using Royal Seal, or gain it to your hand. In any case, you will receive +1 Action and return to your Action phase if you're in your buy phase.
