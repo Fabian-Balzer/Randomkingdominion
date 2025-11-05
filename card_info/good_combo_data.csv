@@ -78,6 +78,7 @@ biding_time;shepherd;Very nice to set up lots of Shepherd draw. Might very well 
 biding_time;tactician;Since you discard your whole hand with Tactician, you won't be able to benefit from Biding Time on that turn, making Tactician decks less viable.;Nombo;;
 biding_time;tea_house;Having three Tea Houses and a Silver quickly becomes a golden Deck that can Province each turn, even immune to most discard attacks. Can sometimes be a bit clunky to set up.;Combo;Fabi: Showcase video;https://youtu.be/A4J_Uz1Sjtg
 black_cat;guardian;Due to the timing of Guardian, you will not be protected from your opponent Cursing you with Black Cats during your turn.;Nombo;;
+black_cat;harsh_winter;With Harsh Winter active, getting off multiple Black Cat plays during your opponent's turn will give them Debt on top of the Curses, disincentivizing greening even more.;Counter;;
 black_cat;lighthouse;With a Lighthouse played this turn (!), you can avoid being Cursed by your opponent's Black Cats when greening. They'll still draw the cards for free though.;Counter;;
 black_cat;moat;With a Moat in hand, you can avoid being Cursed by your opponent's Black Cats when greening. They'll still draw the cards for free though.;Counter;;
 black_cat;rebuild;The presence of Black Cats should disincentivize going for a Rebuild strategy, as you will inevitably gain green cards.;Counter;;
@@ -145,6 +146,7 @@ chariot_race;forum;With Forum, you can sometimes neatly set up the targets for C
 charlatan;enlightenment;Once Enlightenment is active, you get to cantrip Curses and they become an Action-Treasure-Curse card, which also might have its merits.;Counter;;
 charlatan;panic;Once Panic is active, you get to return Curses to their pile by playing them.;Counter;;
 charlatan;pirate;In games where it's likely that players are going for Cursing, Pirate is more likely to be activated regularly.;Weak Synergy;;
+charm;prince;On some boards, it might be a viable strategy to build for $8 and a bunch of Charms, then buy a Prince while gaining Provinces alongside.;Combo;;
 church;crossroads;Allows for nice start-of-turn Crossroads draw if you manage to set aside two Estates and a Crossroads each turn.;Synergy;;
 city-state;guildmaster;Strong synergy, especially with gainers. It allows to play each Action on gain if you manage to get two Guildmasters played.;Combo;;
 city-state;siren;If you gain a Siren and use City-State to play it, it no longer requires you to trash an Action card from your hand in order to not trash the Siren.;Weak Synergy;;
@@ -357,6 +359,7 @@ harsh_winter;hostelry;Since Harsh Winter puts debt on any pile (including Horses
 harsh_winter;livery;Since Harsh Winter puts debt on any pile (including Horses), gaining a bunch of Horses with Livery is usually pretty punishing.;Nombo;;
 harsh_winter;paddock;Since Harsh Winter puts debt on any pile (including Horses), gaining a bunch of Horses with Paddock is usually pretty punishing.;Nombo;;
 harsh_winter;scrap;Since Harsh Winter puts debt on any pile (including Horses), gaining a bunch of Horses with Scrap is usually pretty punishing.;Nombo;;
+harsh_winter;shaman;One of the worst experiences Dominion might have to offer - You might accumulate loads of Debt, and it might be a move to buy Coppers just to get your opponent in Debt...;Counter;;
 harsh_winter;sleigh;Since Harsh Winter puts debt on any pile (including Horses), gaining a bunch of Horses with Sleigh is usually pretty punishing.;Nombo;;
 harsh_winter;stampede;Since Harsh Winter puts debt on any pile (including Horses), gaining a bunch of Horses with Stampede is usually pretty punishing.;Nombo;;
 harsh_winter;supplies;Since Harsh Winter puts debt on any pile (including Horses), gaining a bunch of Horses with Supplies is usually pretty punishing.;Nombo;;
@@ -442,6 +445,7 @@ marquis;scepter;Can be a deck by itself, although it requires some setup and goo
 masquerade;possession;With Possession, when playing Masquerade from your opponent's perspective, you can decide which card they pass you, so sometimes it's best to not have Masq in your own deck.;Synergy;;
 menagerie;patron;Revealing your hand with a Patron in it generates Coffers. If you happen to have multiple Patrons in an otherwise unique hand, you can easily choose to play all but one to activate Menagerie draw.;Synergy;;
 merchant_camp;reckless;[Only if Merchant Camp is Reckless] You may topdeck your Merchant Camps during Clean-up, essentially making it a self-topdecking +4 Actions, +$2.;Synergy;;
+merchant_camp;way_of_the_owl;With two or more Merchant Camps topdecked every turn, you can essentially start every turn with an extra card of draw and 1 extra coin for every Merchant Camp you have - 1. You even get to topdeck the Merchant Camp you owled.;Synergy;;
 merchant_guild;panic;You can easily buy a load of Coppers to get a load of Coffers with Panic active.;Weak Synergy;;
 merchant_guild;supplies;Since Supplies gains you Horses in your buy phase, playing Merchant Guild before that can generate a few Coffers.;Weak Synergy;Fabi: Daily playthrough;https://www.youtube.com/watch?v=xZP3lNLCXN0
 mirror;mountain_shrine;With Mirror, you can gain additional Mountain Shrines for $3 each.;Weak Synergy;;

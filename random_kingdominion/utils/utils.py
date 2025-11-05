@@ -15,6 +15,11 @@ from ..constants import (
 from .kingdom_helper_funcs import sanitize_cso_list
 
 
+def get_modification_timestamp(fpath: Path) -> int:
+    """Returns the modification timestamp of the given file path."""
+    return fpath.stat().st_mtime_ns
+
+
 def filter_combo_or_inter_df_for_csos(
     df: pd.DataFrame,
     csos: Collection[str],

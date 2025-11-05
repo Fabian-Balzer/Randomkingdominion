@@ -8,10 +8,13 @@ from ..constants import (
     ALL_COMBOS,
     ALL_INTERACTIONS,
     EXPANSION_LIST,
+    FPATH_CARD_DATA,
+    PATH_CARD_INFO,
     RENEWED_EXPANSIONS,
     VALID_COMBO_TYPES,
+    load_combo_or_inter_df,
 )
-from ..utils import get_expansion_icon_path
+from ..utils import get_expansion_icon_path, get_modification_timestamp
 
 
 def _get_combo_color_dict() -> dict[str, str]:
@@ -80,26 +83,41 @@ def _prepare_combo_inter_df(df: pd.DataFrame) -> pd.DataFrame:
 
 
 @st.cache_data
-def get_cached_inter_df() -> pd.DataFrame:
+def _load_cached_inter_df(mod_time: int) -> pd.DataFrame:
     """Loads the available interactions and adds some
     streamlit-relevant columns to them."""
-    df = ALL_INTERACTIONS.copy()
-    x = 10 + 3
+    _ = mod_time + 1  # Dummy calculation to trigger cache invalidation
+    df = load_combo_or_inter_df("interaction")
     return _prepare_combo_inter_df(df)
 
 
+def get_cached_inter_df() -> pd.DataFrame:
+    """Get the streamlit-cached interaction dataframe."""
+    fpath = PATH_CARD_INFO.joinpath("good_interaction_data.csv")
+    mod_time = get_modification_timestamp(fpath)
+    return _load_cached_inter_df(mod_time)
+
+
 @st.cache_data
-def get_cached_combo_df() -> pd.DataFrame:
-    """Loads the available interactions and adds some
+def _load_cached_combo_df(mod_time: int) -> pd.DataFrame:
+    """Loads the available combos and adds some
     streamlit-relevant columns to them."""
-    df = ALL_COMBOS.copy()
+    _ = mod_time + 1  # Dummy calculation to trigger cache invalidation
+    df = load_combo_or_inter_df("combo")
     df["YTLink"] = df["YTLink"].fillna("")
     df["YTComment"] = df["YTComment"].fillna("")
     return _prepare_combo_inter_df(df).sort_values(by=["CSO1", "CSO2"])
 
 
+def get_cached_combo_df() -> pd.DataFrame:
+    """Get the streamlit-cached combo dataframe."""
+    mod_time = get_modification_timestamp(FPATH_CARD_DATA)
+    return _load_cached_combo_df(mod_time)
+
+
 @st.cache_data
-def _load_csos():
+def _load_cached_csos(mod_time: int) -> pd.DataFrame:
+    _ = mod_time + 1  # Dummy calculation to trigger cache invalidation
     from random_kingdominion import ALL_CSOS
 
     df = ALL_CSOS.copy()
@@ -120,7 +138,14 @@ def _load_csos():
     return df
 
 
-ALL_CACHED_CSOS = _load_csos()
+def get_cached_csos() -> pd.DataFrame:
+    """Get the streamlit-cached CSO dataframe."""
+    fpath = PATH_CARD_INFO.joinpath("good_combo_data.csv")
+    mod_time = get_modification_timestamp(fpath)
+    return _load_cached_csos(mod_time)
+
+
+ALL_CACHED_CSOS = get_cached_csos()
 
 
 ST_ICONS = {

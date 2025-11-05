@@ -8,17 +8,21 @@ from .download_yt_info import load_yt_info
 from .process_titles import PROCESSOR_DICT
 
 
-def perform_full_yt_processing(download: bool = True) -> None:
+def perform_full_yt_processing(
+    overwrite: bool = False, verbose: bool = False, download: bool = True
+) -> None:
     """Perform the full processing pipeline for all playlists."""
     idx_dicts = {}
     for playlist_key, playlist_entry in PLAYLIST_DICT.items():
-        LOGGER.info(f"Processing playlist: {playlist_key}")
+        if verbose:
+            LOGGER.info(f"Processing playlist: {playlist_key}")
         if download:
             load_yt_info(playlist_entry)
         processor = PROCESSOR_DICT.get(playlist_key)
         creator_name = playlist_entry["name"]
         if processor:
-            LOGGER.info(f"Applying processor for {playlist_key}")
+            if verbose:
+                LOGGER.info(f"Applying processor for {playlist_key}")
             idx_dicts[creator_name] = processor()
         else:
             LOGGER.warning(
@@ -29,4 +33,9 @@ def perform_full_yt_processing(download: bool = True) -> None:
     # Insert name column
     yt_id_df.insert(0, "name", yt_id_df.index)
     fpath = PATH_ASSETS / "other" / "yt_dailies_ids.csv"
-    write_dataframe_to_file(yt_id_df.sort_values("name", ascending=False), fpath)
+    write_dataframe_to_file(
+        yt_id_df.sort_values("name", ascending=False),
+        fpath,
+        overwrite=overwrite,
+        verbose=verbose,
+    )

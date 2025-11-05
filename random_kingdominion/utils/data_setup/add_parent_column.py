@@ -1,6 +1,6 @@
 import pandas as pd
 
-from ...constants import ROTATOR_DICT, SPLITPILE_DICT
+from ...constants import ROTATOR_DICT, SPLITPILE_DICT, HEIRLOOM_DICT
 
 
 def _get_single_parent(card_name: str, card_types: list[str]) -> str:
@@ -16,16 +16,7 @@ def _get_single_parent(card_name: str, card_types: list[str]) -> str:
         return "Castles"
     if "Ruins" in card_types:
         return "Ruins"
-    heirloom_dict = {
-        "Haunted Mirror": "Cemetery",
-        "Pouch": "Tracker",
-        "Magic Lamp": "Secret Cave",
-        "Goat": "Pixie",
-        "Pasture": "Shepherd",
-        "Cursed Gold": "Pooka",
-        "Lucky Coin": "Fool",
-    }
-    for heirloom, parent in heirloom_dict.items():
+    for heirloom, parent in HEIRLOOM_DICT.items():
         if card_name == heirloom:
             return parent
     return ""

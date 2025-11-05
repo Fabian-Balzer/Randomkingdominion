@@ -1,3 +1,7 @@
+
+- 1.4.2 (2025-11-05):
+  - Modified streamlit caching functions such that I won't have to manually clear cache (i.e., reboot the whole site) when updating data.
+  - Added more interactions, combos and a few Dailies.
 - 1.4.1 (2025-11-02):
   - Interactions now only consider the parent pile. Filtering for parts of split piles (e.g. Elder) will now show all interactions of the parent pile.
   - When entering unknown CSOs in the interactions and combos filter, the warning will now suggest close CSO names.

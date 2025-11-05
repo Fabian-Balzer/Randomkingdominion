@@ -61,6 +61,14 @@ def _add_on_gain_play_galleria_interaction(on_gain_play_cso: str, df: pd.DataFra
     add_interaction("Galleria", on_gain_play_cso, rule, df)
 
 
+def _add_on_gain_play_inventor_interactions(on_gain_play_cso: str, df: pd.DataFrame):
+    if on_gain_play_cso == "Gondola":
+        rule = f"When you gain a Gondola with an Inventor and use its on-gain ability to play an Inventor from your hand, since the first Inventor is not resolved, its cost-reduction does not apply then."
+    else:
+        rule = f"When you play an Inventor to gain and play another Inventor immediately using {on_gain_play_cso}, the cost of the cards will not yet be reduced as the first Inventor's 'gain a card costing up to $4' effect has not been resolved."
+    add_interaction("Inventor", on_gain_play_cso, rule, df)
+
+
 def _add_on_gain_play_haggler_interaction(on_gain_play_cso: str, df: pd.DataFrame):
     if on_gain_play_cso == "Gondola":
         rule = f"When you buy and gain a Gondola and play a Haggler from your hand, you will gain a card costing less than the Gondola."
@@ -200,11 +208,11 @@ def _add_on_gain_topdeck_siren_interaction(
     topdeck_cso: str, df: pd.DataFrame, choice=False, force=False
 ):
     if choice:
-        rule = f"If you gain a Siren and topdeck it using {topdeck_cso}, you don't need to trash an Action card in order for it to stay in your deck."
+        rule = f"If you gain a Siren and choose to topdeck it using {topdeck_cso}, you don't need to trash an Action card in order for it to stay in your deck."
     elif force:
         rule = f"If you gain a Siren and topdeck it using {topdeck_cso}, you don't need to trash an Action card in order for the Siren to stay in your deck."
     else:
-        rule = f"If you gain a Siren and topdeck it using {topdeck_cso}, you still need to trash an Action card from your hand in order to not trash the Siren."
+        rule = f"If you gain a Siren onto your deck using {topdeck_cso}, you still need to trash an Action card from your hand in order to not trash the Siren."
     add_interaction("Siren", topdeck_cso, rule, df)
 
 
@@ -250,6 +258,13 @@ def _add_on_gain_set_aside_siren_interaction(set_aside_cso: str, df: pd.DataFram
     add_interaction("Siren", set_aside_cso, rule, df)
 
 
+def _add_on_gain_set_aside_gatekeeper_interaction(set_aside_cso: str, df: pd.DataFrame):
+    rule = f"If you are under the Gatekeeper attack and gain an Action or Treasure you don't have a copy of in Exile and set it aside using {set_aside_cso}, you still need to Exile it."
+    if set_aside_cso in ["Rapid Expansion", "Hasty"]:
+        rule = f"If you are under the Gatekeeper attack and gain an Action or Treasure you don't have a copy of in Exile and set it aside using {set_aside_cso} first, you do not Exile it."
+    add_interaction("Gatekeeper", set_aside_cso, rule, df)
+
+
 ##########################################################################################################
 ### On-Gain-to-Hand interactions
 def _add_on_gain_hand_siren_interaction(hand_cso: str, df: pd.DataFrame):
@@ -260,7 +275,9 @@ def _add_on_gain_hand_siren_interaction(hand_cso: str, df: pd.DataFrame):
 
 
 def _add_on_gain_hand_gatekeeper_interaction(hand_cso: str, df: pd.DataFrame):
-    rule = f"If you gain a card and put it in your hand using {hand_cso} while under the Gatekeeper attack, you still need to Exile it if you don't have a copy of it in Exile."
+    rule = f"If you gain an Action or Treasure and put it in your hand using {hand_cso} while under the Gatekeeper attack, you still need to Exile it if you don't have a copy of it in Exile unless you somehow manage to play it during the on-gain-window (e.g. via City-State, or if it has a reaction that plays it, like Sheepdog or Berserker)."
+    if hand_cso == "Falconer":
+        rule += " Note that if you gain a Falconer to your hand somehow while under the Gatekeeper attack (e.g. via Artisan), reacting and playing it means that you do not have to Exile it."
     add_interaction("Gatekeeper", hand_cso, rule, df, add_together_if_present=True)
 
 
@@ -269,6 +286,25 @@ def _add_on_gain_hand_sheepdog_interaction(hand_cso: str, df: pd.DataFrame):
         return
     rule = f"If you gain a Sheepdog to your hand using {hand_cso}, you can immediately react to its own gain and play it."
     add_interaction("Sheepdog", hand_cso, rule, df, add_together_if_present=True)
+
+
+def _add_on_gain_topdeck_gatekeeper_interaction(
+    topdeck_cso: str, df: pd.DataFrame, choice=False
+):
+    rule = f"If you gain a card that you do not have a copy of in Exile and topdeck it first using {topdeck_cso} while under the Gatekeeper attack, you do not need to put it into Exile."
+    if topdeck_cso == "Sleigh":
+        rule = f"If you gain an Action or Treasure that you do not have a copy of in Exile while under the Gatekeeper attack, you can choose to first react with Sleigh to topdeck or put it into your hand, in which case you do not put it into Exile."
+    elif topdeck_cso == "Watchtower":
+        rule = f"If you gain an Action or Treasure that you do not have a copy of in Exile while under the Gatekeeper attack, you can choose to first react with Watchtower to topdeck or trash it, in which case you do not put it into Exile."
+    elif choice:
+        rule = f"If you gain an Action or Treasure that you do not have a copy of in Exile while under the Gatekeeper attack, you can choose to first topdeck it using {topdeck_cso}, in which case you do not put it into Exile."
+    elif topdeck_cso == "Invasion":
+        rule = f"If you are under the Gatekeeper attack and buy Invasion, both the Action card and the Loot you gain are Exiled (instead of topdecked and played) unless you have a copy of it in Exile."
+    elif topdeck_cso == "Progress":
+        rule = f"When you gain an Action or Treasure of which you do not have a copy in Exile while Progress is active and you are under the Gatekeeper attack, you may decide whether to topdeck or Exile it."
+    else:
+        rule = f"When you gain an Action or Treasure using {topdeck_cso} while under the Gatekeeper attack, it will be gained on top of your deck and then Exiled if you do not have a copy of it in Exile."
+    add_interaction("Gatekeeper", topdeck_cso, rule, df)
 
 
 def _add_on_gain_topdeck_rapid_expansion_interaction(
@@ -493,6 +529,7 @@ def add_all_on_gain_interactions(df: pd.DataFrame, verbose=False):
         _add_on_gain_play_gatekeeper_interaction(on_play_cso, df)
         _add_on_gain_play_guildmaster_interaction(on_play_cso, df)
         _add_on_gain_play_haggler_interaction(on_play_cso, df)
+        _add_on_gain_play_inventor_interactions(on_play_cso, df)
         _add_on_gain_play_kiln_interaction(on_play_cso, df)
         _add_on_gain_play_livery_interaction(on_play_cso, df)
         _add_on_gain_play_search_interaction(on_play_cso, df)
@@ -529,13 +566,16 @@ def add_all_on_gain_interactions(df: pd.DataFrame, verbose=False):
         _add_on_gain_topdeck_siren_interaction(topdeck_cso, df, choice=True)
         _add_on_gain_topdeck_villa_interaction(topdeck_cso, df, choice=True)
         _add_on_gain_topdeck_rapid_expansion_interaction(topdeck_cso, df, choice=True)
+        _add_on_gain_topdeck_gatekeeper_interaction(topdeck_cso, df, choice=True)
     for topdeck_cso in WILL_TOPDECK_ON_GAIN:
         _add_on_gain_topdeck_siren_interaction(topdeck_cso, df)
         _add_on_gain_topdeck_villa_interaction(topdeck_cso, df)
         _add_on_gain_topdeck_rapid_expansion_interaction(topdeck_cso, df)
+        _add_on_gain_topdeck_gatekeeper_interaction(topdeck_cso, df)
     for topdeck_cso in MUST_TOPDECK_ON_GAIN:
         _add_on_gain_topdeck_siren_interaction(topdeck_cso, df, force=True)
         _add_on_gain_topdeck_villa_interaction(topdeck_cso, df)
+        _add_on_gain_topdeck_gatekeeper_interaction(topdeck_cso, df)
     for night_to_hand_gain in GAINS_SELF_TO_HAND_CARDS:
         if night_to_hand_gain == "Villa":
             continue
@@ -551,6 +591,7 @@ def add_all_on_gain_interactions(df: pd.DataFrame, verbose=False):
 
     for set_aside_cso in GAINS_TO_SET_ASIDE:
         _add_on_gain_set_aside_siren_interaction(set_aside_cso, df)
+        _add_on_gain_set_aside_gatekeeper_interaction(set_aside_cso, df)
     for hand_cso in GAINS_TO_HAND:
         _add_on_gain_hand_siren_interaction(hand_cso, df)
         _add_on_gain_hand_gatekeeper_interaction(hand_cso, df)

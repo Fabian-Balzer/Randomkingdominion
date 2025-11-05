@@ -32,12 +32,17 @@ sys.path.append("..")
 import argparse
 
 import random_kingdominion as rk
-from random_kingdominion.utils.data_setup import (add_additional_entries,
-                                                  add_additional_info_columns,
-                                                  download_wiki_data,
-                                                  write_image_database)
+from random_kingdominion.utils.data_setup import (
+    add_additional_entries,
+    add_additional_info_columns,
+    download_wiki_data,
+    perform_full_yt_processing,
+    write_image_database,
+)
 from random_kingdominion.utils.interaction_setup import (
-    write_combo_database, write_interaction_database)
+    write_combo_database,
+    write_interaction_database,
+)
 
 
 def parse_args():
@@ -78,6 +83,13 @@ def parse_args():
         help="If set, rewrite the combos file.",
     )
     parser.add_argument(
+        "--youtube",
+        "-y",
+        action="store_true",
+        default=False,
+        help="If set, rewrite the youtube link file.",
+    )
+    parser.add_argument(
         "--verbose",
         "-v",
         action="store_true",
@@ -92,8 +104,16 @@ def main():
     Asks the user if they want to download the data from the wiki, and whether they want to write the image database.
     """
     args = parse_args()
-    if not (args.download or args.main_db or args.interactions or args.combos):
-        print("No action specified. Use --download, --main_db, --interactions, or --combos, or -d, -m, -i, -c flags to run any mode.")
+    if not (
+        args.download
+        or args.main_db
+        or args.interactions
+        or args.combos
+        or args.youtube
+    ):
+        rk.LOGGER.warning(
+            "No action specified. Use --download, --main_db, --youtube, --interactions, or --combos, or -d, -m, -i, -c flags to run any mode."
+        )
         return
     overwrite, verbose = args.overwrite, args.verbose
     if args.download:
@@ -113,6 +133,8 @@ def main():
         write_interaction_database(overwrite=overwrite, verbose=verbose)
     if args.combos:
         write_combo_database(overwrite=overwrite, verbose=verbose)
+    if args.youtube:
+        perform_full_yt_processing(overwrite=overwrite, verbose=verbose, download=True)
     # return df
 
 

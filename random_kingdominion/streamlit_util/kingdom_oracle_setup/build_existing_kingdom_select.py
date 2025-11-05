@@ -8,7 +8,7 @@ from .constants import (
     OracleSelectionType,
     get_selection_description,
 )
-from .data_preparation import load_existing_kingdoms
+from .data_preparation import get_existing_kingdoms
 from .existing_kingdom_filtering import st_build_existing_kingdom_filter_widget
 
 
@@ -97,7 +97,7 @@ def _st_build_single_existing_kingdom_select(
     """Build a way for the user to select one of the given existing kingdoms
     provided via the dataframe.
     """
-    df = load_existing_kingdoms(selection_type)
+    df = get_existing_kingdoms(selection_type)
     df = st_build_existing_kingdom_filter_widget(df, selection_type)
 
     if len(df) == 0:

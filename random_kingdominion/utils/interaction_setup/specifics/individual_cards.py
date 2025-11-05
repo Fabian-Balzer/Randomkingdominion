@@ -474,22 +474,7 @@ def _add_all_reserve_interactions(df: pd.DataFrame):
 def _add_all_royal_galley_interactions(df: pd.DataFrame):
     thrones = "Throne Room|King's Court|Coronet|Disciple|Crown|Specialist|Daimyo"
     rg_thrones = f"Royal Galley/{thrones}---If you play Duration card (such as Royal Galley) multiple times using a {{card_b}} that you set aside using Royal Galley, since the {{card_b}} is not in play, you will only get the Duration's this-turn effect multiple times, whereas you get the next-turn effect only once. If you set aside cards by playing Royal Galley using the {{card_b}} that you've set aside on the first Royal Galley, only the first set-aside card will be played again at the start of the next turn, while the rest will stay set-aside until the end of the game (but still count towards your deck)."
-    add_multiple_interactions_from_single(rg_thrones, df)
-
-
-def _add_all_prince_interactions(df: pd.DataFrame):
-    add_interaction(
-        "Prince",
-        "Encampment",
-        "If you set aside an Encampment with Prince, it will fail to set itself aside when you play it and don't reveal Gold or Plunder, so Prince replays it at the start of each turn successfully.",
-        df,
-    )
-    add_interaction(
-        "Prince",
-        "Throne Room",
-        "If you set aside a Throne Room with Prince, if you play another Duration card (such as Prince) with it at the start of one of your turns, the Duration card will be played twice, but since the initial Princed Throne room is not in play, its Duration effects will only apply once; If you double play e.g. a second Prince, you get to set aside two cards, but only the first one will be played again at the start of each of your turns, whil the second one will be stranded.",
-        df,
-    )
+    add_multiple_interactions_from_single(rg_thrones, df, add_together_if_present=True)
 
 
 def _add_patron_buy_phase_interaction(other: str, when: str, df: pd.DataFrame):
@@ -722,7 +707,6 @@ def add_all_individual_card_interactions(df: pd.DataFrame, verbose=False) -> Non
     _add_all_outpost_interactions(df)
     _add_all_patron_interactions(df)
     _add_all_peasant_interactions(df)
-    _add_all_prince_interactions(df)
     _add_all_procession_interactions(df)
     _add_all_possession_interactions(df)
     _add_all_reserve_interactions(df)

@@ -9,7 +9,9 @@ from ..constants import (
     GATHERING_CARDS,
     TGG_BUG_DISCLAIMER,
     TRAVELLER_BASE_CARDS,
+    ALL_HORSE_GAINERS,
 )
+from ....constants import HEIRLOOM_DICT
 from ..interaction_util import add_interaction, add_multiple_interactions_from_single
 
 
@@ -79,6 +81,40 @@ def _add_all_divine_wind_interactions(df: pd.DataFrame):
     _add_individual_divine_wind_interactions(df)
 
 
+def _add_all_harsh_winter_interactions(df: pd.DataFrame):
+    black_market = "With Harsh Winter active, no Debt is added or removed to the Black Market deck when buying cards from it, as it is not a pile."
+    add_interaction("black_market", "harsh_winter", black_market, df)
+    ferryman = "When you gain a Ferryman while Harsh Winter is active, you add or remove Debt also for the set-aside Ferryman pile."
+    add_interaction("harsh_winter", "ferryman", ferryman, df)
+    possession = "On a Possession turn, no player gains cards on their own turn, so Harsh Winter does not apply even if it's active."
+    add_interaction("harsh_winter", "possession", possession, df)
+    changeling = "When you exchange a card you gain with Changeling while Harsh Winter is active, Harsh Winter does not apply to the Changeling pile. However, since you still gained a card from the original pile, you do add or remove Debt for that pile."
+    add_interaction("harsh_winter", "changeling", changeling, df)
+    trader = "When you react a Trader to exchange a card you would gain with Silver while Harsh Winter is active, Harsh Winter does not apply to the Silver pile, but you still add or remove Debt for the original pile."
+    add_interaction("harsh_winter", "trader", trader, df)
+    travellers = "Harsh Winter/Peasant|Page---When you exchange a Traveller such as {card_b} while Harsh Winter is active, Harsh Winter does not apply to the Traveller pile. However, if you manage to somehow gain a Traveller from the Trash (e.g. via Shaman or Lich) with Harsh Winter active, Debt is added or removed for that pile, even if it's not a Supply pile. You get to decide (during setup) whether all of the non-{card_b} Travellers are part of one pile or multiple piles for the purposes of Harsh Winter. On the TGG client, they are considered separate piles."
+    add_multiple_interactions_from_single(travellers, df)
+    exchange_dict = {"Vampire": "Bat", "Hermit": "Madman"}
+    for card, exchange in exchange_dict.items():
+        rule = f"When you exchange a {card} while Harsh Winter is active, Harsh Winter does not apply to the {exchange} pile. However, if you manage to somehow gain a {exchange} from the Trash (e.g. via Shaman or Lich) with Harsh Winter active, Debt is added or removed for that pile."
+        add_interaction("harsh_winter", card, rule, df)
+    tax_rule = "While Harsh Winter is active, when you gain a card in your Buy phase, you can resolve Harsh Winter and Tax in either order. Usually you want to resolve Tax first: If the pile has D, your choices are: take the D with Tax and add 2D with Harsh Winter; or take the D with Harsh Winter and take 0D with Tax. If the pile has no D, your choices are: take 0D with Tax and then add 2D with Harsh Winter; or add 2D with Harsh Winter and then take the 2D with Tax."
+    add_interaction("harsh_winter", "tax", tax_rule, df)
+    joust = "The Rewards are considered a single pile. Once Harsh Winter is active, when you gain a Reward during your turn, you add or remove Debt for the Reward pile."
+    add_interaction("harsh_winter", "joust", joust, df)
+    tournament = "The Prizes are considered a single pile. Once Harsh Winter is active, when you gain a Prize during your turn, you add or remove Debt for the Prize pile."
+    add_interaction("harsh_winter", "tournament", tournament, df)
+    for loot_giver in ALL_LOOT_GIVERS:
+        rule = f"When you gain a Loot via {loot_giver} during your turn while Harsh Winter is active, you add or remove Debt for the Loot pile."
+        add_interaction("harsh_winter", loot_giver, rule, df)
+    for card, heirloom in HEIRLOOM_DICT.items():
+        rule = f"When you somehow gain {heirloom} (e.g. via Shaman or Treasurer) during your turn while Harsh Winter is active, since it does not have a pile, you do not add or remove Debt anywhere."
+        add_interaction("harsh_winter", card, rule, df)
+    for card in ALL_HORSE_GAINERS:
+        rule = f"When you gain Horses during your turn via {card} while Harsh Winter is active, you add or remove Debt for the Horse pile."
+        add_interaction("harsh_winter", card, rule, df)
+
+
 def _add_enlightenment_interactions(df: pd.DataFrame):
     # More interactions at Black Market, and also at Events (concerning the tokens)
     act_treas_str = (
@@ -124,6 +160,8 @@ def _add_enlightenment_interactions(df: pd.DataFrame):
         "Once Enlightenment is active and Treasures become Actions, Delusion will disallow you from buying Treasures.",
         df,
     )
+    replay_inter = "Daimyo|Flagship/Enlightenment---If you play {card_a} as the last card during your Action phase while Enlightenment is active, the first Treasure you play during your Buy phase will be replayed for its Treasure effect."
+    add_multiple_interactions_from_single(replay_inter, df)
 
 
 def _add_panic_interactions(df: pd.DataFrame):
@@ -190,7 +228,9 @@ def add_all_prophecy_interactions(df: pd.DataFrame, verbose=False) -> None:
     num_before = len(df)
     _add_all_divine_wind_interactions(df)
     _add_enlightenment_interactions(df)
+    _add_all_harsh_winter_interactions(df)
     _add_panic_interactions(df)
     _add_progress_interactions(df)
+    # Rapid Expansion stuff mostly in on-gain
     if verbose:
         print(f"Added {len(df) - num_before} prophecy interactions.")

@@ -104,3 +104,7 @@ TOKEN_EVENTS = {
 TGG_BUG_DISCLAIMER = (
     " [This used to be bugged in the TGG client, let us know if it's resolved!]"
 )
+
+ALL_HORSE_GAINERS = ALL_CSOS[
+    listlike_contains(ALL_CSOS["gain_types"], "Horses")
+].index.tolist()

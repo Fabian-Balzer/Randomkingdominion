@@ -1,19 +1,31 @@
 import pandas as pd
 import streamlit as st
 
-from ...constants import FPATH_KINGDOMS_KOTW_REDDIT, PATH_ASSETS
+from ...constants import (
+    FPATH_KINGDOMS_KOTW_REDDIT,
+    FPATH_KINGDOMS_TGG_DAILIES,
+    PATH_ASSETS,
+)
 from ...kingdom import KingdomManager
+from ...utils import get_modification_timestamp
 from ..combo_and_inter_setup.util import add_combo_inter_info_for_kingdoms
 from ..constants import ST_ICONS
 from .constants import OracleSelectionType
 
 
 @st.cache_data
-def load_link_dataframe() -> pd.DataFrame:
+def load_link_dataframe(mod_time: int) -> pd.DataFrame:
     """Load the link DataFrame for existing kingdoms."""
     fpath = PATH_ASSETS / "other" / "yt_dailies_ids.csv"
     df = pd.read_csv(fpath, dtype=str, sep=";").fillna("").set_index("name")
     return df
+
+
+def get_link_dataframe() -> pd.DataFrame:
+    """Get the streamlit-cached link DataFrame."""
+    fpath = PATH_ASSETS / "other" / "yt_dailies_ids.csv"
+    mod_time = get_modification_timestamp(fpath)
+    return load_link_dataframe(mod_time)
 
 
 def get_links_for_kingdom(
@@ -55,10 +67,11 @@ def _get_display_name(row: pd.Series, seltype: OracleSelectionType) -> str:
 
 
 @st.cache_data
-def load_existing_kingdoms(
-    selection_type: OracleSelectionType,
+def _load_existing_kingdoms(
+    selection_type: OracleSelectionType, mod_time: int
 ) -> pd.DataFrame:
     """Load kingdoms from the given selection type and return them as a DataFrame."""
+    _ = mod_time + 1  # Dummy calculation to trigger cache invalidation
     manager = KingdomManager()
     if selection_type == "TGG Dailies":
         manager.load_tgg_dailies()
@@ -81,7 +94,7 @@ def load_existing_kingdoms(
         lambda x: "" if not isinstance(x, dict) else x.get("link", "")
     )
     df["has_video_link"] = df["link_fabi"] != ""
-    link_df = load_link_dataframe()
+    link_df = get_link_dataframe()
     if selection_type == "TGG Dailies":
         df["avail_links"] = df["name"].apply(
             lambda x: ", ".join(
@@ -94,3 +107,11 @@ def load_existing_kingdoms(
     )
     df["csos"] = df.apply(lambda x: x["cards"] + x["landscapes"], axis=1)
     return df
+
+
+def get_existing_kingdoms(
+    selection_type: OracleSelectionType,
+) -> pd.DataFrame:
+    """Get the streamlit-cached existing kingdoms DataFrame for the given selection type."""
+    mod_time = get_modification_timestamp(FPATH_KINGDOMS_TGG_DAILIES)
+    return _load_existing_kingdoms(selection_type, mod_time)

@@ -94,17 +94,30 @@ def _add_reckless_interactions(df: pd.DataFrame):
         _add_single_way_reckless_inter(way, df)
 
 
+def _add_all_walled_village_interactions(df: pd.DataFrame):
+    journey = "If you have no more than one other Action than the Walled Village in play, you can topdeck it for the Journey turn."
+    add_interaction("Journey", "Walled Village", journey, df)
+    improve = "At the start of Clean-up, you may choose to resolve Improve's trashing first and only afterwards assess the amount of Action cards in play for Walled Village's topdecking."
+    add_interaction("Improve", "Walled Village", improve, df)
+    alchemist = "At the start of Clean-up, you may choose to resolve Alchemist's topdecking first (if you have a Potion in play) and only afterwards assess the amount of Action cards in play for Walled Village's topdecking."
+    add_interaction("Alchemist", "Walled Village", alchemist, df)
+    scheme = "Since you count the Action cards for Walled Village first before topdecking cards with Scheme, even if you plan on topdecking an Action card, it still gets counted for Walled Village's assessment."
+    add_interaction("Scheme", "Walled Village", scheme, df)
+    treasury = "Any topdecked Treasuries do not count as Action cards in play for Walled Village's topdecking."
+    add_interaction("Treasury", "Walled Village", treasury, df)
+    reserves = "Walled Village/Duplicate|Ratcatcher|Guide|Transmogrify|Royal Carriage|Teacher---Reserve cards such as {card_b} only count as being Actions in play if you called them, not if you play them to put them onto your Tavern mat."
+    add_multiple_interactions_from_single(reserves, df)
+    topdeck_self = "Walled Village/Tent|Merchant Camp---Since you count the Action cards for Walled Village first before discarding cards from play, even if you plan on topdecking {card_b}, it still gets counted for Walled Village's assessment."
+    add_multiple_interactions_from_single(topdeck_self, df)
+    tireless = "Since you count the Action cards for Walled Village first before discarding cards from play, Tireless cards will still be considered in play for Walled Village's assessment."
+    add_interaction("Tireless", "Walled Village", tireless, df)
+
+
 def _add_individual_on_cleanup_interactions(df: pd.DataFrame):
     add_interaction(
         "Journey",
         "Alchemist",
         "If you play Alchemists and buy Journey, if you have a Potion in play, you may topdeck the Alchemists for the Journey turn, and also on the Journey turn.",
-        df,
-    )
-    add_interaction(
-        "Journey",
-        "Walled Village",
-        "If you have no more than one other Action than the Walled Village in play, you can topdeck it for the Journey turn.",
         df,
     )
     add_interaction(
@@ -189,6 +202,7 @@ def add_all_on_clean_up_interactions(df: pd.DataFrame, verbose=False) -> None:
     _add_reckless_interactions(df)
     _add_all_merchant_camp_interactions(df)
     _add_all_tent_interactions(df)
+    _add_all_walled_village_interactions(df)
     _add_individual_on_cleanup_interactions(df)
     if verbose:
         print(f"Added {len(df) - num_before} on_clean_up interactions.")

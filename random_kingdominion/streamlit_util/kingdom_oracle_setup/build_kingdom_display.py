@@ -6,7 +6,7 @@ from ..common_widgets import (
     st_build_kingdom_sidebar_display,
 )
 from ..constants import ST_ICONS
-from .data_preparation import get_links_for_kingdom, load_link_dataframe
+from .data_preparation import get_link_dataframe, get_links_for_kingdom
 
 
 @st.fragment
@@ -14,7 +14,7 @@ def _build_link_video_display(k: Kingdom):
     link = k.unpacked_notes.get("link", "")
     recovered_name = k.name.split(" [")[0]
     other_links = get_links_for_kingdom(
-        recovered_name, load_link_dataframe(), youtubify=True
+        recovered_name, get_link_dataframe(), youtubify=True
     )
     if link == "" and len(other_links) == 0:
         return

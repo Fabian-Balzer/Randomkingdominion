@@ -176,6 +176,15 @@ ROTATOR_DICT = {
     "Odysseys": ["Old Map", "Voyage", "Sunken Treasure", "Distant Shore"],
 }
 
+HEIRLOOM_DICT = {
+    "Haunted Mirror": "Cemetery",
+    "Pouch": "Tracker",
+    "Magic Lamp": "Secret Cave",
+    "Goat": "Pixie",
+    "Pasture": "Shepherd",
+    "Cursed Gold": "Pooka",
+    "Lucky Coin": "Fool",
+}
 UNIQUEPILE_LIST = ["Castles", "Knights", "Loot", "Ruins"]
 LANDSCAPE_LIST = ["Event", "Project", "Way", "Landmark", "Trait"]
 EXTENDED_LANDSCAPE_LIST = LANDSCAPE_LIST + ["Ally", "Prophecy"]
@@ -354,7 +363,7 @@ ALL_LANDSCAPES = ALL_CSOS[(ALL_CSOS["IsExtendedLandscape"])].index.to_list()
 VALID_COMBO_TYPES = ["Rush", "Combo", "Synergy", "Weak Synergy", "Counter", "Nombo"]
 
 
-def _load_combo_or_inter_df(pair_type: Literal["combo", "interaction"]) -> pd.DataFrame:
+def load_combo_or_inter_df(pair_type: Literal["combo", "interaction"]) -> pd.DataFrame:
     """Load all interactions from file."""
     fpath = PATH_CARD_INFO.joinpath(f"good_{pair_type}_data.csv")
     df = read_dataframe_from_file(fpath)
@@ -369,8 +378,8 @@ def _load_combo_or_inter_df(pair_type: Literal["combo", "interaction"]) -> pd.Da
     return df
 
 
-ALL_INTERACTIONS = _load_combo_or_inter_df("interaction")
-ALL_COMBOS = _load_combo_or_inter_df("combo")
+ALL_INTERACTIONS = load_combo_or_inter_df("interaction")
+ALL_COMBOS = load_combo_or_inter_df("combo")
 
 COLOR_PALETTE = ColorPalette()
 

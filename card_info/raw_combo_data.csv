@@ -72,6 +72,7 @@ Biding Time/Shepherd;Very nice to set up lots of Shepherd draw. Might very well 
 Biding Time/Tactician;Since you discard your whole hand with Tactician, you won't be able to benefit from Biding Time on that turn, making Tactician decks less viable.;Nombo;;
 Biding Time/Tea House;Having three Tea Houses and a Silver quickly becomes a golden Deck that can Province each turn, even immune to most discard attacks. Can sometimes be a bit clunky to set up.;Combo;https://youtu.be/A4J_Uz1Sjtg;Fabi: Showcase video
 Black Cat/Guardian;Due to the timing of Guardian, you will not be protected from your opponent Cursing you with Black Cats during your turn.;Nombo;;
+Black Cat/Harsh Winter;With Harsh Winter active, getting off multiple Black Cat plays during your opponent's turn will give them Debt on top of the Curses, disincentivizing greening even more.;Counter;;
 Black Cat/Lighthouse;With a Lighthouse played this turn (!), you can avoid being Cursed by your opponent's Black Cats when greening. They'll still draw the cards for free though.;Counter;;
 Black Cat/Moat;With a Moat in hand, you can avoid being Cursed by your opponent's Black Cats when greening. They'll still draw the cards for free though.;Counter;;
 Black Cat/Rebuild;The presence of Black Cats should disincentivize going for a Rebuild strategy, as you will inevitably gain green cards.;Counter;;
@@ -126,6 +127,7 @@ Chariot Race/Forum;With Forum, you can sometimes neatly set up the targets for C
 Charlatan/Enlightenment;Once Enlightenment is active, you get to cantrip Curses and they become an Action-Treasure-Curse card, which also might have its merits.;Counter;;
 Charlatan/Panic;Once Panic is active, you get to return Curses to their pile by playing them.;Counter;;
 Charlatan/Pirate;In games where it's likely that players are going for Cursing, Pirate is more likely to be activated regularly.;Weak Synergy;;
+Charm/Prince;On some boards, it might be a viable strategy to build for $8 and a bunch of Charms, then buy a Prince while gaining Provinces alongside.;Combo;;
 Church/Crossroads;Allows for nice start-of-turn Crossroads draw if you manage to set aside two Estates and a Crossroads each turn.;Synergy;;
 City Gate/Piazza;City Gate provides reliable setup for Piazza hitting the cards you want.;Synergy;;
 City Quarter/Enlightenment;As soon as Enlightenment is active, City Quarter can draw cards more easily.;Synergy;;
@@ -279,6 +281,7 @@ Guildhall/Shaman;In Shaman games, you might gain a lot of Coppers at the start o
 Guildhall/Spices;On weak boards, a variation of Guildhall/Spices/Money might be the best strategy.;Weak Synergy;;
 Guildhall/Treasure Trove;On weak boards, a variation of Guildhall/Treasure Trove/Money might be the best strategy.;Weak Synergy;;
 Harsh Winter/Horse;Since Harsh Winter puts debt on any pile (including Horses), gaining a bunch of Horses with {Horse} is usually pretty punishing.;Nombo;;
+Harsh Winter/Shaman;One of the worst experiences Dominion might have to offer - You might accumulate loads of Debt, and it might be a move to buy Coppers just to get your opponent in Debt...;Counter;;
 Hasty/Landing Party;[Only if Hasty is on a Treasure] - By buying a Hasty Treasure, you can ensure that you topdeck Landing Parties at the beginning of the next turn. Sometimes worth going out of your way for.;Weak Synergy;;
 Haunted Woods/Monastery;Night cards are heavily disincentivized with Haunted Woods around, as you will have to topdeck your hand whenever buying cards, which happens before you would be able to play any Night cards.;Counter;;
 Haunted Woods/Night Watchman;Night cards are heavily disincentivized with Haunted Woods around, as you will have to topdeck your hand whenever buying cards, which happens before you would be able to play any Night cards. When buying Night Watchman while under the HW attack, it even topdecked immediately instead of gained to your hand.;Counter;;
@@ -339,6 +342,7 @@ March/Rebuild;March incentivizes going for Rebuild a bit more than usual, as the
 Marquis/Scepter;Can be a deck by itself, although it requires some setup and good shuffle management. Idea is to have a few Marquis, play one, and replay it in your Buy phase using Scepter. By discarding the others and steering shuffle triggers, one can topdeck others. Is susceptible to discard attacks.;Synergy;https://www.youtube.com/watch?v=UFp-5we5aVY;tracer: Showcase video
 Masquerade/Possession;With Possession, when playing Masquerade from your opponent's perspective, you can decide which card they pass you, so sometimes it's best to not have Masq in your own deck.;Synergy;;
 Menagerie/Patron;Revealing your hand with a Patron in it generates Coffers. If you happen to have multiple Patrons in an otherwise unique hand, you can easily choose to play all but one to activate Menagerie draw.;Synergy;;
+Merchant Camp/Way of the Owl;With two or more Merchant Camps topdecked every turn, you can essentially start every turn with an extra card of draw and 1 extra coin for every Merchant Camp you have - 1. You even get to topdeck the Merchant Camp you owled.;Synergy;;
 Merchant Guild/Panic;You can easily buy a load of Coppers to get a load of Coffers with Panic active.;Weak Synergy;;
 Merchant Guild/Supplies;Since Supplies gains you Horses in your buy phase, playing Merchant Guild before that can generate a few Coffers.;Weak Synergy;https://www.youtube.com/watch?v=xZP3lNLCXN0;Fabi: Daily playthrough
 Mirror/Overlord;With Mirror, you can gain additional Overlords for $3 each. Opening double Overlord should be considered.;Synergy;;

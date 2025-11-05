@@ -1,3 +1,143 @@
+- cards:
+  - barge
+  - black_cat
+  - cardinal
+  - charlatan
+  - fisherman
+  - hunting_lodge
+  - monument
+  - paddock
+  - supplies
+  - village_green
+  expansions:
+  - Menagerie
+  - Prosperity, 2E
+  idx: 269963302794066301784814504628752914654
+  landscapes:
+  - seize_the_day
+  - way_of_the_horse
+  name: '2025-11-05'
+  notes:
+    crucial_cards: []
+    ending: []
+    link: ''
+    name: ''
+    openings:
+    - grade: ''
+      t1: ''
+      t1_csos: []
+      t2: ''
+      t2_csos: []
+      type: 4/3|3/4
+    - grade: ''
+      t1: ''
+      t1_csos: []
+      t2: ''
+      t2_csos: []
+      type: 5/2|2/5
+    points: []
+    subtitle: ''
+    turns: []
+- cards:
+  - astrolabe
+  - blockade
+  - corsair
+  - island
+  - lighthouse
+  - native_village
+  - sailor
+  - smugglers
+  - treasury
+  - wharf
+  expansions:
+  - Seaside, 2E
+  idx: 74274593415310102658712244573024313655
+  name: '2025-11-04'
+  notes:
+    crucial_cards:
+    - Sailor
+    - Wharf
+    - Blockade
+    - Native Village
+    ending:
+    - Native Village
+    - Blockade
+    - Wharf
+    link: https://youtu.be/gglLvDEuBa0
+    name: Naval Breeze
+    openings:
+    - grade: B-
+      t1: Blockade
+      t1_csos:
+      - blockade
+      t2: Astrolabe, or Native Village, or Silver
+      t2_csos:
+      - astrolabe
+      type: 4/3|3/4
+    - grade: B
+      t1: Wharf
+      t1_csos:
+      - wharf
+      t2: Native Village
+      t2_csos:
+      - native_village
+      type: 5/2|2/5
+    points:
+    - 14
+    - 7
+    subtitle: AI Missed Out On Blockade Again, So It's Smooth Sailing
+    turns:
+    - 12
+    - 11
+- cards:
+  - bureaucrat
+  - diplomat
+  - duke
+  - patrol
+  - secret_passage
+  - steward
+  - swindler
+  - throne_room
+  - trading_post
+  - witch
+  expansions:
+  - Base, 2E
+  - Intrigue, 2E
+  idx: 61388764371891027230713360373488738474
+  name: '2025-11-03'
+  notes:
+    crucial_cards:
+    - Swindler
+    - Witch
+    - Bureaucrat
+    - Throne Room
+    ending:
+    - Estate
+    - Curse
+    - Throne Room
+    link: https://youtu.be/zcniQchu8s8
+    name: Royal Bureaucracy
+    openings:
+    - grade: C+
+      t1: Secret Passage, or Diplomat, or Silver, or Swindler
+      t1_csos:
+      - secret_passage
+      t2: Steward
+      t2_csos:
+      - steward
+      type: 4/3|3/4
+    - grade: B-
+      t1: Trading Post
+      t1_csos:
+      - trading_post
+      t2: Skip turn
+      t2_csos: []
+      type: 5/2|2/5
+    points: []
+    subtitle: Swindling All Of AI's Throne Rooms
+    turns:
+    - 20
+    - 19
 - army_pile: werewolf
   campaign_effects:
   - penny_party
@@ -33,13 +173,25 @@
   - populate
   name: '2025-11-02'
   notes:
-    crucial_cards: [Grotto, Populate, Orchard, Changeling]
-    ending: [Grotto, Changeling, Bandit Camp, Barge]
-    link: 'https://youtu.be/8tdVf_wgs7o'
-    name: 'Grotto Party'
-    points: [41, 12]
-    subtitle: 'Quickly Increasing The Population Of Our Deck'
-    turns: [10, 9]
+    crucial_cards:
+    - Grotto
+    - Populate
+    - Orchard
+    - Changeling
+    ending:
+    - Grotto
+    - Changeling
+    - Bandit Camp
+    - Barge
+    link: https://youtu.be/8tdVf_wgs7o
+    name: Grotto Party
+    points:
+    - 41
+    - 12
+    subtitle: Quickly Increasing The Population Of Our Deck
+    turns:
+    - 10
+    - 9
   stamps_and_effects:
   - - reactionified
     - grotto
