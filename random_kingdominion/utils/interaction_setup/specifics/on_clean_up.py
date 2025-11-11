@@ -8,9 +8,9 @@ from ..interaction_util import add_interaction, add_multiple_interactions_from_s
 
 def _add_single_way_reckless_inter(way: str, df: pd.DataFrame):
     if "chameleon" in way.lower():
-        rule = f"If you play a Reckless Action card using Way of the Chameleon, you follow its cards vs. $$ switched-around instructions twice, you do not get to choose in between."
+        rule = f"[Only if Reckless is on an Action card] If you play a Reckless Action card using Way of the Chameleon, you follow its cards vs. $$ switched-around instructions twice, you do not get to choose in between."
     else:
-        rule = f"If you play a Reckless Action card using {way}, you will only play it as {way} once and then fail to follow its instructions the second time"
+        rule = f"[Only if Reckless is on an Action card] If you play a Reckless Action card using {way}, you will only play it as {way} once and then fail to follow its instructions the second time"
     if "turtle" in way.lower():
         rule += f". This means that you'll set aside the Reckless Action if played with {way}, and the next time you choose to play it normally, the normal Reckless effect will kick in."
     elif not any(
@@ -24,72 +24,30 @@ def _add_single_way_reckless_inter(way: str, df: pd.DataFrame):
 
 def _add_reckless_interactions(df: pd.DataFrame):
     # Reckless + Alchemist, Scheme, Crypt, Trickster, Highwayman, Capital, Enchantress, and Ways
-    add_interaction(
-        "Reckless",
-        "Alchemist",
-        "If Alchemist is Reckless, you may topdeck it during Clean-up if you have a Potion in play, circumventing Reckless' return-to-pile prompt.",
-        df,
-    )
-    add_interaction(
-        "Reckless",
-        "Merchant Camp",
-        "If Merchant Camp is Reckless, you may topdeck it during Clean-up, circumventing Reckless' return-to-pile prompt.",
-        df,
-    )
-    add_interaction(
-        "Reckless",
-        "Walled Village",
-        "If Walled Village is Reckless, you may topdeck it during Clean-up if you only have this and at most one other Action in play, circumventing Reckless' return-to-pile prompt.",
-        df,
-    )
-    add_interaction(
-        "Reckless",
-        "Scheme",
-        "If Reckless is on any Action card and you play Scheme, topdecking the Reckless Action card before returning it to its pile will circumvent Reckless' return-to-pile prompt.",
-        df,
-    )
-    add_interaction(
-        "Reckless",
-        "Crypt",
-        "If Reckless is on a Treasure and you stow it away with Crypt, you cannot return it to its pile and it will stay in the Crypt for later use.",
-        df,
-    )
-    add_interaction(
-        "Reckless",
-        "Trickster",
-        "If Reckless is on a Treasure and you played a Trickster on a turn you play said Treasure, you may set it aside before returning it to its pile, in which case you cannot return it to its pile, and will put it into your next hand instead.",
-        df,
-    )
-    add_interaction(
-        "Reckless",
-        "Herbalist",
-        "If Reckless is on a Treasure and you played a Herbalist on a turn you play said Treasure, you may topdeck it before returning it to its pile, in which case you cannot return it to its pile.",
-        df,
-    )
-    add_interaction(
-        "Reckless",
-        "Highwayman",
-        "If you play a Reckless Treasure while under the Highwayman attack as the first Treasure, it does nothing at all, but is returned to its pile when discarded from play.\nIf Highwayman is Reckless, it is returned to its pile at the start of the next turn (and then you get +6 Cards).",
-        df,
-    )
-    add_interaction(
-        "Reckless",
-        "Capital",
-        "If Capital is Reckless, you get +$12 and +2 Buys when playing it. When you discard it from play, you get +6 Debt and have to return it to its pile.",
-        df,
-    )
-    add_interaction(
-        "Reckless",
-        "Enchantress",
-        "If you are under the Enchantress Attack and play a Reckless Action card as the first Action during your turn, you will only get +1 Card, +1 Action, fail to follow the instructions the second time, but still have to return the Reckless Action when you discard it from play.",
-        df,
-    )
-    add_interaction(
-        "Reckless",
-        "Prince",
-        "If you set aside a Reckless Action card with Prince, you never discard it from play, so you never have to return it to its pile.",
-        df,
-    )
+    alch = "[Only if Reckless is on Alchemist] If Alchemist is Reckless, you may topdeck it during Clean-up if you have a Potion in play, circumventing Reckless' return-to-pile prompt."
+    add_interaction("Reckless", "Alchemist", alch, df)
+    m_camp = "[Only if Reckless is on Merchant Camp] If Merchant Camp is Reckless, you may topdeck it during Clean-up, circumventing Reckless' return-to-pile prompt."
+    add_interaction("Reckless", "Merchant Camp", m_camp, df)
+    tent = "[Only if Reckless is on Tent] If Tent is Reckless, you may topdeck it during Clean-up, circumventing Reckless' return-to-pile prompt."
+    add_interaction("Reckless", "Tent", tent, df)
+    w_vill = "[Only if Reckless is on Walled Village] If Walled Village is Reckless, you may topdeck it during Clean-up if you only have it and at most one other Action in play, circumventing Reckless' return-to-pile prompt."
+    add_interaction("Reckless", "Walled Village", w_vill, df)
+    scheme = "[Only if Reckless is on an Action] If Reckless is on any Action card and you play Scheme, topdecking the Reckless Action card before returning it to its pile will circumvent Reckless' return-to-pile prompt."
+    add_interaction("Reckless", "Scheme", scheme, df)
+    crypt = "[Only if Reckless is on a Treasure] If Reckless is on a Treasure and you stow it away with Crypt, you cannot return it to its pile and it will stay set-aside on Crypt to be put in hand later."
+    add_interaction("Reckless", "Crypt", crypt, df)
+    trickster = "[Only if Reckless is on a Treasure] If Reckless is on a Treasure and you played a Trickster on a turn you play said Treasure, you may set it aside before returning it to its pile, in which case you cannot return it to its pile, and will put it into your next hand instead."
+    add_interaction("Reckless", "Trickster", trickster, df)
+    herbalist = "[Only if Reckless is on a Treasure] If Reckless is on a Treasure and you played a Herbalist on a turn you play said Treasure, you may topdeck it before returning it to its pile, in which case you cannot return it to its pile."
+    add_interaction("Reckless", "Herbalist", herbalist, df)
+    hwman = "[Only if Reckless is on a Treasure] If Reckless is on a Treasure and you are under Highwayman attack when you play said Treasure, you cannot return it to its pile, and it will be discarded normally during Clean-up.\n[Only if Reckless is on Highwayman] If Highwayman is Reckless, it is returned to its pile at the start of the next turn (and then you get +6 Cards)."
+    add_interaction("Reckless", "Highwayman", hwman, df)
+    capital = "[Only if Reckless is on Capital] If Capital is Reckless, you get +$12 and +2 Buys when playing it. When you discard it from play, you get +6 Debt and have to return it to its pile."
+    add_interaction("Reckless", "Capital", capital, df)
+    ench = "[Only if Reckless is on an Action] If you are under the Enchantress Attack and play a Reckless Action card as the first Action during your turn, you will only get +1 Card, +1 Action, fail to follow the instructions the second time, but still have to return the Reckless Action when you discard it from play."
+    add_interaction("Reckless", "Enchantress", ench, df)
+    prince = "[Only if Reckless is on an Action] If you set aside a Reckless Action card with Prince, you never discard it from play, so you never have to return it to its pile."
+    add_interaction("Reckless", "Prince", prince, df)
     for way in WAY_DICT:
         _add_single_way_reckless_inter(way, df)
 

@@ -3,7 +3,7 @@
 import pandas as pd
 
 from ....logger import LOGGER
-from ..interaction_util import add_interaction
+from ..interaction_util import add_interaction, add_multiple_interactions_from_single
 
 
 def _add_all_city_state_interactions(df: pd.DataFrame):
@@ -31,7 +31,7 @@ def _add_all_city_state_interactions(df: pd.DataFrame):
     add_interaction(
         "Voyage",
         "Buried Treasure",
-        "On your Voyage turn, when you gain a Buried Treasure, you can (bar some exceptions) play it immediately without that counting towards the three-card limit, even if you have already played three cards from your hand. Exceptions are gain-to-hand effects (like Swap or Sculptor).",
+        "On your Voyage turn, when you gain a Buried Treasure, you can (bar some exceptions) play it immediately without that counting towards the three-card limit, even if you have already played three cards from your hand. Exceptions are gain-to-hand effects (like Sculptor).",
         df,
         add_together_if_present=True,
     )
@@ -54,9 +54,18 @@ def _add_individual_allies_interactions(df: pd.DataFrame):
     add_interaction(
         "Market Towns",
         "Leprechaun",
-        "At the start of your Buy phase, you may choose the order of returning Envious or Deluded, and playing Actions with Market Towns. If you play a Leprechaun at the start of your Buy phase and receive Envious or Deluded, you return it that same turn.",
+        "[If you get Hexed with Deluded or Envious] At the start of your Buy phase, you may choose the order of returning Envious or Deluded, and playing Actions with Market Towns. If you play a Leprechaun at the start of your Buy phase and receive Envious or Deluded, you return it that same turn.",
         df,
     )
+    add_interaction(
+        "Frigate",
+        "Fellowship of Scribes",
+        "If you're under the Frigate attack, you can choose the order of discarding/drawing with Scribes, i.e. after playing an Action, you may first discard down to 4 cards in hand, and then use a Favor to draw 1 card, or (if you already had only 4 cards in hand) draw 1 card using Scribes and then discard down to 4 again.",
+        df,
+    )
+
+    clerk_allies = "Desert Guides|Cave Dwellers/Clerk---You may react Clerks both before and after using Favors for {card_a}, but not in-between; you could e.g. react Clerk, use {card_a} two times, and then react another Clerk you've just drawn. After that, you may not use {card_a} again."
+    add_multiple_interactions_from_single(clerk_allies, df)
 
 
 ##########################################################################################################

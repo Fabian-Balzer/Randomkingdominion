@@ -1,4 +1,352 @@
 - cards:
+  - alley
+  - aristocrat
+  - daimyo
+  - fishmonger
+  - ninja
+  - poet
+  - rice
+  - riverboat
+  - samurai
+  - tanuki
+  expansions:
+  - Rising Sun
+  idx: 201439151204866298148315963342552798851
+  landscapes:
+  - credit
+  - gather
+  - progress
+  name: '2025-11-11'
+  notes:
+    crucial_cards: [Daimyo, Tanuki, Gather, Progress]
+    ending: [Tanuki, Poet, Daimyo]
+    link: 'https://youtu.be/dgDcVddNf1U'
+    name: 'Tanukis Gathered'
+    openings:
+    - grade: 'C+'
+      t1: 'Poet'
+      t1_csos: [ninja]
+      t2: 'Credit for Tanuki?'
+      t2_csos: [Credit, Tanuki]
+      type: 4/3
+    - grade: 'C'
+      t1: 'Fishmonger? Or Credit for Tanuki'
+      t1_csos: [Fishmonger]
+      t2: 'Credit for Tanuki, or Daimyo'
+      t2_csos: [Credit, Tanuki]
+      type: 3/4
+    - grade: 'A'
+      t1: 'Tanuki'
+      t1_csos: [Tanuki]
+      t2: 'Credit for Tanuki'
+      t2_csos: [Credit, Tanuki]
+      type: 5/2|2/5
+    - grade: 'A-'
+      t1: 'Fishmonger'
+      t1_csos: [fishmonger]
+      t2: 'Tanuki'
+      t2_csos: [Tanuki]
+      type: 2/5
+    points: [8, 0]
+    subtitle: 'Wheezing Through Even Though We Accidentally Skip A Gather Buy'
+    turns: [10, 9]
+  riverboat_card: litter
+- cards:
+  - augurs
+  - forts
+  - highwayman
+  - innkeeper
+  - laboratory
+  - moneylender
+  - sycophant
+  - underling
+  - vassal
+  - village
+  expansions:
+  - Allies
+  - Base, 2E
+  idx: 99038814423239945375615445280764221761
+  landscapes:
+  - trappers_lodge
+  name: '2025-11-10'
+  notes:
+    crucial_cards:
+    - Herb Gatherer
+    - Acolyte
+    - Sorceress
+    - Sibyl
+    ending:
+    - Curse
+    - Village
+    - Augurs
+    link: https://youtu.be/58J8ZjmelBc
+    name: Herbs Gathered
+    openings:
+    - grade: B
+      t1: Buy and topdeck Moneylender
+      t1_csos:
+      - Moneylender
+      - trappers_lodge
+      t2: Play, Moneylender, buy Herb Gatherer
+      t2_csos:
+      - Herb Gatherer
+      type: 4/3
+    - grade: B-
+      t1: Buy and topdeck Herb Gatherer
+      t1_csos:
+      - Herb Gatherer
+      - trappers_lodge
+      t2: Play Herb Gatherer, buy Silver, or Moneylender if possible
+      t2_csos:
+      - Herb Gatherer
+      - Silver
+      type: 3/4
+    - grade: B+
+      t1: Buy and topdeck Highwayman
+      t1_csos:
+      - Highwayman
+      - trappers_lodge
+      t2: Play Highwayman
+      t2_csos:
+      - Highwayman
+      type: 5/2
+    - grade: C
+      t1: Skip turn
+      t1_csos: []
+      t2: Buy and topdeck Hig Highwayman
+      t2_csos:
+      - Highwayman
+      - trappers_lodge
+      type: 2/5
+    points:
+    - 20
+    - 11
+    subtitle: Keeping Calm While AI Almost Acquires All Acolytes
+    turns:
+    - 18
+    - 17
+- campaign_effects:
+  - cramped
+  - motivational
+  cards:
+  - alchemist
+  - bard
+  - exorcist
+  - merchant_guild
+  - sack_of_loot
+  - sacred_grove
+  - seer
+  - spice_merchant
+  - squire
+  - watchtower
+  expansions:
+  - Alchemy
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  idx: 43344655166750319642809849607096445675
+  landscapes:
+  - bargain
+  - looting
+  name: '2025-11-09'
+  notes:
+    crucial_cards:
+    - Seer
+    - Squire
+    - Exorcist
+    - Looting
+    ending:
+    - Province
+    - Seer
+    link: https://youtu.be/WUVXzgbFNzc
+    name: Cramped.
+    points:
+    - 38
+    - 35
+    subtitle: AI Played Pretty Well. Lucky We're Alive
+    turns:
+    - 18
+    - 17
+  stamps_and_effects:
+  - - motivational
+    - looting
+- cards:
+  - graverobber
+  - haunted_woods
+  - magpie
+  - maroon
+  - merchant_ship
+  - ranger
+  - royal_carriage
+  - spice_merchant
+  - tactician
+  - upgrade
+  expansions:
+  - Adventures
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Plunder
+  - Renaissance
+  - Seaside, 2E
+  idx: 59494808668575247570441421081925602940
+  landscapes:
+  - advance
+  - city_gate
+  name: '2025-11-08'
+  notes:
+    crucial_cards:
+    - Graverobber
+    - Royal Carriage
+    - Tactician
+    - Magpie
+    ending:
+    - Royal Carriage
+    - Upgrade
+    - Magpie
+    link: https://youtu.be/O29y6orBjP0
+    name: Royal Robbery
+    openings:
+    - grade: B-
+      t1: Maroon, or Spice Merchant
+      t1_csos:
+      - maroon
+      t2: Silver
+      t2_csos:
+      - silver
+      type: 4/3|3/4
+    - grade: B+
+      t1: Upgrade
+      t1_csos:
+      - upgrade
+      t2: Skip turn
+      t2_csos: []
+      type: 5/2|2/5
+    points:
+    - 12
+    - 0
+    subtitle: Focused Building Pays Off Nicely.
+    turns:
+    - 12
+    - 11
+- cards:
+  - advisor
+  - chapel
+  - highwayman
+  - marquis
+  - mine
+  - specialist
+  - throne_room
+  - townsfolk
+  - witch
+  - wizards
+  expansions:
+  - Allies
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  idx: 7362681981862662864995966130121294792
+  landscapes:
+  - crafters_guild
+  name: '2025-11-07'
+  notes:
+    crucial_cards: []
+    ending: []
+    link: ''
+    name: ''
+    openings:
+    - grade: ''
+      t1: ''
+      t1_csos: []
+      t2: ''
+      t2_csos: []
+      type: 4/3|3/4
+    - grade: ''
+      t1: ''
+      t1_csos: []
+      t2: ''
+      t2_csos: []
+      type: 5/2|2/5
+    points: []
+    subtitle: ''
+    turns: []
+- cards:
+  - alchemist
+  - capital_city
+  - carpenter
+  - contract
+  - familiar
+  - highwayman
+  - philosophers_stone
+  - skirmisher
+  - townsfolk
+  - underling
+  expansions:
+  - Alchemy
+  - Allies
+  idx: 45700139503397633655190448124936425973
+  landscapes:
+  - band_of_nomads
+  name: '2025-11-06'
+  notes:
+    crucial_cards:
+    - Familiar
+    - Highwayman
+    - Capital City
+    - Carpenter
+    ending:
+    - Province
+    - Curse
+    link: https://youtu.be/VYJSGIFxZ_Q
+    name: Capital Sloggy
+    openings:
+    - grade: B
+      t1: Potion, draw card on gain
+      t1_csos:
+      - Potion
+      - band of nomads
+      t2: Buy Underling, or Carpenter, or Silver
+      t2_csos:
+      - underling
+      type: 4/3
+    - grade: D
+      t1: Silver, or Underling, or Town Crier
+      t1_csos:
+      - silver
+      t2: Potion
+      t2_csos:
+      - Potion
+      type: 3/4
+    - grade: B
+      t1: Highwayman, draw card
+      t1_csos:
+      - highwayman
+      - band of nomads
+      t2: Town crier, or Underling
+      t2_csos:
+      - town_crier
+      type: 5/2
+    - grade: C
+      t1: Town Crier
+      t1_csos:
+      - town_crier
+      t2: Highwayman, or Potion
+      t2_csos:
+      - highwayman
+      type: 2/5
+    points:
+    - 25
+    - 21
+    subtitle: Burying The AI In Curses Takes Its Toll On Our Early Game
+    turns:
+    - 22
+    - 21
+- cards:
   - barge
   - black_cat
   - cardinal

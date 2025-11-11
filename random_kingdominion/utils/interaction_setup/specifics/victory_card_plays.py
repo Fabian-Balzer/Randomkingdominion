@@ -25,13 +25,13 @@ def _add_victory_card_play_interactions(df: pd.DataFrame):
     add_interaction(
         "Hasty",
         "Territory",
-        "If the Clashes pile is Hasty and you gain a Territory, you set it aside and play it at the start of your next turn (doing nothing, but counting as a card in play). At the end of that turn, you discard it from play.",
+        "[Only if Hasty is on the Clashes pile] If the Clashes pile is Hasty and you gain a Territory, you set it aside and play it at the start of your next turn (doing nothing, but counting as a card in play). At the end of that turn, you discard it from play.",
         df,
     )
     add_interaction(
         "Patient",
         "Territory",
-        "If the Clashes pile is Patient, you can set aside Territories and play them at the start of your next turn (doing nothing, but counting as a card in play). At the end of that turn, you discard them from play.",
+        "[Only if Patient is on the Clashes pile] If the Clashes pile is Patient, you can set aside Territories and play them at the start of your next turn (doing nothing, but counting as a card in play). At the end of that turn, you discard them from play.",
         df,
     )
     add_interaction(

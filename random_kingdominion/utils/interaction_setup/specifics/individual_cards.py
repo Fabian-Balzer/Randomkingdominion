@@ -282,21 +282,21 @@ def _add_all_experiment_interactions(df: pd.DataFrame):
 
 
 def _add_all_ferryman_interactions(df: pd.DataFrame):
-    rule_str = "Ferryman/Rats|Magpie|Port|Experiment---When you set aside a {card_b} with Ferryman, it can gain a copy of itself on play as it is specifically named in the card."
+    rule_str = "Ferryman/Rats|Magpie|Port|Experiment---[Only in set-aside case] When you set aside the {card_b} pile with Ferryman, copies of it can be gained as usual as it is specifically named in the card."
     add_multiple_interactions_from_single(rule_str, df)
     for rot_pile, cards in ROTATOR_DICT.items():
         if rot_pile == "Townsfolk":
             continue
-        rule = f"Ferryman/{rot_pile}---When you set aside the {rot_pile} with Ferryman, the next player to gain a Ferryman will gain the top card of the pile, and choosing to rotate it using {cards[0]} still works."
+        rule = f"[Only in set-aside case] When you set aside the {rot_pile} with Ferryman, the next player to gain a Ferryman will gain the top card of the pile, and choosing to rotate it using {cards[0]} still works."
         add_interaction("Ferryman", rot_pile, rule, df)
     for splitpile in ["Castles", "Catapult/Rocks", "Gladiator/Fortune", "Sauna/Avanto"]:
-        rule = f"Ferryman/{splitpile}---When you set aside the {splitpile} pile with Ferryman, the next player to gain a Ferryman will gain the top card of the pile with it."
+        rule = f"Ferryman/{splitpile}---[Only in set-aside case] When you set aside the {splitpile} pile with Ferryman, the next player to gain a Ferryman will gain the top card of the pile with it."
         add_interaction("Ferryman", splitpile, rule, df)
-    rule = "Ferryman/Changeling---When you gain a card that was set aside with Ferryman, you may exchange it for a Changeling and return it to the set aside pile."
+    rule = "Ferryman/Changeling---When you gain a card that was set aside with Ferryman, you may exchange it for a Changeling and return the card to the set aside pile."
     add_interaction("Ferryman", "Changeling", rule, df)
-    rule = "Ferryman/Trader---When you gain a card that was set aside with Ferryman, you may exchange it for a Silver and return it to the set aside pile."
+    rule = "Ferryman/Trader---When you gain a card that was set aside with Ferryman, you may exchange it for a Silver and return the card to the set aside pile."
     add_interaction("Ferryman", "Silver", rule, df)
-    rule_str = "Ferryman/Farmers' Market|Temple---When you set aside a {card_b} with Ferryman, it still works as the Gathering pile normally does, by collecting and dispersing VP as stated on the card."
+    rule_str = "Ferryman/Farmers' Market|Temple---[Only in set-aside case] When you set aside a {card_b} with Ferryman, it still works as the Gathering pile normally does, by collecting and dispersing VP as stated on the card."
     add_multiple_interactions_from_single(rule_str, df)
     rule_str = "Ferryman/Duplicate|Specialist|Smugglers|Disciple|Mint|Jester|Pilgrimage|Kiln|Tools|Way of the Rat---{card_b} does not allow you to gain a copy of a card from a pile set aside by Ferryman."
     add_multiple_interactions_from_single(rule_str, df)
