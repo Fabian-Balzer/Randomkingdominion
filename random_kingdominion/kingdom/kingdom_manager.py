@@ -267,6 +267,7 @@ class KingdomManager:
         self.save_kingdoms_to_yaml(FPATH_KINGDOMS_LAST100)
 
     def load_kingdoms_from_yaml(self, file_path: str | Path):
+        # In the future, I might want to use pickling or a database for faster loading
         with open(file_path, "r", encoding="utf-8") as yaml_file:
             data = yaml.safe_load(yaml_file)
             if data is not None:

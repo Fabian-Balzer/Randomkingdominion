@@ -4586,3 +4586,33 @@
     start_5_coffers, stamp_plus_coin(monument)
   num_themes: 1
   theme_1: twist:twist_rebates
+- key: '-1383788567'
+  kingdoms:
+  - aristocrat, catacombs, night_watchman, band_of_misfits, bridge, castles, library,
+    underling, investment, soothsayer, tireless(catacombs), architects_guild, triumph
+    -x twist_double_up, twist_garbage_heap, twist_so_much_stuff, twist_landfill, stamp_plus_coin(castles),
+    stamp_durationified(castles), stamp_plus_card(castles), stamp_plus_buy(castles),
+    stamp_offers_insight(castles), stamp_reactionified(castles), stamp_treasurified(castles)
+  - tragic_hero, smugglers, encampment, shaman, faithful_hound, pilgrim, vineyard,
+    figurine, tools, crew, credit, fawning(tragic_hero)
+  - camel_train, bandit_camp, sentinel, herald, market_square, altar, treasury, wishing_well,
+    catacombs, graverobber, ritual, annex -x stamp_with_horse(bandit_camp)
+  - cavalry, duplicate, leprechaun, conclave, infirmary, wharf, hunting_party, investment,
+    coin_of_the_realm, samurai, demand, transport -x twist_shoppers
+  - search, charm, sack_of_loot, swashbuckler, spice_merchant, peasant, catacombs,
+    royal_blacksmith, advisor, barge, peril -x stamp_chameleonize(spice_merchant),
+    stamp_chameleonize(swashbuckler), stamp_chameleonize(search)
+  - cabin_boy, magpie, scrap, catacombs, galleria, engineer, farm, envoy, skirmisher,
+    legionary, annex, way_of_the_otter -x stamp_cost_2D_less(annex)
+  - sack_of_loot, supplies, rats, encampment, silk_merchant, mining_road, night_watchman,
+    underling, royal_blacksmith, workers_village, scrounge, mountain_folk, cheap(workers_village),
+    colonies -x stamp_one_track_mind(scrounge)
+  - charm, treasure_trove, hermit, scrying_pool, herald, cargo_ship, recruiter, gear,
+    displace, soothsayer, populate, journey -x stamp_cost_2_less(populate), start_double_pile(treasure_trove)
+  - death_cart, rogue, groom, bandit_camp, hunting_party, haunted_woods, kiln, artificer,
+    city_quarter, leprechaun, ritual, populate, shelters -x twist_incoming
+  - tragic_hero, pillage, count, tools, fortress, hideout, litter, underling, nobles,
+    groundskeeper, annex, woodworkers_guild -x twist_incoming, stamp_pay_later(pillage),
+    stamp_pay_later(tools), stamp_pay_later(tragic_hero)
+  num_themes: 1
+  theme_1: category:gain_misc

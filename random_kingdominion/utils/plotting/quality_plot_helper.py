@@ -16,13 +16,21 @@ from .util import annotate_icon
 if TYPE_CHECKING:
     from ...kingdom import Kingdom
 
-def _annotate_buy_icon(ax: Axes, buy_type: Literal["Buys", "Buys*", "Nothing"], position: tuple[float, float]):
+
+def _annotate_buy_icon(
+    ax: Axes,
+    buy_type: Literal["Buys", "Buys*", "Nothing"],
+    position: tuple[float, float],
+):
     fname_dict = {
         "Buys": "yes",
         "Buys*": "maybe",
-        "Nothing": "no",}
-    fpath = PATH_ASSETS.joinpath(f"icons/qualities/buys_icon_{fname_dict[buy_type]}.png")
-    annotate_icon(fpath, ax, 0.8*np.pi, 1, 0.25, 240)
+        "Nothing": "no",
+    }
+    fpath = PATH_ASSETS.joinpath(
+        f"icons/qualities/buys_icon_{fname_dict[buy_type]}.png"
+    )
+    annotate_icon(fpath, ax, 0.8 * np.pi, 1, 0.25, 240)
     # icon_dict = {
     #     "Buys": {"cso": "market", "color": "darkgreen", "text": "Yes!"},
     #     "Buys*": {"cso": "city", "color": "sandybrown", "text": "Finicky."},
@@ -54,7 +62,7 @@ def plot_kingdom_qualities(
     max_val: int = 4,
     add_pics: bool = True,
     skip_interactivity: bool = True,
-    buy_str: Literal["Buys", "Buys*", "Nothing"] | None = None
+    buy_str: Literal["Buys", "Buys*", "Nothing"] | None = None,
 ) -> Figure:
     """
     Plots an N-sided polygon (radar chart) where each side represents a fraction of the maximum value from the input dictionary.
@@ -86,7 +94,9 @@ def plot_kingdom_qualities(
     if skip_interactivity:
         data = {key: value for key, value in data.items() if key != "interactivity"}
     normalized_data = [value / max_val for value in data.values()]
-    normalized_data = [d if d != 0 else 0.02 for d in normalized_data]  # Avoid zero values
+    normalized_data = [
+        d if d != 0 else 0.02 for d in normalized_data
+    ]  # Avoid zero values
 
     # Number of variables (sides of the polygon)
     num_vars = len(data)
@@ -103,11 +113,25 @@ def plot_kingdom_qualities(
     else:
         fig: Figure = ax.get_figure()  # type: ignore
 
-    fontprops = {"fontproperties": XKCD_FONT, "color": "black", "size": 18, "fontweight": "bold",}# "bbox": dict(facecolor="white", edgecolor="none", alpha=0.4, boxstyle="round,pad=0.15")}
+    fontprops = {
+        "fontproperties": XKCD_FONT,
+        "color": "black",
+        "size": 18,
+        "fontweight": "bold",
+    }  # "bbox": dict(facecolor="white", edgecolor="none", alpha=0.4, boxstyle="round,pad=0.15")}
     ax.fill(angles, normalized_data, color=DOM_BLUE, alpha=0.25)
     ax.plot(angles, normalized_data, color=DOM_BLUE, linewidth=3, alpha=0.8)
     mask = np.array([d >= 0.025 for d in normalized_data])
-    ax.scatter(np.array(angles)[mask], np.array(normalized_data)[mask], color=DOM_BLUE, s=100, marker="H", fc="none", lw=3, alpha=0.8)
+    ax.scatter(
+        np.array(angles)[mask],
+        np.array(normalized_data)[mask],
+        color=DOM_BLUE,
+        s=100,
+        marker="H",
+        fc="none",
+        lw=3,
+        alpha=0.8,
+    )
 
     # if any(~mask):
     #     ax.scatter(0, 0, color=DOM_BLUE, s=100, marker="H", zorder=100)
@@ -148,9 +172,9 @@ def plot_kingdom_qualities(
         )
         va = "center"
         ha = "left" if angle < np.pi / 2 or angle > 3 * np.pi / 2 else "right"
-        angle_offset =  np.pi/15 if ha == "left" else -np.pi/15
+        angle_offset = np.pi / 15 if ha == "left" else -np.pi / 15
         ax.text(
-            angle+angle_offset,
+            angle + angle_offset,
             0.35,
             label.capitalize(),
             horizontalalignment=ha,

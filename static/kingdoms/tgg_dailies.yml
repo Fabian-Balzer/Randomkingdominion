@@ -1,4 +1,717 @@
 - cards:
+  - abundance
+  - cabin_boy
+  - catapult/rocks
+  - forge
+  - journeyman
+  - lurker
+  - magnate
+  - monument
+  - steward
+  - swashbuckler
+  expansions:
+  - Adventures
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Intrigue, 2E
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  idx: 102333356289635908924242959110195098249
+  landscapes:
+  - mission
+  name: '2025-12-06'
+  notes:
+    crucial_cards:
+    - Cabin Boy
+    - Catapult
+    - Lurker
+    - Abundance
+    ending:
+    - Province
+    - Cabin Boy
+    link: https://youtu.be/IgFXhaGmZAI
+    name: Cabin Mission
+    openings:
+    - grade: C
+      t1: Cabin Boy
+      t1_csos:
+      - Cabin Boy
+      t2: Steward
+      t2_csos:
+      - steward
+      type: 4/3|3/4
+    - grade: D
+      t1: Steward
+      t1_csos:
+      - steward
+      t2: Skip turn
+      t2_csos: []
+      type: 5/2|2/5
+    points:
+    - 33
+    - 27
+    subtitle: Doing Moneyish Stuff In A Moneyish Kingdom
+    turns:
+    - 18
+    - 17
+- cards:
+  - abundance
+  - buried_treasure
+  - catacombs
+  - flag_bearer
+  - hideout
+  - inventor
+  - pilgrim
+  - quartermaster
+  - silk_merchant
+  - wandering_minstrel
+  expansions:
+  - Dark Ages
+  - Plunder
+  - Renaissance
+  idx: 73019530750740609699025897772805496474
+  landscapes:
+  - fleet
+  - mirror
+  name: '2025-12-05'
+- cards:
+  - altar
+  - baron
+  - beggar
+  - counterfeit
+  - farm
+  - mining_village
+  - pillage
+  - swindler
+  - torturer
+  - trading_post
+  expansions:
+  - Dark Ages
+  - Intrigue, 2E
+  idx: 304357337630730482347635478165173061644
+  name: '2025-12-04'
+- bane_pile: shop
+  cards:
+  - figurine
+  - flagship
+  - jewelled_egg
+  - landing_party
+  - maroon
+  - pickaxe
+  - quartermaster
+  - sack_of_loot
+  - shop
+  - swamp_shacks
+  - young_witch
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Plunder
+  idx: 260090391945043638247457284972804819929
+  landscapes:
+  - cursed
+  - inherited
+  name: '2025-12-03'
+  traits:
+  - - cursed
+    - figurine
+  - - inherited
+    - sack_of_loot
+- cards:
+  - bishop
+  - charlatan
+  - city
+  - crystal_ball
+  - hoard
+  - magnate
+  - monument
+  - quarry
+  - war_chest
+  - watchtower
+  expansions:
+  - Prosperity, 2E
+  idx: 306886357529247368264954445406625057958
+  name: '2025-12-02'
+  use_colonies: true
+- cards:
+  - amulet
+  - council_room
+  - guide
+  - laboratory
+  - mine
+  - miser
+  - remodel
+  - storyteller
+  - swamp_hag
+  - workshop
+  expansions:
+  - Adventures
+  - Base, 2E
+  idx: 88578400421964873031246186685352484992
+  landscapes:
+  - quest
+  - save
+  name: '2025-12-01'
+- campaign_effects:
+  - cost_2_less
+  - room_for_more
+  cards:
+  - altar
+  - engineer
+  - hunting_party
+  - knights
+  - paddock
+  - pooka
+  - sanctuary
+  - steward
+  - torturer
+  - wandering_minstrel
+  - wizards
+  expansions:
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Renaissance
+  idx: 314901246086246698556430862111545410869
+  landscapes:
+  - circle_of_witches
+  - city_gate
+  - invasion
+  name: '2025-11-30'
+  notes:
+    crucial_cards:
+    - Invasion
+    - Wandering Minstrel
+    - Hunting Party
+    - Altar
+    ending:
+    - Duchy
+    - Curse
+    - Wandering Minstrel
+    link: https://youtu.be/WAldXVGxo2o
+    name: Room for Invasion
+    points:
+    - 33
+    - 4
+    subtitle: Forgoing Aggressive Trashing In Favor Of Minstrels Paying Off
+    turns:
+    - 11
+    - 10
+  stamps_and_effects:
+  - - cost_2_less
+    - invasion
+  - - room_for_more
+    - steward
+  use_shelters: true
+- cards:
+  - band_of_misfits
+  - hunting_grounds
+  - kings_cache
+  - library
+  - mining_village
+  - taskmaster
+  - university
+  - vassal
+  - warehouse
+  - wharf
+  expansions:
+  - Alchemy
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Plunder
+  - Seaside, 2E
+  idx: 223896938848208998222271789744997579223
+  landscapes:
+  - banquet
+  - scrounge
+  name: '2025-11-29'
+  notes:
+    crucial_cards:
+    - Band of misfits
+    - university
+    - wharf
+    - scrounge
+    ending:
+    - duchy
+    - mining village
+    - wharf
+    - band of misfits
+    link: https://youtu.be/OdPG4-t6vFQ
+    name: Misfits at the Uni
+    openings:
+    - grade: B
+      t1: Potion
+      t1_csos:
+      - potion
+      t2: Scrounge away Estate
+      t2_csos:
+      - Scrounge
+      - estate
+      type: 4/3|3/4
+    - grade: C
+      t1: Wharf, or Potion
+      t1_csos:
+      - wharf
+      t2: skip turn
+      t2_csos: []
+      type: 5/2|2/5
+    points:
+    - 36
+    - 28
+    subtitle: Playing Around Scrounge Pileout Capabilities
+    turns:
+    - 14
+    - 13
+- cards:
+  - altar
+  - cargo_ship
+  - catacombs
+  - count
+  - death_cart
+  - knights
+  - mountain_village
+  - old_witch
+  - pillage
+  - seer
+  expansions:
+  - Dark Ages
+  - Renaissance
+  idx: 290869593822779740060878163050619011467
+  landscapes:
+  - canal
+  - silos
+  name: '2025-11-27'
+  use_shelters: true
+- cards:
+  - capital
+  - charm
+  - corsair
+  - cutpurse
+  - engineer
+  - lighthouse
+  - merchant_ship
+  - monkey
+  - native_village
+  - wharf
+  expansions:
+  - Empires
+  - Seaside, 2E
+  idx: 279104717196725902112318396886308392136
+  landscapes:
+  - battlefield
+  - conquest
+  name: '2025-11-26'
+- cards:
+  - archive
+  - castles
+  - charm
+  - city_quarter
+  - crown
+  - forum
+  - gladiator/fortune
+  - royal_blacksmith
+  - settlers/bustling_village
+  - wild_hunt
+  expansions:
+  - Empires
+  idx: 75087072978021008984618419757833162411
+  landscapes:
+  - banquet
+  - obelisk
+  name: '2025-11-25'
+  obelisk_pile: archive
+- cards:
+  - apothecary
+  - grotto
+  - longship
+  - mapmaker
+  - pendant
+  - secluded_shrine
+  - shaman
+  - siren
+  - stowaway
+  - vineyard
+  expansions:
+  - Alchemy
+  - Plunder
+  idx: 111303715893199899904669713089784378936
+  landscapes:
+  - bury
+  - shy
+  name: '2025-11-28'
+  traits:
+  - - shy
+    - grotto
+- cards:
+  - bandit
+  - bureaucrat
+  - festival
+  - gardens
+  - merchant
+  - militia
+  - philosophers_stone
+  - sentry
+  - throne_room
+  - workshop
+  expansions:
+  - Alchemy
+  - Base, 2E
+  idx: 295155813619851826453702316416366912380
+  name: '2025-11-24'
+- campaign_effects:
+  - triple_pile
+  cards:
+  - advisor
+  - baron
+  - duplicate
+  - farrier
+  - infirmary
+  - peasant
+  - plaza
+  - settlers/bustling_village
+  - soothsayer
+  - warehouse
+  expansions:
+  - Adventures
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Intrigue, 2E
+  - Plunder
+  - Renaissance
+  - Seaside, 2E
+  idx: 268579330882169531170225641012134570931
+  landscapes:
+  - fawning
+  - road_network
+  name: '2025-11-23'
+  stamps_and_effects:
+  - - triple_pile
+    - farrier
+  traits:
+  - - fawning
+    - soothsayer
+- cards:
+  - alchemist
+  - cabin_boy
+  - fairgrounds
+  - galleria
+  - lost_city
+  - magpie
+  - messenger
+  - quartermaster
+  - trader
+  - villa
+  expansions:
+  - Adventures
+  - Alchemy
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Plunder
+  - Renaissance
+  idx: 5393661342494637277466170440448142495
+  landscapes:
+  - march
+  - pageant
+  name: '2025-11-22'
+- cards:
+  - border_village
+  - develop
+  - fairgrounds
+  - ferryman
+  - ghost_town
+  - haggler
+  - jester
+  - shepherd
+  - spice_merchant
+  - stables
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Hinterlands, 2E
+  - Nocturne
+  ferryman_pile: necromancer
+  idx: 13189846392401802034702611913408665935
+  name: '2025-11-21'
+- cards:
+  - cabin_boy
+  - capital
+  - catapult/rocks
+  - crown
+  - encampment/plunder
+  - enchantress
+  - groundskeeper
+  - kings_cache
+  - sacrifice
+  - taskmaster
+  expansions:
+  - Empires
+  - Plunder
+  idx: 272426625569322275602327505674708106363
+  landscapes:
+  - dominate
+  - journey
+  name: '2025-11-20'
+  notes:
+    crucial_cards:
+    - Capital
+    - King's Cache
+    - Dominate
+    - Journey
+    ending:
+    - Province
+    - Encampment
+    link: https://youtu.be/m4RYZYokeEY
+    name: Capital Domination
+    openings:
+    - grade: B+
+      t1: Journey, buy Catapult
+      t1_csos:
+      - journey
+      - Catapult
+      t2: 'On $5: Journey or Capital. On $4: Journey. On $3 or $2: Encampment'
+      t2_csos:
+      - Journey
+      type: 4/3
+    - grade: B+
+      t1: Catapult
+      t1_csos:
+      - Catapult
+      t2: Journey, hopefully play Catapult, buy Encampment
+      t2_csos:
+      - Journey
+      - Encampment
+      type: 4/3|3/4
+    - grade: C-
+      t1: Catapult
+      t1_csos:
+      - catapult
+      t2: Encampment
+      t2_csos:
+      - encampment
+      type: 5/2|2/5
+    points:
+    - 123
+    - 18
+    subtitle: More Than 100 VP Difference After A Misclick And Questionable Plays
+    turns:
+    - 17
+    - 16
+- cards:
+  - coven
+  - gatekeeper
+  - goatherd
+  - groom
+  - livery
+  - scrap
+  - sheepdog
+  - snowy_village
+  - stockpile
+  - village_green
+  expansions:
+  - Menagerie
+  idx: 45381433670431657152488946063644513216
+  landscapes:
+  - demand
+  - stampede
+  name: '2025-11-18'
+- cards:
+  - city
+  - festival
+  - gardens
+  - grand_market
+  - harbinger
+  - mint
+  - moat
+  - quarry
+  - village
+  - witch
+  expansions:
+  - Base, 2E
+  - Prosperity, 2E
+  idx: 79446528266676945331747360666856102361
+  name: '2025-11-17'
+- cards:
+  - fool
+  - lurker
+  - pixie
+  - riverboat
+  - shepherd
+  - steward
+  - stockpile
+  - temple
+  - tracker
+  - treasury
+  expansions:
+  - Adventures
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Rising Sun
+  - Seaside, 2E
+  idx: 74739700127495407604495058082317269813
+  landscapes:
+  - invest
+  name: '2025-11-16'
+  riverboat_card: storyteller
+- cards:
+  - apothecary
+  - courtyard
+  - den_of_sin
+  - farmers_market
+  - ghost_town
+  - guildmaster
+  - oasis
+  - secret_passage
+  - swamp_shacks
+  - upgrade
+  expansions:
+  - Alchemy
+  - Allies
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Nocturne
+  - Plunder
+  idx: 281382227752140712633313639736228349866
+  landscapes:
+  - crafters_guild
+  - hasty
+  - museum
+  name: '2025-11-15'
+  traits:
+  - - hasty
+    - courtyard
+- cards:
+  - camel_train
+  - cutthroat
+  - figurine
+  - first_mate
+  - fisherman
+  - gondola
+  - kiln
+  - supplies
+  - swamp_shacks
+  - trickster
+  expansions:
+  - Menagerie
+  - Plunder
+  idx: 52185798585168127433350708935307716916
+  landscapes:
+  - bargain
+  - populate
+  name: '2025-11-19'
+- bane_pile: augurs
+  cards:
+  - augurs
+  - bauble
+  - caravan_guard
+  - page
+  - sentinel
+  - skirmisher
+  - swap
+  - sycophant
+  - townsfolk
+  - transmogrify
+  - young_witch
+  expansions:
+  - Adventures
+  - Allies
+  - Cornucopia & Guilds, 2E
+  idx: 252036605991787990339242185643189475654
+  landscapes:
+  - ball
+  - market_towns
+  name: '2025-11-14'
+  notes:
+    crucial_cards:
+    - Treasure Hunter
+    - Swap
+    - Skirmisher
+    - Sentinel
+    ending:
+    - Province
+    link: https://youtu.be/as-xQlbbb0k
+    name: Treasure Bane
+    openings:
+    - grade: B-
+      t1: Sentinel, or Transmogrify
+      t1_csos:
+      - sentinel
+      t2: Page
+      t2_csos:
+      - page
+      type: 4/3|3/4
+    - grade: B-
+      t1: Sentinel, or Transmogrify
+      t1_csos:
+      - sentinel
+      t2: Page
+      t2_csos:
+      - page
+      type: 5/2
+    - grade: A-
+      t1: Page
+      t1_csos:
+      - page
+      t2: Ball for Sentinel and Transmogrify
+      t2_csos:
+      - Ball
+      - sentinel
+      - transmogrify
+      type: 2/5
+    points:
+    - 40
+    - 14
+    subtitle: AI Trolling Us Early On By Gaining Too Many Cards
+    turns:
+    - 15
+    - 14
+- cards:
+  - border_village
+  - crossroads
+  - duplicate
+  - guard_dog
+  - guide
+  - inn
+  - ranger
+  - raze
+  - souk
+  - weaver
+  expansions:
+  - Adventures
+  - Hinterlands, 2E
+  idx: 131528642684928320758197282165005543131
+  landscapes:
+  - alms
+  - travelling_fair
+  name: '2025-11-13'
+- cards:
+  - bard
+  - changeling
+  - corsair
+  - den_of_sin
+  - guardian
+  - haven
+  - lookout
+  - monkey
+  - pirate
+  - sailor
+  expansions:
+  - Nocturne
+  - Seaside, 2E
+  idx: 31923227708495755747559128579895336603
+  name: '2025-11-12'
+- cards:
   - alley
   - aristocrat
   - daimyo
@@ -18,38 +731,60 @@
   - progress
   name: '2025-11-11'
   notes:
-    crucial_cards: [Daimyo, Tanuki, Gather, Progress]
-    ending: [Tanuki, Poet, Daimyo]
-    link: 'https://youtu.be/dgDcVddNf1U'
-    name: 'Tanukis Gathered'
+    crucial_cards:
+    - Daimyo
+    - Tanuki
+    - Gather
+    - Progress
+    ending:
+    - Tanuki
+    - Poet
+    - Daimyo
+    link: https://youtu.be/dgDcVddNf1U
+    name: Tanukis Gathered
     openings:
-    - grade: 'C+'
-      t1: 'Poet'
-      t1_csos: [ninja]
-      t2: 'Credit for Tanuki?'
-      t2_csos: [Credit, Tanuki]
+    - grade: C+
+      t1: Poet
+      t1_csos:
+      - ninja
+      t2: Credit for Tanuki?
+      t2_csos:
+      - Credit
+      - Tanuki
       type: 4/3
-    - grade: 'C'
-      t1: 'Fishmonger? Or Credit for Tanuki'
-      t1_csos: [Fishmonger]
-      t2: 'Credit for Tanuki, or Daimyo'
-      t2_csos: [Credit, Tanuki]
+    - grade: C
+      t1: Fishmonger? Or Credit for Tanuki
+      t1_csos:
+      - Fishmonger
+      t2: Credit for Tanuki, or Daimyo
+      t2_csos:
+      - Credit
+      - Tanuki
       type: 3/4
-    - grade: 'A'
-      t1: 'Tanuki'
-      t1_csos: [Tanuki]
-      t2: 'Credit for Tanuki'
-      t2_csos: [Credit, Tanuki]
+    - grade: A
+      t1: Tanuki
+      t1_csos:
+      - Tanuki
+      t2: Credit for Tanuki
+      t2_csos:
+      - Credit
+      - Tanuki
       type: 5/2|2/5
-    - grade: 'A-'
-      t1: 'Fishmonger'
-      t1_csos: [fishmonger]
-      t2: 'Tanuki'
-      t2_csos: [Tanuki]
+    - grade: A-
+      t1: Fishmonger
+      t1_csos:
+      - fishmonger
+      t2: Tanuki
+      t2_csos:
+      - Tanuki
       type: 2/5
-    points: [8, 0]
-    subtitle: 'Wheezing Through Even Though We Accidentally Skip A Gather Buy'
-    turns: [10, 9]
+    points:
+    - 8
+    - 0
+    subtitle: Wheezing Through Even Though We Accidentally Skip A Gather Buy
+    turns:
+    - 10
+    - 9
   riverboat_card: litter
 - cards:
   - augurs

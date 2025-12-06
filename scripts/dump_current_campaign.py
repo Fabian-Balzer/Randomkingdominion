@@ -74,7 +74,6 @@ def dump_current_campaign(input_fpath: Path):
 
 
 def main():
-    """Main function to run the script."""
     args = parse_args()
     input_fpath = Path(args.file)
     if not input_fpath.exists():

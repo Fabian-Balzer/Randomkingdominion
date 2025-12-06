@@ -18,3 +18,8 @@ On discord, the user ``probably-lost`` was kind enough to provide those to me up
 ## Other cool kingdoms
 
 These are random kingdoms I've stumbled upon which seemed fun enough to save. Have fun playing them yourself, they are usually wild mixes of expansions.
+
+
+## KOTW: Kingdom of the week
+
+The 'kingdom of the week' from reddit, not up to date.

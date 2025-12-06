@@ -448,6 +448,7 @@ menagerie;patron;Revealing your hand with a Patron in it generates Coffers. If y
 merchant_camp;reckless;[Only if Merchant Camp is Reckless] You may topdeck your Merchant Camps during Clean-up, essentially making it a self-topdecking +4 Actions, +$2.;Synergy;;
 merchant_camp;way_of_the_owl;With two or more Merchant Camps topdecked every turn, you can essentially start every turn with an extra card of draw and 1 extra coin for every Merchant Camp you have - 1. You even get to topdeck the Merchant Camp you owled.;Synergy;;
 merchant_guild;panic;You can easily buy a load of Coppers to get a load of Coffers with Panic active.;Weak Synergy;;
+merchant_guild;stampede;With two Villages and three Merchant Guilds, buying Stampedes can ramp up really quickly.;Combo;JNails: League match;https://www.youtube.com/watch?v=WH6HBbo4zrw
 merchant_guild;supplies;Since Supplies gains you Horses in your buy phase, playing Merchant Guild before that can generate a few Coffers.;Weak Synergy;Fabi: Daily playthrough;https://www.youtube.com/watch?v=xZP3lNLCXN0
 mirror;mountain_shrine;With Mirror, you can gain additional Mountain Shrines for $3 each.;Weak Synergy;;
 mirror;overlord;With Mirror, you can gain additional Overlords for $3 each. Opening double Overlord should be considered.;Synergy;;

@@ -86,25 +86,27 @@ def _annotate_expansion_icons(ax: Axes, k: "Kingdom"):
         y = 1 - yoff * (i % num_rows)
         annotate_single_expansion_icon(expansion, ax, x, y, zoom)
 
+
 def _fig_to_img(fig):
     """Convert a Matplotlib figure to a numpy array image."""
     buf = BytesIO()
-    fig.savefig(buf, format='png', bbox_inches='tight', pad_inches=0.2, dpi=200)
+    fig.savefig(buf, format="png", bbox_inches="tight", pad_inches=0.2, dpi=200)
     buf.seek(0)
     img = Image.open(buf)
     arr = np.asarray(img)
     buf.close()
     return arr
 
-def get_kingdom_quality_fig(k: "Kingdom", save=False, add_buy_str=False) -> Figure:
+
+def get_kingdom_quality_fig(k: "Kingdom", save=False, add_buy_str=True) -> Figure:
     fig = plot_kingdom_qualities(
         k.total_qualities, buy_str=k.buy_availability if add_buy_str else None
     )
     fig.set_size_inches(8.5, 6)
     fig.set_facecolor(DOM_BEIGE)
-    ax = plt.gca()
+    ax = fig.gca()
     ax.set_position([0, 0.34, 0.52, 0.6])  # type: ignore
-    ax2: Axes = fig.add_axes([0.03, 0.01, 1, 0.99], zorder=-1)  # type: ignore
+    ax2: Axes = fig.add_axes([0.03, 0.01, 1, 0.98], zorder=-1)  # type: ignore
     ax2.xaxis.set_visible(False)
     ax2.yaxis.set_visible(False)
     ax2.set_frame_on(False)
@@ -128,7 +130,9 @@ def get_kingdom_quality_fig(k: "Kingdom", save=False, add_buy_str=False) -> Figu
     if (dw_k := k.divine_wind_subkingdom) is not None:
         extra_fig = get_kingdom_quality_fig(dw_k, save=False, add_buy_str=add_buy_str)
         extra_fig.get_axes()[0].set_title("")
-        extra_fig.suptitle("Divine Wind Kingdom", y=1.1, fontsize=20, **_text_args | {"ha": "center"})
+        extra_fig.suptitle(
+            "Divine Wind Kingdom", y=1.1, fontsize=20, **_text_args | {"ha": "center"}
+        )
 
         img = _fig_to_img(extra_fig)
         plt.close(extra_fig)

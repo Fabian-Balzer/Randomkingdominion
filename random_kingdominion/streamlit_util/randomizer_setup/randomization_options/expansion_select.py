@@ -1,9 +1,8 @@
 import streamlit as st
 from streamlit_extras.add_vertical_space import add_vertical_space
 from streamlit_extras.grid import grid
-from streamlit_extras.stylable_container import stylable_container
 
-from ....utils import get_expansion_icon_path, sanitize_cso_name
+from ....utils import get_expansion_icon_path
 from ...constants import ALL_EXPANSIONS, NUM_EXPS
 from ...image_util import st_build_expansion_icon_with_tt
 from ...image_util.image_handling import img_to_bytes
