@@ -1,0 +1,97 @@
+
+## Stamp
+
+-x stamp_action_way(Way)
+-x stamp_allow_second_cube(Project)
+-x stamp_also_debt(Prophecy)
+-x stamp_also_gold(Prophecy)
+-x stamp_also_plague(Prophecy)
+-x stamp_also_respect(Prophecy)
+-x stamp_also_silver(Prophecy)
+-x stamp_bonus_money(Event)
+-x stamp_chameleonize(Card)
+-x stamp_coin_way(Way)
+-x stamp_cost_2_less(Event)
+-x stamp_discounted(Card)
+-x stamp_double_vp(Landmark)
+-x stamp_durationified(Card)
+-x stamp_fawning_service(Event)
+-x stamp_free(Event)
+-x stamp_got_it_already(Event)
+-x stamp_motivational(Event)
+-x stamp_offers_insight(Card)
+-x stamp_one_track_mind(Event)
+-x stamp_pay_later(Card)
+-x stamp_perks_of_wealth(Event)
+-x stamp_plus_action(Card)
+-x stamp_plus_buy(Card)
+-x stamp_plus_card(Card)
+-x stamp_plus_coin(Card)
+-x stamp_reactionified(Card)
+-x stamp_shadowified(Card)
+-x stamp_treasurified(Card)
+-x stamp_two_for_one(Card)
+-x stamp_victorified(Card)
+-x stamp_with_horse(Card)
+-x stamp_with_spoils(Card)
+-x stamp_with_villager(Card)
+
+## Twist
+
+-x twist_beakers
+-x twist_big_ideas
+-x twist_busy_busy
+-x twist_cramped
+-x twist_delayed_joy
+-x twist_double_up
+-x twist_extra_oomph
+-x twist_fast_track
+-x twist_favored_landlords
+-x twist_favored_wealthy
+-x twist_forever_favored
+-x twist_from_the_throne
+-x twist_garbage_heap
+-x twist_head_start
+-x twist_incoming
+-x twist_landfill
+-x twist_mirror_loot
+-x twist_pennies_saved
+-x twist_penny_party
+-x twist_real_estate_barons
+-x twist_rebates
+-x twist_room_for_more(Card)
+-x twist_sale
+-x twist_shoppers
+-x twist_so_much_stuff
+-x twist_turn_turn_turn
+-x twist_typhoon(Cards)
+
+## Setup Effect
+
+-x start_10_favor
+-x start_10_villagers
+-x start_5_coffers
+-x start_add_card(Card)
+-x start_add_each_pile
+-x start_curse_cost_3
+-x start_double_deck
+-x start_double_heirloom(Card with Heirloom attached)
+-x start_double_pile(Card)
+-x start_double_vp_tokens(Landmark)
+-x start_in_play(Duration)
+-x start_journey_facedown
+-x start_make_split_pile(Card1, Card2)
+-x start_multitrait(??)
+-x start_native_village_mat(Card)
+-x start_plus_2_vp_tokens(Landmark)
+-x start_plus_8_vp_tokens(Landmark)
+-x start_replace_copper(Card (also non-supply possible))
+-x start_replace_estate(Card (also non-supply possible))
+-x start_replace_estate_from_pile(CSO)
+-x start_same_reward(Reward)
+-x start_shuffle_pile(Split pile)
+-x start_tavern(Copper (?))
+-x start_trash_curses
+-x start_trash_pile(Card)
+-x start_triple_pile(Card)
+-x start_with_cube(Project)

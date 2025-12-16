@@ -280,6 +280,7 @@ def _add_on_gain_hand_gatekeeper_interaction(hand_cso: str, df: pd.DataFrame):
         rule += " Note that if you gain a Falconer to your hand somehow while under the Gatekeeper attack (e.g. via Artisan), reacting and playing it means that you do not have to Exile it."
     add_interaction("Gatekeeper", hand_cso, rule, df, add_together_if_present=True)
 
+def _add_
 
 def _add_on_gain_hand_sheepdog_interaction(hand_cso: str, df: pd.DataFrame):
     if hand_cso == "Silver Mine":

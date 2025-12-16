@@ -1,4 +1,430 @@
 - cards:
+  - clerk
+  - daimyo
+  - investment
+  - outpost
+  - pirate
+  - ronin
+  - sea_witch
+  - snake_witch
+  - tea_house
+  - treasure_map
+  expansions:
+  - Prosperity, 2E
+  - Rising Sun
+  - Seaside, 2E
+  idx: 4828968209181984052457528605103412351
+  landscapes:
+  - bureaucracy
+  name: '2025-12-12'
+- cards:
+  - blockade
+  - broker
+  - corsair
+  - galleria
+  - haven
+  - salvager
+  - specialist
+  - sycophant
+  - treasure_map
+  - underling
+  expansions:
+  - Allies
+  - Seaside, 2E
+  idx: 158500930972263753840657133454831294258
+  landscapes:
+  - architects_guild
+  name: '2025-12-11'
+- cards:
+  - bandit
+  - black_cat
+  - bounty_hunter
+  - hunting_lodge
+  - militia
+  - mine
+  - sheepdog
+  - sleigh
+  - smithy
+  - vassal
+  expansions:
+  - Base, 2E
+  - Menagerie
+  idx: 53283103393880366195348599612957815985
+  landscapes:
+  - way_of_the_camel
+  name: '2025-12-15'
+  notes:
+    crucial_cards: []
+    ending: []
+    link: ''
+    name: ''
+    openings:
+    - grade: ''
+      t1: ''
+      t1_csos: []
+      t2: ''
+      t2_csos: []
+      type: 4/3|3/4
+    - grade: ''
+      t1: ''
+      t1_csos: []
+      t2: ''
+      t2_csos: []
+      type: 5/2|2/5
+    points: []
+    subtitle: ''
+    turns: []
+- campaign_effects:
+  - chameleonized
+  - pennies_saved
+  cards:
+  - bazaar
+  - craftsman
+  - ghost_town
+  - gold_mine
+  - guardian
+  - haven
+  - monkey
+  - native_village
+  - outpost
+  - wharf
+  expansions:
+  - Nocturne
+  - Renaissance
+  - Rising Sun
+  - Seaside, 2E
+  idx: 300596645977283883877257963332998976354
+  landscapes:
+  - capitalism
+  name: '2025-12-14'
+  notes:
+    crucial_cards:
+    - Gold
+    - Outpost
+    - Wharf
+    - Province
+    ending:
+    - Province
+    link: https://youtu.be/flmYkj9XqWo
+    name: Pennies Crashed
+    points:
+    - 51
+    - 24
+    subtitle: Having To Set Up An Alternative After The Daily Crashes
+    turns:
+    - 16
+    - 15
+  stamps_and_effects:
+  - - chameleonized
+    - wharf
+- cards:
+  - border_village
+  - butcher
+  - death_cart
+  - first_mate
+  - forts
+  - masquerade
+  - overlord
+  - sage
+  - vagrant
+  - vassal
+  expansions:
+  - Allies
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Plunder
+  idx: 38765115534157473901852310680226406131
+  landscapes:
+  - banquet
+  - battlefield
+  name: '2025-12-13'
+  notes:
+    crucial_cards:
+    - Death Cart
+    - Ruined Market
+    - Overlord
+    - Masquerade
+    ending:
+    - Estate
+    - Ruins
+    - Border Village
+    link: https://youtu.be/bUQ903Gnt7A
+    name: Cart Mate
+    openings:
+    - grade: B
+      t1: Masquerade
+      t1_csos:
+      - Masquerade
+      t2: Overlord
+      t2_csos:
+      - Overlord
+      type: 4/3|3/4
+    - grade: B
+      t1: Butcher
+      t1_csos:
+      - Butcher
+      t2: Overlord
+      t2_csos:
+      - Overlord
+      type: 5/2
+    - grade: C
+      t1: Overlord
+      t1_csos:
+      - Overlord
+      t2: Pay off debt
+      t2_csos: []
+      type: 2/5
+    points:
+    - 42
+    - 10
+    subtitle: Chaotic Path Through A Complex Kingdom
+    turns:
+    - 13
+    - 12
+  use_shelters: true
+- cards:
+  - altar
+  - band_of_misfits
+  - beggar
+  - death_cart
+  - imperial_envoy
+  - junk_dealer
+  - mountain_shrine
+  - riverboat
+  - sage
+  - scavenger
+  expansions:
+  - Dark Ages
+  - Rising Sun
+  idx: 337609356327447375683083740243224398583
+  landscapes:
+  - asceticism
+  - continue
+  - rapid_expansion
+  name: '2025-12-10'
+  notes:
+    crucial_cards:
+    - Gold
+    - Imperial Envoy
+    - Junk Dealer
+    - Asceticism
+    ending:
+    - Province
+    link: https://youtu.be/r-QThWElKU4
+    name: Ascetic Moneys
+    openings:
+    - grade: C
+      t1: Silver
+      t1_csos:
+      - Silver
+      t2: Asceticism, trash Estate
+      t2_csos:
+      - Asceticism
+      - Estate
+      type: 4/3|3/4
+    - grade: B
+      t1: Junk Dealer
+      t1_csos:
+      - Junk Dealer
+      t2: Skip turn
+      t2_csos: []
+      type: 5/2|2/5
+    points:
+    - 28
+    - 27
+    subtitle: Almost Getting Outpaced By AI In A Fast Money Game
+    turns:
+    - 14
+    - 13
+  riverboat_card: mystic
+- cards:
+  - animal_fair
+  - black_cat
+  - displace
+  - groom
+  - hunting_lodge
+  - livery
+  - paddock
+  - sanctuary
+  - sleigh
+  - supplies
+  expansions:
+  - Menagerie
+  idx: 22436763780967470346110693514445568200
+  landscapes:
+  - demand
+  - seize_the_day
+  name: '2025-12-09'
+  notes:
+    crucial_cards:
+    - Paddock
+    - Animal Fair
+    - Horse
+    - Supplies
+    ending:
+    - Province
+    - Supplies
+    link: https://youtu.be/vgygfJp3zMA
+    name: Supply Chain
+    openings:
+    - grade: C+
+      t1: Silver, or Supplies
+      t1_csos:
+      - Silver
+      t2: Supplies
+      t2_csos:
+      - Supplies
+      type: 4/3|3/4
+    - grade: B+
+      t1: Paddock, or Sanctuary
+      t1_csos:
+      - Paddock
+      t2: Supplies
+      t2_csos:
+      - Supplies
+      type: 5/2|2/5
+    points:
+    - 56
+    - 12
+    subtitle: More Than 40 VP Ahead As AI's Groom/Black Cat Deck Crumbles
+    turns:
+    - 14
+    - 13
+- cards:
+  - artisan
+  - butcher
+  - festival
+  - footpad
+  - gardens
+  - herald
+  - infirmary
+  - library
+  - militia
+  - soothsayer
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  idx: 325467102695469071326011234881810881570
+  name: '2025-12-08'
+  notes:
+    crucial_cards:
+    - Footpad
+    - Butcher
+    - Festival
+    - Artisan
+    ending:
+    - Estate
+    - Festival
+    - Herald
+    link: https://youtu.be/113vLKLO_uE
+    name: Butchpad
+    openings:
+    - grade: B
+      t1: Buy Infirmary overpaying $1, trash Estate
+      t1_csos:
+      - Infirmary
+      - Estate
+      t2: Buy Silver, or Herald
+      t2_csos:
+      - Silver
+      type: 4/3
+    - grade: C
+      t1: Buy Silver
+      t1_csos:
+      - Silver
+      t2: Buy Infirmary overpaying $1, trash Estate
+      t2_csos:
+      - Infirmary
+      - Estate
+      type: 3/4
+    - grade: B+
+      t1: Buy Infirmary overpaying $2, trash both
+      t1_csos:
+      - Infirmary
+      - Estate
+      - Copper
+      t2: Buy Silver
+      t2_csos:
+      - Silver
+      type: 5/2
+    - grade: C+
+      t1: Skip turn
+      t1_csos: []
+      t2: Buy Butcher
+      t2_csos:
+      - Butcher
+      type: 2/5
+    points:
+    - 8
+    - 0
+    subtitle: You Could Say I Butchered This One In The End
+    turns:
+    - 11
+    - 10
+- campaign_effects:
+  - double_vp
+  - replace_copper
+  - replace_estate
+  - with_horse
+  cards:
+  - cargo_ship
+  - enlarge
+  - exorcist
+  - expand
+  - frigate
+  - knights
+  - menagerie
+  - merchant_guild
+  - rice
+  - storeroom
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Rising Sun
+  idx: 88810160687201675459460731817892600944
+  landscapes:
+  - labyrinth
+  - scrounge
+  name: '2025-12-07'
+  notes:
+    crucial_cards:
+    - Ghost
+    - Menagerie
+    - Sir Vander
+    - Merchant Guild
+    ending:
+    - Province
+    - Menagerie
+    link: https://youtu.be/9H9jZ8aCEq4
+    name: Ghost Quad
+    points:
+    - 53
+    - 18
+    subtitle: The Most Useful You'll See Sir Vander Be
+    turns:
+    - 10
+    - 9
+  stamps_and_effects:
+  - - double_vp
+    - labyrinth
+  - - replace_copper
+    - spoils,_spoils,_abandoned_mine,_ruined_village,_ruined_library,_ruined_market,_survivors
+  - - replace_estate
+    - spoils,_spoils,_spoils
+  - - with_horse
+    - merchant_guild
+  use_colonies: true
+  use_shelters: true
+- cards:
   - abundance
   - cabin_boy
   - catapult/rocks

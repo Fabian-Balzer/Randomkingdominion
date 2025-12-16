@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "random_kingdominion"
+version = "0.1.2"
+authors = [
+    { name = "Fabian Balzer", email = "fabyy@live.de" }
+]
+license-files = ["LICENSE"]
+description = "Tool to do cool stuff all around the board game Dominion."
+readme = "README.md"
+keywords = ["dominion", "board game", "card game", "deck building"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "numpy",
+    "matplotlib",
+]
+requires-python = ">=3.11"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["."]

@@ -78,13 +78,13 @@ def register_daily_kingdom(
 
 
 def get_daily_kingdom(
-    date_str: str, manager: KingdomManager | None = None
+    date_str: str, manager: KingdomManager | None = None, reload=False
 ) -> tuple[Kingdom, KingdomManager]:
     """Retrieve the kingdom and manager for the given daily date."""
     date = parse_daily_date(date_str)
     if manager is None:
         manager = KingdomManager()
-        manager.load_tgg_dailies()
+        manager.load_tgg_dailies(reload=reload)
     kingdom = manager.get_kingdom_by_name(date)
     if kingdom is None:
         raise ValueError(f"No kingdom found for date {date}.")

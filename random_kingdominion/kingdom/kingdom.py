@@ -689,13 +689,25 @@ class Kingdom:
         cards = [card.split("/")[0] for card in self.cards]
         special_dict = self._get_special_dict(get_cso_name)
         proper_strings = [
-            get_cso_name(cso) + special_dict[cso]
-            for cso in cards + self.landscapes + self.campaign_effects
+            get_cso_name(cso) + special_dict[cso] for cso in cards + self.landscapes
         ]
         if not ignore_col_shelt:
             proper_strings.append("Shelters" if self.use_shelters else "No Shelters")
             proper_strings.append("Colonies" if self.use_colonies else "No Colonies")
         sep_string = ", ".join(sorted(proper_strings))
+        if len(self.campaign_effects) == 0:
+            return sep_string
+        sep_string = sep_string + " -x "
+        special_dict = self._get_special_dict(lambda x: x)
+        for effect_name in self.campaign_effects:
+            effect_type = (
+                ALL_CSOS.loc[effect_name]["Types"][0]
+                .lower()
+                .replace("setup effect", "start")
+            )
+            effect = effect_type + "_" + effect_name
+            sep_string = sep_string + effect + special_dict[effect_name].strip() + ", "
+        sep_string = sep_string.rstrip(", ")
         return sep_string
 
     def get_sanitized_tgg_string(self) -> str:
