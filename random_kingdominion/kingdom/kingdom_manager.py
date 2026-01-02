@@ -236,8 +236,8 @@ class KingdomManager:
     def load_recommended_kingdoms(self):
         self.load_kingdoms_from_yaml(FPATH_KINGDOMS_RECOMMENDED)
 
-    def load_tgg_dailies(self, reload=False):
-        self.load_kingdoms_from_yaml(FPATH_KINGDOMS_TGG_DAILIES)
+    def load_tgg_dailies(self, reload=False, sort=True):
+        self.load_kingdoms_from_yaml(FPATH_KINGDOMS_TGG_DAILIES, sort=sort)
         if reload:
             self._add_kingdoms_from_txt("tgg_dailies")
         win_data = _load_tgg_winrate_data()
@@ -266,7 +266,7 @@ class KingdomManager:
             return
         self.save_kingdoms_to_yaml(FPATH_KINGDOMS_LAST100)
 
-    def load_kingdoms_from_yaml(self, file_path: str | Path):
+    def load_kingdoms_from_yaml(self, file_path: str | Path, sort: bool = False):
         # In the future, I might want to use pickling or a database for faster loading
         with open(file_path, "r", encoding="utf-8") as yaml_file:
             data = yaml.safe_load(yaml_file)
@@ -274,6 +274,8 @@ class KingdomManager:
                 self.kingdoms = [
                     kingdom_data for kingdom_data in data if "cards" in kingdom_data
                 ]
+            if sort:
+                self.kingdoms.sort(key=lambda k: k.get("name", ""), reverse=True)
 
     def save_kingdoms_to_yaml(self, file_path: str | Path):
         if isinstance(file_path, str):

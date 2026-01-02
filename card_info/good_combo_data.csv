@@ -336,6 +336,7 @@ gatekeeper;prosper;Playing Gatekeeper before your opponent gains Loot via Prospe
 gatekeeper;sack_of_loot;Playing Gatekeeper before your opponent gains Loot via Sack of Loot will usually prevent them from getting the Loot into their deck.;Counter;;
 gatekeeper;search;Playing Gatekeeper before your opponent gains Loot via Search will usually prevent them from getting the Loot into their deck.;Counter;;
 gatekeeper;wealthy_village;Playing Gatekeeper before your opponent gains Loot via Wealthy Village will usually prevent them from getting the Loot into their deck.;Counter;;
+gear;trade;By opening double Gear, aiming to Trade away Estates ASAP, and going for a third Gear and some Treasures soon, you are in for a fast-paced money strategy.;Synergy;;
 ghost;prepare;Preparing a Night card such as Ghost will prevent you from being able to play it during your Night phase, and at the start of your next turn, it will just be discarded.;Nombo;;
 ghost_town;haunted_woods;Night cards are heavily disincentivized with Haunted Woods around, as you will have to topdeck your hand whenever buying cards, which happens before you would be able to play any Night cards. When buying Ghost Town while under the HW attack, it even topdecked immediately instead of gained to your hand.;Counter;;
 ghost_town;prepare;Preparing a Night card such as Ghost Town will prevent you from being able to play it during your Night phase, and at the start of your next turn, it will just be discarded.;Nombo;;

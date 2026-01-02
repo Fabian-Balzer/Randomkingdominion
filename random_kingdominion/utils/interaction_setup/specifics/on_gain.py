@@ -2,6 +2,8 @@
 
 import pandas as pd
 
+from ....constants import ALL_CSOS
+from ....cso_series_utils import listlike_contains
 from ..constants import (
     CAN_CAUSE_SHUFFLE_TRIGGER_ON_GAIN,
     CAN_PLAY_CARD_ON_GAIN,
@@ -280,7 +282,63 @@ def _add_on_gain_hand_gatekeeper_interaction(hand_cso: str, df: pd.DataFrame):
         rule += " Note that if you gain a Falconer to your hand somehow while under the Gatekeeper attack (e.g. via Artisan), reacting and playing it means that you do not have to Exile it."
     add_interaction("Gatekeeper", hand_cso, rule, df, add_together_if_present=True)
 
-def _add_
+
+def _add_multi_gain_gatekeeper_interaction(df: pd.DataFrame):
+    multi_gain = {
+        "Cache": "Coppers",
+        "Pillage": "Spoils",
+        "Stonemason": "cards from the same pile",
+        "Ball": "cards from the same pile",
+        "Banquet": "Coppers",
+        "Conquest": "Silvers",
+        "Sleigh": "Horses",
+        "Cavalry": "Horses",
+        "Paddock": "Horses",
+        "Weaver": "Silvers",
+    }
+    for cso, gain_desc in multi_gain.items():
+        rule = f"If you gain two {gain_desc} using {cso} while under the Gatekeeper attack, if you don't already have a copy in Exile, you need to exile the first, but may discard the exiled copy along with the gain of the second."
+        add_interaction("Gatekeeper", cso, rule, df)
+    multi_gain_with_num = {
+        "Treasure Map": "four Golds",
+        "Magic Lamp": "three Wishes",
+        "Trusty Steed": "four Silvers",
+        "Courser": "four Silvers",
+        "Trade": "two or more Silvers",
+        "Hostelry": "two or more Horses",
+        "Livery": "two or more Horses",
+        "Stampede": "five Horses",
+        "Charm": "two or more copies of the same card upon gain",
+        "Haggler": "two or more cheaper copies of the same card upon buy",
+        "Feodum": "three Silvers",
+        "Windfall": "three Golds",
+    }
+    for cso, gain_desc in multi_gain_with_num.items():
+        rule = f"If you gain {gain_desc} with {cso} while under the Gatekeeper attack, if you don't already have a copy in Exile, you need to exile the first, but may discard the exiled copy along with the gain of the last copy."
+        add_interaction("Gatekeeper", cso, rule, df)
+    double_gain = ["Experiment", "Port"]
+    for cso in double_gain:
+        rule = f"If you gain two {cso}s while under the Gatekeeper attack, if you don't already have a copy in Exile, you need to exile the first, but may discard the exiled copy along with the gain of the second."
+        add_interaction("Gatekeeper", cso, rule, df)
+    # Fortune/Beggar
+    rule = f"If you gain a Fortune while having two or more Gladiators in play while under the Gatekeeper attack, if you don't already have a copy of Gold in Exile, you need to exile the first, but may discard the exiled copy along with any later Gold gains."
+    add_interaction("Gatekeeper", "Fortune", rule, df)
+
+
+def _add_beggar_extra_interactions(df: pd.DataFrame):
+    add_interaction(
+        "Beggar",
+        "Sheepdog",
+        f"If you react with a Beggar to an Attack, the first Silver you gain is topdecked, so you will draw it if you react with a Sheepdog to the second Silver gain. If you react Sheepdog to the first Silver gain, you draw two cards, topdeck it, and gain the other one to the discard pile, or can react with Sheepdog to the second Silver gain and draw the first one immediately. NOTE THAT ON THE TGG CLIENT, THIS IS CURRENTLY IMPLEMENTED THE OTHER WAY AROUND.",
+        df,
+    )
+    add_interaction(
+        "Gatekeeper",
+        "Beggar",
+        "If you react with a Beggar to a subsequent Attack (not the initial Gatekeeper play) while under the Gatekeeper attack and don't have a Silver in Exile, the first Silver you would gain onto your deck is Exiled, and if you decide to discard it with the second Silver gain, you don't get to have one topdecked. NOTE THAT ON THE TGG CLIENT, THIS IS CURRENTLY IMPLEMENTED THE OTHER WAY AROUND.",
+        df,
+    )
+
 
 def _add_on_gain_hand_sheepdog_interaction(hand_cso: str, df: pd.DataFrame):
     if hand_cso == "Silver Mine":
@@ -600,6 +658,8 @@ def add_all_on_gain_interactions(df: pd.DataFrame, verbose=False):
     _add_all_haunted_woods_interactions(df)
     _add_all_haunted_castle_interactions(df)
     _add_all_skirmisher_interactions(df)
+    _add_multi_gain_gatekeeper_interaction(df)
+    _add_beggar_extra_interactions(df)
     _add_other_on_gain_interactions(df)
     _add_all_on_gain_basilica_interactions(df)
     _add_all_on_gain_colonnade_interactions(df)

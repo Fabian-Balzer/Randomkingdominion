@@ -4,7 +4,6 @@ from typing import TYPE_CHECKING, Literal, Sequence
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.axes import Axes
-from matplotlib.figure import Figure
 from matplotlib.offsetbox import AnnotationBbox, OffsetImage
 from matplotlib.patches import FancyBboxPatch
 from scipy.ndimage import zoom as zoom_image
@@ -21,11 +20,7 @@ from .constants import (
     SECOND_PLAYER_COLOR,
     XKCD_FONT,
 )
-from .image_handling import (
-    crop_img_by_percentage,
-    get_square_cutout,
-    load_cso_img_by_key,
-)
+from .image_handling import get_square_cutout
 from .quality_plot_helper import plot_kingdom_qualities
 from .util import (
     annotate_dominion_logo,
@@ -47,9 +42,13 @@ def _annotate_title(
     y0: float,
     fc=DOM_BEIGE,
     tc="k",
-    fontsize=28,
+    fontsize: float | None = None,
     **kwargs,
 ):
+    if fontsize is None:
+        fontsize = 28
+        if len(title) > 30:
+            fontsize -= 3
     ax.text(
         x0,
         y0,
@@ -309,6 +308,9 @@ def _annotate_cards_landscapes(ax: Axes, k: "Kingdom"):
 
     if "turns" in k.unpacked_notes and len(k.unpacked_notes["turns"]) > 0:
         turns = max(k.unpacked_notes["turns"])
+        assert (
+            np.diff(k.unpacked_notes["turns"])[0] <= 1
+        ), "Turns should only differ by 1 at most."
         turns = f"{turns} Turns"
         if "tries" in k.unpacked_notes:
             turns += f" [{k.unpacked_notes['tries']} Tries]"
@@ -476,17 +478,17 @@ def do_campaign_extras(ax: Axes, k: "Kingdom") -> Path:
         exp = sanitize_cso_name(k.unpacked_notes["expansion"])
         fname = f"{k.name.replace(" ", "_")}_thumbnail.png"
         fpath = PATH_ASSETS.joinpath(f"other/youtube/campaigns/{exp}/{fname}")
-        map_fpath = fpath.parent.joinpath(f"dominion{k.name.split()[1]}.png")
+        map_fpath = fpath.parent.joinpath(f"dominion{k.name.split()[-1]}.png")
     else:
         fname = f"{k.name.split(" ")[0].lower().replace(" ", "_").replace(", ", "_")}_thumbnail.png"
         fpath = PATH_ASSETS.joinpath(
             f"other/youtube/campaigns/{k.name.split(":")[0].lower().replace(" ", "_")}/{fname}"
         )
-        map_fpath = fpath.parent.joinpath(f"dominion{k.name.split()[1]}.png")
+        map_fpath = fpath.parent.joinpath(f"dominion{k.name.split()[-1]}.png")
     try:
         _annotate_campaign_progress(ax, map_fpath, 0.99, 0.01, 0.2)
     except FileNotFoundError:
-        LOGGER.warning(f"Could not find map for {k.name}")
+        LOGGER.warning(f"Could not find map for {k.name} at {map_fpath}")
     _annotate_kingdom_plot(ax, k, 0.925, 0.89, 0.44, fc_ax=DOM_BEIGE)
 
     if not fpath.parent.exists():

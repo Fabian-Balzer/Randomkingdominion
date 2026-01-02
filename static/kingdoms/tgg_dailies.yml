@@ -1,40 +1,938 @@
 - cards:
-  - clerk
-  - daimyo
-  - investment
-  - outpost
-  - pirate
-  - ronin
-  - sea_witch
-  - snake_witch
-  - tea_house
-  - treasure_map
+  - archive
+  - ducat
+  - dungeon
+  - enchantress
+  - experiment
+  - priest
+  - research
+  - settlers/bustling_village
+  - silk_merchant
+  - treasurer
   expansions:
-  - Prosperity, 2E
-  - Rising Sun
-  - Seaside, 2E
-  idx: 4828968209181984052457528605103412351
+  - Adventures
+  - Empires
+  - Renaissance
+  idx: 314025765729537393178818307752022267762
   landscapes:
-  - bureaucracy
-  name: '2025-12-12'
+  - crop_rotation
+  - road_network
+  name: '2026-01-02'
+  notes:
+    crucial_cards: [Crop Rotation, Road Network, Treasurer, Silk Merchant]
+    ending: [Province, Duchy]
+    link: ''
+    name: 'Silk Rotation'
+    openings:
+    - grade: 'B+'
+      t1: 'Silk Merchant'
+      t1_csos: [silk_merchant]
+      t2: 'Priest, or Research, or Ducat trashing Copper, or Dungeon, or Experiment'
+      t2_csos: [priest]
+      type: 4/3
+    - grade: 'B-'
+      t1: 'Dungeon, or Experiment'
+      t1_csos: [dungeon]
+      t2: 'Silk Merchant, or Research, or Priest'
+      t2_csos: [silk_merchant]
+      type: 3/4
+    - grade: 'B'
+      t1: 'Treasurer'
+      t1_csos: [treasurer]
+      t2: 'Settlers'
+      t2_csos: [Settlers]
+      type: 5/2|2/5
+    points: [44, 33]
+    subtitle: 'Playing A Fast Moneyish Strategy With An Interesting Endgame'
+    turns: [15, 14]
 - cards:
-  - blockade
-  - broker
-  - corsair
+  - develop
   - galleria
-  - haven
-  - salvager
-  - specialist
-  - sycophant
-  - treasure_map
-  - underling
+  - guard_dog
+  - highway
+  - souk
+  - spice_merchant
+  - town
+  - townsfolk
+  - trail
+  - weaver
   expansions:
   - Allies
-  - Seaside, 2E
-  idx: 158500930972263753840657133454831294258
+  - Hinterlands, 2E
+  idx: 42234834296700445450513207310736109305
+  name: '2026-01-01'
+  notes:
+    crucial_cards:
+    - Weaver
+    - Highway
+    - Souk
+    - Townsfolk
+    ending:
+    - Duchy
+    - Town
+    - Highway
+    link: https://youtu.be/RLyRKmAla0E
+    name: Weaving Town
+    openings:
+    - grade: B-
+      t1: Spice Merchant, or Weaver
+      t1_csos:
+      - Spice Merchant
+      t2: Silver, or Town Crier, or Develop
+      t2_csos:
+      - Silver
+      type: 4/3|3/4
+    - grade: B-
+      t1: Galleria, or Weaver, or Spice Merchant
+      t1_csos:
+      - Galleria
+      t2: Town Crier
+      t2_csos:
+      - town_crier
+      type: 5/2|2/5
+    points:
+    - 36
+    - 24
+    subtitle: One Gain Short Off A Turn 11 Win... Followed By Bad Buy Decisions
+    turns:
+    - 13
+    - 12
+- cards:
+  - advisor
+  - baker
+  - herald
+  - infirmary
+  - patron
+  - plaza
+  - research
+  - scholar
+  - seer
+  - soothsayer
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Renaissance
+  idx: 286012452154315578230534281316195015008
   landscapes:
-  - architects_guild
-  name: '2025-12-11'
+  - fair
+  - fleet
+  name: '2025-12-31'
+  notes:
+    crucial_cards:
+    - Soothsayer
+    - Seer
+    - Fair
+    - Patron
+    ending:
+    - Province
+    link: https://youtu.be/M1c7qLI6qEA
+    name: SoothFair
+    openings:
+    - grade: B-
+      t1: Infirmary, overpaying $2, hopefully trashing two Estates
+      t1_csos:
+      - Infirmary
+      - Estate
+      - Estate
+      t2: Buy Patron
+      t2_csos:
+      - Patron
+      type: 4/3
+    - grade: D
+      t1: Maybe Infirmary overpaying $1? Or Silver
+      t1_csos:
+      - Infirmary
+      - Estate
+      t2: Buy Sooth?
+      t2_csos:
+      - Soothsayer
+      type: 3/4
+    - grade: A-
+      t1: Buy Infirmary, overpaying $3, trashing everything you draw
+      t1_csos:
+      - Infirmary
+      - Estate
+      - Copper
+      - Estate
+      t2: Buy Patron
+      t2_csos:
+      - Patron
+      type: 5/2
+    - grade: C
+      t1: Skip turn
+      t1_csos:
+      - Tragic Hero
+      t2: Buy Infirmary, overpaying $3, trashing everything you draw
+      t2_csos:
+      - Infirmary
+      - Estate
+      - Copper
+      - Estate
+      type: 2/5
+    points:
+    - 30
+    - 26
+    subtitle: Having Godlike Early Draws, But AI Does As Well...
+    tries: 2
+    turns:
+    - 14
+    - 13
+- cards:
+  - ironworks
+  - lurker
+  - minion
+  - patrol
+  - secret_passage
+  - steward
+  - swindler
+  - torturer
+  - trading_post
+  - wishing_well
+  expansions:
+  - Intrigue, 2E
+  idx: 154396236268840280345715256806603350396
+  name: '2025-12-30'
+  notes:
+    crucial_cards:
+    - Wishing Well
+    - Ironworks
+    - Secret Passage
+    - Lurker
+    ending:
+    - Wishing Well
+    - Lurker
+    - Minion
+    link: https://youtu.be/guD207z3btU
+    name: Wishing Well
+    openings:
+    - grade: B-
+      t1: Ironworks
+      t1_csos:
+      - Ironworks
+      t2: Steward
+      t2_csos:
+      - steward
+      type: 4/3|3/4
+    - grade: C-
+      t1: Steward, or Minion, or Trading Post
+      t1_csos:
+      - steward
+      t2: Lurker
+      t2_csos:
+      - lurker
+      type: 5/2|2/5
+    points:
+    - 19
+    - 3
+    subtitle: Nice Wishes In This Intriguing Attack-Heavy Kingdom
+    turns:
+    - 13
+    - 12
+- cards:
+  - cellar
+  - feodum
+  - festival
+  - ironmonger
+  - knights
+  - library
+  - market_square
+  - poor_house
+  - smithy
+  - wandering_minstrel
+  expansions:
+  - Base, 2E
+  - Dark Ages
+  idx: 136840077199685289821690728668697732337
+  name: '2025-12-29'
+  notes:
+    crucial_cards:
+    - Smithy
+    - Wandering Minstrel
+    - Festival
+    - Knights
+    ending:
+    - Poor House
+    - Wandering Minstrel
+    - Festival
+    link: https://youtu.be/tzB9SK46mQw
+    name: Dark Ages Tumble
+    openings:
+    - grade: B
+      t1: Ironmonger, or Smithy
+      t1_csos:
+      - Ironmonger
+      t2: Silver
+      t2_csos:
+      - silver
+      type: 4/3|3/4
+    - grade: C
+      t1: Dame Anna if on top, else Library, or Ironmonger
+      t1_csos:
+      - Dame Anna
+      - Library
+      t2: Cellar, or skip turn
+      t2_csos:
+      - cellar
+      type: 5/2|2/5
+    points:
+    - 4
+    - 0
+    subtitle: Getting Outbuilt By AI In 1st Try, Capitalizing On Big Mistake 2nd Try
+    tries: 2
+    turns:
+    - 15
+    - 14
+  use_shelters: true
+- campaign_effects:
+  - 10_villagers
+  - head_start
+  cards:
+  - alchemist
+  - artist
+  - buried_treasure
+  - collection
+  - hermit
+  - jewelled_egg
+  - maroon
+  - sanctuary
+  - sentinel
+  - wishing_well
+  expansions:
+  - Alchemy
+  - Allies
+  - Dark Ages
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
+  - Prosperity, 2E
+  - Rising Sun
+  idx: 234968404208719869467423562038813874175
+  landscapes:
+  - sea_trade
+  - tireless
+  name: '2025-12-28'
+  notes:
+    crucial_cards:
+    - sentinel
+    - alchemist
+    - artist
+    - jewelled_egg
+    ending:
+    - Collection
+    - Wishing Well
+    - Jewelled Egg
+    link: https://youtu.be/CC-6PfbQkKQ
+    name: Jewelled Start
+    openings:
+    - grade: B-
+      t1: Maroon, or Sentinel, or Potion
+      t1_csos:
+      - maroon
+      t2: Sentinel, or Hermit
+      t2_csos:
+      - sentinel
+      type: 4/3|3/4
+    - grade: C+
+      t1: Sanctuary, or Maroon
+      t1_csos:
+      - sanctuary
+      t2: Skip turn, or Jewelled Egg
+      t2_csos: []
+      type: 5/2|2/5
+    points:
+    - 29
+    - 18
+    subtitle: Put On A Tight Timer By AI Being Ahead And Piles Running Fast
+    turns:
+    - 10
+    - 9
+  traits:
+  - - tireless
+    - sentinel
+  use_colonies: true
+- cards:
+  - candlestick_maker
+  - cellar
+  - enchantress
+  - ghost_town
+  - harbor_village
+  - mountain_village
+  - plaza
+  - raze
+  - vampire
+  - witch
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Nocturne
+  - Plunder
+  - Renaissance
+  idx: 63235098620738126716635084170375708636
+  landscapes:
+  - citadel
+  - fleet
+  name: '2025-12-27'
+  notes:
+    crucial_cards:
+    - Vampire
+    - Witch
+    - Plaza
+    - Fleet
+    ending: []
+    link: https://youtu.be/qZm1F_b1rzA
+    name: Fleet of Vampires
+    openings:
+    - grade: C-
+      t1: Silver, or Enchantress
+      t1_csos:
+      - silver
+      t2: Raze
+      t2_csos:
+      - raze
+      type: 4/3|3/4
+    - grade: A-
+      t1: Vampire, or Witch
+      t1_csos:
+      - vampire
+      t2: Raze
+      t2_csos:
+      - raze
+      type: 5/2|2/5
+    points:
+    - 37
+    - 29
+    subtitle: Sloggy Start After Missing $5 For A Bit, But Exciting Ending
+    turns:
+    - 18
+    - 18
+- cards:
+  - archive
+  - crossroads
+  - engineer
+  - guard_dog
+  - royal_blacksmith
+  - sacrifice
+  - scheme
+  - souk
+  - trail
+  - witchs_hut
+  expansions:
+  - Empires
+  - Hinterlands, 2E
+  idx: 307249669615817455940913385749866179868
+  landscapes:
+  - defiled_shrine
+  - windfall
+  name: '2025-12-26'
+  notes:
+    crucial_cards:
+    - Trail
+    - Sacrifice
+    - Witch's Hut
+    - Windfall
+    ending:
+    - Province
+    - Curse
+    - Trail
+    link: https://youtu.be/4bIh11zjVHs
+    name: SacriTrail
+    openings:
+    - grade: B
+      t1: Sacrifice
+      t1_csos:
+      - sacrifice
+      t2: Engineer
+      t2_csos:
+      - engineer
+      type: 4/3
+    - grade: C
+      t1: Silver
+      t1_csos:
+      - silver
+      t2: Sacrifice
+      t2_csos:
+      - sacrifice
+      type: 3/4
+    - grade: B
+      t1: Archive, or Sacrifice
+      t1_csos:
+      - archive
+      t2: Engineer
+      t2_csos:
+      - engineer
+      type: 5/2
+    - grade: D
+      t1: Skip Turn
+      t1_csos: []
+      t2: Archive, or Sacrifice
+      t2_csos:
+      - archive
+      type: 2/5
+    points:
+    - 52
+    - 34
+    subtitle: Slowed Down By Bad Early Draws, But Built Superior Deck
+    turns:
+    - 16
+    - 15
+- cards:
+  - count
+  - druid
+  - feodum
+  - fool
+  - forager
+  - fortress
+  - ironmonger
+  - junk_dealer
+  - monastery
+  - poor_house
+  druid_boons:
+  - the_fields_gift
+  - the_mountains_gift
+  - the_rivers_gift
+  expansions:
+  - Dark Ages
+  - Nocturne
+  idx: 260640362962608895688082489412217610590
+  name: '2025-12-25'
+  notes:
+    crucial_cards:
+    - Feodum
+    - Druid
+    - Ironmonger
+    - Fool
+    ending:
+    - Duchy
+    - Feodum
+    - Ironmonger
+    link: https://youtu.be/P5d--rojJc0
+    name: Silver Maze
+    openings:
+    - grade: B-
+      t1: Ironmonger
+      t1_csos:
+      - ironmonger
+      t2: Forager
+      t2_csos:
+      - forager
+      type: 4/3|3/4
+    - grade: B
+      t1: Junk Dealer
+      t1_csos:
+      - junk_dealer
+      t2: Druid
+      t2_csos:
+      - druid
+      type: 5/2|2/5
+    points:
+    - 67
+    - 60
+    subtitle: Drawless Paradise Is Where Feodum Strives
+    turns:
+    - 20
+    - 20
+  use_shelters: true
+- cards:
+  - conspirator
+  - corsair
+  - farm
+  - minion
+  - native_village
+  - outpost
+  - sailor
+  - steward
+  - treasure_map
+  - treasury
+  expansions:
+  - Intrigue, 2E
+  - Seaside, 2E
+  idx: 325874668627981020742869439837946365238
+  name: '2025-12-24'
+  notes:
+    crucial_cards:
+    - Outpost
+    - Sailor
+    - Minion
+    - Native Village
+    ending:
+    - Province
+    link: https://youtu.be/huVGPob67zg
+    name: Native Sailing
+    openings:
+    - grade: B
+      t1: Sailor
+      t1_csos:
+      - sailor
+      t2: Steward
+      t2_csos:
+      - steward
+      type: 4/3|3/4
+    - grade: C
+      t1: Steward, or Sailor, or Minion
+      t1_csos:
+      - steward
+      t2: Native Village
+      t2_csos:
+      - native_village
+      type: 5/2|2/5
+    points:
+    - 42
+    - 8
+    subtitle: Smooth Sailing With Limited Gains
+    turns:
+    - 14
+    - 13
+- cards:
+  - broker
+  - capital_city
+  - carpenter
+  - forts
+  - galleria
+  - guildmaster
+  - hunter
+  - modify
+  - skirmisher
+  - wizards
+  expansions:
+  - Allies
+  idx: 280781793793103505216246293901154091399
+  landscapes:
+  - mountain_folk
+  name: '2025-12-23'
+  notes:
+    bonus_game: true
+    crucial_cards:
+    - Carpenter
+    - Broker
+    - Lich
+    - Skirmisher
+    ending:
+    - Province
+    - Carpenter
+    - Broker
+    link: https://youtu.be/CoITXmK59EU
+    name: UnLiched
+    openings:
+    - grade: C+
+      t1: Broker
+      t1_csos:
+      - Broker
+      t2: Silver, or Student
+      t2_csos:
+      - Silver
+      type: 4/3|3/4
+    - grade: B-
+      t1: Modify
+      t1_csos:
+      - Modify
+      t2: Skip turn.
+      t2_csos: []
+      type: 5/2|2/5
+    points:
+    - 31
+    - 25
+    subtitle: Getting Denied The Liches Really Hurt Our Game Plan
+    turns:
+    - 20
+    - 19
+- cards:
+  - cabin_boy
+  - cage
+  - council_room
+  - frigate
+  - harbor_village
+  - kings_cache
+  - mapmaker
+  - market
+  - maroon
+  - vassal
+  expansions:
+  - Base, 2E
+  - Plunder
+  idx: 279075811858052371278957343037217491624
+  landscapes:
+  - inspiring
+  - patient
+  name: '2025-12-22'
+  notes:
+    crucial_cards:
+    - Frigate
+    - Council Room
+    - Cage
+    - Vassal
+    ending:
+    - Province
+    - Vassal
+    - Harbor Village
+    link: https://youtu.be/3WyNqnCS7Yw
+    name: Frigate Stroll
+    openings:
+    - grade: B
+      t1: Maroon
+      t1_csos:
+      - maroon
+      t2: Cage
+      t2_csos:
+      - cage
+      type: 4/3|3/4
+    - grade: B
+      t1: Maroon or Council Room
+      t1_csos:
+      - maroon
+      t2: Cage
+      t2_csos:
+      - cage
+      type: 5/2|2/5
+    points:
+    - 38
+    - 14
+    subtitle: Building Really Big In Absence Of Any Threats By AI
+    turns:
+    - 14
+    - 13
+  traits:
+  - - inspiring
+    - cage
+  - - patient
+    - council_room
+- campaign_effects:
+  - replace_estate
+  - with_spoils
+  cards:
+  - armory
+  - distant_lands
+  - enlarge
+  - fortress
+  - forum
+  - ironmonger
+  - merchant_guild
+  - scheme
+  - storyteller
+  - trail
+  expansions:
+  - Adventures
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Plunder
+  - Renaissance
+  idx: 169280919872969982633835759650983403482
+  landscapes:
+  - canal
+  name: '2025-12-21'
+  notes:
+    crucial_cards:
+    - Enlarge
+    - Trail
+    - Canal
+    - Armory
+    ending:
+    - Duchy
+    - Enlarge
+    - Trail
+    link: https://youtu.be/OOHv3bYAtbk
+    name: Spoiled Trailing
+    points:
+    - 22
+    - 10
+    subtitle: Armory Having A Field Day, Plus Many Enlarge Synergies
+    turns:
+    - 8
+    - 7
+  stamps_and_effects:
+  - - replace_estate
+    - horse,_horse,_horse
+  - - with_spoils
+    - enlarge
+  use_shelters: true
+- cards:
+  - buried_treasure
+  - craftsman
+  - innkeeper
+  - overlord
+  - sacrifice
+  - scepter
+  - secluded_shrine
+  - smugglers
+  - soothsayer
+  - upgrade
+  expansions:
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Intrigue, 2E
+  - Plunder
+  - Renaissance
+  - Rising Sun
+  - Seaside, 2E
+  idx: 155913585606335205458048235450349132115
+  landscapes:
+  - looting
+  - pageant
+  name: '2025-12-20'
+  notes:
+    crucial_cards:
+    - Overlord
+    - Upgrade
+    - Sextant
+    - Amphora
+    ending:
+    - Province
+    link: https://youtu.be/VnRDAnV7qRY
+    name: Overlootgrade
+    openings:
+    - grade: B-
+      t1: Sacrifice
+      t1_csos:
+      - sacrifice
+      t2: Overlord
+      t2_csos:
+      - overlord
+      type: 4/3
+    - grade: C
+      t1: Overlord
+      t1_csos:
+      - overlord
+      t2: Pay off debt
+      t2_csos: []
+      type: 3/4
+    - grade: A-
+      t1: Buried Treasure, or Upgrade
+      t1_csos:
+      - Buried Treasure
+      t2: Upgrade and Overlord
+      t2_csos:
+      - Upgrade
+      - overlord
+      type: 5/2
+    - grade: C
+      t1: Skip turn
+      t1_csos: []
+      t2: Buy Upgrade
+      t2_csos:
+      - upgrade
+      type: 2/5
+    points:
+    - 40
+    - 34
+    subtitle: Having To Resort To A Super Lucky Pull On The Last Turn
+    turns:
+    - 16
+    - 15
+- cards:
+  - alley
+  - barge
+  - crypt
+  - fisherman
+  - hostelry
+  - livery
+  - pixie
+  - rustic_village
+  - sacred_grove
+  - tracker
+  expansions:
+  - Menagerie
+  - Nocturne
+  - Rising Sun
+  idx: 12562130561737639672092964394402406826
+  landscapes:
+  - demand
+  - enlightenment
+  - invest
+  name: '2025-12-19'
+  notes:
+    crucial_cards:
+    - Livery
+    - Pixie
+    - the_skys_gift
+    - Hostelry
+    ending:
+    - Province
+    - Pixie
+    link: https://youtu.be/0By4EuL3qS4
+    name: Barging Horsery
+    openings:
+    - grade: B+
+      t1: Trash Estate, buy Fisherman (+ Pixie if possible)
+      t1_csos:
+      - Goat
+      - Estate
+      - Fisherman
+      - Pixie
+      t2: Buy Silver, or Pixie
+      t2_csos:
+      - Silver
+      type: 4/3|3/4
+    - grade: B
+      t1: Demand Pixie, or trash Copper, buy Fisherman Pixie
+      t1_csos:
+      - Demand
+      - Pixie
+      t2: Trash Estate, buy Pixie
+      t2_csos:
+      - Goat
+      - Estate
+      - Pixie
+      type: 5/2
+    - grade: C
+      t1: Hope to trash Estate, buy Fisherman
+      t1_csos:
+      - Goat
+      - Estate
+      - Fisherman
+      t2: Demand Pixie, or trash Copper, buy two Pixies
+      t2_csos:
+      - Demand
+      - Pixie
+      type: 2/5
+    points:
+    - 37
+    - 23
+    subtitle: Best Sky's Gift I've Ever Received...
+    turns:
+    - 10
+    - 10
+- cards:
+  - border_guard
+  - cargo_ship
+  - flag_bearer
+  - hideout
+  - old_witch
+  - recruiter
+  - sculptor
+  - silk_merchant
+  - swashbuckler
+  - villain
+  expansions:
+  - Renaissance
+  idx: 154006273873434971223543211372629254353
+  landscapes:
+  - barracks
+  - exploration
+  name: '2025-12-16'
+  notes:
+    crucial_cards: []
+    ending: []
+    link: ''
+    name: ''
+    openings:
+    - grade: ''
+      t1: ''
+      t1_csos: []
+      t2: ''
+      t2_csos: []
+      type: 4/3|3/4
+    - grade: ''
+      t1: ''
+      t1_csos: []
+      t2: ''
+      t2_csos: []
+      type: 5/2|2/5
+    points: []
+    subtitle: ''
+    turns: []
 - cards:
   - bandit
   - black_cat
@@ -186,6 +1084,43 @@
     - 13
     - 12
   use_shelters: true
+- cards:
+  - clerk
+  - daimyo
+  - investment
+  - outpost
+  - pirate
+  - ronin
+  - sea_witch
+  - snake_witch
+  - tea_house
+  - treasure_map
+  expansions:
+  - Prosperity, 2E
+  - Rising Sun
+  - Seaside, 2E
+  idx: 4828968209181984052457528605103412351
+  landscapes:
+  - bureaucracy
+  name: '2025-12-12'
+- cards:
+  - blockade
+  - broker
+  - corsair
+  - galleria
+  - haven
+  - salvager
+  - specialist
+  - sycophant
+  - treasure_map
+  - underling
+  expansions:
+  - Allies
+  - Seaside, 2E
+  idx: 158500930972263753840657133454831294258
+  landscapes:
+  - architects_guild
+  name: '2025-12-11'
 - cards:
   - altar
   - band_of_misfits
@@ -696,6 +1631,28 @@
     - 14
     - 13
 - cards:
+  - apothecary
+  - grotto
+  - longship
+  - mapmaker
+  - pendant
+  - secluded_shrine
+  - shaman
+  - siren
+  - stowaway
+  - vineyard
+  expansions:
+  - Alchemy
+  - Plunder
+  idx: 111303715893199899904669713089784378936
+  landscapes:
+  - bury
+  - shy
+  name: '2025-11-28'
+  traits:
+  - - shy
+    - grotto
+- cards:
   - altar
   - cargo_ship
   - catacombs
@@ -753,28 +1710,6 @@
   - obelisk
   name: '2025-11-25'
   obelisk_pile: archive
-- cards:
-  - apothecary
-  - grotto
-  - longship
-  - mapmaker
-  - pendant
-  - secluded_shrine
-  - shaman
-  - siren
-  - stowaway
-  - vineyard
-  expansions:
-  - Alchemy
-  - Plunder
-  idx: 111303715893199899904669713089784378936
-  landscapes:
-  - bury
-  - shy
-  name: '2025-11-28'
-  traits:
-  - - shy
-    - grotto
 - cards:
   - bandit
   - bureaucrat
@@ -932,6 +1867,25 @@
     - 17
     - 16
 - cards:
+  - camel_train
+  - cutthroat
+  - figurine
+  - first_mate
+  - fisherman
+  - gondola
+  - kiln
+  - supplies
+  - swamp_shacks
+  - trickster
+  expansions:
+  - Menagerie
+  - Plunder
+  idx: 52185798585168127433350708935307716916
+  landscapes:
+  - bargain
+  - populate
+  name: '2025-11-19'
+- cards:
   - coven
   - gatekeeper
   - goatherd
@@ -1017,25 +1971,6 @@
   traits:
   - - hasty
     - courtyard
-- cards:
-  - camel_train
-  - cutthroat
-  - figurine
-  - first_mate
-  - fisherman
-  - gondola
-  - kiln
-  - supplies
-  - swamp_shacks
-  - trickster
-  expansions:
-  - Menagerie
-  - Plunder
-  idx: 52185798585168127433350708935307716916
-  landscapes:
-  - bargain
-  - populate
-  name: '2025-11-19'
 - bane_pile: augurs
   cards:
   - augurs
@@ -3424,6 +4359,23 @@
   - way_of_the_goat
   name: '2025-09-27'
 - cards:
+  - bandit
+  - bureaucrat
+  - chapel
+  - city
+  - rabble
+  - throne_room
+  - tide_pools
+  - warehouse
+  - watchtower
+  - witch
+  expansions:
+  - Base, 2E
+  - Prosperity, 2E
+  - Seaside, 2E
+  idx: 162708298604394881078762476856310927938
+  name: '2025-09-26'
+- cards:
   - counterfeit
   - galleria
   - highwayman
@@ -3756,23 +4708,6 @@
   landscapes:
   - island_folk
   name: '2025-09-11'
-- cards:
-  - bandit
-  - bureaucrat
-  - chapel
-  - city
-  - rabble
-  - throne_room
-  - tide_pools
-  - warehouse
-  - watchtower
-  - witch
-  expansions:
-  - Base, 2E
-  - Prosperity, 2E
-  - Seaside, 2E
-  idx: 162708298604394881078762476856310927938
-  name: '2025-09-26'
 - cards:
   - anvil
   - broker
@@ -12584,6 +13519,60 @@
     - tools
   winrate: .nan
 - cards:
+  - baker
+  - barbarian
+  - candlestick_maker
+  - carpenter
+  - contract
+  - herald
+  - skirmisher
+  - sycophant
+  - townsfolk
+  - underling
+  expansions:
+  - Allies
+  - Cornucopia & Guilds, 2E
+  idx: 216277518666051403375023159943288774965
+  landscapes:
+  - market_towns
+  name: '2025-01-08'
+  winrate: .nan
+- cards:
+  - augurs
+  - contract
+  - emissary
+  - innkeeper
+  - merchant_camp
+  - royal_galley
+  - sentinel
+  - specialist
+  - sycophant
+  - wizards
+  expansions:
+  - Allies
+  idx: 180409601804062531002774444173148338816
+  landscapes:
+  - circle_of_witches
+  name: '2025-01-07'
+  winrate: .nan
+- cards:
+  - bureaucrat
+  - inn
+  - laboratory
+  - margrave
+  - mine
+  - poacher
+  - scheme
+  - souk
+  - stables
+  - vassal
+  expansions:
+  - Base, 2E
+  - Hinterlands, 2E
+  idx: 58652517820178062072410179151175461702
+  name: '2025-01-06'
+  winrate: .nan
+- cards:
   - barbarian
   - courtyard
   - first_mate
@@ -12676,60 +13665,6 @@
   - flourishing_trade
   - foresight
   name: '2025-01-02'
-  winrate: .nan
-- cards:
-  - baker
-  - barbarian
-  - candlestick_maker
-  - carpenter
-  - contract
-  - herald
-  - skirmisher
-  - sycophant
-  - townsfolk
-  - underling
-  expansions:
-  - Allies
-  - Cornucopia & Guilds, 2E
-  idx: 216277518666051403375023159943288774965
-  landscapes:
-  - market_towns
-  name: '2025-01-08'
-  winrate: .nan
-- cards:
-  - augurs
-  - contract
-  - emissary
-  - innkeeper
-  - merchant_camp
-  - royal_galley
-  - sentinel
-  - specialist
-  - sycophant
-  - wizards
-  expansions:
-  - Allies
-  idx: 180409601804062531002774444173148338816
-  landscapes:
-  - circle_of_witches
-  name: '2025-01-07'
-  winrate: .nan
-- cards:
-  - bureaucrat
-  - inn
-  - laboratory
-  - margrave
-  - mine
-  - poacher
-  - scheme
-  - souk
-  - stables
-  - vassal
-  expansions:
-  - Base, 2E
-  - Hinterlands, 2E
-  idx: 58652517820178062072410179151175461702
-  name: '2025-01-06'
   winrate: .nan
 - cards:
   - daimyo

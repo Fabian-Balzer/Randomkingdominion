@@ -1,28 +1,30 @@
-2025-12-31---
-2025-12-30---
-2025-12-29---
-2025-12-28---
-2025-12-27---
-2025-12-26---
-2025-12-25---
-2025-12-24---
-2025-12-23---
-2025-12-22---
-2025-12-21---
-2025-12-20---
-2025-12-19---
+2026-01-02---ducat, settlers, dungeon, enchantress, experiment, priest, research, silk_merchant, archive, treasurer, road_network, crop_rotation
+2026-01-01---townsfolk, develop, guard_dog, spice_merchant, town, trail, weaver, galleria, highway, souk
+2025-12-31---infirmary, advisor, patron, plaza, research, herald, baker, scholar, seer, soothsayer, fleet, fair
+2025-12-30---swindler, lurker, steward, ironworks, secret_passage, torturer, trading_post, minion, wishing_well, patrol
+2025-12-29---poor_house, cellar, market_square, feodum, ironmonger, smithy, wandering_minstrel, festival, knights, library, shelters
+2025-12-28---artist, jewelled_egg, hermit, sentinel, wishing_well, alchemist, maroon, buried_treasure, collection, sanctuary, tireless(sentinel), sea_trade, colonies -x twist_head_start, twist_10_villagers
+2025-12-27---candlestick_maker, cellar, raze, enchantress, ghost_town, harbor_village, mountain_village, plaza, vampire, witch, fleet, citadel
+2025-12-26---engineer, royal_blacksmith, crossroads, guard_dog, scheme, sacrifice, trail, archive, souk, witchs_hut, defiled_shrine, windfall
+2025-12-25---poor_house, druid(the_rivers_gift, the_mountains_gift, the_fields_gift), monastery, fool, forager, feodum, fortress, ironmonger, count, junk_dealer, shelters
+2025-12-24---native_village, steward, conspirator, sailor, treasure_map, corsair, minion, outpost, treasury, farm
+2025-12-23---forts, wizards, broker, carpenter, capital_city, galleria, guildmaster, hunter, modify, skirmisher, mountain_folk
+2025-12-22---cage, vassal, cabin_boy, harbor_village, mapmaker, maroon, council_room, frigate, market, kings_cache, patient(council_room), inspiring(cage)
+2025-12-21---scheme, armory, fortress, ironmonger, trail, distant_lands, enlarge, forum, merchant_guild, storyteller, canal, shelters, -x start_replace_estate(horse), start_replace_estate(horse), start_replace_estate(horse), stamp_with_spoils(enlarge)
+2025-12-20---sacrifice, buried_treasure, scepter, soothsayer, upgrade, overlord, craftsman, secluded_shrine, smugglers, innkeeper, looting, pageant
+2025-12-19---pixie, tracker, alley, hostelry, rustic_village, barge, crypt, livery, sacred_grove, fisherman, demand, invest, enlightenment
 2025-12-18---
 2025-12-17---
-2025-12-16---
-2025-12-15---
-2025-12-14---
-2025-12-13---
-2025-12-12---
-2025-12-11---
-2025-12-10---
-2025-12-09---
-2025-12-08---
-2025-12-07---
+2025-12-16---border_guard, cargo_ship, flag_bearer, hideout, silk_merchant, old_witch, recruiter, sculptor, swashbuckler, villain, barracks, exploration
+2025-12-15---black_cat, sleigh, sheepdog, vassal, bounty_hunter, militia, smithy, bandit, hunting_lodge, mine, way_of_the_camel
+2025-12-14---guardian, haven, native_village, craftsman, ghost_town, monkey, bazaar, gold_mine, outpost, wharf, capitalism, twist_pennies_saved, stamp_chameleonized(wharf)
+2025-12-13---overlord, vagrant, forts, masquerade, sage, vassal, death_cart, butcher, first_mate, border_village, banquet, battlefield, shelters
+2025-12-12---daimyo, snake_witch, clerk, investment, treasure_map, outpost, pirate, ronin, sea_witch, tea_house, bureaucracy
+2025-12-11---haven, sycophant, underling, blockade, broker, salvager, treasure_map, corsair, galleria, specialist, architects_guild
+2025-12-10---mountain_shrine, beggar, riverboat(mystic), sage, death_cart, scavenger, band_of_misfits, imperial_envoy, junk_dealer, altar, asceticism, continue, rapid_expansion
+2025-12-09---black_cat, sleigh, supplies, groom, displace, hunting_lodge, livery, paddock, sanctuary, animal_fair, demand, seize_the_day
+2025-12-08---infirmary, gardens, militia, herald, butcher, festival, footpad, library, soothsayer, artisan
+2025-12-07---cargo_ship, menagerie, storeroom, exorcist, enlarge, frigate, knights, merchant_guild, expand, rice, labyrinth, scrounge, colonies, shelters, stamp_double_vp(labyrinth), stamp_with_horse(merchant_guild), replace_estate(spoils), replace_estate(spoils), replace_estate(spoils), replace_copper(spoils), replace_copper(spoils), replace_copper(abandoned_mine), replace_copper(ruined_village), replace_copper(ruined_library), replace_copper(ruined_market), replace_copper(survivors)
 2025-12-06---lurker, catapult, steward, abundance, cabin_boy, monument, journeyman, magnate, swashbuckler, forge, mission
 2025-12-05---abundance, flag_bearer, hideout, inventor, silk_merchant, wandering_minstrel, buried_treasure, catacombs, pilgrim, quartermaster, fleet, mirror
 2025-12-04---beggar, swindler, baron, mining_village, counterfeit, pillage, torturer, trading_post, altar, farm

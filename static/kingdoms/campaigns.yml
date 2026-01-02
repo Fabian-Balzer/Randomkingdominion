@@ -2540,6 +2540,28 @@
   - gather
   - sea_trade
   name: Rising Sun 1
+  notes:
+    crucial_cards: [Remodel, Change, Enlightenment, Aristocrat]
+    ending: [Province, Tea House]
+    link: 'https://youtu.be/GpoVFboqYLs'
+    name: 'Tea For Change'
+    expansion: rising_sun
+    openings:
+    - grade: 'B'
+      t1: 'Change, or River Shrine'
+      t1_csos: [change]
+      t2: 'Silver, or Craftsman'
+      t2_csos: [silver]
+      type: 4/3|3/4
+    - grade: 'B-'
+      t1: 'Tea House, or Ronin, or Change'
+      t1_csos: [tea_house]
+      t2: 'Skip turn'
+      t2_csos: [tragic_hero]
+      type: 5/2|2/5
+    points: [25, 18]
+    subtitle: 'Finishing With A Magnificent Final Turn'
+    turns: [12, 11]
 - campaign_effects:
   - shadowified
   cards:
@@ -2563,6 +2585,28 @@
   stamps_and_effects:
   - - shadowified
     - change
+  notes:
+    crucial_cards: [Rice Broker, Change, Artisan, Daimyo]
+    ending: [Province, Tea House, Daimyo]
+    link: 'https://youtu.be/FK0ib-8y47k'
+    name: 'Changing Shadows'
+    expansion: rising_sun
+    openings:
+    - grade: 'B'
+      t1: 'Change, or Poet'
+      t1_csos: [change]
+      t2: 'Silver'
+      t2_csos: [silver]
+      type: 4/3|3/4
+    - grade: 'B'
+      t1: 'Rice Broker'
+      t1_csos: [rice_broker]
+      t2: 'Skip turn'
+      t2_csos: [tragic_hero]
+      type: 5/2|2/5
+    points: [54, 15]
+    subtitle: 'Provincing Out To Play Around AI''s Better Deck'
+    turns: [12, 11]
 - campaign_effects:
   - replace_estate
   cards:
@@ -2588,6 +2632,31 @@
   stamps_and_effects:
   - - replace_estate
     - aristocrat
+  notes:
+    crucial_cards: [Growth, Rice, Litter, Mountain Shrine]
+    ending: [Rice, Litter, Fishmonger]
+    link: ''
+    name: 'Growing Rice'
+    expansion: rising_sun
+    openings:
+    - grade: 'B'
+      t1: 'River Shrine'
+      t1_csos: [river_shrine]
+      t2: 'Asceticism, trashing Estate'
+      t2_csos: [asceticism, estate]
+      type: 4/3|3/4
+    - grade: 'C'
+      t1: 'River Shrine'
+      t1_csos: [river_shrine]
+      t2: 'Fishmonger'
+      t2_csos: [fishmonger]
+      type: 5/2|2/5
+    points: [6, 0]
+    find_the_win: true
+    ftw_difficulty: easy
+    ftw_timestamp: 667
+    subtitle: 'Stumbling Upon A Nice Find-The-Win Situation'
+    turns: [10, 9]
 - campaign_effects:
   - big_ideas
   cards:
@@ -2608,6 +2677,15 @@
   landscapes:
   - panic
   name: Rising Sun 4
+  notes:
+    crucial_cards: [Ninja, Kitsune, Daimyo, Throne Room]
+    ending: [Estate, Curse, Daimyo]
+    link: 'https://youtu.be/gJaClEfvc2w'
+    name: 'Panicking Ninjas'
+    expansion: rising_sun
+    points: [20, 0]
+    subtitle: 'Thinning Is Winning, But Handsize Attacking Early And Often Also Helps'
+    turns: [12, 11]
 - campaign_effects:
   - typhoon
   cards:
@@ -2629,12 +2707,37 @@
   - credit
   - good_harvest
   name: Rising Sun 5
-  notes: 'Removed nested parentheses, they currently aren''t supported.
-
-    '
   stamps_and_effects:
   - - typhoon
     - harbinger,_alley,_change,_gardens,_fishmonger,_chapel,_sentry,_merchant,_rustic_village,_riverboat,_village,_river_shrine,_moat,_bureaucrat,_vassal,_artist,_smithy,_witch,_poacher,_remodel
+  notes:
+    crucial_cards: [Mountain Shrine, Kitsune, Credit, Artisan]
+    ending: [Province, Curse]
+    link: 'https://youtu.be/6Uk3NQU5RDs'
+    name: 'Good Typhoon'
+    expansion: rising_sun
+    openings:
+    - grade: 'C'
+      t1: 'Credit for Kitsune'
+      t1_csos: [Credit, kitsune]
+      t2: 'Mountain Shrine'
+      t2_csos: [Mountain Shrine]
+      type: 4/3|3/4
+    - grade: 'A'
+      t1: 'Kitsune'
+      t1_csos: [Kitsune]
+      t2: 'Mountain Shrine, or Credit for Ronin'
+      t2_csos: [Mountain Shrine]
+      type: 5/2
+    - grade: 'C'
+      t1: 'Credit for Kitsune'
+      t1_csos: [Credit, Kitsune]
+      t2: 'Mountain Shrine'
+      t2_csos: [Mountain Shrine]
+      type: 5/2|2/5
+    points: [49, 27]
+    subtitle: 'Prevailing Through Natural Disasters In Forms Of Duds'
+    turns: [16, 15]
 - campaign_effects:
   - shadowified
   cards:
@@ -2659,6 +2762,28 @@
   stamps_and_effects:
   - - shadowified
     - craftsman
+  notes:
+    crucial_cards: [Craftsman, Kitsune, River Shrine, Rice Broker]
+    ending: [Duchy, Curse, Craftsman]
+    link: ''
+    name: 'Rapid Crafting'
+    expansion: rising_sun
+    openings:
+    - grade: 'B'
+      t1: 'River Shrine, or Kintsugi, trashing Estate'
+      t1_csos: [River shrine]
+      t2: 'Craftsman'
+      t2_csos: [Craftsman]
+      type: 4/3|3/4
+    - grade: 'B'
+      t1: 'Rice Broker'
+      t1_csos: [rice_broker]
+      t2: 'Skip turn'
+      t2_csos: [tragic_hero]
+      type: 5/2|2/5
+    points: [21, 1]
+    subtitle: 'Explosive Rapid Expansion Stuff Despite Strong Cursing'
+    turns: [10, 9]
 - campaign_effects:
   - one_track_mind
   cards:
@@ -2683,6 +2808,28 @@
   stamps_and_effects:
   - - one_track_mind
     - credit
+  notes:
+    crucial_cards: [Credit, Artisan, Sentry, Rustic Village]
+    ending: [Duchy, Artisan, Rustic Village]
+    link: 'https://youtu.be/fVZFy1BFuJ0'
+    name: 'Credit Where It''s Due'
+    expansion: rising_sun
+    openings:
+    - grade: 'B'
+      t1: 'Credit for Artisan'
+      t1_csos: [Credit, Artisan]
+      t2: 'Credit for Artisan, or Rice Broker'
+      t2_csos: [Credit, Artisan]
+      type: 4/3|3/4
+    - grade: 'B'
+      t1: 'Credit for Artisan'
+      t1_csos: [Credit, Artisan]
+      t2: 'Credit for Artisan, or Rice Broker'
+      t2_csos: [Credit, Artisan]
+      type: 5/2|2/5
+    points: [23, 3]
+    subtitle: 'Finally Ending A Playthrough With > 50 Debt'
+    turns: [9, 8]
 - campaign_effects:
   - typhoon
   cards:
@@ -2704,9 +2851,40 @@
   - foresight
   - harsh_winter
   name: Rising Sun 8
-  notes: 'Removed nested parentheses, they currently aren''t supported.
-
-    '
+  notes:
+    crucial_cards: [River Shrine, Foresight, Harsh Winter, Rice Broker]
+    ending: [Province]
+    link: 'https://youtu.be/PMNXPNTlwUE'
+    name: 'Harsh Typhoon'
+    expansion: rising_sun
+    openings:
+    - grade: 'B'
+      t1: 'River Shrine'
+      t1_csos: [river_shrine]
+      t2: 'Foresight'
+      t2_csos: [foresight]
+      type: 4/3
+    - grade: 'C'
+      t1: 'Silver'
+      t1_csos: [silver]
+      t2: 'River Shrine'
+      t2_csos: [river_shrine]
+      type: 4/3|3/4
+    - grade: 'A'
+      t1: 'Rice Broker'
+      t1_csos: [rice_broker]
+      t2: 'foresight'
+      t2_csos: [Foresight]
+      type: 5/2
+    - grade: 'B'
+      t1: 'Fishmonger'
+      t1_csos: [fishmonger]
+      t2: 'Rice Broker'
+      t2_csos: [rice_broker]
+      type: 2/5
+    points: [32, 21]
+    subtitle: 'Typhoon Washing Valuable Flotsam Up On The Frozen Shore'
+    turns: [14, 14]
   stamps_and_effects:
   - - typhoon
     - witch,_rustic_village,_gardens,_mountain_shrine,_village,_poacher,_ninja,_litter,_harbinger,_daimyo,_sentry,_ronin,_snake_witch,_alley,_library,_change,_craftsman,_riverboat,_rice,_throne_room
@@ -2735,6 +2913,28 @@
   stamps_and_effects:
   - - shadowified
     - throne_room
+  notes:
+    crucial_cards: []
+    ending: []
+    link: ''
+    name: 'Emperor''s Throne'
+    expansion: rising_sun
+    openings:
+    - grade: 'B'
+      t1: 'Militia'
+      t1_csos: [militia]
+      t2: 'Silver'
+      t2_csos: [Silver]
+      type: 4/3|3/4
+    - grade: 'C'
+      t1: 'Militia'
+      t1_csos: [militia]
+      t2: 'Skip turn'
+      t2_csos: [tragic_hero]
+      type: 5/2|2/5
+    points: []
+    subtitle: ''
+    turns: []
 - campaign_effects:
   - fawning_service
   - typhoon
@@ -2763,6 +2963,28 @@
     - receive_tribute
   - - typhoon
     - samurai,_library,_bureaucrat,_craftsman,_militia,_snake_witch,_poacher,_rice_broker,_sentry,_artist,_change,_remodel,_village,_kitsune,_rice,_river_shrine,_litter,_aristocrat,_vassal,_harbinger
+  notes:
+    crucial_cards: []
+    ending: []
+    link: ''
+    name: ''
+    expansion: rising_sun
+    openings:
+    - grade: ''
+      t1: ''
+      t1_csos: []
+      t2: ''
+      t2_csos: []
+      type: 4/3|3/4
+    - grade: ''
+      t1: ''
+      t1_csos: []
+      t2: ''
+      t2_csos: []
+      type: 5/2|2/5
+    points: []
+    subtitle: ''
+    turns: []
 - cards:
   - conspirator
   - courtier

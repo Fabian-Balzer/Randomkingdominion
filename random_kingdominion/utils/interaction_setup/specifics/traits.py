@@ -2,7 +2,10 @@
 
 import pandas as pd
 
-from ..constants import TGG_BUG_DISCLAIMER
+from random_kingdominion.constants import ALL_CSOS
+from random_kingdominion.utils.kingdom_helper_funcs import sanitize_cso_name
+
+from ..constants import TGG_BUG_DISCLAIMER, ALL_THRONE_CARDS
 from ..interaction_util import add_interaction, add_multiple_interactions_from_single
 
 
@@ -20,6 +23,17 @@ def _add_individual_trait_interactions(df: pd.DataFrame):
     add_interaction("Reckless", "Crossroads", crossroads, df)
     hwman = "[Only if Inspiring is on a Treasure] If you play an Inspiring Treasure as your first Treasure while under the Highwayman attack, you can still play a unique Action card with it."
     add_interaction("Inspiring", "Highwayman", hwman, df)
+    for throne in ALL_THRONE_CARDS:
+        rule = f"When you play a Reckless card using {throne}, it is played four times (although technically, two of these times the initial instructions are only followed again, and it is not a 'play' for the purpose of e.g. Conspirator)."
+        key = sanitize_cso_name(throne)
+        types = ALL_CSOS.loc[key]["Types"]
+        alert_str = ""
+        if "Action" in types and "Treasure" not in types:
+            alert_str = "[Only if Reckless is on an Action card] "
+        elif "Treasure" in types and "Action" not in types:
+            alert_str = "[Only if Reckless is on a Treasure card] "
+        rule = alert_str + rule
+        add_interaction("Reckless", throne, rule, df)
 
 
 ##########################################################################################################
