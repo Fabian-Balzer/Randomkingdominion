@@ -1,5 +1,355 @@
 - cards:
   - archive
+  - castles
+  - charm
+  - farmers_market
+  - forager
+  - hermit
+  - ironmonger
+  - market_square
+  - procession
+  - rats
+  expansions:
+  - Dark Ages
+  - Empires
+  idx: 265562917306937138060827743139964787213
+  landscapes:
+  - arena
+  - labyrinth
+  name: '2026-01-08'
+  notes:
+    crucial_cards: [Hermit, Market Square, Madman, Gold]
+    ending: [Province]
+    link: ''
+    name: 'Hermit Square'
+    openings:
+    - grade: 'B'
+      t1: 'Hermit'
+      t1_csos: [hermit]
+      t2: 'Hermit'
+      t2_csos: [hermit]
+      type: 4/3|3/4
+    - grade: 'C-'
+      t1: 'Hermit, or Archive'
+      t1_csos: [hermit]
+      t2: 'Skip turn'
+      t2_csos: [tragic_hero]
+      type: 5/2|2/5
+    points: [67, 23]
+    subtitle: 'Cleanly Playing The Notorious Dark Ages Two-Card-Combo'
+    turns: [12, 11]
+  use_shelters: true
+- cards:
+  - baker
+  - candlestick_maker
+  - castles
+  - encampment/plunder
+  - enchantress
+  - herald
+  - legionary
+  - patrician/emporium
+  - sacrifice
+  - villa
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Empires
+  idx: 58496030878573503510217625961350635638
+  landscapes:
+  - labyrinth
+  - triumph
+  name: '2026-01-07'
+  notes:
+    crucial_cards:
+    - Encampment/Plunder
+    - Sacrifice
+    - Villa
+    - Enchantress
+    ending:
+    - Estate
+    - Villa
+    - Encampment
+    link: https://youtu.be/uT4lfrw4cd4
+    name: Enchanted Triumph
+    openings:
+    - grade: B
+      t1: Sacrifice
+      t1_csos:
+      - sacrifice
+      t2: Encampment, or Enchantress, or Sacrifice
+      t2_csos:
+      - encampment
+      type: 4/3|3/4
+    - grade: B-
+      t1: Sacrifice
+      t1_csos:
+      - sacrifice
+      t2: Encampment, or Enchantress
+      t2_csos:
+      - encampment
+      type: 5/2|2/5
+    points:
+    - 68
+    - 22
+    subtitle: Finishing 40 VP Ahead In A Controlled Fashion After Securing Encampments
+    turns:
+    - 16
+    - 15
+- cards:
+  - alley
+  - artist
+  - change
+  - mountain_shrine
+  - rice_broker
+  - riverboat
+  - ronin
+  - rustic_village
+  - snake_witch
+  - tea_house
+  expansions:
+  - Rising Sun
+  idx: 30796791911932303791702372494041788739
+  landscapes:
+  - continue
+  - kind_emperor
+  name: '2026-01-06'
+  notes:
+    crucial_cards:
+    - Kind Emperor
+    - Mountain Shrine
+    - Change
+    - Tea House
+    ending:
+    - Province
+    link: https://youtu.be/j_pHEGqFYM4
+    name: Continued Kindness
+    openings:
+    - grade: B+
+      t1: Change, or Alley
+      t1_csos:
+      - change
+      t2: Mountain Shrine
+      t2_csos:
+      - mountain_shrine
+      type: 4/3
+    - grade: C
+      t1: Silver
+      t1_csos:
+      - Silver
+      t2: Change, or Mountain Shrine
+      t2_csos:
+      - change
+      type: 3/4
+    - grade: A-
+      t1: Rice Broker
+      t1_csos:
+      - rice_broker
+      t2: Mountain Shrine, or Snake Witch
+      t2_csos:
+      - mountain_shrine
+      type: 5/2
+    - grade: B-
+      t1: Snake Witch
+      t1_csos:
+      - snake_witch
+      t2: Rice Broker, or Mountain Shrine
+      t2_csos:
+      - rice_broker
+      type: 2/5
+    points:
+    - 30
+    - 21
+    subtitle: Explosive Rising Sun Stuffs. Fun!
+    turns:
+    - 11
+    - 11
+  riverboat_card: gold_mine
+- cards:
+  - apothecary
+  - bandit
+  - chapel
+  - market
+  - merchant
+  - scrying_pool
+  - university
+  - village
+  - vineyard
+  - workshop
+  expansions:
+  - Alchemy
+  - Base, 2E
+  idx: 251628038393636837385357053261457688932
+  name: '2026-01-05'
+  notes:
+    crucial_cards:
+    - Apothecary
+    - Vineyard
+    - University
+    - Market
+    ending:
+    - Vineyard
+    - Market
+    - Workshop
+    link: https://youtu.be/9Wy6Zcmaa7k
+    name: Strong Brew
+    openings:
+    - grade: B
+      t1: Potion
+      t1_csos:
+      - potion
+      t2: Chapel
+      t2_csos:
+      - chapel
+      type: 4/3|3/4
+    - grade: B
+      t1: Potion
+      t1_csos:
+      - potion
+      t2: Chapel
+      t2_csos:
+      - chapel
+      type: 5/2|2/5
+    points:
+    - 112
+    - 18
+    subtitle: Some Early Misplay Does Not Prevent A > 100 VP Finish
+    turns:
+    - 14
+    - 13
+- campaign_effects:
+  - cost_2_less
+  - double_pile
+  - pennies_saved
+  cards:
+  - cartographer
+  - distant_lands
+  - gatekeeper
+  - gondola
+  - groom
+  - merchant_guild
+  - mystic
+  - ninja
+  - tragic_hero
+  - treasure_trove
+  expansions:
+  - Adventures
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Rising Sun
+  idx: 267341536179987274259018978897779448293
+  landscapes:
+  - arena
+  - populate
+  name: '2026-01-04'
+  notes:
+    crucial_cards:
+    - Populate
+    - Merchant Guild
+    - Distant Lands
+    - Arena
+    ending:
+    - Province
+    link: https://youtu.be/D9SCVyP_LL4
+    name: Pennies Crashed... Again
+    openings:
+    - grade: C
+      t1: Play Treasures, skip turn
+      t1_csos:
+      - Copper
+      t2: Play Treasures, skip turn; or Merchant Guild
+      t2_csos:
+      - Copper
+      type: 4/3|3/4
+    - grade: C
+      t1: Play Treasures, skip turn
+      t1_csos:
+      - Copper
+      t2: Play Treasures, skip turn; or Merchant Guild
+      t2_csos:
+      - Copper
+      type: 5/2|2/5
+    points:
+    - 34
+    - 33
+    subtitle: Continuous Crashes Render It Impossible To Properly Finish The Playthrough
+    turns:
+    - 12
+    - 11
+  stamps_and_effects:
+  - - cost_2_less
+    - populate
+  - - double_pile
+    - duchy
+- army_pile: gatekeeper
+  cards:
+  - artist
+  - barbarian
+  - enlarge
+  - gatekeeper
+  - golem
+  - minion
+  - plaza
+  - poet
+  - sea_witch
+  - secluded_shrine
+  - watchtower
+  expansions:
+  - Alchemy
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
+  - Prosperity, 2E
+  - Rising Sun
+  - Seaside, 2E
+  idx: 19726030685139185008842386462638718761
+  landscapes:
+  - approaching_army
+  - receive_tribute
+  name: '2026-01-03'
+  notes:
+    crucial_cards:
+    - Watchtower
+    - Plaza
+    - Enlarge
+    - Sea Witch
+    ending:
+    - Curse
+    - Watchtower
+    - Plaza
+    link: https://youtu.be/3VgCOyrgDFY
+    name: Enlarging Army
+    openings:
+    - grade: C+
+      t1: Poet, or Plaza
+      t1_csos:
+      - Poet
+      t2: Secluded Shrine, or Watchtower
+      t2_csos:
+      - secluded_shrine
+      type: 4/3|3/4
+    - grade: B+
+      t1: Sea Witch, or Enlarge
+      t1_csos:
+      - sea_witch
+      t2: Skip turn
+      t2_csos:
+      - tragic_hero
+      type: 5/2|2/5
+    points:
+    - 6
+    - 1
+    subtitle: Having A Fortunate Opening In A Weird Gain-Limited Kingdom
+    turns:
+    - 15
+    - 14
+- cards:
+  - archive
   - ducat
   - dungeon
   - enchantress
@@ -19,32 +369,48 @@
   - road_network
   name: '2026-01-02'
   notes:
-    crucial_cards: [Crop Rotation, Road Network, Treasurer, Silk Merchant]
-    ending: [Province, Duchy]
+    crucial_cards:
+    - Crop Rotation
+    - Road Network
+    - Treasurer
+    - Silk Merchant
+    ending:
+    - Province
+    - Duchy
     link: ''
-    name: 'Silk Rotation'
+    name: Silk Rotation
     openings:
-    - grade: 'B+'
-      t1: 'Silk Merchant'
-      t1_csos: [silk_merchant]
-      t2: 'Priest, or Research, or Ducat trashing Copper, or Dungeon, or Experiment'
-      t2_csos: [priest]
+    - grade: B+
+      t1: Silk Merchant
+      t1_csos:
+      - silk_merchant
+      t2: Priest, or Research, or Ducat trashing Copper, or Dungeon, or Experiment
+      t2_csos:
+      - priest
       type: 4/3
-    - grade: 'B-'
-      t1: 'Dungeon, or Experiment'
-      t1_csos: [dungeon]
-      t2: 'Silk Merchant, or Research, or Priest'
-      t2_csos: [silk_merchant]
+    - grade: B-
+      t1: Dungeon, or Experiment
+      t1_csos:
+      - dungeon
+      t2: Silk Merchant, or Research, or Priest
+      t2_csos:
+      - silk_merchant
       type: 3/4
-    - grade: 'B'
-      t1: 'Treasurer'
-      t1_csos: [treasurer]
-      t2: 'Settlers'
-      t2_csos: [Settlers]
+    - grade: B
+      t1: Treasurer
+      t1_csos:
+      - treasurer
+      t2: Settlers
+      t2_csos:
+      - Settlers
       type: 5/2|2/5
-    points: [44, 33]
-    subtitle: 'Playing A Fast Moneyish Strategy With An Interesting Endgame'
-    turns: [15, 14]
+    points:
+    - 44
+    - 33
+    subtitle: Playing A Fast Moneyish Strategy With An Interesting Endgame
+    turns:
+    - 15
+    - 14
 - cards:
   - develop
   - galleria

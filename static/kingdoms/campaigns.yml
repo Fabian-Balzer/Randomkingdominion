@@ -2914,10 +2914,10 @@
   - - shadowified
     - throne_room
   notes:
-    crucial_cards: []
-    ending: []
-    link: ''
-    name: 'Emperor''s Throne'
+    crucial_cards: [Throne Room, Militia, Kind Emperor, Council Room]
+    ending: [Province]
+    link: 'https://youtu.be/_fs4AuTBPq0'
+    name: 'The Emperor''s Throne'
     expansion: rising_sun
     openings:
     - grade: 'B'
@@ -2932,9 +2932,9 @@
       t2: 'Skip turn'
       t2_csos: [tragic_hero]
       type: 5/2|2/5
-    points: []
-    subtitle: ''
-    turns: []
+    points: [59, 11]
+    subtitle: 'Steamrolling AI That Ignores A Busted Stamp'
+    turns: [11, 10]
 - campaign_effects:
   - fawning_service
   - typhoon
@@ -2964,27 +2964,27 @@
   - - typhoon
     - samurai,_library,_bureaucrat,_craftsman,_militia,_snake_witch,_poacher,_rice_broker,_sentry,_artist,_change,_remodel,_village,_kitsune,_rice,_river_shrine,_litter,_aristocrat,_vassal,_harbinger
   notes:
-    crucial_cards: []
-    ending: []
+    crucial_cards: [Receive Tribute, Ronin, Rustic Village, Snake Witch]
+    ending: [Curse, Rustic Village, Snake Witch]
     link: ''
-    name: ''
+    name: 'Progressing Typhoon'
     expansion: rising_sun
     openings:
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
+    - grade: 'C'
+      t1: 'Ninja'
+      t1_csos: [ninja]
+      t2: 'Fishmonger, or Silver'
+      t2_csos: [fishmonger, silver]
       type: 4/3|3/4
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
+    - grade: 'A'
+      t1: 'Tanuki'
+      t1_csos: [Tanuki]
+      t2: 'Fishmonger'
+      t2_csos: [fishmonger]
       type: 5/2|2/5
-    points: []
-    subtitle: ''
-    turns: []
+    points: [12, 6]
+    subtitle: 'Getting Our Hands On A Crucial Draw Card To Finish The Perfect Run?'
+    turns: [12, 12]
 - cards:
   - conspirator
   - courtier

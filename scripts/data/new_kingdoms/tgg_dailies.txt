@@ -1,3 +1,9 @@
+2026-01-08---castles, farmers_market, forager, hermit, market_square, ironmonger, procession, rats, archive, charm, labyrinth, arena, shelters
+2026-01-07---candlestick_maker, encampment, patrician, castles, enchantress, sacrifice, villa, herald, baker, legionary, labyrinth, triumph
+2026-01-06---mountain_shrine, artist, snake_witch, riverboat(gold_mine), alley, change, rustic_village, rice_broker, ronin, tea_house, kind_emperor, continue
+2026-01-05---vineyard, chapel, apothecary, scrying_pool, university, merchant, village, workshop, bandit, market
+2026-01-04---gondola, groom, ninja, cartographer, distant_lands, gatekeeper, merchant_guild, mystic, tragic_hero, treasure_trove, populate, arena -x stamp_cost_2_less(populate), start_double_pile(duchy), twist_pennies_saved
+2026-01-03---artist, secluded_shrine, watchtower, plaza, poet, golem, barbarian, enlarge, minion, sea_witch, receive_tribute, approaching_army(gatekeeper)
 2026-01-02---ducat, settlers, dungeon, enchantress, experiment, priest, research, silk_merchant, archive, treasurer, road_network, crop_rotation
 2026-01-01---townsfolk, develop, guard_dog, spice_merchant, town, trail, weaver, galleria, highway, souk
 2025-12-31---infirmary, advisor, patron, plaza, research, herald, baker, scholar, seer, soothsayer, fleet, fair
