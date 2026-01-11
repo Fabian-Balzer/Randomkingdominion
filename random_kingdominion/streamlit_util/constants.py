@@ -111,7 +111,8 @@ def _load_cached_combo_df(mod_time: int) -> pd.DataFrame:
 
 def get_cached_combo_df() -> pd.DataFrame:
     """Get the streamlit-cached combo dataframe."""
-    mod_time = get_modification_timestamp(FPATH_CARD_DATA)
+    fpath = PATH_CARD_INFO.joinpath("good_combo_data.csv")
+    mod_time = get_modification_timestamp(fpath)
     return _load_cached_combo_df(mod_time)
 
 
