@@ -1,3 +1,6 @@
+2026-01-11---stonemason, masquerade, shanty_town, bridge, jack_of_all_trades, contract, courtier, joust, patrol, vampire, desert_guides, sewers, windfall -x twist_so_much_stuff, stamp_treasurified(courtier)
+2026-01-10---haven, sentinel, alley, gondola, innkeeper, investment, crown, groundskeeper, jester, wine_merchant, way_of_the_mule
+2026-01-09---settlers, cargo_ship, patron, research, young_witch(improve), forum, old_witch, sculptor, seer, fairgrounds, sewers, museum
 2026-01-08---castles, farmers_market, forager, hermit, market_square, ironmonger, procession, rats, archive, charm, labyrinth, arena, shelters
 2026-01-07---candlestick_maker, encampment, patrician, castles, enchantress, sacrifice, villa, herald, baker, legionary, labyrinth, triumph
 2026-01-06---mountain_shrine, artist, snake_witch, riverboat(gold_mine), alley, change, rustic_village, rice_broker, ronin, tea_house, kind_emperor, continue

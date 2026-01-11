@@ -1,3 +1,181 @@
+- campaign_effects:
+  - so_much_stuff
+  - treasurified
+  cards:
+  - bridge
+  - contract
+  - courtier
+  - jack_of_all_trades
+  - joust
+  - masquerade
+  - patrol
+  - shanty_town
+  - stonemason
+  - vampire
+  expansions:
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Nocturne
+  - Renaissance
+  idx: 105032031230899636952601945913402499523
+  landscapes:
+  - desert_guides
+  - sewers
+  - windfall
+  name: '2026-01-11'
+  notes:
+    crucial_cards: [Joust, Courtier, Stonemason, Shanty Town]
+    ending: [Province]
+    link: 'https://youtu.be/Y2Z0beU21dU'
+    name: 'So Much Swing'
+    openings:
+    - grade: 'C'
+      t1: 'Desert Guides, buy Masquerade'
+      t1_csos: [desert_guides, masquerade]
+      t2: 'Play Masquerade, or skip turn if you don''t find it.'
+      t2_csos: [masquerade]
+      type: 4/3|3/4
+    - grade: 'B'
+      t1: 'Buy Stonemason, overpaying 3 for Masquerade/Shanty Town'
+      t1_csos: [stonemason, masquerade, shanty_town]
+      t2: 'Desert Guides, play Masquerade or Shanty Town, or skip turn if you don''t find it.'
+      t2_csos: [desert_guides, masquerade, shanty_town]
+      type: 5/2
+    - grade: 'B'
+      t1: 'Desert Guides, buy Stonemason, overpaying 3 for Masquerade/Shanty Town'
+      t1_csos: [desert_guides, stonemason, masquerade, shanty_town]
+      t2: 'Play Masquerade or Shanty Town, or skip turn if you don''t find it.'
+      t2_csos: [masquerade, shanty_town]
+      type: 2/5
+    points: [45, 13]
+    subtitle: 'Bottomdecking Stuff In This Fast-Paced Kingdom Proves To Be Deadly'
+    tries: 2
+    turns: [12, 11]
+  stamps_and_effects:
+  - - treasurified
+    - courtier
+- cards:
+  - alley
+  - crown
+  - gondola
+  - groundskeeper
+  - haven
+  - innkeeper
+  - investment
+  - jester
+  - sentinel
+  - wine_merchant
+  expansions:
+  - Adventures
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Menagerie
+  - Plunder
+  - Prosperity, 2E
+  - Rising Sun
+  - Seaside, 2E
+  idx: 69061634292562788835624138712679809195
+  landscapes:
+  - way_of_the_mule
+  name: '2026-01-10'
+  notes:
+    crucial_cards:
+    - Alley
+    - Crown
+    - Groundskeeper
+    - Way of the Mule
+    ending:
+    - Crown
+    - Groundskeeper
+    - Alley
+    link: ''
+    name: Drawless Mulalley
+    openings:
+    - grade: A-
+      t1: Alley, or Investment
+      t1_csos:
+      - alley
+      t2: Sentinel
+      t2_csos:
+      - sentinel
+      type: 4/3|3/4
+    - grade: C
+      t1: Sentinel, or Jester
+      t1_csos:
+      - sentinel
+      t2: Haven
+      t2_csos:
+      - haven
+      type: 5/2|2/5
+    points:
+    - 32
+    - 0
+    subtitle: Prevailing In A Neat Groundskeeper Kingdom
+    turns:
+    - 14
+    - 13
+- bane_pile: improve
+  cards:
+  - cargo_ship
+  - fairgrounds
+  - forum
+  - improve
+  - old_witch
+  - patron
+  - research
+  - sculptor
+  - seer
+  - settlers/bustling_village
+  - young_witch
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Renaissance
+  idx: 207014043754070449792355886783294882472
+  landscapes:
+  - museum
+  - sewers
+  name: '2026-01-09'
+  notes:
+    crucial_cards:
+    - Improve
+    - Sewers
+    - Sculptor
+    - Bustling Village
+    ending:
+    - Settlers
+    - Improve
+    - Patron
+    link: https://youtu.be/XPRfg70cnsc
+    name: Improving Sewers
+    openings:
+    - grade: B
+      t1: Research
+      t1_csos:
+      - research
+      t2: Cargo Ship, or Improve, or Sewers
+      t2_csos:
+      - Cargo_ship
+      type: 4/3|3/4
+    - grade: B-
+      t1: Old Witch, or Research
+      t1_csos:
+      - old_witch
+      t2: Settlers
+      t2_csos:
+      - settlers
+      type: 5/2|2/5
+    points:
+    - 51
+    - 30
+    subtitle: Who Needs +Buy If You Have Sculptors And Improves?
+    turns:
+    - 13
+    - 12
 - cards:
   - archive
   - castles
@@ -18,26 +196,39 @@
   - labyrinth
   name: '2026-01-08'
   notes:
-    crucial_cards: [Hermit, Market Square, Madman, Gold]
-    ending: [Province]
+    crucial_cards:
+    - Hermit
+    - Market Square
+    - Madman
+    - Gold
+    ending:
+    - Province
     link: ''
-    name: 'Hermit Square'
+    name: Hermit Square
     openings:
-    - grade: 'B'
-      t1: 'Hermit'
-      t1_csos: [hermit]
-      t2: 'Hermit'
-      t2_csos: [hermit]
+    - grade: B
+      t1: Hermit
+      t1_csos:
+      - hermit
+      t2: Hermit
+      t2_csos:
+      - hermit
       type: 4/3|3/4
-    - grade: 'C-'
-      t1: 'Hermit, or Archive'
-      t1_csos: [hermit]
-      t2: 'Skip turn'
-      t2_csos: [tragic_hero]
+    - grade: C-
+      t1: Hermit, or Archive
+      t1_csos:
+      - hermit
+      t2: Skip turn
+      t2_csos:
+      - tragic_hero
       type: 5/2|2/5
-    points: [67, 23]
-    subtitle: 'Cleanly Playing The Notorious Dark Ages Two-Card-Combo'
-    turns: [12, 11]
+    points:
+    - 67
+    - 23
+    subtitle: Cleanly Playing The Notorious Dark Ages Two-Card-Combo
+    turns:
+    - 12
+    - 11
   use_shelters: true
 - cards:
   - baker
