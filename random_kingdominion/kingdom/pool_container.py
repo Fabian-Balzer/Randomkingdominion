@@ -116,7 +116,7 @@ class PoolContainer:
         return add_renewed_base_expansions(sampled_expansions)
 
     def _narrow_pool_for_quality(
-        self, pool: pd.DataFrame, qualities_so_far: dict[str, int]
+        self, pool: pd.DataFrame, qualities_so_far: dict[str, float]
     ):
         """Pick out the most urgent of the qualities and lower the pool size, as long as cards
         remain afterwards.
@@ -126,26 +126,26 @@ class PoolContainer:
         for qual, diff in unfulfilled_qualities:
             # If the difference is big, try to sometimes also pick only cards with higher
             # values in that category
-            minimum_requirement = random.randint(1, min(diff, 3))
+            minimum_requirement = random.randint(1, min(np.floor(diff), 3))
             mask = pool[qual + "_quality"] >= minimum_requirement
             if np.sum(mask) > 0:
                 return pool[mask]
         return pool
 
     def _get_unfulfilled_qualities(
-        self, qualities_so_far: dict[str, int]
-    ) -> list[tuple[str, int]]:
+        self, qualities_so_far: dict[str, float]
+    ) -> list[tuple[str, float]]:
         """Determine which qualities are needed the most, and return a dictionary
         that maps the quality names to the amount they are needed.
 
         Parameters
         ----------
-        qualities_so_far : dict[str, int]
+        qualities_so_far : dict[str, float]
             The qualities that are making up the currently randomized kingdom
 
         Returns
         -------
-        list[str]
+        list[tuple[str, float]]
             A list of the qualities that still need to fulfil their requirements,
             sorted by their urgency
         """
@@ -167,7 +167,7 @@ class PoolContainer:
 
     def pick_next_card(
         self,
-        qualities_so_far: dict[str, int],
+        qualities_so_far: dict[str, float],
         special_card_to_pick_for: (
             Literal[
                 "ferryman",
@@ -198,7 +198,7 @@ class PoolContainer:
         return pick
 
     def pick_next_landscape(
-        self, qualities_so_far: dict[str, int], exclude_ways: bool
+        self, qualities_so_far: dict[str, float], exclude_ways: bool
     ) -> str:
         """Pick the next landscape while also considering the required qualities."""
         pool = get_sub_df_for_true_landscape(self.main_pool, exclude_ways)
@@ -209,7 +209,7 @@ class PoolContainer:
         self.main_pool = self.main_pool.drop(pick)
         return pick
 
-    def pick_ally(self, qualities_so_far: dict[str, int]) -> str:
+    def pick_ally(self, qualities_so_far: dict[str, float]) -> str:
         """Pick an ally while also considering the required qualities."""
         pool = self.main_pool[self.main_pool["IsAlly"]]
         # Pick an ally from the complete pool if otherwise not possible
@@ -224,7 +224,7 @@ class PoolContainer:
             pass
         return pick
 
-    def pick_liaison(self, qualities_so_far: dict[str, int]) -> str:
+    def pick_liaison(self, qualities_so_far: dict[str, float]) -> str:
         """Pick a liaison while also considering the required qualities."""
         pool = self.main_pool[self.main_pool["IsLiaison"]]
         if len(pool) == 0:
@@ -238,7 +238,7 @@ class PoolContainer:
             pass
         return pick
 
-    def pick_prophecy(self, qualities_so_far: dict[str, int]) -> str:
+    def pick_prophecy(self, qualities_so_far: dict[str, float]) -> str:
         """Pick a prophecy while also considering the required qualities."""
         pool = self.main_pool[self.main_pool["IsProphecy"]]
         if len(pool) == 0:
@@ -252,7 +252,7 @@ class PoolContainer:
             pass
         return pick
 
-    def pick_omen(self, qualities_so_far: dict[str, int]) -> str:
+    def pick_omen(self, qualities_so_far: dict[str, float]) -> str:
         """Pick an omen while also considering the required qualities."""
         pool = self.main_pool[self.main_pool["IsOmen"]]
         if len(pool) == 0:

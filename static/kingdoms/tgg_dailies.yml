@@ -1,3 +1,218 @@
+- cards:
+  - anvil
+  - crypt
+  - devils_workshop
+  - grand_market
+  - hoard
+  - idol
+  - pixie
+  - sacred_grove
+  - vampire
+  - watchtower
+  expansions:
+  - Nocturne
+  - Prosperity, 2E
+  idx: 71687105066462001003575298931946209591
+  name: '2026-01-15'
+  notes:
+    crucial_cards: [Pixie, Imp, Grand Market, will-o-wisp]
+    ending: [Curse, Idol, ]
+    link: 'https://youtu.be/MxcwG36JJYo'
+    name: 'Will-o''-Swing'
+    openings:
+    - grade: 'B-'
+      t1: 'Play Goat trashing Estate, buy Pixie, or Devil''s Workshop'
+      t1_csos: [goat, estate, pixie]
+      t2: 'Watchtower, or Pixie, or Silver'
+      t2_csos: [watchtower]
+      type: 4/3|3/4
+    - grade: 'C+'
+      t1: 'Vampire, or Sacred Grove, or trash Copper and buy Watchtower'
+      t1_csos: [vampire]
+      t2: 'Pixie'
+      t2_csos: [pixie]
+      type: 5/2|2/5
+    - grade: 'A-'
+      t1: 'Vampire, or Sacred Grove'
+      t1_csos: [vampire]
+      t2: 'Play Goat, trash Estate, buy Pixie'
+      t2_csos: [pixie]
+      type: 5/2|2/5
+    points: [32, 3]
+    subtitle: 'Rushing Tha Boons'
+    turns: [15, 14]
+  use_colonies: true
+- cards:
+  - altar
+  - armory
+  - devils_workshop
+  - monastery
+  - mystic
+  - night_watchman
+  - pillage
+  - raider
+  - rogue
+  - sacred_grove
+  expansions:
+  - Dark Ages
+  - Nocturne
+  idx: 174298974771920930757497957897363191351
+  name: '2026-01-14'
+  notes:
+    crucial_cards:
+    - Monastery
+    - Imp
+    - Mystic
+    - Sacred Grove
+    ending:
+    - Province
+    - Duchy
+    link: ''
+    name: The Dark Night
+    openings:
+    - grade: C
+      t1: Silver, or Devil's Workshop
+      t1_csos:
+      - Silver
+      t2: Silver
+      t2_csos:
+      - silver
+      type: 4/3|3/4
+    - grade: C+
+      t1: Sacred Grove
+      t1_csos:
+      - sacred_grove
+      t2: Monastery
+      t2_csos:
+      - monastery
+      type: 5/2|2/5
+    points:
+    - 43
+    - 31
+    subtitle: Huge Sun's Gift Mistake Almost Costing The Game
+    turns:
+    - 16
+    - 15
+  use_shelters: true
+- cards:
+  - change
+  - craftsman
+  - gold_mine
+  - ninja
+  - poet
+  - river_shrine
+  - ronin
+  - root_cellar
+  - rustic_village
+  - samurai
+  expansions:
+  - Rising Sun
+  idx: 136027238268600109268569005857773398144
+  landscapes:
+  - amass
+  - growth
+  name: '2026-01-13'
+  notes:
+    crucial_cards:
+    - Gold Mine
+    - Growth
+    - River Shrine
+    - Amass
+    ending:
+    - Duchy
+    - Rustic Village
+    - Gold Mine
+    link: https://youtu.be/ywEDQo3jYpM
+    name: Amassing Debt Speed
+    openings:
+    - grade: B
+      t1: Amass for River Shrine
+      t1_csos:
+      - amass
+      - river_shrine
+      t2: Amass for River Shrine, or Ronin, or Rustic Village
+      t2_csos:
+      - amass
+      - river_shrine
+      type: 4/3|3/4
+    - grade: B
+      t1: Amass for River Shrine
+      t1_csos:
+      - amass
+      - river_shrine
+      t2: Amass for River Shrine, or Ronin, or Rustic Village
+      t2_csos:
+      - amass
+      - river_shrine
+      type: 5/2|2/5
+    points:
+    - 26
+    - 1
+    subtitle: Surprising Myself By Ending Early With A Stylish 100 Debt
+    turns:
+    - 8
+    - 7
+- cards:
+  - artist
+  - bandit
+  - cellar
+  - chapel
+  - daimyo
+  - gardens
+  - rice_broker
+  - river_shrine
+  - vassal
+  - workshop
+  expansions:
+  - Base, 2E
+  - Rising Sun
+  idx: 79435206533386934576288965767427146523
+  landscapes:
+  - progress
+  name: '2026-01-12'
+  notes:
+    crucial_cards:
+    - Gardens
+    - Workshop
+    - Cellar
+    - Vassal
+    ending:
+    - Province
+    - Gardens
+    link: https://youtu.be/cwgBag5w7YA
+    name: Rising Gardens
+    openings:
+    - grade: B-
+      t1: River Shrine
+      t1_csos:
+      - river_shrine
+      t2: Daimyo, and shuffle well enough for collision...
+      t2_csos:
+      - daimyo
+      type: 4/3
+    - grade: C
+      t1: Workshop, or Vassal
+      t1_csos:
+      - workshop
+      t2: River Shrine, and shuffle well enough for no collision...
+      t2_csos:
+      - river_shrine
+      type: 3/4
+    - grade: B+
+      t1: Rice Broker
+      t1_csos:
+      - rice_broker
+      t2: Chapel
+      t2_csos:
+      - chapel
+      type: 5/2|2/5
+    points:
+    - 42
+    - 30
+    subtitle: Single Buy With Convoluted Workshop/Gardens
+    turns:
+    - 15
+    - 14
 - campaign_effects:
   - so_much_stuff
   - treasurified
@@ -27,33 +242,58 @@
   - windfall
   name: '2026-01-11'
   notes:
-    crucial_cards: [Joust, Courtier, Stonemason, Shanty Town]
-    ending: [Province]
-    link: 'https://youtu.be/Y2Z0beU21dU'
-    name: 'So Much Swing'
+    crucial_cards:
+    - Joust
+    - Courtier
+    - Stonemason
+    - Shanty Town
+    ending:
+    - Province
+    link: https://youtu.be/Y2Z0beU21dU
+    name: So Much Swing
     openings:
-    - grade: 'C'
-      t1: 'Desert Guides, buy Masquerade'
-      t1_csos: [desert_guides, masquerade]
-      t2: 'Play Masquerade, or skip turn if you don''t find it.'
-      t2_csos: [masquerade]
+    - grade: C
+      t1: Desert Guides, buy Masquerade
+      t1_csos:
+      - desert_guides
+      - masquerade
+      t2: Play Masquerade, or skip turn if you don't find it.
+      t2_csos:
+      - masquerade
       type: 4/3|3/4
-    - grade: 'B'
-      t1: 'Buy Stonemason, overpaying 3 for Masquerade/Shanty Town'
-      t1_csos: [stonemason, masquerade, shanty_town]
-      t2: 'Desert Guides, play Masquerade or Shanty Town, or skip turn if you don''t find it.'
-      t2_csos: [desert_guides, masquerade, shanty_town]
+    - grade: B
+      t1: Buy Stonemason, overpaying 3 for Masquerade/Shanty Town
+      t1_csos:
+      - stonemason
+      - masquerade
+      - shanty_town
+      t2: Desert Guides, play Masquerade or Shanty Town, or skip turn if you don't
+        find it.
+      t2_csos:
+      - desert_guides
+      - masquerade
+      - shanty_town
       type: 5/2
-    - grade: 'B'
-      t1: 'Desert Guides, buy Stonemason, overpaying 3 for Masquerade/Shanty Town'
-      t1_csos: [desert_guides, stonemason, masquerade, shanty_town]
-      t2: 'Play Masquerade or Shanty Town, or skip turn if you don''t find it.'
-      t2_csos: [masquerade, shanty_town]
+    - grade: B
+      t1: Desert Guides, buy Stonemason, overpaying 3 for Masquerade/Shanty Town
+      t1_csos:
+      - desert_guides
+      - stonemason
+      - masquerade
+      - shanty_town
+      t2: Play Masquerade or Shanty Town, or skip turn if you don't find it.
+      t2_csos:
+      - masquerade
+      - shanty_town
       type: 2/5
-    points: [45, 13]
-    subtitle: 'Bottomdecking Stuff In This Fast-Paced Kingdom Proves To Be Deadly'
+    points:
+    - 45
+    - 13
+    subtitle: Bottomdecking Stuff In This Fast-Paced Kingdom Proves To Be Deadly
     tries: 2
-    turns: [12, 11]
+    turns:
+    - 12
+    - 11
   stamps_and_effects:
   - - treasurified
     - courtier

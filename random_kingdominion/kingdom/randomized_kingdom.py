@@ -16,7 +16,7 @@ from ..utils.kingdom_helper_funcs import get_total_quality
 from .kingdom import Kingdom
 
 
-def _qual_dict_factory() -> dict[str, int]:
+def _qual_dict_factory() -> dict[str, float]:
     """Initialize an empty quality dict"""
     return {qual: 0 for qual in QUALITIES_AVAILABLE}
 
@@ -29,7 +29,7 @@ class RandomizedKingdom:
     num_desired_cards: int = 10
     _selected_cards: list[str] = field(default_factory=list)
     _selected_landscapes: list[str] = field(default_factory=list)
-    quality_of_selection: dict[str, int] = field(default_factory=_qual_dict_factory)
+    quality_of_selection: dict[str, float] = field(default_factory=_qual_dict_factory)
     use_colonies: bool = False
     use_shelters: bool = False
     obelisk_pile: str = ""

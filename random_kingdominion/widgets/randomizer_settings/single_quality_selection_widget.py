@@ -1,4 +1,3 @@
-
 import PyQt5.QtCore as QC
 import PyQt5.QtWidgets as QW
 
@@ -54,7 +53,9 @@ class SingleQualitySelectionWidget(QW.QWidget):
         self._set_initial_state()
 
     def _set_initial_state(self):
-        self.selection_box.setValue(self.config.get_requested_quality(self.qual_name))
+        self.selection_box.setValue(
+            int(self.config.get_requested_quality(self.qual_name))  # type: ignore
+        )
         is_disabled = self.config.get_forbidden_quality(self.qual_name)
         self.forbid_this_box.setChecked(is_disabled)
         self.selection_box.setDisabled(is_disabled)

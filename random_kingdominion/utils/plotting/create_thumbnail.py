@@ -76,7 +76,6 @@ def _annotate_hard_ai(ax: Axes, x0: float, y0: float, final_zoom=0.4, ec="k"):
     height, width = img.shape[:2]
     new_height, new_width = 100, 100
     zoom_factors = (new_height / height, new_width / width, 1)
-    # Resize the image
     img_resized = zoom_image(img, zoom_factors)
     # Convert back to array for matplotlib
     image_rgb = np.clip(img_resized, 0, 1)  # type: ignore

@@ -19,6 +19,7 @@
   "Caravan": ["Lab"],
   "Carnival": ["Smithy"],
   "Catacombs": ["Smithy"],
+  "Devil's Workshop": ["Lab*"],
   "Cavalry": ["Moat", "On-gain"],
   "Citadel": ["Special"],
   "City": ["Lab*"],

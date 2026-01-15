@@ -1,6 +1,5 @@
 """File for the KingdomManager class."""
 
-import json
 from pathlib import Path
 from typing import Any, Literal
 

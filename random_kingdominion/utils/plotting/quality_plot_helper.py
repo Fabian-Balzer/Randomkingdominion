@@ -10,7 +10,6 @@ from PIL import Image
 from ...constants import PATH_ASSETS
 from ..utils import get_quality_icon_fpath, get_version
 from .constants import DOM_BEIGE, DOM_BLUE, XKCD_FONT
-from .image_handling import crop_img_by_percentage, load_cso_img_by_key
 from .util import annotate_icon
 
 if TYPE_CHECKING:
@@ -57,7 +56,7 @@ def _annotate_buy_icon(
 
 
 def plot_kingdom_qualities(
-    data: dict[str, float] | dict[str, int],
+    data: dict[str, float],
     ax: Axes | None = None,
     max_val: int = 4,
     add_pics: bool = True,
@@ -69,7 +68,7 @@ def plot_kingdom_qualities(
 
     Parameters
     ----------
-    data : dict[str, float] | dict[str, int]
+    data : dict[str, float]
         A dictionary with the quality names as keys and the corresponding values as values.
     ax : Axes | None, optional
         The Matplotlib axes to plot the figure on. If None, a new figure is created. Default is None.
@@ -132,6 +131,20 @@ def plot_kingdom_qualities(
         lw=3,
         alpha=0.8,
     )
+    # Annotate stars for any luck- or limit-based qualities
+    mask2 = np.array([d == 0.125 for d in normalized_data])
+    if any(mask2):
+        ax.scatter(
+            np.array(angles)[mask2],
+            np.array(normalized_data)[mask2],
+            color="orange",
+            s=150,
+            marker="*",
+            fc="none",
+            lw=1.5,
+            alpha=0.9,
+            zorder=10,
+        )
 
     # if any(~mask):
     #     ax.scatter(0, 0, color=DOM_BLUE, s=100, marker="H", zorder=100)

@@ -75,10 +75,10 @@ class CustomConfigParser(ConfigParser):
         filtered = [exp for exp in expansions if exp not in RENEWED_EXPANSIONS]
         self.setlist("Expansions", "Expansions", filtered)
 
-    def get_requested_quality(self, qual_name: str) -> int:
-        return self.getint("Qualities", "requested_" + qual_name)
+    def get_requested_quality(self, qual_name: str) -> float:
+        return self.getfloat("Qualities", "requested_" + qual_name)
 
-    def set_requested_quality(self, qual_name: str, value: int):
+    def set_requested_quality(self, qual_name: str, value: float):
         self.set("Qualities", "requested_" + qual_name, str(value))
 
     def get_forbidden_quality(self, qual_name: str) -> bool:

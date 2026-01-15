@@ -176,7 +176,7 @@ class Kingdom:
     kingdom_campaign_effects_df: pd.DataFrame = field(
         init=False, repr=False, compare=False
     )
-    total_qualities: dict[str, int] = field(default_factory=dict, compare=False)
+    total_qualities: dict[str, float] = field(default_factory=dict, compare=False)
 
     __yaml_ignore__ = {
         "full_kingdom_df",

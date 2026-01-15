@@ -8,12 +8,13 @@ import pandas as pd
 from ..logger import LOGGER
 
 
-def _calculate_total_quality(values: Collection[int]) -> int:
+def _calculate_total_quality(values: Collection[float]) -> float:
     """Calculate the total quality value of a list of integers.
     The total quality value is a number between 0 and 4 that represents the overall quality
     of a list of integers, which is at least the maximum of the values in the list.
     The total quality value is iteratively calculated as follows:
     - 0: If the list is empty, or if the maximum value is 0.
+    - 0.5: If the maximum value is 0.5.
     - 1: If the maximum value is 1.
     - 2: If the maximum value is 2, or if there are at least four 1s.
     - 3: If the maximum value is 3, or if there are at least three 2s (also, four 1s count as a 2).
@@ -56,10 +57,13 @@ def _calculate_total_quality(values: Collection[int]) -> int:
         counts[i + 1] += counts[i] // (5 - i)
 
     # Look where the first nonzero value sits.
-    return np.nonzero(counts)[0][-1] if np.any(counts) else 0
+    nonzero = np.nonzero(counts)[0][-1] if np.any(counts) else 0
+    if nonzero == 0 and 0.5 in values:
+        return 0.5
+    return nonzero
 
 
-def get_total_quality(qual_name: str, kingdom_df: pd.DataFrame) -> int:
+def get_total_quality(qual_name: str, kingdom_df: pd.DataFrame) -> float:
     """Get the total quality value for a given quality name in the kingdom dataframe."""
     value_list = kingdom_df[qual_name + "_quality"].to_list()
     return _calculate_total_quality(value_list)

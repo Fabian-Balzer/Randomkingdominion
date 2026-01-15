@@ -1,10 +1,13 @@
 
 
-## 2026-01-02 17:31:10
-Added: 1
-Changed: 0 
+## 2026-01-11 20:24:35
+Added: 0
+Changed: 1 
 Removed: 0
-### Added 1 Combos
 
-#### gear - trade (Synergy)
-By opening double Gear, aiming to Trade away Estates ASAP, and going for a third Gear and some Treasures soon, you are in for a fast-paced money strategy.
+### Changed 1 Combos
+
+#### cemetery - envoy (Weak Synergy)
+Envoy is all the stronger in lean decks, and opening Envoy almost guarantees an early 4-card trash.
+*HAS BEEN CHANGED TO*
+Opening Envoy almost guarantees an early 4-card trash.

@@ -21,7 +21,7 @@ def read_json_dict_from_file(fpath: str) -> dict:
     return old_dict
 
 
-def get_specific_info(
+def get_types_information(
     cso: str, info_type: str, default_value: int | list
 ) -> int | list:
     """Retrieves the info of info_type stored in the specifics folder."""
@@ -50,14 +50,64 @@ def check_usage_of_qualities(names: pd.Series, info_type: str):
         )
 
 
+def modify_extra_info(row: pd.Series) -> pd.Series:
+    """Modify qualities to include luck- or limit-based parameters such as DrawQuality for Loot or Boon stuff,"""
+    relevant_qualities = [q for q in QUALITIES_AVAILABLE if q != "interactivity"]
+    extra_info = row.get("gain_types", [])
+    if "Loot" in extra_info or "Boons" in extra_info:
+        for qual in relevant_qualities:
+            if qual == "altvp":
+                continue
+            if row[qual + "_quality"] == 0:
+                if qual == "attack" and "Boons" in extra_info:
+                    continue
+                if (
+                    qual == "village"
+                    and "Boons" in extra_info
+                    and row["Name"] != "Pixie"
+                ):
+                    continue
+                row[qual + "_quality"] = 0.5
+                row[qual + "_types"].append("Luck-based")
+            if (
+                qual == "gain"
+                and "Buys" not in row["gain_types"]
+                and "Buys*" not in row["gain_types"]
+            ):
+                row[qual + "_types"].append("Buys*")
+    if "Looter" in row["Types"]:
+        # Ruins may provide +Buy
+        if row["gain_quality"] == 0:
+            row["gain_quality"] = 0.5
+            row["gain_types"].extend(["Luck-based", "Buys*"])
+    if row["Name"] == "Knights":
+        for qual in relevant_qualities:
+            if row[qual + "_quality"] == 0:
+                row[qual + "_quality"] = 0.5
+                row[qual + "_types"].append("Limited")
+            if qual == "gain":
+                row[qual + "_types"].append("Buys*")
+    if row["Name"] in ["Tournament", "Joust"]:
+        for qual in relevant_qualities:
+            if qual == "thinning":
+                continue
+            if row[qual + "_quality"] == 0:
+                row[qual + "_quality"] = 0.5
+                row[qual + "_types"].append("Limited")
+    return row
+
+
 def add_quality_info(df: pd.DataFrame) -> pd.DataFrame:
-    info_types = {f"{qual}_quality": 0 for qual in QUALITIES_AVAILABLE}
+    info_types = {f"{qual}_quality": lambda: 0 for qual in QUALITIES_AVAILABLE}
     info_types |= {
-        f"{qual}_types": [] for qual in QUALITIES_AVAILABLE if qual != "interactivity"
+        f"{qual}_types": lambda: list()
+        for qual in QUALITIES_AVAILABLE
+        if qual != "interactivity"
     }
-    for info_type, default_value in info_types.items():
+    for info_type, default_func in info_types.items():
         df[info_type] = df["Name"].apply(
-            lambda name: get_specific_info(name, info_type, default_value)
+            lambda name: get_types_information(name, info_type, default_func())
         )
         check_usage_of_qualities(df["Name"], info_type)
+    df = df.apply(modify_extra_info, axis=1)
     return df
