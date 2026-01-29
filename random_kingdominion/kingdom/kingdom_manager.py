@@ -11,6 +11,7 @@ from ..constants import (
     FPATH_KINGDOMS_CAMPAIGNS,
     FPATH_KINGDOMS_FABI_RECSETS,
     FPATH_KINGDOMS_LAST100,
+    FPATH_KINGDOMS_MATCHES,
     FPATH_KINGDOMS_RECOMMENDED,
     FPATH_KINGDOMS_TGG_DAILIES,
     PATH_ASSETS,
@@ -74,9 +75,103 @@ class KingdomManager:
     def __len__(self):
         return len(self.kingdoms)
 
+    def _add_single_kingdom_from_string(
+        self,
+        name: str,
+        kingdom_str: str,
+        notes: str | dict | None = None,
+        do_assertion: bool = True,
+    ) -> bool:
+        """Add a single kingdom from a dombot CSV string.
+
+        Args:
+            name: The name/identifier for the kingdom
+            kingdom_str: The dombot CSV string describing the kingdom
+            notes: Optional notes to attach to the kingdom
+            do_assertion: Whether to raise an error if the kingdom is invalid
+
+        Returns:
+            True if the kingdom was added, False if it already exists or is invalid
+        """
+        if kingdom_str.strip() == "":
+            return False
+        if name in [k["name"] for k in self.kingdoms]:
+            return False
+
+        k = Kingdom.from_dombot_csv_string(kingdom_str)
+        k.name = name
+
+        if notes is not None:
+            if isinstance(notes, dict):
+                k.notes = notes  # type: ignore
+            else:
+                k.notes = notes
+        elif self.add_yt_note_basics:
+            k.notes = {  # type: ignore
+                "crucial_cards": [],
+                "name": "",
+                "subtitle": "",
+                "openings": [
+                    {
+                        "type": "4/3|3/4",
+                        "t1": "",
+                        "t1_csos": [],
+                        "t2": "",
+                        "t2_csos": [],
+                        "grade": "",
+                    },
+                    {
+                        "type": "5/2|2/5",
+                        "t1": "",
+                        "t1_csos": [],
+                        "t2": "",
+                        "t2_csos": [],
+                        "grade": "",
+                    },
+                ],
+                "ending": [],
+                "points": [],
+                "turns": [],
+                "link": "",
+            }
+
+        try:
+            assert k.is_valid, f"{k.invalidity_reasons}, {k.name}, {k.cards}, {k.notes}"
+        except AssertionError as e:
+            if do_assertion:
+                raise e
+            LOGGER.info(f"Unrecognized: {k.name}, {k.cards}, {k.notes}")
+            return False
+
+        self.kingdoms.insert(0, k.get_dict_repr())
+        LOGGER.info(f"Added {k.name}")
+        return True
+
+    def add_kingdom_from_string(
+        self,
+        name: str,
+        kingdom_str: str,
+        notes: str | dict | None = None,
+        do_assertion: bool = True,
+    ) -> bool:
+        """Public method to add a single kingdom from a dombot CSV string.
+
+        Args:
+            name: The name/identifier for the kingdom
+            kingdom_str: The dombot CSV string describing the kingdom
+            notes: Optional notes to attach to the kingdom
+            do_assertion: Whether to raise an error if the kingdom is invalid
+
+        Returns:
+            True if the kingdom was added, False otherwise
+        """
+        return self._add_single_kingdom_from_string(
+            name, kingdom_str, notes, do_assertion
+        )
+
     def _add_kingdoms_from_txt(
         self,
-        ftype: Literal["tgg_dailies", "fabi_recsets", "campaigns"],
+        ftype: Literal["tgg_dailies", "fabi_recsets", "campaigns", "matches"],
         do_assertion=True,
     ):
         for k in self.kingdoms:
@@ -234,6 +329,11 @@ class KingdomManager:
 
     def load_recommended_kingdoms(self):
         self.load_kingdoms_from_yaml(FPATH_KINGDOMS_RECOMMENDED)
+
+    def load_matches(self, reload=False):
+        self.load_kingdoms_from_yaml(FPATH_KINGDOMS_MATCHES)
+        if reload:
+            self._add_kingdoms_from_txt("matches")
 
     def load_tgg_dailies(self, reload=False, sort=True):
         self.load_kingdoms_from_yaml(FPATH_KINGDOMS_TGG_DAILIES, sort=sort)

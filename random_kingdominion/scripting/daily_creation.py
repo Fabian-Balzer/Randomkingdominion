@@ -12,7 +12,7 @@ from ..utils.plotting import (
     get_kingdom_quality_fig,
 )
 from .constants import CAPTION_PATH
-from .util import get_nearest_kingdom_name
+from .util import get_nearest_kingdom_name, print_kingdom_and_expansions
 
 
 def parse_daily_date(date_str: str | None = None) -> str:
@@ -100,12 +100,7 @@ def set_up_daily_video_assets(
     CAPTION_PATH.write_text(f"TGG Daily Challenge {k.name}")
 
     new_name = k.unpacked_notes.get("name", "")
-    LOGGER.info(
-        "Dombot Kingdom String:\n\n"
-        + k.get_dombot_csv_string()
-        + "\nExpansions:\n"
-        + ", ".join(k.expansions)
-    )
+    print_kingdom_and_expansions(k)
 
     if new_name != "":
         close_prev = get_nearest_kingdom_name(new_name, k.name, manager)

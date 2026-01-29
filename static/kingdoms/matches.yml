@@ -1,0 +1,576 @@
+- cards:
+  - astrolabe
+  - bandit
+  - crossroads
+  - cursed_village
+  - duke
+  - highwayman
+  - monkey
+  - search
+  - sentinel
+  - tea_house
+  expansions:
+  - Allies
+  - Base, 2E
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Nocturne
+  - Plunder
+  - Renaissance
+  - Rising Sun
+  - Seaside, 2E
+  idx: 91448538691446854300222842872153653131
+  landscapes:
+  - biding_time
+  - cathedral
+  name: WC 2026 vs. saltroza g6
+  notes:
+    crucial_cards:
+    - biding_time
+    - crossroads
+    - Monkey
+    - Astrolabe
+    ending:
+    - estate
+    - astrolabe
+    - search
+    game_num: 6
+    link: ''
+    name: Crossroads Time
+    occasion: WC 2026
+    opponent: saltroza
+    points:
+    - 17
+    - 12
+    second_player: false
+    subtitle: Struggling To Set Up A Fun Combo
+    turns:
+    - 14
+    - 13
+- cards:
+  - blessed_village
+  - chapel
+  - coin_of_the_realm
+  - first_mate
+  - flag_bearer
+  - hireling
+  - messenger
+  - raze
+  - snowy_village
+  - throne_room
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Renaissance
+  idx: 25137410597621199552055564532832009267
+  landscapes:
+  - cathedral
+  - silos
+  name: WC 2026 vs. saltroza g5
+  notes:
+    crucial_cards:
+    - Cathedral
+    - First Mate
+    - Messenger
+    - Raze
+    ending:
+    - messenger
+    - province
+    game_num: 5
+    link: ''
+    name: First Messenger
+    occasion: WC 2026
+    opponent: saltroza
+    points:
+    - 31
+    - 29
+    second_player: true
+    subtitle: Tight And Awkward Draw Leads To A Nailbiter Finish
+    turns:
+    - 15
+    - 15
+- cards:
+  - cargo_ship
+  - fairgrounds
+  - hostelry
+  - nobles
+  - pickaxe
+  - pillage
+  - replace
+  - sentry
+  - sleigh
+  - wishing_well
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
+  - Renaissance
+  idx: 315479749466762461980663969271733802533
+  landscapes:
+  - cathedral
+  - way_of_the_squirrel
+  name: WC 2026 vs. saltroza g4
+  notes:
+    crucial_cards:
+    - hostelry
+    - way of the squirrel
+    - sword
+    - cathedral
+    ending:
+    - nobles
+    - sleigh
+    - hostelry
+    game_num: 4
+    link: ''
+    name: Squirrelicious
+    occasion: WC 2026
+    opponent: saltroza
+    points:
+    - 13
+    - 24
+    second_player: false
+    subtitle: Heavy Foreshadowing. Rough Loot Pulls.
+    turns:
+    - 12
+    - 12
+- cards:
+  - alchemist
+  - caravan
+  - displace
+  - first_mate
+  - idol
+  - marauder
+  - mine
+  - rogue
+  - tea_house
+  - vassal
+  expansions:
+  - Adventures
+  - Alchemy
+  - Base, 2E
+  - Dark Ages
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Renaissance
+  - Rising Sun
+  - Seaside, 2E
+  idx: 178652812306790786810376027054081979091
+  landscapes:
+  - ball
+  - panic
+  - sewers
+  name: WC 2026 vs. saltroza g3
+  notes:
+    crucial_cards:
+    - Caravan
+    - Mine
+    - Sewers
+    - Panic
+    ending:
+    - caravan
+    - tea_house
+    - ruins
+    game_num: 3
+    link: ''
+    name: Panic Dynamic
+    occasion: WC 2026
+    opponent: saltroza
+    points:
+    - 10
+    - 7
+    second_player: true
+    subtitle: Messy Early And Mid Game Followed By Clutch Ending
+    turns:
+    - 17
+    - 17
+- cards:
+  - beggar
+  - captain
+  - cardinal
+  - cauldron
+  - galleria
+  - inventor
+  - mill
+  - moneylender
+  - snake_witch
+  - throne_room
+  expansions:
+  - Allies
+  - Base, 2E
+  - Dark Ages
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Promo
+  - Renaissance
+  - Rising Sun
+  idx: 189463646631291756264840187554694205917
+  landscapes:
+  - sea_trade
+  - way_of_the_squirrel
+  name: WC 2026 vs. saltroza g2
+  notes:
+    crucial_cards:
+    - Captain
+    - Throne Room
+    - Inventor
+    - Way of the Squirrel
+    ending:
+    - throne_room
+    - captain
+    - snake_witch
+    game_num: 2
+    link: ''
+    name: Squirrel Captain
+    occasion: WC 2026
+    opponent: saltroza
+    points:
+    - 26
+    - 1
+    second_player: false
+    subtitle: Crazy Explosive Squirrel Stuffs
+    turns:
+    - 10
+    - 9
+- cards:
+  - cartographer
+  - city
+  - city_quarter
+  - gardens
+  - gondola
+  - highway
+  - mint
+  - rats
+  - throne_room
+  - vault
+  expansions:
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Plunder
+  - Prosperity, 2E
+  - Rising Sun
+  idx: 141367976807031180461718643541378630042
+  landscapes:
+  - credit
+  - sewers
+  name: WC 2026 vs. saltroza g1
+  notes:
+    crucial_cards:
+    - rats
+    - sewers
+    - Mint
+    - platinum
+    ending:
+    - colony
+    game_num: 1
+    link: ''
+    name: Province Dance
+    occasion: WC 2026
+    opponent: saltroza
+    points:
+    - 55
+    - 58
+    second_player: true
+    subtitle: Tantalizing Plus Buy Just Out Of Reach.
+    turns:
+    - 18
+    - 19
+  use_colonies: true
+- cards:
+  - bard
+  - chapel
+  - herbalist
+  - hireling
+  - kitsune
+  - merchant_ship
+  - monkey
+  - monument
+  - taskmaster
+  - wandering_minstrel
+  expansions:
+  - Adventures
+  - Alchemy
+  - Base, 2E
+  - Dark Ages
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Rising Sun
+  - Seaside, 2E
+  idx: 125530915720179182972235955707821871091
+  landscapes:
+  - expedition
+  - rapid_expansion
+  - scouting_party
+  name: WC 2026 vs. yurikamome g6
+  notes:
+    crucial_cards:
+    - Chapel
+    - Kitsune
+    - Rapid Expansion
+    - Herbalist
+    ending:
+    - Province
+    - Curse
+    game_num: 6
+    link: https://youtu.be/YXxzqUKcC8Q
+    name: Kitsune'd
+    occasion: WC 2026
+    opponent: yurikamome
+    points:
+    - 36
+    - 24
+    second_player: false
+    subtitle: What A Lopsided Start! Also Discussing The Full Match Afterwards
+    turns:
+    - 17
+    - 16
+- cards:
+  - border_village
+  - den_of_sin
+  - duke
+  - hideout
+  - mining_road
+  - pixie
+  - research
+  - spice_merchant
+  - swamp_shacks
+  - wheelwright
+  expansions:
+  - Adventures
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Renaissance
+  idx: 248038825021854995786374949117902416549
+  landscapes:
+  - expedition
+  - way_of_the_mule
+  name: WC 2026 vs. yurikamome g5
+  notes:
+    crucial_cards:
+    - Wheelwright
+    - Border Village
+    - pixie
+    - swamp shacks
+    ending:
+    - pixie
+    - wheelwright
+    - border_village
+    game_num: 5
+    link: https://youtu.be/r9PesNyuGIA
+    name: Border Wheelwright
+    occasion: WC 2026
+    opponent: yurikamome
+    points:
+    - 0
+    - 3
+    second_player: true
+    subtitle: Another Insanely Fast One. Poof.
+    turns:
+    - 8
+    - 7
+- cards:
+  - catapult/rocks
+  - highway
+  - jester
+  - litter
+  - patrician/emporium
+  - snake_witch
+  - spices
+  - townsfolk
+  - trader
+  - watchtower
+  expansions:
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Hinterlands, 2E
+  - Prosperity, 2E
+  - Renaissance
+  - Rising Sun
+  idx: 164847192065453283995023833169574285801
+  landscapes:
+  - mountain_pass
+  - windfall
+  name: WC 2026 vs. yurikamome g4
+  notes:
+    crucial_cards:
+    - Catapult
+    - Litter
+    - Spices
+    - Snake Witch
+    ending:
+    - resign
+    game_num: 4
+    link: https://youtu.be/gExfFwksl3o
+    name: Catapult Start
+    occasion: WC 2026
+    opponent: yurikamome
+    points:
+    - -1
+    - 0
+    second_player: false
+    subtitle: Misery With Catapults, Struggling To Even Hit $5
+    turns:
+    - 20
+    - 19
+- cards:
+  - abundance
+  - bazaar
+  - cursed_village
+  - hamlet
+  - highwayman
+  - hoard
+  - minion
+  - pawn
+  - souk
+  - vineyard
+  expansions:
+  - Adventures
+  - Alchemy
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Seaside, 2E
+  idx: 90651553630528569604165342541149648242
+  landscapes:
+  - training
+  - wolf_den
+  name: WC 2026 vs. yurikamome g3
+  notes:
+    crucial_cards:
+    - Souk
+    - Pawn
+    - Cursed Village
+    - Hamlet
+    ending:
+    - Hamlet
+    - Pawn
+    - Souk
+    game_num: 3
+    link: https://youtu.be/8Kz2a8t-hfU
+    name: Cursed Souking
+    occasion: WC 2026
+    opponent: yurikamome
+    points:
+    - -6
+    - 0
+    second_player: true
+    subtitle: Can We Prevail With Slightly Worse Draws As Second Player?
+    turns:
+    - 9
+    - 10
+- cards:
+  - charlatan
+  - collection
+  - courtyard
+  - daimyo
+  - enchantress
+  - envoy
+  - farm
+  - figurine
+  - messenger
+  - mountain_shrine
+  expansions:
+  - Adventures
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
+  - Promo
+  - Prosperity, 2E
+  - Rising Sun
+  idx: 28159793136279540994858196499280119923
+  landscapes:
+  - growth
+  - journey
+  - transport
+  name: WC 2026 vs. yurikamome g2
+  notes:
+    crucial_cards:
+    - Journey
+    - Daimyo
+    - Mountain Shrine
+    - Collection
+    ending:
+    - courtyard
+    - daimyo
+    - collection
+    game_num: 2
+    link: https://youtu.be/Pnwuav3otqQ
+    name: Mountain Journey
+    occasion: WC 2026
+    opponent: yurikamome
+    points:
+    - 18
+    - 32
+    second_player: false
+    subtitle: Getting Denied The Last Daimyos In Strong End-Game Play
+    turns:
+    - 9
+    - 9
+- cards:
+  - captain
+  - forum
+  - infirmary
+  - livery
+  - merchant_ship
+  - soothsayer
+  - swamp_hag
+  - throne_room
+  - treasure_trove
+  - watchtower
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Menagerie
+  - Plunder
+  - Promo
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
+  idx: 312562680508889206818442560755461738487
+  landscapes:
+  - journey
+  - piazza
+  name: WC 2026 vs. yurikamome g1
+  notes:
+    crucial_cards:
+    - Captain
+    - Infirmary
+    - Livery
+    - Forum
+    ending:
+    - Province
+    game_num: 1
+    link: https://youtu.be/fj3y5rYgDHE
+    name: Single Livery
+    occasion: WC 2026
+    opponent: yurikamome
+    points:
+    - 30
+    - 21
+    second_player: true
+    subtitle: No Proper Plus Buy In A Fast-Paced Kingdom
+    turns:
+    - 10
+    - 10

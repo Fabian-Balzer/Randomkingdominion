@@ -1,4 +1,703 @@
 - cards:
+  - advisor
+  - apprentice
+  - baker
+  - familiar
+  - golem
+  - herald
+  - herbalist
+  - infirmary
+  - merchant_guild
+  - university
+  expansions:
+  - Alchemy
+  - Cornucopia & Guilds, 2E
+  idx: 20506355778216327976751099540456002931
+  name: '2026-01-28'
+  notes:
+    crucial_cards: [Infirmary, Merchant Guild, University, Herald]
+    ending: [Curse, Herald, Merchant Guild]
+    link: https://youtu.be/E72NkwrmdeU
+    name: 'Infirmary Guild'
+    openings:
+    - grade: 'A-'
+      t1: 'Buy Infirmary, overpaying $2, hoping to trash Estate'
+      t1_csos: [infirmary, estate, estate]
+      t2: 'Buy Potion if you can, else Silver'
+      t2_csos: [Potion]
+      type: 4/3
+    - grade: 'D'
+      t1: 'Buy Silver, or Infirmary overpaying $1'
+      t1_csos: [silver]
+      t2: 'Buy Infirmary, overpaying $2'
+      t2_csos: [infirmary, estate, estate]
+      type: 3/4
+    - grade: 'A'
+      t1: 'Buy Infirmary, overpaying $3, hoping to trash Estates'
+      t1_csos: [Infirmary, Estate, Estate, Copper]
+      t2: 'Buy Potion if you can, else Silver'
+      t2_csos: [Potion]
+      type: 5/2
+    - grade: 'D'
+      t1: 'Skip turn'
+      t1_csos: [tragic_hero]
+      t2: 'Buy Infirmary, overpaying $3, hoping to trash Estates'
+      t2_csos: [Infirmary, Estate, Estate, Copper]
+      type: 2/5
+    points: [12, -2]
+    subtitle: 'Turns Out Skipping Potion Is Far From Optimal Here.'
+    turns: [12, 11]
+- cards:
+  - forager
+  - fortress
+  - graverobber
+  - hermit
+  - junk_dealer
+  - market_square
+  - mystic
+  - squire
+  - storeroom
+  - vagrant
+  expansions:
+  - Dark Ages
+  idx: 163402757812212871129661405509061582456
+  name: '2026-01-27'
+  notes:
+    crucial_cards:
+    - Madman
+    - Market Square
+    - Fortress
+    - Squire
+    ending:
+    - Province
+    link: ''
+    name: Madman Square
+    openings:
+    - grade: B
+      t1: Hermit
+      t1_csos:
+      - Hermit
+      t2: Hermit
+      t2_csos:
+      - Hermit
+      type: 4/3|3/4
+    - grade: C-
+      t1: Junk Dealer, or Hermit
+      t1_csos:
+      - junk_dealer
+      t2: Vagrant
+      t2_csos:
+      - vagrant
+      type: 5/2|2/5
+    points:
+    - 57
+    - 0
+    subtitle: The Fabled Dark Ages Combo Is Back!
+    turns:
+    - 11
+    - 10
+  use_shelters: true
+- cards:
+  - camel_train
+  - goatherd
+  - kiln
+  - market
+  - mastermind
+  - moat
+  - paddock
+  - poacher
+  - stockpile
+  - workshop
+  expansions:
+  - Base, 2E
+  - Menagerie
+  idx: 161427907928015083111748550953023160263
+  landscapes:
+  - ride
+  - way_of_the_ox
+  name: '2026-01-26'
+  notes:
+    crucial_cards:
+    - Mastermind
+    - Kiln
+    - Stockpile
+    - Paddock
+    ending:
+    - Mastermind
+    - Kiln
+    - Stockpile
+    link: ''
+    name: MasterHorse
+    openings:
+    - grade: B
+      t1: Stockpile
+      t1_csos:
+      - Stockpile
+      t2: Stockpile
+      t2_csos:
+      - Stockpile
+      type: 4/3|3/4
+    - grade: B+
+      t1: Paddock
+      t1_csos:
+      - paddock
+      t2: Ride
+      t2_csos:
+      - Ride
+      - horse
+      type: 5/2|2/5
+    points:
+    - 37
+    - 24
+    subtitle: AI Calling It Quits On Turn 6. Cruising After That.
+    turns:
+    - 13
+    - 12
+- campaign_effects:
+  - replace_estate
+  - sale
+  cards:
+  - border_village
+  - craftsman
+  - graverobber
+  - lost_city
+  - market_square
+  - research
+  - sage
+  - storeroom
+  - vagrant
+  - war_chest
+  expansions:
+  - Adventures
+  - Dark Ages
+  - Hinterlands, 2E
+  - Menagerie
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Rising Sun
+  idx: 125521670050615654493696022808074353583
+  landscapes:
+  - bargain
+  - shy
+  name: '2026-01-25'
+  notes:
+    crucial_cards:
+    - Graverobber
+    - Lost City
+    - Border Village
+    - Research
+    ending:
+    - Province
+    - Lost City
+    link: https://youtu.be/Eluvft1_jQ8
+    name: Lost Graverobbers
+    openings:
+    - grade: B
+      t1: War Chest
+      t1_csos:
+      - war_chest
+      t2: Research, trash Necro into Lost City if you can
+      t2_csos:
+      - research
+      type: 4/3|3/4
+    - grade: B
+      t1: Border Village/War Chest
+      t1_csos:
+      - border_village
+      - war_chest
+      t2: Trash Necro for Lost City, buy Market Square
+      t2_csos:
+      - necropolis
+      - lost_city
+      - market_square
+      type: 5/2|2/5
+    points:
+    - 33
+    - 24
+    subtitle: Speeding Through This Insane One Even With Bad Draws
+    turns:
+    - 9
+    - 8
+  stamps_and_effects:
+  - - replace_estate
+    - graverobber
+  traits:
+  - - shy
+    - lost_city
+  use_colonies: true
+  use_shelters: true
+- cards:
+  - bridge_troll
+  - castles
+  - coin_of_the_realm
+  - displace
+  - expand
+  - haggler
+  - pendant
+  - specialist
+  - temple
+  - tunnel
+  expansions:
+  - Adventures
+  - Allies
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Plunder
+  - Prosperity, 2E
+  idx: 204323474405761015940089364651274712700
+  landscapes:
+  - ride
+  - ritual
+  name: '2026-01-24'
+  notes:
+    crucial_cards:
+    - Ride
+    - Specialist
+    - Temple
+    - Bridge Troll
+    ending:
+    - Specialist
+    - Temple
+    - Bridge Troll
+    link: https://youtu.be/dMa8U7hIJnE
+    name: Special Ride
+    openings:
+    - grade: C+
+      t1: Temple
+      t1_csos:
+      - temple
+      t2: Silver, or Ride
+      t2_csos:
+      - silver
+      type: 4/3|3/4
+    - grade: C+
+      t1: Bridge Troll, or Temple
+      t1_csos:
+      - bridge_troll
+      t2: Ride
+      t2_csos:
+      - ride
+      type: 5/2|2/5
+    points:
+    - 21
+    - 17
+    subtitle: Awkward Draw And Powerful Terminals
+    turns:
+    - 16
+    - 15
+- cards:
+  - cabin_boy
+  - crew
+  - hireling
+  - longship
+  - page
+  - pirate
+  - relic
+  - tide_pools
+  - tools
+  - wharf
+  expansions:
+  - Adventures
+  - Plunder
+  - Seaside, 2E
+  idx: 83958597069153597677443708863961512840
+  landscapes:
+  - borrow
+  - pious
+  name: '2026-01-23'
+  notes:
+    crucial_cards: []
+    ending: []
+    link: ''
+    name: ''
+    openings:
+    - grade: ''
+      t1: ''
+      t1_csos: []
+      t2: ''
+      t2_csos: []
+      type: 4/3|3/4
+    - grade: ''
+      t1: ''
+      t1_csos: []
+      t2: ''
+      t2_csos: []
+      type: 5/2|2/5
+    points: []
+    subtitle: ''
+    turns: []
+  traits:
+  - - pious
+    - tide_pools
+- cards:
+  - coin_of_the_realm
+  - giant
+  - guide
+  - herbalist
+  - ratcatcher
+  - relic
+  - royal_carriage
+  - scrying_pool
+  - storyteller
+  - treasure_trove
+  expansions:
+  - Adventures
+  - Alchemy
+  idx: 137169757083564990346008247307409182119
+  landscapes:
+  - mission
+  - pilgrimage
+  name: '2026-01-22'
+  notes:
+    crucial_cards:
+    - Giant
+    - Royal Carriage
+    - Scrying Pool
+    - Pilgrimage
+    ending:
+    - Province
+    link: ''
+    name: Giant Pilgrimage
+    openings:
+    - grade: B-
+      t1: Silver, or Potion
+      t1_csos:
+      - silver
+      t2: Ratcatcher
+      t2_csos:
+      - ratcatcher
+      type: 4/3|3/4
+    - grade: B+
+      t1: Relic
+      t1_csos:
+      - relic
+      t2: Ratcatcher
+      t2_csos:
+      - ratcatcher
+      type: 5/2|2/5
+    points:
+    - 36
+    - 7
+    subtitle: Bullying The AI So Much That The Game Decides To Crash
+    turns:
+    - 16
+    - 15
+- cards:
+  - berserker
+  - cartographer
+  - cobbler
+  - crypt
+  - den_of_sin
+  - devils_workshop
+  - night_watchman
+  - sacred_grove
+  - stables
+  - tracker
+  expansions:
+  - Hinterlands, 2E
+  - Nocturne
+  idx: 248364731855962206046940590192146266710
+  name: '2026-01-21'
+  notes:
+    crucial_cards:
+    - Crypt
+    - Den of Sin
+    - Sacred Grove
+    - Silver
+    ending:
+    - Province
+    - Den of Sin
+    link: https://youtu.be/N9yHB6k3zZo
+    name: Den of Crypts
+    openings:
+    - grade: D
+      t1: Silver
+      t1_csos:
+      - silver
+      t2: Silver
+      t2_csos:
+      - silver
+      type: 4/3|3/4
+    - grade: C
+      t1: Sacred Grove, or Crypt
+      t1_csos:
+      - sacred_grove
+      t2: Skip turn, or Tracker
+      t2_csos:
+      - tragic_hero
+      type: 5/2
+    - grade: C
+      t1: Tracker, or skip turn
+      t1_csos:
+      - tracker
+      t2: Den of Sin, or Sacred Grove
+      t2_csos:
+      - den_of_sin
+      type: 2/5
+    points:
+    - 33
+    - 21
+    subtitle: Cruising Through A Swingy Kingdom In Which AI Gets Sidetracked
+    turns:
+    - 14
+    - 14
+- cards:
+  - baron
+  - bridge
+  - conspirator
+  - courtier
+  - mill
+  - nobles
+  - steward
+  - swindler
+  - trading_post
+  - wishing_well
+  expansions:
+  - Intrigue, 2E
+  idx: 202854334237452137224418165697744971182
+  name: '2026-01-20'
+  notes:
+    crucial_cards:
+    - Wishing Well
+    - Steward
+    - Conspirator
+    - Nobles
+    ending:
+    - Province
+    - Wishing Well
+    - Nobles
+    link: https://youtu.be/rAsBetPC9wE
+    name: Noble Conspiracy
+    openings:
+    - grade: B
+      t1: Steward
+      t1_csos:
+      - steward
+      t2: Wishing Well
+      t2_csos:
+      - wishing_well
+      type: 4/3|3/4
+    - grade: B-
+      t1: Trading Post, or Steward
+      t1_csos:
+      - trading_post
+      t2: Skip turn
+      t2_csos:
+      - tragic_hero
+      type: 5/2|2/5
+    points:
+    - 47
+    - 32
+    subtitle: Building A Neat Controlled Deck With Lots Of Tracking
+    turns:
+    - 16
+    - 15
+- cards:
+  - artisan
+  - bureaucrat
+  - carnival
+  - farmhands
+  - festival
+  - harbinger
+  - militia
+  - moneylender
+  - poacher
+  - throne_room
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  idx: 200710575955278566197394444472099436691
+  name: '2026-01-19'
+  notes:
+    crucial_cards:
+    - Artisan
+    - Moneylender
+    - Throne Room
+    - Carnival
+    ending:
+    - Throne Room
+    - Farmhands
+    - Carnival
+    link: https://youtu.be/gnz_901CHiw
+    name: Festive Carnival
+    openings:
+    - grade: B-
+      t1: Moneylender
+      t1_csos:
+      - moneylender
+      t2: Silver
+      t2_csos:
+      - silver
+      type: 4/3|3/4
+    - grade: C
+      t1: Moneylender, or Festival, or Carnival
+      t1_csos:
+      - moneylender
+      t2: Skip turn
+      t2_csos:
+      - tragic_hero
+      type: 5/2|2/5
+    points:
+    - 24
+    - 3
+    subtitle: Where AI Ignores Trashing And Artisans Are MVPs
+    turns:
+    - 13
+    - 12
+- campaign_effects:
+  - replace_estate
+  - with_spoils
+  cards:
+  - acting_troupe
+  - bridge_troll
+  - fisherman
+  - litter
+  - magpie
+  - patron
+  - pilgrim
+  - recruiter
+  - sculptor
+  - tide_pools
+  expansions:
+  - Adventures
+  - Menagerie
+  - Plunder
+  - Renaissance
+  - Rising Sun
+  - Seaside, 2E
+  idx: 196872167221260412021677587515995065253
+  landscapes:
+  - enclave
+  - reap
+  name: '2026-01-18'
+  notes:
+    crucial_cards:
+    - recruiter
+    - bridge troll
+    - sculptor
+    - acting troupe
+    ending:
+    - Province
+    - Sculptor
+    - Bridge Troll
+    link: https://youtu.be/VbXtykmEdtg
+    name: Spoiled Sculpting
+    openings:
+    - grade: A
+      t1: Play two Spoils, buy Recruiter
+      t1_csos:
+      - recruiter
+      t2: Play two Spoils, buy Sculptor, or Bridge Troll, or Recruiter
+      t2_csos:
+      - sculptor
+      type: 12/9|9/12
+    - grade: A
+      t1: Play two Spoils, buy Recruiter
+      t1_csos:
+      - recruiter
+      t2: Play two Spoils, buy Sculptor, or Bridge Troll, or Recruiter
+      t2_csos:
+      - sculptor
+      type: 15/6|6/15
+    points:
+    - 51
+    - 6
+    subtitle: Speeding Through This Setup Despite A Bad T3 Draw
+    turns:
+    - 8
+    - 7
+  stamps_and_effects:
+  - - replace_estate
+    - spoils,_spoils,_spoils
+  - - with_spoils
+    - acting_troupe
+- cards:
+  - changeling
+  - coven
+  - den_of_sin
+  - hamlet
+  - herbalist
+  - leprechaun
+  - rope
+  - squire
+  - trader
+  - witch
+  expansions:
+  - Alchemy
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  idx: 219289279780243717836407893939823483230
+  name: '2026-01-17'
+  notes:
+    crucial_cards:
+    - Rope
+    - Den of sin
+    - witch
+    - changeling
+    ending:
+    - Curse
+    - Rope
+    - Den of sin
+    link: https://youtu.be/uk1gmeu4SMA
+    name: Rope Witch
+    openings:
+    - grade: C
+      t1: Rope
+      t1_csos:
+      - Rope
+      t2: Silver
+      t2_csos:
+      - Silver
+      type: 4/3|3/4
+    - grade: B+
+      t1: Den of Sin
+      t1_csos:
+      - den_of_sin
+      t2: Rope
+      t2_csos:
+      - rope
+      type: 5/2
+    - grade: C
+      t1: Hamlet, or Squire
+      t1_csos:
+      - hamlet
+      t2: Witch
+      t2_csos:
+      - witch
+      type: 2/5
+    points:
+    - 6
+    - 1
+    subtitle: Getting Ahead In The Ol' Cursing/Trashing Game
+    turns:
+    - 13
+    - 12
+- cards:
+  - clerk
+  - forge
+  - kings_court
+  - market_square
+  - mine
+  - moneylender
+  - poacher
+  - rats
+  - rogue
+  - storeroom
+  expansions:
+  - Base, 2E
+  - Dark Ages
+  - Prosperity, 2E
+  idx: 295373519250966897037755977485811027123
+  name: '2026-01-16'
+  use_shelters: true
+- cards:
   - anvil
   - crypt
   - devils_workshop
@@ -15,32 +714,50 @@
   idx: 71687105066462001003575298931946209591
   name: '2026-01-15'
   notes:
-    crucial_cards: [Pixie, Imp, Grand Market, will-o-wisp]
-    ending: [Curse, Idol, ]
-    link: 'https://youtu.be/MxcwG36JJYo'
-    name: 'Will-o''-Swing'
+    crucial_cards:
+    - Pixie
+    - Imp
+    - Grand Market
+    - will-o-wisp
+    ending:
+    - Curse
+    - Idol
+    link: https://youtu.be/MxcwG36JJYo
+    name: Will-o'-Swing
     openings:
-    - grade: 'B-'
-      t1: 'Play Goat trashing Estate, buy Pixie, or Devil''s Workshop'
-      t1_csos: [goat, estate, pixie]
-      t2: 'Watchtower, or Pixie, or Silver'
-      t2_csos: [watchtower]
+    - grade: B-
+      t1: Play Goat trashing Estate, buy Pixie, or Devil's Workshop
+      t1_csos:
+      - goat
+      - estate
+      - pixie
+      t2: Watchtower, or Pixie, or Silver
+      t2_csos:
+      - watchtower
       type: 4/3|3/4
-    - grade: 'C+'
-      t1: 'Vampire, or Sacred Grove, or trash Copper and buy Watchtower'
-      t1_csos: [vampire]
-      t2: 'Pixie'
-      t2_csos: [pixie]
+    - grade: C+
+      t1: Vampire, or Sacred Grove, or trash Copper and buy Watchtower
+      t1_csos:
+      - vampire
+      t2: Pixie
+      t2_csos:
+      - pixie
       type: 5/2|2/5
-    - grade: 'A-'
-      t1: 'Vampire, or Sacred Grove'
-      t1_csos: [vampire]
-      t2: 'Play Goat, trash Estate, buy Pixie'
-      t2_csos: [pixie]
+    - grade: A-
+      t1: Vampire, or Sacred Grove
+      t1_csos:
+      - vampire
+      t2: Play Goat, trash Estate, buy Pixie
+      t2_csos:
+      - pixie
       type: 5/2|2/5
-    points: [32, 3]
-    subtitle: 'Rushing Tha Boons'
-    turns: [15, 14]
+    points:
+    - 32
+    - 3
+    subtitle: Rushing Tha Boons
+    turns:
+    - 15
+    - 14
   use_colonies: true
 - cards:
   - altar

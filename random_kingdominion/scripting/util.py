@@ -5,7 +5,7 @@ from pprint import pformat
 
 import numpy as np
 
-from ..kingdom import KingdomManager
+from ..kingdom import KingdomManager, Kingdom
 from ..logger import LOGGER
 
 
@@ -52,3 +52,12 @@ def get_nearest_kingdom_name(new_name: str, new_date: str, manager: KingdomManag
     )
     names.remove("")
     return difflib.get_close_matches(new_name, names, n=1, cutoff=0.0)[0]
+
+
+def print_kingdom_and_expansions(k: Kingdom):
+    LOGGER.info(
+        "Dombot Kingdom String:\n\n"
+        + k.get_dombot_csv_string()
+        + "\nExpansions:\n"
+        + ", ".join(k.expansions)
+    )

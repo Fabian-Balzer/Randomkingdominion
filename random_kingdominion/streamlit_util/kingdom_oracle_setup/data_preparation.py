@@ -81,8 +81,10 @@ def _load_existing_kingdoms(
         manager.load_recommended_kingdoms()
     elif selection_type == "Reddit's KOTW":
         manager.load_kingdoms_from_yaml(FPATH_KINGDOMS_KOTW_REDDIT)
-    elif selection_type == "Fabi's Recommendations":
+    elif selection_type == "Fabi's Rec's":
         manager.load_fabi_recsets_kingdoms()
+    elif selection_type == "Fabi's Matches":
+        manager.load_matches()
     else:
         raise ValueError(f"Unknown selection type: {selection_type}")
     df = manager.dataframe_repr

@@ -165,6 +165,7 @@ FPATH_KINGDOMS_TGG_DAILIES = PATH_ASSETS.joinpath("kingdoms/tgg_dailies.yml")
 FPATH_KINGDOMS_KOTW_REDDIT = PATH_ASSETS.joinpath("kingdoms/reddit_kotw.yml")
 FPATH_KINGDOMS_FABI_RECSETS = PATH_ASSETS.joinpath("kingdoms/fabi_recsets.yml")
 FPATH_KINGDOMS_CAMPAIGNS = PATH_ASSETS.joinpath("kingdoms/campaigns.yml")
+FPATH_KINGDOMS_MATCHES = PATH_ASSETS.joinpath("kingdoms/matches.yml")
 
 
 ROTATOR_DICT = {
@@ -367,7 +368,7 @@ def load_combo_or_inter_df(pair_type: Literal["combo", "interaction"]) -> pd.Dat
     """Load all interactions from file."""
     fpath = PATH_CARD_INFO.joinpath(f"good_{pair_type}_data.csv")
     df = read_dataframe_from_file(fpath)
-    df["ident"] = df["CSO1"] + "___" + df["CSO2"]
+    df["ident"] = df["CSO1"] + "___" + df["CSO2"]  # type: ignore
     df = df[
         df["CSO1"].isin(ALL_CSOS.index) & df["CSO2"].isin(ALL_CSOS.index)
     ].set_index("ident")

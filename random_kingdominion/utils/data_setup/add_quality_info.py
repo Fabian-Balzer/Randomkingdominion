@@ -59,14 +59,11 @@ def modify_extra_info(row: pd.Series) -> pd.Series:
             if qual == "altvp":
                 continue
             if row[qual + "_quality"] == 0:
-                if qual == "attack" and "Boons" in extra_info:
-                    continue
-                if (
-                    qual == "village"
-                    and "Boons" in extra_info
-                    and row["Name"] != "Pixie"
-                ):
-                    continue
+                if "Boons" in extra_info:
+                    if qual == "attack":
+                        continue
+                    if qual == "village" and row["Name"] != "Pixie":
+                        continue
                 row[qual + "_quality"] = 0.5
                 row[qual + "_types"].append("Luck-based")
             if (

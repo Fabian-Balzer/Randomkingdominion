@@ -58,9 +58,9 @@ def plot_gradient_image(
     )
 
 
-def get_video_title(k: "Kingdom") -> str:
+def get_video_title(k: "Kingdom", is_match: bool = False) -> str:
     """Generate a canonical title for the video."""
-    title = k.name
+    title = k.name if not is_match else k.unpacked_notes.get("occasion", "Match")
     if "name" in k.unpacked_notes and (unp_name := k.unpacked_notes["name"]) != "":
         title = f"{unp_name} [{title}]"
     return title

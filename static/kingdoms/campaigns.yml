@@ -2716,6 +2716,7 @@
     link: 'https://youtu.be/6Uk3NQU5RDs'
     name: 'Good Typhoon'
     expansion: rising_sun
+    second_player: true
     openings:
     - grade: 'C'
       t1: 'Credit for Kitsune'
@@ -2969,6 +2970,7 @@
     link: 'https://youtu.be/8jfWKZ4izPY'
     name: 'Progressing Typhoon'
     expansion: rising_sun
+    second_player: true
     openings:
     - grade: 'C'
       t1: 'Ninja'
@@ -3198,6 +3200,7 @@
   - way_of_the_owl
   name: Menagerie 1
   notes:
+    expansion: menagerie
     crucial_cards:
     - Bounty Hunter
     - Village Green
@@ -3235,6 +3238,7 @@
   - way_of_the_horse
   name: Menagerie 2
   notes:
+    expansion: menagerie
     crucial_cards:
     - Mastermind
     - Coven
@@ -3277,6 +3281,7 @@
   - way_of_the_pig
   name: Menagerie 3
   notes:
+    expansion: menagerie
     crucial_cards:
     - Falconer
     - Sheepdog
@@ -3320,6 +3325,7 @@
   - way_of_the_rat
   name: Menagerie 4
   notes:
+    expansion: menagerie
     crucial_cards:
     - Animal Fair
     - Paddock
@@ -3364,6 +3370,8 @@
   - way_of_the_sheep
   name: Menagerie 5
   notes:
+    expansion: menagerie
+    second_player: true
     crucial_cards:
     - Mastermind
     - Sanctuary
@@ -3404,6 +3412,7 @@
   - way_of_the_horse
   name: Menagerie 6
   notes:
+    expansion: menagerie
     crucial_cards:
     - Destrier
     - Falconer
@@ -3445,6 +3454,7 @@
   - way_of_the_rat
   name: Menagerie 7
   notes:
+    expansion: menagerie
     crucial_cards:
     - Groom
     - Groom
@@ -3487,6 +3497,7 @@
   - way_of_the_goat
   name: Menagerie 8
   notes:
+    expansion: menagerie
     crucial_cards:
     - Hostelry
     - Remodel
@@ -3525,6 +3536,7 @@
   - way_of_the_ox
   name: Menagerie 9
   notes:
+    expansion: menagerie
     crucial_cards:
     - Displace
     - Chapel
@@ -3569,6 +3581,7 @@
   - way_of_the_pig
   name: Menagerie 10
   notes:
+    expansion: menagerie
     crucial_cards:
     - Gamble
     - Cavalry
@@ -3578,6 +3591,7 @@
     - Cavalry
     - Destrier
     - Supplies
+    second_player: true
     link: https://youtu.be/zr4If30LPgo
     name: Gambling Addiction
     points:

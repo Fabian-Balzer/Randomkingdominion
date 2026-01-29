@@ -6,16 +6,25 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 
+from ...constants import QUALITIES_AVAILABLE
 from ...utils import sanitize_cso_name
 from ..constants import ALL_CACHED_CSOS, ST_ICONS
 
 
 # Define the style function
 def colorize(val):
-    if not isinstance(val, int):
+    if isinstance(val, str):
+        try:
+            val = float(val)
+        except ValueError:
+            return ""
+    if not isinstance(val, float | int):
         return ""
+    val = float(val)
     if val == 0:
         color = "rgba(255, 0, 0, 0.1)"
+    elif val == 0.5:
+        color = "rgba(100, 100, 100, 0.2)"
     elif val == 1:
         color = "rgba(50, 255, 50, 0.3)"
     elif val == 2:
@@ -151,6 +160,10 @@ def get_column_order() -> list[str]:
 @st.fragment
 def display_stylysed_cso_df(df: pd.DataFrame, with_reroll=False, **kwargs):
     df = df.copy()
+    for qual in QUALITIES_AVAILABLE:
+        df[f"{qual}_quality"] = df[f"{qual}_quality"].apply(
+            lambda x: "0.5" if x == 0.5 else str(int(x))
+        )
     if with_reroll:
         df["Reroll?"] = np.zeros(len(df), dtype=bool)
     if "ImagePath" in df.columns:

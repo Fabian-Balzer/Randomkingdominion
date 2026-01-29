@@ -7,5 +7,6 @@ from .daily_creation import (
     register_daily_kingdom,
     set_up_daily_video_assets,
 )
-from .util import get_nearest_kingdom_name, log_args
+from .match_creation import register_match
+from .util import get_nearest_kingdom_name, log_args, print_kingdom_and_expansions
 from .constants import CAPTION_PATH

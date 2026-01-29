@@ -1,3 +1,20 @@
+2026-01-28---herbalist, university, infirmary, familiar, advisor, herald, golem, apprentice, baker, merchant_guild
+2026-01-27---squire, vagrant, forager, hermit, market_square, storeroom, fortress, graverobber, junk_dealer, mystic, shelters
+2026-01-26---moat, camel_train, goatherd, stockpile, workshop, poacher, kiln, market, mastermind, paddock, way_of_the_ox, ride
+2026-01-25---vagrant, craftsman, market_square, sage, storeroom, research, graverobber, lost_city, war_chest, border_village, bargain, shy(lost_city), colonies, shelters, start_replace_estate(graverobber), twist_sale
+2026-01-24---coin_of_the_realm, castles, tunnel, temple, bridge_troll, displace, haggler, pendant, specialist, expand, ride, ritual
+2026-01-23---page, cabin_boy, tide_pools, tools, crew, longship, pirate, relic, wharf, hireling, borrow, pious(tide_pools)
+2026-01-22---coin_of_the_realm, herbalist, ratcatcher, scrying_pool, guide, giant, relic, royal_carriage, storyteller, treasure_trove, mission, pilgrimage
+2026-01-21---tracker, night_watchman, devils_workshop, berserker, cartographer, cobbler, crypt, den_of_sin, sacred_grove, stables
+2026-01-20---steward, swindler, wishing_well, baron, bridge, conspirator, mill, courtier, trading_post, nobles
+2026-01-19---harbinger, bureaucrat, farmhands, militia, moneylender, poacher, throne_room, carnival, festival, artisan
+2026-01-18---acting_troupe, magpie, patron, tide_pools, bridge_troll, litter, pilgrim, recruiter, sculptor, fisherman, enclave, reap -x start_replace_estate(spoils), start_replace_estate(spoils), start_replace_estate(spoils), stamp_with_spoils(acting_troupe)
+2026-01-17---hamlet, herbalist, squire, changeling, leprechaun, rope, trader, coven, den_of_sin, witch
+2026-01-16---market_square, storeroom, clerk, moneylender, poacher, rats, mine, rogue, forge, kings_court, shelters
+2026-01-15---pixie, anvil, watchtower, devils_workshop, crypt, idol, sacred_grove, vampire, hoard, grand_market, colonies
+2026-01-14---monastery, night_watchman, armory, devils_workshop, mystic, pillage, rogue, sacred_grove, altar, raider, shelters
+2026-01-13---craftsman, root_cellar, change, ninja, poet, river_shrine, rustic_village, gold_mine, ronin, samurai, growth, amass
+2026-01-12---daimyo, artist, cellar, chapel, vassal, workshop, gardens, river_shrine, bandit, rice_broker, progress
 2026-01-11---stonemason, masquerade, shanty_town, bridge, jack_of_all_trades, contract, courtier, joust, patrol, vampire, desert_guides, sewers, windfall -x twist_so_much_stuff, stamp_treasurified(courtier)
 2026-01-10---haven, sentinel, alley, gondola, innkeeper, investment, crown, groundskeeper, jester, wine_merchant, way_of_the_mule
 2026-01-09---settlers, cargo_ship, patron, research, young_witch(improve), forum, old_witch, sculptor, seer, fairgrounds, sewers, museum

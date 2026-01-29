@@ -21,7 +21,10 @@ def _build_link_video_display(k: Kingdom):
     if len(other_links) == 0:
         other_links["Fabi"] = link
     exp = st.expander("Playthrough Videos", expanded=True, icon=ST_ICONS["video"])
-    exp.write("Check out videos of people explaining and playing this kingdom!")
+    if "occasion" in k.unpacked_notes:
+        exp.write("Check out the video where I played this kingdom!")
+    else:
+        exp.write("Check out videos of people explaining and playing this kingdom!")
     if len(other_links) > 1:
         tabs_names = sorted(other_links)
         control = exp.segmented_control(
@@ -35,7 +38,8 @@ def _build_link_video_display(k: Kingdom):
             return
     else:
         control = list(other_links.keys())[0]
-        exp.write(f"Video by {control}:")
+        if "occasion" not in k.unpacked_notes:
+            exp.write(f"Video by {control}:")
     link = other_links[control]
     _, container, _ = exp.columns([20, 60, 20])
     with container:

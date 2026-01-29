@@ -201,9 +201,8 @@ class Kingdom:
         """
         note_str = ""
         # remove the -m parameter sometimes present in TGG kingdoms
-        csv_string = (
-            csv_string.replace("-m ", ", ").replace("-x ", ", ").replace(". ", ", ")
-        )
+        for char in ["-m ", "-x ", ". ", "; "]:
+            csv_string = csv_string.replace(char, ", ")
         # Remove all parentheses and stuff in them that are nested deeper than one layer
         new_string = remove_deep_nested_parentheses(csv_string)
         if new_string != csv_string:
