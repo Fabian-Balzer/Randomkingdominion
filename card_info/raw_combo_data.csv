@@ -57,7 +57,7 @@ Beggar/Footpad;If you have an easy way of trashing the Coppers, Beggar can work 
 Beggar/Guildhall;Hammering in Beggars and buying Guildhall ASAP is a strong 2-CSO combo, reaching ~6 Provinces by turn 12.;Rush;https://youtu.be/FChgLjGn-iI?si=imiMz1SKjwgBdKq8&t=134;tracer: Showcase video
 Beggar/Panic;Once Panic is active, the Coppers gained from Beggar are returned after playing them, so essentially Beggar becomes a terminal Gold with 6 Buys attached to it.;Weak Synergy;;
 Biding Time/City Quarter;Biding Time being active lets you easily kick off with City Quarters.;Weak Synergy;https://youtu.be/A4J_Uz1Sjtg;Fabi: Showcase video
-Biding Time/Crossroads;Insane start-of-turn draw if you have stashed away a few Victory cards.;Combo;https://youtu.be/A4J_Uz1Sjtg;Fabi: Showcase video
+Biding Time/Crossroads;Insane start-of-turn draw once you have stashed away a few Victory cards. Keeping a pair can give you a lot of reliability.;Combo;https://youtu.be/A4J_Uz1Sjtg;Fabi: Showcase video
 Biding Time/Donate;Once Biding Time is active, unless there is a way to discard them, you won't be able to trash any unplayable cards (like Curses) via Donate anymore as the Donate trashing happens before the Biding Time cards are put back into your hand.;Nombo;;
 Biding Time/Frigate;Frigate can shut down Biding Time pretty well.;Counter;;
 Biding Time/Haunted Woods;Haunted Woods can shut down strategies relying on Biding Time pretty well.;Counter;;
@@ -103,6 +103,7 @@ Capitalism/Landing Party;Great way to topdeck the Landing Parties each turn if t
 Capitalism/Panic;As soon as Panic is active, Capitalism will cause you to return your $-bearing Actions to the Supply when discarding them from play.;Nombo;;
 Capitalism/Patron;With Capitalism bought, playing Patrons as Treasures will turn them into Villages.;Weak Synergy;;
 Capitalism/Souk;With Capitalism active, you can play the Souks as the last Treasures, increasing their value.;Weak Synergy;;
+Captain/Ferry;Reducing the cost of Captain with Ferry enables you to pick them up easily early on, and later on you might enable your Captains to play a key $5 or $6 cost Action.;Synergy;;
 Carpenter/Footpad;With Footpad around, Carpenter becomes pretty strong, and with an empty deck and discard pile, Carpenter can even autopile as long as on other piles are empty.;Synergy;;
 Castles/Keep;With Keep around, Humble Castle will be worth 5 extra VP, sometimes even making it worth opening.;Weak Synergy;;
 Castles/Museum;Castles are worth an extra 2 VP with Museum around.;Weak Synergy;;
@@ -242,7 +243,11 @@ Fated/Patron;[Only if Patron is Fated] You get to reveal Patrons whenever you sh
 Fellowship of Scribes/Wizards;Trashing Coppers with Student and redrawing it with Scribes can get you thin really quickly.;Synergy;;
 Feodum/Salt the Earth;Get Silvers in deck quickly if needed.;Weak Synergy;;
 Feodum/Watchtower;With Watchtower in hand, you can immediately trash any Feoda you gain, which is sometimes nice to give you a boost in payload.;Weak Synergy;;
+Ferry/Poet;Reducing the cost of Poet with Ferry enables them to draw each other.;Synergy;;
+Ferry/Quartermaster;Reducing the cost of Quartermaster with Ferry enables them to gain each other, and access them easily. Games might end in some sort of QM rush.;Rush;;
 Ferry/Rebuild;Usually, the problem with Rebuild can be getting enough of them into your deck quickly - if you manage to put Ferry on Rebuild t1, throwing loads of Rebuilds into the deck and hoping for the best can empty Provinces with ~18 points by t11. Just be aware that strong engines also might be sped up by Ferry being around.;Combo;https://youtu.be/kw0jN_b40rU;Sharur: League match
+Ferry/Seer;Reducing the cost of Seer with Ferry enables them to draw each other.;Synergy;;
+Ferry/Souk;Reducing the cost of Souk with Ferry allows to trash two cards in a 3/4 or 3/4 opening, even yielding an immediate 9-card shuffle.;Combo;;
 Ferry/Stonemason;Reducing the cost of Stonemason to 0 with Ferry allows to overpay for Actions easily.;Synergy;;
 Festival/Way of the Chameleon;With Way of the Chameleon, Festivals become flexible Lost City-variants with +Buy slapped on.;Synergy;;
 Fisherman/Travelling Fair;With an empty discard pile, you may gobble up lots of Fishermen for $2 using the TFair topdecking;Weak Synergy;;

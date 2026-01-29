@@ -319,7 +319,7 @@ def _add_multi_gain_gatekeeper_interaction(df: pd.DataFrame):
     double_gain = ["Experiment", "Port"]
     for cso in double_gain:
         rule = f"If you gain two {cso}s while under the Gatekeeper attack, if you don't already have a copy in Exile, you need to exile the first, but may discard the exiled copy along with the gain of the second."
-        add_interaction("Gatekeeper", cso, rule, df)
+        add_interaction("Gatekeeper", cso, rule, df, add_together_if_present=True)
     # Fortune/Beggar
     rule = f"If you gain a Fortune while having two or more Gladiators in play while under the Gatekeeper attack, if you don't already have a copy of Gold in Exile, you need to exile the first, but may discard the exiled copy along with any later Gold gains."
     add_interaction("Gatekeeper", "Fortune", rule, df)
