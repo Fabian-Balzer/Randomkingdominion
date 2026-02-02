@@ -1,4 +1,7 @@
 
+- 1.4.2 (2026-02-02):
+  - Added VODs of my matches against other players to the kingdom oracle page.
+  - Added more interactions, combos and a few Dailies.
 - 1.4.2 (2025-11-05):
   - Modified streamlit caching functions such that I won't have to manually clear cache (i.e., reboot the whole site) when updating data.
   - Added more interactions, combos and a few Dailies.
