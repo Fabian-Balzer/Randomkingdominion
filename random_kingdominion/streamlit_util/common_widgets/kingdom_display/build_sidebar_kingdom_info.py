@@ -49,6 +49,17 @@ def _build_kingdom_miniplot_display(k: Kingdom):
     _display_more_info_tt(text)
 
 
+def _build_match_info_display(k: Kingdom):
+    if (game_id := k.unpacked_notes.get("dg_game_id", "")) == "":
+        return
+    with st.expander("dominion.games ID", expanded=False, icon="🎮"):
+        game_id = f"!game {game_id}"
+        st.code(game_id, wrap_lines=True)
+        text = "The game ID from dominion.games. Send Dombot the !game command with this ID for more information."
+        _display_more_info_tt(text)
+    st.container(height=2, border=False)
+
+
 def _build_kingdom_interactions_display(k: Kingdom):
     inter = filter_combo_or_inter_df_for_csos(
         get_cached_inter_df(), k.full_kingdom_df.index, True
@@ -87,6 +98,7 @@ def st_build_kingdom_sidebar_display(
         with st.expander("Descriptive string to copy", expanded=False, icon="📋"):
             _build_kingdom_csv_display(k, loc=loc)
         st.container(height=2, border=False)
+        _build_match_info_display(k)
         with st.expander("Kingdom plot", expanded=loc == "oracle", icon="🧭"):
             _build_kingdom_miniplot_display(k)
         st.container(height=2, border=False)

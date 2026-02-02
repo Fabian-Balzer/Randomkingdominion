@@ -84,6 +84,7 @@ band_of_misfits;flagship;If you play Flagship and then Band of Misfits, which yo
 band_of_misfits;groom;If you play Groom using Band of Misfits, you can gain a Groom with it (despite Band of Misfits saying 'leaving it there', as this just refers to the card moving into play).
 band_of_misfits;guide;If you play a Guide using Band of Misfits, you don't put anything onto your Tavern mat.
 band_of_misfits;hermit;If you play Hermit using Band of Misfits, you can gain a Hermit with it (despite Band of Misfits saying 'leaving it there', as this just refers to the card moving into play).
+band_of_misfits;inheritance;Even after setting aside a card with Inheritance, you may not play an Estate using Band of Misfits as Estates become Command cards.
 band_of_misfits;inventor;If you play Inventor using Band of Misfits, you can gain a Inventor with it (despite Band of Misfits saying 'leaving it there', as this just refers to the card moving into play).
 band_of_misfits;ironworks;If you play Ironworks using Band of Misfits, you can gain a Ironworks with it (despite Band of Misfits saying 'leaving it there', as this just refers to the card moving into play).
 band_of_misfits;knights;If you play Sir Martin using Band of Misfits, you do not trash it even if you trash an opponent's Knight with it.
@@ -246,6 +247,7 @@ captain;flagship;If you play Flagship and then Captain, which you use to play an
 captain;groom;If you play Groom using Captain, you can gain a Groom with it (despite Captain saying 'leaving it there', as this just refers to the card moving into play).
 captain;guide;If you play a Guide using Captain, you don't put anything onto your Tavern mat.
 captain;hermit;If you play Hermit using Captain, you can gain a Hermit with it (despite Captain saying 'leaving it there', as this just refers to the card moving into play).
+captain;inheritance;Even after setting aside a card with Inheritance, you may not play an Estate using Captain as Estates become Command cards.
 captain;inventor;If you play Inventor using Captain, you can gain a Inventor with it (despite Captain saying 'leaving it there', as this just refers to the card moving into play).
 captain;ironworks;If you play Ironworks using Captain, you can gain a Ironworks with it (despite Captain saying 'leaving it there', as this just refers to the card moving into play).
 captain;knights;If you play Sir Martin using Captain, you do not trash it even if you trash an opponent's Knight with it.
@@ -255,7 +257,7 @@ captain;ratcatcher;If you play a Ratcatcher using Captain, you don't put anythin
 captain;raze;If you play Raze using Captain and try to trash itself, it stays where it was, and you do not get the effect you would have gotten from trashing it.
 captain;remake;If you play Remake using Captain, trashing an appropriate card from your hand, you can gain another Remake with it (despite Captain saying 'leaving it there', as this just refers to the card moving into play).
 captain;remodel;If you play Remodel using Captain, trashing an appropriate card from your hand, you can gain another Remodel with it (despite Captain saying 'leaving it there', as this just refers to the card moving into play).
-captain;throne_room;If you play a Throne Room with a Captain, which plays a Duration card (such as another Captain), you will play the throned Captain twice this turn, but only once on the next turn. If the Captain-throned Duration card is one that might set aside cards (such as Gear or Royal Galley or Haven, the set-aside cards of the second play will become stuck in set-aside land (but still count towards your deck for scoring).
+captain;throne_room;If you play a Throne Room with a Captain, which plays a Duration card (such as another Captain), you will play the throned Captain twice this turn, but only once on the next turn. If the Captain-throned Duration card is one that might set aside cards (such as Gear or Royal Galley or Haven), the set-aside cards of the second play will become stuck in set-aside land (but still count towards your deck for scoring).
 captain;tormentor;If you play a Command card such as Captain as Tormentor, the result will always be the Hex option, as the card in play is the Captain itself, not the Tormentor.
 captain;transmogrify;If you play a Transmogrify using Captain, you don't put anything onto your Tavern mat.
 captain;treasure_map;If you play Treasure Map using Captain and try to trash itself, it stays where it was, and you do not get the effect you would have gotten from trashing it.
@@ -566,6 +568,7 @@ daimyo;disciple;If you play Daimyo and then Disciple, which you use to play anot
 daimyo;enlightenment;If you play Daimyo as the last card during your Action phase while Enlightenment is active, the first Treasure you play during your Buy phase will be replayed for its Treasure effect.
 daimyo;first_mate;If you play Daimyo and then First Mate, which you use to play another Daimyo from your hand, since the next non-Command card you replay is the First Mate, it is replayed one more time afterwards by the second Daimyo.
 daimyo;gondola;If you play Daimyo and then a card that gains Gondola, which you use to play a Daimyo from your hand, since the next non-Command card you replay is said gainer, it is replayed one more time afterwards by the second Daimyo.
+daimyo;inheritance;If you Inherit a non-Command card and have a Daimyo prior to playing an Estate, the set-aside card (not the Estate, which is a Command card) will be played again.
 daimyo;kings_court;If you play Daimyo and then King's Court, which you use to play another Daimyo from your hand, since the next non-Command card you replay is the King's Court, it is replayed one more time afterwards by the second Daimyo.
 daimyo;necromancer;If you play Daimyo and then Necromancer and use that to play an Action card from the trash, the Necromancer is replayed as it not a Command card.
 daimyo;outpost;If you play an Outpost using Daimyo, you will still only take one extra turn, but the Daimyo will stay out with it anyways.
@@ -875,6 +878,7 @@ fisherman;taskmaster;For Taskmaster, the cost of Fisherman when you gain it is i
 fisherman;wayfarer;After gaining a Fisherman to your Discard pile, even if it only cost $2, Wayfarer will cost $5 afterwards.
 fishing_village;way_of_the_chameleon;If you play Fishing Village using Way of the Chameleon, remember that Way of the Chameleon only affects stuff happening *this turn*, so on your next turn, you will get the normal bonus from Fishing Village.
 flagship;gondola;If you play Flagship and then a card that gains Gondola, which you use to play a Flagship from your hand, since the next non-Command card you replay is said gainer, it is replayed one more time afterwards by the second Flagship.
+flagship;inheritance;If you Inherit a non-Command card and have a Flagship prior to playing an Estate, the set-aside card (not the Estate, which is a Command card) will be played again.
 flagship;kings_court;If you play Flagship and then King's Court, which you use to play another Flagship from your hand, since the next non-Command card you replay is the King's Court, it is replayed one more time afterwards by the second Flagship.
 flagship;necromancer;If you play Flagship and then Necromancer and use that to play an Action card from the trash, the Necromancer is replayed as it not a Command card.
 flagship;overlord;If you play Flagship and then Overlord, which you use to play an Action card from the Supply, the Action card is replayed as Overlord is a Command card.
@@ -1172,6 +1176,8 @@ improve;walled_village;At the start of Clean-up, you may choose to resolve Impro
 infirmary;innovation;When you overpay for Infirmary, you choose between the effect of the overpay and Innovation triggering. If you choose Innovation, Infirmary's overpay will be unable to play itself any number of times (because Infirmary already moved). Innovation will also be unable to play Infirmary if you choose the overpay first, for the same reason.
 infirmary;rush;When you overpay for Infirmary, you choose between the effect of the overpay and Rush triggering. If you choose Rush, Infirmary's overpay will be unable to play itself any number of times (because Infirmary already moved). Rush will also be unable to play Infirmary if you choose the overpay first, for the same reason.
 inheritance;lost_arts;Even after buying Inheritance, you may not put the + Action token on the Estate pile using Lost Arts as it's not an Action supply pile.
+inheritance;necromancer;Even after setting aside a card with Inheritance, you may not play an Estate using Necromancer as Estates become Command cards.
+inheritance;overlord;Even after setting aside a card with Inheritance, you may not play an Estate using Overlord as Estates become Command cards.
 inheritance;pathfinding;Even after buying Inheritance, you may not put the + Card token on the Estate pile using Pathfinding as it's not an Action supply pile.
 inheritance;peasant;Even after buying Inheritance, you may not put any token on the Estate pile using Teacher as it's not natively an Action supply pile.
 inheritance;plan;Even after buying Inheritance, you may not put the trashing token on the Estate pile using Plan as it's not an Action supply pile.

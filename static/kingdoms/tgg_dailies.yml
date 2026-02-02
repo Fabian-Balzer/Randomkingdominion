@@ -1,4 +1,161 @@
 - cards:
+  - abundance
+  - cutthroat
+  - den_of_sin
+  - flagship
+  - landing_party
+  - merchant_ship
+  - mountain_shrine
+  - rice_broker
+  - search
+  - siren
+  expansions:
+  - Nocturne
+  - Plunder
+  - Rising Sun
+  - Seaside, 2E
+  idx: 151447338442568238557148947400716000022
+  landscapes:
+  - growth
+  - inherited
+  - maelstrom
+  name: '2026-02-01'
+  traits:
+  - - inherited
+    - rice_broker
+- cards:
+  - blessed_village
+  - distant_lands
+  - familiar
+  - gondola
+  - hireling
+  - legionary
+  - lurker
+  - patrician/emporium
+  - swap
+  - town
+  expansions:
+  - Adventures
+  - Alchemy
+  - Allies
+  - Empires
+  - Intrigue, 2E
+  - Nocturne
+  - Plunder
+  - Rising Sun
+  idx: 150880985110418568259739011837413827411
+  landscapes:
+  - practice
+  - quest
+  name: '2026-01-31'
+- cards:
+  - crystal_ball
+  - expand
+  - forge
+  - haunted_woods
+  - ironmonger
+  - port
+  - ratcatcher
+  - relic
+  - storeroom
+  - tiara
+  expansions:
+  - Adventures
+  - Dark Ages
+  - Prosperity, 2E
+  idx: 330271443941521006316666450318847130271
+  landscapes:
+  - inheritance
+  name: '2026-01-30'
+- cards:
+  - blockade
+  - capital_city
+  - courier
+  - fishing_village
+  - galleria
+  - guildmaster
+  - island
+  - lookout
+  - sailor
+  - sentinel
+  expansions:
+  - Allies
+  - Seaside, 2E
+  idx: 219700608382397373086693486128431643354
+  landscapes:
+  - trappers_lodge
+  name: '2026-01-29'
+- cards:
+  - abundance
+  - first_mate
+  - flagship
+  - laboratory
+  - poacher
+  - search
+  - shaman
+  - swamp_shacks
+  - throne_room
+  - witch
+  expansions:
+  - Base, 2E
+  - Plunder
+  idx: 295445694428484267523432716544901176130
+  landscapes:
+  - bury
+  - patient
+  name: '2026-02-02'
+  notes:
+    crucial_cards:
+    - Shaman
+    - Flagship
+    - Witch
+    - Search
+    ending:
+    - Curse
+    - Duchy
+    - Flagship
+    link: https://youtu.be/Fx0eW2wBh1E
+    name: Shaman Tumble
+    openings:
+    - grade: B
+      t1: Buy Shaman
+      t1_csos:
+      - Shaman
+      t2: Bury Shaman, buy Shaman, or Search
+      t2_csos:
+      - bury
+      - shaman
+      - shaman
+      type: 4/3|3/4
+    - grade: B
+      t1: Buy Witch
+      t1_csos:
+      - Witch
+      t2: Buy Shaman, or Bury Witch
+      t2_csos:
+      - shaman
+      type: 5/2
+    - grade: B
+      t1: Buy Shaman
+      t1_csos:
+      - Shaman
+      t2: Bury Shaman, buy Shaman, or Flagship
+      t2_csos:
+      - bury
+      - shaman
+      - shaman
+      type: 2/5
+    points:
+    - 34
+    - 23
+    subtitle: Slogging Through Against An Avalanche Of Flagships
+    turns:
+    - 21
+    - 20
+  traits:
+  - - patient
+    - flagship
+- cards:
   - advisor
   - apprentice
   - baker
@@ -15,38 +172,67 @@
   idx: 20506355778216327976751099540456002931
   name: '2026-01-28'
   notes:
-    crucial_cards: [Infirmary, Merchant Guild, University, Herald]
-    ending: [Curse, Herald, Merchant Guild]
+    crucial_cards:
+    - Infirmary
+    - Merchant Guild
+    - University
+    - Herald
+    ending:
+    - Curse
+    - Herald
+    - Merchant Guild
     link: https://youtu.be/E72NkwrmdeU
-    name: 'Infirmary Guild'
+    name: Infirmary Guild
     openings:
-    - grade: 'A-'
-      t1: 'Buy Infirmary, overpaying $2, hoping to trash Estate'
-      t1_csos: [infirmary, estate, estate]
-      t2: 'Buy Potion if you can, else Silver'
-      t2_csos: [Potion]
+    - grade: A-
+      t1: Buy Infirmary, overpaying $2, hoping to trash Estate
+      t1_csos:
+      - infirmary
+      - estate
+      - estate
+      t2: Buy Potion if you can, else Silver
+      t2_csos:
+      - Potion
       type: 4/3
-    - grade: 'D'
-      t1: 'Buy Silver, or Infirmary overpaying $1'
-      t1_csos: [silver]
-      t2: 'Buy Infirmary, overpaying $2'
-      t2_csos: [infirmary, estate, estate]
+    - grade: D
+      t1: Buy Silver, or Infirmary overpaying $1
+      t1_csos:
+      - silver
+      t2: Buy Infirmary, overpaying $2
+      t2_csos:
+      - infirmary
+      - estate
+      - estate
       type: 3/4
-    - grade: 'A'
-      t1: 'Buy Infirmary, overpaying $3, hoping to trash Estates'
-      t1_csos: [Infirmary, Estate, Estate, Copper]
-      t2: 'Buy Potion if you can, else Silver'
-      t2_csos: [Potion]
+    - grade: A
+      t1: Buy Infirmary, overpaying $3, hoping to trash Estates
+      t1_csos:
+      - Infirmary
+      - Estate
+      - Estate
+      - Copper
+      t2: Buy Potion if you can, else Silver
+      t2_csos:
+      - Potion
       type: 5/2
-    - grade: 'D'
-      t1: 'Skip turn'
-      t1_csos: [tragic_hero]
-      t2: 'Buy Infirmary, overpaying $3, hoping to trash Estates'
-      t2_csos: [Infirmary, Estate, Estate, Copper]
+    - grade: D
+      t1: Skip turn
+      t1_csos:
+      - tragic_hero
+      t2: Buy Infirmary, overpaying $3, hoping to trash Estates
+      t2_csos:
+      - Infirmary
+      - Estate
+      - Estate
+      - Copper
       type: 2/5
-    points: [12, -2]
-    subtitle: 'Turns Out Skipping Potion Is Far From Optimal Here.'
-    turns: [12, 11]
+    points:
+    - 12
+    - -2
+    subtitle: Turns Out Skipping Potion Is Far From Optimal Here.
+    turns:
+    - 12
+    - 11
 - cards:
   - forager
   - fortress

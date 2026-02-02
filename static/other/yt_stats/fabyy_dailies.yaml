@@ -16058,3 +16058,178 @@
   title: Daily Dominion 2026-01-12 - Rising Gardens
   upload_date: '20260112'
   view_count: 28
+- chapters:
+  - end_time: 25.0
+    start_time: 0.0
+    title: Introduction
+  - end_time: 135.0
+    start_time: 25.0
+    title: Kingdom overview and strategy discussion
+  - end_time: 170.0
+    start_time: 135.0
+    title: Kingdom Plot
+  - end_time: 255.0
+    start_time: 170.0
+    title: Discussing openings
+  - end_time: 873.0
+    start_time: 255.0
+    title: Game Starts
+  - end_time: 992
+    start_time: 873.0
+    title: Game Ends and overview
+  comment_count: 6
+  description: 'It''s CornGuilds/Alchemy Wednesday, and oh me oh my, this kingdom
+    has some nice stuff going on. Not only do you get to achieve deck control rather
+    quickly thanks to Infirmary, but also there''s a really neat late game interaction
+    that I didn''t plan with.
+
+
+    AI completely misplays this one by deluding itself into skipping Potion (maybe
+    my 1 Copper play on turn 1 confused it enough), so it really is no match for our
+    deck, as we do also get to Curse it thoroughly.
+
+
+    You may join the discord here:
+
+    https://discord.gg/qZxwUpn9
+
+
+    Dominion is a deck building card game created by Donald X. Vaccarino.
+
+    Currently, there exist two online implementations: The browser and subscription-based
+    Dominion Online (https://dominion.games/ ), and the multi-platform-, single-purchase-based
+    client by Temple Gates Games (TGG), available e.g. on Steam (https://store.steampowered.com/app/1131620/Dominion/
+    ) and mobile appliances.
+
+
+    Here, we play on the TGG client, which offers free play of the Base game as well
+    as a free daily entry into a randomly generated (with some restrictions) kingdom,
+    where you get to compete against their AI.
+
+
+    Dombot Kingdom String:
+
+    Advisor, Apprentice, Baker, Familiar, Golem, Herald, Herbalist, Infirmary, Merchant
+    Guild, No Colonies, No Shelters, University
+
+    Expansions:
+
+    Alchemy, Cornucopia & Guilds, 2E
+
+
+    Ps.: Check out https://randomkingdominion.streamlit.app/oracle to visualize your
+    kingdoms!
+
+
+    Timestamps:
+
+    0:00 - Introduction
+
+    0:25 - Kingdom overview and strategy discussion
+
+    2:15 - Kingdom Plot
+
+    2:50 - Discussing openings
+
+    4:15 - Game Starts
+
+    14:33 - Game Ends and overview'
+  duration: 992
+  id: E72NkwrmdeU
+  like_count: 5
+  retrieval_time: '2026-02-02T13:57:07.749017'
+  thumbnail: https://i.ytimg.com/vi/E72NkwrmdeU/maxresdefault.jpg
+  title: Daily Dominion 2026-01-28 - Infirmary Guild
+  upload_date: '20260128'
+  view_count: 34
+- chapters:
+  - end_time: 70.0
+    start_time: 0.0
+    title: Introduction
+  - end_time: 201.0
+    start_time: 70.0
+    title: Kingdom overview and strategy discussion
+  - end_time: 234.0
+    start_time: 201.0
+    title: Kingdom Plot
+  - end_time: 287.0
+    start_time: 234.0
+    title: Discussing openings
+  - end_time: 1247.0
+    start_time: 287.0
+    title: Game Starts
+  - end_time: 1362
+    start_time: 1247.0
+    title: Game Ends and overview
+  comment_count: null
+  description: 'Shaman making things awkward as usual, but we do manage to prevail
+    against a Flagship avalanche by AI.
+
+
+    Should have picked up more of those early; turn 3 should probably have only trashed
+    one card and been a Flagship buy. Still always going to be awkward to keep drawing
+    with that stuff, but with Bury at our disposal we in principle should''ve been
+    fine.
+
+
+    Also I should''ve gone for more Laboratories and Throne Rooms (over Swamp Shacks,
+    which were quite underwhelming)
+
+
+    Really not sure about this one in general, we never properly got clean. I also
+    think the last Flagship buy (triggering Searches) was a mistake in hindsight.
+
+
+    You may join the discord here:
+
+    https://discord.gg/qZxwUpn9
+
+
+    Dominion is a deck building card game created by Donald X. Vaccarino.
+
+    Currently, there exist two online implementations: The browser and subscription-based
+    Dominion Online (https://dominion.games/ ), and the multi-platform-, single-purchase-based
+    client by Temple Gates Games (TGG), available e.g. on Steam (https://store.steampowered.com/app/1131620/Dominion/
+    ) and mobile appliances.
+
+
+    Here, we play on the TGG client, which offers free play of the Base game as well
+    as a free daily entry into a randomly generated (with some restrictions) kingdom,
+    where you get to compete against their AI.
+
+
+    Dombot Kingdom String:
+
+    Abundance, Bury, First Mate, Flagship, Laboratory, No Colonies, No Shelters, Patient
+    (Flagship), Poacher, Search, Shaman, Swamp Shacks, Throne Room, Witch
+
+    Expansions:
+
+    Base, 2E, Plunder
+
+
+    Ps.: Check out https://randomkingdominion.streamlit.app/oracle to visualize your
+    kingdoms!
+
+
+    Timestamps:
+
+    0:00 - Introduction
+
+    1:10 - Kingdom overview and strategy discussion
+
+    3:21 - Kingdom Plot
+
+    3:54 - Discussing openings
+
+    4:47 - Game Starts
+
+    20:47 - Game Ends and overview'
+  duration: 1362
+  id: Fx0eW2wBh1E
+  like_count: 1
+  retrieval_time: '2026-02-02T18:56:06.071949'
+  thumbnail: https://i.ytimg.com/vi_webp/Fx0eW2wBh1E/maxresdefault.webp
+  title: Daily Dominion 2026-02-02 - Shaman Tumble
+  upload_date: '20260202'
+  view_count: 1

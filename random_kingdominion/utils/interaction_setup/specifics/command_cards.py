@@ -91,8 +91,15 @@ def _add_all_workshop_interactions(df: pd.DataFrame):
     )
 
 
+def _add_all_inheritance_interactions(df: pd.DataFrame):
+    inheritance_inter = f"Daimyo|Flagship/Inheritance---If you Inherit a non-Command card and have a {{card_a}} prior to playing an Estate, the set-aside card (not the Estate, which is a Command card) will be played again."
+    add_multiple_interactions_from_single(inheritance_inter, df)
+    play_estate = "Inheritance/Captain|Overlord|Band of Misfits|Necromancer---Even after setting aside a card with Inheritance, you may not play an Estate using {card_b} as Estates become Command cards."
+    add_multiple_interactions_from_single(play_estate, df)
+
+
 def _add_captain_throne_interaction(df):
-    inter = "If you play a Throne Room with a Captain, which plays a Duration card (such as another Captain), you will play the throned Captain twice this turn, but only once on the next turn. If the Captain-throned Duration card is one that might set aside cards (such as Gear or Royal Galley or Haven, the set-aside cards of the second play will become stuck in set-aside land (but still count towards your deck for scoring)."
+    inter = "If you play a Throne Room with a Captain, which plays a Duration card (such as another Captain), you will play the throned Captain twice this turn, but only once on the next turn. If the Captain-throned Duration card is one that might set aside cards (such as Gear or Royal Galley or Haven), the set-aside cards of the second play will become stuck in set-aside land (but still count towards your deck for scoring)."
     add_interaction("captain", "throne_room", inter, df)
 
 
@@ -108,6 +115,7 @@ def add_all_command_interactions(df: pd.DataFrame, verbose=False) -> None:
     _add_all_workshop_interactions(df)
     _add_all_prince_interaction(df)
     _add_captain_throne_interaction(df)
+    _add_all_inheritance_interactions(df)
 
     if verbose:
         print(f"Added {len(df) - num_before} command interactions.")

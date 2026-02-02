@@ -25,6 +25,7 @@
   - cathedral
   name: WC 2026 vs. saltroza g6
   notes:
+    dg_game_id: 173817825 
     crucial_cards:
     - biding_time
     - crossroads
@@ -35,7 +36,7 @@
     - astrolabe
     - search
     game_num: 6
-    link: ''
+    link: https://youtu.be/YRnt0_xb1Sk
     name: Crossroads Time
     occasion: WC 2026
     opponent: saltroza
@@ -71,6 +72,7 @@
   - silos
   name: WC 2026 vs. saltroza g5
   notes:
+    dg_game_id: 173815821 
     crucial_cards:
     - Cathedral
     - First Mate
@@ -80,7 +82,7 @@
     - messenger
     - province
     game_num: 5
-    link: ''
+    link: https://youtu.be/KBn__x_YY6E
     name: First Messenger
     occasion: WC 2026
     opponent: saltroza
@@ -117,6 +119,7 @@
   - way_of_the_squirrel
   name: WC 2026 vs. saltroza g4
   notes:
+    dg_game_id: 173814628 
     crucial_cards:
     - hostelry
     - way of the squirrel
@@ -127,7 +130,7 @@
     - sleigh
     - hostelry
     game_num: 4
-    link: ''
+    link: https://youtu.be/7xje-giaub8
     name: Squirrelicious
     occasion: WC 2026
     opponent: saltroza
@@ -168,6 +171,7 @@
   - sewers
   name: WC 2026 vs. saltroza g3
   notes:
+    dg_game_id: 173813592 
     crucial_cards:
     - Caravan
     - Mine
@@ -178,7 +182,7 @@
     - tea_house
     - ruins
     game_num: 3
-    link: ''
+    link: https://youtu.be/vQXblTIx7WM
     name: Panic Dynamic
     occasion: WC 2026
     opponent: saltroza
@@ -217,6 +221,7 @@
   - way_of_the_squirrel
   name: WC 2026 vs. saltroza g2
   notes:
+    dg_game_id: 173812928 
     crucial_cards:
     - Captain
     - Throne Room
@@ -227,7 +232,7 @@
     - captain
     - snake_witch
     game_num: 2
-    link: ''
+    link: https://youtu.be/Gm3WZlqIMxE
     name: Squirrel Captain
     occasion: WC 2026
     opponent: saltroza
@@ -264,6 +269,7 @@
   - sewers
   name: WC 2026 vs. saltroza g1
   notes:
+    dg_game_id: 173811675 
     crucial_cards:
     - rats
     - sewers
@@ -272,7 +278,7 @@
     ending:
     - colony
     game_num: 1
-    link: ''
+    link: https://youtu.be/iQ7aBLL5kb8
     name: Province Dance
     occasion: WC 2026
     opponent: saltroza
@@ -313,6 +319,7 @@
   - scouting_party
   name: WC 2026 vs. yurikamome g6
   notes:
+    dg_game_id: 173708530 
     crucial_cards:
     - Chapel
     - Kitsune
@@ -359,6 +366,7 @@
   - way_of_the_mule
   name: WC 2026 vs. yurikamome g5
   notes:
+    dg_game_id: 173707902 
     crucial_cards:
     - Wheelwright
     - Border Village
@@ -406,6 +414,7 @@
   - windfall
   name: WC 2026 vs. yurikamome g4
   notes:
+    dg_game_id: 173707295 
     crucial_cards:
     - Catapult
     - Litter
@@ -455,6 +464,7 @@
   - wolf_den
   name: WC 2026 vs. yurikamome g3
   notes:
+    dg_game_id: 173706991 
     crucial_cards:
     - Souk
     - Pawn
@@ -504,6 +514,7 @@
   - transport
   name: WC 2026 vs. yurikamome g2
   notes:
+    dg_game_id: 173706194 
     crucial_cards:
     - Journey
     - Daimyo
@@ -554,6 +565,7 @@
   - piazza
   name: WC 2026 vs. yurikamome g1
   notes:
+    dg_game_id: 173705852 
     crucial_cards:
     - Captain
     - Infirmary

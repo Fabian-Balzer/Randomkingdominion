@@ -1,3 +1,8 @@
+2026-02-02---search, shaman, abundance, flagship, poacher, swamp_shacks, throne_room, first_mate, laboratory, witch, bury, patient(flagship)
+2026-02-01---mountain_shrine, search, siren, abundance, flagship, landing_party, cutthroat, den_of_sin, merchant_ship, rice_broker, maelstrom, inherited(rice_broker), growth
+2026-01-31---lurker, patrician, familiar, blessed_village, gondola, town, distant_lands, legionary, swap, hireling, quest, practice
+2026-01-30---ratcatcher, storeroom, ironmonger, port, tiara, crystal_ball, haunted_woods, relic, expand, forge, inheritance
+2026-01-29---fishing_village, lookout, sentinel, blockade, courier, island, sailor, capital_city, galleria, guildmaster, trappers_lodge
 2026-01-28---herbalist, university, infirmary, familiar, advisor, herald, golem, apprentice, baker, merchant_guild
 2026-01-27---squire, vagrant, forager, hermit, market_square, storeroom, fortress, graverobber, junk_dealer, mystic, shelters
 2026-01-26---moat, camel_train, goatherd, stockpile, workshop, poacher, kiln, market, mastermind, paddock, way_of_the_ox, ride
