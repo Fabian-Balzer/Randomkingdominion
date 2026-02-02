@@ -126,7 +126,7 @@ class PoolContainer:
         for qual, diff in unfulfilled_qualities:
             # If the difference is big, try to sometimes also pick only cards with higher
             # values in that category
-            minimum_requirement = random.randint(1, min(np.floor(diff), 3))
+            minimum_requirement = random.randint(1, int(min(np.floor(diff), 3)))
             mask = pool[qual + "_quality"] >= minimum_requirement
             if np.sum(mask) > 0:
                 return pool[mask]
