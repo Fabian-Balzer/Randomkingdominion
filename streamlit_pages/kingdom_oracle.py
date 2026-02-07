@@ -14,7 +14,7 @@ rk.build_page_header(
         "and take a more detailed look on its Card-Shaped Objects (CSOs). "
         "The resulting plot also shows any extra components you'd need to set up the kingdom in its physical form."
     ),
-    "Learn more about the CSO and kingdom qualities on the about page.",
+    "Learn more about the CSO and kingdom qualities on the 'About' page.",
 )
 
 rk.st_build_existing_kingdom_select()

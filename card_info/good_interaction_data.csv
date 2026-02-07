@@ -7,13 +7,13 @@ acting_troupe;overlord;If you play Acting Troupe using Overlord and try to trash
 acting_troupe;prince;If you have set aside Acting Troupe with Prince and try to trash itself when you play it, it stays where it was, and you *do* get the effect.
 alchemist;journey;If you play Alchemists and buy Journey, if you have a Potion in play, you may topdeck the Alchemists for the Journey turn, and also on the Journey turn.
 alchemist;reckless;[Only if Reckless is on Alchemist] If Alchemist is Reckless, you may topdeck it during Clean-up if you have a Potion in play, circumventing Reckless' return-to-pile prompt.
-alchemist;stonemason;You may overpay with Potions when buying Stonemason to gain two Alchemists.
+alchemist;stonemason;You may overpay with a Potion when buying Stonemason to gain two Alchemists.
 alchemist;walled_village;At the start of Clean-up, you may choose to resolve Alchemist's topdecking first (if you have a Potion in play) and only afterwards assess the amount of Action cards in play for Walled Village's topdecking.
 amphora;mandarin;If you gain a Mandarin and have played Amphora before that, you put it on top of your deck, but the duration effect still persists.
 amphora;panic;When you discard Amphora from play while Panic is active, you return it to the top of the Loot pile. When discarding multiple, you get to choose the order.
 amulet;townsfolk;If you play an Amulet using Elder, you get to pick two of the options this turn, but only one option on the next turn.
 amulet;way_of_the_chameleon;If you play Amulet using Way of the Chameleon, remember that Way of the Chameleon only affects stuff happening *this turn*, so on your next turn, you will get the normal bonus from Amulet.
-apothecary;stonemason;You may overpay with Potions when buying Stonemason to gain two Apothecarys.
+apothecary;stonemason;You may overpay with a Potion when buying Stonemason to gain two Apothecarys.
 approaching_army;harbor_village;Even if Approaching Army is active, Harbor Village does not give you +$1 when you play an Attack (that doesn't give +$) after it, since it's Approaching Army providing the +$1, not the Attack card itself.
 architects_guild;destrier;Destrier's cost will be evaluated after each gain, so if you gain a Destrier costing $6, you may gain a card cheaper than $5 afterwards using Architect's Guild. On the other hand, you may gain an initially $6-costing Destrier off of a Gold gain using Architect's Guild.
 architects_guild;fisherman;Fisherman's cost will be evaluated after each gain, so if you e.g. gain a Fisherman for $2, you may use two Favors to gain a card costing less than $5 (as long as the Fisherman is in the Discard Pile). On the other hand, you normally cannot gain a Fisherman for $2 off of a $5 cost gain using Architect's Guild.
@@ -357,6 +357,7 @@ chancellor;trail;Playing Chancellor with a Trail in your deck does not count as 
 chancellor;tunnel;Playing Chancellor with a Tunnel in your deck does not count as discarding Tunnel, so you do not get to react.
 chancellor;village_green;Playing Chancellor with a Village Green in your deck does not count as discarding Village Green, so you do not get to react.
 chancellor;weaver;Playing Chancellor with a Weaver in your deck does not count as discarding Weaver, so you do not get to react.
+change;destrier;If you gain a Destrier via Change, its cost (for the Debt) is evaluated after the gain. If you e.g. Change an Estate into a $6-costing Destrier, you will only get 3 Debt, and if you Change it into a $3-costing Destrier, you will get no Debt at all.
 change;fisherman;It is occasionally possible for cost reduction to make the gained card cost less $ than the trashed card after gaining. In this case the D incurred is the absolute value of the new $ difference. For example, if you trash a $2 Fisherman and gain a Silver, the Fisherman now costs $5, and you take 2D.
 change;overlord;If you play Change using Overlord, trashing an appropriate card from your hand, you can gain another Change with it (despite Overlord saying 'leaving it there', as this just refers to the card moving into play).
 change;possession;When you play Change while Possessing an opponent, trash one of their cards, and gain a card costing more $ than it, since they never gain it, they would never gain debt from that play. Therefore, you also don't gain any debt from it.
@@ -813,7 +814,7 @@ falconer;way_of_the_sheep;When you react and play Falconer during another player
 falconer;way_of_the_squirrel;When you react and play Falconer during another player's turn, you can decide to play it as Way of the Squirrel.
 falconer;way_of_the_turtle;When you react and play Falconer during another player's turn, you can decide to play it as Way of the Turtle.
 falconer;way_of_the_worm;When you react and play Falconer during another player's turn, you can decide to play it as Way of the Worm.
-familiar;stonemason;You may overpay with Potions when buying Stonemason to gain two Familiars.
+familiar;stonemason;You may overpay with a Potion when buying Stonemason to gain two Familiars.
 family_of_inventors;wayfarer;Wayfarer will assume the cost of the card you gained last, even if a Favor token has been put on its pile. If you reduce the cost of the last-gained card with a Favor at the beginning of your Buy phase, Wayfarer's cost will change along with that.
 famine;patron;If you reveal a Patron among the three cards, you will get +1 Coffers as long as it's during an Action phase.
 farmers_market;ferryman;[Only in set-aside case] When you set aside a Farmers' Market with Ferryman, it still works as the Gathering pile normally does, by collecting and dispersing VP as stated on the card.
@@ -1018,7 +1019,7 @@ gladiator/fortune;plan;You may put the trashing token on the Gladiator/Fortune p
 gladiator/fortune;populate;Buying Populate will gain the top card of the Gladiator/Fortune pile, even if it's not an Action card.
 gladiator/fortune;seaway;You may put the + Buy token on the Gladiator/Fortune pile using Seaway. This will affect all of its cards.
 gladiator/fortune;training;You may put the + $1 token on the Gladiator/Fortune pile using Training. This will affect all of its cards.
-golem;stonemason;You may overpay with Potions when buying Stonemason to gain two Golems.
+golem;stonemason;You may overpay with a Potion when buying Stonemason to gain two Golems.
 gondola;guildmaster;When you gain a Gondola and play a Guildmaster from your hand, you will receive a Favor due to the Gondola gain.
 gondola;haggler;When you buy and gain a Gondola and play a Haggler from your hand, you will gain a card costing less than the Gondola.
 gondola;haunted_woods;If you buy a Gondola while under the Haunted Woods attack, you can choose whether to first play an Action card from your hand and then topdeck, or whether to first topdeck your hand.
@@ -1157,6 +1158,7 @@ haunted_woods;souk;If you buy a Souk while under the Haunted Woods attack, you c
 haunted_woods;villa;If you buy a Villa while under the Haunted Woods attack, you can put it into your hand after topdecking it (and your hand).
 haunted_woods;way_of_the_chameleon;If you play Haunted Woods using Way of the Chameleon, remember that Way of the Chameleon only affects stuff happening *this turn*, so on your next turn, you will get the normal bonus from Haunted Woods.
 herbalist;reckless;[Only if Reckless is on a Treasure] If Reckless is on a Treasure and you played a Herbalist on a turn you play said Treasure, you may topdeck it before returning it to its pile, in which case you cannot return it to its pile.
+hermit;journey;If you buy Journey (and gain no cards during your Buy phase), any Hermits you played are discarded and exchanged for Madman.
 hermit;launch;When you return to your Action phase using Launch, you are ending your Buy phase, so Hermit can trigger.
 hermit;necromancer;If you play a Hermit from the trash using Necromancer, you cannot exchange the Hermit for a Madman, it will stay in the trash even if you don't gain any cards during your Buy phase.
 hermit;overlord;If you play Hermit using Overlord, you can gain a Hermit with it (despite Overlord saying 'leaving it there', as this just refers to the card moving into play).
@@ -1533,7 +1535,7 @@ plan;townsfolk;You may put the trashing token on the Townsfolk pile using Plan. 
 plan;wizards;You may put the trashing token on the Wizards pile using Plan. This will affect all of its cards.
 poor_house;way_of_the_chameleon;If you play a Poor House as Way of the Chameleon, you will draw 4 cards, and then after drawing lose $1 for each card you have in your hand, without going below $0.
 populate;ruins;Buying Populate will gain the Ruins card currently on top since they are an Action Supply pile.
-possession;stonemason;You may overpay with Potions when buying Stonemason to gain two Possessions.
+possession;stonemason;You may overpay with a Potion when buying Stonemason to gain two Possessions.
 practice;urchin;If you play an Urchin multiple times using Practice, you may not trash this Urchin, since you need to play *another* attack card to be able to trash it.
 priest;sewers;If you trash a card with Sewers in reaction to Priest's trash, Sewers does not give you the extra $2 from Priest's ability. This is because Sewers triggers after Priest's 'Trash a card from your hand' which is before 'For the rest of this turn, when you trash a card, + $2.'
 priest;way_of_the_chameleon;If you play Priest using Way of the Chameleon, you will draw 2 cards, then trash a card from your hand, and then get +2 Cards for each subsequent trash this turn.
@@ -1647,7 +1649,7 @@ scavenger;weaver;Playing Scavenger with a Weaver in your deck does not count as 
 scepter;urchin;If you play an Urchin multiple times using Scepter, you may not trash this Urchin, since you need to play *another* attack card to be able to trash it.
 scheme;walled_village;Since you count the Action cards for Walled Village first before topdecking cards with Scheme, even if you plan on topdecking an Action card, it still gets counted for Walled Village's assessment.
 scrap;townsfolk;If you play a Scrap using Elder, you get to pick up to one additional option (but not a single option twice).
-scrying_pool;stonemason;You may overpay with Potions when buying Stonemason to gain two Scrying Pools.
+scrying_pool;stonemason;You may overpay with a Potion when buying Stonemason to gain two Scrying Pools.
 sculptor;sheepdog;If you gain a Sheepdog to your hand using Sculptor, you can immediately react to its own gain and play it.
 sculptor;siren;If you gain a Siren and put it in your hand using Sculptor, you still need to trash an Action from your hand in order to not trash the Siren.
 sea_witch;way_of_the_chameleon;If you play Sea Witch using Way of the Chameleon, remember that Way of the Chameleon only affects stuff happening *this turn*, so on your next turn, you will get the normal bonus from Sea Witch.
@@ -1745,7 +1747,7 @@ spell_scroll;way_of_the_sheep;When you play Spell Scroll, you can still decide t
 spell_scroll;way_of_the_squirrel;When you play Spell Scroll, you can still decide to play it as Way of the Squirrel, whether you are in your Action or in your Buy phase.
 spell_scroll;way_of_the_turtle;When you play Spell Scroll, you can still decide to play it as Way of the Turtle, whether you are in your Action or in your Buy phase.
 spell_scroll;way_of_the_worm;When you play Spell Scroll, you can still decide to play it as Way of the Worm, whether you are in your Action or in your Buy phase.
-stonemason;university;You may overpay with Potions when buying Stonemason to gain two Universitys.
+stonemason;university;You may overpay with a Potion when buying Stonemason to gain two Universitys.
 stonemason;wayfarer;Wayfarer will at first assume Stonemason's $2 cost after the overpay, and then the cost of whichever card you choose to gain first.
 stowaway;way_of_the_butterfly;When you react and play Stowaway during another player's turn, you can decide to play it as Way of the Butterfly.
 stowaway;way_of_the_camel;When you react and play Stowaway during another player's turn, you can decide to play it as Way of the Camel.

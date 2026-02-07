@@ -22,6 +22,7 @@
   "Cemetery": ["Any"],
   "Change": ["Any", "Remodel"],
   "Infirmary": ["Any"],
+  "Panic": ["Treasure"],
   "Chapel": ["Any"],
   "Church": ["Any"],
   "Count": ["Any"],

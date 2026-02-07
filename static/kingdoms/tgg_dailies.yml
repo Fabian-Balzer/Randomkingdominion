@@ -1,4 +1,354 @@
 - cards:
+  - council_room
+  - crew
+  - cutpurse
+  - daimyo
+  - druid
+  - falconer
+  - haggler
+  - merchant
+  - militia
+  - replace
+  druid_boons:
+  - the_mountains_gift
+  - the_seas_gift
+  - the_winds_gift
+  expansions:
+  - Base, 2E
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Renaissance
+  - Rising Sun
+  - Seaside, 2E
+  idx: 314944327703132088123300781614492895461
+  landscapes:
+  - asceticism
+  - star_chart
+  name: '2026-02-07'
+  notes:
+    crucial_cards: [Merchant, Daimyo, Replace, Militia]
+    ending: [Province, Daimyo]
+    link: 'https://youtu.be/RnmvTzIhK-Q'
+    name: Charting Merchants
+    openings:
+    - grade: 'B'
+      t1: 'Militia'
+      t1_csos: [militia]
+      t2: 'Asceticism, trashing Estate'
+      t2_csos: [asceticism, estate]
+      type: 4/3|3/4
+    - grade: 'B-'
+      t1: 'Replace'
+      t1_csos: [Replace]
+      t2: 'Skip turn'
+      t2_csos: [tragic_hero]
+      type: 5/2|2/5
+    points: [41, 3]
+    subtitle: 'A Stroll Through The Park Due To AI''s Merchant Skip'
+    turns: [15, 14]
+- cards:
+  - hermit
+  - junk_dealer
+  - kings_cache
+  - knights
+  - landing_party
+  - pendant
+  - remake
+  - sage
+  - shop
+  - stowaway
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Plunder
+  idx: 111785870916438466132309530293921132730
+  landscapes:
+  - journey
+  - prepare
+  name: '2026-02-06'
+- cards:
+  - augurs
+  - charm
+  - engineer
+  - gladiator/fortune
+  - overlord
+  - patrician/emporium
+  - royal_blacksmith
+  - skirmisher
+  - specialist
+  - underling
+  expansions:
+  - Allies
+  - Empires
+  idx: 272920677939677822174484097300158699700
+  landscapes:
+  - desert_guides
+  - wedding
+  name: '2026-02-05'
+  notes:
+    crucial_cards:
+    - Overlord
+    - Specialist
+    - Royal Blacksmith
+    - Charm
+    ending:
+    - Province
+    link: https://youtu.be/JR1rAFuy-JM
+    name: Charming Specialists
+    openings:
+    - grade: C+
+      t1: Buy Overlord
+      t1_csos:
+      - overlord
+      t2: Use Desert Guides, hoping to find Overlord (for Gladiator?)
+      t2_csos:
+      - desert_guides
+      - overlord
+      - gladiator
+      type: 4/3
+    - grade: C+
+      t1: Use Desert Guides, buy Overlord
+      t1_csos:
+      - desert_guides
+      - overlord
+      t2: Hope to find Overlord (for Gladiator?)
+      t2_csos:
+      - overlord
+      - gladiator
+      type: 3/4
+    - grade: B
+      t1: Buy Overlord
+      t1_csos:
+      - overlord
+      t2: Use Desert Guides, hoping to find Overlord (for Gladiator?)
+      t2_csos:
+      - desert_guides
+      - overlord
+      - gladiator
+      type: 5/2
+    - grade: B
+      t1: Use Desert Guides, buy Overlord
+      t1_csos:
+      - desert_guides
+      - overlord
+      t2: Hope to find Overlord (for Gladiator?)
+      t2_csos:
+      - overlord
+      - gladiator
+      type: 2/5
+    points:
+    - 37
+    - 20
+    subtitle: Trying Our Best At Complicated Overlord/Specialist Chains
+    turns:
+    - 14
+    - 13
+- cards:
+  - bazaar
+  - emissary
+  - haven
+  - importer
+  - innkeeper
+  - island
+  - merchant_camp
+  - outpost
+  - sycophant
+  - town
+  expansions:
+  - Allies
+  - Seaside, 2E
+  idx: 22999170995730588311995014839783565576
+  landscapes:
+  - architects_guild
+  name: '2026-02-04'
+  notes:
+    crucial_cards:
+    - Innkeeper
+    - Architect's Guild
+    - Emissary
+    - Importer
+    ending:
+    - Town
+    - bazaar
+    - emissary
+    link: https://youtu.be/NcDc-qYnynI
+    name: Architect's Emissary
+    openings:
+    - grade: B+
+      t1: Buy Innkeeper, Architect's Guild for Importer
+      t1_csos:
+      - Innkeeper
+      - architects_guild
+      - importer
+      t2: Buy Importer, Architect's Guild for Haven
+      t2_csos:
+      - importer
+      - architects_guild
+      - haven
+      type: 4/3|3/4
+    - grade: A-
+      t1: Buy Emissary, Architect's Guild for Town and Importer
+      t1_csos:
+      - emissary
+      - architects_guild
+      - town
+      - architects_guild
+      - importer
+      t2: Buy Haven
+      t2_csos:
+      - haven
+      type: 5/2|2/5
+    points:
+    - 25
+    - 15
+    subtitle: Coming Back Around Explosively After A Slow Start
+    turns:
+    - 11
+    - 10
+- cards:
+  - acting_troupe
+  - border_guard
+  - hideout
+  - improve
+  - mountain_village
+  - patron
+  - research
+  - swashbuckler
+  - treasurer
+  - villain
+  expansions:
+  - Renaissance
+  idx: 192541741048509181259018784895569556161
+  landscapes:
+  - canal
+  - cathedral
+  name: '2026-02-03'
+  notes:
+    crucial_cards:
+    - Cathedral
+    - Canal
+    - Patron
+    - Treasurer
+    ending:
+    - Province
+    - Duchy
+    - Estate
+    link: https://youtu.be/g686HhFSeuI
+    name: Treasured Cathedral
+    openings:
+    - grade: B-
+      t1: Cathedral
+      t1_csos:
+      - cathedral
+      t2: Improve
+      t2_csos:
+      - improve
+      type: 4/3
+    - grade: B+
+      t1: Cathedral
+      t1_csos:
+      - cathedral
+      t2: Patron
+      t2_csos:
+      - patron
+      type: 3/4
+    - grade: C
+      t1: Cathedral, or Treasurer
+      t1_csos:
+      - cathedral
+      t2: Border Guard
+      t2_csos:
+      - border_guard
+      type: 5/2
+    - grade: C-
+      t1: Border Guard
+      t1_csos:
+      - border_guard
+      t2: Treasurer
+      t2_csos:
+      - treasurer
+      type: 2/5
+    points:
+    - 41
+    - 40
+    subtitle: Emptying All Green In A Fizzled Out, Tight Endgame
+    turns:
+    - 19
+    - 18
+- cards:
+  - abundance
+  - first_mate
+  - flagship
+  - laboratory
+  - poacher
+  - search
+  - shaman
+  - swamp_shacks
+  - throne_room
+  - witch
+  expansions:
+  - Base, 2E
+  - Plunder
+  idx: 295445694428484267523432716544901176130
+  landscapes:
+  - bury
+  - patient
+  name: '2026-02-02'
+  notes:
+    crucial_cards:
+    - Shaman
+    - Flagship
+    - Witch
+    - Search
+    ending:
+    - Curse
+    - Duchy
+    - Flagship
+    link: https://youtu.be/Fx0eW2wBh1E
+    name: Shaman Tumble
+    openings:
+    - grade: B
+      t1: Buy Shaman
+      t1_csos:
+      - Shaman
+      t2: Bury Shaman, buy Shaman, or Search
+      t2_csos:
+      - bury
+      - shaman
+      - shaman
+      type: 4/3|3/4
+    - grade: B
+      t1: Buy Witch
+      t1_csos:
+      - Witch
+      t2: Buy Shaman, or Bury Witch
+      t2_csos:
+      - shaman
+      type: 5/2
+    - grade: B
+      t1: Buy Shaman
+      t1_csos:
+      - Shaman
+      t2: Bury Shaman, buy Shaman, or Flagship
+      t2_csos:
+      - bury
+      - shaman
+      - shaman
+      type: 2/5
+    points:
+    - 34
+    - 23
+    subtitle: Slogging Through Against An Avalanche Of Flagships
+    turns:
+    - 21
+    - 20
+  traits:
+  - - patient
+    - flagship
+- cards:
   - abundance
   - cutthroat
   - den_of_sin
@@ -85,76 +435,6 @@
   landscapes:
   - trappers_lodge
   name: '2026-01-29'
-- cards:
-  - abundance
-  - first_mate
-  - flagship
-  - laboratory
-  - poacher
-  - search
-  - shaman
-  - swamp_shacks
-  - throne_room
-  - witch
-  expansions:
-  - Base, 2E
-  - Plunder
-  idx: 295445694428484267523432716544901176130
-  landscapes:
-  - bury
-  - patient
-  name: '2026-02-02'
-  notes:
-    crucial_cards:
-    - Shaman
-    - Flagship
-    - Witch
-    - Search
-    ending:
-    - Curse
-    - Duchy
-    - Flagship
-    link: https://youtu.be/Fx0eW2wBh1E
-    name: Shaman Tumble
-    openings:
-    - grade: B
-      t1: Buy Shaman
-      t1_csos:
-      - Shaman
-      t2: Bury Shaman, buy Shaman, or Search
-      t2_csos:
-      - bury
-      - shaman
-      - shaman
-      type: 4/3|3/4
-    - grade: B
-      t1: Buy Witch
-      t1_csos:
-      - Witch
-      t2: Buy Shaman, or Bury Witch
-      t2_csos:
-      - shaman
-      type: 5/2
-    - grade: B
-      t1: Buy Shaman
-      t1_csos:
-      - Shaman
-      t2: Bury Shaman, buy Shaman, or Flagship
-      t2_csos:
-      - bury
-      - shaman
-      - shaman
-      type: 2/5
-    points:
-    - 34
-    - 23
-    subtitle: Slogging Through Against An Avalanche Of Flagships
-    turns:
-    - 21
-    - 20
-  traits:
-  - - patient
-    - flagship
 - cards:
   - advisor
   - apprentice

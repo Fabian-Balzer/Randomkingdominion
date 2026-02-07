@@ -16233,3 +16233,356 @@
   title: Daily Dominion 2026-02-02 - Shaman Tumble
   upload_date: '20260202'
   view_count: 1
+- chapters:
+  - end_time: 30.0
+    start_time: 0.0
+    title: Introduction
+  - end_time: 80.0
+    start_time: 30.0
+    title: Kingdom overview
+  - end_time: 225.0
+    start_time: 80.0
+    title: Kingdom Plot and strategy discussion
+  - end_time: 310.0
+    start_time: 225.0
+    title: Discussing openings
+  - end_time: 1179.0
+    start_time: 310.0
+    title: Game Starts
+  - end_time: 1227
+    start_time: 1179.0
+    title: Game Ends and overview
+  comment_count: null
+  description: 'Back with another one in which AI completely breaks down - it does
+    have the right idea in going for lots of Daimyos in the first place, but then
+    fails to see that they are pretty useless without at least some sort of Village
+    functionality, which you can only get by multi-playing Merchants.
+
+    Well.
+
+    Our victory was never threatened, and we manage to win with a 38-VP difference
+    - not often you get to do that.
+
+
+    Also I disliked AI''s Asceticism-only early game, putting a Militia into the deck
+    is much more powerful.
+
+
+    You may join the discord here:
+
+    https://discord.gg/qZxwUpn9
+
+
+    Dominion is a deck building card game created by Donald X. Vaccarino.
+
+    Currently, there exist two online implementations: The browser and subscription-based
+    Dominion Online (https://dominion.games/ ), and the multi-platform-, single-purchase-based
+    client by Temple Gates Games (TGG), available e.g. on Steam (https://store.steampowered.com/app/1131620/Dominion/
+    ) and mobile appliances.
+
+
+    Here, we play on the TGG client, which offers free play of the Base game as well
+    as a free daily entry into a randomly generated (with some restrictions) kingdom,
+    where you get to compete against their AI.
+
+
+    Dombot Kingdom String:
+
+    [random_kingdominion: INFO] - Dombot Kingdom String:
+
+
+    Asceticism, Council Room, Crew, Cutpurse, Daimyo, Druid (The Mountain''s Gift,
+    The Sea''s Gift, The Wind''s Gift), Falconer, Haggler, Merchant, Militia, No Colonies,
+    No Shelters, Replace, Star Chart
+
+    Expansions:
+
+    Base, 2E, Hinterlands, 2E, Intrigue, 2E, Menagerie, Nocturne, Plunder, Renaissance,
+    Rising Sun, Seaside, 2E
+
+
+    Ps.: Check out https://randomkingdominion.streamlit.app/oracle to visualize your
+    kingdoms!
+
+
+    Timestamps:
+
+    0:00 - Introduction
+
+    0:30 - Kingdom overview
+
+    1:20 - Kingdom Plot and strategy discussion
+
+    3:45 - Discussing openings
+
+    5:10 - Game Starts
+
+    19:39 - Game Ends and overview'
+  duration: 1227
+  id: RnmvTzIhK-Q
+  like_count: 1
+  retrieval_time: '2026-02-07T14:02:53.567752'
+  thumbnail: https://i.ytimg.com/vi/RnmvTzIhK-Q/maxresdefault.jpg
+  title: Daily Dominion 2026-02-07 - Charting Merchants
+  upload_date: '20260207'
+  view_count: 4
+- chapters:
+  - end_time: 50.0
+    start_time: 0.0
+    title: Introduction
+  - end_time: 390.0
+    start_time: 50.0
+    title: Kingdom overview and strategy discussion
+  - end_time: 477.0
+    start_time: 390.0
+    title: Kingdom Plot
+  - end_time: 526.0
+    start_time: 477.0
+    title: Discussing openings
+  - end_time: 1765.0
+    start_time: 526.0
+    title: Game Starts
+  - end_time: 1837
+    start_time: 1765.0
+    title: Game Ends and overview
+  comment_count: 2
+  description: 'Another low-thinning-kingdom? With Allies? And with explosive gaining?
+    Sign me up, actually! Apart from the headache that are Specialist chains with
+    Overlords woven in, you do get some sense of control here due to Desert Guides
+    and the strong draw once you connect Overlord/Overlord/Royal Blacksmith. Sibyls
+    can help with that, and with the neat Specialist/Charm synergy we even get to
+    pick up four of them at once.
+
+
+    Really enjoyed this, but sorry in advance for the long video haha, already was
+    struggling with keeping the introduction short. But there''s just a lot going
+    on here.
+
+
+    You may join the discord here:
+
+    https://discord.gg/qZxwUpn9
+
+
+    Dominion is a deck building card game created by Donald X. Vaccarino.
+
+    Currently, there exist two online implementations: The browser and subscription-based
+    Dominion Online (https://dominion.games/ ), and the multi-platform-, single-purchase-based
+    client by Temple Gates Games (TGG), available e.g. on Steam (https://store.steampowered.com/app/1131620/Dominion/
+    ) and mobile appliances.
+
+
+    Here, we play on the TGG client, which offers free play of the Base game as well
+    as a free daily entry into a randomly generated (with some restrictions) kingdom,
+    where you get to compete against their AI.
+
+
+    Dombot Kingdom String:
+
+    Augurs, Charm, Desert Guides, Engineer, Gladiator, No Colonies, No Shelters, Overlord,
+    Patrician, Royal Blacksmith, Skirmisher, Specialist, Underling, Wedding
+
+    Expansions:
+
+    Allies, Empires
+
+
+    Ps.: Check out https://randomkingdominion.streamlit.app/oracle to visualize your
+    kingdoms!
+
+
+    Timestamps:
+
+    0:00 - Introduction
+
+    0:50 - Kingdom overview and strategy discussion
+
+    6:30 - Kingdom Plot
+
+    7:57 - Discussing openings
+
+    8:46 - Game Starts
+
+    29:25 - Game Ends and overview'
+  duration: 1837
+  id: JR1rAFuy-JM
+  like_count: 5
+  retrieval_time: '2026-02-07T14:02:53.567766'
+  thumbnail: https://i.ytimg.com/vi/JR1rAFuy-JM/maxresdefault.jpg
+  title: Daily Dominion 2026-02-05 - Charming Specialists
+  upload_date: '20260205'
+  view_count: 38
+- chapters:
+  - end_time: 22.0
+    start_time: 0.0
+    title: Introduction
+  - end_time: 150.0
+    start_time: 22.0
+    title: Kingdom overview and strategy discussion
+  - end_time: 180.0
+    start_time: 150.0
+    title: Kingdom Plot
+  - end_time: 251.0
+    start_time: 180.0
+    title: Discussing openings
+  - end_time: 842.0
+    start_time: 251.0
+    title: Game Starts
+  - end_time: 907
+    start_time: 842.0
+    title: Game Ends and overview
+  comment_count: 2
+  description: 'Allies and Seaside pair up for a lovely and explosive combination
+    with a distinct lack of thinning.
+
+
+    It takes a bit for us to get into the groove, but at last our lead on draw lets
+    us secure a nice guaranteed pileout on an Outpost turn. Neat.
+
+
+    You may join the discord here:
+
+    https://discord.gg/qZxwUpn9
+
+
+    Dominion is a deck building card game created by Donald X. Vaccarino.
+
+    Currently, there exist two online implementations: The browser and subscription-based
+    Dominion Online (https://dominion.games/ ), and the multi-platform-, single-purchase-based
+    client by Temple Gates Games (TGG), available e.g. on Steam (https://store.steampowered.com/app/1131620/Dominion/
+    ) and mobile appliances.
+
+
+    Here, we play on the TGG client, which offers free play of the Base game as well
+    as a free daily entry into a randomly generated (with some restrictions) kingdom,
+    where you get to compete against their AI.
+
+
+    Dombot Kingdom String:
+
+    Architects'' Guild, Bazaar, Emissary, Haven, Importer, Innkeeper, Island, Merchant
+    Camp, No Colonies, No Shelters, Outpost, Sycophant, Town
+
+    Expansions:
+
+    Allies, Seaside, 2E
+
+
+    Ps.: Check out https://randomkingdominion.streamlit.app/oracle to visualize your
+    kingdoms!
+
+
+    Timestamps:
+
+    0:00 - Introduction
+
+    0:22 - Kingdom overview and strategy discussion
+
+    2:30 - Kingdom Plot
+
+    3:00 - Discussing openings
+
+    4:11 - Game Starts
+
+    14:02 - Game Ends and overview'
+  duration: 907
+  id: NcDc-qYnynI
+  like_count: 3
+  retrieval_time: '2026-02-07T14:02:53.567768'
+  thumbnail: https://i.ytimg.com/vi_webp/NcDc-qYnynI/maxresdefault.webp
+  title: Daily Dominion 2026-02-04 - Architect's Emissary
+  upload_date: '20260204'
+  view_count: 51
+- chapters:
+  - end_time: 22.0
+    start_time: 0.0
+    title: Introduction
+  - end_time: 163.0
+    start_time: 22.0
+    title: Kingdom overview and strategy discussion
+  - end_time: 350.0
+    start_time: 163.0
+    title: Kingdom Plot
+  - end_time: 440.0
+    start_time: 350.0
+    title: Discussing openings
+  - end_time: 732.0
+    start_time: 440.0
+    title: Game Starts
+  - end_time: 877
+    start_time: 732.0
+    title: Game Ends and overview
+  comment_count: 3
+  description: 'I don''t get why the timestamps don''t work in this one, if you know
+    let me know!
+
+
+    In this single expansion Renaissance Tuesday kingdom we have to make do with possibly
+    the worst opening split.
+
+    As usual AI performs pretty well in those single-Buy kingdoms (it even goes for
+    Improve), with its only mistake probably being to skip out on Cathedral. Nonetheless
+    it plays pretty competitively, getting to 31 VP in just 12 turns, posing quite
+    the challenge to come back.
+
+
+    We manage to just win by one VP after an agonizing 19 turns, having to bank on
+    AI missing 7 for a Province in six consecutive turns - but since it didn''t thin,
+    we manage.
+
+    Tight one, would''ve much preferred the 3 4 or 4 3 opening split.
+
+
+    You may join the discord here:
+
+    https://discord.gg/qZxwUpn9
+
+
+    Dominion is a deck building card game created by Donald X. Vaccarino.
+
+    Currently, there exist two online implementations: The browser and subscription-based
+    Dominion Online (https://dominion.games/ ), and the multi-platform-, single-purchase-based
+    client by Temple Gates Games (TGG), available e.g. on Steam (https://store.steampowered.com/app/1131620/Dominion/
+    ) and mobile appliances.
+
+
+    Here, we play on the TGG client, which offers free play of the Base game as well
+    as a free daily entry into a randomly generated (with some restrictions) kingdom,
+    where you get to compete against their AI.
+
+
+    Dombot Kingdom String:
+
+    Acting Troupe, Border Guard, Canal, Cathedral, Hideout, Improve, Mountain Village,
+    No Colonies, No Shelters, Patron, Research, Swashbuckler, Treasurer, Villain
+
+    Expansions:
+
+    Renaissance
+
+
+    Ps.: Check out https://randomkingdominion.streamlit.app/oracle to visualize your
+    kingdoms!
+
+
+    Timestamps:
+
+    0:00 - Introduction
+
+    0:22 - Kingdom overview and strategy discussion
+
+    2:43 - Kingdom Plot
+
+    5:50 - Discussing openings
+
+    7:20 - Game Starts
+
+    12:12 - Game Ends and overview'
+  duration: 877
+  id: g686HhFSeuI
+  like_count: 5
+  retrieval_time: '2026-02-07T14:02:53.567770'
+  thumbnail: https://i.ytimg.com/vi_webp/g686HhFSeuI/maxresdefault.webp
+  title: Daily Dominion 2026-02-03 - Treasured Cathedral
+  upload_date: '20260203'
+  view_count: 50
