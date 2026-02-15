@@ -62,6 +62,12 @@ def _add_individual_cost_change_interactions(df: pd.DataFrame):
         df,
     )
     add_interaction(
+        "change",
+        "destrier",
+        "If you gain a Destrier via Change, its cost (for the Debt) is evaluated after the gain. If you e.g. Change an Estate into a $6-costing Destrier, you will only get 3 Debt, and if you Change it into a $3-costing Destrier, you will get no Debt at all.",
+        df,
+    )
+    add_interaction(
         "Fisherman",
         "Wayfarer",
         "After gaining a Fisherman to your Discard pile, even if it only cost $2, Wayfarer will cost $5 afterwards.",
@@ -162,7 +168,7 @@ def _add_stonemason_potion_interactions(df: pd.DataFrame):
         add_interaction(
             "Stonemason",
             card,
-            f"You may overpay with Potions when buying Stonemason to gain two {card}s.",
+            f"You may overpay with a Potion when buying Stonemason to gain two {card}s.",
             df,
         )
 

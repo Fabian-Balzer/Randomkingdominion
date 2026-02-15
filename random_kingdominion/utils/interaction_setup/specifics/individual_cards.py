@@ -14,7 +14,7 @@ from ..constants import (
 from ..interaction_util import add_interaction, add_multiple_interactions_from_single
 
 
-### Certain Black Market interactions that have to do with pile absence
+### Certain Black Market interactions that have to do with pile absence, compare also Divine Wind interactions in prophecies.py
 def _add_gathering_black_market_interaction(other: str, df: pd.DataFrame):
     rule = f"When you get {other} from the Black Market deck, since there is no pile to gather VP tokens on, the gathering will have no effect."
     add_interaction("Black Market", other, rule, df)
@@ -46,8 +46,20 @@ def _add_all_black_market_interactions(df: pd.DataFrame):
     )
     add_interaction(
         "black_market",
+        "snake witch",
+        "If you play a Snake Witch that was bought from the Black Market deck, you cannot it return to its pile.",
+        df,
+    )
+    add_interaction(
+        "black_market",
         "way_of_the_horse",
         "If you play a card from the Black Market deck using Way of the Horse, you get +2 Cards and +1 Action, but it does not return to a pile. This is because cards from the Black Market deck do not have a pile to return to.",
+        df,
+    )
+    add_interaction(
+        "black_market",
+        "way_of_the_butterfly",
+        "If you play a card from the Black Market deck using Way of the Butterfly, you cannot return it to its pile (as it doesn't have one), and apart from putting the card into play, nothing happens.",
         df,
     )
     add_interaction(
@@ -64,8 +76,20 @@ def _add_all_black_market_interactions(df: pd.DataFrame):
     )
     add_interaction(
         "black_market",
+        "swap",
+        "Since cards from the Black Market deck do not have a pile, you cannot Swap them.",
+        df,
+    )
+    add_interaction(
+        "black_market",
         "Capitalism",
         "If you have bought Capitalism, you can play a Black Market while playing Treasures for another Black Market. You resolve them recursively, i.e. the three cards of the first Black Market stay out until you have decided to buy (or decline) one of the cards of the second Black Market, and only after that you can buy cards from the first Black Market.",
+        df,
+    )
+    add_interaction(
+        "black_market",
+        "hermit",
+        "You cannot exchange a Hermit for Madman if you have acquired it from the Black Market deck as it doesn't have a pile to return to..",
         df,
     )
 

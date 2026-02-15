@@ -39,9 +39,9 @@ def _set_up_replacements_for_combos(
     df = df[~df["CSO1/CSO2"].apply(lambda x: replacement_str in x.split("/"))]
     if verbose:
         msg = f"Expanded {len(new_rows)} combo entries by replacing '{replacement_str}' with actual CSOs.\n"
-        msg += "\n".join(
-            [row["temp_ident"] + "\n\t" + row["Description"][:100] for row in new_rows]
-        )
+        # msg += "\n".join(
+        #     [row["temp_ident"] + "\n\t" + row["Description"][:100] for row in new_rows]
+        # )
         LOGGER.info(msg)
     extra_df = pd.DataFrame(new_rows)
     df = pd.concat([df, extra_df], ignore_index=True)

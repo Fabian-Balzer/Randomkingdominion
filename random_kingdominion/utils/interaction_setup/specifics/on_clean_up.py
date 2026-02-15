@@ -79,6 +79,12 @@ def _add_individual_on_cleanup_interactions(df: pd.DataFrame):
         df,
     )
     add_interaction(
+        "Journey",
+        "Hermit",
+        "If you buy Journey (and gain no cards during your Buy phase), any Hermits you played are discarded and exchanged for Madman.",
+        df,
+    )
+    add_interaction(
         "trail",
         "improve",
         "Trashing a Trail with Improve's ability will not trigger Trail's on-trash effect because the trashing occurs during Clean-up.",

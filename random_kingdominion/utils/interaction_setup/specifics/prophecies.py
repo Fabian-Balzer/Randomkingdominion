@@ -39,9 +39,21 @@ def _add_individual_divine_wind_interactions(df: pd.DataFrame):
         df,
     )
     add_interaction(
+        "divine_wind",
+        "vampire",
+        "Once Divine Wind has been triggered, you cannot exchange Vampire for Bat anymore as there is no pile to return to, and likewise cannot exchange Bats for Vampires anymore as their pile is gone.",
+        df,
+    )
+    add_interaction(
         "divine wind",
         "way of the horse",
         "Once Divine Wind has been triggered, if you play any card from the initial supply using Way of the Horse, you get +2 Cards and +1 Action, but it does not return to a pile as the pile to return to doesn't exist any longer.",
+        df,
+    )
+    add_interaction(
+        "divine wind",
+        "hermit",
+        "Once Divine Wind has been triggered, you cannot exchange Hermit for Madman anymore as there is no pile to return to. If you play a Madman, it returns to its pile (as non-supply piles are not removed by Divine Wind).",
         df,
     )
     add_interaction(
@@ -66,6 +78,12 @@ def _add_individual_divine_wind_interactions(df: pd.DataFrame):
         "divine wind",
         "snake witch",
         "Once Divine Wind has been triggered, previously gained Snake Witches will never be able to Curse as they do not have a pile to return to.",
+        df,
+    )
+    add_interaction(
+        "divine wind",
+        "swap",
+        "Once Divine Wind has been triggered, you cannot return any Action cards whose piles have been removed using Swap as there is no pile to return them to.",
         df,
     )
 
