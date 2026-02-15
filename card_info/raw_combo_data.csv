@@ -84,7 +84,7 @@ Black Market/Keep;Keep heavily incentivizes going for Treasures from the Black M
 Black Market/Museum;Each unique card from the Black Market will be worth an additional 2 VP with Museum around.;Synergy;;
 Black Market/Tactician;Playing Black Market before Tactician allows you to get your Treasures into play before discarding your hand. Just remember to keep a card in hand to discard for Tactician.;Synergy;;
 Bridge/Capitalism;With Capitalism active, you can play Bridges nonterminally, which quickly scales up.;Weak Synergy;;
-Bridge/Flagship;Monolithically just getting 6 Flagships and a Bridge in play will enable you to pile Provinces in ~12 turns if uncontested.;Combo;;
+Bridge/Flagship;Monolithically just getting 6 Flagships in play and then playing a single Bridge will enable you to pile Provinces in about 12 turns if uncontested.;Combo;;
 Bridge/Practice;With lots of draw, it might be worth gunning for just having 4 Bridges and $6 in hand. Just make sure you have extra Buys and you'll easily be able to pile Provinces.;Combo;https://youtu.be/9bxlW5IFlEM;Fabi: Daily playthrough with find-the-win
 Bridge/Way of the Turtle;Playing Bridges as Way of the Turtle can lead to a megaturn, but might take a while to set up, so usually some support is needed.;Weak Synergy;;
 Broker/League of Shopkeepers;Racking up 10 Favors can make Brokers pretty strong, providing Actions, Buys, and flexibility when trashing stuff.;Weak Synergy;https://youtu.be/Nfj0YxBQ8Tg;Fabi: Daily playthrough
@@ -238,6 +238,7 @@ Envoy/Patron;Minor reveal synergy to generate Coffers while drawing. The Village
 Exorcist/Haunted Woods;Night cards are heavily disincentivized with Haunted Woods around, as you will have to topdeck your hand whenever buying cards, which happens before you would be able to play any Night cards.;Counter;;
 Falconer/Sheepdog;Gaining Sheepdogs to hand allows you to immediately play them for draw, and also helps to trigger other Falconers you (or your opponent) might have in hand.;Synergy;https://youtu.be/z8XAsSQTiZs & https://youtu.be/zr4If30LPgo;Fabi: Campaign playthrough & Fabi: Campaign playthrough
 Familiar/Woodworkers Guild;With Woodworkers' Guild, you can trash an Action card into a Familiar without having to gain a Potion.;Weak Synergy;;
+Farmland/Secret Cave;Wishing for a Farmland will allow you to immediately remodel it into a Province, allowing to essentially Wish for Provinces.;Synergy;;
 Farrier/Ferry;Reducing the cost of Farrier to 0 with Ferry allows to overpay super easily.;Combo;;
 Fated/Patron;[Only if Patron is Fated] You get to reveal Patrons whenever you shuffle your deck, so if you manage to do so during your Action phase, you will generate Coffers.;Weak Synergy;;
 Fellowship of Scribes/Wizards;Trashing Coppers with Student and redrawing it with Scribes can get you thin really quickly.;Synergy;;

@@ -90,7 +90,7 @@ black_market;keep;Keep heavily incentivizes going for Treasures from the Black M
 black_market;museum;Each unique card from the Black Market will be worth an additional 2 VP with Museum around.;Synergy;;
 black_market;tactician;Playing Black Market before Tactician allows you to get your Treasures into play before discarding your hand. Just remember to keep a card in hand to discard for Tactician.;Synergy;;
 bridge;capitalism;With Capitalism active, you can play Bridges nonterminally, which quickly scales up.;Weak Synergy;;
-bridge;flagship;Monolithically just getting 6 Flagships and a Bridge in play will enable you to pile Provinces in ~12 turns if uncontested.;Combo;;
+bridge;flagship;Monolithically just getting 6 Flagships in play and then playing a single Bridge will enable you to pile Provinces in about 12 turns if uncontested.;Combo;;
 bridge;practice;With lots of draw, it might be worth gunning for just having 4 Bridges and $6 in hand. Just make sure you have extra Buys and you'll easily be able to pile Provinces.;Combo;Fabi: Daily playthrough with find-the-win;https://youtu.be/9bxlW5IFlEM
 bridge;way_of_the_turtle;Playing Bridges as Way of the Turtle can lead to a megaturn, but might take a while to set up, so usually some support is needed.;Weak Synergy;;
 broker;league_of_shopkeepers;Racking up 10 Favors can make Brokers pretty strong, providing Actions, Buys, and flexibility when trashing stuff.;Weak Synergy;Fabi: Daily playthrough;https://youtu.be/Nfj0YxBQ8Tg
@@ -287,6 +287,7 @@ exorcist;haunted_woods;Night cards are heavily disincentivized with Haunted Wood
 exorcist;prepare;Preparing a Night card such as Exorcist will prevent you from being able to play it during your Night phase, and at the start of your next turn, it will just be discarded.;Nombo;;
 falconer;sheepdog;Gaining Sheepdogs to hand allows you to immediately play them for draw, and also helps to trigger other Falconers you (or your opponent) might have in hand.;Synergy;Fabi: Campaign playthrough;https://youtu.be/z8XAsSQTiZs
 familiar;woodworkers_guild;With Woodworkers' Guild, you can trash an Action card into a Familiar without having to gain a Potion.;Weak Synergy;;
+farmland;secret_cave;Wishing for a Farmland will allow you to immediately remodel it into a Province, allowing to essentially Wish for Provinces.;Synergy;;
 farrier;ferry;Reducing the cost of Farrier to 0 with Ferry allows to overpay super easily.;Combo;;
 fated;patron;[Only if Patron is Fated] You get to reveal Patrons whenever you shuffle your deck, so if you manage to do so during your Action phase, you will generate Coffers.;Weak Synergy;;
 fellowship_of_scribes;wizards;Trashing Coppers with Student and redrawing it with Scribes can get you thin really quickly.;Synergy;;

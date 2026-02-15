@@ -1,3 +1,246 @@
+
+- cards:
+  - apothecary
+  - cartographer
+  - crucible
+  - guide
+  - infirmary
+  - remodel
+  - snake_witch
+  - stonemason
+  - tanuki
+  - throne_room
+  expansions:
+  - Adventures
+  - Alchemy
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Hinterlands, 2E
+  - Plunder
+  - Rising Sun
+  idx: 165032041958587414810423412115404098771
+  landscapes:
+  - conquest
+  - palace
+  name: WC 2026_sdrawkcab_g6
+  notes:
+    crucial_cards: [Tanuki, snake witch, throne room, infirmary]
+    dg_game_id: 174416180
+    ending: [province, curse, snake witch]
+    game_num: 6
+    link: 'https://youtu.be/Dakf4JjXZHg'
+    name: Snake Tanuki
+    occasion: WC 2026
+    opponent: sdrawkcab
+    points: [25, 7]
+    second_player: false
+    subtitle: 'Tight Drawless Kingdom, Oddly Fun'
+    turns: [16, 15]
+    find_the_win: true
+    ftw_difficulty: easy
+    ftw_timestamp: 1358
+- cards:
+  - bank
+  - barge
+  - ferryman
+  - jester
+  - raze
+  - sea_witch
+  - tactician
+  - vampire
+  - vineyard
+  - wayfarer
+  expansions:
+  - Adventures
+  - Alchemy
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Menagerie
+  - Nocturne
+  - Prosperity, 2E
+  - Seaside, 2E
+  ferryman_pile: carpenter
+  idx: 296129826427767228046942962491230188526
+  landscapes:
+  - basilica
+  - triumph
+  name: WC 2026_sdrawkcab_g5
+  notes:
+    crucial_cards: [Sea Witch, Vampire, Raze, Basilica]
+    dg_game_id: 174415565
+    ending: [I Resigned, Curse, Raze]
+    game_num: 5
+    link: 'https://youtu.be/7n5Pi07qP_s'
+    name: 'Tactical Mistakes'
+    occasion: WC 2026
+    opponent: sdrawkcab
+    points: [7, 28]
+    second_player: true
+    subtitle: 'Probably My Worst Performance In The World Cup. Oh Well'
+    turns: [17, 17]
+- cards:
+  - bandit_camp
+  - black_cat
+  - contract
+  - pirate
+  - poacher
+  - relic
+  - sentinel
+  - spices
+  - stockpile
+  - war_chest
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Menagerie
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
+  idx: 31807516601319796090186442984943324969
+  landscapes:
+  - nearby
+  - order_of_astrologers
+  - wedding
+  name: WC 2026_sdrawkcab_g4
+  notes:
+    crucial_cards: [Black Cat, Sentinel, Pirate, Spices]
+    dg_game_id: 174414686
+    ending: [Spices, Stockpile, Black Cat]
+    game_num: 4
+    link: 'https://youtu.be/_MeUyV1tp14'
+    name: 'Cat Piracy'
+    occasion: WC 2026
+    opponent: sdrawkcab
+    points: [20, 11]
+    second_player: false
+    subtitle: 'Very Interesting Dance Revolving Around Black Cats'
+    turns: [15, 14]
+  traits:
+  - - nearby
+    - black_cat
+- cards:
+  - bridge
+  - courtier
+  - den_of_sin
+  - farmers_market
+  - kitsune
+  - marchland
+  - root_cellar
+  - scholar
+  - spices
+  - tracker
+  expansions:
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Promo
+  - Renaissance
+  - Rising Sun
+  idx: 302390683923731596438101209233830617864
+  landscapes:
+  - advance
+  - flourishing_trade
+  - reap
+  name: WC 2026_sdrawkcab_g3
+  notes:
+    crucial_cards: [Marchland, Advance, Bridge, Flourishing Trade]
+    dg_game_id: 174413962
+    ending: [Opp Resigned, Curse, Estate]
+    game_num: 3
+    link: 'https://youtu.be/QX6ys6RqNjI'
+    name: 'Flourishing Junk'
+    occasion: WC 2026
+    opponent: sdrawkcab
+    points: [34, 19]
+    second_player: true
+    subtitle: 'No Thinning Allowed Apparently. Tight Endgame Somehow.'
+    turns: [14, 14]
+- cards:
+  - acting_troupe
+  - den_of_sin
+  - marauder
+  - messenger
+  - mystic
+  - pilgrim
+  - samurai
+  - sea_witch
+  - seer
+  - townsfolk
+  expansions:
+  - Adventures
+  - Allies
+  - Dark Ages
+  - Nocturne
+  - Plunder
+  - Renaissance
+  - Rising Sun
+  - Seaside, 2E
+  idx: 266784594452896854295178168256240486488
+  landscapes:
+  - ball
+  name: WC 2026_sdrawkcab_g2
+  notes:
+    crucial_cards: [Sea Witch, Marauder, Den of Sin, Messenger]
+    dg_game_id: 174413278
+    ending: [Curse, Den of Sin, Estate]
+    game_num: 2
+    link: 'https://youtu.be/wkpAcL6cLz4'
+    name: 'Den of Junk'
+    occasion: WC 2026
+    opponent: sdrawkcab
+    points: [16, 12]
+    second_player: false
+    subtitle: 'Slogging Along In A Coinflip Kingdom'
+    turns: [19, 18]
+- army_pile: siren
+  cards:
+  - duplicate
+  - forts
+  - forum
+  - highway
+  - kitsune
+  - sentinel
+  - shepherd
+  - siren
+  - snowy_village
+  - temple
+  - tide_pools
+  expansions:
+  - Adventures
+  - Allies
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Rising Sun
+  - Seaside, 2E
+  idx: 47301383945206975540257995241181726424
+  landscapes:
+  - approaching_army
+  - asceticism
+  - way_of_the_butterfly
+  name: WC 2026_sdrawkcab_g1
+  notes:
+    crucial_cards: [Kitsune, Snowy Village, Siren, Way of the Butterfly]
+    dg_game_id: 174412475
+    ending: [Opp Resigned, Curse]
+    game_num: 1
+    link: 'https://youtu.be/KzgJZP0RHY8'
+    name: 'Butterfly Army'
+    occasion: WC 2026
+    opponent: sdrawkcab
+    points: [0, 14]
+    second_player: true
+    subtitle: 'Neat Kingdom To Start Off The Match'
+    turns: [15, 15]
 - cards:
   - astrolabe
   - bandit
@@ -25,12 +268,12 @@
   - cathedral
   name: WC 2026 vs. saltroza g6
   notes:
-    dg_game_id: 173817825 
     crucial_cards:
     - biding_time
     - crossroads
     - Monkey
     - Astrolabe
+    dg_game_id: 173817825
     ending:
     - estate
     - astrolabe
@@ -72,12 +315,12 @@
   - silos
   name: WC 2026 vs. saltroza g5
   notes:
-    dg_game_id: 173815821 
     crucial_cards:
     - Cathedral
     - First Mate
     - Messenger
     - Raze
+    dg_game_id: 173815821
     ending:
     - messenger
     - province
@@ -119,12 +362,12 @@
   - way_of_the_squirrel
   name: WC 2026 vs. saltroza g4
   notes:
-    dg_game_id: 173814628 
     crucial_cards:
     - hostelry
     - way of the squirrel
     - sword
     - cathedral
+    dg_game_id: 173814628
     ending:
     - nobles
     - sleigh
@@ -171,12 +414,12 @@
   - sewers
   name: WC 2026 vs. saltroza g3
   notes:
-    dg_game_id: 173813592 
     crucial_cards:
     - Caravan
     - Mine
     - Sewers
     - Panic
+    dg_game_id: 173813592
     ending:
     - caravan
     - tea_house
@@ -221,12 +464,12 @@
   - way_of_the_squirrel
   name: WC 2026 vs. saltroza g2
   notes:
-    dg_game_id: 173812928 
     crucial_cards:
     - Captain
     - Throne Room
     - Inventor
     - Way of the Squirrel
+    dg_game_id: 173812928
     ending:
     - throne_room
     - captain
@@ -269,12 +512,12 @@
   - sewers
   name: WC 2026 vs. saltroza g1
   notes:
-    dg_game_id: 173811675 
     crucial_cards:
     - rats
     - sewers
     - Mint
     - platinum
+    dg_game_id: 173811675
     ending:
     - colony
     game_num: 1
@@ -319,12 +562,12 @@
   - scouting_party
   name: WC 2026 vs. yurikamome g6
   notes:
-    dg_game_id: 173708530 
     crucial_cards:
     - Chapel
     - Kitsune
     - Rapid Expansion
     - Herbalist
+    dg_game_id: 173708530
     ending:
     - Province
     - Curse
@@ -366,12 +609,12 @@
   - way_of_the_mule
   name: WC 2026 vs. yurikamome g5
   notes:
-    dg_game_id: 173707902 
     crucial_cards:
     - Wheelwright
     - Border Village
     - pixie
     - swamp shacks
+    dg_game_id: 173707902
     ending:
     - pixie
     - wheelwright
@@ -414,12 +657,12 @@
   - windfall
   name: WC 2026 vs. yurikamome g4
   notes:
-    dg_game_id: 173707295 
     crucial_cards:
     - Catapult
     - Litter
     - Spices
     - Snake Witch
+    dg_game_id: 173707295
     ending:
     - resign
     game_num: 4
@@ -464,12 +707,12 @@
   - wolf_den
   name: WC 2026 vs. yurikamome g3
   notes:
-    dg_game_id: 173706991 
     crucial_cards:
     - Souk
     - Pawn
     - Cursed Village
     - Hamlet
+    dg_game_id: 173706991
     ending:
     - Hamlet
     - Pawn
@@ -514,12 +757,12 @@
   - transport
   name: WC 2026 vs. yurikamome g2
   notes:
-    dg_game_id: 173706194 
     crucial_cards:
     - Journey
     - Daimyo
     - Mountain Shrine
     - Collection
+    dg_game_id: 173706194
     ending:
     - courtyard
     - daimyo
@@ -565,12 +808,12 @@
   - piazza
   name: WC 2026 vs. yurikamome g1
   notes:
-    dg_game_id: 173705852 
     crucial_cards:
     - Captain
     - Infirmary
     - Livery
     - Forum
+    dg_game_id: 173705852
     ending:
     - Province
     game_num: 1

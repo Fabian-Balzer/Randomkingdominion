@@ -173,11 +173,15 @@ black_market;enlightenment;When Enlightenment is active, playing Treasures using
 black_market;experiment;If you play an Experiment that was bought from the Black Market deck, you get +2 Cards and +1 Action, but it does not return to a pile and stays in play/in your deck instead. This is because Experiment does not have a pile to return to.
 black_market;farmers_market;When you get Farmers' Market from the Black Market deck, since there is no pile to gather VP tokens on, the gathering will have no effect.
 black_market;harsh_winter;With Harsh Winter active, no Debt is added or removed to the Black Market deck when buying cards from it, as it is not a pile.
+black_market;hermit;You cannot exchange a Hermit for Madman if you have acquired it from the Black Market deck as it doesn't have a pile to return to..
 black_market;mission;You cannot buy cards from the Black Market during Mission turns.
 black_market;odysseys;Playing Treasures for Black Market during Voyage turn is limited by Voyage's restriction.
 black_market;page;When you get Page from the Black Market deck, you cannot exchange it for other Travellers.
 black_market;peasant;When you get Peasant from the Black Market deck, you cannot exchange it for other Travellers.
+black_market;snake_witch;If you play a Snake Witch that was bought from the Black Market deck, you cannot it return to its pile.
+black_market;swap;Since cards from the Black Market deck do not have a pile, you cannot Swap them.
 black_market;temple;When you get Temple from the Black Market deck, since there is no pile to gather VP tokens on, the gathering will have no effect.
+black_market;way_of_the_butterfly;If you play a card from the Black Market deck using Way of the Butterfly, you cannot return it to its pile (as it doesn't have one), and apart from putting the card into play, nothing happens.
 black_market;way_of_the_horse;If you play a card from the Black Market deck using Way of the Horse, you get +2 Cards and +1 Action, but it does not return to a pile. This is because cards from the Black Market deck do not have a pile to return to.
 black_market;wild_hunt;When you get Wild Hunt from the Black Market deck, since there is no pile to gather VP tokens on, the gathering will have no effect.
 blessed_village;haunted_woods;If you buy a Blessed Village while under the Haunted Woods attack, you can choose whether to first take a Boon, or whether to first topdeck your hand.
@@ -678,6 +682,7 @@ distant_lands;overlord;If you play a Distant Lands using Overlord, you don't put
 divine_wind;encampment/plunder;Once Divine Wind has been triggered, when you play an Encampment that came from the initial supply, if you don't reveal a Gold or Plunder, then you set aside the Encampment but since it has no pile to return to, it stays set aside for the rest of the game (it still counts as one of your cards for scoring).
 divine_wind;experiment;Once Divine Wind has been triggered, when you play an Experiment that came from the initial supply, you get +2 Cards and +1 Action, but it does not return to a pile and stays in play. This is because Experiment does not have a pile to return to.
 divine_wind;farmers_market;Once Divine Wind is triggered and the Farmers' Market pile is removed from the supply, since there is no pile to gather VP tokens on, the gathering will have no effect.
+divine_wind;hermit;Once Divine Wind has been triggered, you cannot exchange Hermit for Madman anymore as there is no pile to return to. If you play a Madman, it returns to its pile (as non-supply piles are not removed by Divine Wind).
 divine_wind;lost_arts;Once Divine Wind is triggered, the + Action token is removed from its pile upon the pile's removal if you have bought Lost Arts before that.
 divine_wind;obelisk;Once Divine Wind has been triggered, cards from the initial Obelisk pile will continue to be worth 2 VP.
 divine_wind;page;Once Divine Wind is triggered and the Page pile is removed from the supply, you cannot exchange your Pages for other Travellers anymore since they have no pile to return to. You can however continue to exchange any Travellers further up the line as their non-supply piles stay.
@@ -686,8 +691,10 @@ divine_wind;peasant;"Once Divine Wind is triggered and the Peasant pile is remov
 Once Divine Wind is triggered, any token is removed from its pile upon the pile's removal."
 divine_wind;seaway;Once Divine Wind is triggered, the + Buy token is removed from its pile upon the pile's removal if you have bought Seaway before that.
 divine_wind;snake_witch;Once Divine Wind has been triggered, previously gained Snake Witches will never be able to Curse as they do not have a pile to return to.
+divine_wind;swap;Once Divine Wind has been triggered, you cannot return any Action cards whose piles have been removed using Swap as there is no pile to return them to.
 divine_wind;temple;Once Divine Wind is triggered and the Temple pile is removed from the supply, since there is no pile to gather VP tokens on, the gathering will have no effect.
 divine_wind;training;Once Divine Wind is triggered, the + $1 token is removed from its pile upon the pile's removal if you have bought Training before that.
+divine_wind;vampire;Once Divine Wind has been triggered, you cannot exchange Vampire for Bat anymore as there is no pile to return to, and likewise cannot exchange Bats for Vampires anymore as their pile is gone.
 divine_wind;way_of_the_butterfly;Once Divine Wind has been triggered, if you play any card from the initial supply using Way of the Butterfly, it cannot return to its pile, and will fail to do anything except for going into your play area.
 divine_wind;way_of_the_horse;Once Divine Wind has been triggered, if you play any card from the initial supply using Way of the Horse, you get +2 Cards and +1 Action, but it does not return to a pile as the pile to return to doesn't exist any longer.
 divine_wind;wild_hunt;Once Divine Wind is triggered and the Wild Hunt pile is removed from the supply, since there is no pile to gather VP tokens on, the gathering will have no effect.

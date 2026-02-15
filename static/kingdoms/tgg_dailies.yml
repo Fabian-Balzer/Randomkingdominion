@@ -1,3 +1,508 @@
+- campaign_effects:
+  - got_it_already
+  - treasurified
+  cards:
+  - baker
+  - bridge
+  - cardinal
+  - highway
+  - island
+  - lackeys
+  - mill
+  - poor_house
+  - recruiter
+  - scheme
+  expansions:
+  - Adventures
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Renaissance
+  - Seaside, 2E
+  idx: 203050745077888255998885366710386190958
+  landscapes:
+  - canal
+  - ferry
+  name: '2026-02-15'
+  notes:
+    crucial_cards: [Recruiter, Ferry, Bridge, Lackeys]
+    ending: [Province, Bridge]
+    link: 'https://youtu.be/mVjdN5zsUH8'
+    name: 'Bridge Recruitment'
+    openings:
+    - grade: 'A-'
+      t1: 'Put Ferry on Recruiter, buy Recruiter'
+      t1_csos: [ferry, recruiter, recruiter]
+      t2: 'Buy Recruiter'
+      t2_csos: [recruiter]
+      type: 4/3|3/4
+    - grade: 'B-'
+      t1: 'Put Ferry on Recruiter, buy Recruiter'
+      t1_csos: [ferry, recruiter, recruiter]
+      t2: 'Buy Recruiter (using up Baker Token)'
+      t2_csos: [recruiter]
+      type: 5/2|2/5
+    points: [48, 0]
+    subtitle: 'Perfect Line Up Of Draws, But AI Also Blunders'
+    turns: [8, 7]
+  stamps_and_effects:
+  - - got_it_already
+    - ferry
+  - - treasurified
+    - bridge
+  use_shelters: true
+- cards:
+  - artist
+  - caravan
+  - farrier
+  - giant
+  - grand_market
+  - herbalist
+  - ninja
+  - patron
+  - poor_house
+  - souk
+  expansions:
+  - Adventures
+  - Alchemy
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Prosperity, 2E
+  - Renaissance
+  - Rising Sun
+  - Seaside, 2E
+  idx: 198934639646199702417022639429930375716
+  landscapes:
+  - way_of_the_monkey
+  - windfall
+  name: '2026-02-14'
+  notes:
+    crucial_cards:
+    - Artist
+    - Ninja
+    - Farrier
+    - Caravan
+    ending:
+    - Province
+    - Farrier
+    link: https://youtu.be/MCPGqo3QI5Y
+    name: Grand Ninja
+    openings:
+    - grade: C+
+      t1: Ninja, or buy Farrier, overpay $2
+      t1_csos:
+      - ninja
+      t2: Buy Farrier, overpaying $1, or, if you've overpaid t1, buy Ninja or Souk
+        depending on $
+      t2_csos:
+      - farrier
+      type: 4/3
+    - grade: C
+      t1: Silver
+      t1_csos:
+      - silver
+      t2: Ninja
+      t2_csos:
+      - ninja
+      type: 3/4
+    - grade: C
+      t1: Souk, or Ninja
+      t1_csos:
+      - souk
+      t2: Farrier
+      t2_csos:
+      - farrier
+      type: 5/2|2/5
+    points:
+    - 40
+    - 20
+    subtitle: AI's Ninja Skip Early On Allows For Some Leeway In A Weird Kingdom
+    turns:
+    - 17
+    - 16
+- cards:
+  - armory
+  - band_of_misfits
+  - beggar
+  - blockade
+  - death_cart
+  - ironmonger
+  - lighthouse
+  - squire
+  - treasure_map
+  - wharf
+  expansions:
+  - Dark Ages
+  - Seaside, 2E
+  idx: 191825604013381303381317916359271510178
+  name: '2026-02-13'
+  notes:
+    crucial_cards: []
+    ending: []
+    link: ''
+    name: ''
+    openings:
+    - grade: ''
+      t1: ''
+      t1_csos: []
+      t2: ''
+      t2_csos: []
+      type: 4/3|3/4
+    - grade: ''
+      t1: ''
+      t1_csos: []
+      t2: ''
+      t2_csos: []
+      type: 5/2|2/5
+    points: []
+    subtitle: ''
+    turns: []
+- cards:
+  - baron
+  - coven
+  - groom
+  - ironworks
+  - masquerade
+  - minion
+  - patrol
+  - scrap
+  - shanty_town
+  - snowy_village
+  expansions:
+  - Intrigue, 2E
+  - Menagerie
+  idx: 63082899486807254321562089033043028006
+  landscapes:
+  - gamble
+  - way_of_the_mule
+  name: '2026-02-12'
+  notes:
+    crucial_cards:
+    - Masquerade
+    - Minion
+    - Ironworks
+    - Coven
+    ending:
+    - Estate
+    - Curse
+    - Shanty Town
+    link: https://youtu.be/Y73RZh-BhTM
+    name: Masked Minions
+    openings:
+    - grade: B-
+      t1: Buy Ironworks, or Scrap
+      t1_csos:
+      - ironworks
+      t2: Buy Masquerade
+      t2_csos:
+      - masquerade
+      type: 4/3|3/4
+    - grade: B
+      t1: Buy Coven, or Minion
+      t1_csos:
+      - coven
+      t2: Gamble, play whatever you find.
+      t2_csos:
+      - gamble
+      - copper
+      type: 5/2
+    - grade: D
+      t1: Skip turn.
+      t1_csos:
+      - tragic_hero
+      t2: Buy Masquerade, or Coven, or Minion (but I prefer Masq)
+      t2_csos:
+      - Masquerade
+      type: 5/2|2/5
+    points:
+    - 13
+    - 6
+    subtitle: Really Rough Masq Passes Lead To A Clutch Ending
+    turns:
+    - 14
+    - 13
+- cards:
+  - border_village
+  - develop
+  - jack_of_all_trades
+  - kiln
+  - nomads
+  - paddock
+  - scrap
+  - snowy_village
+  - spice_merchant
+  - stables
+  expansions:
+  - Hinterlands, 2E
+  - Menagerie
+  idx: 49002464376044339633538070323082717883
+  landscapes:
+  - stampede
+  - way_of_the_seal
+  name: '2026-02-11'
+  notes:
+    crucial_cards:
+    - Border Village
+    - Paddock
+    - Kiln
+    - Nomads
+    ending:
+    - Nomads
+    - Paddock
+    - Border Village
+    link: https://youtu.be/sbxeYj4gACw
+    name: Border Menagerie
+    openings:
+    - grade: B
+      t1: Spice Merchant
+      t1_csos:
+      - spice_merchant
+      t2: Scrap
+      t2_csos:
+      - scrap
+      type: 4/3|3/4
+    - grade: B
+      t1: Buy Stampede
+      t1_csos:
+      - Stampede
+      - horse
+      - horse
+      - horse
+      - horse
+      - horse
+      t2: Play Horses until you hit $6 (playing one as Seal) and topdeck Border Village/Paddock
+      t2_csos:
+      - stampede
+      - horse
+      - way of the seal
+      - border_village
+      - paddock
+      type: 5/2|2/5
+    - grade: C
+      t1: Skip turn
+      t1_csos:
+      - tragic_hero
+      t2: Buy Paddock, or Stampede
+      t2_csos:
+      - paddock
+      type: 2/5
+    points:
+    - 19
+    - 0
+    subtitle: Rough Early Draws, But Aggressive Thinning Pays Off
+    turns:
+    - 11
+    - 10
+- cards:
+  - cage
+  - figurine
+  - gondola
+  - mapmaker
+  - maroon
+  - pendant
+  - pilgrim
+  - quartermaster
+  - shaman
+  - tools
+  expansions:
+  - Plunder
+  idx: 74665026849695349506962307423234991183
+  landscapes:
+  - inherited
+  - invasion
+  name: '2026-02-10'
+  notes:
+    crucial_cards:
+    - Shaman
+    - Quartermaster
+    - Mapmaker
+    - Pendant
+    ending:
+    - Province
+    - Mapmaker
+    link: https://youtu.be/4iuGQK1vCTE
+    name: Map Master
+    openings:
+    - grade: B+
+      t1: Play Shaman trashing Estate, Buy Mapmaker
+      t1_csos:
+      - shaman
+      - estate
+      - mapmaker
+      t2: Buy Shaman, or Mapmaker
+      t2_csos:
+      - shaman
+      type: 4/4
+    - grade: B+
+      t1: Buy Quartermaster
+      t1_csos:
+      - quartermaster
+      t2: Play Shaman, trashing Estate, buy Shaman
+      t2_csos:
+      - shaman
+      - estate
+      - shaman
+      type: 5/3|3/5
+    - grade: C
+      t1: Play Shaman trashing Copper, buy   Mapmaker
+      t1_csos:
+      - shaman
+      - copper
+      - mapmaker
+      t2: Buy Shaman
+      t2_csos:
+      - shaman
+      type: 5star/3|3/5star
+    points:
+    - 48
+    - 23
+    subtitle: Building Really Big In A Strange Kingdom With Loadsa Synergies
+    turns:
+    - 11
+    - 10
+  traits:
+  - - inherited
+    - shaman
+- cards:
+  - bandit
+  - library
+  - moat
+  - moneylender
+  - ninja
+  - river_shrine
+  - root_cellar
+  - rustic_village
+  - tea_house
+  - throne_room
+  expansions:
+  - Base, 2E
+  - Rising Sun
+  idx: 86281524632694402339770388318144219937
+  landscapes:
+  - amass
+  - sickness
+  name: '2026-02-09'
+  notes:
+    crucial_cards:
+    - Library
+    - Sickness
+    - Throne Room
+    - River Shrine
+    ending:
+    - Province
+    - Curse
+    link: https://youtu.be/UZI3sTrwr_s
+    name: Library Sickness
+    openings:
+    - grade: B+
+      t1: Amass for River Shrine
+      t1_csos:
+      - Amass
+      - River Shrine
+      t2: Amass for Throne Room, or Tea House
+      t2_csos:
+      - amass
+      - throne_room
+      type: 4/3|3/4
+    - grade: B+
+      t1: Amass for River Shrine
+      t1_csos:
+      - Amass
+      - River Shrine
+      t2: Amass for Throne Room, or Tea House
+      t2_csos:
+      - amass
+      - throne_room
+      type: 5/2|2/5
+    points:
+    - 36
+    - 13
+    subtitle: AI Missing Out On A Key Card, Letting Us Play This Rather Cleanly
+    turns:
+    - 15
+    - 14
+- campaign_effects:
+  - 10_villagers
+  cards:
+  - blockade
+  - cabin_boy
+  - distant_lands
+  - enchantress
+  - hunting_party
+  - ironmonger
+  - ironworks
+  - minion
+  - raider
+  - replace
+  expansions:
+  - Adventures
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Nocturne
+  - Plunder
+  - Seaside, 2E
+  idx: 265165375785852543709394294957047326580
+  landscapes:
+  - hasty
+  - wall
+  name: '2026-02-08'
+  notes:
+    crucial_cards:
+    - Replace
+    - Wall
+    - Ironmonger
+    - Enchantress
+    ending:
+    - Curse
+    - Estate
+    - Enchantress
+    link: https://youtu.be/DK1gbHgCchQ
+    name: Walled Replace
+    openings:
+    - grade: C
+      t1: Ironmonger, or Blockade
+      t1_csos:
+      - Ironmonger
+      t2: Silver
+      t2_csos:
+      - silver
+      type: 4/3|3/4
+    - grade: A
+      t1: Buy Replace
+      t1_csos:
+      - replace
+      t2: Replace Hovel into Enchantress
+      t2_csos:
+      - replace
+      - hovel
+      - Enchantress
+      type: 5/2
+    - grade: B
+      t1: Skip turn
+      t1_csos:
+      - tragic_hero
+      t2: Buy Replace
+      t2_csos:
+      - replace
+      type: 2/5
+    points:
+    - 6
+    - -17
+    subtitle: Having The Dream Opening In A Very Messy Kingdom
+    turns:
+    - 12
+    - 11
+  traits:
+  - - hasty
+    - replace
+  use_shelters: true
 - cards:
   - council_room
   - crew
@@ -29,26 +534,41 @@
   - star_chart
   name: '2026-02-07'
   notes:
-    crucial_cards: [Merchant, Daimyo, Replace, Militia]
-    ending: [Province, Daimyo]
-    link: 'https://youtu.be/RnmvTzIhK-Q'
+    crucial_cards:
+    - Merchant
+    - Daimyo
+    - Replace
+    - Militia
+    ending:
+    - Province
+    - Daimyo
+    link: https://youtu.be/RnmvTzIhK-Q
     name: Charting Merchants
     openings:
-    - grade: 'B'
-      t1: 'Militia'
-      t1_csos: [militia]
-      t2: 'Asceticism, trashing Estate'
-      t2_csos: [asceticism, estate]
+    - grade: B
+      t1: Militia
+      t1_csos:
+      - militia
+      t2: Asceticism, trashing Estate
+      t2_csos:
+      - asceticism
+      - estate
       type: 4/3|3/4
-    - grade: 'B-'
-      t1: 'Replace'
-      t1_csos: [Replace]
-      t2: 'Skip turn'
-      t2_csos: [tragic_hero]
+    - grade: B-
+      t1: Replace
+      t1_csos:
+      - Replace
+      t2: Skip turn
+      t2_csos:
+      - tragic_hero
       type: 5/2|2/5
-    points: [41, 3]
-    subtitle: 'A Stroll Through The Park Due To AI''s Merchant Skip'
-    turns: [15, 14]
+    points:
+    - 41
+    - 3
+    subtitle: A Stroll Through The Park Due To AI's Merchant Skip
+    turns:
+    - 15
+    - 14
 - cards:
   - hermit
   - junk_dealer

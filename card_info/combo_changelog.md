@@ -1,25 +1,22 @@
 
 
-## 2026-01-29 13:04:23
-Added: 5
+## 2026-02-15 19:08:35
+Added: 1
 Changed: 1 
-Removed: 0
-### Added 5 Combos
+Removed: 1
+### Added 1 Combos
 
-#### captain - ferry (Synergy)
-Reducing the cost of Captain with Ferry enables you to pick them up easily early on, and later on you might enable your Captains to play a key $5 or $6 cost Action.
-#### ferry - poet (Synergy)
-Reducing the cost of Poet with Ferry enables them to draw each other.
-#### ferry - quartermaster (Rush)
-Reducing the cost of Quartermaster with Ferry enables them to gain each other, and access them easily. Games might end in some sort of QM rush.
-#### ferry - seer (Synergy)
-Reducing the cost of Seer with Ferry enables them to draw each other.
-#### ferry - souk (Combo)
-Reducing the cost of Souk with Ferry allows to trash two cards in a 3/4 or 3/4 opening, even yielding an immediate 9-card shuffle.
+#### farmland - secret_cave (Synergy)
+Wishing for a Farmland will allow you to immediately remodel it into a Province, allowing to essentially Wish for Provinces.
 
 ### Changed 1 Combos
 
-#### biding_time - crossroads (Combo)
-Insane start-of-turn draw if you have stashed away a few Victory cards.
+#### bridge - flagship (Combo)
+Monolithically just getting 6 Flagships and a Bridge in play will enable you to pile Provinces in ~12 turns if uncontested.
 *HAS BEEN CHANGED TO*
-Insane start-of-turn draw once you have stashed away a few Victory cards. Keeping a pair can give you a lot of reliability.
+Monolithically just getting 6 Flagships in play and then playing a single Bridge will enable you to pile Provinces in about 12 turns if uncontested.
+
+### Removed 1 Combos
+
+#### mapmaker - shaman (Synergy)
+With Shaman forcing you and your opponent to gain Estates from the trash (especially early on), you will get to draw a lot in deck centered around Mapmakers.
