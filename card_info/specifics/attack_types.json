@@ -36,6 +36,7 @@
   "Fortune Teller": ["Deck order"],
   "Frigate": ["Handsize"],
   "Gatekeeper": ["Turn worsening"],
+  "Peasant": ["Handsize"],
   "Ghost Ship": ["Handsize", "Deck order"],
   "Giant": ["Trashing", "Junking", "Deck order", "Scoring"],
   "Goons": ["Handsize"],

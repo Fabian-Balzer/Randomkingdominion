@@ -172,6 +172,7 @@ black_market;encampment/plunder;When you play an Encampment that came from the B
 black_market;enlightenment;When Enlightenment is active, playing Treasures using it will provide +1 Card, +1 Action instead of the normal effect (but not use up an Action to play them).
 black_market;experiment;If you play an Experiment that was bought from the Black Market deck, you get +2 Cards and +1 Action, but it does not return to a pile and stays in play/in your deck instead. This is because Experiment does not have a pile to return to.
 black_market;farmers_market;When you get Farmers' Market from the Black Market deck, since there is no pile to gather VP tokens on, the gathering will have no effect.
+black_market;harbor_village;If the next card after a Harbor village is a Black Market, the Harbor Village will give you +$1 afterwards even if your $ has been reduced to $0 after the Black Market was played.
 black_market;harsh_winter;With Harsh Winter active, no Debt is added or removed to the Black Market deck when buying cards from it, as it is not a pile.
 black_market;hermit;You cannot exchange a Hermit for Madman if you have acquired it from the Black Market deck as it doesn't have a pile to return to..
 black_market;mission;You cannot buy cards from the Black Market during Mission turns.
@@ -753,6 +754,7 @@ endless_chalice;panic;Since you never discard Endless Chalice from play after pl
 enlightenment;ferry;Even if Enlightenment is active, you may not put the -$2 token on any Treasure pile using Ferry as it's not natively an Action supply pile.
 enlightenment;flagship;If you play Flagship as the last card during your Action phase while Enlightenment is active, the first Treasure you play during your Buy phase will be replayed for its Treasure effect.
 enlightenment;gondola;If Enlightenment is active and you gain a Gondola in your buy phase, you can play an Treasure from your hand, which will give you the usual effect.
+enlightenment;harbor_village;If Enlightenment is active, playing a Treasure during your Action phase after a Harbor Village will not yield +$1, but if Harbor Village is the last Action played before entering the Buy phase and you play a $-giving Treasure afterwards, you will get +$1 from Harbor Village.
 enlightenment;highwayman;Once Enlightenment is active, while you're under Highwayman attack, for the first Treasure you play during your Action phase, you will get to choose which effect should apply first, so you can still get +1 Card, +1 Action.
 enlightenment;innovation;If Enlightenment is active and you gain a Treasure in your buy phase, you can play it immediately using Innovation, causing you to receive the usual effect.
 enlightenment;landing_party;Landing Party/Enlightenment---When you play a Treasure as your first card with Landing Parties set aside, you first finish resolving it before topdecking the Landing Parties, i.e., if Enlightenment is active and you play a Treasure during your Action phase, you first get +1 Card and +1 Action, and then topdeck Landing Parties.
@@ -1117,13 +1119,21 @@ haggler;innovation;When you buy and gain a Haggler and play it immediately using
 haggler;rush;When you buy and gain a Haggler and play it immediately using Rush, you will gain a card costing less than it.
 haggler;spell_scroll;When you buy and gain a Haggler and play it immediately using Spell Scroll, you will gain a card costing less than it.
 hammer;panic;When you discard Hammer from play while Panic is active, you return it to the top of the Loot pile. When discarding multiple, you get to choose the order.
+harbor_village;inspiring;[Only if Harbor Village is Inspiring] If you play an Action card with an Inspiring Harbor Village, this Action will be the 'next' one that Harbor Village checks for.
 harbor_village;league_of_shopkeepers;Even if an Action-Liaison (that normally doesn't give +$) you play after a Harbor Village yields +$1 through League of Shopkeepers, you don't get +$1 from Harbor Village.
 harbor_village;merchant;If you play a Merchant after Harbor Village, you do not retroactively get +$1 from Harbor Village if you later play a Silver for the first time (barring some edge cases that involve immediately letting Merchant give +$ like e.g. Inspiring Merchant playing Black Market playing Silver).
+harbor_village;poor_house;If the next card after a Harbor village is a Poor House, the Harbor Village will give you +$1 afterwards even if your $ has been reduced to $0 after the Poor House was played.
+harbor_village;reckless;If you play a Reckless card with a choice after Harbor Village (such as Pawn or Steward) and opt for the +$ option at least once, Harbor Village will give you +$1.
+harbor_village;souk;If the next card after a Harbor village is a Souk, the Harbor Village will give you +$1 afterwards even if your $ has been reduced to $0 after the Souk was played.
 harbor_village;teacher;If you have put the +Coin token on a card (that normally doesn't give +$) and play it after a Harbor Village, you don't get +$1 from Harbor Village.
 harbor_village;training;If you have put the +Coin token on a card (that normally doesn't give +$) and play it after a Harbor Village, you don't get +$1 from Harbor Village.
 harbor_village;way_of_the_chameleon;"If you play Harbor Village using Way of the Chameleon, you will first get +$1, +2 Actions, and if a card you play later gives you +$1 (such as another Chameleon'd Harbor Village), you draw a card.
 Also, Harbor Village will not give you +$1 if you play a card as Way of the Chameleon that would give you +$ but no +Cards."
+harbor_village;way_of_the_monkey;If you play a card as Way of the Monkey and get +$ because of that, you will get +$1 from a previously played Harbor Village.
 harbor_village;way_of_the_mouse;If you play a card as Way of the Mouse and get +$ because of that, you will never get +$1 from Harbor Village as Way of the Mouse plays another card.
+harbor_village;way_of_the_mule;If you play a card as Way of the Mule and get +$ because of that, you will get +$1 from a previously played Harbor Village.
+harbor_village;way_of_the_seal;If you play a card as Way of the Seal and get +$ because of that, you will get +$1 from a previously played Harbor Village.
+harbor_village;way_of_the_sheep;If you play a card as Way of the Sheep and get +$ because of that, you will get +$1 from a previously played Harbor Village.
 harsh_winter;hermit;When you exchange a Hermit while Harsh Winter is active, Harsh Winter does not apply to the Madman pile. However, if you manage to somehow gain a Madman from the Trash (e.g. via Shaman or Lich) with Harsh Winter active, Debt is added or removed for that pile.
 harsh_winter;hostelry;When you gain Horses during your turn via hostelry while Harsh Winter is active, you add or remove Debt for the Horse pile.
 harsh_winter;invasion;When you gain a Loot via invasion during your turn while Harsh Winter is active, you add or remove Debt for the Loot pile.

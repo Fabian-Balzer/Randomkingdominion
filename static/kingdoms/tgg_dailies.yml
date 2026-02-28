@@ -1,3 +1,742 @@
+- cards:
+  - border_guard
+  - butcher
+  - clashes
+  - cursed_village
+  - golem
+  - nomads
+  - outpost
+  - procession
+  - shepherd
+  - tools
+  expansions:
+  - Adventures
+  - Alchemy
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Nocturne
+  - Plunder
+  - Renaissance
+  - Seaside, 2E
+  idx: 271450050797267582488747825430232988557
+  landscapes:
+  - baths
+  - expedition
+  name: '2026-02-28'
+  notes:
+    crucial_cards: [Clashes, Butcher, Nomads, Procession]
+    ending: [Border Guard, Nomads, Butcher]
+    link: 'https://youtu.be/swBPHKV3SJI'
+    name: 'Clashing Procession'
+    openings:
+    - grade: 'C+'
+      t1: 'Nomads'
+      t1_csos: [nomads]
+      t2: 'Expedition, take 2 VP'
+      t2_csos: [expedition, baths]
+      type: 4/3
+    - grade: 'D'
+      t1: 'Battle Plan'
+      t1_csos: [battle_plan]
+      t2: 'Nomads?'
+      t2_csos: [nomads]
+      type: 3/4
+    - grade: 'A-'
+      t1: 'Butcher'
+      t1_csos: [butcher]
+      t2: 'Border Guard'
+      t2_csos: [border_guard]
+      type: 5/2|2/5
+    points: [14, 13]
+    subtitle: 'Clashes Being Centralizing Once Again (:'
+    turns: [13, 12]
+- cards:
+  - animal_fair
+  - artisan
+  - barge
+  - black_cat
+  - destrier
+  - maroon
+  - stowaway
+  - swamp_shacks
+  - throne_room
+  - village
+  expansions:
+  - Base, 2E
+  - Menagerie
+  - Plunder
+  idx: 166867816857189328425919721244231865844
+  landscapes:
+  - rich
+  - way_of_the_otter
+  name: '2026-02-27'
+  notes:
+    crucial_cards:
+    - Artisan
+    - Throne Room
+    - Way of the Otter
+    - Swamp Shacks
+    ending:
+    - Destrier
+    - Throne Room
+    - Swamp Shacks
+    link: https://youtu.be/y6YiEEMZLs8
+    name: Otters On The Throne
+    openings:
+    - grade: B
+      t1: Maroon
+      t1_csos:
+      - maroon
+      t2: Silver
+      t2_csos:
+      - silver
+      type: 4/3|3/4
+    - grade: C
+      t1: Maroon, or Barge
+      t1_csos:
+      - maroon
+      t2: Skip turn? Or Black Cat
+      t2_csos:
+      - tragic_hero
+      type: 5/2|2/5
+    points:
+    - 28
+    - 0
+    subtitle: Strong Draw And Set-Up For A Fast Game
+    turns:
+    - 11
+    - 10
+  traits:
+  - - rich
+    - swamp_shacks
+- cards:
+  - familiar
+  - forager
+  - fortress
+  - herbalist
+  - junk_dealer
+  - mystic
+  - procession
+  - vagrant
+  - vineyard
+  - wandering_minstrel
+  expansions:
+  - Alchemy
+  - Dark Ages
+  idx: 184239074588797292489121544409827502308
+  name: '2026-02-26'
+  notes:
+    crucial_cards:
+    - Procession
+    - Fortress
+    - Forager
+    - Junk Dealer
+    ending:
+    - Curse
+    - Junk Dealer
+    - Forager
+    link: https://youtu.be/BwlqEWYOvIs
+    name: Junk Fortress
+    openings:
+    - grade: B-
+      t1: Procession, or Forager
+      t1_csos:
+      - procession
+      t2: Forager
+      t2_csos:
+      - forager
+      type: 4/3|3/4
+    - grade: B
+      t1: Junk Dealer
+      t1_csos:
+      - junk_dealer
+      t2: Vagrant
+      t2_csos:
+      - vagrant
+      type: 5/2|2/5
+    points:
+    - 15
+    - 1
+    subtitle: Navigating A Kingdom With A Unique Way To Increase Handsize
+    turns:
+    - 13
+    - 12
+  use_shelters: true
+- bane_pile: develop
+  cards:
+  - crossroads
+  - develop
+  - farmland
+  - haggler
+  - margrave
+  - menagerie
+  - nomads
+  - remake
+  - shop
+  - souk
+  - young_witch
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Hinterlands, 2E
+  idx: 107012115678291090988615395551987165360
+  name: '2026-02-25'
+  notes:
+    crucial_cards:
+    - Nomads
+    - Menagerie
+    - Farmland
+    - Remake
+    ending:
+    - Province
+    - Farmland
+    - Menagerie
+    link: https://youtu.be/Wmxfqw4lCFA
+    name: Remakerieland
+    openings:
+    - grade: B+
+      t1: Remake
+      t1_csos:
+      - remake
+      t2: Shop
+      t2_csos:
+      - shop
+      type: 4/3|3/4
+    - grade: C
+      t1: Remake, or Margrave
+      t1_csos:
+      - remake
+      t2: Crossroads
+      t2_csos:
+      - crossroads
+      type: 5/2|2/5
+    points:
+    - 55
+    - 15
+    subtitle: More Lategame Duds But Neat Stuff In Between
+    turns:
+    - 14
+    - 13
+- cards:
+  - border_village
+  - develop
+  - fools_gold
+  - guard_dog
+  - haggler
+  - highway
+  - oasis
+  - souk
+  - spice_merchant
+  - weaver
+  expansions:
+  - Hinterlands, 2E
+  idx: 231662746477017762644295386512946994183
+  name: '2026-02-24'
+  notes:
+    crucial_cards:
+    - Souk
+    - Guard Dog
+    - Highway
+    - Spice Merchant
+    ending:
+    - Province
+    - Border Village
+    link: https://youtu.be/i0M_DKX-Pdo
+    name: Souk Dog
+    openings:
+    - grade: B
+      t1: Spice Merchant
+      t1_csos:
+      - spice_merchant
+      t2: Oasis
+      t2_csos:
+      - oasis
+      type: 4/3|3/4
+    - grade: C+
+      t1: Souk
+      t1_csos:
+      - souk
+      t2: Skip turn
+      t2_csos:
+      - tragic_hero
+      type: 5/2|2/5
+    points:
+    - 39
+    - 16
+    subtitle: Suboptimal Develop Stuff And A Nasty Dud, But Enough To Prevail
+    turns:
+    - 12
+    - 11
+- cards:
+  - bandit
+  - caravan
+  - lookout
+  - monkey
+  - outpost
+  - salvager
+  - sentry
+  - tide_pools
+  - village
+  - wharf
+  expansions:
+  - Base, 2E
+  - Seaside, 2E
+  idx: 197159747931134424847363723025597662623
+  name: '2026-02-23'
+  notes:
+    crucial_cards:
+    - Outpost
+    - Salvager
+    - Bandit
+    - Village
+    ending:
+    - Province
+    - Wharf
+    - Village
+    link: https://youtu.be/kZcssepiZmM
+    name: Out-Salvaging
+    openings:
+    - grade: B
+      t1: Salvager
+      t1_csos:
+      - salvager
+      t2: Silver
+      t2_csos:
+      - silver
+      type: 4/3|3/4
+    - grade: B
+      t1: Sentry
+      t1_csos:
+      - sentry
+      t2: Skip turn
+      t2_csos:
+      - tragic_hero
+      type: 5/2|2/5
+    points:
+    - 49
+    - 9
+    subtitle: Bad Midgame Draws Don't Stop Two Powerful Last Turns
+    turns:
+    - 14
+    - 13
+- campaign_effects:
+  - delayed_joy
+  cards:
+  - coin_of_the_realm
+  - encampment/plunder
+  - fool
+  - ghost_town
+  - hideout
+  - monument
+  - peasant
+  - sacred_grove
+  - shanty_town
+  - silk_merchant
+  expansions:
+  - Adventures
+  - Empires
+  - Intrigue, 2E
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  idx: 115024104749096525954109001477446661314
+  landscapes:
+  - patient
+  name: '2026-02-22'
+  notes:
+    crucial_cards:
+    - Silk Merchant
+    - Disciple
+    - Monument
+    - Ghost Town
+    ending:
+    - Province
+    - Silk Merchant
+    link: https://youtu.be/WVL42RAJ3VY
+    name: Silk Punch
+    openings:
+    - grade: B+
+      t1: Buy Silk Merchant
+      t1_csos:
+      - silk_merchant
+      t2: Buy Hideout
+      t2_csos:
+      - hideout
+      type: 4/3
+    - grade: B
+      t1: Buy Peasant
+      t1_csos:
+      - peasant
+      t2: Buy Silk Merchant
+      t2_csos:
+      - silk_merchant
+      type: 3/4
+    - grade: B
+      t1: Buy Silk Merchant
+      t1_csos:
+      - silk_merchant
+      t2: Buy Peasant
+      t2_csos:
+      - peasant
+      type: 5/2|2/5
+    points:
+    - 52
+    - 34
+    subtitle: AI Snatching All The Silk Merchants Leads To Rough Times
+    tries: 2
+    turns:
+    - 15
+    - 14
+  traits:
+  - - patient
+    - sacred_grove
+- cards:
+  - barbarian
+  - crossroads
+  - enlarge
+  - gold_mine
+  - guildmaster
+  - ironmonger
+  - marauder
+  - mine
+  - nomads
+  - swindler
+  expansions:
+  - Allies
+  - Base, 2E
+  - Dark Ages
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
+  - Rising Sun
+  idx: 301874692048383307229122657216840861968
+  landscapes:
+  - desert_guides
+  - receive_tribute
+  - way_of_the_monkey
+  name: '2026-02-21'
+  notes:
+    crucial_cards:
+    - Swindler
+    - Nomads
+    - Desert Guides
+    - Crossroads
+    ending:
+    - Estate
+    - Nomads
+    - Ironmonger
+    link: https://youtu.be/g2Z96NtnYGE
+    name: Swindle Dwindle
+    openings:
+    - grade: C
+      t1: Buy Ironmonger
+      t1_csos:
+      - ironmonger
+      t2: 'Desert Guides away the $3 hand, if $5: Enlarge, if $4: Ironmonger, if $3:
+        Swindler'
+      t2_csos:
+      - desert_guides
+      - enlarge
+      - ironmonger
+      - swindler
+      type: 4/3|3/4
+    - grade: B
+      t1: Buy Enlarge
+      t1_csos:
+      - enlarge
+      t2: 'Desert Guides away the $3 hand, if $5: Enlarge, if $4: Ironmonger, if $3:
+        Swindler'
+      t2_csos:
+      - desert_guides
+      - enlarge
+      - ironmonger
+      - swindler
+      type: 5/2|2/5
+    points:
+    - 30
+    - 25
+    subtitle: Playing Aggressively From A Seemingly Lost Position
+    turns:
+    - 16
+    - 15
+- cards:
+  - advisor
+  - footpad
+  - fortress
+  - hunting_grounds
+  - ironmonger
+  - rogue
+  - squire
+  - storeroom
+  - university
+  - vineyard
+  expansions:
+  - Alchemy
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  idx: 211124539003672323889711084692063761286
+  name: '2026-02-20'
+  notes:
+    crucial_cards:
+    - University
+    - Storeroom
+    - Footpad
+    - Vineyard
+    ending:
+    - Squire
+    - Ironmonger
+    - Advisor
+    link: https://youtu.be/Wz_JT_bqsCY
+    name: StoreYard
+    openings:
+    - grade: B
+      t1: Potion
+      t1_csos:
+      - potion
+      t2: Storeroom
+      t2_csos:
+      - storeroom
+      type: 4/3|3/4
+    - grade: D-
+      t1: Potion
+      t1_csos:
+      - potion
+      t2: Squire
+      t2_csos:
+      - squire
+      type: 5/2|2/5
+    points:
+    - 106
+    - 24
+    subtitle: Beating Up A Clueless AI In An Explosive Kingdom W/o Thinning
+    turns:
+    - 15
+    - 14
+  use_shelters: true
+- cards:
+  - advisor
+  - capital
+  - crown
+  - enchantress
+  - farmers_market
+  - farrier
+  - patrician/emporium
+  - sacrifice
+  - soothsayer
+  - stonemason
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Empires
+  idx: 255520247877790603936810611873757734504
+  landscapes:
+  - annex
+  - wolf_den
+  name: '2026-02-19'
+  notes:
+    crucial_cards:
+    - Wolf Den
+    - stonemason
+    - Soothsayer
+    - Sacrifice
+    ending:
+    - Estate
+    - Stonemason
+    - Farrier
+    link: https://youtu.be/naLPjqnAHcM
+    name: Wolfmason
+    openings:
+    - grade: B-
+      t1: Buy Sacrifice
+      t1_csos:
+      - sacrifice
+      t2: Buy Farrier, overpaying one
+      t2_csos:
+      - farrier
+      type: 4/3
+    - grade: C+
+      t1: Buy Silver, or buy Farrier, overpaying $1
+      t1_csos:
+      - silver
+      t2: Buy Sacrifice, or Sooth if you hit $5 off the overpay
+      t2_csos:
+      - sacrifice
+      type: 3/4
+    - grade: B+
+      t1: Buy Soothsayer
+      t1_csos:
+      - soothsayer
+      t2: Buy Patrician (I think it's better to leave more Farriers in the pile for
+        this opening)
+      t2_csos:
+      - patrician
+      type: 5/2|2/5
+    points:
+    - 14
+    - 11
+    subtitle: AI Misses A Win In A Turbulent, Furious Wolf Den Finish
+    turns:
+    - 14
+    - 13
+- cards:
+  - caravan
+  - city
+  - grand_market
+  - investment
+  - lighthouse
+  - outpost
+  - peddler
+  - smugglers
+  - vault
+  - workers_village
+  expansions:
+  - Prosperity, 2E
+  - Seaside, 2E
+  idx: 193483962417803016896505420771821159519
+  name: '2026-02-18'
+  notes:
+    crucial_cards:
+    - Platinum
+    - Peddler
+    - Caravan
+    - Grand Market
+    ending:
+    - Platinum
+    - City
+    - Peddler
+    link: https://youtu.be/vp6XKvP2OWw
+    name: Platinum Stack
+    openings:
+    - grade: B-
+      t1: Investment
+      t1_csos:
+      - investment
+      t2: Lighthouse, or Silver
+      t2_csos:
+      - lighthouse
+      type: 4/3|3/4
+    - grade: B-
+      t1: Investment, or Vault
+      t1_csos:
+      - investment
+      t2: Lighthouse
+      t2_csos:
+      - lighthouse
+      type: 5/2|2/5
+    points:
+    - 27
+    - 11
+    subtitle: Amazing Draws Lead To A Massive Ramp-Up
+    turns:
+    - 12
+    - 11
+  use_colonies: true
+- cards:
+  - baron
+  - bridge
+  - diplomat
+  - masquerade
+  - mill
+  - mining_village
+  - nobles
+  - replace
+  - shanty_town
+  - swindler
+  expansions:
+  - Intrigue, 2E
+  idx: 23614896908775223053650606176983794026
+  name: '2026-02-17'
+  notes:
+    crucial_cards:
+    - Bridge
+    - Diplomat
+    - Masquerade
+    - Mining Village
+    ending:
+    - Mining Village
+    - Nobles
+    - Bridge
+    link: https://youtu.be/amzH6Se0tvU
+    name: Bridge Diplomacy
+    openings:
+    - grade: B
+      t1: Buy Masquerade
+      t1_csos:
+      - masquerade
+      t2: Buy Masquerade, or Silver, or Shanty Town
+      t2_csos:
+      - masquerade
+      type: 4/3|3/4
+    - grade: C+
+      t1: Buy Replace
+      t1_csos:
+      - replace
+      t2: Skip turn
+      t2_csos:
+      - tragic_hero
+      type: 5/2|2/5
+    points:
+    - 16
+    - 10
+    subtitle: Going For The Bridge Split Over Another Village Paying Off
+    turns:
+    - 12
+    - 11
+- cards:
+  - chapel
+  - fortress
+  - gardens
+  - harbinger
+  - hermit
+  - hunting_grounds
+  - library
+  - moat
+  - poor_house
+  - storeroom
+  expansions:
+  - Base, 2E
+  - Dark Ages
+  idx: 190233579202436442797565896103000965512
+  name: '2026-02-16'
+  notes:
+    crucial_cards:
+    - Poor House
+    - Fortress
+    - Storeroom
+    - Library
+    ending:
+    - Province
+    - Fortress
+    link: https://youtu.be/77z2Pd5WSEs
+    name: StoreHouse
+    openings:
+    - grade: B
+      t1: Hermit
+      t1_csos:
+      - hermit
+      t2: Chapel
+      t2_csos:
+      - chapel
+      type: 4/3|3/4
+    - grade: B+
+      t1: Library
+      t1_csos:
+      - library
+      t2: chapel
+      t2_csos:
+      - chapel
+      type: 5/2|2/5
+    points:
+    - 54
+    - 11
+    subtitle: Arriving At A Neat Clean Treasureless Deck
+    turns:
+    - 14
+    - 13
+  use_shelters: true
 - campaign_effects:
   - got_it_already
   - treasurified
@@ -27,26 +766,44 @@
   - ferry
   name: '2026-02-15'
   notes:
-    crucial_cards: [Recruiter, Ferry, Bridge, Lackeys]
-    ending: [Province, Bridge]
-    link: 'https://youtu.be/mVjdN5zsUH8'
-    name: 'Bridge Recruitment'
+    crucial_cards:
+    - Recruiter
+    - Ferry
+    - Bridge
+    - Lackeys
+    ending:
+    - Province
+    - Bridge
+    link: https://youtu.be/mVjdN5zsUH8
+    name: Bridge Recruitment
     openings:
-    - grade: 'A-'
-      t1: 'Put Ferry on Recruiter, buy Recruiter'
-      t1_csos: [ferry, recruiter, recruiter]
-      t2: 'Buy Recruiter'
-      t2_csos: [recruiter]
+    - grade: A-
+      t1: Put Ferry on Recruiter, buy Recruiter
+      t1_csos:
+      - ferry
+      - recruiter
+      - recruiter
+      t2: Buy Recruiter
+      t2_csos:
+      - recruiter
       type: 4/3|3/4
-    - grade: 'B-'
-      t1: 'Put Ferry on Recruiter, buy Recruiter'
-      t1_csos: [ferry, recruiter, recruiter]
-      t2: 'Buy Recruiter (using up Baker Token)'
-      t2_csos: [recruiter]
+    - grade: B-
+      t1: Put Ferry on Recruiter, buy Recruiter
+      t1_csos:
+      - ferry
+      - recruiter
+      - recruiter
+      t2: Buy Recruiter (using up Baker Token)
+      t2_csos:
+      - recruiter
       type: 5/2|2/5
-    points: [48, 0]
-    subtitle: 'Perfect Line Up Of Draws, But AI Also Blunders'
-    turns: [8, 7]
+    points:
+    - 48
+    - 0
+    subtitle: Perfect Line Up Of Draws, But AI Also Blunders
+    turns:
+    - 8
+    - 7
   stamps_and_effects:
   - - got_it_already
     - ferry

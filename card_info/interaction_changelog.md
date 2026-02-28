@@ -1,22 +1,28 @@
 
 
-## 2026-02-15 19:08:35
-Added: 7
+## 2026-02-28 09:32:01
+Added: 10
 Changed: 0 
 Removed: 0
-### Added 7 Interactions
+### Added 10 Interactions
 
-#### black_market - hermit
-You cannot exchange a Hermit for Madman if you have acquired it from the Black Market deck as it doesn't have a pile to return to..
-#### black_market - snake_witch
-If you play a Snake Witch that was bought from the Black Market deck, you cannot it return to its pile.
-#### black_market - swap
-Since cards from the Black Market deck do not have a pile, you cannot Swap them.
-#### black_market - way_of_the_butterfly
-If you play a card from the Black Market deck using Way of the Butterfly, you cannot return it to its pile (as it doesn't have one), and apart from putting the card into play, nothing happens.
-#### divine_wind - hermit
-Once Divine Wind has been triggered, you cannot exchange Hermit for Madman anymore as there is no pile to return to. If you play a Madman, it returns to its pile (as non-supply piles are not removed by Divine Wind).
-#### divine_wind - swap
-Once Divine Wind has been triggered, you cannot return any Action cards whose piles have been removed using Swap as there is no pile to return them to.
-#### divine_wind - vampire
-Once Divine Wind has been triggered, you cannot exchange Vampire for Bat anymore as there is no pile to return to, and likewise cannot exchange Bats for Vampires anymore as their pile is gone.
+#### black_market - harbor_village
+If the next card after a Harbor village is a Black Market, the Harbor Village will give you +$1 afterwards even if your $ has been reduced to $0 after the Black Market was played.
+#### enlightenment - harbor_village
+If Enlightenment is active, playing a Treasure during your Action phase after a Harbor Village will not yield +$1, but if Harbor Village is the last Action played before entering the Buy phase and you play a $-giving Treasure afterwards, you will get +$1 from Harbor Village.
+#### harbor_village - inspiring
+[Only if Harbor Village is Inspiring] If you play an Action card with an Inspiring Harbor Village, this Action will be the 'next' one that Harbor Village checks for.
+#### harbor_village - poor_house
+If the next card after a Harbor village is a Poor House, the Harbor Village will give you +$1 afterwards even if your $ has been reduced to $0 after the Poor House was played.
+#### harbor_village - reckless
+If you play a Reckless card with a choice after Harbor Village (such as Pawn or Steward) and opt for the +$ option at least once, Harbor Village will give you +$1.
+#### harbor_village - souk
+If the next card after a Harbor village is a Souk, the Harbor Village will give you +$1 afterwards even if your $ has been reduced to $0 after the Souk was played.
+#### harbor_village - way_of_the_monkey
+If you play a card as Way of the Monkey and get +$ because of that, you will get +$1 from a previously played Harbor Village.
+#### harbor_village - way_of_the_mule
+If you play a card as Way of the Mule and get +$ because of that, you will get +$1 from a previously played Harbor Village.
+#### harbor_village - way_of_the_seal
+If you play a card as Way of the Seal and get +$ because of that, you will get +$1 from a previously played Harbor Village.
+#### harbor_village - way_of_the_sheep
+If you play a card as Way of the Sheep and get +$ because of that, you will get +$1 from a previously played Harbor Village.

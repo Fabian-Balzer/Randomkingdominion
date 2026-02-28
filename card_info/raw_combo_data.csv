@@ -83,9 +83,11 @@ Black Market/Haunted Woods;Haunted Woods can shut down Black Market, as you are 
 Black Market/Keep;Keep heavily incentivizes going for Treasures from the Black Market deck, as each will give you uncontested 5 VP.;Combo;;
 Black Market/Museum;Each unique card from the Black Market will be worth an additional 2 VP with Museum around.;Synergy;;
 Black Market/Tactician;Playing Black Market before Tactician allows you to get your Treasures into play before discarding your hand. Just remember to keep a card in hand to discard for Tactician.;Synergy;;
+Bonfire/Jack of all Trades;Bonfire can trash your Coppers rather quickly while Jack of all Trades can take care of the Estates while adding Silver payload, making for a fast moneyish strategy. You might want to supplement it with other kingdom cards though.;Synergy;;
 Bridge/Capitalism;With Capitalism active, you can play Bridges nonterminally, which quickly scales up.;Weak Synergy;;
 Bridge/Flagship;Monolithically just getting 6 Flagships in play and then playing a single Bridge will enable you to pile Provinces in about 12 turns if uncontested.;Combo;;
 Bridge/Practice;With lots of draw, it might be worth gunning for just having 4 Bridges and $6 in hand. Just make sure you have extra Buys and you'll easily be able to pile Provinces.;Combo;https://youtu.be/9bxlW5IFlEM;Fabi: Daily playthrough with find-the-win
+Bridge/Royal Carriage;Getting 6 Royal Carriages on the mat an pairing that with a single Bridge will enable you to pile Provinces in about 12 turns if uncontested.;Combo;;
 Bridge/Way of the Turtle;Playing Bridges as Way of the Turtle can lead to a megaturn, but might take a while to set up, so usually some support is needed.;Weak Synergy;;
 Broker/League of Shopkeepers;Racking up 10 Favors can make Brokers pretty strong, providing Actions, Buys, and flexibility when trashing stuff.;Weak Synergy;https://youtu.be/Nfj0YxBQ8Tg;Fabi: Daily playthrough
 Bureaucracy/Groom; ;Nombo;https://youtu.be/frMkMuxn_go;Fabi: Daily playthrough
@@ -196,6 +198,7 @@ Displace/King's Court;With a $5 cost draw card, there is an autopile with KC/KC/
 Distant Lands/Innovation;Innovation makes Distant Land gains stronger - essentially 4 VP chips for $5 and passing up on your Innovation otherwise.;Weak Synergy;;
 Divine Wind/Way of the Horse;All cards of the initial kingdom lose access to their piles, so they become optional Labs once the Prophecy activates.;Synergy;;
 Donate/Market Square;Great to get lots of payload and buys into deck quickly.;Combo;;
+Dungeon/Tunnel;Opening double Dungeon, followed by alternating Tunnel and Dungeon buys early can can gain you lots of Golds. As soon as you hit $8, start Provincing and you should be able to hit 6 Provinces and around 40 VP between t12 and t14.;Combo;;
 Enchantress/Fishmonger;When under the Enchantress attack, playing Fishmonger from your deck is essentially a Laboratory;Counter;https://youtu.be/w3CiNnrfKCk;Fabi: Daily playthrough
 Enchantress/Ninja;When under the Enchantress attack, playing Ninja from your deck is essentially a Laboratory;Counter;;
 Enchantress/Ronin;When under the Enchantress attack, playing Ronin from your deck is essentially a Laboratory;Counter;;
@@ -242,6 +245,7 @@ Farmland/Secret Cave;Wishing for a Farmland will allow you to immediately remode
 Farrier/Ferry;Reducing the cost of Farrier to 0 with Ferry allows to overpay super easily.;Combo;;
 Fated/Patron;[Only if Patron is Fated] You get to reveal Patrons whenever you shuffle your deck, so if you manage to do so during your Action phase, you will generate Coffers.;Weak Synergy;;
 Fellowship of Scribes/Wizards;Trashing Coppers with Student and redrawing it with Scribes can get you thin really quickly.;Synergy;;
+Feodum/Groom;Rushing for Grooms early on you will be able to then gobble up both Feoda and Silvers later on, quickly depleting piles.;Rush;;
 Feodum/Salt the Earth;Get Silvers in deck quickly if needed.;Weak Synergy;;
 Feodum/Watchtower;With Watchtower in hand, you can immediately trash any Feoda you gain, which is sometimes nice to give you a boost in payload.;Weak Synergy;;
 Ferry/Poet;Reducing the cost of Poet with Ferry enables them to draw each other.;Synergy;;
@@ -280,8 +284,8 @@ Giant/Trail;Having a Trail trashed from the top of your deck will allow you to d
 Golem/Woodworkers Guild;With Woodworkers' Guild, you can trash an Action card into a Golem without having to gain a Potion.;Weak Synergy;;
 Grand Market/Quarry;Playing two Quarries allows you to buy Grand Markets, and having Grand Markets in combination with Quarries allows to pile out quickly.;Weak Synergy;https://www.youtube.com/watch?v=e_zd6RriEVU;RDon: Campaign playthrough
 Grand Market/Vault;Playing Vault and discarding your hand allows to buy Grand Market even with lots of Coppers in deck.;Weak Synergy;https://www.youtube.com/watch?v=e_zd6RriEVU;RDon: Campaign playthrough
-Groom/Island;Just as with Gardens, going for Grooms and then Islands is a strong rush strategy. You even get Horses on Island gains, what more do you want?;Rush;;
-Groom/Mill;Just as with Gardens, going for Grooms and then Mills is a strong rush strategy. You even get Horses on Mill gains, what more do you want?;Rush;;
+Groom/Island;Just as with Gardens, going for Grooms and then Islands is a strong rush strategy. You even get Horses on Island gains, what more do you want? Just be aware that you don't score as much as with other Groom rushes.;Rush;;
+Groom/Mill;Just as with Gardens, going for Grooms and then Mills is a strong rush strategy. You even get Horses on Mill gains, what more do you want? Just be aware that you don't score as much as with other Groom rushes, but the Horses and Mills might help to spike Province.;Rush;;
 Growth/Wealthy Village;As soon as you gain the first Loot from Wealthy Village with Growth active, you will be able to gain all remaining Wealthy Villages, as well as (if desired) some Golds along the way.;Combo;;
 Guardian/Haunted Woods;Getting Guardian in deck before your opponent plays their first Haunted Woods might be crucial as when buying Guardian while under the HW attack, it even topdecked immediately instead of gained to your hand. Night cards are heavily disincentivized with Haunted Woods around, as you will have to topdeck your hand whenever buying cards, which happens before you would be able to play any Night cards.;Counter;;
 Guide/Outpost;Guides are a great way to start the Outpost turn with a full hand.;Weak Synergy;;
@@ -469,6 +473,7 @@ Siren/Watchtower;With Watchtower in hand, you can topdeck Sirens without the nee
 Sleigh/Quartermaster;With Sleigh in hand, you can immediately gain the card you would gain onto Quartermaster to your hand by discarding Sleigh.;Weak Synergy;;
 Souk/Way of the Chameleon;With Way of the Chameleon, Souks become +7 Cards, +1 Buy, but deplete any $ you have racked up so far.;Combo;;
 Squire/Watchtower;[Only if there is an Attack card in the kingdom] With Watchtower in hand, you can immediately trash any Squires you gain and even topdeck the Attack card gained that way if you so want it.;Weak Synergy;;
+Stampede/Storeroom;Opening Storeroom and Silver, then getting a few Stampedes, pairing this with a Silver and Gold buy when possible can achieve 4 Provinces by turn 9, and 6 Provinces by ~t13, although the deck becomes inconsistent at that point. A second Storeroom can help with consistency, but it's not clear whether it's worth it.;Combo;; 
 Stockpile/Treasurer;Trashing and regaining Stockpiles with Treasurer can un-exile them even if the pile is empty, which is sometimes useful.;Weak Synergy;;
 Stockpile/Villa;Buying Stockpiles, discarding copies from Exile, returning to your Action phase with a Villa buy, and redrawing them can generate a lot of money.;Synergy;;
 Stonemason/Quarry;Reducing the cost of Stonemason to 0 with Quarry allows to overpay for Actions easily.;Synergy;;
