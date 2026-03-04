@@ -172,6 +172,7 @@ ST_ICONS = {
     "video": "📹",
     "filter": "🔍",
     "links": "🔗",
+    "download": "⬇️",
     "combo_type_rush": "🏃",
     "combo_type_combo": "🎉",
     "combo_type_synergy": "🤝",
