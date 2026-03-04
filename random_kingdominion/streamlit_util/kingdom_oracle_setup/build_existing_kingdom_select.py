@@ -47,27 +47,6 @@ def _build_kingdom_select_box(
     st.session_state["old_selected_kingdom"] = sel
 
 
-def _st_build_random_selection_button(df: pd.DataFrame, name_extra: str = ""):
-    if st.button(
-        "Random\nSelection",
-        key="kingdom_select_random_selection",
-        icon="🎲",
-        type="primary",
-        help="Select a random kingdom from those currently eligible.",
-    ):
-        if len(df) > 0:
-            series = df.sample().iloc[0]
-            kingdom = Kingdom.from_dict(series.to_dict())
-            st.session_state["oracle_kingdom_input"] = kingdom.get_dombot_csv_string()
-            if name_extra != "":
-                kingdom.name += f" [{name_extra}]"
-            st.session_state["kingdom_name"] = kingdom.name
-            st.session_state["kingdom_notes"] = kingdom.notes
-            st.session_state["existing_selected_kingdom_str"] = (
-                kingdom.get_dombot_csv_string()
-            )
-
-
 def _st_build_reference_widget():
     """Build a widget to reference where the kingdoms are from."""
     selected_stuff = st.session_state.get("kingdom_select_group", "Recommended")
@@ -79,7 +58,7 @@ def _st_build_reference_widget():
         )
     elif selected_stuff == "TGG Dailies":
         st.link_button(
-            "TGG Dailies 🔗",
+            "Dailies 🔗",
             "https://store.steampowered.com/app/1131620/Dominion/",
             help="The TGG Dailies are a set of daily kingdoms provided in the [Temple Gates Games Client](https://store.steampowered.com/app/1131620/Dominion/), where you compete against the Hard AI.\nThanks to the amazing people on the TGG discord I managed to collect these (most notably ``probably-lost``, ``igorbone`` and ``Diesel Pioneer``).",
         )
@@ -97,16 +76,16 @@ def _st_build_single_existing_kingdom_select(
     """Build a way for the user to select one of the given existing kingdoms
     provided via the dataframe.
     """
+    extra_str = (
+        selection_type[:12] + "..." if len(selection_type) > 15 else selection_type
+    )
     df = get_existing_kingdoms(selection_type)
-    df = st_build_existing_kingdom_filter_widget(df, selection_type)
+    df = st_build_existing_kingdom_filter_widget(df, selection_type, extra_str)
 
     if len(df) == 0:
         st.warning("No kingdoms available for your selection.")
         return
 
-    extra_str = (
-        selection_type[:12] + "..." if len(selection_type) > 15 else selection_type
-    )
     filt_str = st.session_state.get("kingdom_select_filter_str", "")
     selbox_extra = f" (FILTERED{filt_str})" if filt_str else ""
     if selection_type == "TGG Dailies":
@@ -116,7 +95,6 @@ def _st_build_single_existing_kingdom_select(
     flex = st.container(horizontal=True, vertical_alignment="bottom")
     with flex:
         _build_kingdom_select_box(df, extra_str, selbox_extra)
-        _st_build_random_selection_button(df, extra_str)
         _st_build_reference_widget()
 
 

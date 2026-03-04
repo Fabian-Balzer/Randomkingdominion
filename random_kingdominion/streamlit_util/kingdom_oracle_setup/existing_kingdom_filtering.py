@@ -2,8 +2,9 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 
-from ...constants import ALL_CSOS, VALID_COMBO_TYPES
+from ...constants import ALL_CSOS
 from ...cso_series_utils import listlike_contains_any
+from ...kingdom import Kingdom
 from ...utils import sanitize_cso_list, sanitize_cso_name
 from ..combo_and_inter_setup.df_filtering import st_build_combo_type_filter
 from ..constants import ST_ICONS
@@ -172,15 +173,79 @@ If you're filtering for it, all kingdoms where it's unavailable are excluded."""
     return df
 
 
+def _build_export_button(df: pd.DataFrame, sel_type: str = "", extensive: bool = False):
+    cols = [
+        "name",
+        "cards",
+        "landscapes",
+        "expansions",
+        "winrate",
+        "traits",
+        "num_interactions",
+        "num_combos",
+        "use_colonies",
+        "use_shelters",
+        "campaign_effects",
+        "stamps_and_effects",
+        "druid_boons",
+        "army_pile",
+        "obelisk_pile",
+        "ferryman_pile",
+        "divine_wind_cso_str",
+        "mouse_card",
+    ]
+    if not extensive:
+        cols = ["name", "cards", "expansions"]
+    csv = df[[col for col in cols if col in df.columns]].to_csv(index=False)
+    sani_sel_type = sel_type.lower().replace(" ", "_")
+    fname = f"kingdoms_{sani_sel_type}.csv" if sani_sel_type != "" else "kingdoms.csv"
+    fname = fname.replace(".csv", "_detailed.csv") if extensive else fname
+    st.download_button(
+        "Download CSV of selection",
+        key="kingdom_select_export_csv",
+        icon=ST_ICONS["download"],
+        data=csv,
+        help="Export the currently eligible kingdoms as a CSV file.",
+        file_name=fname,
+        mime="text/csv",
+        width="stretch",
+    )
+
+
+def _st_build_random_selection_button(df: pd.DataFrame, name_extra: str = ""):
+    if st.button(
+        "Random\nSelection",
+        key="kingdom_select_random_selection",
+        icon="🎲",
+        type="primary",
+        help="Select a random kingdom from those currently eligible.",
+    ):
+        if len(df) > 0:
+            series = df.sample().iloc[0]
+            kingdom = Kingdom.from_dict(series.to_dict())
+            st.session_state["oracle_kingdom_input"] = kingdom.get_dombot_csv_string()
+            if name_extra != "":
+                kingdom.name += f" [{name_extra}]"
+            st.session_state["kingdom_name"] = kingdom.name
+            st.session_state["kingdom_notes"] = kingdom.notes
+            st.session_state["existing_selected_kingdom_str"] = (
+                kingdom.get_dombot_csv_string()
+            )
+
+
 def st_build_existing_kingdom_filter_widget(
     df: pd.DataFrame,
     selection_type: OracleSelectionType,
+    extra_str: str = "",
 ) -> pd.DataFrame:
     """Build filtering widgets for the given selection type and return
     the filtered DataFrame."""
     filt_str = ""
     num_initial = len(df)
-    with st.expander("Filtering options", expanded=True, icon="🔍"):
+    exp = st.expander("Filtering options", expanded=True, icon="🔍")
+    flex = exp.container(horizontal=True, vertical_alignment="bottom")
+    c1 = flex.container()
+    with c1:
         tab_spec = [
             f"{ST_ICONS['cso_overview']}By CSOs",
             f"{ST_ICONS['expansions']}By Expansions",
@@ -207,5 +272,16 @@ def st_build_existing_kingdom_filter_widget(
                 df = _build_tgg_winrate_filter_widget(df)
             if num_after_third > (num_after_fourth := len(df)):
                 filt_str += ST_ICONS["winrate"]
+    with flex:
+        flex1 = st.container(horizontal=False, horizontal_alignment="right", width=170)
+    with flex1:
+        extensive = st.checkbox(
+            "Detailed CSV",
+            key="kingdom_select_extensive_csv",
+            help="If checked, the exported CSV will contain all available information on the kingdoms. Otherwise, it will only contain the name, cards and expansions.",
+            width="stretch",
+        )
+        _build_export_button(df, selection_type, extensive)
+        _st_build_random_selection_button(df, extra_str)
     st.session_state["kingdom_select_filter_str"] = filt_str
     return df
