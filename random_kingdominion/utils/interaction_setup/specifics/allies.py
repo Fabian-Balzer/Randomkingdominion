@@ -44,6 +44,34 @@ def _add_all_city_state_interactions(df: pd.DataFrame):
     )
 
 
+def _add_all_plateau_shepherds_interactions(df: pd.DataFrame):
+    add_interaction(
+        "Cheap",
+        "Plateau Shepherds",
+        "[Relevant if Cheap is on $3 or $2 cost card] If Cheap is assigned to a card initially costing $3, it becomes a $2 cost card as far as Plateau Shepherds (PS) is concerned. Conversely, a card reduced to costing $1 due to Cheap will not be eligible for PS anymore.",
+        df,
+    )
+    add_interaction(
+        "Flourishing Trade",
+        "Plateau Shepherds",
+        "If Flourishing Trade is active by the end of the game, the new (reduced) cost of cards will be considered for Plateau Shepherds (PS), so you would e.g. be awarded PS points for Silvers, but not for Estates.",
+        df,
+    )
+    add_interaction(
+        "Canal",
+        "Plateau Shepherds",
+        "Since Canal only reduces the cost of cards during your turns, at the end of the game, it doesn't reduce the cost of cards as far as Plateau Shepherds (PS) is concerned.",
+        df,
+    )
+    add_interaction(
+        "Ferry",
+        "Plateau Shepherds",
+        "Since Ferry only reduces the cost of cards during your turns, at the end of the game, the Ferry token does not reduce the cost of cards as far as Plateau Shepherds (PS) is concerned.",
+        df,
+    )
+    # If multiple allies were allowed, the interaction with Family of Inventors would be important.
+
+
 def _add_individual_allies_interactions(df: pd.DataFrame):
     add_interaction(
         "Sycophant",

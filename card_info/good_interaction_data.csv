@@ -383,7 +383,6 @@ charm;fisherman;If you choose the 'Gain Card with same cost' option for Charm an
 charm;gatekeeper;If you gain two or more copies of the same card upon gain with Charm while under the Gatekeeper attack, if you don't already have a copy in Exile, you need to exile the first, but may discard the exiled copy along with the gain of the last copy.
 charm;spell_scroll;When you play a Charm by gaining it via Spell Scroll and choose the 'gain another card' option, you will not gain another $5 cost card due to its 'Next Time' wording. Instead, you'll gain a differently named card with the same cost for the next card you gain.
 charm;wayfarer;If you choose the 'Gain Card with same cost' option, you will always (unless you gain another card in-between somehow with e.g. Haggler) be able to gain a Wayfarer off of any card you gain next, since Wayfarer changes its cost to said card. This even works with Debt and Potion cost cards.
-cheap;plateau_shepherds;[Relevant if Cheap is on $3 or $2 cost card] If Cheap is assigned to a card initially costing $3, it becomes a $2 cost card as far as Plateau Shepherds (PS) is concerned. Conversely, a card reduced to costing $1 due to Cheap will not be eligible for PS anymore.
 citadel;urchin;If you play an Urchin multiple times using Citadel, you may not trash this Urchin, since you need to play *another* attack card to be able to trash it.
 city-state;colonnade;If you use City-State to immediately play an Action you gained, you can take 2 VP from Colonnade.
 city-state;crafters_guild;When you gain a card using Crafter's Guild and immediately play it using City-State, you will not be able to topdeck it.
@@ -759,15 +758,19 @@ enlightenment;highwayman;Once Enlightenment is active, while you're under Highwa
 enlightenment;innovation;If Enlightenment is active and you gain a Treasure in your buy phase, you can play it immediately using Innovation, causing you to receive the usual effect.
 enlightenment;landing_party;Landing Party/Enlightenment---When you play a Treasure as your first card with Landing Parties set aside, you first finish resolving it before topdecking the Landing Parties, i.e., if Enlightenment is active and you play a Treasure during your Action phase, you first get +1 Card and +1 Action, and then topdeck Landing Parties.
 enlightenment;lost_arts;Even if Enlightenment is active, you may not put the + Action token on any Treasure pile using Lost Arts as it's not natively an Action supply pile.
+enlightenment;orchard;Once Enlightenment is active, for Orchard, Treasures will also be considered while scoring.
 enlightenment;pathfinding;Even if Enlightenment is active, you may not put the + Card token on any Treasure pile using Pathfinding as it's not natively an Action supply pile.
 enlightenment;peasant;Even if Enlightenment is active, you may not put any token on any Treasure pile using Teacher as it's not natively an Action supply pile.
 enlightenment;plan;Even if Enlightenment is active, you may not put the trashing token on any Treasure pile using Plan as it's not natively an Action supply pile.
 enlightenment;populate;Even if Enlightenment is active, you will not gain Treasures that you wouldn't otherwise have gained, as they do not become Action Supply piles.
 enlightenment;rush;If Enlightenment is active and you gain a Treasure in your buy phase, you can play it immediately using Rush, causing you to receive the usual effect.
 enlightenment;sauna/avanto;Once Enlightenment is active, when you play Silver during your Action phase after having played a Sauna, you will first be prompted to trash a card, and only afterwards get +1 Card, +1 Action.
+enlightenment;seaway;If Enlightenment is active, you may gain an Action-Treasure costing up to $4 and put your +Buy token on it using Seaway.
 enlightenment;spell_scroll;"If Enlightenment is active and you gain a Treasure in your buy phase, you can play it immediately using Spell Scroll, causing you to receive the usual effect.
 If Enlightenment is active, Spell Scroll's Action phase mode is overwritten by Enlightenment."
 enlightenment;training;Even if Enlightenment is active, you may not put the + $1 token on any Treasure pile using Training as it's not natively an Action supply pile.
+enlightenment;triumphal_arch;Once Enlightenment is active, for Triumphal Arch, Treasures will also be considered while scoring.
+enlightenment;vineyard;Once Enlightenment is active, for Vineyard, Treasures will also be considered while scoring.
 enlightenment;way_of_the_butterfly;Once Enlightenment is active, you can choose to play your Treasures as Way of the Butterfly both in your Action and Buy phase.
 enlightenment;way_of_the_camel;Once Enlightenment is active, you can choose to play your Treasures as Way of the Camel both in your Action and Buy phase.
 enlightenment;way_of_the_chameleon;Once Enlightenment is active, you can choose to play your Treasures as Way of the Chameleon both in your Action and Buy phase. However, during your Action phase, Way of the Chameleon will not have any effect, you still get +1 Card +1 Action from Enlightenment. During your Buy phase, Chameleon will affect them, switching +$ to +Cards and vice versa (you can e.g. play a Silver to draw two cards).

@@ -1,3 +1,9 @@
 from .build_full_kingdom_display import st_build_full_kingdom_display
-from .build_sidebar_kingdom_info import st_build_kingdom_sidebar_display
-from .kingdom_as_images import st_build_kingdom_image_display
+from .build_sidebar_kingdom_info import (
+    st_build_kingdom_csv_display,
+    st_build_kingdom_sidebar_display,
+)
+from .kingdom_as_images import (
+    st_build_kingdom_image_display_with_options,
+    st_display_kingdom_images,
+)

@@ -1,9 +1,25 @@
 from datetime import datetime
 
+import requests
 from yt_dlp import YoutubeDL
+
+from random_kingdominion.constants import PATH_ASSETS
 
 from ....logger import LOGGER
 from .util import yml_load_entries, yml_save_entries
+
+
+def _process_subtitles(subtitles_dict: dict, key):
+    """Process the subtitles dict to extract the English automatic subtitles."""
+    if "en" not in subtitles_dict:
+        return
+    url = subtitles_dict["en"].get("url")
+    if not url:
+        return
+    vtt_text = requests.get(url).text
+
+    fpath = PATH_ASSETS / f"other/yt_stats/fabyy_transcriptions/{key}.vtt"
+    fpath.write_text(vtt_text, encoding="utf-8")
 
 
 def load_yt_info(playlist_dict_entry: dict) -> list[dict]:
@@ -32,11 +48,18 @@ def load_yt_info(playlist_dict_entry: dict) -> list[dict]:
     }
     if playlist_dict_entry.get("flat", False):
         ydl_opts["extract_flat"] = "in_playlist"
+    if playlist_dict_entry["key"] == "fabyy_dailies":
+        ydl_opts["writesubtitles"] = True
+        ydl_opts["writeautomaticsub"] = True
+        ydl_opts["subtitleslangs"] = ["en"]
 
     with YoutubeDL(ydl_opts) as ydl:  # type: ignore
         info = ydl.extract_info(playlist_url, download=False)
-
-    good_cols = playlist_dict_entry["cols"]
+    good_cols = playlist_dict_entry["cols"].copy()
+    for entry in info.get("entries", []):
+        req_sub = entry.get("requested_subtitles", None)
+        if isinstance(entry, dict) and req_sub is not None:
+            _process_subtitles(req_sub, entry["id"])
 
     new_entries = [
         {k: v for k, v in entry.items() if k in good_cols}

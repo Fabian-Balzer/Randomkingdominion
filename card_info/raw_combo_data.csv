@@ -38,8 +38,10 @@ Artisan/Sheepdog;Gaining Sheepdogs to hand allows you to immediately play them f
 Artist/Mirror;With Mirror, you can gain additional Artists for $3 each.;Weak Synergy;;
 Astrolabe/Guildhall;Stock up on Astrolabes, buy Guildhall ASAP and then spam Astrolabes and Coppers with all the remaining buys. Can usually finish off the game with a double Province, will hit 6 Provinces after 12 to 14 turns (depending on when you hit $5).;Rush;https://youtu.be/FChgLjGn-iI?si=FRr1yIaS0N81Dlgf&t=344;tracer: Showcase video
 Bandit Camp/Monkey;With Monkey around, Bandit Camps might draw your opponent lots of cards.;Counter;;
+Banquet/Buried Treasure;This Rush is a bit different from Banquet/Spices as it struggles to hit $8 later on, so you might want to pivot into aggressively piling Duchies and Estates. Nonetheless, opening Banquet/Buried Treasure into double Banquet turn 2 is rather strong;Rush;;
 Banquet/Enlightenment;As soon as Enlightenment is active, Banquet essentially becomes a cheap way to gain more expensive cards.;Weak Synergy;https://youtu.be/4X1GPEVV4Hg;Fabi: Daily playthrough
 Banquet/Merchant Guild;Sometimes, getting a few Merchant Guilds in play and spamming Banquet to rack up Coffers is a good way to get a quick boost.;Weak Synergy;https://youtu.be/4X1GPEVV4Hg;Fabi: Daily playthrough
+Banquet/Spices;This rush can get to 4 Provinces in 8-10 turns, and to 6 (39 VP) in ~12-14 turns. Opening double Banquet for Spices, racking up Coffers this way (in a mirror probably until Spices are gone) and then just Provincing out will outpace most engines.;Rush;;
 Barbarian/Fortress;Having a Fortress trashed from the top of your deck will put it into your hand and gain you a cheaper Action card.;Counter;;
 Barbarian/Overlord;With Barbarian, you can trash your opponent's Overlords into Curses, while also playing Overlords as Barbarians is possible, making for a weird game of luck (I'm not even sure what to classify this as).;Synergy;;
 Barbarian/Scrying Pool;With Scrying Pool, you might be able to set up targets for Barbarian. On the other hand, getting your own Scrying Pool trashed is awful as you will gain a Curse for it.;Weak Synergy;https://youtu.be/PF7Jx5RZIPk;Fabi: Daily playthrough
@@ -491,8 +493,16 @@ Way of the Turtle/Werewolf;You can play Werewolf as Way of the Turtle in your Ni
 Way of the Turtle/Wizards;Playing Conjurer as Way of the Turtle will make you unable to play it normally again (as Duration cards that leave play will cease to function on future turns).;Nombo;;
 Weaver/Way of the Mole;Discarding a Weaver with Way of the Mole allows you to play it either for its usual effects, or as another Mole, allowing you to draw 6 cards in total, and giving you an extra Action.;Combo;;
 band_of_nomads/siren;If you gain a Siren and somehow trigger a shuffle (e.g. on t2) by drawing a card using Band of Nomads, you are no longer required to trash an Action card for the Siren to stay in your deck.;Weak Synergy;;
+crown/landing_party;Playing Crown as the first card will allow you to topdeck your Landing Parties each turn, which is especially powerful if you can pair it with a cantrip to draw into those.;Synergy;;
+farmhands/landing_party;Setting aside Treasures to play them at the start of your turn might sometimes be worth it to trigger the Landing Party topdecking.;Weak Synergy;;
 hasty/siren;[Only if Siren is Hasty] If you gain a Siren and set it aside using Hasty, since it's set aside after being gained, it will stay there even if you fail to trash an Action.;Weak Synergy;;
 innovation/siren;If you gain a Siren and use Innovation to play the Siren, Siren no longer requires you to trash an Action card from your hand in order to not trash the Siren.;Weak Synergy;;
+landing_party/enlightenment;Once Enlightenment is active, it will be easy to to topdeck your Landing Parties each turn and then draw into them with another Treasure immediately.;Combo;;
+landing_party/launch;First playing Treasures to topdeck your Landing Parties each turn and then Launching into them can be a neat boost for consistency.;Synergy;;
+landing_party/prepare;Preparing Treasures will enable you to topdeck your Landing Parties each turn, which is especially powerful if you can pair it with a cantrip to draw into those.;Synergy;;
+landing_party/rapid_expansion;Once Rapid Expansion is active, by gaining Treasures, you can ensure to topdeck your Landing Parties each turn. If you pair that with a cantrip gained, you can immediately draw into those afterwards, setting up consistent turns.;Combo;;
+landing_party/reap;By buying Reap and playing Gold at the start of your turn, you can ensure that you topdeck Landing Parties at the beginning of your next turn. Might be a steep price to pay, but good to look out for.;Weak Synergy;;
+landing_party/reckless;[Only if Landing Party is Reckless] Reckless Landing Parties stay in your deck as you never discard them from play, making them a powerful triple-Lost City.;Synergy;;
 progress/siren;If you gain a Siren and topdeck it using Progress, you don't need to trash an Action card in order for the Siren to stay in your deck.;Weak Synergy;;
 rapid_expansion/siren;If you gain a Siren and set it aside using Rapid Expansion, since it's set aside after being gained, it will stay there even if you fail to trash an Action.;Weak Synergy;;
 royal_seal/siren;If you gain a Siren and topdeck it using Royal Seal, you don't need to trash an Action card in order for it to stay in your deck.;Weak Synergy;;

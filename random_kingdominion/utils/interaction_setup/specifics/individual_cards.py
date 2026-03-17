@@ -363,15 +363,35 @@ def _add_all_harbor_village_interactions(df: pd.DataFrame):
     )
     add_interaction(
         "Harbor Village",
+        "Inspiring",
+        "[Only if Harbor Village is Inspiring] If you play an Action card with an Inspiring Harbor Village, this Action will be the 'next' one that Harbor Village checks for.",
+        df,
+    )
+    add_interaction(
+        "Harbor Village",
         "Merchant",
         "If you play a Merchant after Harbor Village, you do not retroactively get +$1 from Harbor Village if you later play a Silver for the first time (barring some edge cases that involve immediately letting Merchant give +$ like e.g. Inspiring Merchant playing Black Market playing Silver).",
+        df,
+    )
+    add_interaction(
+        "Harbor Village",
+        "Reckless",
+        "If you play a Reckless card with a choice after Harbor Village (such as Pawn or Steward) and opt for the +$ option at least once, Harbor Village will give you +$1.",
+        df,
+    )
+    add_interaction(
+        "Harbor Village",
+        "Enlightenment",
+        "If Enlightenment is active, playing a Treasure during your Action phase after a Harbor Village will not yield +$1, but if Harbor Village is the last Action played before entering the Buy phase and you play a $-giving Treasure afterwards, you will get +$1 from Harbor Village.",
         df,
     )
 
     hv_coin_tokens = "Harbor Village/Training|Teacher---If you have put the +Coin token on a card (that normally doesn't give +$) and play it after a Harbor Village, you don't get +$1 from Harbor Village."
     hv_minus_coin = "Harbor Village/Bridge Troll|Ball---If you play a card giving only +$1 and use that to remove the -Coin token after playing Harbor Village, you don't get +$1 from Harbor Village as the card didn't produce any $."
+    hv_money_giver = "Harbor Village/Black Market|Poor House|Souk---If the next card after a Harbor village is a {card_b}, the Harbor Village will give you +$1 afterwards even if your $ has been reduced to $0 after the {card_b} was played."
     add_multiple_interactions_from_single(hv_coin_tokens, df)
     add_multiple_interactions_from_single(hv_minus_coin, df)
+    add_multiple_interactions_from_single(hv_money_giver, df)
 
 
 def _add_all_highwayman_interactions(df: pd.DataFrame):

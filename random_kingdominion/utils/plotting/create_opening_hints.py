@@ -151,8 +151,8 @@ def _annotate_cso_imgs(
     for i, cso_name in enumerate(csos):
         # Size and position depend on the number of openings because the
         # available space is influenced by the number of openings
-        position = x0 + 0.3 / num_openings * i, y0
-        zoom = 1.5 / (num_openings + 3)
+        position = x0 + 0.25 / (2 + num_openings / 2) * i, y0
+        zoom = 1.5 / (num_openings + 4)
 
         cso = ALL_CSOS.loc[cso_name]
         img = load_cso_img_by_key(cso.name)  # type: ignore

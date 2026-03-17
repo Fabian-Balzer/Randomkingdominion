@@ -23,15 +23,19 @@ def _display_more_info_tt(text: str):
     )
 
 
-def _build_kingdom_csv_display(
-    k: Kingdom, loc: Literal["randomizer", "oracle"] = "oracle"
-):
+def _build_kingdom_csv_display(k: Kingdom, wrap_lines: bool = True):
     code = k.get_dombot_csv_string()
     if k.name != "":
         st.markdown(f"#### {k.name}")
-    st.code(code, wrap_lines=loc == "randomizer")
+    st.code(code, wrap_lines=wrap_lines)
     text = "You can copy this to your clipboard and paste it into the interface of your preferred digital Dominion client.\\\nShould work both for [Dominion Online](https://dominion.games/) and the [TGG implementation](https://store.steampowered.com/app/1131620/Dominion/)."
     _display_more_info_tt(text)
+
+
+def st_build_kingdom_csv_display(k: Kingdom, wrap_lines: bool = True):
+    with st.expander("Kingdom string to copy", expanded=False, icon="📋"):
+        _build_kingdom_csv_display(k, wrap_lines=wrap_lines)
+    st.container(height=2, border=False)
 
 
 def _build_kingdom_miniplot_display(k: Kingdom):
@@ -55,7 +59,7 @@ def _build_match_info_display(k: Kingdom):
     with st.expander("dominion.games ID", expanded=False, icon="🎮"):
         game_id = f"!game {game_id}"
         st.code(game_id, wrap_lines=True)
-        text = "The game ID from dominion.games. Send Dombot the !game command with this ID for more information."
+        text = "The game ID from dominion.games. Send DomBot the !game command with this ID for more information."
         _display_more_info_tt(text)
     st.container(height=2, border=False)
 
@@ -95,9 +99,7 @@ def st_build_kingdom_sidebar_display(
     k: Kingdom, loc: Literal["randomizer", "oracle"] = "oracle"
 ):
     with st.container(gap=None):
-        with st.expander("Descriptive string to copy", expanded=False, icon="📋"):
-            _build_kingdom_csv_display(k, loc=loc)
-        st.container(height=2, border=False)
+        st_build_kingdom_csv_display(k, wrap_lines=loc == "randomizer")
         _build_match_info_display(k)
         with st.expander("Kingdom plot", expanded=loc == "oracle", icon="🧭"):
             _build_kingdom_miniplot_display(k)

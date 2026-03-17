@@ -195,7 +195,7 @@ def display_stylysed_cso_df(df: pd.DataFrame, with_reroll=False, **kwargs):
         )
 
 
-def img_to_bytes(img_path):
+def _img_to_bytes(img_path):
     img_bytes = Path(img_path).read_bytes()
     encoded = base64.b64encode(img_bytes).decode()
     return encoded
@@ -203,6 +203,6 @@ def img_to_bytes(img_path):
 
 def img_to_html(img_path):
     img_html = "<img src='data:image/png;base64,{}' class='img-fluid'>".format(
-        img_to_bytes(img_path)
+        _img_to_bytes(img_path)
     )
     return img_html

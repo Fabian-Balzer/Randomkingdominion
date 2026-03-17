@@ -1,6 +1,6 @@
 import streamlit as st
 
-from .constants import ALL_CACHED_CSOS
+from .constants import ALL_CACHED_CSOS, ST_ICONS
 from .image_util import img_to_html
 
 
@@ -22,7 +22,7 @@ def _build_page_info(desc: str, link_help: str = ""):
         st.page_link(
             "streamlit_pages/about.py",
             label="More details",
-            icon="❓",
+            icon=ST_ICONS["about"],
             use_container_width=True,
             help=link_help,
         )

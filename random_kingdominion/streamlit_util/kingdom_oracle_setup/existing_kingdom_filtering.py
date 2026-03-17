@@ -181,8 +181,6 @@ def _build_export_button(df: pd.DataFrame, sel_type: str = "", extensive: bool =
         "expansions",
         "winrate",
         "traits",
-        "num_interactions",
-        "num_combos",
         "use_colonies",
         "use_shelters",
         "campaign_effects",
@@ -193,9 +191,11 @@ def _build_export_button(df: pd.DataFrame, sel_type: str = "", extensive: bool =
         "ferryman_pile",
         "divine_wind_cso_str",
         "mouse_card",
+        "num_interactions",
+        "num_combos",
     ]
     if not extensive:
-        cols = ["name", "cards", "expansions"]
+        cols = ["name", "cards", "landscapes", "expansions"]
     csv = df[[col for col in cols if col in df.columns]].to_csv(index=False)
     sani_sel_type = sel_type.lower().replace(" ", "_")
     fname = f"kingdoms_{sani_sel_type}.csv" if sani_sel_type != "" else "kingdoms.csv"

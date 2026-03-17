@@ -43,8 +43,10 @@ artist;mirror;With Mirror, you can gain additional Artists for $3 each.;Weak Syn
 astrolabe;guildhall;Stock up on Astrolabes, buy Guildhall ASAP and then spam Astrolabes and Coppers with all the remaining buys. Can usually finish off the game with a double Province, will hit 6 Provinces after 12 to 14 turns (depending on when you hit $5).;Rush;tracer: Showcase video;https://youtu.be/FChgLjGn-iI?si=FRr1yIaS0N81Dlgf&t=344
 band_of_nomads;siren;If you gain a Siren and somehow trigger a shuffle (e.g. on t2) by drawing a card using Band of Nomads, you are no longer required to trash an Action card for the Siren to stay in your deck.;Weak Synergy;;
 bandit_camp;monkey;With Monkey around, Bandit Camps might draw your opponent lots of cards.;Counter;;
+banquet;buried_treasure;This Rush is a bit different from Banquet/Spices as it struggles to hit $8 later on, so you might want to pivot into aggressively piling Duchies and Estates. Nonetheless, opening Banquet/Buried Treasure into double Banquet turn 2 is rather strong;Rush;;
 banquet;enlightenment;As soon as Enlightenment is active, Banquet essentially becomes a cheap way to gain more expensive cards.;Weak Synergy;Fabi: Daily playthrough;https://youtu.be/4X1GPEVV4Hg
 banquet;merchant_guild;Sometimes, getting a few Merchant Guilds in play and spamming Banquet to rack up Coffers is a good way to get a quick boost.;Weak Synergy;Fabi: Daily playthrough;https://youtu.be/4X1GPEVV4Hg
+banquet;spices;This rush can get to 4 Provinces in 8-10 turns, and to 6 (39 VP) in ~12-14 turns. Opening double Banquet for Spices, racking up Coffers this way (in a mirror probably until Spices are gone) and then just Provincing out will outpace most engines.;Rush;;
 barbarian;fortress;Having a Fortress trashed from the top of your deck will put it into your hand and gain you a cheaper Action card.;Counter;;
 barbarian;overlord;With Barbarian, you can trash your opponent's Overlords into Curses, while also playing Overlords as Barbarians is possible, making for a weird game of luck (I'm not even sure what to classify this as).;Synergy;;
 barbarian;scrying_pool;With Scrying Pool, you might be able to set up targets for Barbarian. On the other hand, getting your own Scrying Pool trashed is awful as you will gain a Curse for it.;Weak Synergy;Fabi: Daily playthrough;https://youtu.be/PF7Jx5RZIPk
@@ -187,7 +189,7 @@ crossroads;patron;Revealing your hand with a few Patrons in it generates Coffers
 crossroads;reckless;[Only if Crossroads is Reckless] The first time you play one will give you +6 Actions.;Synergy;;
 crown;enlightenment;Crowns will become cantrips during the Action phase.;Nombo;;
 crown;highwayman;[Mainly if Crown is the only Village] Highwayman is really effective in shutting that down.;Counter;;
-crown;landing_party;Great way to topdeck the Landing Parties each turn.;Combo;;
+crown;landing_party;Great way to topdeck the Landing Parties each turn. Playing Crown as the first card will allow you to topdeck your Landing Parties each turn, which is especially powerful if you can pair it with a cantrip to draw into those.;Combo;;
 crown;way_of_the_turtle;You can Turtle a Crown in your Buy phase without needing to spend an Action to play it at the start of another turn.;Weak Synergy;;
 crypt;haunted_woods;Night cards are heavily disincentivized with Haunted Woods around, as you will have to topdeck your hand whenever buying cards, which happens before you would be able to play any Night cards.;Counter;;
 crypt;journey;Since they are still in play, you may stash away your non-Journey-turn Treasures in Crypts on your Journey turn.;Weak Synergy;;
@@ -259,7 +261,7 @@ enlightenment;fools_gold;As soon as Enlightenment is active, you can Cantrip the
 enlightenment;graverobber;As soon as Enlightenment is active, Graverobber will be able to Trash and retrieve Treasures - turn those Golds into Provinces.;Weak Synergy;;
 enlightenment;highwayman;With Enlightenment active, when playing a Treasure during your Action phase while under Highwayman attack, you get to choose which effect applies first, so you can still get +1 Card, +1 Action and Highwayman's attack essentially does not have any effect.;Counter;;
 enlightenment;hunter;As soon as Enlightenment is active, the double-types will help Hunter draw as you'll be able to choose the type to draw them for.;Weak Synergy;;
-enlightenment;landing_party;Great way to topdeck the Landing Parties each turn and draw into them easily as soon as Enlightenment is active.;Combo;;
+enlightenment;landing_party;Great way to topdeck the Landing Parties each turn and draw into them easily as soon as Enlightenment is active. Once Enlightenment is active, it will be easy to to topdeck your Landing Parties each turn and then draw into them with another Treasure immediately.;Combo;;
 enlightenment;magpie;As soon as Enlightenment is active, Magpies will usually breed super quickly, so it pays off to be the one triggering.;Weak Synergy;;
 enlightenment;mountain_shrine;As soon as Enlightenment is active, Coppers in the trash will be Actions and Mountain Shrine will draw you cards.;Synergy;Fabi: Daily playthrough;https://youtu.be/eJEdtWTF01g
 enlightenment;orchard;As soon as Enlightenment has been activated, Orchard will consider triplets of Action-Treasures for scoring.;Synergy;;
@@ -290,6 +292,7 @@ exorcist;haunted_woods;Night cards are heavily disincentivized with Haunted Wood
 exorcist;prepare;Preparing a Night card such as Exorcist will prevent you from being able to play it during your Night phase, and at the start of your next turn, it will just be discarded.;Nombo;;
 falconer;sheepdog;Gaining Sheepdogs to hand allows you to immediately play them for draw, and also helps to trigger other Falconers you (or your opponent) might have in hand.;Synergy;Fabi: Campaign playthrough;https://youtu.be/z8XAsSQTiZs
 familiar;woodworkers_guild;With Woodworkers' Guild, you can trash an Action card into a Familiar without having to gain a Potion.;Weak Synergy;;
+farmhands;landing_party;Setting aside Treasures to play them at the start of your turn might sometimes be worth it to trigger the Landing Party topdecking.;Weak Synergy;;
 farmland;secret_cave;Wishing for a Farmland will allow you to immediately remodel it into a Province, allowing to essentially Wish for Provinces.;Synergy;;
 farrier;ferry;Reducing the cost of Farrier to 0 with Ferry allows to overpay super easily.;Combo;;
 fated;patron;[Only if Patron is Fated] You get to reveal Patrons whenever you shuffle your deck, so if you manage to do so during your Action phase, you will generate Coffers.;Weak Synergy;;
@@ -428,9 +431,12 @@ keep;search;Even if no pile empties during the game, having a few Searches in pl
 keep;wealthy_village;Keep heavily incentivizes going for Loot, as each unique one will represent at least 5 VP over your opponent.;Combo;;
 kings_court;way_of_the_rat;Pairing two KCs with a draw card (at least Moat-like) and two Treasures in hand while having an empty deck/discard will allow you to pile out KCs and the draw card by KC/KC, Rat the first KC play, KC the draw card, ratting its first play and then drawing those four cards, and then repeating that.;Combo;ceviri: Showcase video;https://www.youtube.com/watch?v=qlhmye5vg8E
 knights;trail;Having a Trail trashed from the top of your deck will allow you to draw a card.;Counter;;
-landing_party;launch;You get to play Treasures to topdeck the Landing Parties, and can then Launch.;Combo;;
+landing_party;launch;You get to play Treasures to topdeck the Landing Parties, and can then Launch. First playing Treasures to topdeck your Landing Parties each turn and then Launching into them can be a neat boost for consistency.;Combo;;
 landing_party;patient;[Only if Patient is on a Treasure] - By setting aside a Patient Treasure, you can ensure that you topdeck Landing Parties at the beginning of the next turn.;Synergy;;
-landing_party;reap;By buying Reap, you can ensure that you topdeck Landing Parties at the beginning of the next turn.;Synergy;;
+landing_party;prepare;Preparing Treasures will enable you to topdeck your Landing Parties each turn, which is especially powerful if you can pair it with a cantrip to draw into those.;Synergy;;
+landing_party;rapid_expansion;Once Rapid Expansion is active, by gaining Treasures, you can ensure to topdeck your Landing Parties each turn. If you pair that with a cantrip gained, you can immediately draw into those afterwards, setting up consistent turns.;Combo;;
+landing_party;reap;By buying Reap, you can ensure that you topdeck Landing Parties at the beginning of the next turn. By buying Reap and playing Gold at the start of your turn, you can ensure that you topdeck Landing Parties at the beginning of your next turn. Might be a steep price to pay, but good to look out for.;Synergy;;
+landing_party;reckless;[Only if Landing Party is Reckless] Reckless Landing Parties stay in your deck as you never discard them from play, making them a powerful triple-Lost City.;Synergy;;
 landing_party;villa;You get to play Treasures to topdeck the Landing Parties, and can then buy Villa to return to your Action phase and possibly play them.;Synergy;;
 launch;leprechaun;Launch can help you set up the 7-card-requirement for Leprechaun by putting a few Treasures in play. Also, with Launch, the first Gold you play essentially becomes a Cantrip.;Synergy;;
 league_of_shopkeepers;underling;Underlings can quickly rack up Favors, becoming a cantrip after just 5 plays, and a Market-Village after 10 plays.;Synergy;Fabi: Daily playthrough;https://youtu.be/urL8FU_7K_g

@@ -180,7 +180,8 @@ def _add_enlightenment_interactions(df: pd.DataFrame):
     )
     replay_inter = "Daimyo|Flagship/Enlightenment---If you play {card_a} as the last card during your Action phase while Enlightenment is active, the first Treasure you play during your Buy phase will be replayed for its Treasure effect."
     add_multiple_interactions_from_single(replay_inter, df)
-
+    action_scoring = "Vineyard|Triumphal Arch|Orchard/Enlightenment---Once Enlightenment is active, for {card_a}, Treasures will also be considered while scoring."
+    add_multiple_interactions_from_single(action_scoring, df)
 
 def _add_panic_interactions(df: pd.DataFrame):
     for loot in ALL_LOOTS:

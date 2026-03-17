@@ -88,6 +88,8 @@ def modify_extra_info(row: pd.Series) -> pd.Series:
         for qual in relevant_qualities:
             if qual == "thinning":
                 continue
+            if qual == "attack" and row["Name"] == "Joust":
+                continue
             if row[qual + "_quality"] == 0:
                 row[qual + "_quality"] = 0.5
                 row[qual + "_types"].append("Limited")

@@ -8,7 +8,7 @@ from ...constants import ST_ICONS
 from .. import display_stylysed_cso_df
 from .combo_and_inter_display import st_build_combo_and_inter_display
 from .extra_components_display import st_build_big_extra_component_display
-from .kingdom_as_images import st_build_kingdom_image_display
+from .kingdom_as_images import st_build_kingdom_image_display_with_options
 from .kingdom_plot_display import st_build_full_kingdom_plot_display
 from .reroll_view import st_build_reroll_kingdom_display
 
@@ -42,7 +42,7 @@ def st_build_full_kingdom_display(
         width="stretch",
     )
     if selected_tab == "📜Standard View":
-        st_build_kingdom_image_display(k, single_reroll_callback)
+        st_build_kingdom_image_display_with_options(k, single_reroll_callback)
     if selected_tab == "🔁Reroll View" and reroll_selection_callback is not None:
         st_build_reroll_kingdom_display(df, reroll_selection_callback)
     if selected_tab == "📊Data View":

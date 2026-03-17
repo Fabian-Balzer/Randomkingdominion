@@ -170,7 +170,7 @@ class Kingdom:
 
     # TODO: Find a more lightweight way to do this as it causes load times > 1 sec for > 100 kingdoms
     full_kingdom_df: pd.DataFrame = field(init=False, repr=False, compare=False)
-    """All components of the kingdom except for boons, loot etc., but including colonies, shelters, and ruins plus the special cards."""
+    """All components of the kingdom except for Boons, Loot etc., but including Colonies, Shelters, and Ruins plus the special cards as well as Druid Boons."""
     kingdom_card_df: pd.DataFrame = field(init=False, repr=False, compare=False)
     kingdom_landscape_df: pd.DataFrame = field(init=False, repr=False, compare=False)
     kingdom_campaign_effects_df: pd.DataFrame = field(
@@ -424,14 +424,14 @@ class Kingdom:
         return starting_deck
 
     @property
-    def buy_availability(self) -> Literal["Nothing", "Buys*", "Buys"]:
+    def buy_availability(self) -> Literal["no", "maybe", "yes"]:
         """Check whether the kingdom has any cards that provide +buy."""
         g_qualities = self.get_unique_qualtypes("gain")
         if "Buys" in g_qualities:
-            return "Buys"
+            return "yes"
         elif "Buys*" in g_qualities:
-            return "Buys*"
-        return "Nothing"
+            return "maybe"
+        return "no"
 
     @property
     def divine_wind_subkingdom(self) -> Kingdom | None:
@@ -506,6 +506,8 @@ class Kingdom:
         if ["marauder", "death_cart", "cultist"] in self.cards:
             key_list += ["ruins"]
         key_list = np.unique(key_list)
+        if self.druid_boons:
+            key_list += self.druid_boons
         full_kingdom_df = ALL_CSOS.loc[key_list]
         self.full_kingdom_df = sort_kingdom(full_kingdom_df)
 

@@ -24,9 +24,14 @@ Code to open a GUI Dominion randomizer
 
 import streamlit as st
 
-st.set_page_config(layout="wide")
 import random_kingdominion as rk
 
+st.set_page_config(
+    layout="wide",
+    menu_items={
+        "About": "This is a hobby project. Check out my [YouTube channel](https://www.youtube.com/@fabyy5713) for Dominion videos. Also, (unrelated to Dominion), I've been involved in an App for the game of werewolf, which you can check out [here](https://werewolf-app.com).",
+    },
+)
 rk.LOGGER.setLevel("ERROR")
 
 quality_pages = [
@@ -75,6 +80,12 @@ pg = st.navigation(
                 url_path="about",
                 icon=rk.ST_ICONS["about"],
             ),
+            # st.Page(
+            #     "streamlit_pages/quiz.py",
+            #     title="Quiz",
+            #     url_path="quiz",
+            #     icon=rk.ST_ICONS["quiz"],
+            # ),
         ],
         f"{rk.ST_ICONS['cso_qualities']}CSO Quality Descriptions": quality_pages,
     },

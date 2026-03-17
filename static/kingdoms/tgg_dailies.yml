@@ -1,4 +1,809 @@
 - cards:
+  - bard
+  - blessed_village
+  - den_of_sin
+  - devils_workshop
+  - idol
+  - monastery
+  - pixie
+  - shepherd
+  - tragic_hero
+  - vampire
+  expansions:
+  - Nocturne
+  idx: 94723733011078431847346943196586048221
+  name: '2026-03-17'
+- cards:
+  - astrolabe
+  - bandit
+  - harbinger
+  - lookout
+  - merchant_ship
+  - salvager
+  - sea_witch
+  - smithy
+  - tactician
+  - warehouse
+  expansions:
+  - Base, 2E
+  - Seaside, 2E
+  idx: 11408162588224730704514072227452483187
+  name: '2026-03-16'
+- campaign_effects:
+  - treasurified
+  - with_horse
+  cards:
+  - camel_train
+  - den_of_sin
+  - dungeon
+  - encampment/plunder
+  - gatekeeper
+  - highway
+  - livery
+  - mountain_shrine
+  - raider
+  - treasurer
+  expansions:
+  - Adventures
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Renaissance
+  - Rising Sun
+  idx: 25020292800271026791585834179673755015
+  landscapes:
+  - asceticism
+  - biding_time
+  name: '2026-03-15'
+  stamps_and_effects:
+  - - treasurified
+    - gatekeeper
+  - - with_horse
+    - raider
+- cards:
+  - baker
+  - bauble
+  - guard_dog
+  - ranger
+  - squire
+  - tea_house
+  - trading_post
+  - treasure_trove
+  - wayfarer
+  - wishing_well
+  expansions:
+  - Adventures
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
+  - Rising Sun
+  idx: 45211034072856567017265964856138387165
+  landscapes:
+  - harsh_winter
+  - market_towns
+  - prepare
+  name: '2026-03-14'
+- cards:
+  - anvil
+  - blessed_village
+  - cemetery
+  - cobbler
+  - cutpurse
+  - expand
+  - fishing_village
+  - pirate
+  - vault
+  - war_chest
+  expansions:
+  - Nocturne
+  - Prosperity, 2E
+  - Seaside, 2E
+  idx: 303338471310826274961966216677106791082
+  name: '2026-03-13'
+  notes:
+    crucial_cards: []
+    ending: []
+    link: ''
+    name: ''
+    openings:
+    - grade: ''
+      t1: ''
+      t1_csos: []
+      t2: ''
+      t2_csos: []
+      type: 4/3|3/4
+    - grade: ''
+      t1: ''
+      t1_csos: []
+      t2: ''
+      t2_csos: []
+      type: 5/2|2/5
+    points: []
+    subtitle: ''
+    turns: []
+- cards:
+  - artificer
+  - distant_lands
+  - dungeon
+  - duplicate
+  - fools_gold
+  - peasant
+  - port
+  - ranger
+  - scheme
+  - trader
+  expansions:
+  - Adventures
+  - Hinterlands, 2E
+  idx: 130314211065895894023023011480765308773
+  landscapes:
+  - lost_arts
+  - travelling_fair
+  name: '2026-03-12'
+  notes:
+    crucial_cards:
+    - Disciple
+    - Fools Gold
+    - Ranger
+    - Lost Arts
+    ending:
+    - Estate
+    - Ranger
+    - Fools Gold
+    link: https://youtu.be/GDUsBJfBNvI
+    name: Fool's Ranger
+    openings:
+    - grade: B+
+      t1: Buy Travelling Fair and topdeck Peasant
+      t1_csos:
+      - travelling_fair
+      - peasant
+      t2: Play Peasant, buy Dungeon, exchange for Soldier
+      t2_csos:
+      - peasant
+      - dungeon
+      - soldier
+      type: 4/3
+    - grade: C
+      t1: Buy Dungeon
+      t1_csos:
+      - dungeon
+      t2: Buy Travelling Fair and topdeck Peasant
+      t2_csos:
+      - travelling_fair
+      - peasant
+      type: 3/4
+    - grade: C+
+      t1: Buy Travelling Fair and topdeck Peasant
+      t1_csos:
+      - travelling_fair
+      - peasant
+      t2: Play Peasant, buy Dungeon if possible (else Peasant), exchange for Soldier
+      t2_csos:
+      - peasant
+      - dungeon
+      - soldier
+      type: 5/2
+    - grade: B-
+      t1: Buy Peasant
+      t1_csos:
+      - peasant
+      t2: Buy Travelling Fair and topdeck Dungeon
+      t2_csos:
+      - travelling_fair
+      - dungeon
+      type: 2/5
+    points:
+    - 14
+    - 9
+    subtitle: Tagging Along With Rough Early Shuffles
+    turns:
+    - 12
+    - 11
+- cards:
+  - ducat
+  - feodum
+  - hunting_grounds
+  - lackeys
+  - market_square
+  - patron
+  - scavenger
+  - sculptor
+  - vagrant
+  - wandering_minstrel
+  expansions:
+  - Dark Ages
+  - Renaissance
+  idx: 135817455236494925026417093461530882734
+  landscapes:
+  - guildhall
+  name: '2026-03-11'
+  notes:
+    crucial_cards:
+    - Sculptor
+    - Patron
+    - Ducat
+    - Hunting Grounds
+    ending:
+    - Ducat
+    - Lackeys
+    - Wandering Minstrel
+    link: ''
+    name: Sculpting Grounds
+    openings:
+    - grade: C-
+      t1: Patron, or Scavenger
+      t1_csos:
+      - patron
+      t2: Lackeys
+      t2_csos:
+      - lackeys
+      type: 4/3|3/4
+    - grade: B-
+      t1: Sculptor
+      t1_csos:
+      - sculptor
+      t2: Lackeys
+      t2_csos:
+      - lackeys
+      type: 5/2|2/5
+    points:
+    - 24
+    - 15
+    subtitle: Up Against AI's 5/2, But Managing To Hold On
+    turns:
+    - 11
+    - 10
+- cards:
+  - astrolabe
+  - blockade
+  - fishing_village
+  - island
+  - lookout
+  - native_village
+  - sailor
+  - salvager
+  - tactician
+  - warehouse
+  expansions:
+  - Seaside, 2E
+  idx: 46161390126341293113443571173157691915
+  name: '2026-03-10'
+  notes:
+    crucial_cards:
+    - Blockade
+    - Sailor
+    - Island
+    - Tactician
+    ending:
+    - Blockade
+    - Island
+    - Sailor
+    link: https://youtu.be/9m7PG6yWW74
+    name: Tactical Island
+    openings:
+    - grade: B
+      t1: Blockade, or Sailor if you're feeling lucky
+      t1_csos:
+      - blockade
+      t2: Fishing Village, or Warehouse
+      t2_csos:
+      - fishing_village
+      type: 4/3|3/4
+    - grade: C
+      t1: Blockade
+      t1_csos:
+      - blockade
+      t2: Native Village
+      t2_csos:
+      - native_village
+      type: 5/2|2/5
+    points:
+    - 26
+    - 21
+    subtitle: Sailing Tactically Through Blockades Towards Our Islands
+    turns:
+    - 12
+    - 11
+- cards:
+  - artisan
+  - forge
+  - investment
+  - market
+  - militia
+  - quarry
+  - vassal
+  - village
+  - watchtower
+  - workers_village
+  expansions:
+  - Base, 2E
+  - Prosperity, 2E
+  idx: 338893794314635875229456630154699662206
+  name: '2026-03-09'
+  notes:
+    crucial_cards:
+    - Quarry
+    - Investment
+    - Artisan
+    - Worker's Village
+    ending:
+    - Vassal
+    - Workers_village
+    - artisan
+    link: https://youtu.be/vmCj5u_oa3o
+    name: Investing In Quarries
+    openings:
+    - grade: B+
+      t1: Investment
+      t1_csos:
+      - investment
+      t2: Watchtower
+      t2_csos:
+      - watchtower
+      type: 4/3|3/4
+    - grade: D+
+      t1: Investment
+      t1_csos:
+      - investment
+      t2: Skip turn
+      t2_csos:
+      - tragic_hero
+      type: 5/2|2/5
+    points:
+    - 12
+    - 2
+    subtitle: Executing A Tight Game Plan Before AI Starts Greening
+    turns:
+    - 12
+    - 11
+  use_colonies: true
+- campaign_effects:
+  - action_way
+  - plus_action
+  cards:
+  - black_cat
+  - camel_train
+  - conspirator
+  - improve
+  - sanctuary
+  - secret_cave
+  - snowy_village
+  - stonemason
+  - supplies
+  - tormentor
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Renaissance
+  idx: 18229096556501627971905592946626648044
+  landscapes:
+  - way_of_the_ox
+  name: '2026-03-08'
+  notes:
+    crucial_cards:
+    - Way of the Ox
+    - Black Cat
+    - Stonemason
+    - Conspirator
+    ending:
+    - Black Cat
+    - Supplies
+    - Conspirator
+    link: ''
+    name: Supercharged Oxen
+    openings:
+    - grade: C+
+      t1: Stonemason for Black Cats, or Conspirator
+      t1_csos:
+      - Stonemason
+      - black_cat
+      - black_cat
+      t2: Supplies
+      t2_csos:
+      - supplies
+      type: 4/3|3/4
+    - grade: B+
+      t1: Sanctuary
+      t1_csos:
+      - sanctuary
+      t2: Supplies
+      t2_csos:
+      - supplies
+      type: 5/2|2/5
+    points:
+    - 12
+    - 3
+    subtitle: Losing An Important Split, But Building More Concisely
+    turns:
+    - 11
+    - 10
+  stamps_and_effects:
+  - - action_way
+    - way_of_the_ox
+  - - plus_action
+    - snowy_village
+- cards:
+  - bandit
+  - cutthroat
+  - experiment
+  - mine
+  - mountain_shrine
+  - rabble
+  - raze
+  - siren
+  - wheelwright
+  - wine_merchant
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Hinterlands, 2E
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Rising Sun
+  idx: 48768284865304664757986777486022083227
+  landscapes:
+  - ball
+  - bureaucracy
+  - canal
+  name: '2026-03-07'
+  notes:
+    crucial_cards:
+    - Mountain Shrine
+    - Siren
+    - Ball
+    - Raze
+    ending:
+    - Curse
+    - Raze
+    - Siren
+    link: https://youtu.be/Zo3lc7uIRog
+    name: Unbureaucratic Razing
+    openings:
+    - grade: C
+      t1: Mountain Shrine
+      t1_csos:
+      - mountain_shrine
+      t2: raze
+      t2_csos:
+      - raze
+      type: 4/3|3/4
+    - grade: B+
+      t1: Cutthroat
+      t1_csos:
+      - cutthroat
+      t2: Raze, or Mountain Shrine
+      t2_csos:
+      - raze
+      type: 5/2
+    - grade: B
+      t1: Raze
+      t1_csos:
+      - raze
+      t2: Cutthroat
+      t2_csos:
+      - cutthroat
+      type: 2/5
+    points:
+    - 19
+    - 17
+    subtitle: In An Unexpected Turn Of Events, What Was Prophesized Never Happens
+    turns:
+    - 17
+    - 16
+- cards:
+  - alchemist
+  - apprentice
+  - carnival
+  - fairgrounds
+  - ferryman
+  - golem
+  - herald
+  - infirmary
+  - remake
+  - scrying_pool
+  expansions:
+  - Alchemy
+  - Cornucopia & Guilds, 2E
+  ferryman_pile: shop
+  idx: 223593207008152249132164733427041965442
+  name: '2026-03-06'
+- cards:
+  - bazaar
+  - corsair
+  - farm
+  - merchant_ship
+  - mining_village
+  - nobles
+  - outpost
+  - pawn
+  - treasury
+  - warehouse
+  expansions:
+  - Intrigue, 2E
+  - Seaside, 2E
+  idx: 256313125411882871982339721529997228599
+  name: '2026-03-05'
+  notes:
+    crucial_cards:
+    - Nobles
+    - Outpost
+    - Warehouse
+    - Pawn
+    ending:
+    - Province
+    - Nobles
+    link: https://youtu.be/qcMSQTF1vkA
+    name: Thick Breeze
+    openings:
+    - grade: C
+      t1: Silver
+      t1_csos:
+      - silver
+      t2: Warehouse, or Silver
+      t2_csos:
+      - warehouse
+      type: 4/3|3/4
+    - grade: B-
+      t1: Corsair, or Bazaar
+      t1_csos:
+      - corsair
+      t2: Pawn
+      t2_csos:
+      - pawn
+      type: 5/2|2/5
+    points:
+    - 62
+    - 31
+    subtitle: Building A Neat (Uncontested) Engine Sifting Through Our Junk
+    turns:
+    - 16
+    - 15
+- cards:
+  - alchemist
+  - bard
+  - blessed_village
+  - devils_workshop
+  - exorcist
+  - philosophers_stone
+  - raider
+  - secret_cave
+  - shepherd
+  - tormentor
+  expansions:
+  - Alchemy
+  - Nocturne
+  idx: 327716320818354799459208997114600324259
+  name: '2026-03-04'
+  notes:
+    crucial_cards:
+    - Raider
+    - Devils_workshop
+    - exorcist
+    - ghost
+    ending:
+    - Province
+    - Estate
+    link: https://youtu.be/O27LRVIjz8s
+    name: Nocturnal Tumble
+    openings:
+    - grade: E
+      t1: Exorcist, or Shepherd, or Devil's Workshop, or Potion
+      t1_csos:
+      - devils_workshop
+      t2: Secret Cave, or Silver
+      t2_csos:
+      - secret_cave
+      type: 4/3|3/4
+    - grade: C+
+      t1: Tormentor
+      t1_csos:
+      - tormentor
+      t2: Skip turn
+      t2_csos:
+      - tragic_hero
+      type: 5/2|2/5
+    points:
+    - 49
+    - 42
+    subtitle: Even With An Early Lamp Pop We Almost Get Screwed
+    turns:
+    - 18
+    - 17
+- cards:
+  - alley
+  - artist
+  - change
+  - daimyo
+  - rice
+  - river_shrine
+  - riverboat
+  - root_cellar
+  - snake_witch
+  - tea_house
+  expansions:
+  - Rising Sun
+  idx: 95865743696821406198034524943623866321
+  landscapes:
+  - continue
+  - foresight
+  - rapid_expansion
+  name: '2026-03-03'
+  notes:
+    crucial_cards:
+    - Rapid Expansion
+    - Daimyo
+    - Change
+    - Rice
+    ending:
+    - Province
+    - Rice
+    link: https://youtu.be/6pp8-2YpR1Y
+    name: Rapid Change
+    openings:
+    - grade: A-
+      t1: Alley, or Daimyo
+      t1_csos:
+      - Alley
+      t2: Continue for River Shrine, trashing two Estates
+      t2_csos:
+      - Continue
+      - river_shrine
+      - estate
+      - estate
+      type: 4/3
+    - grade: B
+      t1: Continue for River Shrine, trashing two Estates
+      t1_csos:
+      - Continue
+      - river_shrine
+      - estate
+      - estate
+      t2: Pay off Debt
+      t2_csos: []
+      type: 3/4
+    - grade: A-
+      t1: Tea House, or Daimyo
+      t1_csos:
+      - tea_house
+      t2: Continue for River Shrine, trashing two Estates
+      t2_csos:
+      - Continue
+      - river_shrine
+      - estate
+      - estate
+      type: 5/2
+    - grade: B
+      t1: Continue for River Shrine, trashing two Estates
+      t1_csos:
+      - Continue
+      - river_shrine
+      - estate
+      - estate
+      t2: Pay off Debt
+      t2_csos: []
+      type: 2/5
+    points:
+    - 54
+    - 12
+    subtitle: A Crazy Setup For A Crazy $70 Ending
+    turns:
+    - 10
+    - 9
+  riverboat_card: gold_mine
+- cards:
+  - farmhands
+  - festival
+  - harbinger
+  - joust
+  - laboratory
+  - moneylender
+  - shop
+  - smithy
+  - witch
+  - workshop
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  idx: 299710916113927029633326379504100007555
+  name: '2026-03-02'
+  notes:
+    crucial_cards:
+    - Witch
+    - Farmhands
+    - Joust
+    - Smithy
+    ending:
+    - Curse
+    - Smithy
+    - Farmhands
+    link: https://youtu.be/w3xsGasvyUY
+    name: WitchHands
+    openings:
+    - grade: C+
+      t1: Moneylender
+      t1_csos:
+      - moneylender
+      t2: Shop, or Silver
+      t2_csos:
+      - shop
+      type: 4/3|3/4
+    - grade: B
+      t1: Witch
+      t1_csos:
+      - witch
+      t2: Skip turn
+      t2_csos:
+      - tragic_hero
+      type: 5/2|2/5
+    points:
+    - 26
+    - 4
+    subtitle: Cruising Ahead Due To AI's Moneylender Skip
+    turns:
+    - 19
+    - 18
+- campaign_effects:
+  - extra_oomph
+  - from_the_throne
+  - replace_estate
+  cards:
+  - alley
+  - cargo_ship
+  - cursed_village
+  - grand_market
+  - scrap
+  - scrying_pool
+  - sculptor
+  - tactician
+  - werewolf
+  - wishing_well
+  expansions:
+  - Alchemy
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Prosperity, 2E
+  - Renaissance
+  - Rising Sun
+  - Seaside, 2E
+  idx: 291576405634162137064333586636257482636
+  landscapes:
+  - populate
+  - way_of_the_mole
+  name: '2026-03-01'
+  notes:
+    crucial_cards:
+    - Scrap
+    - Populate
+    - Sculptor
+    - Cursed Village
+    ending:
+    - Cursed Village
+    - Sculptor
+    - Cargo Ship
+    - Wishing Well
+    link: ''
+    name: Grand Populate
+    points:
+    - 4
+    - 0
+    subtitle: Utter Crazyness To Start Off This Sunday
+    turns:
+    - 6
+    - 5
+  stamps_and_effects:
+  - - replace_estate
+    - scrap
+- cards:
   - border_guard
   - butcher
   - clashes
@@ -27,32 +832,50 @@
   - expedition
   name: '2026-02-28'
   notes:
-    crucial_cards: [Clashes, Butcher, Nomads, Procession]
-    ending: [Border Guard, Nomads, Butcher]
-    link: 'https://youtu.be/swBPHKV3SJI'
-    name: 'Clashing Procession'
+    crucial_cards:
+    - Clashes
+    - Butcher
+    - Nomads
+    - Procession
+    ending:
+    - Border Guard
+    - Nomads
+    - Butcher
+    link: https://youtu.be/swBPHKV3SJI
+    name: Clashing Procession
     openings:
-    - grade: 'C+'
-      t1: 'Nomads'
-      t1_csos: [nomads]
-      t2: 'Expedition, take 2 VP'
-      t2_csos: [expedition, baths]
+    - grade: C+
+      t1: Nomads
+      t1_csos:
+      - nomads
+      t2: Expedition, take 2 VP
+      t2_csos:
+      - expedition
+      - baths
       type: 4/3
-    - grade: 'D'
-      t1: 'Battle Plan'
-      t1_csos: [battle_plan]
-      t2: 'Nomads?'
-      t2_csos: [nomads]
+    - grade: D
+      t1: Battle Plan
+      t1_csos:
+      - battle_plan
+      t2: Nomads?
+      t2_csos:
+      - nomads
       type: 3/4
-    - grade: 'A-'
-      t1: 'Butcher'
-      t1_csos: [butcher]
-      t2: 'Border Guard'
-      t2_csos: [border_guard]
+    - grade: A-
+      t1: Butcher
+      t1_csos:
+      - butcher
+      t2: Border Guard
+      t2_csos:
+      - border_guard
       type: 5/2|2/5
-    points: [14, 13]
+    points:
+    - 14
+    - 13
     subtitle: 'Clashes Being Centralizing Once Again (:'
-    turns: [13, 12]
+    turns:
+    - 13
+    - 12
 - cards:
   - animal_fair
   - artisan
@@ -898,27 +1721,6 @@
   - Seaside, 2E
   idx: 191825604013381303381317916359271510178
   name: '2026-02-13'
-  notes:
-    crucial_cards: []
-    ending: []
-    link: ''
-    name: ''
-    openings:
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
-      type: 4/3|3/4
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
-      type: 5/2|2/5
-    points: []
-    subtitle: ''
-    turns: []
 - cards:
   - baron
   - coven
@@ -1813,7 +2615,7 @@
     - Squire
     ending:
     - Province
-    link: ''
+    link: https://youtu.be/-IzjZw4apAs
     name: Madman Square
     openings:
     - grade: B
@@ -2050,27 +2852,6 @@
   - borrow
   - pious
   name: '2026-01-23'
-  notes:
-    crucial_cards: []
-    ending: []
-    link: ''
-    name: ''
-    openings:
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
-      type: 4/3|3/4
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
-      type: 5/2|2/5
-    points: []
-    subtitle: ''
-    turns: []
   traits:
   - - pious
     - tide_pools
@@ -4169,27 +4950,6 @@
   - barracks
   - exploration
   name: '2025-12-16'
-  notes:
-    crucial_cards: []
-    ending: []
-    link: ''
-    name: ''
-    openings:
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
-      type: 4/3|3/4
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
-      type: 5/2|2/5
-    points: []
-    subtitle: ''
-    turns: []
 - cards:
   - bandit
   - black_cat
@@ -4208,27 +4968,6 @@
   landscapes:
   - way_of_the_camel
   name: '2025-12-15'
-  notes:
-    crucial_cards: []
-    ending: []
-    link: ''
-    name: ''
-    openings:
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
-      type: 4/3|3/4
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
-      type: 5/2|2/5
-    points: []
-    subtitle: ''
-    turns: []
 - campaign_effects:
   - chameleonized
   - pennies_saved
@@ -5607,27 +6346,6 @@
   landscapes:
   - crafters_guild
   name: '2025-11-07'
-  notes:
-    crucial_cards: []
-    ending: []
-    link: ''
-    name: ''
-    openings:
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
-      type: 4/3|3/4
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
-      type: 5/2|2/5
-    points: []
-    subtitle: ''
-    turns: []
 - cards:
   - alchemist
   - capital_city
@@ -5718,27 +6436,6 @@
   - seize_the_day
   - way_of_the_horse
   name: '2025-11-05'
-  notes:
-    crucial_cards: []
-    ending: []
-    link: ''
-    name: ''
-    openings:
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
-      type: 4/3|3/4
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
-      type: 5/2|2/5
-    points: []
-    subtitle: ''
-    turns: []
 - cards:
   - astrolabe
   - blockade
@@ -5998,27 +6695,6 @@
   landscapes:
   - exploration
   name: '2025-10-31'
-  notes:
-    crucial_cards: []
-    ending: []
-    link: ''
-    name: ''
-    openings:
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
-      type: 4/3|3/4
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
-      type: 5/2|2/5
-    points: []
-    subtitle: ''
-    turns: []
   use_colonies: true
 - cards:
   - blockade
@@ -6703,27 +7379,6 @@
   - maelstrom
   - way_of_the_sheep
   name: '2025-10-18'
-  notes:
-    crucial_cards: []
-    ending: []
-    link: ''
-    name: ''
-    openings:
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
-      type: 4/3|3/4
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
-      type: 5/2|2/5
-    points: []
-    subtitle: ''
-    turns: []
 - cards:
   - acting_troupe
   - bazaar
@@ -6741,27 +7396,6 @@
   - Seaside, 2E
   idx: 158367851183392448247877020940398371977
   name: '2025-10-17'
-  notes:
-    crucial_cards: []
-    ending: []
-    link: ''
-    name: ''
-    openings:
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
-      type: 4/3|3/4
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
-      type: 5/2|2/5
-    points: []
-    subtitle: ''
-    turns: []
 - cards:
   - alchemist
   - barbarian
@@ -7311,27 +7945,6 @@
   - Hinterlands, 2E
   idx: 106252762449141615201812616486474585029
   name: '2025-10-07'
-  notes:
-    crucial_cards: []
-    ending: []
-    link: ''
-    name: ''
-    openings:
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
-      type: 4/3|3/4
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
-      type: 5/2|2/5
-    points: []
-    subtitle: ''
-    turns: []
 - cards:
   - bureaucrat
   - cellar
@@ -8267,27 +8880,6 @@
   - innovation
   - piazza
   name: '2025-08-28'
-  notes:
-    crucial_cards: []
-    ending: []
-    link: ''
-    name: ''
-    openings:
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
-      type: 4/3|3/4
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
-      type: 5/2|2/5
-    points: []
-    subtitle: ''
-    turns: []
 - cards:
   - border_guard
   - cargo_ship
@@ -12055,27 +12647,6 @@
   - ball
   - seaway
   name: '2025-04-25'
-  notes:
-    crucial_cards: []
-    ending: []
-    link: ''
-    name: ''
-    openings:
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
-      type: 4/3|3/4
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
-      type: 5/2|2/5
-    points: []
-    subtitle: ''
-    turns: []
 - cards:
   - artificer
   - berserker
@@ -12095,27 +12666,6 @@
   - plan
   - save
   name: '2025-04-24'
-  notes:
-    crucial_cards: []
-    ending: []
-    link: ''
-    name: ''
-    openings:
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
-      type: 4/3|3/4
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
-      type: 5/2|2/5
-    points: []
-    subtitle: ''
-    turns: []
 - bane_pile: settlers/bustling_village
   cards:
   - city_quarter
@@ -12138,27 +12688,6 @@
   - arena
   - triumph
   name: '2025-04-23'
-  notes:
-    crucial_cards: []
-    ending: []
-    link: ''
-    name: ''
-    openings:
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
-      type: 4/3|3/4
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
-      type: 5/2|2/5
-    points: []
-    subtitle: ''
-    turns: []
 - cards:
   - berserker
   - farmland
@@ -12174,27 +12703,6 @@
   - Hinterlands, 2E
   idx: 15455965884528843709010004619648535247
   name: '2025-04-22'
-  notes:
-    crucial_cards: []
-    ending: []
-    link: ''
-    name: ''
-    openings:
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
-      type: 4/3|3/4
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
-      type: 5/2|2/5
-    points: []
-    subtitle: ''
-    turns: []
 - cards:
   - chapel
   - gardens
@@ -12214,43 +12722,6 @@
   - expedition
   - trade
   name: '2025-04-21'
-  notes:
-    crucial_cards:
-    - Chapel
-    - Page
-    - Warrior
-    - Remodel
-    ending: []
-    link: ''
-    name: ''
-    openings:
-    - grade: B
-      t1: Buy Page (prioritize over Chapel in case of Lost City buy by AI)
-      t1_csos:
-      - Page
-      t2: Chapel
-      t2_csos:
-      - Chapel
-      type: 4/3|5/2
-    - grade: B
-      t1: Buy Chapel (prioritize over Page in case of Lost City buy by AI)
-      t1_csos:
-      - Chapel
-      t2: Buy Page
-      t2_csos:
-      - Page
-      type: 3/4
-    - grade: B
-      t1: Buy Chapel
-      t1_csos:
-      - Chapel
-      t2: Buy Lost City; or Page
-      t2_csos:
-      - Lost City
-      type: 2/5
-    points: []
-    subtitle: ''
-    turns: []
 - campaign_effects:
   - plus_coin
   - replace_copper
@@ -12603,27 +13074,6 @@
   - city_gate
   - star_chart
   name: '2025-04-15'
-  notes:
-    crucial_cards: []
-    ending: []
-    link: ''
-    name: ''
-    openings:
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
-      type: 4/3|3/4
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
-      type: 5/2|2/5
-    points: []
-    subtitle: ''
-    turns: []
 - cards:
   - artisan
   - augurs

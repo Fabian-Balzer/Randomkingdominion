@@ -39,7 +39,7 @@ def get_square_cutout(cso_key: str) -> Image.Image:
         and not "Loot" in entry["Types"]
     ):  # type: ignore
         crop_rect = [0.31, 0.13, 0.69, 0.71]
-    if cso_key in ["way_of_the_squirrel"]:
+    if cso_key in ["way_of_the_squirrel", "wolf_den"]:
         crop_rect = [0.16, 0.13, 0.54, 0.71]
     if cso_key in [
         "copper",

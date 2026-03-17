@@ -2,7 +2,13 @@ from .constants import *
 from .create_opening_hints import create_opening_hints
 from .create_quality_plot import get_kingdom_quality_fig
 from .image_handling import *
-from .quality_plot_helper import add_kingdom_info_to_plot, plot_kingdom_qualities
+from .quality_plot_helper import (
+    add_kingdom_info_to_plot,
+    annotate_buy_icon,
+    plot_kingdom_qualities,
+    plot_quality_polygon,
+    set_up_ax_for_quality_plot,
+)
 from .thumbnail import *
 from .util import (
     annotate_icon,

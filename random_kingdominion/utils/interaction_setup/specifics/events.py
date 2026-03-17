@@ -68,6 +68,8 @@ def _add_token_event_interactions(event: str, token: str, df: pd.DataFrame):
     if event == "Seaway":
         rule = f"After buying Inheritance, you may gain an Estate and put your +Buy token on it using Seaway."
         add_interaction("Inheritance", event, rule, df)
+        rule = f"If Enlightenment is active, you may gain an Action-Treasure costing up to $4 and put your +Buy token on it using Seaway."
+        add_interaction("Enlightenment", event, rule, df)
         return
     rule = f"Even after buying Inheritance, you may not put the {token} token on the Estate pile using {event} as it's not an Action supply pile."
     add_interaction("Inheritance", event, rule, df)
@@ -105,4 +107,5 @@ def add_all_event_interactions(df: pd.DataFrame, verbose=False) -> None:
     _add_populate_interactions(df)
     _add_individual_event_interactions(df)
     if verbose:
+        print(f"Added {len(df) - num_before} event interactions.")
         print(f"Added {len(df) - num_before} event interactions.")

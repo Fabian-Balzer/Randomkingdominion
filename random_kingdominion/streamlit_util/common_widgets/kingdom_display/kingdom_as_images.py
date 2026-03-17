@@ -32,7 +32,13 @@ def round_corners(img: Image.Image, radius: int, padding_px: int = 10) -> Image.
     return img
 
 
-def display_cso_image(cso: pd.Series, kingdom: Kingdom, full_image: bool = False):
+def display_cso_image(
+    cso: pd.Series,
+    kingdom: Kingdom,
+    full_image: bool = False,
+    show_tooltip: bool = False,
+    exclude_tooltip_qualities: bool = False,
+):
     """Display the card image of a CSO with a tooltip containing the card's name, expansion, and text."""
     cso_key = str(cso.name)
     name = kingdom.get_cso_name_with_extra(cso_key)
@@ -91,12 +97,12 @@ def display_cso_image(cso: pd.Series, kingdom: Kingdom, full_image: bool = False
         trait_img = crop_img_by_percentage(trait_img, [0, 0.12, 0.063, 0.88])
         img = overlay_cutout(img, trait_img, 0.95, (0.01, 0.15))
     img = round_corners(img, 15)
-    if st.session_state["kingdom_view_tooltips"]:
-        tooltip = name + f"<br>(from the <b><em>{cso['Expansion']}</b></em> expansion)"
-        quals = get_cso_quality_description(cso_key)
-        if len(quals) > 0:
+    if show_tooltip:
+        tooltip = name + f"<br>From <b><em>{cso['Expansion']}</b></em>"
+        quals = get_cso_quality_description(cso_key, True)
+        if len(quals) > 0 and not exclude_tooltip_qualities:
             tooltip += (
-                f"<br><div style='text-align: left;'><b>Qualities</b><br>{quals}</div>"
+                f"<br><div style='text-align: left;'><b>Qualities:</b><br>{quals}</div>"
             )
     else:
         tooltip = ""
@@ -118,44 +124,138 @@ def _build_single_reroll_button(cso_name: str, reroll_callback: Callable[[str], 
         st.rerun()
 
 
-def _display_shelter_use(k: Kingdom):
-    with st.container(border=True):
-        st.write("Use Shelters.")
-        cols = st.columns(3)
-        for cso_name, col in zip(["hovel", "necropolis", "overgrown_estate"], cols):
-            cso: pd.Series = ALL_CACHED_CSOS.loc[cso_name]  # type: ignore
-            with col:
-                display_cso_image(
-                    cso, k, full_image=st.session_state["kingdom_view_full_image"]
-                )
-
-
-def _display_colony_use(k: Kingdom):
-    with st.container(border=True):
-        st.write("Use Colony/Platinum.")
-        cols = st.columns(2)
-        for cso_name, col in zip(["colony", "platinum"], cols):
-            cso: pd.Series = ALL_CACHED_CSOS.loc[cso_name]  # type: ignore
-            with col:
-                display_cso_image(
-                    cso, k, full_image=st.session_state["kingdom_view_full_image"]
-                )
-
-
-def st_build_kingdom_image_display(
-    k: Kingdom, single_reroll_callback: Callable[[str], None] | None = None
+def _display_shelter_use(
+    k: Kingdom,
+    full_image: bool = False,
+    show_tooltip: bool = False,
+    exclude_tooltip_qualities: bool = False,
 ):
-    """Display the images of the cards and landscapes in the kingdom."""
+    # with st.container(border=True):
+    st.write("Use Shelters.")
+    cols = st.columns(5)
+    for cso_name, col in zip(["hovel", "necropolis", "overgrown_estate"], cols):
+        cso: pd.Series = ALL_CACHED_CSOS.loc[cso_name]  # type: ignore
+        with col:
+            display_cso_image(
+                cso,
+                k,
+                full_image=full_image,
+                show_tooltip=show_tooltip,
+                exclude_tooltip_qualities=exclude_tooltip_qualities,
+            )
 
-    flex = st.container(horizontal=True, horizontal_alignment="center")
+
+def _display_colony_use(
+    k: Kingdom,
+    full_image: bool = False,
+    show_tooltip: bool = False,
+    exclude_tooltip_qualities: bool = False,
+):
+    st.write("Use Colony/Platinum.")
+    cols = st.columns(5)
+    for cso_name, col in zip(["colony", "platinum"], cols):
+        cso: pd.Series = ALL_CACHED_CSOS.loc[cso_name]  # type: ignore
+        with col:
+            display_cso_image(
+                cso,
+                k,
+                full_image=full_image,
+                show_tooltip=show_tooltip,
+                exclude_tooltip_qualities=exclude_tooltip_qualities,
+            )
+
+
+def st_display_kingdom_images(
+    k: Kingdom,
+    show_full_image: bool = False,
+    show_tooltips: bool = False,
+    exclude_tooltip_qualities: bool = False,
+    sorting: str = "Cost",
+    single_reroll_callback: Callable[[str], None] | None = None,
+):
+    """Display only the images of the cards and landscapes in the kingdom."""
     sorting_options = {
         "Alphabetical": ["Name"],
         "Cost": ["CostSort", "Name"],
         "Expansion": ["Expansion", "Name"],
     }
+    cards = k.kingdom_card_df
+    cards["CostSort"] = cards["Cost"].str.replace("$", "Z")
+    cards = cards.sort_values(sorting_options[sorting])
+    num_cols = ceil(len(cards) / 2)
+    has_cost_sort = sorting == "Cost"
+    iterable = reversed(list(cards.iterrows())) if has_cost_sort else cards.iterrows()
+    for i, (card_index, card) in enumerate(iterable):
+        if i % num_cols == 0:
+            cols = st.columns(num_cols)
+        index = num_cols - i % num_cols - 1 if has_cost_sort else i % num_cols
+        with cols[index]:
+            display_cso_image(
+                card,
+                k,
+                full_image=show_full_image,
+                show_tooltip=show_tooltips,
+                exclude_tooltip_qualities=exclude_tooltip_qualities,
+            )
+            if single_reroll_callback is not None and st.session_state.get(
+                "show_reroll_buttons", False
+            ):
+                _build_single_reroll_button(card["Name"], single_reroll_callback)
+    num_cols = max(4, len(k.kingdom_landscape_df))
+    for i, (_, ls) in enumerate(k.kingdom_landscape_df.iterrows()):
+        if i % num_cols == 0:
+            cols = st.columns(num_cols)
+        with cols[i % num_cols]:
+            display_cso_image(
+                ls,
+                k,
+                full_image=show_full_image,
+                show_tooltip=show_tooltips,
+                exclude_tooltip_qualities=exclude_tooltip_qualities,
+            )
+            if single_reroll_callback is not None and st.session_state.get(
+                "show_reroll_buttons", False
+            ):
+                _build_single_reroll_button(ls["Name"], single_reroll_callback)
+    num_extra = np.array([k.use_shelters, k.use_colonies], dtype="bool").sum()
+    if num_extra > 0:
+        cols = st.columns(int(num_extra))
+        if k.use_shelters:
+            with cols[0]:
+                _display_shelter_use(
+                    k,
+                    show_full_image,
+                    show_tooltips,
+                    exclude_tooltip_qualities=exclude_tooltip_qualities,
+                )
+            if k.use_colonies:
+                with cols[1]:
+                    _display_colony_use(
+                        k,
+                        show_full_image,
+                        show_tooltips,
+                        exclude_tooltip_qualities=exclude_tooltip_qualities,
+                    )
+        else:
+            with cols[0]:
+                _display_colony_use(
+                    k,
+                    show_full_image,
+                    show_tooltips,
+                    exclude_tooltip_qualities=exclude_tooltip_qualities,
+                )
+
+
+def st_build_kingdom_image_display_with_options(
+    k: Kingdom, single_reroll_callback: Callable[[str], None] | None = None
+):
+    """Display the images of the cards and landscapes in the kingdom."""
+
+    flex = st.container(horizontal=True, horizontal_alignment="center")
+    sorting_options = ["Alphabetical", "Cost", "Expansion"]
     flex.radio(
         "Sorting options",
-        list(sorting_options.keys()),
+        sorting_options,
         index=1,
         key="Kingdom sorting",
         horizontal=True,
@@ -171,51 +271,14 @@ def st_build_kingdom_image_display(
     )
     if single_reroll_callback is not None:
         flex.checkbox("Show reroll buttons", True, key="show_reroll_buttons")
-    cards = k.kingdom_card_df
-    cards["CostSort"] = cards["Cost"].str.replace("$", "Z")
-    cards = cards.sort_values(sorting_options[st.session_state["Kingdom sorting"]])
-    num_cols = ceil(len(cards) / 2)
-    # First, build the card display
-    has_cost_sort = st.session_state["Kingdom sorting"] == "Cost"
-    iterable = reversed(list(cards.iterrows())) if has_cost_sort else cards.iterrows()
-    for i, (card_index, card) in enumerate(iterable):
-        if i % num_cols == 0:
-            cols = st.columns(num_cols)
-        index = num_cols - i % num_cols - 1 if has_cost_sort else i % num_cols
-        with cols[index]:
-            display_cso_image(
-                card, k, full_image=st.session_state["kingdom_view_full_image"]
-            )
-            if (
-                single_reroll_callback is not None
-                and st.session_state["show_reroll_buttons"]
-            ):
-                _build_single_reroll_button(card["Name"], single_reroll_callback)
-    num_cols = max(4, len(k.kingdom_landscape_df))
-    # Now, build the landscape display
-    for i, (_, ls) in enumerate(k.kingdom_landscape_df.iterrows()):
-        if i % num_cols == 0:
-            cols = st.columns(num_cols)
-        with cols[i % num_cols]:
-            display_cso_image(ls, k)
-            if (
-                single_reroll_callback is not None
-                and st.session_state["show_reroll_buttons"]
-            ):
-                _build_single_reroll_button(ls["Name"], single_reroll_callback)
-    # Now, build display for col/plat and/or shelters:
-    num_extra = np.array([k.use_shelters, k.use_colonies], dtype="bool").sum()
-    if num_extra > 0:
-        cols = st.columns(int(num_extra))
-        if k.use_shelters:
-            with cols[0]:
-                _display_shelter_use(k)
-            if k.use_colonies:
-                with cols[1]:
-                    _display_colony_use(k)
-        else:
-            with cols[0]:
-                _display_colony_use(k)
+
+    st_display_kingdom_images(
+        k,
+        show_full_image=st.session_state["kingdom_view_full_image"],
+        show_tooltips=st.session_state["kingdom_view_tooltips"],
+        sorting=st.session_state["Kingdom sorting"],
+        single_reroll_callback=single_reroll_callback,
+    )
     # Extra components:
     with st.expander(
         "Extra setup components", expanded=False, icon=ST_ICONS["components"]

@@ -1,12 +1,5 @@
 from typing import TYPE_CHECKING, Literal
 
-from ..constants import (
-    CAMPAIGN_COLOR,
-    DAILY_COLOR,
-    FIRST_PLAYER_COLOR,
-    FTW_COLOR,
-    SECOND_PLAYER_COLOR,
-)
 from ..util import get_video_title, plot_gradient_image, set_up_fig_and_ax_for_img
 from .annotations import annotate_subtitle, annotate_title
 from .config import ThumbnailConfig

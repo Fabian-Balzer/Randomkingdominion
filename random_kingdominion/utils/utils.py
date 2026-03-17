@@ -205,12 +205,16 @@ def invert_dict(d: dict) -> dict:
     return {v: k for k, v in d.items()}
 
 
-def get_cso_quality_description(cso_key: str) -> str:
+def get_cso_quality_description(
+    cso_key: str, exclude_interactivity: bool = False
+) -> str:
     """Return the qualities that are > 0 for the given card in a string."""
     cso = ALL_CSOS.loc[cso_key]
     qual_strings = []
     for qual in QUALITIES_AVAILABLE:
         if (qualval := cso[qual + "_quality"]) == 0:  # type: ignore
+            continue
+        if exclude_interactivity and qual == "interactivity":
             continue
         qual_string = f"<i>{qual.capitalize()}</i>:<br>&emsp;{qualval}"
         if qual in SPECIAL_QUAL_TYPES_AVAILABLE:

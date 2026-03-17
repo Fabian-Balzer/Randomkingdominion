@@ -13,7 +13,7 @@ For the purpose of this page, the following types of pairwise interactions (some
 These are defined below, although arguably the distinctions tend to be a bit fuzzy at times. Note that I mostly do not include synergies that should be somewhat obvious, f.e. such as Battlefield/Mill or most Trail/VG/Weaver stuff (although I've decided to include a few notable ones).
 
 - !!Rush: A strong and centralizing strategy that usually quickly ends the game if followed, and for which you mostly ignore everything else in the kingdom.
-- !!Combo: Strong, centralizing synergies which usually will make you loose if you ignore them.
+- !!Combo: Strong, centralizing synergies which usually will make you lose if you ignore them.
 - !!Synergy: Stuff that very nicely works together but isn't always viable, such as Capitalism/Landing Party.
 - !!Weak Synergy: Something that is pleasantly accelerating your build, but can also be skipped if stronger things are around, or stuff that might only be relevant at a specific point in the game (like Castles/Keep).\\\n**<span style="color:darkred">Note that these are filtered out in the dataframe below by default; you may view them by changing that in the 'other' filter tab.</span>**
 - !!Counter: Some interaction of an Attack played by an opponent versus a card you might have wanted to use yourself, like Crown/Highwayman.

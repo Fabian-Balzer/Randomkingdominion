@@ -10,12 +10,6 @@ from ..interaction_util import add_interaction, add_multiple_interactions_from_s
 
 
 def _add_individual_trait_interactions(df: pd.DataFrame):
-    add_interaction(
-        "Cheap",
-        "Plateau Shepherds",
-        "[Relevant if Cheap is on $3 or $2 cost card] If Cheap is assigned to a card initially costing $3, it becomes a $2 cost card as far as Plateau Shepherds (PS) is concerned. Conversely, a card reduced to costing $1 due to Cheap will not be eligible for PS anymore.",
-        df,
-    )
     # Many more reckless interactions in the on-clean-up file.
     conspirator = "[Only if Reckless is on an Action card] A Reckless card is not played twice as far as Conspirator is concerned. That means if you e.g. Reckless were on Conspirator and you would play it as the second Action this turn, you would only get +$4, not +$4 and +1 Card, +1 Action."
     add_interaction("Reckless", "Conspirator", conspirator, df)

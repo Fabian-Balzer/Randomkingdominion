@@ -74,7 +74,7 @@ def _add_way_harbor_village_interactions(
         rule = "If you play Harbor Village using Way of the Chameleon, you will first get +$1, +2 Actions, and if a card you play later gives you +$1 (such as another Chameleon'd Harbor Village), you draw a card.\nAlso, Harbor Village will not give you +$1 if you play a card as Way of the Chameleon that would give you +$ but no +Cards."
     elif way == "Way of the Mouse":
         rule = "If you play a card as Way of the Mouse and get +$ because of that, you will never get +$1 from Harbor Village as Way of the Mouse plays another card."
-    elif "$" not in way_extras:
+    elif not any(x in way for x in ["Seal", "Sheep", "Monkey", "Mule"]):
         return
     else:
         rule = f"If you play a card as {way} and get +$ because of that, you will get +$1 from a previously played Harbor Village."

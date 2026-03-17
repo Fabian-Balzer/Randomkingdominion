@@ -1,29 +1,39 @@
 
 
-## 2026-02-28 10:24:29
-Added: 5
-Changed: 2 
+## 2026-03-17 18:03:46
+Added: 6
+Changed: 4 
 Removed: 0
-### Added 5 Combos
+### Added 6 Combos
 
-#### bonfire - jack_of_all_trades (Synergy)
-Bonfire can trash your Coppers rather quickly while Jack of all Trades can take care of the Estates while adding Silver payload, making for a fast moneyish strategy. You might want to supplement it with other kingdom cards though.
-#### bridge - royal_carriage (Combo)
-Getting 6 Royal Carriages on the mat an pairing that with a single Bridge will enable you to pile Provinces in about 12 turns if uncontested.
-#### dungeon - tunnel (Combo)
-Opening double Dungeon, followed by alternating Tunnel and Dungeon buys early can can gain you lots of Golds. As soon as you hit $8, start Provincing and you should be able to hit 6 Provinces and around 40 VP between t12 and t14.
-#### feodum - groom (Rush)
-Rushing for Grooms early on you will be able to then gobble up both Feoda and Silvers later on, quickly depleting piles.
-#### stampede - storeroom (Combo)
-Opening Storeroom and Silver, then getting a few Stampedes, pairing this with a Silver and Gold buy when possible can achieve 4 Provinces by turn 9, and 6 Provinces by ~t13, although the deck becomes inconsistent at that point. A second Storeroom can help with consistency, but it's not clear whether it's worth it.
+#### banquet - buried_treasure (Rush)
+This Rush is a bit different from Banquet/Spices as it struggles to hit $8 later on, so you might want to pivot into aggressively piling Duchies and Estates. Nonetheless, opening Banquet/Buried Treasure into double Banquet turn 2 is rather strong
+#### banquet - spices (Rush)
+This rush can get to 4 Provinces in 8-10 turns, and to 6 (39 VP) in ~12-14 turns. Opening double Banquet for Spices, racking up Coffers this way (in a mirror probably until Spices are gone) and then just Provincing out will outpace most engines.
+#### farmhands - landing_party (Weak Synergy)
+Setting aside Treasures to play them at the start of your turn might sometimes be worth it to trigger the Landing Party topdecking.
+#### landing_party - prepare (Synergy)
+Preparing Treasures will enable you to topdeck your Landing Parties each turn, which is especially powerful if you can pair it with a cantrip to draw into those.
+#### landing_party - rapid_expansion (Combo)
+Once Rapid Expansion is active, by gaining Treasures, you can ensure to topdeck your Landing Parties each turn. If you pair that with a cantrip gained, you can immediately draw into those afterwards, setting up consistent turns.
+#### landing_party - reckless (Synergy)
+[Only if Landing Party is Reckless] Reckless Landing Parties stay in your deck as you never discard them from play, making them a powerful triple-Lost City.
 
-### Changed 2 Combos
+### Changed 4 Combos
 
-#### groom - island (Rush)
-Just as with Gardens, going for Grooms and then Islands is a strong rush strategy. You even get Horses on Island gains, what more do you want?
+#### crown - landing_party (Combo)
+Great way to topdeck the Landing Parties each turn.
 *HAS BEEN CHANGED TO*
-Just as with Gardens, going for Grooms and then Islands is a strong rush strategy. You even get Horses on Island gains, what more do you want? Just be aware that you don't score as much as with other Groom rushes.
-#### groom - mill (Rush)
-Just as with Gardens, going for Grooms and then Mills is a strong rush strategy. You even get Horses on Mill gains, what more do you want?
+Great way to topdeck the Landing Parties each turn. Playing Crown as the first card will allow you to topdeck your Landing Parties each turn, which is especially powerful if you can pair it with a cantrip to draw into those.
+#### enlightenment - landing_party (Combo)
+Great way to topdeck the Landing Parties each turn and draw into them easily as soon as Enlightenment is active.
 *HAS BEEN CHANGED TO*
-Just as with Gardens, going for Grooms and then Mills is a strong rush strategy. You even get Horses on Mill gains, what more do you want? Just be aware that you don't score as much as with other Groom rushes, but the Horses and Mills might help to spike Province.
+Great way to topdeck the Landing Parties each turn and draw into them easily as soon as Enlightenment is active. Once Enlightenment is active, it will be easy to to topdeck your Landing Parties each turn and then draw into them with another Treasure immediately.
+#### landing_party - launch (Combo)
+You get to play Treasures to topdeck the Landing Parties, and can then Launch.
+*HAS BEEN CHANGED TO*
+You get to play Treasures to topdeck the Landing Parties, and can then Launch. First playing Treasures to topdeck your Landing Parties each turn and then Launching into them can be a neat boost for consistency.
+#### landing_party - reap (Synergy)
+By buying Reap, you can ensure that you topdeck Landing Parties at the beginning of the next turn.
+*HAS BEEN CHANGED TO*
+By buying Reap, you can ensure that you topdeck Landing Parties at the beginning of the next turn. By buying Reap and playing Gold at the start of your turn, you can ensure that you topdeck Landing Parties at the beginning of your next turn. Might be a steep price to pay, but good to look out for.
