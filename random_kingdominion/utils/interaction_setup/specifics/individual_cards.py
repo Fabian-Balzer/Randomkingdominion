@@ -3,6 +3,7 @@
 import pandas as pd
 
 from ....constants import ALL_CSOS, ROTATOR_DICT, SPLITPILE_DICT
+from ....logger import LOGGER
 from ..constants import (
     ACTION_TREASURES,
     ALL_THRONE_CARDS,
@@ -760,4 +761,4 @@ def add_all_individual_card_interactions(df: pd.DataFrame, verbose=False) -> Non
     _add_all_voyage_interactions(df)
     _add_all_warlord_interactions(df)
     if verbose:
-        print(f"Added {len(df) - num_before} individual card interactions.")
+        LOGGER.info(f"Added {len(df) - num_before} individual card interactions.")

@@ -2,7 +2,8 @@
 
 import pandas as pd
 
-from ..constants import TGG_BUG_DISCLAIMER, WAY_DICT
+from ..constants import WAY_DICT
+from ....logger import LOGGER
 from ..interaction_util import add_interaction, add_multiple_interactions_from_single
 
 
@@ -169,4 +170,5 @@ def add_all_on_clean_up_interactions(df: pd.DataFrame, verbose=False) -> None:
     _add_all_walled_village_interactions(df)
     _add_individual_on_cleanup_interactions(df)
     if verbose:
-        print(f"Added {len(df) - num_before} on_clean_up interactions.")
+        LOGGER.info(f"Added {len(df) - num_before} on_clean_up interactions.")
+        LOGGER.info(f"Added {len(df) - num_before} on_clean_up interactions.")

@@ -2,8 +2,7 @@
 
 import pandas as pd
 
-from ....constants import ALL_CSOS
-from ....cso_series_utils import listlike_contains
+from ....logger import LOGGER
 from ..constants import (
     CAN_CAUSE_SHUFFLE_TRIGGER_ON_GAIN,
     CAN_PLAY_CARD_ON_GAIN,
@@ -298,7 +297,7 @@ def _add_multi_gain_gatekeeper_interaction(df: pd.DataFrame):
     }
     for cso, gain_desc in multi_gain.items():
         rule = f"If you gain two {gain_desc} using {cso} while under the Gatekeeper attack, if you don't already have a copy in Exile, you need to exile the first, but may discard the exiled copy along with the gain of the second."
-        add_interaction("Gatekeeper", cso, rule, df)
+        add_interaction("Gatekeeper", cso, rule, df, add_together_if_present=True)
     multi_gain_with_num = {
         "Treasure Map": "four Golds",
         "Magic Lamp": "three Wishes",
@@ -664,4 +663,4 @@ def add_all_on_gain_interactions(df: pd.DataFrame, verbose=False):
     _add_all_on_gain_basilica_interactions(df)
     _add_all_on_gain_colonnade_interactions(df)
     if verbose:
-        print(f"Added {len(df) - num_before} on-gain interactions.")
+        LOGGER.info(f"Added {len(df) - num_before} on-gain interactions.")

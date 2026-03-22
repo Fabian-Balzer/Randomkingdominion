@@ -11,6 +11,15 @@ from .interaction_util import get_empty_interaction_df
 from .specifics import *
 
 
+def _normalize_rule_text(series: pd.Series) -> pd.Series:
+    return (
+        series.fillna("")
+        .str.replace("\r\n", "\n", regex=False)
+        .str.replace("\r", "\n", regex=False)
+        .str.strip()
+    )
+
+
 def _log_combo_or_inter_changes(
     new_df: pd.DataFrame,
     old_df: pd.DataFrame,
@@ -40,7 +49,10 @@ def _log_combo_or_inter_changes(
         suffixes=("", "_new"),
     ).query('_merge == "left_only"')
     rule_colname = "Rule" if change_type == "interaction" else "Description"
-    changed = changed[changed[rule_colname + "_new"] != changed[rule_colname + "_old"]]
+    changed = changed[
+        _normalize_rule_text(changed[rule_colname + "_new"])
+        != _normalize_rule_text(changed[rule_colname + "_old"])
+    ]
     num_added, num_changed = len(added), len(changed)
     num_removed = len(removed)
     if (num_added + num_changed + num_removed) == 0:

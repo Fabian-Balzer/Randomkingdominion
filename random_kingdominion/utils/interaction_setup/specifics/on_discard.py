@@ -2,6 +2,7 @@
 
 import pandas as pd
 
+from ....logger import LOGGER
 from ..interaction_util import add_multiple_interactions_from_single
 
 
@@ -33,4 +34,4 @@ def add_all_on_discard_interactions(df: pd.DataFrame, verbose=False) -> None:
     _add_vassal_interactions(df)
     _add_all_deck_into_discard_interactions(df)
     if verbose:
-        print(f"Added {len(df) - num_before} discarding interactions.")
+        LOGGER.info(f"Added {len(df) - num_before} discarding interactions.")

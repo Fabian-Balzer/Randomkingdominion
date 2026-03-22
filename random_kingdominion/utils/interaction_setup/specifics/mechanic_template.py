@@ -3,6 +3,7 @@
 import pandas as pd
 
 from ..constants import TGG_BUG_DISCLAIMER
+from ....logger import LOGGER
 from ..interaction_util import (
     add_interaction,
     add_multiple_interactions,
@@ -17,4 +18,4 @@ def add_all_TYPEE_interactions(df: pd.DataFrame, verbose=False) -> None:
     num_before = len(df)
 
     if verbose:
-        print(f"Added {len(df) - num_before} TYPEE interactions.")
+        LOGGER.info(f"Added {len(df) - num_before} TYPEE interactions.")

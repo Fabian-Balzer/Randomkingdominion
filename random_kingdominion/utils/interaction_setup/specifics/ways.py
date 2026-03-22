@@ -3,6 +3,7 @@
 import pandas as pd
 
 from ..constants import ACTION_TREASURES, PLAYABLE_REACTION, WAY_DICT
+from ....logger import LOGGER
 from ..interaction_util import (
     add_interaction,
     add_multiple_interactions,
@@ -77,7 +78,7 @@ def _add_way_harbor_village_interactions(
     elif not any(x in way for x in ["Seal", "Sheep", "Monkey", "Mule"]):
         return
     else:
-        rule = f"If you play a card as {way} and get +$ because of that, you will get +$1 from a previously played Harbor Village."
+        rule = f"If you play a card as {way} and get +$ because of that, you will NOT get +$1 from a previously played Harbor Village (this is still outdated in the FAQ)."
     add_interaction(way, "Harbor Village", rule, df)
 
 
@@ -224,4 +225,4 @@ def add_all_way_interactions(df: pd.DataFrame, verbose=False) -> None:
     _add_smugglers_mouse_interaction(df)
     _add_reaction_with_first_way_interactions(df)
     if verbose:
-        print(f"Added {len(df) - num_before} interactions involving ways.")
+        LOGGER.info(f"Added {len(df) - num_before} interactions involving ways.")

@@ -345,7 +345,8 @@ catapult/rocks;training;You may put the + $1 token on the Catapult/Rocks pile us
 cavalry;demand;If you Demand a Cavalry, you will gain a Horse and the Cavalry on top of your deck, then draw them, and return to your Action phase.
 cavalry;exploration;When you return to your Action phase using Cavalry, you are ending your Buy phase but gain a card at the same time, so Exploration can't trigger. Exploration can still trigger at the end of a future buy phase.
 cavalry;footpad;If you return to your Action phase using Cavalry, you are still gaining the card during the Buy phase, so Footpad's ability doesn't trigger.
-cavalry;gatekeeper;If you return to your Action phase using Cavalry, you get to choose whether you first resolve Cavalry or Gatekeeper.
+cavalry;gatekeeper;"If you return to your Action phase using Cavalry, you get to choose whether you first resolve Cavalry or Gatekeeper.
+If you gain two Horses using Cavalry while under the Gatekeeper attack, if you don't already have a copy in Exile, you need to exile the first, but may discard the exiled copy along with the gain of the second."
 cavalry;harsh_winter;When you gain Horses during your turn via cavalry while Harsh Winter is active, you add or remove Debt for the Horse pile.
 cavalry;haunted_woods;If you buy a Cavalry while under the Haunted Woods attack, you can choose whether to first draw two cards and then topdeck your hand, or whether to first topdeck your hand and then draw.
 cavalry;hermit;When you return to your Action phase using Cavalry, you are ending your Buy phase but gain a card at the same time, so Hermit can't trigger. Hermit can still trigger at the end of a future buy phase.
@@ -985,7 +986,8 @@ gatekeeper;sculptor;If you gain an Action or Treasure and put it in your hand us
 gatekeeper;secret_cave;If you gain three Wishes with Magic Lamp while under the Gatekeeper attack, if you don't already have a copy in Exile, you need to exile the first, but may discard the exiled copy along with the gain of the last copy.
 gatekeeper;silver_mine;If you gain an Action or Treasure and put it in your hand using Silver Mine while under the Gatekeeper attack, you still need to Exile it if you don't have a copy of it in Exile unless you somehow manage to play it during the on-gain-window (e.g. via City-State, or if it has a reaction that plays it, like Sheepdog or Berserker).
 gatekeeper;siren;If you gain a Siren while under Gatekeeper attack (and don't have a Siren in Exile), you can choose which effect (exiling Siren or trashing an Action for it) to resolve first, and the Siren stays in Exile even if you don't trash an Action afterwards.
-gatekeeper;sleigh;If you gain an Action or Treasure that you do not have a copy of in Exile while under the Gatekeeper attack, you can choose to first react with Sleigh to topdeck or put it into your hand, in which case you do not put it into Exile.
+gatekeeper;sleigh;"If you gain an Action or Treasure that you do not have a copy of in Exile while under the Gatekeeper attack, you can choose to first react with Sleigh to topdeck or put it into your hand, in which case you do not put it into Exile.
+If you gain two Horses using Sleigh while under the Gatekeeper attack, if you don't already have a copy in Exile, you need to exile the first, but may discard the exiled copy along with the gain of the second."
 gatekeeper;spell_scroll;"If your opponent has played Gatekeeper, you gain a card and you don't have a copy of the gained card in Exile, you may choose whether to resolve Spell Scroll or the exiling first; if you play the gained card, it cannot be moved to Exile and vice versa."
 gatekeeper;stampede;If you gain five Horses with Stampede while under the Gatekeeper attack, if you don't already have a copy in Exile, you need to exile the first, but may discard the exiled copy along with the gain of the last copy.
 gatekeeper;stonemason;If you gain two cards from the same pile using Stonemason while under the Gatekeeper attack, if you don't already have a copy in Exile, you need to exile the first, but may discard the exiled copy along with the gain of the second.
@@ -1132,11 +1134,11 @@ harbor_village;teacher;If you have put the +Coin token on a card (that normally 
 harbor_village;training;If you have put the +Coin token on a card (that normally doesn't give +$) and play it after a Harbor Village, you don't get +$1 from Harbor Village.
 harbor_village;way_of_the_chameleon;"If you play Harbor Village using Way of the Chameleon, you will first get +$1, +2 Actions, and if a card you play later gives you +$1 (such as another Chameleon'd Harbor Village), you draw a card.
 Also, Harbor Village will not give you +$1 if you play a card as Way of the Chameleon that would give you +$ but no +Cards."
-harbor_village;way_of_the_monkey;If you play a card as Way of the Monkey and get +$ because of that, you will get +$1 from a previously played Harbor Village.
+harbor_village;way_of_the_monkey;If you play a card as Way of the Monkey and get +$ because of that, you will NOT get +$1 from a previously played Harbor Village (this is still outdated in the FAQ).
 harbor_village;way_of_the_mouse;If you play a card as Way of the Mouse and get +$ because of that, you will never get +$1 from Harbor Village as Way of the Mouse plays another card.
-harbor_village;way_of_the_mule;If you play a card as Way of the Mule and get +$ because of that, you will get +$1 from a previously played Harbor Village.
-harbor_village;way_of_the_seal;If you play a card as Way of the Seal and get +$ because of that, you will get +$1 from a previously played Harbor Village.
-harbor_village;way_of_the_sheep;If you play a card as Way of the Sheep and get +$ because of that, you will get +$1 from a previously played Harbor Village.
+harbor_village;way_of_the_mule;If you play a card as Way of the Mule and get +$ because of that, you will NOT get +$1 from a previously played Harbor Village (this is still outdated in the FAQ).
+harbor_village;way_of_the_seal;If you play a card as Way of the Seal and get +$ because of that, you will NOT get +$1 from a previously played Harbor Village (this is still outdated in the FAQ).
+harbor_village;way_of_the_sheep;If you play a card as Way of the Sheep and get +$ because of that, you will NOT get +$1 from a previously played Harbor Village (this is still outdated in the FAQ).
 harsh_winter;hermit;When you exchange a Hermit while Harsh Winter is active, Harsh Winter does not apply to the Madman pile. However, if you manage to somehow gain a Madman from the Trash (e.g. via Shaman or Lich) with Harsh Winter active, Debt is added or removed for that pile.
 harsh_winter;hostelry;When you gain Horses during your turn via hostelry while Harsh Winter is active, you add or remove Debt for the Horse pile.
 harsh_winter;invasion;When you gain a Loot via invasion during your turn while Harsh Winter is active, you add or remove Debt for the Loot pile.

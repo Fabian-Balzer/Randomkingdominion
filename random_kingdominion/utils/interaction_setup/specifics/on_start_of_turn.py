@@ -4,6 +4,7 @@ import pandas as pd
 
 from ..constants import TGG_BUG_DISCLAIMER
 from ..interaction_util import add_interaction
+from ....logger import LOGGER
 
 
 def _add_individual_on_start_of_turn_interactions(df: pd.DataFrame):
@@ -52,4 +53,4 @@ def add_all_on_start_of_turn_interactions(df: pd.DataFrame, verbose=False) -> No
     num_before = len(df)
     _add_individual_on_start_of_turn_interactions(df)
     if verbose:
-        print(f"Added {len(df) - num_before} on-start-of-turn interactions.")
+        LOGGER.info(f"Added {len(df) - num_before} on-start-of-turn interactions.")

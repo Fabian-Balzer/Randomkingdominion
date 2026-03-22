@@ -5,8 +5,9 @@ import pandas as pd
 from random_kingdominion.constants import ALL_CSOS
 from random_kingdominion.utils.kingdom_helper_funcs import sanitize_cso_name
 
-from ..constants import TGG_BUG_DISCLAIMER, ALL_THRONE_CARDS
-from ..interaction_util import add_interaction, add_multiple_interactions_from_single
+from ..constants import ALL_THRONE_CARDS
+from ....logger import LOGGER
+from ..interaction_util import add_interaction
 
 
 def _add_individual_trait_interactions(df: pd.DataFrame):
@@ -38,4 +39,5 @@ def add_all_trait_interactions(df: pd.DataFrame, verbose=False) -> None:
     # Tireless/Panic is in Prophecies.
     _add_individual_trait_interactions(df)
     if verbose:
-        print(f"Added {len(df) - num_before} trait interactions.")
+        LOGGER.info(f"Added {len(df) - num_before} trait interactions.")
+        LOGGER.info(f"Added {len(df) - num_before} trait interactions.")

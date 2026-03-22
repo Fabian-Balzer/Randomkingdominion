@@ -2,16 +2,17 @@
 
 import pandas as pd
 
+from ....constants import HEIRLOOM_DICT
+from ....logger import LOGGER
 from ..constants import (
     ACTION_TREASURES,
+    ALL_HORSE_GAINERS,
     ALL_LOOT_GIVERS,
     ALL_LOOTS,
     GATHERING_CARDS,
     TGG_BUG_DISCLAIMER,
     TRAVELLER_BASE_CARDS,
-    ALL_HORSE_GAINERS,
 )
-from ....constants import HEIRLOOM_DICT
 from ..interaction_util import add_interaction, add_multiple_interactions_from_single
 
 
@@ -183,6 +184,7 @@ def _add_enlightenment_interactions(df: pd.DataFrame):
     action_scoring = "Vineyard|Triumphal Arch|Orchard/Enlightenment---Once Enlightenment is active, for {card_a}, Treasures will also be considered while scoring."
     add_multiple_interactions_from_single(action_scoring, df)
 
+
 def _add_panic_interactions(df: pd.DataFrame):
     for loot in ALL_LOOTS:
         if loot in ["Endless Chalice", "Jewels"]:
@@ -252,4 +254,4 @@ def add_all_prophecy_interactions(df: pd.DataFrame, verbose=False) -> None:
     _add_progress_interactions(df)
     # Rapid Expansion stuff mostly in on-gain
     if verbose:
-        print(f"Added {len(df) - num_before} prophecy interactions.")
+        LOGGER.info(f"Added {len(df) - num_before} prophecy interactions.")

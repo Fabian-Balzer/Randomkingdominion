@@ -3,6 +3,7 @@
 import pandas as pd
 
 from ..constants import AFFECTED_BY_END_BUY, BACK_TO_ACTION_CSOS
+from ....logger import LOGGER
 from ..interaction_util import add_interaction
 
 
@@ -57,4 +58,4 @@ def add_all_end_buy_interactions(df: pd.DataFrame, verbose=False) -> None:
     # Demand/Villa is described elsewhere.
 
     if verbose:
-        print(f"Added {len(df) - num_before} end-buy interactions.")
+        LOGGER.info(f"Added {len(df) - num_before} end-buy interactions.")

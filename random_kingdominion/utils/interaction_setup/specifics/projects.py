@@ -2,14 +2,8 @@
 
 import pandas as pd
 
-from ...utils import get_cso_name
-
-from ..constants import TGG_BUG_DISCLAIMER
-from ..interaction_util import (
-    add_interaction,
-    add_multiple_interactions,
-    add_multiple_interactions_from_single,
-)
+from ....logger import LOGGER
+from ..interaction_util import add_interaction
 
 
 def _add_sewers_interactions(df: pd.DataFrame):
@@ -41,4 +35,4 @@ def add_all_project_interactions(df: pd.DataFrame, verbose=False) -> None:
     _add_sewers_interactions(df)
     # Fleet interactions on extra turn page.
     if verbose:
-        print(f"Added {len(df) - num_before} project interactions.")
+        LOGGER.info(f"Added {len(df) - num_before} project interactions.")

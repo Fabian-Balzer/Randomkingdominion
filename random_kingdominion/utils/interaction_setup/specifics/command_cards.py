@@ -2,10 +2,9 @@
 
 import pandas as pd
 
-from ..constants import TGG_BUG_DISCLAIMER
+from ....logger import LOGGER
 from ..interaction_util import (
     add_interaction,
-    add_multiple_interactions,
     add_multiple_interactions_from_single,
 )
 
@@ -118,4 +117,4 @@ def add_all_command_interactions(df: pd.DataFrame, verbose=False) -> None:
     _add_all_inheritance_interactions(df)
 
     if verbose:
-        print(f"Added {len(df) - num_before} command interactions.")
+        LOGGER.info(f"Added {len(df) - num_before} command interactions.")

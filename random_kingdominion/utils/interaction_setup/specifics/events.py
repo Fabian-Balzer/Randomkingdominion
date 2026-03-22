@@ -3,7 +3,8 @@
 import pandas as pd
 
 from ....constants import ROTATOR_DICT, SPLITPILE_DICT
-from ..constants import KNIGHTS, RUINS, TOKEN_EVENTS
+from ....logger import LOGGER
+from ..constants import TOKEN_EVENTS
 from ..interaction_util import add_interaction, add_multiple_interactions_from_single
 
 
@@ -107,5 +108,4 @@ def add_all_event_interactions(df: pd.DataFrame, verbose=False) -> None:
     _add_populate_interactions(df)
     _add_individual_event_interactions(df)
     if verbose:
-        print(f"Added {len(df) - num_before} event interactions.")
-        print(f"Added {len(df) - num_before} event interactions.")
+        LOGGER.info(f"Added {len(df) - num_before} event interactions.")

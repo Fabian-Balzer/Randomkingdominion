@@ -1,4 +1,154 @@
 - cards:
+  - amulet
+  - encampment/plunder
+  - farm
+  - minion
+  - rice_broker
+  - sacred_grove
+  - sailor
+  - salvager
+  - tools
+  - treasure_map
+  expansions:
+  - Adventures
+  - Empires
+  - Intrigue, 2E
+  - Nocturne
+  - Plunder
+  - Rising Sun
+  - Seaside, 2E
+  idx: 96040621014530243282540385883714400415
+  landscapes:
+  - cursed
+  - inherited
+  name: '2026-03-22'
+  notes:
+    crucial_cards: [Salvager, Encampment/Plunder, Sailor, Rice Broker]
+    ending: [Curse, Encampment, Salvager]
+    link: 'https://youtu.be/S44cJ1dVUq0'
+    name: 'Salvaged Inheritance'
+    openings:
+    - grade: 'F'
+      t1: 'Trash Copper with Salvager, buy Encampment'
+      t1_csos: [salvager, copper, encampment]
+      t2: 'Buy Amulet'
+      t2_csos: [amulet]
+      type: 3/3
+    - grade: 'A-'
+      t1: 'Trash Estate with Salvager, buy Rice Broker'
+      t1_csos: [salvager, estate, rice_broker]
+      t2: 'Buy Sailor (or double Encampment if Salvager is in $4 hand)'
+      t2_csos: [sailor]
+      type: 5/4|4/5
+    points: [24, 13]
+    subtitle: 'Getting Thin Quickly Pays Off Big Time'
+    turns: [11, 10]
+  traits:
+  - - cursed
+    - salvager
+  - - inherited
+    - salvager
+- cards:
+  - bazaar
+  - catapult/rocks
+  - fishing_village
+  - hunting_party
+  - jester
+  - market_square
+  - menagerie
+  - smugglers
+  - storeroom
+  - storyteller
+  expansions:
+  - Adventures
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Renaissance
+  - Seaside, 2E
+  idx: 165839131784636925906441505022007199492
+  landscapes:
+  - barracks
+  - basilica
+  name: '2026-03-21'
+  notes:
+    crucial_cards:
+    - Catapult
+    - Jester
+    - Market Square
+    - Hunting Party
+    ending:
+    - Province
+    - Hunting Party
+    link: https://youtu.be/aqoXSEaj9uQ
+    name: Catapult Jest
+    openings:
+    - grade: C+
+      t1: Catapult
+      t1_csos:
+      - catapult
+      t2: Fishing Village, or Silver
+      t2_csos:
+      - fishing_village
+      type: 4/3|3/4
+    - grade: C-
+      t1: Catapult (with Basilica points), or Jester?
+      t1_csos:
+      - catapult
+      - basilica
+      t2: Skip turn
+      t2_csos:
+      - tragic_hero
+      type: 5/2|2/5
+    points:
+    - 34
+    - 30
+    subtitle: Games Snowballing Away From Our Control. Yikes.
+    tries: 3
+    turns:
+    - 16
+    - 15
+- cards:
+  - bureaucrat
+  - council_room
+  - experiment
+  - harbinger
+  - lackeys
+  - mine
+  - moneylender
+  - mountain_village
+  - old_witch
+  - stockpile
+  expansions:
+  - Base, 2E
+  - Menagerie
+  - Renaissance
+  idx: 141030804323323970172640433506599056302
+  landscapes:
+  - barracks
+  - piazza
+  name: '2026-03-20'
+- cards:
+  - armory
+  - charm
+  - gladiator/fortune
+  - ironmonger
+  - marauder
+  - pillage
+  - procession
+  - rats
+  - royal_blacksmith
+  - wild_hunt
+  expansions:
+  - Dark Ages
+  - Empires
+  idx: 132351457460085210002449290391153042523
+  landscapes:
+  - mountain_pass
+  - wall
+  name: '2026-03-18'
+  use_shelters: true
+- cards:
   - bard
   - blessed_village
   - den_of_sin

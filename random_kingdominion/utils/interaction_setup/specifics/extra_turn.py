@@ -1,5 +1,6 @@
 import pandas as pd
 
+from ....logger import LOGGER
 from ...utils import get_cso_name
 from ..interaction_util import add_interaction
 
@@ -79,4 +80,4 @@ def add_all_extra_turn_interactions(df: pd.DataFrame, verbose=False) -> None:
     _add_fleet_interactions(df)
     _add_on_extra_turn_interactions(df)
     if verbose:
-        print(f"Added {len(df) - num_before} extra turn interactions.")
+        LOGGER.info(f"Added {len(df) - num_before} extra turn interactions.")

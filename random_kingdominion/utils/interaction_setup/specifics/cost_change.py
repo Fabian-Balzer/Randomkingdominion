@@ -2,6 +2,7 @@
 
 import pandas as pd
 
+from ....logger import LOGGER
 from ..interaction_util import add_interaction
 
 
@@ -181,4 +182,4 @@ def add_all_cost_change_interactions(df: pd.DataFrame, verbose=False) -> None:
     _add_individual_cost_change_interactions(df)
     _add_stonemason_potion_interactions(df)
     if verbose:
-        print(f"Added {len(df) - num_before} cost change interactions.")
+        LOGGER.info(f"Added {len(df) - num_before} cost change interactions.")

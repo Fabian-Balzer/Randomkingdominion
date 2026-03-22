@@ -2,6 +2,7 @@
 
 import pandas as pd
 
+from ....logger import LOGGER
 from ..interaction_util import add_interaction
 
 
@@ -56,4 +57,4 @@ def add_all_victory_card_play_interactions(df: pd.DataFrame, verbose=False) -> N
     _add_grand_castle_interactions(df)
     _add_victory_card_play_interactions(df)
     if verbose:
-        print(f"Added {len(df) - num_before} victory card playing interactions.")
+        LOGGER.info(f"Added {len(df) - num_before} victory card playing interactions.")
