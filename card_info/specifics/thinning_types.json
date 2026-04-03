@@ -107,7 +107,7 @@
   "Steward": ["Any"],
   "Stonemason": ["Any", "Remodel"],
   "Student": ["Any"],
-  "Swap": ["Action", "Remodel"],
+  "Swap": ["Action"],
   "Taxman": ["Treasure", "Remodel*"],
   "Temple": ["Any"],
   "The Flame's Gift": ["Any"],

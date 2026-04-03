@@ -1,4 +1,456 @@
 - cards:
+  - bounty_hunter
+  - coven
+  - gatekeeper
+  - goatherd
+  - golem
+  - groom
+  - haggler
+  - mastermind
+  - nomads
+  - philosophers_stone
+  expansions:
+  - Alchemy
+  - Hinterlands, 2E
+  - Menagerie
+  idx: 335454349330412945183307142346980388012
+  landscapes:
+  - alliance
+  - way_of_the_turtle
+  name: '2026-04-03'
+  notes:
+    crucial_cards: [Mastermind, Golem, Way Of The Turtle, Groom]
+    ending: [Estate, Curse, Groom]
+    link: 'https://youtu.be/nxdhjKKEaBU'
+    name: 'Master Turtles'
+    openings:
+    - grade: 'B'
+      t1: 'Bounty Hunter'
+      t1_csos: [bounty_hunter]
+      t2: 'Silver, or Goatherd'
+      t2_csos: [silver]
+      type: 4/3|3/4
+    - grade: 'C'
+      t1: 'Bounty Hunter'
+      t1_csos: [bounty_hunter]
+      t2: 'Skip turn'
+      t2_csos: [tragic_hero]
+      type: 5/2|2/5
+    points: [17, 3]
+    subtitle: 'Awful Midgame Draws, But Still An Explosive Ending'
+    turns: [15, 14]
+- cards:
+  - apothecary
+  - bauble
+  - clashes
+  - courier
+  - herbalist
+  - importer
+  - marquis
+  - philosophers_stone
+  - swap
+  - townsfolk
+  expansions:
+  - Alchemy
+  - Allies
+  idx: 179895059916288653483472753062660367695
+  landscapes:
+  - league_of_bankers
+  name: '2026-04-02'
+  notes:
+    crucial_cards:
+    - League of bankers
+    - courier
+    - bauble
+    - marquis
+    ending:
+    - Province
+    - Bauble
+    link: https://youtu.be/vGRLvUWB1Lw
+    name: Baubling Bankers
+    openings:
+    - grade: C-
+      t1: Bauble
+      t1_csos:
+      - bauble
+      t2: Courier, or Bauble
+      t2_csos:
+      - courier
+      type: 5/4|4/5
+    - grade: B-
+      t1: Marquis
+      t1_csos:
+      - marquis
+      t2: Bauble
+      t2_csos:
+      - bauble
+      type: 6/3|3/6
+    points:
+    - 54
+    - 21
+    subtitle: Far From Optimal Shuffles, Yet Quite Controlled
+    turns:
+    - 16
+    - 15
+- cards:
+  - border_village
+  - cartographer
+  - corsair
+  - haggler
+  - jack_of_all_trades
+  - nomads
+  - sea_witch
+  - smugglers
+  - souk
+  - trail
+  expansions:
+  - Hinterlands, 2E
+  - Seaside, 2E
+  idx: 103591321737422962774576294435231926422
+  name: '2026-04-01'
+  notes:
+    crucial_cards:
+    - Duchy
+    - Estate
+    - Silver
+    - Copper
+    ending:
+    - Duchy
+    - Estate
+    - Nomads
+    link: https://youtu.be/_NH5Jemje7s
+    name: Ultimate Greens
+    openings:
+    - grade: A+
+      t1: Estate
+      t1_csos:
+      - estate
+      t2: Estate
+      t2_csos:
+      - Estate
+      type: 4/3|3/4
+    - grade: A++
+      t1: Duchy
+      t1_csos:
+      - duchy
+      t2: Estate
+      t2_csos:
+      - estate
+      type: 5/2|2/5
+    points:
+    - 28
+    - 25
+    subtitle: Showcasing Supreme Dominion Strategies Viable In Any Kingdom
+    turns:
+    - 29
+    - 28
+- cards:
+  - blessed_village
+  - cemetery
+  - cobbler
+  - devils_workshop
+  - guardian
+  - night_watchman
+  - shepherd
+  - tormentor
+  - tracker
+  - tragic_hero
+  expansions:
+  - Nocturne
+  idx: 96424162526004727649839209995549629078
+  name: '2026-03-31'
+- cards:
+  - bandit
+  - gardens
+  - hamlet
+  - laboratory
+  - merchant
+  - mine
+  - moat
+  - moneylender
+  - shop
+  - vassal
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  idx: 233148677622519757967699342429448964062
+  name: '2026-03-30'
+- campaign_effects:
+  - replace_estate
+  cards:
+  - cursed_village
+  - cutthroat
+  - expand
+  - kings_court
+  - magnate
+  - mint
+  - royal_carriage
+  - search
+  - taskmaster
+  - watchtower
+  expansions:
+  - Adventures
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  idx: 179401808750106593604449318550343278737
+  landscapes:
+  - cursed
+  - foray
+  name: '2026-03-29'
+  notes:
+    crucial_cards:
+    - Magnate
+    - Taskmaster
+    - Cursed Village
+    - Expand
+    ending:
+    - Province
+    - Magnate
+    link: https://youtu.be/IwfUs-JflAA
+    name: Cursed Expansion
+    openings:
+    - grade: B
+      t1: Cutthorat, or Mint
+      t1_csos:
+      - cutthroat
+      t2: Cursed Village
+      t2_csos:
+      - cursed_village
+      type: 5/4
+    - grade: B
+      t1: Watchtower
+      t1_csos:
+      - watchtower
+      t2: Cutthroat
+      t2_csos:
+      - cutthroat
+      type: 4/5
+    points:
+    - 63
+    - -1
+    subtitle: Building A Huge Deck Filled With Loots
+    turns:
+    - 11
+    - 10
+  stamps_and_effects:
+  - - replace_estate
+    - taskmaster,_taskmaster
+  traits:
+  - - cursed
+    - taskmaster
+  use_colonies: true
+- cards:
+  - augurs
+  - bauble
+  - black_cat
+  - bridge
+  - hunter
+  - patron
+  - raze
+  - secret_cave
+  - stonemason
+  - torturer
+  expansions:
+  - Adventures
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Renaissance
+  idx: 320571342047848291336951893683606428184
+  landscapes:
+  - city-state
+  - nearby
+  - silos
+  name: '2026-03-28'
+  notes:
+    crucial_cards:
+    - Magic Lamp
+    - Bridge
+    - Hunter
+    - Stonemason
+    ending:
+    - Hunter
+    - Raze
+    - Stonemason
+    find_the_win: true
+    ftw_difficulty: easy
+    ftw_timestamp: 797
+    link: ''
+    name: Raze Hunting
+    openings:
+    - grade: B+
+      t1: Overpay Stonmason with $2 for two Razes
+      t1_csos:
+      - stonemason
+      - raze
+      - raze
+      t2: Buy Secret Cave
+      t2_csos:
+      - secret_cave
+      type: 4/3|3/4
+    - grade: C
+      t1: Overpay Stonmason with $2 for two Razes
+      t1_csos:
+      - stonemason
+      - raze
+      - raze
+      t2: Buy Bauble
+      t2_csos:
+      - bauble
+      type: 5/2|2/5
+    points:
+    - 2
+    - 0
+    subtitle: Ending With A Neat Find-The-Win Situation
+    turns:
+    - 9
+    - 8
+  traits:
+  - - nearby
+    - hunter
+- cards:
+  - bauble
+  - capital_city
+  - farmhands
+  - galleria
+  - haunted_woods
+  - horn_of_plenty
+  - page
+  - shop
+  - swap
+  - transmogrify
+  expansions:
+  - Adventures
+  - Allies
+  - Cornucopia & Guilds, 2E
+  idx: 132009833417784720408344274140797795621
+  landscapes:
+  - scouting_party
+  - woodworkers_guild
+  name: '2026-03-27'
+- cards:
+  - berserker
+  - border_village
+  - ferryman
+  - fools_gold
+  - inn
+  - margrave
+  - menagerie
+  - oasis
+  - souk
+  - trail
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Hinterlands, 2E
+  ferryman_pile: remake
+  idx: 300485472253698649386867152915343438921
+  name: '2026-03-26'
+- cards:
+  - city_quarter
+  - daimyo
+  - enchantress
+  - engineer
+  - imperial_envoy
+  - litter
+  - overlord
+  - patrician/emporium
+  - rustic_village
+  - sacrifice
+  expansions:
+  - Empires
+  - Rising Sun
+  idx: 191000894211360602155960395833503770852
+  landscapes:
+  - enlightenment
+  - tower
+  name: '2026-03-25'
+- cards:
+  - abundance
+  - cabin_boy
+  - crucible
+  - flagship
+  - grotto
+  - kings_cache
+  - rope
+  - swamp_shacks
+  - trickster
+  - wealthy_village
+  expansions:
+  - Plunder
+  idx: 196001736655290366688610656073221018234
+  landscapes:
+  - cursed
+  - foray
+  name: '2026-03-24'
+  notes:
+    crucial_cards: []
+    ending: []
+    link: ''
+    name: ''
+    openings:
+    - grade: ''
+      t1: ''
+      t1_csos: []
+      t2: ''
+      t2_csos: []
+      type: 4/3|3/4
+    - grade: ''
+      t1: ''
+      t1_csos: []
+      t2: ''
+      t2_csos: []
+      type: 5/2|2/5
+    points: []
+    subtitle: ''
+    turns: []
+  traits:
+  - - cursed
+    - grotto
+- cards:
+  - bandit
+  - council_room
+  - gatekeeper
+  - goatherd
+  - scrap
+  - sheepdog
+  - village
+  - village_green
+  - wayfarer
+  - witch
+  expansions:
+  - Base, 2E
+  - Menagerie
+  idx: 95656073974530994611911675802505358652
+  landscapes:
+  - invest
+  - toil
+  name: '2026-03-23'
+  notes:
+    crucial_cards: []
+    ending: []
+    link: ''
+    name: ''
+    openings:
+    - grade: ''
+      t1: ''
+      t1_csos: []
+      t2: ''
+      t2_csos: []
+      type: 4/3|3/4
+    - grade: ''
+      t1: ''
+      t1_csos: []
+      t2: ''
+      t2_csos: []
+      type: 5/2|2/5
+    points: []
+    subtitle: ''
+    turns: []
+- cards:
   - amulet
   - encampment/plunder
   - farm
@@ -23,26 +475,45 @@
   - inherited
   name: '2026-03-22'
   notes:
-    crucial_cards: [Salvager, Encampment/Plunder, Sailor, Rice Broker]
-    ending: [Curse, Encampment, Salvager]
-    link: 'https://youtu.be/S44cJ1dVUq0'
-    name: 'Salvaged Inheritance'
+    crucial_cards:
+    - Salvager
+    - Encampment/Plunder
+    - Sailor
+    - Rice Broker
+    ending:
+    - Curse
+    - Encampment
+    - Salvager
+    link: https://youtu.be/S44cJ1dVUq0
+    name: Salvaged Inheritance
     openings:
-    - grade: 'F'
-      t1: 'Trash Copper with Salvager, buy Encampment'
-      t1_csos: [salvager, copper, encampment]
-      t2: 'Buy Amulet'
-      t2_csos: [amulet]
+    - grade: F
+      t1: Trash Copper with Salvager, buy Encampment
+      t1_csos:
+      - salvager
+      - copper
+      - encampment
+      t2: Buy Amulet
+      t2_csos:
+      - amulet
       type: 3/3
-    - grade: 'A-'
-      t1: 'Trash Estate with Salvager, buy Rice Broker'
-      t1_csos: [salvager, estate, rice_broker]
-      t2: 'Buy Sailor (or double Encampment if Salvager is in $4 hand)'
-      t2_csos: [sailor]
+    - grade: A-
+      t1: Trash Estate with Salvager, buy Rice Broker
+      t1_csos:
+      - salvager
+      - estate
+      - rice_broker
+      t2: Buy Sailor (or double Encampment if Salvager is in $4 hand)
+      t2_csos:
+      - sailor
       type: 5/4|4/5
-    points: [24, 13]
-    subtitle: 'Getting Thin Quickly Pays Off Big Time'
-    turns: [11, 10]
+    points:
+    - 24
+    - 13
+    subtitle: Getting Thin Quickly Pays Off Big Time
+    turns:
+    - 11
+    - 10
   traits:
   - - cursed
     - salvager
