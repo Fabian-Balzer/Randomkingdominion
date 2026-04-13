@@ -261,6 +261,8 @@ def _add_on_gain_set_aside_siren_interaction(set_aside_cso: str, df: pd.DataFram
 
 def _add_on_gain_set_aside_gatekeeper_interaction(set_aside_cso: str, df: pd.DataFrame):
     rule = f"If you are under the Gatekeeper attack and gain an Action or Treasure you don't have a copy of in Exile and set it aside using {set_aside_cso}, you still need to Exile it."
+    if set_aside_cso in ["Summon"]:
+        rule += " You are thus not able to play it."
     if set_aside_cso in ["Rapid Expansion", "Hasty"]:
         rule = f"If you are under the Gatekeeper attack and gain an Action or Treasure you don't have a copy of in Exile and set it aside using {set_aside_cso} first, you do not Exile it."
     add_interaction("Gatekeeper", set_aside_cso, rule, df)
@@ -281,6 +283,9 @@ def _add_on_gain_hand_gatekeeper_interaction(hand_cso: str, df: pd.DataFrame):
         rule += " Note that if you gain a Falconer to your hand somehow while under the Gatekeeper attack (e.g. via Artisan), reacting and playing it means that you do not have to Exile it."
     add_interaction("Gatekeeper", hand_cso, rule, df, add_together_if_present=True)
 
+def _add_night_gain_to_hand_gatekeeper(df: pd.DataFrame):
+    rule = "Guardian|Den of Sin|Night Watchman|Ghost Town/Gatekeeper---If you gain a {card_a} to your hand while under the Gatekeeper attack, you do not exile it."
+    TODO
 
 def _add_multi_gain_gatekeeper_interaction(df: pd.DataFrame):
     multi_gain = {

@@ -1,4 +1,290 @@
 - cards:
+  - chapel
+  - imperial_envoy
+  - merchant
+  - militia
+  - mine
+  - moat
+  - river_shrine
+  - riverboat
+  - ronin
+  - workshop
+  expansions:
+  - Base, 2E
+  - Rising Sun
+  idx: 215531204698018896909455465985810964798
+  landscapes:
+  - good_harvest
+  - practice
+  name: '2026-04-13'
+  notes:
+    crucial_cards: [Riverboat, River Shrine, Merchant, Good Harvest]
+    ending: [Province, Merchant]
+    link: 'https://youtu.be/mMTNjP3ygKQ'
+    name: 'River Practice'
+    openings:
+    - grade: 'B+'
+      t1: 'River Shrine'
+      t1_csos: [river_shrine]
+      t2: 'Riverboat, or Chapel'
+      t2_csos: [riverboat]
+      type: 4/3|3/4
+    - grade: 'B-'
+      t1: 'River Shrine'
+      t1_csos: [river_shrine]
+      t2: 'Chapel'
+      t2_csos: [chapel]
+      type: 5/2|2/5
+    points: [34, 24]
+    subtitle: 'Assembling A Nicely Flowing Deck'
+    turns: [13, 12]
+  riverboat_card: sentry
+- campaign_effects:
+  - durationified
+  - plus_buy
+  cards:
+  - acting_troupe
+  - courier
+  - courtier
+  - displace
+  - forager
+  - jack_of_all_trades
+  - raider
+  - sailor
+  - trading_post
+  - villa
+  expansions:
+  - Adventures
+  - Allies
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Renaissance
+  - Seaside, 2E
+  idx: 71422128359287388615798305719430315251
+  landscapes:
+  - prosper
+  - trade
+  name: '2026-04-12'
+  notes:
+    crucial_cards:
+    - Jack of all trades
+    - villa
+    - displace
+    - forager
+    ending:
+    - Province
+    link: https://youtu.be/-j_koFDEins
+    name: Trade Displacement
+    openings:
+    - grade: B
+      t1: Jack of All Trades
+      t1_csos:
+      - jack_of_all_trades
+      t2: Forager
+      t2_csos:
+      - Forager
+      type: 4/3|3/4
+    - grade: C
+      t1: Jack of All Trades, or Displace
+      t1_csos:
+      - jack_of_all_trades
+      t2: Skip turn
+      t2_csos:
+      - tragic_hero
+      type: 5/2|2/5
+    points:
+    - 43
+    - 25
+    subtitle: Building Towards Funky Draw-To-5
+    turns:
+    - 14
+    - 14
+  stamps_and_effects:
+  - - durationified
+    - jack_of_all_trades
+  - - plus_buy
+    - jack_of_all_trades
+- cards:
+  - artisan
+  - cargo_ship
+  - crypt
+  - flag_bearer
+  - journeyman
+  - longship
+  - mint
+  - pooka
+  - scavenger
+  - souk
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  idx: 44214711619486480156857298133589925946
+  landscapes:
+  - quest
+  - triumphal_arch
+  name: '2026-04-11'
+- cards:
+  - cemetery
+  - cursed_village
+  - displace
+  - exorcist
+  - fool
+  - inventor
+  - patron
+  - secret_cave
+  - tormentor
+  - village_green
+  expansions:
+  - Menagerie
+  - Nocturne
+  - Renaissance
+  idx: 298396368118459795447455986583538772751
+  name: '2026-04-10'
+- bane_pile: scrap
+  cards:
+  - black_cat
+  - cardinal
+  - displace
+  - hamlet
+  - joust
+  - kiln
+  - scrap
+  - sheepdog
+  - snowy_village
+  - wayfarer
+  - young_witch
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Menagerie
+  idx: 133648594916389197183387186855983013724
+  landscapes:
+  - demand
+  - invest
+  name: '2026-04-09'
+- cards:
+  - augurs
+  - barbarian
+  - broker
+  - capital_city
+  - golem
+  - merchant_camp
+  - odysseys
+  - royal_galley
+  - town
+  - wizards
+  expansions:
+  - Alchemy
+  - Allies
+  idx: 196285462438954021675042046339058344274
+  landscapes:
+  - desert_guides
+  name: '2026-04-08'
+- cards:
+  - cemetery
+  - cobbler
+  - devils_workshop
+  - exorcist
+  - idol
+  - necromancer
+  - pixie
+  - sacred_grove
+  - shepherd
+  - tracker
+  expansions:
+  - Nocturne
+  idx: 248085643907970402607907937977820032457
+  name: '2026-04-07'
+- cards:
+  - festival
+  - harbinger
+  - hostelry
+  - mastermind
+  - moat
+  - poacher
+  - sentry
+  - supplies
+  - vassal
+  - village_green
+  expansions:
+  - Base, 2E
+  - Menagerie
+  idx: 264842041042421464983811437644830656107
+  landscapes:
+  - seize_the_day
+  - way_of_the_mole
+  name: '2026-04-06'
+- cards:
+  - apprentice
+  - crucible
+  - fishmonger
+  - forge
+  - rabble
+  - rats
+  - remake
+  - rice_broker
+  - riverboat
+  - silk_merchant
+  expansions:
+  - Adventures
+  - Alchemy
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Rising Sun
+  idx: 88521719116160005639769808261712145419
+  landscapes:
+  - friendly
+  - shy
+  name: '2026-04-05'
+  riverboat_card: giant
+  traits:
+  - - friendly
+    - apprentice
+  - - shy
+    - remake
+  use_shelters: true
+- cards:
+  - astrolabe
+  - bard
+  - barge
+  - destrier
+  - page
+  - pirate
+  - poor_house
+  - rustic_village
+  - shepherd
+  - torturer
+  expansions:
+  - Adventures
+  - Dark Ages
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Rising Sun
+  - Seaside, 2E
+  idx: 113026451524804969413696730899758034839
+  landscapes:
+  - bureaucracy
+  - foray
+  - plan
+  name: '2026-04-04'
+- cards:
   - bounty_hunter
   - coven
   - gatekeeper
@@ -19,26 +305,41 @@
   - way_of_the_turtle
   name: '2026-04-03'
   notes:
-    crucial_cards: [Mastermind, Golem, Way Of The Turtle, Groom]
-    ending: [Estate, Curse, Groom]
-    link: 'https://youtu.be/nxdhjKKEaBU'
-    name: 'Master Turtles'
+    crucial_cards:
+    - Mastermind
+    - Golem
+    - Way Of The Turtle
+    - Groom
+    ending:
+    - Estate
+    - Curse
+    - Groom
+    link: https://youtu.be/nxdhjKKEaBU
+    name: Master Turtles
     openings:
-    - grade: 'B'
-      t1: 'Bounty Hunter'
-      t1_csos: [bounty_hunter]
-      t2: 'Silver, or Goatherd'
-      t2_csos: [silver]
+    - grade: B
+      t1: Bounty Hunter
+      t1_csos:
+      - bounty_hunter
+      t2: Silver, or Goatherd
+      t2_csos:
+      - silver
       type: 4/3|3/4
-    - grade: 'C'
-      t1: 'Bounty Hunter'
-      t1_csos: [bounty_hunter]
-      t2: 'Skip turn'
-      t2_csos: [tragic_hero]
+    - grade: C
+      t1: Bounty Hunter
+      t1_csos:
+      - bounty_hunter
+      t2: Skip turn
+      t2_csos:
+      - tragic_hero
       type: 5/2|2/5
-    points: [17, 3]
-    subtitle: 'Awful Midgame Draws, But Still An Explosive Ending'
-    turns: [15, 14]
+    points:
+    - 17
+    - 3
+    subtitle: Awful Midgame Draws, But Still An Explosive Ending
+    turns:
+    - 15
+    - 14
 - cards:
   - apothecary
   - bauble

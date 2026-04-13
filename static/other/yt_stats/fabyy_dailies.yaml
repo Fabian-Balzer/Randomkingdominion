@@ -19110,3 +19110,171 @@
   title: Daily Dominion 2026-04-01 - Ultimate Greens
   upload_date: '20260401'
   view_count: 41
+- chapters:
+  - end_time: 17.0
+    start_time: 0.0
+    title: Introduction
+  - end_time: 172.0
+    start_time: 17.0
+    title: Kingdom overview and strategy discussion
+  - end_time: 243.0
+    start_time: 172.0
+    title: Kingdom Plot
+  - end_time: 300.0
+    start_time: 243.0
+    title: Discussing openings
+  - end_time: 838.0
+    start_time: 300.0
+    title: Game Starts
+  - end_time: 896
+    start_time: 838.0
+    title: Game Ends and overview
+  comment_count: null
+  description: 'Fun Base/Rising Sun kingdom for a Monday, allowing you to build a
+    tight, neat little deck that starts gobbling up Provinces by turn 10 or 11.
+
+
+    We don''t have the high-roll draw and are attacked by AI quite a bit, but nonetheless
+    manage to cruise through without too much stress.
+
+
+    You may join the discord here:
+
+    https://discord.gg/qZxwUpn9
+
+
+    Dominion is a deck building card game created by Donald X. Vaccarino.
+
+    Currently, there exist two online implementations: The browser and subscription-based
+    Dominion Online (https://dominion.games/ ), and the multi-platform-, single-purchase-based
+    client by Temple Gates Games (TGG), available e.g. on Steam (https://store.steampowered.com/app/1131620/Dominion/
+    ) and mobile appliances.
+
+
+    Here, we play on the TGG client, which offers free play of the Base game as well
+    as a free daily entry into a randomly generated (with some restrictions) kingdom,
+    where you get to compete against their AI.
+
+
+    Dombot Kingdom String:
+
+    Chapel, Good Harvest, Imperial Envoy, Merchant, Militia, Mine, Moat, No Colonies,
+    No Shelters, Practice, River Shrine, Riverboat (Sentry), Ronin, Workshop
+
+    Expansions:
+
+    Base, 2E, Rising Sun
+
+
+    Ps.: Check out https://randomkingdominion.streamlit.app/oracle to visualize your
+    kingdoms!
+
+
+    Timestamps:
+
+    0:00 - Introduction
+
+    0:17 - Kingdom overview and strategy discussion
+
+    2:52 - Kingdom Plot
+
+    4:03 - Discussing openings
+
+    5:00 - Game Starts
+
+    13:58 - Game Ends and overview'
+  duration: 896
+  id: mMTNjP3ygKQ
+  like_count: null
+  retrieval_time: '2026-04-13T21:49:46.970038'
+  thumbnail: https://i.ytimg.com/vi/mMTNjP3ygKQ/maxresdefault.jpg
+  title: Daily Dominion 2026-04-13 - River Practice
+  upload_date: '20260413'
+  view_count: 2
+- chapters:
+  - end_time: 30.0
+    start_time: 0.0
+    title: Introduction
+  - end_time: 239.0
+    start_time: 30.0
+    title: Kingdom overview and strategy discussion
+  - end_time: 273.0
+    start_time: 239.0
+    title: Kingdom Plot
+  - end_time: 312.0
+    start_time: 273.0
+    title: Discussing openings
+  - end_time: 1023.0
+    start_time: 312.0
+    title: Game Starts
+  - end_time: 1185
+    start_time: 1023.0
+    title: Game Ends and overview
+  comment_count: 3
+  description: 'These Sunday Features double-Stamped our lovely Jack Of All Trades,
+    teaching it even more Trades!
+
+
+    We build a fun draw-to-5 deck that somewhat fizzles out towards the end, but builds
+    an unsurmountable point lead that AI cannot overcome.
+
+
+    Hope you enjoyed this one, and sorry again for the irregular upload schedule!
+    Life is busy :)
+
+
+    You may join the discord here:
+
+    https://discord.gg/qZxwUpn9
+
+
+    Dominion is a deck building card game created by Donald X. Vaccarino.
+
+    Currently, there exist two online implementations: The browser and subscription-based
+    Dominion Online (https://dominion.games/ ), and the multi-platform-, single-purchase-based
+    client by Temple Gates Games (TGG), available e.g. on Steam (https://store.steampowered.com/app/1131620/Dominion/
+    ) and mobile appliances.
+
+
+    Here, we play on the TGG client, which offers free play of the Base game as well
+    as a free daily entry into a randomly generated (with some restrictions) kingdom,
+    where you get to compete against their AI.
+
+
+    Dombot Kingdom String:
+
+    Acting Troupe, Courier, Courtier, Displace, Forager, Jack of All Trades, No Colonies,
+    No Shelters, Prosper, Raider, Sailor, Trade, Trading Post, Villa -x stamp_durationified(jack_of_all_trades),
+    stamp_plus_buy(jack_of_all_trades)
+
+    Expansions:
+
+    Adventures, Allies, Dark Ages, Empires, Hinterlands, 2E, Intrigue, 2E, Menagerie,
+    Nocturne, Plunder, Renaissance, Seaside, 2E
+
+
+    Ps.: Check out https://randomkingdominion.streamlit.app/oracle to visualize your
+    kingdoms!
+
+
+    Timestamps:
+
+    0:00 - Introduction
+
+    0:30 - Kingdom overview and strategy discussion
+
+    3:59 - Kingdom Plot
+
+    4:33 - Discussing openings
+
+    5:12 - Game Starts
+
+    17:03 - Game Ends and overview'
+  duration: 1185
+  id: -j_koFDEins
+  like_count: 5
+  retrieval_time: '2026-04-13T21:49:46.970051'
+  thumbnail: https://i.ytimg.com/vi/-j_koFDEins/maxresdefault.jpg
+  title: Daily Dominion 2026-04-12 - Trade Displacement
+  upload_date: '20260412'
+  view_count: 27

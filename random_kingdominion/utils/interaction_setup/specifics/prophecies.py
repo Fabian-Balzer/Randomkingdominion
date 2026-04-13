@@ -4,16 +4,11 @@ import pandas as pd
 
 from ....constants import HEIRLOOM_DICT
 from ....logger import LOGGER
-from ..constants import (
-    ACTION_TREASURES,
-    ALL_HORSE_GAINERS,
-    ALL_LOOT_GIVERS,
-    ALL_LOOTS,
-    GATHERING_CARDS,
-    TGG_BUG_DISCLAIMER,
-    TRAVELLER_BASE_CARDS,
-)
-from ..interaction_util import add_interaction, add_multiple_interactions_from_single
+from ..constants import (ACTION_TREASURES, ALL_HORSE_GAINERS, ALL_LOOT_GIVERS,
+                         ALL_LOOTS, GATHERING_CARDS, TGG_BUG_DISCLAIMER,
+                         TRAVELLER_BASE_CARDS)
+from ..interaction_util import (add_interaction,
+                                add_multiple_interactions_from_single)
 
 
 def _add_gathering_divine_wind_interaction(other: str, df: pd.DataFrame):
@@ -199,6 +194,24 @@ def _add_panic_interactions(df: pd.DataFrame):
         "panic",
         "tireless",
         f"When Tireless is on a Treasure and Panic is active, when discarding it from play you may decide whether to set it aside or return it to its pile.{TGG_BUG_DISCLAIMER}",
+        df,
+    )
+    add_interaction(
+        "Panic",
+        "herbalist",
+        "If Panic is active but you choose to topdeck a Treasure via Herbalist's ability, you do not return it to its pile.",
+        df,
+    )
+    add_interaction(
+        "Panic",
+        "trickster",
+        "If Panic is active but you choose to set aside a Treasure via Trickster's ability, you do not return it to its pile.",
+        df,
+    )
+    add_interaction(
+        "Panic",
+        "puzzle_box",
+        "If Panic is active but you choose to set aside a Treasure via Puzzle Box's ability, you do not return it to its pile.",
         df,
     )
     add_interaction(

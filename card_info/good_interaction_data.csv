@@ -991,7 +991,7 @@ If you gain two Horses using Sleigh while under the Gatekeeper attack, if you do
 gatekeeper;spell_scroll;"If your opponent has played Gatekeeper, you gain a card and you don't have a copy of the gained card in Exile, you may choose whether to resolve Spell Scroll or the exiling first; if you play the gained card, it cannot be moved to Exile and vice versa."
 gatekeeper;stampede;If you gain five Horses with Stampede while under the Gatekeeper attack, if you don't already have a copy in Exile, you need to exile the first, but may discard the exiled copy along with the gain of the last copy.
 gatekeeper;stonemason;If you gain two cards from the same pile using Stonemason while under the Gatekeeper attack, if you don't already have a copy in Exile, you need to exile the first, but may discard the exiled copy along with the gain of the second.
-gatekeeper;summon;If you are under the Gatekeeper attack and gain an Action or Treasure you don't have a copy of in Exile and set it aside using Summon, you still need to Exile it.
+gatekeeper;summon;If you are under the Gatekeeper attack and gain an Action or Treasure you don't have a copy of in Exile and set it aside using Summon, you still need to Exile it. You are thus not able to play it.
 gatekeeper;swap;If you gain an Action or Treasure and put it in your hand using Swap while under the Gatekeeper attack, you still need to Exile it if you don't have a copy of it in Exile unless you somehow manage to play it during the on-gain-window (e.g. via City-State, or if it has a reaction that plays it, like Sheepdog or Berserker).
 gatekeeper;tiara;If you gain an Action or Treasure that you do not have a copy of in Exile while under the Gatekeeper attack, you can choose to first topdeck it using Tiara, in which case you do not put it into Exile.
 gatekeeper;tracker;If you gain an Action or Treasure that you do not have a copy of in Exile while under the Gatekeeper attack, you can choose to first topdeck it using Tracker, in which case you do not put it into Exile.
@@ -1179,6 +1179,7 @@ haunted_woods;siren;If you buy a Siren while under the Haunted Woods attack, you
 haunted_woods;souk;If you buy a Souk while under the Haunted Woods attack, you can choose whether to first trash up to two cards from your hand, or whether to first topdeck your hand.
 haunted_woods;villa;If you buy a Villa while under the Haunted Woods attack, you can put it into your hand after topdecking it (and your hand).
 haunted_woods;way_of_the_chameleon;If you play Haunted Woods using Way of the Chameleon, remember that Way of the Chameleon only affects stuff happening *this turn*, so on your next turn, you will get the normal bonus from Haunted Woods.
+herbalist;panic;If Panic is active but you choose to topdeck a Treasure via Herbalist's ability, you do not return it to its pile.
 herbalist;reckless;[Only if Reckless is on a Treasure] If Reckless is on a Treasure and you played a Herbalist on a turn you play said Treasure, you may topdeck it before returning it to its pile, in which case you cannot return it to its pile.
 hermit;journey;If you buy Journey (and gain no cards during your Buy phase), any Hermits you played are discarded and exchanged for Madman.
 hermit;launch;When you return to your Action phase using Launch, you are ending your Buy phase, so Hermit can trigger.
@@ -1497,6 +1498,7 @@ panic;spell_scroll;When you discard Spell Scroll from play while Panic is active
 panic;staff;When you discard Staff from play while Panic is active, you return it to the top of the Loot pile. When discarding multiple, you get to choose the order.
 panic;sword;When you discard Sword from play while Panic is active, you return it to the top of the Loot pile. When discarding multiple, you get to choose the order.
 panic;tireless;When Tireless is on a Treasure and Panic is active, when discarding it from play you may decide whether to set it aside or return it to its pile. [This used to be bugged in the TGG client, let us know if it's resolved!]
+panic;trickster;If Panic is active but you choose to set aside a Treasure via Trickster's ability, you do not return it to its pile.
 panic;wealthy_village;When you discard a Loot gained from wealthy_village from play while Panic is active, you need to return it to the top of the Loot pile. When discarding multiple, you get to choose the order. Endless Chalice and Jewels are exceptions as they (bar e.g. Highwayman) never get discarded from play.
 pathfinding;patrician/emporium;You may put the + Card token on the Patrician/Emporium pile using Pathfinding. This will affect all of its cards.
 pathfinding;peasant;"Putting the + Card token on the Peasant pile using Pathfinding will affect only Peasant, not any card you exchange it for.

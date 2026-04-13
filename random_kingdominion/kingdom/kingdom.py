@@ -15,14 +15,8 @@ import pandas as pd
 
 from ..constants import ALL_CSOS, QUALITIES_AVAILABLE, RENEWED_EXPANSIONS
 from ..logger import LOGGER
-from ..utils import (
-    copy_to_clipboard,
-    get_cso_name,
-    get_total_quality,
-    sanitize_cso_list,
-    sanitize_cso_name,
-    sort_kingdom,
-)
+from ..utils import (copy_to_clipboard, get_cso_name, get_total_quality,
+                     sanitize_cso_list, sanitize_cso_name, sort_kingdom)
 from .invalidity_stuff import InvalidityReason
 
 
@@ -503,7 +497,7 @@ class Kingdom:
             key_list.append("platinum")
         if self.use_shelters:
             key_list += ["necropolis", "hovel", "overgrown_estate"]
-        if ["marauder", "death_cart", "cultist"] in self.cards:
+        if any([card in self.cards for card in ["marauder", "death_cart", "cultist"]]):
             key_list += ["ruins"]
         key_list = np.unique(key_list)
         if self.druid_boons:

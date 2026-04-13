@@ -4711,3 +4711,76 @@
     monument, collection, ritual, colonnade, colonies -x twist_turn_turn_turn, twist_real_estate_barons
   num_themes: 1
   theme_1: category:split
+- key: '-347183207'
+  kingdoms:
+  - Biding Time, Bishop, Castles, Cathedral, Conquest, Golem, Mining Village, Monument,
+    No Colonies, No Shelters, Philosopher's Stone, Poet, Steward, Tactician, Warehouse
+  - City Gate, Crew, Feodum, Ghost Town, Guide, No Colonies, No Shelters, Prosper,
+    Sentry, Stables, Swamp Hag, Swamp Shacks, Transmogrify, Wild Hunt
+  - hideout, wealthy_village, villa, guard_dog, weaver, fools_gold, barge, steward,
+    artificer, sheepdog, way_of_the_ox -x stamp_plus_action(villa), stamp_reactionified(villa)
+  - coin_of_the_realm, crossroads, workers_village, distant_lands, sleigh, patron,
+    guard_dog, masquerade, wild_hunt, villa, summon, keep -x twist_fast_track
+  - procession, hideout, harbor_village, longship, nobles, smugglers, lackeys, farmhands,
+    nomads, mapmaker, seize_the_day
+  - contract, ghost_town, fishing_village, encampment, tragic_hero, beggar, caravan_guard,
+    falconer, weaver, black_market(barbarian, cargo_ship, vagrant, warehouse, recruiter,
+    capital_city, sculptor, monkey, paddock, rogue, treasury, astrolabe, elder, artist,
+    search, margrave, skirmisher, sacrifice, amulet, junk_dealer, cardinal, broker,
+    war_chest, sanctuary, island, tide_pools, sea_witch, cauldron, kiln, sea_chart,
+    underling, scrap, pilgrim, hunting_party, mining_road, hermit, bard, monastery,
+    conclave, horn_of_plenty, highway, procession, pawn, forge, nobles, innkeeper,
+    livery, hamlet, harbor_village, workers_village, craftsman, caravan, coven, alley,
+    tiara, haven, stables, lookout, avanto, animal_fair), trappers_lodge, academy
+    -x stamp_plus_card(tragic_hero)
+  - diplomat, longship, guard_dog, trader, caravan_guard, pirate, black_market(first_mate,
+    chariot_race, scholar, procession, monument, snake_witch, ghost_town, cargo_ship,
+    count, taskmaster, craftsman, ironmonger, villain, flagship, crown, barge, warehouse,
+    acting_troupe, fisherman, horn_of_plenty, treasure_trove, crossroads, distant_lands,
+    royal_galley, scepter, idol, kings_cache, improve, landing_party, duke, imperial_envoy,
+    vagrant, werewolf, old_map, artist, dismantle, gatekeeper, cartographer, coven,
+    garrison, livery, alley, trickster, magnate, animal_fair, altar, scheme, journeyman,
+    haggler, bounty_hunter, sentinel, rice, counterfeit, relic, witchs_hut, astrolabe,
+    pickaxe, root_cellar, joust, gear), wayfarer, squire, ironworks, delay, summon
+    -x stamp_fawning_service(summon)
+  - harbor_village, kings_court, city_quarter, village_green, mapmaker, sheepdog,
+    faithful_hound, pirate, wild_hunt, old_witch, baths, training -x start_double_pile(harbor_village),
+    stamp_treasurified(harbor_village)
+  - village_green, acting_troupe, wealthy_village, taskmaster, crossroads, tunnel,
+    watchtower, caravan_guard, weaver, footpad, enclave -x twist_big_ideas
+  - border_village, litter, mountain_village, first_mate, diplomat, patron, trader,
+    stowaway, villa, storeroom, gamble -x twist_big_ideas, stamp_pay_later(mountain_village),
+    stamp_pay_later(litter), stamp_pay_later(first_mate)
+  num_themes: 2
+  theme_1: category:village
+  theme_2: category:reaction
+- key: '-1691917433'
+  kingdoms:
+  - daimyo, herbalist, collection, death_cart, ronin, page, grand_market, werewolf,
+    displace, count, way_of_the_horse, alms, shelters
+  - kings_court, wealthy_village, grand_market, crypt, anvil, merchant_guild, imperial_envoy,
+    giant, odysseys, rogue, way_of_the_horse, colonies, shelters -x stamp_with_villager(kings_court)
+  - pilgrim, daimyo, grand_market, rice, collection, carpenter, cage, tunnel, knights,
+    stowaway, way_of_the_horse -x stamp_chameleonize(pilgrim), stamp_durationified(pilgrim)
+  - forts, royal_carriage, flagship, leprechaun, falconer, captain, wharf, cage, amulet,
+    menagerie, way_of_the_horse -x stamp_coin_way(way_of_the_horse), stamp_shadowified(forts)
+  - wealthy_village, walled_village, necromancer, death_cart, sacred_grove, ronin,
+    market_square, seer, remake, changeling, way_of_the_horse, travelling_fair -x
+    stamp_coin_way(way_of_the_horse), twist_incoming
+  - tools, trickster, crypt, rats, falconer, samurai, leprechaun, bishop, tiara, scrap,
+    way_of_the_horse, amass -x stamp_action_way(way_of_the_horse), stamp_coin_way(way_of_the_horse)
+  - flagship, leprechaun, conclave, captain, necromancer, ninja, rope, cauldron, cabin_boy,
+    knights, way_of_the_horse, bonfire -x twist_typhoon(corsair, samurai, berserker,
+    changeling, daimyo, university, carpenter, highway, spices, stowaway, envoy, barbarian,
+    ironworks, infirmary, magpie, tracker, rats, scrying_pool, apprentice, abundance)
+  - margrave, kiln, swamp_shacks, necromancer, changeling, procession, anvil, secluded_shrine,
+    poet, journeyman, way_of_the_horse, patient(margrave), bureaucracy, shelters -x
+    stamp_coin_way(way_of_the_horse), start_replace_estate(margrave)
+  - conspirator, daimyo, harbor_village, quarry, poor_house, kiln, groom, tea_house,
+    rope, ratcatcher, way_of_the_horse, alms, bureaucracy -x stamp_action_way(way_of_the_horse)
+  - golem, enlarge, raider, bank, kiln, horn_of_plenty, death_cart, cemetery, craftsman,
+    cauldron, way_of_the_horse, alms, shelters -x stamp_coin_way(way_of_the_horse),
+    stamp_with_villager(golem), stamp_with_villager(raider), stamp_with_villager(enlarge)
+  num_themes: 2
+  theme_1: landscape:way_of_the_horse
+  theme_2: category:play_matters
