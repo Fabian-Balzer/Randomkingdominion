@@ -499,9 +499,9 @@ class Kingdom:
             key_list += ["necropolis", "hovel", "overgrown_estate"]
         if any([card in self.cards for card in ["marauder", "death_cart", "cultist"]]):
             key_list += ["ruins"]
-        key_list = np.unique(key_list)
         if self.druid_boons:
             key_list += self.druid_boons
+        key_list = np.unique(key_list)
         full_kingdom_df = ALL_CSOS.loc[key_list]
         self.full_kingdom_df = sort_kingdom(full_kingdom_df)
 

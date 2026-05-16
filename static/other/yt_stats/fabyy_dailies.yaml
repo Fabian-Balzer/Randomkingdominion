@@ -19278,3 +19278,341 @@
   title: Daily Dominion 2026-04-12 - Trade Displacement
   upload_date: '20260412'
   view_count: 27
+- chapters:
+  - end_time: 57.0
+    start_time: 0.0
+    title: Introduction to starting deck
+  - end_time: 202.0
+    start_time: 57.0
+    title: Kingdom overview and strategy discussion
+  - end_time: 238.0
+    start_time: 202.0
+    title: Kingdom Plot
+  - end_time: 262.0
+    start_time: 238.0
+    title: Discussing openings
+  - end_time: 960.0
+    start_time: 262.0
+    title: Game Starts
+  - end_time: 1000
+    start_time: 960.0
+    title: Game Ends and overview
+  comment_count: null
+  description: 'This kingdom allows to build a very satisfying Treasure-based engine
+    capable of triple or even quad-Provincing rather reliably. Of course all of those
+    Horses AI Bargains for us do help, which is good as our early draws left stuff
+    to be desired.
+
+
+    Hope you enjoy this, sorry for the inconsistent uploads!
+
+
+    You may join the discord here:
+
+    https://discord.gg/qZxwUpn9
+
+
+    Dominion is a deck building card game created by Donald X. Vaccarino.
+
+    Currently, there exist two online implementations: The browser and subscription-based
+    Dominion Online (https://dominion.games/ ), and the multi-platform-, single-purchase-based
+    client by Temple Gates Games (TGG), available e.g. on Steam (https://store.steampowered.com/app/1131620/Dominion/
+    ) and mobile appliances.
+
+
+    Here, we play on the TGG client, which offers free play of the Base game as well
+    as a free daily entry into a randomly generated (with some restrictions) kingdom,
+    where you get to compete against their AI.
+
+
+    Dombot Kingdom String:
+
+    Amulet, Bargain, Delay, Galleria, Graverobber, Laboratory, Magnate, No Colonies,
+    No Shelters, Rope, Sack of Loot, Sea Chart, Swindler, Village Green
+
+    Expansions:
+
+    Adventures, Allies, Base, 2E, Dark Ages, Intrigue, 2E, Menagerie, Plunder, Prosperity,
+    2E, Seaside, 2E
+
+
+    Ps.: Check out https://randomkingdominion.streamlit.app/oracle to visualize your
+    kingdoms!
+
+
+    Timestamps:
+
+    0:00 - Introduction to starting deck
+
+    0:57 - Kingdom overview and strategy discussion
+
+    3:22 - Kingdom Plot
+
+    3:58 - Discussing openings
+
+    4:22 - Game Starts
+
+    16:00 - Game Ends and overview'
+  duration: 1000
+  id: 8IGphiw-qVE
+  like_count: 2
+  retrieval_time: '2026-05-17T00:13:39.098240'
+  thumbnail: https://i.ytimg.com/vi_webp/8IGphiw-qVE/maxresdefault.webp
+  title: Daily Dominion 2026-05-16 - Delayed Magnation
+  upload_date: '20260516'
+  view_count: 16
+- chapters:
+  - end_time: 86.0
+    start_time: 0.0
+    title: Introduction to starting deck
+  - end_time: 253.0
+    start_time: 86.0
+    title: Kingdom overview and strategy discussion
+  - end_time: 292.0
+    start_time: 253.0
+    title: Kingdom Plot
+  - end_time: 319.0
+    start_time: 292.0
+    title: Discussing openings
+  - end_time: 1066.0
+    start_time: 319.0
+    title: Game Starts
+  - end_time: 1174
+    start_time: 1066.0
+    title: Game Ends and overview
+  comment_count: 2
+  description: 'What a kingdom! The 20-card deck makes the opening especially swingy,
+    but we manage to pull through and get to gain-and-play-land on t4 and t5 to sweep
+    the Provinces after AI fails to do so.
+
+
+    You may join the discord here:
+
+    https://discord.gg/qZxwUpn9
+
+
+    Dominion is a deck building card game created by Donald X. Vaccarino.
+
+    Currently, there exist two online implementations: The browser and subscription-based
+    Dominion Online (https://dominion.games/ ), and the multi-platform-, single-purchase-based
+    client by Temple Gates Games (TGG), available e.g. on Steam (https://store.steampowered.com/app/1131620/Dominion/
+    ) and mobile appliances.
+
+
+    Here, we play on the TGG client, which offers free play of the Base game as well
+    as a free daily entry into a randomly generated (with some restrictions) kingdom,
+    where you get to compete against their AI.
+
+
+    Dombot Kingdom String:
+
+    Asceticism, Butcher, Carpenter, Change, Daimyo, Enlarge, Forager, Fortress, March,
+    Modify, Native Village, No Colonies, Scrying Pool, Shelters -x start_add_each_pile,
+    start_replace_estate(modify)
+
+    Expansions:
+
+    Alchemy, Allies, Cornucopia & Guilds, 2E, Dark Ages, Menagerie, Plunder, Rising
+    Sun, Seaside, 2E
+
+
+    Ps.: Check out https://randomkingdominion.streamlit.app/oracle to visualize your
+    kingdoms!
+
+
+    Timestamps:
+
+    0:00 - Introduction to starting deck
+
+    1:26 - Kingdom overview and strategy discussion
+
+    4:13 - Kingdom Plot
+
+    4:52 - Discussing openings
+
+    5:19 - Game Starts
+
+    17:46 - Game Ends and overview'
+  duration: 1174
+  id: V9HhZjFC4UY
+  like_count: 2
+  retrieval_time: '2026-05-17T00:13:39.098259'
+  thumbnail: https://i.ytimg.com/vi_webp/V9HhZjFC4UY/maxresdefault.webp
+  title: Daily Dominion 2026-04-26 - Change Extravaganza
+  upload_date: '20260426'
+  view_count: 42
+- chapters:
+  - end_time: 16.0
+    start_time: 0.0
+    title: Introduction
+  - end_time: 240.0
+    start_time: 16.0
+    title: Kingdom overview and strategy discussion
+  - end_time: 315.0
+    start_time: 240.0
+    title: Kingdom Plot
+  - end_time: 330.0
+    start_time: 315.0
+    title: Discussing openings
+  - end_time: 590.0
+    start_time: 330.0
+    title: Game Starts
+  - end_time: 744
+    start_time: 590.0
+    title: Game Ends and overview
+  comment_count: null
+  description: 'Three Seaside cards from yesterday''s kingdom return, and oh boy is
+    this one fast! You got to be on your toes, but if executed correctly, the rush
+    seems to work in around 1 out of 6 cases (given my limited testing).
+
+
+    We have good early draws, albeit AI Blockading FishVil for our turn 4 was rather
+    annoying.
+
+
+    You may join the discord here:
+
+    https://discord.gg/qZxwUpn9
+
+
+    Dominion is a deck building card game created by Donald X. Vaccarino.
+
+    Currently, there exist two online implementations: The browser and subscription-based
+    Dominion Online (https://dominion.games/ ), and the multi-platform-, single-purchase-based
+    client by Temple Gates Games (TGG), available e.g. on Steam (https://store.steampowered.com/app/1131620/Dominion/
+    ) and mobile appliances.
+
+
+    Here, we play on the TGG client, which offers free play of the Base game as well
+    as a free daily entry into a randomly generated (with some restrictions) kingdom,
+    where you get to compete against their AI.
+
+
+    Dombot Kingdom String:
+
+    Blockade, Crop Rotation, Fishing Village, Hideout, Lackeys, No Colonies, No Shelters,
+    Priest, Road Network, Scepter, Silk Merchant, Smugglers, Swashbuckler, Villain
+
+    Expansions:
+
+    Renaissance, Seaside, 2E
+
+
+    Ps.: Check out https://randomkingdominion.streamlit.app/oracle to visualize your
+    kingdoms!
+
+
+    Timestamps:
+
+    0:00 - Introduction
+
+    0:16 - Kingdom overview and strategy discussion
+
+    4:00 - Kingdom Plot
+
+    5:15 - Discussing openings
+
+    5:30 - Game Starts
+
+    9:50 - Game Ends and overview'
+  duration: 744
+  id: UacJAltGuDg
+  like_count: 3
+  retrieval_time: '2026-05-17T00:13:39.098263'
+  thumbnail: https://i.ytimg.com/vi_webp/UacJAltGuDg/maxresdefault.webp
+  title: Daily Dominion 2026-04-15 - The Big Blockade
+  upload_date: '20260415'
+  view_count: 36
+- chapters:
+  - end_time: 16.0
+    start_time: 0.0
+    title: Introduction
+  - end_time: 157.0
+    start_time: 16.0
+    title: Kingdom overview and strategy discussion
+  - end_time: 224.0
+    start_time: 157.0
+    title: Kingdom Plot
+  - end_time: 280.0
+    start_time: 224.0
+    title: Discussing openings
+  - end_time: 733.0
+    start_time: 280.0
+    title: Game Starts
+  - end_time: 957
+    start_time: 733.0
+    title: Game Ends and overview
+  comment_count: 3
+  description: 'This pure Seaside kingdom comes with not 5, not 6, but 7 Duration
+    cards! If only the other three were replaced by Astrolabe, Pirate and Monkey for
+    a fully orange kingdom...
+
+
+    Nonetheless, over the course of the game, we only ever buy Green and Orange cards,
+    ignoring the boring pure Actions and Treasures.
+
+
+    We get ahead quickly due to amazing early draws, deciding to boost ourselves more
+    by going for Wharves over Sea Witches, and snowball on, only to find ourselves
+    in a situation where a pileout is possible but risky.
+
+
+    I decide to go for it, which in hindsight surely was the wrong decision; but it
+    works out just barely, enabling a speedy 9-turn win.
+
+    Oopsie. Don''t try this at home, kids!
+
+
+    You may join the discord here:
+
+    https://discord.gg/qZxwUpn9
+
+
+    Dominion is a deck building card game created by Donald X. Vaccarino.
+
+    Currently, there exist two online implementations: The browser and subscription-based
+    Dominion Online (https://dominion.games/ ), and the multi-platform-, single-purchase-based
+    client by Temple Gates Games (TGG), available e.g. on Steam (https://store.steampowered.com/app/1131620/Dominion/
+    ) and mobile appliances.
+
+
+    Here, we play on the TGG client, which offers free play of the Base game as well
+    as a free daily entry into a randomly generated (with some restrictions) kingdom,
+    where you get to compete against their AI.
+
+
+    Dombot Kingdom String:
+
+    Blockade, Corsair, Cutpurse, Fishing Village, No Colonies, No Shelters, Outpost,
+    Sailor, Sea Witch, Smugglers, Treasure Map, Wharf
+
+    Expansions:
+
+    Seaside, 2E
+
+
+    Ps.: Check out https://randomkingdominion.streamlit.app/oracle to visualize your
+    kingdoms!
+
+
+    Timestamps:
+
+    0:00 - Introduction
+
+    0:16 - Kingdom overview and strategy discussion
+
+    2:37 - Kingdom Plot
+
+    3:44 - Discussing openings
+
+    4:40 - Game Starts
+
+    12:13 - Game Ends and overview'
+  duration: 957
+  id: _MtaxjDdYRw
+  like_count: 2
+  retrieval_time: '2026-05-17T00:13:39.098266'
+  thumbnail: https://i.ytimg.com/vi_webp/_MtaxjDdYRw/maxresdefault.webp
+  title: Daily Dominion 2026-04-14 - Orange Cruise
+  upload_date: '20260414'
+  view_count: 42

@@ -1,3 +1,31 @@
+2026-05-16---amulet, sea_chart, swindler, rope, village_green, galleria, graverobber, laboratory, magnate, sack_of_loot, delay, bargain
+2026-05-15---grotto, haven, monkey, cutpurse, bandit_camp, crew, first_mate, frigate, mining_road, kings_cache, hasty(haven), foray
+2026-05-14---supplies, coven, displace, falconer, gatekeeper, hunting_party, joust, mastermind, paddock, fairgrounds, way_of_the_turtle, alliance
+2026-05-13---hermit, storeroom, infirmary, armory, fortress, marauder, plaza, band_of_misfits, rogue, soothsayer
+2026-05-12---border_guard, lackeys, experiment, flag_bearer, hideout, inventor, priest, research, sculptor, seer, road_network, silos
+2026-05-11---black_cat, workshop, cavalry, remodel, smithy, village_green, hunting_lodge, library, witch, wayfarer, way_of_the_mule, desperation
+2026-05-10---grotto, native_village, sleigh, ninja, sailor, secret_passage, tide_pools, golem, crew, patrol, ball, transport -x stamp_also_silver(ball), stamp_also_silver(ball), stamp_motivational(ball)
+2026-05-09---black_cat, grotto, clashes, harbinger, oasis, alley, island, quarry, sacrifice, sea_witch, practice, colonies
+2026-05-08---bauble, clashes, mountain_village, patron, research, galleria, scepter, skirmisher, specialist, villain, amass, league_of_bankers
+2026-05-07---artist, candlestick_maker, farrier, advisor, rustic_village, baker, footpad, gold_mine, journeyman, tea_house, panic, gather
+2026-05-06---sycophant, enchantress, broker, royal_galley, temple, villa, barbarian, forum, galleria, legionary, donate, ritual, league_of_shopkeepers
+2026-05-05---oasis, scheme, nomads, trail, cartographer, highway, inn, margrave, stables, border_village
+2026-05-04---harbinger, merchant, quarry, workers_village, festival, laboratory, war_chest, hoard, bank, forge
+2026-05-03---poor_house, farmers_market, sentinel, rustic_village, coven, paddock, pendant, tea_house, raider, kings_cache, panic, way_of_the_worm -x stamp_pay_later(kings_cache), twist_sale
+2026-05-02---hamlet, search, settlers, blockade, cabin_boy, lost_city, pickaxe, treasurer, upgrade, wharf, dominate, peril
+2026-05-01---poor_house, beggar, market_square, sage, feodum, wandering_minstrel, baker, soothsayer, hunting_grounds, samurai, continue
+2026-04-30---cage, druid(the_earths_gift, the_rivers_gift, the_flames_gift), grotto, jewelled_egg, crucible, exorcist, flagship, harbor_village, trickster, sack_of_loot, deliver, friendly(jewelled_egg)
+2026-04-29---scheme, jack_of_all_trades, ninja, poet, river_shrine, trail, ronin, stables, border_village, rice, good_harvest
+2026-04-28---odysseys, sentinel, broker, courier, royal_galley, capital_city, modify, specialist, swap, marquis, crafters_guild
+2026-04-27---harbinger, vassal, village, bureaucrat, clerk, gardens, smithy, workers_village, city, library
+2026-04-26---daimyo, native_village, scrying_pool, forager, carpenter, change, fortress, butcher, enlarge, modify, asceticism, march, shelters -x start_replace_estate(modify), start_add_each_pile
+2026-04-20---border_guard, hideout, mountain_village, priest, remodel, smithy, bandit, sentry, villain, artisan, canal, sinister_plot
+2026-04-19---odysseys, messenger, port, guildmaster, highwayman, old_witch, pooka, wealthy_village, hunting_grounds, peddler, circle_of_witches, enclave, colonies, -x start_replace_estate(highwayman), start_replace_copper(emporium)
+2026-04-18---overlord, fools_gold, develop, change, inventor, messenger, shepherd, knights, souk, grand_market, triumphal_arch, way_of_the_monkey, colonies
+2026-04-17---guard_dog, oasis, bridge, mountain_village, trader, berserker, minion, recruiter, sculptor, trading_post, canal, fleet
+2026-04-16---fishing_village, lookout, island, procession, wandering_minstrel, band_of_misfits, outpost, pillage, wharf, hunting_grounds
+2026-04-15---lackeys, fishing_village, smugglers, blockade, hideout, priest, silk_merchant, scepter, swashbuckler, villain, road_network, crop_rotation
+2026-04-14---fishing_village, smugglers, blockade, cutpurse, sailor, treasure_map, corsair, outpost, sea_witch, wharf
 2026-04-13---chapel, moat, merchant, riverboat(sentry), workshop, militia, river_shrine, imperial_envoy, mine, ronin, good_harvest, practice
 2026-04-12---acting_troupe, forager, courier, jack_of_all_trades, sailor, villa, courtier, displace, trading_post, raider, prosper, trade -x stamp_durationified(jack_of_all_trades), stamp_plus_buy(jack_of_all_trades)
 2026-04-11---cargo_ship, flag_bearer, scavenger, crypt, journeyman, longship, mint, pooka, souk, artisan, quest, triumphal_arch

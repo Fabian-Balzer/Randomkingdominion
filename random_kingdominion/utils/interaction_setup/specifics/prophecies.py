@@ -209,12 +209,6 @@ def _add_panic_interactions(df: pd.DataFrame):
         df,
     )
     add_interaction(
-        "Panic",
-        "puzzle_box",
-        "If Panic is active but you choose to set aside a Treasure via Puzzle Box's ability, you do not return it to its pile.",
-        df,
-    )
-    add_interaction(
         "panic",
         "capital",
         f"When discarding Capital from play and Panic is active, you need to return it to its pile and also get +6 Debt.",

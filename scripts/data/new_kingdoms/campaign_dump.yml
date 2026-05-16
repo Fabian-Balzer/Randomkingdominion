@@ -4784,3 +4784,339 @@
   num_themes: 2
   theme_1: landscape:way_of_the_horse
   theme_2: category:play_matters
+- key: '1491939834'
+  kingdoms:
+  - cardinal, marauder, snake_witch, beggar, university, skirmisher, treasurer, ronin,
+    gondola, sailor, invasion, quest
+  - charlatan, idol, samurai, guardian, falconer, wandering_minstrel, berserker, wizards,
+    hunting_lodge, transmogrify, invasion, coastal_haven -x stamp_chameleonize(charlatan)
+  - marauder, soothsayer, charlatan, kitsune, squire, diplomat, settlers, fishing_village,
+    collection, duplicate, enlightenment, invasion, borrow, colonies -x stamp_plus_action(kitsune)
+  - berserker, charlatan, skirmisher, marauder, caravan_guard, guard_dog, falconer,
+    port, encampment, cultist -x start_replace_estate(ruined_market), start_replace_estate(ruined_village),
+    start_replace_estate(ruined_library), start_replace_copper(abandoned_mine), start_replace_copper(survivors)
+  - cultist, haunted_woods, clerk, samurai, bishop, cardinal, priest, church, squire,
+    lighthouse, bury, looting
+  - berserker, cutpurse, haunted_woods, cardinal, diplomat, squire, guardian, lighthouse,
+    border_village, fishing_village -x stamp_offers_insight(haunted_woods)
+  - vampire, siren, bridge_troll, snake_witch, guard_dog, beggar, lighthouse, border_village,
+    settlers, legionary, quest, invest -x start_replace_estate(vampire)
+  - berserker, old_witch, soothsayer, witchs_hut, guard_dog, squire, university, settlers,
+    wizards, knights, invasion, quest, architects_guild -x stamp_with_horse(soothsayer),
+    twist_incoming
+  - blockade, soothsayer, footpad, bridge_troll, knights, kitsune, squire, lighthouse,
+    guardian, souk, rapid_expansion, quest, shelters -x twist_garbage_heap
+  - margrave, kitsune, samurai, berserker, skirmisher, beggar, diplomat, guardian,
+    familiar, old_witch, rapid_expansion, quest, wolf_den -x twist_garbage_heap, twist_big_ideas,
+    start_in_play(samurai), twist_big_ideas, twist_big_ideas
+  num_themes: 2
+  theme_1: category:attack
+  theme_2: category:like_attack
+- key: '629140351'
+  kingdoms:
+  - wealthy_village, secret_cave, paddock, fishmonger, astrolabe, investment, distant_lands,
+    catacombs, duke, ronin, ferry
+  - cemetery, courier, mining_road, fools_gold, groundskeeper, carnival, farmhands,
+    cauldron, leprechaun, golem, foray, invasion -x start_replace_estate(cemetery)
+  - paddock, sleigh, sack_of_loot, ferryman(carpenter), imperial_envoy, sanctuary,
+    animal_fair, port, farmhands, devils_workshop, academy -x stamp_with_spoils(sack_of_loot)
+  - vampire, sleigh, necromancer, sauna, hunting_party, transmute, haggler, butcher,
+    gladiator, develop, prosper, ferry -x start_replace_copper(will_o_wisp)
+  - exorcist, cavalry, sleigh, highway, wandering_minstrel, trail, scheme, experiment,
+    fool, page, peril, museum, shelters -x twist_so_much_stuff
+  - bandit_camp, necromancer, pickaxe, procession, stockpile, corsair, miser, royal_carriage,
+    hunting_lodge, townsfolk, peril, museum, shelters -x stamp_plus_action(bandit_camp)
+  - sack_of_loot, vampire, wealthy_village, cultist, town, forager, changeling, blockade,
+    crossroads, hunting_grounds, looting, museum -x twist_shoppers
+  - livery, devils_workshop, hermit, ferryman(secret_cave), knights, sheepdog, advisor,
+    enchantress, swamp_shacks, patrol, patient(hermit), triumph -x twist_sale
+  - cutthroat, exorcist, secret_cave, bandit_camp, marquis, mastermind, pickaxe, cemetery,
+    treasure_map, crown, cursed(mastermind), stampede -x twist_double_up
+  - groom, peasant, vampire, necromancer, wealthy_village, cargo_ship, cage, miser,
+    archive, fool, bargain, way_of_the_camel -x twist_double_up, twist_delayed_joy
+  num_themes: 1
+  theme_1: category:nonsupply
+- key: '386075474'
+  kingdoms:
+  - village, hamlet, cutthroat, ranger, crucible, peasant, goatherd, familiar, mountain_village,
+    courtier, way_of_the_ox -x start_replace_copper(silver), start_replace_estate(silver)
+  - swamp_shacks, taskmaster, hamlet, develop, bridge_troll, replace, transmogrify,
+    workers_village, swashbuckler, animal_fair, looting, aqueduct -x start_replace_estate(duchy),
+    start_replace_estate(duchy), start_replace_estate(duchy), start_replace_copper(spoils),
+    start_replace_copper(spoils), start_replace_copper(spoils), start_replace_copper(spoils),
+    start_replace_copper(spoils), start_replace_copper(spoils), start_replace_copper(spoils)
+  - shanty_town, village_green, hideout, recruiter, jester, priest, silk_merchant,
+    transmute, spice_merchant, prince -x start_replace_copper(estate), start_replace_copper(estate),
+    start_replace_copper(gold), stamp_plus_action(shanty_town)
+  - taskmaster, wandering_minstrel, harbor_village, border_village, replace, bridge,
+    merchant_guild, corsair, camel_train, merchant_ship, patient(border_village) -x
+    start_replace_estate(duchy), start_replace_estate(duchy), start_replace_estate(duchy)
+  - native_village, litter, procession, displace, inventor, witchs_hut, gladiator,
+    beggar, island, faithful_hound, launch, way_of_the_otter -x start_replace_estate(displace),
+    start_native_village(silver)
+  - mastermind, port, merchant_camp, mountain_village, baker, bridge_troll, silk_merchant,
+    cargo_ship, poor_house, samurai -x start_replace_estate(baker), start_replace_copper(zombie_spy),
+    twist_so_much_stuff
+  - specialist, workers_village, hamlet, bishop, tracker, pixie, quartermaster, cargo_ship,
+    cultist, salvager, march, way_of_the_otter, shelters -x start_replace_estate(duchy),
+    start_replace_estate(duchy), start_replace_estate(duchy), start_double_pile(workers_village)
+  - rustic_village, broker, golem, town, baron, tracker, fool, merchant_guild, margrave,
+    pillage, growth, crafters_guild, way_of_the_sheep -x start_replace_estate(baron),
+    stamp_two_for_one(town), start_replace_estate(town)
+  - walled_village, villa, ghost_town, taskmaster, hunter, hunting_lodge, broker,
+    duplicate, root_cellar, city_quarter, gamble, toil, band_of_nomads -x twist_big_ideas,
+    start_replace_estate(taskmaster), start_replace_estate(hunter)
+  - contract, broker, merchant_camp, border_village, kings_court, secret_passage,
+    bishop, knights, farm, exorcist, band_of_nomads, amass -x twist_big_ideas, start_replace_estate(secret_passage),
+    start_add_card(curse), start_add_card(curse), start_add_card(curse), start_add_card(curse),
+    start_add_card(curse), twist_turn_turn_turn
+  num_themes: 2
+  theme_1: category:village
+  theme_2: deck_changes
+- key: '2105180598'
+  kingdoms:
+  - wandering_minstrel, contract, den_of_sin, conclave, mountain_village, sculptor,
+    bandit, sentinel, collection, courtier, desert_guides, invest, shelters -x twist_incoming
+  - farmers_market, golem, rice_broker, mining_road, chariot_race, mint, grand_market,
+    raze, cemetery, gear, shy(farmers_market), way_of_the_rat -x twist_incoming
+  - townsfolk, inn, scrying_pool, squire, encampment, engineer, rope, animal_fair,
+    contract, plaza, inheritance, way_of_the_mule, circle_of_witches -x twist_incoming,
+    twist_extra_oomph, stamp_plus_coin(townsfolk), stamp_with_horse(townsfolk)
+  - inventor, herald, quarry, captain, sauna, cargo_ship, rice, forager, catacombs,
+    artist, mission, way_of_the_monkey -x twist_incoming, twist_busy_busy, stamp_durationified(inventor)
+  - witchs_hut, gear, highwayman, groom, vineyard, hamlet, menagerie, riverboat(count),
+    distant_lands, magnate, triumphal_arch, tomb -x twist_incoming, twist_penny_party,
+    stamp_plus_card(witchs_hut), stamp_plus_card(highwayman), stamp_plus_card(gear)
+  - prince, captain, souk, sailor, crucible, kitsune, buried_treasure, siren, farm,
+    maroon, way_of_the_chameleon, peril, growth -x twist_incoming, twist_sale, twist_penny_party
+  - berserker, scrying_pool, contract, cauldron, samurai, spice_merchant, oasis, cutpurse,
+    stockpile, war_chest, market_towns, way_of_the_worm, pathfinding -x twist_incoming,
+    twist_shoppers, start_replace_estate(berserker)
+  - treasure_map, berserker, herald, rice_broker, market_square, trail, silk_merchant,
+    envoy, band_of_misfits, capital_city, way_of_the_mole, ball, shelters -x twist_incoming,
+    twist_rebates, stamp_two_for_one(treasure_map), start_replace_estate(treasure_map)
+  - wandering_minstrel, animal_fair, soothsayer, smugglers, beggar, fishing_village,
+    candlestick_maker, duke, hostelry, catacombs, inheritance, way_of_the_squirrel
+    -x twist_incoming, twist_cramped
+  - gondola, abundance, silk_merchant, overlord, rustic_village, bard, city, flag_bearer,
+    apprentice, marchland, sea_trade, orchard, progress, colonies -x twist_incoming,
+    twist_so_much_stuff, twist_typhoon(fisherman, riverboat(specialist), ghost_town,
+    jewelled_egg, bridge, crossroads, cultist, market_square, legionary, change, root_cellar,
+    inventor, duplicate, replace, harbor_village, blessed_village, acting_troupe,
+    kings_court, merchant_camp, lurker)
+  num_themes: 2
+  theme_1: twist:twist_incoming
+  theme_2: category:like_action
+- key: '-1765461971'
+  kingdoms:
+  - fool, guide, guard_dog, tanuki, ducat, stowaway, festival, trickster, watchtower,
+    raider, enclave, populate -x stamp_two_for_one(fool)
+  - hunter, priest, lost_city, abundance, scrap, village_green, guildmaster, enchantress,
+    counterfeit, pirate, woodworkers_guild, way_of_the_goat, shelters -x stamp_two_for_one(hunter),
+    twist_penny_party
+  - pendant, acting_troupe, quartermaster, graverobber, vampire, innkeeper, dismantle,
+    tanuki, hamlet, swashbuckler, march -x stamp_two_for_one(pendant), stamp_two_for_one(acting_troupe),
+    stamp_offers_insight(acting_troupe)
+  - black_market(bounty_hunter, idol, bishop, duke, longship, count, investment, alley,
+    gladiator, replace, trading_post, pickaxe, secret_passage, courtier, hoard, stonemason,
+    lighthouse, sack_of_loot, old_witch, cutpurse, graverobber, legionary, ghost_town,
+    kiln, carpenter, church, groom, swap, maroon, shop, raze, animal_fair, bridge,
+    ironworks, crown, wishing_well, salvager, enlarge, junk_dealer, spice_merchant,
+    den_of_sin, swamp_shacks, mastermind, treasure_trove, merchant_ship, philosophers_stone,
+    hireling, flagship, distant_shore, archive, crypt, tide_pools, charm, vagrant,
+    trickster, change, farm, figurine, landing_party, sage), hamlet, vineyard, treasurer,
+    silk_merchant, gold_mine, envoy, counterfeit, guide, walled_village, foray, friendly(gold_mine),
+    shelters -x stamp_two_for_one(black_market), stamp_two_for_one(hamlet), start_replace_estate(black_market)
+  - royal_galley, odysseys, peasant, transmute, city_quarter, courier, rats, transmogrify,
+    watchtower, inventor, shelters -x stamp_two_for_one(royal_galley), stamp_two_for_one(odysseys),
+    start_shuffle_pile(odysseys), start_replace_copper(hill_fort), twist_rebates
+  - tactician, overlord, marauder, steward, ronin, paddock, landing_party, kitsune,
+    rustic_village, herbalist, progress -x stamp_two_for_one(tactician), stamp_two_for_one(overlord),
+    stamp_with_horse(overlord)
+  - captain, innkeeper, pixie, fortress, haunted_woods, trading_post, wandering_minstrel,
+    shaman, druid(the_moons_gift, the_seas_gift, the_skys_gift), grotto, maelstrom,
+    shelters -x stamp_two_for_one(captain), stamp_two_for_one(innkeeper), stamp_with_villager(captain)
+  - samurai, cultist, tide_pools, fool, imperial_envoy, vineyard, treasure_trove,
+    litter, contract, hunting_lodge, mountain_folk, bandit_fort, keep -x stamp_two_for_one(samurai),
+    stamp_two_for_one(cultist), stamp_discounted(cultist), stamp_pay_later(cultist)
+  - rats, wishing_well, secluded_shrine, dungeon, pickaxe, secret_cave, duplicate,
+    pilgrim, courtier, buried_treasure -x stamp_two_for_one(rats), stamp_two_for_one(wishing_well),
+    stamp_two_for_one(secluded_shrine)
+  - nomads, barge, kiln, lighthouse, kitsune, villa, merchant_camp, sycophant, black_cat,
+    replace, growth, league_of_bankers, invasion -x stamp_two_for_one(nomads), stamp_two_for_one(barge),
+    stamp_two_for_one(kiln), twist_extra_oomph
+  num_themes: 1
+  theme_1: stamp:stamp_two_for_one
+- key: '-254836523'
+  kingdoms:
+  - border_village, altar, berserker, investment, kitsune, festival, charm, market,
+    duplicate, villa, scrounge, cathedral, flourishing_trade
+  - vampire, guide, hostelry, villain, wharf, kitsune, young_witch(tunnel), rope,
+    haggler, scavenger, banquet, bargain, panic -x stamp_discounted(vampire)
+  - altar, importer, war_chest, siren, stables, berserker, lost_city, patrician, haunted_woods,
+    hideout, banquet, circle_of_witches -x stamp_reactionified(war_chest), stamp_offers_insight(altar)
+  - craftsman, importer, cultist, shanty_town, villain, sauna, paddock, fishing_village,
+    storeroom, tanuki, bargain, banquet, trappers_lodge -x stamp_durationified(craftsman)
+  - war_chest, craftsman, watchtower, masquerade, menagerie, lost_city, mastermind,
+    peasant, forge, mountain_shrine, banquet, bargain, great_leader, colonies -x twist_shoppers
+  - craftsman, vampire, border_village, marquis, hunting_lodge, shop, tactician, recruiter,
+    swashbuckler, jewelled_egg, scrounge, populate -x stamp_one_track_mind(scrounge)
+  - vampire, war_chest, craftsman, shepherd, marquis, cutthroat, highway, fishing_village,
+    contract, townsfolk, scrounge, crop_rotation, league_of_bankers, colonies -x stamp_durationified(craftsman)
+  - war_chest, importer, vampire, raider, diplomat, snake_witch, tragic_hero, hunting_lodge,
+    governor, contract, bargain, forest_dwellers -x start_replace_copper(sorceress),
+    twist_favored_wealthy
+  - vampire, border_village, craftsman, importer, treasure_map, berserker, baron,
+    cutpurse, rice, marchland, bargain, island_folk -x twist_from_the_throne
+  - altar, war_chest, vampire, border_village, bard, margrave, hermit, old_witch,
+    baron, artificer, banquet, bargain, shelters -x twist_from_the_throne, twist_delayed_joy
+  num_themes: 2
+  theme_1: category:gain_5
+  theme_2: category:hand_matters
+- key: '712524031'
+  kingdoms:
+  - temple, plaza, courtier, treasury, den_of_sin, cursed_village, ronin, merchant_camp,
+    nomads, poacher, plan, ferry
+  - peasant, plaza, investment, cage, gold_mine, secluded_shrine, marquis, artificer,
+    charm, walled_village, ball, ferry -x stamp_also_silver(ball)
+  - temple, wild_hunt, bridge_troll, swamp_shacks, hostelry, camel_train, bard, storeroom,
+    flag_bearer, hunting_lodge, raid, basilica -x stamp_shadowified(temple)
+  - ranger, peasant, count, haunted_woods, secluded_shrine, underling, nomads, changeling,
+    wharf, conclave, tax, training, city_state, shelters -x start_replace_estate(ranger)
+  - farmers_market, giant, treasure_map, crypt, ducat, snake_witch, herald, lighthouse,
+    animal_fair, bauble, plan, inheritance, architects_guild -x twist_so_much_stuff
+  - peasant, bridge_troll, tragic_hero, secluded_shrine, city, longship, wheelwright,
+    livery, improve, coin_of_the_realm, lost_arts, ferry -x stamp_got_it_already(ferry)
+  - wild_hunt, bridge_troll, fishing_village, mystic, daimyo, tanuki, contract, death_cart,
+    captain, caravan_guard, ball, lost_arts, mountain_folk -x start_replace_estate(bridge_troll)
+  - peasant, bridge_troll, kings_court, improve, remake, hunting_lodge, hideout, fortress,
+    destrier, farrier, ball, seaway -x stamp_fawning_service(seaway), start_replace_estate(bridge_troll)
+  - ranger, wild_hunt, peasant, pawn, bridge, highwayman, lackeys, salvager, philosophers_stone,
+    baron, seaway, ball -x twist_head_start
+  - wild_hunt, giant, farmers_market, cage, landing_party, search, cutthroat, flagship,
+    mastermind, shepherd, ball, borrow -x twist_head_start, twist_fast_track
+  num_themes: 1
+  theme_1: category:misc_tokens
+- key: '1730418046'
+  kingdoms:
+  - lackeys, farmers_market, rustic_village, bard, pilgrim, camel_train, cemetery,
+    market, bazaar, river_shrine, flourishing_trade, stampede -x start_replace_estate(lackeys)
+  - steward, taskmaster, cutthroat, corsair, governor, druid(the_rivers_gift, the_flames_gift,
+    the_seas_gift), bishop, hunting_lodge, bauble, guardian, trappers_lodge, delay
+    -x twist_incoming, stamp_with_villager(steward)
+  - infirmary, secluded_shrine, night_watchman, rats, treasure_trove, cage, caravan,
+    philosophers_stone, merchant_camp, candlestick_maker -x stamp_plus_buy(infirmary),
+    start_replace_estate(infirmary), twist_landfill
+  - groundskeeper, forager, quartermaster, importer, ninja, pillage, alley, raider,
+    candlestick_maker, innkeeper, friendly(groundskeeper), coastal_haven -x start_add_each_pile,
+    start_replace_copper(spoils), start_replace_copper(spoils), start_replace_copper(spoils),
+    start_replace_copper(spoils), start_replace_copper(spoils), start_replace_copper(spoils),
+    start_replace_copper(spoils)
+  - rope, mapmaker, cartographer, treasure_map, odysseys, cauldron, farrier, hunter,
+    cursed_village, sauna, reckless(rope) -x start_replace_copper(rope)
+  - kitsune, vampire, merchant_camp, bank, witchs_hut, haunted_woods, gold_mine, vagrant,
+    dungeon, journeyman, flourishing_trade, foresight, colonies -x start_5_coffers,
+    stamp_with_spoils(kitsune), stamp_offers_insight(kitsune)
+  - monument, royal_carriage, treasure_trove, carnival, crossroads, university, improve,
+    swap, menagerie, farmland -x twist_real_estate_barons, twist_shoppers, stamp_discounted(monument)
+  - death_cart, guildmaster, monkey, city, rice, candlestick_maker, wild_hunt, coin_of_the_realm,
+    storeroom, border_village, inherited(death_cart), circle_of_witches, exploration
+    -x stamp_offers_insight(death_cart), start_double_pile(ruins), twist_busy_busy
+  - highwayman, alchemist, gatekeeper, island, monastery, haunted_woods, miser, townsfolk,
+    landing_party, leprechaun -x twist_from_the_throne, stamp_plus_card(highwayman),
+    stamp_plus_buy(highwayman)
+  - magpie, wishing_well, fortress, inventor, capital, trading_post, pirate, necromancer,
+    apothecary, coin_of_the_realm, triumph -x twist_shoppers, stamp_two_for_one(magpie),
+    start_replace_estate(magpie), twist_busy_busy
+  num_themes: 1
+  theme_1: random_bells
+- key: '-1998969074'
+  kingdoms:
+  - guildmaster, scrying_pool, livery, witchs_hut, royal_carriage, moneylender, destrier,
+    upgrade, blockade, pilgrim, mirror, coastal_haven
+  - bauble, treasury, journeyman, figurine, gondola, sea_witch, jester, night_watchman,
+    tanuki, river_shrine, mirror, coastal_haven, bureaucracy, way_of_the_ox -x start_replace_copper(bauble)
+  - sycophant, livery, apothecary, barge, village_green, necromancer, skulk, search,
+    duke, storeroom, mirror, coastal_haven, shelters -x stamp_chameleonize(sycophant)
+  - wizards, swashbuckler, conclave, berserker, falconer, devils_workshop, herbalist,
+    stowaway, trail, giant, mirror, coastal_haven, alliance -x start_replace_copper(spoils),
+    start_replace_copper(spoils), start_replace_copper(spoils), start_replace_copper(spoils),
+    start_replace_copper(spoils), start_replace_copper(spoils), start_replace_copper(spoils)
+  - underling, swashbuckler, vault, conclave, upgrade, apothecary, war_chest, old_witch,
+    border_village, pendant, mirror, coastal_haven -x start_replace_copper(sibyl),
+    twist_busy_busy, twist_forever_favored
+  - guildmaster, apothecary, nobles, falconer, pirate, sacrifice, gladiator, trader,
+    werewolf, rats, mirror, coastal_haven, shelters -x stamp_one_track_mind(mirror),
+    twist_favored_wealthy, start_replace_estate(guildmaster)
+  - sycophant, livery, vault, upgrade, village_green, bishop, samurai, storyteller,
+    jester, procession, mirror, coastal_haven -x stamp_perks_of_wealth(mirror), twist_favored_wealthy
+  - wizards, nobles, advisor, apothecary, distant_lands, crystal_ball, goatherd, wealthy_village,
+    augurs, abundance, mirror, coastal_haven -x twist_favored_wealthy, stamp_chameleonize(nobles),
+    stamp_durationified(wizards)
+  - emissary, distant_lands, apothecary, scrying_pool, conspirator, barge, scholar,
+    nobles, search, skirmisher, mirror, coastal_haven -x stamp_perks_of_wealth(mirror)
+  - sycophant, overlord, conclave, lost_city, distant_lands, falconer, figurine, augurs,
+    mastermind, farmers_market, mirror, coastal_haven, dominate -x stamp_perks_of_wealth(mirror),
+    twist_forever_favored, twist_pennies_saved
+  num_themes: 2
+  theme_1: landscape:mirror
+  theme_2: landscape:coastal_haven
+- key: '2027469210'
+  kingdoms:
+  - sacrifice, pilgrim, specialist, forts, anvil, nobles, seer, sack_of_loot, trail,
+    margrave, inherited(sacrifice), crop_rotation
+  - grand_market, prince, root_cellar, trail, paddock, kiln, cartographer, armory,
+    pilgrim, bishop, inherited(root_cellar), obelisk(armory), shelters -x twist_big_ideas
+  - paddock, storyteller, duke, villa, treasure_map, hunting_lodge, native_village,
+    merchant_ship, rustic_village, sheepdog, inherited(hunting_lodge, sheepdog), growth
+    -x stamp_plus_coin(paddock)
+  - chariot_race, bazaar, prince, royal_blacksmith, baron, village_green, old_witch,
+    nobles, cardinal, wheelwright, inherited(prince), inspiring(chariot_race)
+  - herald, menagerie, shanty_town, black_cat, patrician, duke, hunting_lodge, tracker,
+    royal_blacksmith, clerk, inherited(hunting_lodge), colonies -x twist_from_the_throne
+  - river_shrine, storyteller, journeyman, smugglers, enchantress, mining_road, guardian,
+    wayfarer, jewelled_egg, infirmary, inherited(infirmary), good_harvest -x stamp_with_spoils(river_shrine)
+  - mystic, abundance, border_village, crucible, swamp_hag, lookout, vampire, shaman,
+    guard_dog, tools, inherited(gold), alms -x twist_garbage_heap
+  - hunting_party, bandit_camp, ferryman(sentinel), witchs_hut, magpie, hireling,
+    recruiter, infirmary, inventor, litter, inherited(magpie, hireling), academy -x
+    stamp_offers_insight(hunting_party), stamp_reactionified(hunting_party)
+  - bazaar, bandit_camp, den_of_sin, village_green, jester, seer, sack_of_loot, city,
+    litter, band_of_misfits, inherited(bazaar, bandit_camp, den_of_sin, village_green,
+    jester, seer, sack_of_loot, city, litter, band_of_misfits)
+  - hermit, border_village, gondola, figurine, kings_cache, raze, tormentor, inn,
+    monkey, ironmonger, inherited(gondola, raze), rush -x start_replace_estate(hermit),
+    start_replace_estate(hermit)
+  num_themes: 1
+  theme_1: landscape:inherited
+- key: '1684593584'
+  kingdoms:
+  - harbinger, soothsayer, courier, island, tormentor, rats, wandering_minstrel, moat,
+    herbalist, scrap, populate, defiled_shrine
+  - apprentice, soothsayer, vineyard, warehouse, scavenger, transmute, joust, horn_of_plenty,
+    broker, farmland, populate, defiled_shrine, desert_guides -x stamp_cost_2_less(populate)
+  - procession, hideout, archive, carnival, storyteller, witchs_hut, siren, messenger,
+    camel_train, envoy, populate, defiled_shrine -x stamp_cost_2_less(populate), stamp_shadowified(procession)
+  - walled_village, treasury, sailor, courier, baker, quarry, swap, trader, page,
+    monkey, populate, defiled_shrine -x stamp_cost_2_less(populate), stamp_discounted(walled_village)
+  - recruiter, vault, royal_blacksmith, hireling, crossroads, maroon, flagship, stonemason,
+    clerk, butcher, populate, defiled_shrine -x twist_landfill
+  - mystic, sailor, junk_dealer, maroon, carnival, wine_merchant, engineer, night_watchman,
+    abundance, giant, populate, defiled_shrine, shelters -x start_replace_estate(mystic)
+  - junk_dealer, tide_pools, vineyard, capital, trail, crown, gear, odysseys, displace,
+    guardian, populate, defiled_shrine -x stamp_cost_2_less(populate)
+  - wayfarer, secluded_shrine, patrol, ranger, castles, groom, storeroom, tactician,
+    advisor, emissary, populate, defiled_shrine, peaceful_cult -x stamp_motivational(populate),
+    start_replace_estate(wayfarer), twist_pennies_saved
+  - cargo_ship, sage, vault, junk_dealer, fairgrounds, feodum, sleigh, wealthy_village,
+    tunnel, sycophant, populate, defiled_shrine, island_folk, shelters -x stamp_cost_2_less(populate),
+    start_plus_2_vp_tokens(defiled_shrine)
+  - skirmisher, animal_fair, charlatan, junk_dealer, patrol, cargo_ship, corsair,
+    distant_lands, carnival, farmland, populate, defiled_shrine, shelters -x stamp_motivational(populate),
+    start_plus_2_vp_tokens(defiled_shrine), twist_big_ideas, start_double_pile(province),
+    start_replace_copper(curse), start_replace_copper(curse), start_replace_copper(curse),
+    start_replace_copper(curse), start_replace_copper(curse), start_replace_copper(curse),
+    start_replace_copper(curse)
+  num_themes: 2
+  theme_1: landscape:populate
+  theme_2: landscape:defiled_shrine
