@@ -23,7 +23,7 @@ PLAYLIST_DICT = {
         "name": "JNails",
     },
     "sharur_dailies": {
-        "url": "https://youtube.com/playlist?list=PLq5BpmSKn1YN8I4AhBpHYv7veETUsUtxG&si=I0_cxYtvsC4tB7nz",
+        "url": "https://youtube.com/playlist?list=PLq5BpmSKn1YN8I4AhBpHYv7veETUsUtxG&si=LaiyxVIilRA4DemS",
         "cols": ["id", "title"],  # Title format: contains YYYY-MM-DD
         "key": "sharur_dailies",
         "name": "Sharur",

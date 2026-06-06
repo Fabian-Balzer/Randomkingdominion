@@ -100,13 +100,15 @@ def set_up_daily_video_assets(
     CAPTION_PATH.write_text(f"TGG Daily Challenge {k.name}")
 
     new_name = k.unpacked_notes.get("name", "")
-    print_kingdom_and_expansions(k)
 
     if new_name != "":
         close_prev = get_nearest_kingdom_name(new_name, k.name, manager)
+        if close_prev is not None and close_prev.lower() == new_name.lower():
+            raise ValueError(f"New kingdom name '{new_name}' is too similar to existing kingdom '{close_prev}'")
         LOGGER.warning(
             f"Closest previous kingdom name:\n\t{close_prev} (vs. {new_name})"
         )
+    print_kingdom_and_expansions(k)
 
     if "openings" in k.unpacked_notes:
         try:

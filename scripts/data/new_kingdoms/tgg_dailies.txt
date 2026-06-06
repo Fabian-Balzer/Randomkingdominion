@@ -1,3 +1,24 @@
+2026-06-06---guardian, guide, taskmaster, crucible, tools, charlatan, inn, old_witch, patrol, pilgrim, way_of_the_chameleon, looting
+2026-06-05---university, clashes, importer, wizards, change, rustic_village, barbarian, ronin, tanuki, rice, amass, continue, mountain_folk, harsh_winter
+2026-06-04---beggar, farrier, hermit, infirmary, procession, rats, scavenger, baker, junk_dealer, knights, shelters
+2026-06-03---forager, importer, carpenter, courier, procession, barbarian, count, emissary, junk_dealer, specialist, league_of_shopkeepers
+2026-06-02---lighthouse, native_village, monkey, blockade, cutpurse, island, bazaar, corsair, merchant_ship, sea_witch
+2026-06-01---chapel, workshop, throne_room, young_witch(vassal), council_room, festival, hunting_party, laboratory, library, market
+2026-05-31---fools_gold, sycophant, craftsman, fool, blessed_village, ninja, river_shrine, shepherd, village_green, vampire, circle_of_witches, battlefield, bureaucracy -x start_replace_estate(sycophant), twist_favored_landlords
+2026-05-30---black_cat, root_cellar, steward, abundance, death_cart, jack_of_all_trades, militia, charlatan, joust, old_witch, enclave, prepare
+2026-05-29---ducat, guard_dog, tunnel, alchemist, trader, berserker, highway, seer, spices, farmland, cathedral, canal
+2026-05-28---hamlet, farrier, stonemason, herald, carnival, ferryman(remake), horn_of_plenty, hunting_party, merchant_guild, fairgrounds
+2026-05-27---black_cat, experiment, sheepdog, stockpile, research, barge, displace, recruiter, scepter, swashbuckler, demand, march
+2026-05-26---supplies, snowy_village, bounty_hunter, cardinal, cavalry, barge, falconer, hunting_lodge, livery, destrier, way_of_the_rat, toil
+2026-05-25---chapel, druid(the_moons_gift, the_earths_gift, the_flames_gift), fool, merchant, bard, conclave, remodel, council_room, mine, vampire
+2026-05-24---hamlet, peasant, forts, masquerade, stowaway, necromancer, sailor, hunting_lodge, altar, hoard, mountain_pass, commerce -x stamp_with_spoils(hunting_lodge), start_replace_estate(hunting_lodge)
+2026-05-23---changeling, develop, stockpile, sailor, barbarian, longship, pirate, soothsayer, tactician, tragic_hero, conquest, demand
+2026-05-22---border_guard, search, acting_troupe, experiment, cabin_boy, maroon, plaza, journeyman, merchant_guild, wealthy_village, hasty(experiment), cathedral
+2026-05-21---carpenter, innkeeper, investment, quarry, workers_village, galleria, modify, specialist, war_chest, grand_market, colonies
+2026-05-20---acting_troupe, anvil, cargo_ship, improve, flag_bearer, hideout, inventor, scepter, vault, grand_market, academy, fair
+2026-05-19---overlord, patrician, settlers, chariot_race, gladiator, villa, charm, crown, legionary, wild_hunt, wolf_den, fountain
+2026-05-18---moat, merchant, steward, village, bureaucrat, diplomat, poacher, secret_passage, throne_room, festival
+2026-05-17--- fools_gold, lighthouse, sycophant, sage, watchtower, carpenter, diplomat, silk_merchant, pirate, farm, invasion, trappers_lodge -x stamp_plus_card(diplomat), stamp_cost_2_less(invasion), stamp_with_spoils(watchtower)
 2026-05-16---amulet, sea_chart, swindler, rope, village_green, galleria, graverobber, laboratory, magnate, sack_of_loot, delay, bargain
 2026-05-15---grotto, haven, monkey, cutpurse, bandit_camp, crew, first_mate, frigate, mining_road, kings_cache, hasty(haven), foray
 2026-05-14---supplies, coven, displace, falconer, gatekeeper, hunting_party, joust, mastermind, paddock, fairgrounds, way_of_the_turtle, alliance

@@ -1,4 +1,590 @@
 - cards:
+  - barbarian
+  - change
+  - clashes
+  - importer
+  - rice
+  - ronin
+  - rustic_village
+  - tanuki
+  - university
+  - wizards
+  expansions:
+  - Alchemy
+  - Allies
+  - Rising Sun
+  idx: 99786012653937629815277965170636977459
+  landscapes:
+  - amass
+  - continue
+  - harsh_winter
+  - mountain_folk
+  name: '2026-06-05'
+- cards:
+  - baker
+  - beggar
+  - farrier
+  - hermit
+  - infirmary
+  - junk_dealer
+  - knights
+  - procession
+  - rats
+  - scavenger
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  idx: 240510349962545338640151226231154338407
+  name: '2026-06-04'
+  use_shelters: true
+- cards:
+  - barbarian
+  - carpenter
+  - count
+  - courier
+  - emissary
+  - forager
+  - importer
+  - junk_dealer
+  - procession
+  - specialist
+  expansions:
+  - Allies
+  - Dark Ages
+  idx: 9063049600306870999743210351155191063
+  landscapes:
+  - league_of_shopkeepers
+  name: '2026-06-03'
+- cards:
+  - bazaar
+  - blockade
+  - corsair
+  - cutpurse
+  - island
+  - lighthouse
+  - merchant_ship
+  - monkey
+  - native_village
+  - sea_witch
+  expansions:
+  - Seaside, 2E
+  idx: 287818751235357227782222945655060594529
+  name: '2026-06-02'
+- cards:
+  - abundance
+  - black_cat
+  - charlatan
+  - death_cart
+  - jack_of_all_trades
+  - joust
+  - militia
+  - old_witch
+  - root_cellar
+  - steward
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Rising Sun
+  idx: 241363015869113333195328517752647254677
+  landscapes:
+  - enclave
+  - prepare
+  name: '2026-05-30'
+- cards:
+  - alchemist
+  - berserker
+  - ducat
+  - farmland
+  - guard_dog
+  - highway
+  - seer
+  - spices
+  - trader
+  - tunnel
+  expansions:
+  - Alchemy
+  - Hinterlands, 2E
+  - Renaissance
+  idx: 178917267073495031155682400343661778454
+  landscapes:
+  - canal
+  - cathedral
+  name: '2026-05-29'
+- cards:
+  - carnival
+  - fairgrounds
+  - farrier
+  - ferryman
+  - hamlet
+  - herald
+  - horn_of_plenty
+  - hunting_party
+  - merchant_guild
+  - stonemason
+  expansions:
+  - Cornucopia & Guilds, 2E
+  ferryman_pile: remake
+  idx: 308302107584969204198906297400211160832
+  name: '2026-05-28'
+- cards:
+  - barge
+  - black_cat
+  - displace
+  - experiment
+  - recruiter
+  - research
+  - scepter
+  - sheepdog
+  - stockpile
+  - swashbuckler
+  expansions:
+  - Menagerie
+  - Renaissance
+  idx: 315495224747634332489856630254867555019
+  landscapes:
+  - demand
+  - march
+  name: '2026-05-27'
+- cards:
+  - barge
+  - bounty_hunter
+  - cardinal
+  - cavalry
+  - destrier
+  - falconer
+  - hunting_lodge
+  - livery
+  - snowy_village
+  - supplies
+  expansions:
+  - Menagerie
+  idx: 20210070155216056237832599125956966704
+  landscapes:
+  - toil
+  - way_of_the_rat
+  name: '2026-05-26'
+- cards:
+  - bard
+  - chapel
+  - conclave
+  - council_room
+  - druid
+  - fool
+  - merchant
+  - mine
+  - remodel
+  - vampire
+  druid_boons:
+  - the_earths_gift
+  - the_flames_gift
+  - the_moons_gift
+  expansions:
+  - Base, 2E
+  - Nocturne
+  idx: 265786628384544300058844179549167979927
+  name: '2026-05-25'
+- campaign_effects:
+  - replace_estate
+  - with_spoils
+  cards:
+  - altar
+  - forts
+  - hamlet
+  - hoard
+  - hunting_lodge
+  - masquerade
+  - necromancer
+  - peasant
+  - sailor
+  - stowaway
+  expansions:
+  - Adventures
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Seaside, 2E
+  idx: 204376827663497311694595458310314672153
+  landscapes:
+  - commerce
+  - mountain_pass
+  name: '2026-05-24'
+  stamps_and_effects:
+  - - replace_estate
+    - hunting_lodge
+  - - with_spoils
+    - hunting_lodge
+- cards:
+  - barbarian
+  - changeling
+  - develop
+  - longship
+  - pirate
+  - sailor
+  - soothsayer
+  - stockpile
+  - tactician
+  - tragic_hero
+  expansions:
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Seaside, 2E
+  idx: 265150785457896538832313493784488588007
+  landscapes:
+  - conquest
+  - demand
+  name: '2026-05-23'
+- cards:
+  - acting_troupe
+  - border_guard
+  - cabin_boy
+  - experiment
+  - journeyman
+  - maroon
+  - merchant_guild
+  - plaza
+  - search
+  - wealthy_village
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Plunder
+  - Renaissance
+  idx: 28415369210535580062181121366606643373
+  landscapes:
+  - cathedral
+  - hasty
+  name: '2026-05-22'
+  traits:
+  - - hasty
+    - experiment
+- cards:
+  - carpenter
+  - galleria
+  - grand_market
+  - innkeeper
+  - investment
+  - modify
+  - quarry
+  - specialist
+  - war_chest
+  - workers_village
+  expansions:
+  - Allies
+  - Prosperity, 2E
+  idx: 254250989129040965265543609260192953772
+  name: '2026-05-21'
+  use_colonies: true
+- cards:
+  - acting_troupe
+  - anvil
+  - cargo_ship
+  - flag_bearer
+  - grand_market
+  - hideout
+  - improve
+  - inventor
+  - scepter
+  - vault
+  expansions:
+  - Prosperity, 2E
+  - Renaissance
+  idx: 70061456116099511074209929622354920999
+  landscapes:
+  - academy
+  - fair
+  name: '2026-05-20'
+- cards:
+  - chariot_race
+  - charm
+  - crown
+  - gladiator/fortune
+  - legionary
+  - overlord
+  - patrician/emporium
+  - settlers/bustling_village
+  - villa
+  - wild_hunt
+  expansions:
+  - Empires
+  idx: 69713876103211368175748909562765491782
+  landscapes:
+  - fountain
+  - wolf_den
+  name: '2026-05-19'
+- cards:
+  - charlatan
+  - crucible
+  - guardian
+  - guide
+  - inn
+  - old_witch
+  - patrol
+  - pilgrim
+  - taskmaster
+  - tools
+  expansions:
+  - Adventures
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  idx: 114570624629677054684961591936284585877
+  landscapes:
+  - looting
+  - way_of_the_chameleon
+  name: '2026-06-06'
+  notes:
+    crucial_cards:
+    - Way of the chameleon
+    - taskmaster
+    - charlatan
+    - crucible
+    ending:
+    - Province
+    link: https://youtu.be/YHgEAzaeWyo
+    name: Chameleonatan
+    openings:
+    - grade: B
+      t1: Crucible
+      t1_csos:
+      - crucible
+      t2: Silver, or Taskmaster
+      t2_csos:
+      - silver
+      type: 4/3|3/4
+    - grade: B+
+      t1: Charlatan
+      t1_csos:
+      - charlatan
+      t2: Guardian
+      t2_csos:
+      - guardian
+      type: 5/2
+    - grade: B-
+      t1: Skip turn
+      t1_csos:
+      - tragic_hero
+      t2: Charlatan
+      t2_csos:
+      - charlatan
+      type: 2/5
+    points:
+    - 39
+    - 16
+    subtitle: Slowly And Steadily Building Up A Huge Deck
+    turns:
+    - 16
+    - 15
+- bane_pile: vassal
+  cards:
+  - chapel
+  - council_room
+  - festival
+  - hunting_party
+  - laboratory
+  - library
+  - market
+  - throne_room
+  - vassal
+  - workshop
+  - young_witch
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  idx: 162872172159374104935110692842131697900
+  name: '2026-06-01'
+  notes:
+    crucial_cards:
+    - Chapel
+    - Vassal
+    - Hunting Party
+    - Throne Room
+    ending:
+    - Province
+    - Vassal
+    - Throne Room
+    link: https://youtu.be/SIFZWcB2_gg
+    name: Chapassal
+    openings:
+    - grade: B-
+      t1: Chapel
+      t1_csos:
+      - chapel
+      t2: Silver
+      t2_csos:
+      - silver
+      type: 4/3|3/4
+    - grade: A-
+      t1: Hunting Party
+      t1_csos:
+      - hunting_party
+      t2: Chapel
+      t2_csos:
+      - chapel
+      type: 5/2|2/5
+    points:
+    - 38
+    - 12
+    subtitle: Rough Early Draws, But AI Doesn't Contest
+    turns:
+    - 14
+    - 13
+- campaign_effects:
+  - favored_landlords
+  - replace_estate
+  cards:
+  - blessed_village
+  - craftsman
+  - fool
+  - fools_gold
+  - ninja
+  - river_shrine
+  - shepherd
+  - sycophant
+  - vampire
+  - village_green
+  expansions:
+  - Allies
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Rising Sun
+  idx: 326289064494658893336569960171389649375
+  landscapes:
+  - battlefield
+  - bureaucracy
+  - circle_of_witches
+  name: '2026-05-31'
+  notes:
+    crucial_cards:
+    - Ninja
+    - Shepherd
+    - Fool's Gold
+    - Battlefield
+    ending:
+    - Province
+    - Duchy
+    - Estate
+    link: https://youtu.be/hVAiFRDYjAM
+    name: Fool's Shepherds
+    points:
+    - 54
+    - 49
+    subtitle: In Which I Commit Two Atrocious Shuffle Triggers
+    turns:
+    - 22
+    - 21
+  stamps_and_effects:
+  - - replace_estate
+    - sycophant
+- cards:
+  - bureaucrat
+  - diplomat
+  - festival
+  - merchant
+  - moat
+  - poacher
+  - secret_passage
+  - steward
+  - throne_room
+  - village
+  expansions:
+  - Base, 2E
+  - Intrigue, 2E
+  idx: 317849953100819813255746544202865005809
+  name: '2026-05-18'
+  notes:
+    crucial_cards:
+    - Steward
+    - Moat
+    - Festival
+    - Throne Room
+    ending:
+    - Province
+    link: https://youtu.be/8kVWpyCFQKk
+    name: Royal Stew
+    openings:
+    - grade: B
+      t1: Secret Passage, or Poacher, or Silver, or Steward if you're feeling spicy
+      t1_csos:
+      - secret_passage
+      t2: Steward
+      t2_csos:
+      - steward
+      type: 4/3|3/4
+    - grade: C-
+      t1: Steward
+      t1_csos:
+      - steward
+      t2: Skip turn
+      t2_csos:
+      - tragic_hero
+      type: 5/2|2/5
+    points:
+    - 30
+    - 18
+    subtitle: Rather Controlled, Well-Oiled Vanilla Engine With One Dud
+    turns:
+    - 15
+    - 14
+- campaign_effects:
+  - cost_2_less
+  - plus_card
+  - with_spoils
+  cards:
+  - carpenter
+  - diplomat
+  - farm
+  - fools_gold
+  - lighthouse
+  - pirate
+  - sage
+  - silk_merchant
+  - sycophant
+  - watchtower
+  expansions:
+  - Allies
+  - Dark Ages
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
+  idx: 150968126913485623069020431061068669905
+  landscapes:
+  - invasion
+  - trappers_lodge
+  name: '2026-05-17'
+  stamps_and_effects:
+  - - cost_2_less
+    - invasion
+  - - plus_card
+    - diplomat
+  - - with_spoils
+    - watchtower
+- cards:
   - amulet
   - galleria
   - graverobber
@@ -25,26 +611,39 @@
   - delay
   name: '2026-05-16'
   notes:
-    crucial_cards: [Delay, Magnate, Bargain, Rope]
-    ending: [Province]
-    link: 'https://youtu.be/8IGphiw-qVE'
-    name: 'Delayed Magnation'
+    crucial_cards:
+    - Delay
+    - Magnate
+    - Bargain
+    - Rope
+    ending:
+    - Province
+    link: https://youtu.be/8IGphiw-qVE
+    name: Delayed Magnation
     openings:
-    - grade: 'B+'
-      t1: 'Rope'
-      t1_csos: [rope]
-      t2: 'Amulet'
-      t2_csos: [amulet]
+    - grade: B+
+      t1: Rope
+      t1_csos:
+      - rope
+      t2: Amulet
+      t2_csos:
+      - amulet
       type: 4/3|3/4
-    - grade: 'C-'
-      t1: 'Rope'
-      t1_csos: [rope]
-      t2: 'Skip turn'
-      t2_csos: [tragic_hero]
+    - grade: C-
+      t1: Rope
+      t1_csos:
+      - rope
+      t2: Skip turn
+      t2_csos:
+      - tragic_hero
       type: 5/2|2/5
-    points: [30, 18]
-    subtitle: 'Getting Boosted By AI''s Excessive Bargains'
-    turns: [12, 12]
+    points:
+    - 30
+    - 18
+    subtitle: Getting Boosted By AI's Excessive Bargains
+    turns:
+    - 12
+    - 12
 - cards:
   - bandit_camp
   - crew
@@ -591,27 +1190,6 @@
   - canal
   - fleet
   name: '2026-04-17'
-  notes:
-    crucial_cards: []
-    ending: []
-    link: ''
-    name: ''
-    openings:
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
-      type: 4/3|3/4
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
-      type: 5/2|2/5
-    points: []
-    subtitle: ''
-    turns: []
 - cards:
   - band_of_misfits
   - fishing_village
@@ -628,27 +1206,6 @@
   - Seaside, 2E
   idx: 324230456436536837513893436137399962552
   name: '2026-04-16'
-  notes:
-    crucial_cards: []
-    ending: []
-    link: ''
-    name: ''
-    openings:
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
-      type: 4/3|3/4
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
-      type: 5/2|2/5
-    points: []
-    subtitle: ''
-    turns: []
 - cards:
   - blockade
   - fishing_village
@@ -1351,7 +1908,7 @@
     find_the_win: true
     ftw_difficulty: easy
     ftw_timestamp: 797
-    link: ''
+    link: https://youtu.be/aBAdof8szUM
     name: Raze Hunting
     openings:
     - grade: B+
@@ -1458,27 +2015,6 @@
   - cursed
   - foray
   name: '2026-03-24'
-  notes:
-    crucial_cards: []
-    ending: []
-    link: ''
-    name: ''
-    openings:
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
-      type: 4/3|3/4
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
-      type: 5/2|2/5
-    points: []
-    subtitle: ''
-    turns: []
   traits:
   - - cursed
     - grotto
@@ -1501,27 +2037,6 @@
   - invest
   - toil
   name: '2026-03-23'
-  notes:
-    crucial_cards: []
-    ending: []
-    link: ''
-    name: ''
-    openings:
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
-      type: 4/3|3/4
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
-      type: 5/2|2/5
-    points: []
-    subtitle: ''
-    turns: []
 - cards:
   - amulet
   - encampment/plunder
@@ -1798,27 +2313,6 @@
   - Seaside, 2E
   idx: 303338471310826274961966216677106791082
   name: '2026-03-13'
-  notes:
-    crucial_cards: []
-    ending: []
-    link: ''
-    name: ''
-    openings:
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
-      type: 4/3|3/4
-    - grade: ''
-      t1: ''
-      t1_csos: []
-      t2: ''
-      t2_csos: []
-      type: 5/2|2/5
-    points: []
-    subtitle: ''
-    turns: []
 - cards:
   - artificer
   - distant_lands
@@ -1926,7 +2420,7 @@
     - Ducat
     - Lackeys
     - Wandering Minstrel
-    link: ''
+    link: https://youtu.be/btGXasMGtnw
     name: Sculpting Grounds
     openings:
     - grade: C-
@@ -2090,7 +2584,7 @@
     - Black Cat
     - Supplies
     - Conspirator
-    link: ''
+    link: https://youtu.be/GCC9NHWua14
     name: Supercharged Oxen
     openings:
     - grade: C+
@@ -2484,7 +2978,7 @@
     - Sculptor
     - Cargo Ship
     - Wishing Well
-    link: ''
+    link: https://youtu.be/XJ51oqYAogc
     name: Grand Populate
     points:
     - 4
@@ -4364,7 +4858,7 @@
     - Mastermind
     - Kiln
     - Stockpile
-    link: ''
+    link: https://youtu.be/P5k2M1rieHg
     name: MasterHorse
     openings:
     - grade: B
@@ -4575,7 +5069,7 @@
     - Pilgrimage
     ending:
     - Province
-    link: ''
+    link: https://youtu.be/hB2jV4QlUo8
     name: Giant Pilgrimage
     openings:
     - grade: B-
@@ -5001,7 +5495,7 @@
     ending:
     - Province
     - Duchy
-    link: ''
+    link: https://youtu.be/9Bd5nPaqaUk
     name: The Dark Night
     openings:
     - grade: C
@@ -5266,7 +5760,7 @@
     - Crown
     - Groundskeeper
     - Alley
-    link: ''
+    link: https://youtu.be/Dm-f4r3j7TA
     name: Drawless Mulalley
     openings:
     - grade: A-
@@ -5377,7 +5871,7 @@
     - Gold
     ending:
     - Province
-    link: ''
+    link: https://youtu.be/pMO9YjYRy0A
     name: Hermit Square
     openings:
     - grade: B
@@ -5742,7 +6236,7 @@
     ending:
     - Province
     - Duchy
-    link: ''
+    link: https://youtu.be/oJ7tpuw4xP4
     name: Silk Rotation
     openings:
     - grade: B+
@@ -8418,7 +8912,7 @@
     - Curse
     - Lackeys
     - Blockade
-    link: ''
+    link: https://youtu.be/U6jnCuZRpX4
     name: Finicky Blockades
     openings:
     - grade: C+

@@ -5120,3 +5120,39 @@
   num_themes: 2
   theme_1: landscape:populate
   theme_2: landscape:defiled_shrine
+- key: '-785839458'
+  kingdoms:
+  - gladiator, royal_carriage, capital_city, courtier, mountain_shrine, city, sage,
+    contract, stowaway, cobbler, panic, circle_of_witches, labyrinth, triumph -x stamp_two_for_one(gladiator)
+  - old_witch, jack_of_all_trades, gear, crypt, vault, joust, snowy_village, herbalist,
+    ducat, pawn, patient(old_witch), triumph -x stamp_two_for_one(old_witch)
+  - farmers_market, artificer, priest, goatherd, patron, steward, gear, treasury,
+    storeroom, jack_of_all_trades -x stamp_two_for_one(farmers_market), stamp_two_for_one(artificer),
+    stamp_plus_coin(farmers_market)
+  - clerk, displace, scrying_pool, soothsayer, black_cat, flag_bearer, apprentice,
+    wandering_minstrel, lighthouse, crossroads, mountain_pass, colonies, shelters
+    -x stamp_two_for_one(clerk), stamp_two_for_one(displace), start_replace_estate(zombie_apprentice),
+    start_replace_estate(zombie_mason), start_replace_estate(zombie_spy)
+  - kings_cache, alchemist, cobbler, squire, watchtower, magnate, innkeeper, kings_court,
+    outpost, faithful_hound, lost_arts, shelters -x stamp_two_for_one(kings_cache),
+    stamp_two_for_one(alchemist), twist_sale, twist_rebates, start_add_each_pile
+  - haunted_woods, villain, trickster, quarry, rustic_village, forge, candlestick_maker,
+    monkey, mountain_village, philosophers_stone, rapid_expansion, colonies -x stamp_two_for_one(haunted_woods),
+    stamp_two_for_one(villain), twist_so_much_stuff
+  - apothecary, peddler, jack_of_all_trades, hermit, relic, specialist, astrolabe,
+    anvil, border_guard, snake_witch, ritual -x stamp_two_for_one(apothecary), stamp_two_for_one(peddler),
+    twist_landfill
+  - distant_lands, blockade, souk, fool, scholar, jack_of_all_trades, cartographer,
+    watchtower, gatekeeper, townsfolk, inherited(distant_lands) -x stamp_two_for_one(distant_lands),
+    stamp_two_for_one(blockade), twist_room_for_more(golem)
+  - swap, rebuild, crossroads, kings_cache, rustic_village, guardian, sauna, bridge_troll,
+    imperial_envoy, den_of_sin, enlightenment, way_of_the_worm -x stamp_two_for_one(swap),
+    stamp_two_for_one(rebuild), stamp_two_for_one(crossroads)
+  - nomads, townsfolk, acting_troupe, feodum, charlatan, odysseys, scrying_pool, masquerade,
+    poor_house, raze, nearby(acting_troupe), way_of_the_otter, shelters -x stamp_two_for_one(nomads),
+    stamp_two_for_one(townsfolk), stamp_two_for_one(acting_troupe), start_replace_copper(spoils),
+    start_replace_copper(spoils), start_replace_copper(spoils), start_replace_copper(spoils),
+    start_replace_copper(spoils), start_replace_copper(spoils), start_replace_copper(spoils),
+    start_replace_copper(sorcerer)
+  num_themes: 1
+  theme_1: stamp:stamp_two_for_one
