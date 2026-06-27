@@ -106,7 +106,7 @@ Capitalism/Enlightenment;As soon as Enlightenment is active, Capitalism can turn
 Capitalism/Landing Party;Great way to topdeck the Landing Parties each turn if there is a +$-giving cantrip.;Synergy;;
 Capitalism/Panic;As soon as Panic is active, Capitalism will cause you to return your $-bearing Actions to the Supply when discarding them from play.;Nombo;;
 Capitalism/Patron;With Capitalism bought, playing Patrons as Treasures will turn them into Villages.;Weak Synergy;;
-Capitalism/Souk;With Capitalism active, you can play the Souks as the last Treasures, increasing their value.;Weak Synergy;;
+Capitalism/Souk;With Capitalism active, you can play the Souks as the last Treasures, increasing their value.;Synergy;;
 Captain/Ferry;Reducing the cost of Captain with Ferry enables you to pick them up easily early on, and later on you might enable your Captains to play a key $5 or $6 cost Action.;Synergy;;
 Carpenter/Footpad;With Footpad around, Carpenter becomes pretty strong, and with an empty deck and discard pile, Carpenter can even autopile as long as on other piles are empty.;Synergy;;
 Castles/Keep;With Keep around, Humble Castle will be worth 5 extra VP, sometimes even making it worth opening.;Weak Synergy;;
@@ -254,7 +254,7 @@ Ferry/Poet;Reducing the cost of Poet with Ferry enables them to draw each other.
 Ferry/Quartermaster;Reducing the cost of Quartermaster with Ferry enables them to gain each other, and access them easily. Games might end in some sort of QM rush.;Rush;;
 Ferry/Rebuild;Usually, the problem with Rebuild can be getting enough of them into your deck quickly - if you manage to put Ferry on Rebuild t1, throwing loads of Rebuilds into the deck and hoping for the best can empty Provinces with ~18 points by t11. Just be aware that strong engines also might be sped up by Ferry being around.;Combo;https://youtu.be/kw0jN_b40rU;Sharur: League match
 Ferry/Seer;Reducing the cost of Seer with Ferry enables them to draw each other.;Synergy;;
-Ferry/Souk;Reducing the cost of Souk with Ferry allows to trash two cards in a 3/4 or 3/4 opening, even yielding an immediate 9-card shuffle.;Combo;;
+Ferry/Souk;Reducing the cost of Souk with Ferry allows to trash two cards in a 3/4 or 3/4 opening, even yielding an immediate 9-card shuffle.;Synergy;;
 Ferry/Stonemason;Reducing the cost of Stonemason to 0 with Ferry allows to overpay for Actions easily.;Synergy;;
 Festival/Way of the Chameleon;With Way of the Chameleon, Festivals become flexible Lost City-variants with +Buy slapped on.;Synergy;;
 Fisherman/Travelling Fair;With an empty discard pile, you may gobble up lots of Fishermen for $2 using the TFair topdecking;Weak Synergy;;
@@ -436,8 +436,10 @@ Rebuild/Star Chart;Topdecking a card of your choice each time you are shuffling 
 Rebuild/Transport;Transporting Rebuilds can help you getting a few copies in deck (even topdecked on demand) quickly, accelerating the depletion of the Province pile.;Weak Synergy;;
 Reckless/Forts;[Only if Forts are Reckless] You may topdeck your Tents during Clean-up, essentially making it a self-topdecking Terminal +$4.;Synergy;;
 Reckless/Merchant Camp;[Only if Merchant Camp is Reckless] You may topdeck your Merchant Camps during Clean-up, essentially making it a self-topdecking +4 Actions, +$2.;Synergy;;
+Reckless/Quartermaster;[Only if Quartermaster is Reckless] Playing a Reckless Quartermaster will allow you to get gain and pick up cards on the same turn, and they never leave play.;Synergy;;
 Reckless/Scheme;[Only if Reckless is on an Action card] You can topdeck a Reckless Action with Scheme to prevent having to return it to the Supply.;Weak Synergy;;
 Reckless/Walled Village;[Only if Walled Village is Reckless] You may topdeck Walled Village during Clean-up if you only have this and at most one other Action in play, circumventing Reckless' return-to-pile prompt.;Synergy;https://youtu.be/UXtVtICZ7lw;JNails: League Championship match
+Reckless/Wizards;[Only if Wizards are Reckless] Reckless Students will hop back onto your deck if you trash a Treasure, and Reckless Conjurers will gain you two cards, stay in play, and do not need to be returned.;Synergy;;
 Rice/Samurai;Having a Samurai in play will give your Rice the Action, Duration and Attack type in play each turn.;Weak Synergy;;
 Ritual/Wayfarer;Since you gain Curse first, when trashing Wayfarer with Ritual, it will cost 0, yielding no VP.;Nombo;;
 Rogue/Trail;Having a Trail trashed from the top of your deck will allow you to draw a card.;Counter;;
@@ -491,7 +493,7 @@ Village Green/Way of the Mole;Discarding a Village Green with Way of the Mole al
 Warrior/Trail;Having a Trail trashed from the top of your deck will allow you to draw a card.;Counter;;
 Way of the Turtle/Werewolf;You can play Werewolf as Way of the Turtle in your Night phase to set it aside for the next turn without needing to spend an Action.;Weak Synergy;;
 Way of the Turtle/Wizards;Playing Conjurer as Way of the Turtle will make you unable to play it normally again (as Duration cards that leave play will cease to function on future turns).;Nombo;;
-Weaver/Way of the Mole;Discarding a Weaver with Way of the Mole allows you to play it either for its usual effects, or as another Mole, allowing you to draw 6 cards in total, and giving you an extra Action.;Combo;;
+Weaver/Way of the Mole;Discarding a Weaver with Way of the Mole allows you to play it either for its usual effects, or as another Mole, allowing you to draw 6 cards in total, and giving you an extra Action.;Combo;https://www.youtube.com/watch?v=r7SIq4upuFg;JNails: League match
 band_of_nomads/siren;If you gain a Siren and somehow trigger a shuffle (e.g. on t2) by drawing a card using Band of Nomads, you are no longer required to trash an Action card for the Siren to stay in your deck.;Weak Synergy;;
 crown/landing_party;Playing Crown as the first card will allow you to topdeck your Landing Parties each turn, which is especially powerful if you can pair it with a cantrip to draw into those.;Synergy;;
 farmhands/landing_party;Setting aside Treasures to play them at the start of your turn might sometimes be worth it to trigger the Landing Party topdecking.;Weak Synergy;;
