@@ -1,3 +1,616 @@
+
+- campaign_effects:
+  - durationified
+  - treasurified
+  cards:
+  - abundance
+  - broker
+  - cobbler
+  - expand
+  - groom
+  - haggler
+  - herald
+  - ironmonger
+  - landing_party
+  - rogue
+  expansions:
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  idx: 265402657055647083367455305996481884369
+  landscapes:
+  - order_of_astrologers
+  - way_of_the_frog
+  name: '2026-06-28'
+  notes:
+    crucial_cards:
+    - Groom
+    - Landing Party
+    - Cobbler
+    - Broker
+    ending:
+    - Estate
+    - Groom
+    - Landing Party
+    link: https://youtu.be/of9j30a5fyc
+    name: Landing Groomker
+    openings:
+    - grade: C
+      t1: Groom, or Broker
+      t1_csos:
+      - groom
+      t2: Silver, topdeck Groom
+      t2_csos:
+      - silver
+      - order of astrologers
+      - groom
+      type: 4/3|3/4
+    - grade: B
+      t1: Cobbler
+      t1_csos:
+      - Cobbler
+      t2: Skip turn, topdeck Cobbler
+      t2_csos:
+      - order of astrologers
+      - cobbler
+      type: 5/2|2/5
+    points:
+    - 25
+    - 4
+    subtitle: Racing Ahead, Making Good Use Of Campaign-Feature Synergies
+    turns:
+    - 11
+    - 10
+  stamps_and_effects:
+  - - durationified
+    - herald
+  - - treasurified
+    - broker
+  use_colonies: true
+  use_shelters: true
+- cards:
+  - anvil
+  - artist
+  - figurine
+  - goatherd
+  - oasis
+  - rabble
+  - ratcatcher
+  - swamp_hag
+  - town
+  - university
+  expansions:
+  - Adventures
+  - Alchemy
+  - Allies
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Plunder
+  - Prosperity, 2E
+  - Rising Sun
+  idx: 315161945788242194722169994640788166273
+  landscapes:
+  - orchard
+  - sea_trade
+  name: '2026-06-27'
+- cards:
+  - conspirator
+  - develop
+  - diplomat
+  - duke
+  - highway
+  - masquerade
+  - nobles
+  - stables
+  - trail
+  - vault
+  expansions:
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Prosperity, 2E
+  idx: 17145392376126478827927733214487749057
+  name: '2026-06-26'
+- cards:
+  - border_guard
+  - ducat
+  - haggler
+  - hideout
+  - highway
+  - mountain_village
+  - oasis
+  - old_witch
+  - sculptor
+  - witchs_hut
+  expansions:
+  - Hinterlands, 2E
+  - Renaissance
+  idx: 113979248334450306285841016047066280331
+  landscapes:
+  - barracks
+  - capitalism
+  name: '2026-06-25'
+- cards:
+  - acting_troupe
+  - beggar
+  - counterfeit
+  - feodum
+  - flag_bearer
+  - hermit
+  - mystic
+  - old_witch
+  - poor_house
+  - vagrant
+  expansions:
+  - Dark Ages
+  - Renaissance
+  idx: 233856254003487593244704584491522077739
+  landscapes:
+  - barracks
+  - road_network
+  name: '2026-06-24'
+  use_shelters: true
+- cards:
+  - capital
+  - castles
+  - catapult/rocks
+  - city_quarter
+  - crown
+  - encampment/plunder
+  - overlord
+  - sacrifice
+  - settlers/bustling_village
+  - temple
+  expansions:
+  - Empires
+  idx: 69233786563575858796736777526252241028
+  landscapes:
+  - dominate
+  - triumphal_arch
+  name: '2026-06-23'
+- cards:
+  - artisan
+  - bandit
+  - baron
+  - courtyard
+  - ironworks
+  - moat
+  - trading_post
+  - upgrade
+  - witch
+  - workshop
+  expansions:
+  - Base, 2E
+  - Intrigue, 2E
+  idx: 302353703606258246668216445262844609351
+  name: '2026-06-22'
+- campaign_effects:
+  - fast_track
+  - replace_estate
+  cards:
+  - city_quarter
+  - distant_lands
+  - druid
+  - farmland
+  - guide
+  - patron
+  - plaza
+  - quartermaster
+  - ratcatcher
+  - research
+  druid_boons:
+  - the_moons_gift
+  - the_mountains_gift
+  - the_skys_gift
+  expansions:
+  - Adventures
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Renaissance
+  idx: 238710386922411151926635768478799113556
+  landscapes:
+  - pursue
+  - tower
+  name: '2026-06-21'
+  stamps_and_effects:
+  - - replace_estate
+    - druid
+- cards:
+  - bard
+  - kiln
+  - kings_court
+  - merchant_camp
+  - messenger
+  - peddler
+  - pendant
+  - siren
+  - storyteller
+  - swindler
+  expansions:
+  - Adventures
+  - Allies
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Rising Sun
+  idx: 225086337975777292254927215437047518331
+  landscapes:
+  - amass
+  - cathedral
+  name: '2026-06-20'
+- army_pile: jester
+  cards:
+  - alley
+  - emissary
+  - ferryman
+  - fishmonger
+  - jester
+  - ninja
+  - river_shrine
+  - sentinel
+  - shop
+  - tea_house
+  - wizards
+  expansions:
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Rising Sun
+  ferryman_pile: clashes
+  idx: 229263307299514344364857664203690852622
+  landscapes:
+  - approaching_army
+  - woodworkers_guild
+  name: '2026-06-19'
+- cards:
+  - bank
+  - butcher
+  - candlestick_maker
+  - charlatan
+  - expand
+  - hoard
+  - investment
+  - journeyman
+  - peddler
+  - vault
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Prosperity, 2E
+  idx: 317872773972605937962134045151798528940
+  name: '2026-06-18'
+- cards:
+  - black_cat
+  - bounty_hunter
+  - camel_train
+  - cavalry
+  - fisherman
+  - hunting_lodge
+  - recruiter
+  - stockpile
+  - swashbuckler
+  - villain
+  expansions:
+  - Menagerie
+  - Renaissance
+  idx: 107225570110156984326079158531747805607
+  landscapes:
+  - banish
+  - gamble
+  name: '2026-06-17'
+- cards:
+  - bank
+  - charlatan
+  - clerk
+  - collection
+  - expand
+  - forge
+  - grand_market
+  - investment
+  - magnate
+  - monument
+  expansions:
+  - Prosperity, 2E
+  idx: 188401823478182382390442359309188313439
+  name: '2026-06-16'
+  use_colonies: true
+- cards:
+  - devils_workshop
+  - ghost_town
+  - harbinger
+  - idol
+  - laboratory
+  - night_watchman
+  - pixie
+  - pooka
+  - shepherd
+  - skulk
+  expansions:
+  - Base, 2E
+  - Nocturne
+  idx: 298864486315988436534264833938946733752
+  name: '2026-06-15'
+- campaign_effects:
+  - replace_copper
+  - with_spoils
+  cards:
+  - caravan
+  - carnival
+  - counterfeit
+  - crucible
+  - familiar
+  - groom
+  - kings_cache
+  - root_cellar
+  - salvager
+  - supplies
+  expansions:
+  - Alchemy
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Menagerie
+  - Plunder
+  - Rising Sun
+  - Seaside, 2E
+  idx: 61978957800604503385163364686483079123
+  landscapes:
+  - bargain
+  - stampede
+  name: '2026-06-14'
+  notes:
+    crucial_cards:
+    - Sorceress
+    - Supplies
+    - Counterfeit
+    - Crucible
+    ending:
+    - Curse
+    - Supplies
+    - Caravan
+    link: https://youtu.be/3Qqj-q6HeCo
+    name: Supply Bargain
+    points:
+    - 15
+    - 0
+    subtitle: This Win Is Sponsored By Hard AI's Smart Bargaining Strat
+    turns:
+    - 12
+    - 11
+  stamps_and_effects:
+  - - replace_copper
+    - sorceress
+  - - with_spoils
+    - supplies
+  use_shelters: true
+- cards:
+  - changeling
+  - cursed_village
+  - duplicate
+  - enlarge
+  - fortress
+  - giant
+  - guardian
+  - kitsune
+  - margrave
+  - rice_broker
+  expansions:
+  - Adventures
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Nocturne
+  - Plunder
+  - Rising Sun
+  idx: 233566770231040399087146347727606596239
+  landscapes:
+  - defiled_shrine
+  - flourishing_trade
+  name: '2026-06-13'
+  notes:
+    crucial_cards:
+    - Rice Broker
+    - Defiled Shrine
+    - Fortress
+    - Enlarge
+    ending:
+    - Curse
+    - Fortress
+    - Rice Broker
+    link: https://youtu.be/k4akRiyTkDs
+    name: Defiled Broker
+    openings:
+    - grade: C
+      t1: Silver
+      t1_csos:
+      - silver
+      t2: Silver
+      t2_csos:
+      - silver
+      type: 4/3
+    - grade: C+
+      t1: Guardian
+      t1_csos:
+      - guardian
+      t2: Enlarge, or Rice Broker, or Kitsune, or Margrave
+      t2_csos:
+      - enlarge
+      type: 4/3|3/4
+    - grade: B+
+      t1: Enlarge, or Rice Broker, or Kitsune, or Margrave
+      t1_csos:
+      - enlarge
+      t2: Skip turn
+      t2_csos:
+      - tragic_hero
+      type: 5/2|2/5
+    points:
+    - 24
+    - -1
+    subtitle: Brokering It All Away After A Nice Opening
+    turns:
+    - 13
+    - 12
+- campaign_effects:
+  - double_pile
+  - replace_estate
+  cards:
+  - advisor
+  - blockade
+  - capital
+  - city_quarter
+  - crossroads
+  - forager
+  - kitsune
+  - market_square
+  - mountain_shrine
+  - priest
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Renaissance
+  - Rising Sun
+  - Seaside, 2E
+  idx: 133027390847635637563876519002547112866
+  landscapes:
+  - great_leader
+  name: '2026-06-07'
+  notes:
+    crucial_cards:
+    - Overgrown Estate
+    - City Quarter
+    - Blockade
+    - Market Square
+    ending:
+    - Curse
+    - Market Square
+    - Mountain Shrine
+    link: https://youtu.be/hj8XqR1HorM
+    name: Leader Quarter
+    openings:
+    - grade: B
+      t1: Blockade
+      t1_csos:
+      - blockade
+      t2: Mountain Shrine, or Forager
+      t2_csos:
+      - mountain_shrine
+      type: 4/3
+    - grade: B
+      t1: Forager
+      t1_csos:
+      - forager
+      t2: Blockade
+      t2_csos:
+      - blockade
+      type: 3/4
+    - grade: B
+      t1: Kitsune
+      t1_csos:
+      - kitsune
+      t2: Mountain Shrine
+      t2_csos:
+      - mountain_shrine
+      type: 5/2
+    - grade: C
+      t1: Skip turn, or Crossroads
+      t1_csos:
+      - tragic_hero
+      t2: Kitsune, Mountain Shrine, or Blockade
+      t2_csos:
+      - kitsune
+      type: 2/5
+    points:
+    - 21
+    - 2
+    subtitle: Building A Humming Engine With Lots Of Punch
+    turns:
+    - 12
+    - 11
+  stamps_and_effects:
+  - - double_pile
+    - duchy
+  - - replace_estate
+    - overgrown_estate,_overgrown_estate,_overgrown_estate
+  use_shelters: true
+- cards:
+  - charlatan
+  - crucible
+  - guardian
+  - guide
+  - inn
+  - old_witch
+  - patrol
+  - pilgrim
+  - taskmaster
+  - tools
+  expansions:
+  - Adventures
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  idx: 114570624629677054684961591936284585877
+  landscapes:
+  - looting
+  - way_of_the_chameleon
+  name: '2026-06-06'
+  notes:
+    crucial_cards:
+    - Way of the chameleon
+    - taskmaster
+    - charlatan
+    - crucible
+    ending:
+    - Province
+    link: https://youtu.be/YHgEAzaeWyo
+    name: Chameleonatan
+    openings:
+    - grade: B
+      t1: Crucible
+      t1_csos:
+      - crucible
+      t2: Silver, or Taskmaster
+      t2_csos:
+      - silver
+      type: 4/3|3/4
+    - grade: B+
+      t1: Charlatan
+      t1_csos:
+      - charlatan
+      t2: Guardian
+      t2_csos:
+      - guardian
+      type: 5/2
+    - grade: B-
+      t1: Skip turn
+      t1_csos:
+      - tragic_hero
+      t2: Charlatan
+      t2_csos:
+      - charlatan
+      type: 2/5
+    points:
+    - 39
+    - 16
+    subtitle: Slowly And Steadily Building Up A Huge Deck
+    turns:
+    - 16
+    - 15
 - cards:
   - barbarian
   - change
@@ -70,6 +683,109 @@
   - Seaside, 2E
   idx: 287818751235357227782222945655060594529
   name: '2026-06-02'
+- bane_pile: vassal
+  cards:
+  - chapel
+  - council_room
+  - festival
+  - hunting_party
+  - laboratory
+  - library
+  - market
+  - throne_room
+  - vassal
+  - workshop
+  - young_witch
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  idx: 162872172159374104935110692842131697900
+  name: '2026-06-01'
+  notes:
+    crucial_cards:
+    - Chapel
+    - Vassal
+    - Hunting Party
+    - Throne Room
+    ending:
+    - Province
+    - Vassal
+    - Throne Room
+    link: https://youtu.be/SIFZWcB2_gg
+    name: Chapassal
+    openings:
+    - grade: B-
+      t1: Chapel
+      t1_csos:
+      - chapel
+      t2: Silver
+      t2_csos:
+      - silver
+      type: 4/3|3/4
+    - grade: A-
+      t1: Hunting Party
+      t1_csos:
+      - hunting_party
+      t2: Chapel
+      t2_csos:
+      - chapel
+      type: 5/2|2/5
+    points:
+    - 38
+    - 12
+    subtitle: Rough Early Draws, But AI Doesn't Contest
+    turns:
+    - 14
+    - 13
+- campaign_effects:
+  - favored_landlords
+  - replace_estate
+  cards:
+  - blessed_village
+  - craftsman
+  - fool
+  - fools_gold
+  - ninja
+  - river_shrine
+  - shepherd
+  - sycophant
+  - vampire
+  - village_green
+  expansions:
+  - Allies
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Rising Sun
+  idx: 326289064494658893336569960171389649375
+  landscapes:
+  - battlefield
+  - bureaucracy
+  - circle_of_witches
+  name: '2026-05-31'
+  notes:
+    crucial_cards:
+    - Ninja
+    - Shepherd
+    - Fool's Gold
+    - Battlefield
+    ending:
+    - Province
+    - Duchy
+    - Estate
+    link: https://youtu.be/hVAiFRDYjAM
+    name: Fool's Shepherds
+    points:
+    - 54
+    - 49
+    subtitle: In Which I Commit Two Atrocious Shuffle Triggers
+    turns:
+    - 22
+    - 21
+  stamps_and_effects:
+  - - replace_estate
+    - sycophant
 - cards:
   - abundance
   - black_cat
@@ -328,176 +1044,6 @@
   - fountain
   - wolf_den
   name: '2026-05-19'
-- cards:
-  - charlatan
-  - crucible
-  - guardian
-  - guide
-  - inn
-  - old_witch
-  - patrol
-  - pilgrim
-  - taskmaster
-  - tools
-  expansions:
-  - Adventures
-  - Hinterlands, 2E
-  - Intrigue, 2E
-  - Menagerie
-  - Nocturne
-  - Plunder
-  - Prosperity, 2E
-  - Renaissance
-  idx: 114570624629677054684961591936284585877
-  landscapes:
-  - looting
-  - way_of_the_chameleon
-  name: '2026-06-06'
-  notes:
-    crucial_cards:
-    - Way of the chameleon
-    - taskmaster
-    - charlatan
-    - crucible
-    ending:
-    - Province
-    link: https://youtu.be/YHgEAzaeWyo
-    name: Chameleonatan
-    openings:
-    - grade: B
-      t1: Crucible
-      t1_csos:
-      - crucible
-      t2: Silver, or Taskmaster
-      t2_csos:
-      - silver
-      type: 4/3|3/4
-    - grade: B+
-      t1: Charlatan
-      t1_csos:
-      - charlatan
-      t2: Guardian
-      t2_csos:
-      - guardian
-      type: 5/2
-    - grade: B-
-      t1: Skip turn
-      t1_csos:
-      - tragic_hero
-      t2: Charlatan
-      t2_csos:
-      - charlatan
-      type: 2/5
-    points:
-    - 39
-    - 16
-    subtitle: Slowly And Steadily Building Up A Huge Deck
-    turns:
-    - 16
-    - 15
-- bane_pile: vassal
-  cards:
-  - chapel
-  - council_room
-  - festival
-  - hunting_party
-  - laboratory
-  - library
-  - market
-  - throne_room
-  - vassal
-  - workshop
-  - young_witch
-  expansions:
-  - Base, 2E
-  - Cornucopia & Guilds, 2E
-  idx: 162872172159374104935110692842131697900
-  name: '2026-06-01'
-  notes:
-    crucial_cards:
-    - Chapel
-    - Vassal
-    - Hunting Party
-    - Throne Room
-    ending:
-    - Province
-    - Vassal
-    - Throne Room
-    link: https://youtu.be/SIFZWcB2_gg
-    name: Chapassal
-    openings:
-    - grade: B-
-      t1: Chapel
-      t1_csos:
-      - chapel
-      t2: Silver
-      t2_csos:
-      - silver
-      type: 4/3|3/4
-    - grade: A-
-      t1: Hunting Party
-      t1_csos:
-      - hunting_party
-      t2: Chapel
-      t2_csos:
-      - chapel
-      type: 5/2|2/5
-    points:
-    - 38
-    - 12
-    subtitle: Rough Early Draws, But AI Doesn't Contest
-    turns:
-    - 14
-    - 13
-- campaign_effects:
-  - favored_landlords
-  - replace_estate
-  cards:
-  - blessed_village
-  - craftsman
-  - fool
-  - fools_gold
-  - ninja
-  - river_shrine
-  - shepherd
-  - sycophant
-  - vampire
-  - village_green
-  expansions:
-  - Allies
-  - Empires
-  - Hinterlands, 2E
-  - Menagerie
-  - Nocturne
-  - Rising Sun
-  idx: 326289064494658893336569960171389649375
-  landscapes:
-  - battlefield
-  - bureaucracy
-  - circle_of_witches
-  name: '2026-05-31'
-  notes:
-    crucial_cards:
-    - Ninja
-    - Shepherd
-    - Fool's Gold
-    - Battlefield
-    ending:
-    - Province
-    - Duchy
-    - Estate
-    link: https://youtu.be/hVAiFRDYjAM
-    name: Fool's Shepherds
-    points:
-    - 54
-    - 49
-    subtitle: In Which I Commit Two Atrocious Shuffle Triggers
-    turns:
-    - 22
-    - 21
-  stamps_and_effects:
-  - - replace_estate
-    - sycophant
 - cards:
   - bureaucrat
   - diplomat

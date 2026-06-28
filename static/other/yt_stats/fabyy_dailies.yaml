@@ -19949,3 +19949,218 @@
   title: Daily Dominion 2026-05-18 - Royal Stew
   upload_date: '20260518'
   view_count: 35
+- chapters:
+  - end_time: 40.0
+    start_time: 0.0
+    title: Introduction to starting deck
+  - end_time: 237.0
+    start_time: 40.0
+    title: Kingdom overview and strategy discussion
+  - end_time: 258.0
+    start_time: 237.0
+    title: Kingdom Plot
+  - end_time: 280.0
+    start_time: 258.0
+    title: Game Starts
+  - end_time: 1135.0
+    start_time: 280.0
+    title: Discussing openings
+  - end_time: 1207
+    start_time: 1135.0
+    title: Game Ends and overview
+  comment_count: null
+  description: 'A fast and Cursey Sunday kingdom featuring lots of Horses awaits us
+    in this one, and fueled by AI''s Bargains, we manage to gallop ahead nicely. I
+    really don''t know what AI was going for with some of those. But also its Crucible
+    skip didn''t particularly help I guess.
+
+
+    You may join the discord here:
+
+    https://discord.gg/qZxwUpn9
+
+
+    Dominion is a deck building card game created by Donald X. Vaccarino.
+
+    Currently, there exist two online implementations: The browser and subscription-based
+    Dominion Online (https://dominion.games/ ), and the multi-platform-, single-purchase-based
+    client by Temple Gates Games (TGG), available e.g. on Steam (https://store.steampowered.com/app/1131620/Dominion/
+    ) and mobile appliances.
+
+
+    Here, we play on the TGG client, which offers free play of the Base game as well
+    as a free daily entry into a randomly generated (with some restrictions) kingdom,
+    where you get to compete against their AI.
+
+
+    Dombot Kingdom String:
+
+    Bargain, Caravan, Carnival, Counterfeit, Crucible, Familiar, Groom, King''s Cache,
+    No Colonies, Root Cellar, Salvager, Shelters, Stampede, Supplies -x start_replace_copper(sorceress),
+    stamp_with_spoils(supplies)
+
+    Expansions:
+
+    Alchemy, Cornucopia & Guilds, 2E, Dark Ages, Menagerie, Plunder, Rising Sun, Seaside,
+    2E
+
+
+    Ps.: Check out https://randomkingdominion.streamlit.app/oracle to visualize your
+    kingdoms!
+
+
+    Timestamps:
+
+    0:00 - Introduction to starting deck
+
+    0:40 - Kingdom overview and strategy discussion
+
+    3:57 - Kingdom Plot
+
+    4:18 - Game Starts
+
+    4:40 - Discussing openings
+
+    18:55 - Game Ends and overview'
+  duration: 1207
+  id: 3Qqj-q6HeCo
+  like_count: 4
+  retrieval_time: '2026-06-28T15:27:49.024820'
+  thumbnail: https://i.ytimg.com/vi/3Qqj-q6HeCo/maxresdefault.jpg
+  title: Daily Dominion 2026-06-14 - Supply Bargain
+  upload_date: '20260614'
+  view_count: 38
+- chapters:
+  - end_time: 20.0
+    start_time: 0.0
+    title: Introduction to starting deck
+  - end_time: 215.0
+    start_time: 20.0
+    title: Kingdom overview and strategy discussion
+  - end_time: 235.0
+    start_time: 215.0
+    title: Kingdom Plot
+  - end_time: 317.0
+    start_time: 235.0
+    title: Discussing openings
+  - end_time: 1130.0
+    start_time: 317.0
+    title: Game Starts
+  - end_time: 1192
+    start_time: 1130.0
+    title: Game Ends and overview
+  comment_count: 3
+  description: "Back from my conference in Naples we're ready to tackle this all-random\
+    \ Saturday Daily. \nWe quickly find our footing in this strong-$5-cost dominated\
+    \ kingdom, being able to capitalize on the synergy between Rice Broker and Fortress,\
+    \ as well as making good use of Enlarge. I can certainly see this go awry if you\
+    \ fail to hit $5, but I think AI's Duplicate really wasn't the move.\n\nYou may\
+    \ join the discord here:\nhttps://discord.gg/qZxwUpn9\n\nDominion is a deck building\
+    \ card game created by Donald X. Vaccarino.\nCurrently, there exist two online\
+    \ implementations: The browser and subscription-based Dominion Online (https://dominion.games/\
+    \ ), and the multi-platform-, single-purchase-based client by Temple Gates Games\
+    \ (TGG), available e.g. on Steam (https://store.steampowered.com/app/1131620/Dominion/\
+    \ ) and mobile appliances.\n\nHere, we play on the TGG client, which offers free\
+    \ play of the Base game as well as a free daily entry into a randomly generated\
+    \ (with some restrictions) kingdom, where you get to compete against their AI.\n\
+    \nDombot Kingdom String:\nChangeling, Cursed Village, Defiled Shrine, Duplicate,\
+    \ Enlarge, Flourishing Trade, Fortress, Giant, Guardian, Kitsune, Margrave, No\
+    \ Colonies, No Shelters, Rice Broker\nExpansions:\nAdventures, Dark Ages, Empires,\
+    \ Hinterlands, 2E, Nocturne, Plunder, Rising Sun\n\nPs.: Check out https://randomkingdominion.streamlit.app/oracle\
+    \ to visualize your kingdoms!\n\nTimestamps:\n0:00 - Introduction to starting\
+    \ deck\n0:20 - Kingdom overview and strategy discussion\n3:35 - Kingdom Plot\n\
+    3:55 - Discussing openings\n5:17 - Game Starts\n18:50 - Game Ends and overview"
+  duration: 1192
+  id: k4akRiyTkDs
+  like_count: 3
+  retrieval_time: '2026-06-28T15:27:49.024839'
+  thumbnail: https://i.ytimg.com/vi/k4akRiyTkDs/maxresdefault.jpg
+  title: Daily Dominion 2026-06-13 - Defiled Broker
+  upload_date: '20260613'
+  view_count: 34
+- chapters:
+  - end_time: 20.0
+    start_time: 0.0
+    title: Introduction to starting deck
+  - end_time: 220.0
+    start_time: 20.0
+    title: Kingdom overview and strategy discussion
+  - end_time: 254.0
+    start_time: 220.0
+    title: Kingdom Plot
+  - end_time: 358.0
+    start_time: 254.0
+    title: Discussing openings
+  - end_time: 1080.0
+    start_time: 358.0
+    title: Game Starts
+  - end_time: 1178
+    start_time: 1080.0
+    title: Game Ends and overview
+  comment_count: null
+  description: 'A powerful Sunday Campaign Feature kingdom awaits us in this one.
+
+    We outbuild AI, probably partly due to our decision to go for earlier Blockades.
+    It is quite the fun kingdom to build big, and we manage to go for a nice pileout
+    on our last turn.
+
+    I think in the end AI was lacking a lot of draw in comparison to us, albeit it
+    might''ve been scary had it put Actions in the trash for its Mountain Shrines
+    to activate.
+
+
+    You may join the discord here:
+
+    https://discord.gg/qZxwUpn9
+
+
+    Dominion is a deck building card game created by Donald X. Vaccarino.
+
+    Currently, there exist two online implementations: The browser and subscription-based
+    Dominion Online (https://dominion.games/ ), and the multi-platform-, single-purchase-based
+    client by Temple Gates Games (TGG), available e.g. on Steam (https://store.steampowered.com/app/1131620/Dominion/
+    ) and mobile appliances.
+
+
+    Here, we play on the TGG client, which offers free play of the Base game as well
+    as a free daily entry into a randomly generated (with some restrictions) kingdom,
+    where you get to compete against their AI.
+
+
+    Dombot Kingdom String:
+
+    Advisor, Blockade, Capital, City Quarter, Crossroads, Forager, Great Leader, Kitsune,
+    Market Square, Mountain Shrine, No Colonies, Priest, Shelters -x start_double_pile(duchy),
+    start_replace_estate(overgrown_estate,_overgrown_estate,_overgrown_estate)
+
+    Expansions:
+
+    Cornucopia & Guilds, 2E, Dark Ages, Empires, Hinterlands, 2E, Renaissance, Rising
+    Sun, Seaside, 2E
+
+
+    Ps.: Check out https://randomkingdominion.streamlit.app/oracle to visualize your
+    kingdoms!
+
+
+    Timestamps:
+
+    0:00 - Introduction to starting deck
+
+    0:20 - Kingdom overview and strategy discussion
+
+    3:40 - Kingdom Plot
+
+    4:14 - Discussing openings
+
+    5:58 - Game Starts
+
+    18:00 - Game Ends and overview'
+  duration: 1178
+  id: hj8XqR1HorM
+  like_count: 5
+  retrieval_time: '2026-06-28T15:27:49.024843'
+  thumbnail: https://i.ytimg.com/vi/hj8XqR1HorM/maxresdefault.jpg
+  title: Daily Dominion 2026-06-07 - Leader Quarter
+  upload_date: '20260607'
+  view_count: 53
