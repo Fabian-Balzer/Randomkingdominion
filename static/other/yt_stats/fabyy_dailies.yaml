@@ -20164,3 +20164,88 @@
   title: Daily Dominion 2026-06-07 - Leader Quarter
   upload_date: '20260607'
   view_count: 53
+- chapters:
+  - end_time: 30.0
+    start_time: 0.0
+    title: Introduction to starting deck
+  - end_time: 223.0
+    start_time: 30.0
+    title: Kingdom overview and strategy discussion
+  - end_time: 265.0
+    start_time: 223.0
+    title: Kingdom Plot
+  - end_time: 325.0
+    start_time: 265.0
+    title: Game Starts
+  - end_time: 821.0
+    start_time: 325.0
+    title: Discussing openings
+  - end_time: 965
+    start_time: 821.0
+    title: Game Ends and overview
+  comment_count: null
+  description: 'Back after a hot minute with this fast Groom-centred Campaign Feature
+    kingdom.
+
+    We blaze through, making good use of the Treasurified Broker, and gain Grooms
+    left and right for a neat Estate pileout.
+
+    I should definitely have tracked AI''s Groom gains better, but alas, it was a
+    tad too focused on snatching Landing Parties.
+
+
+    You may join the discord here:
+
+    https://discord.gg/qZxwUpn9
+
+
+    Dominion is a deck building card game created by Donald X. Vaccarino.
+
+    Currently, there exist two online implementations: The browser and subscription-based
+    Dominion Online (https://dominion.games/ ), and the multi-platform-, single-purchase-based
+    client by Temple Gates Games (TGG), available e.g. on Steam (https://store.steampowered.com/app/1131620/Dominion/
+    ) and mobile appliances.
+
+
+    Here, we play on the TGG client, which offers free play of the Base game as well
+    as a free daily entry into a randomly generated (with some restrictions) kingdom,
+    where you get to compete against their AI.
+
+
+    Dombot Kingdom String:
+
+    Abundance, Broker, Cobbler, Colonies, Expand, Groom, Haggler, Herald, Ironmonger,
+    Landing Party, Order of Astrologers, Rogue, Shelters, Way of the Frog -x stamp_durationified(herald),
+    stamp_treasurified(broker)
+
+    Expansions:
+
+    Allies, Cornucopia & Guilds, 2E, Dark Ages, Hinterlands, 2E, Menagerie, Nocturne,
+    Plunder, Prosperity, 2E
+
+
+    Ps.: Check out https://randomkingdominion.streamlit.app/oracle to visualize your
+    kingdoms!
+
+
+    Timestamps:
+
+    0:00 - Introduction to starting deck
+
+    0:30 - Kingdom overview and strategy discussion
+
+    3:43 - Kingdom Plot
+
+    4:25 - Game Starts
+
+    5:25 - Discussing openings
+
+    13:41 - Game Ends and overview'
+  duration: 965
+  id: of9j30a5fyc
+  like_count: null
+  retrieval_time: '2026-06-28T15:39:53.846512'
+  thumbnail: https://i.ytimg.com/vi_webp/of9j30a5fyc/maxresdefault.webp
+  title: Daily Dominion 2026-06-28 - Landing Groomker
+  upload_date: '20260628'
+  view_count: 2
