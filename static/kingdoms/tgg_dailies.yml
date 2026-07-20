@@ -1,4 +1,45 @@
-
+- campaign_effects:
+  - chameleonized
+  - replace_copper
+  cards:
+  - artist
+  - baker
+  - broker
+  - crypt
+  - fortress
+  - patrician/emporium
+  - pixie
+  - sack_of_loot
+  - tiara
+  - wealthy_village
+  expansions:
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Rising Sun
+  idx: 79998847985805644043456753148921531445
+  landscapes:
+  - band_of_nomads
+  - kintsugi
+  name: '2026-07-05'
+  notes:
+    crucial_cards: [Wealthy Village, Artist, Broker, Stronghold]
+    ending: [Colony, Pixie]
+    link: ''
+    name: 'Wealthy Failures'
+    points: [53, 42]
+    subtitle: 'After An Awful Opening, Bad Plays Lead To A Desperate Catch-Up Attempt'
+    turns: [9, 8]
+  stamps_and_effects:
+  - - chameleonized
+    - broker
+  - - replace_copper
+    - stronghold,_tiara
+  use_colonies: true
 - campaign_effects:
   - durationified
   - treasurified

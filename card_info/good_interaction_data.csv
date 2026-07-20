@@ -99,11 +99,11 @@ band_of_misfits;transmogrify;If you play a Transmogrify using Band of Misfits, y
 band_of_misfits;treasure_map;If you play Treasure Map using Band of Misfits and try to trash itself, it stays where it was, and you do not get the effect you would have gotten from trashing it.
 band_of_misfits;urchin;If you have played Urchin using Band of Misfits, you will not get to trash it later once playing an Attack card. However, if you play Urchin and later play another Attack card using Band of Misfits, you will still get to trash the Urchin.
 band_of_misfits;workshop;If you play Workshop using Band of Misfits, you can gain a Workshop with it (despite Band of Misfits saying 'leaving it there', as this just refers to the card moving into play).
-band_of_nomads;city-state;If you gain a card and use Band of Nomads to cause a shuffle, you cannot play it using City-State anymore (but you could choose to resolve the on-gain play first).
-band_of_nomads;innovation;If you gain a card and use Band of Nomads to cause a shuffle, you cannot play it using Innovation anymore (but you could choose to resolve the on-gain play first).
-band_of_nomads;rush;If you gain a card and use Band of Nomads to cause a shuffle, you cannot play it using Rush anymore (but you could choose to resolve the on-gain play first).
+band_of_nomads;city-state;If you gain a card and use Band of Nomads to cause a shuffle, you cannot play it using City-State anymore. (but you could choose to resolve the on-gain play first)
+band_of_nomads;innovation;If you gain a card and use Band of Nomads to cause a shuffle, you cannot play it using Innovation anymore. (but you could choose to resolve the on-gain play first)
+band_of_nomads;rush;If you gain a card and use Band of Nomads to cause a shuffle, you cannot play it using Rush anymore. (but you could choose to resolve the on-gain play first)
 band_of_nomads;siren;If you gain a Siren and somehow trigger a shuffle by drawing a card using Band of Nomads, you are no longer required to trash an Action card for the Siren to stay in your deck.
-band_of_nomads;spell_scroll;If you gain a card and use Band of Nomads to cause a shuffle, you cannot play it using Spell Scroll anymore (but you could choose to resolve the on-gain play first).
+band_of_nomads;spell_scroll;If you gain a card and use Band of Nomads to cause a shuffle, you cannot play it using Spell Scroll anymore.
 bandit;charlatan;If a Bandit reveals a Curse with Charlatan in the kingdom, the Curse (or another non-Copper Treasure) is trashed.
 banquet;gatekeeper;If you gain two Coppers using Banquet while under the Gatekeeper attack, if you don't already have a copy in Exile, you need to exile the first, but may discard the exiled copy along with the gain of the second.
 barge;way_of_the_chameleon;If you play Barge using Way of the Chameleon, remember that Way of the Chameleon only affects stuff happening *this turn*, so on your next turn, you will get the normal bonus from Barge.
@@ -377,7 +377,7 @@ changeling;innovation;If you play a gained card using Innovation, you cannot exc
 changeling;rush;If you play a gained card using Rush, you cannot exchange it for a Changeling afterwards. Conversely, you cannot play it anymore after having exchanged it for a Changeling.
 changeling;sculptor;If you play Sculptor to gain a Treasure and exchange it for a Changeling, will still get the Villager (but the Changeling will be gained to your discard pile).
 changeling;silk_merchant;If you gain Silk Merchant and exchange it for a Changeling, will still get the Coffers and Villager (but the Changeling will be gained to your discard pile).
-changeling;spell_scroll;If you play a gained card using Spell Scroll, you cannot exchange it for a Changeling afterwards. Conversely, you cannot play it anymore after having exchanged it for a Changeling.
+changeling;spell_scroll;When gaining a card via Spell Scroll, you can first exchange it for a Changeling, but then won't be able to play it.
 charm;destrier;"If you choose the 'Gain Card with same cost' option for two Charms and then buy a Destrier (e.g. costing $6 at that moment), you will first gain the Destrier, then another card costing $5, then one costing $4 (and Destriers will cost $3).
 If, after playing Charms, you gain some other card costing $6, you may not gain a Destrier that cost $6 prior to that as it will change its cost to $5 due to the gain."
 charm;fisherman;If you choose the 'Gain Card with same cost' option for Charm and then gain a Fisherman costing $2 (and it goes to your discard pile), you will be able to gain a $5-cost card from Charm. Conversely, you could gain a $5-cost card first (to your discard pile), and then gain Fisherman off the Charm.
@@ -391,8 +391,8 @@ city-state;demand;When you gain a card using Demand and immediately play it usin
 city-state;develop;When you gain a card using Develop and immediately play it using City-State, you will not be able to topdeck it.
 city-state;duplicate;When you gain Duplicate and play it immediately using City-State, you may call it directly to gain another copy of it.
 city-state;enlightenment;If Enlightenment is active and you gain a Treasure in your buy phase, you can play it immediately using City-State, causing you to receive the usual effect.
-city-state;footpad;If you gain a card and use Footpad to cause a shuffle, you cannot play it using City-State anymore (but you could choose to resolve the on-gain play first).
-city-state;forts;If you gain a card and use Hill Fort to cause a shuffle, you cannot play it using City-State anymore (but you could choose to resolve the on-gain play first).
+city-state;footpad;If you gain a card and use Footpad to cause a shuffle, you cannot play it using City-State anymore. (but you could choose to resolve the on-gain play first)
+city-state;forts;If you gain a card and use Hill Fort to cause a shuffle, you cannot play it using City-State anymore. (but you could choose to resolve the on-gain play first)
 city-state;galleria;"When you gain a cost-reducing card (like Highway, Bridge, or Inventor) and play it immediately using City-State after having played a Galleria, the card's cost before the gain will determine whether you get +Buy (e.g. you won't get +Buy if Highway costs $5 before gaining and playing it).
 On the other hand, if you gain a Galleria and play it immediately using City-State, you will get +Buy from the Galleria gain if you have reduced its cost to $3 or $4 prior to the gain."
 city-state;gatekeeper;"If your opponent has played Gatekeeper, you gain a card and you don't have a copy of the gained card in Exile, you may choose whether to resolve City-State or the exiling first; if you play the gained card, it cannot be moved to Exile and vice versa."
@@ -411,14 +411,14 @@ city-state;odysseys;On your Voyage turn, when you gain an Action, you can (bar s
 city-state;progress;When you gain a card while Progress is active, you get to choose between topdecking it and playing it immediately using City-State (you can only do one).
 city-state;royal_seal;When you gain a card, you can decide whether to immediately play it using City-State, or topdeck it using Royal Seal.
 city-state;search;When you gain the last Search and play it immediately using City-State, it will not be trashed and you will not gain a Loot due to its 'Next Time' wording. [This used to be bugged in the TGG client, let us know if it's resolved!]
-city-state;sheepdog;If you gain a card and use Sheepdog to cause a shuffle, you cannot play it using City-State anymore (but you could choose to resolve the on-gain play first).
+city-state;sheepdog;If you gain a card and use Sheepdog to cause a shuffle, you cannot play it using City-State anymore. (but you could choose to resolve the on-gain play first)
 city-state;siren;If you gain a Siren and use City-State to play the Siren, Siren no longer requires you to trash an Action card from your hand in order to not trash the Siren.
 city-state;skirmisher;When you gain a Skirmisher and play it immediately using City-State, its effect will trigger, causing your opponents to discard.
 city-state;sleigh;When you gain a card, you can decide whether to immediately play it using City-State, or topdeck it using Sleigh.
 city-state;sycophant;You can immediately use the Favors from gaining Sycophant to play it using City-State.
 city-state;tiara;When you gain a card, you can decide whether to immediately play it using City-State, or topdeck it using Tiara.
 city-state;tracker;When you gain a card, you can decide whether to immediately play it using City-State, or topdeck it using Tracker.
-city-state;trail;If you gain a card and use Trail to cause a shuffle, you cannot play it using City-State anymore (but you could choose to resolve the on-gain play first).
+city-state;trail;If you gain a card and use Trail to cause a shuffle, you cannot play it using City-State anymore. (but you could choose to resolve the on-gain play first)
 city-state;trappers_lodge;When you gain a card, you can decide whether to immediately play it using City-State, or topdeck it using Trapper's Lodge.
 city-state;travelling_fair;When you gain a card, you can decide whether to immediately play it using City-State, or topdeck it using Travelling Fair.
 city-state;watchtower;When you gain a card, you can decide whether to immediately play it using City-State, or topdeck it using Watchtower.
@@ -909,28 +909,28 @@ fleet;outpost;If you play Outpost on your Fleet turn, you will only get an extra
 fleet;possession;If you play Possession on your Fleet turn, you will only get an extra turn from it if any other turns (from an opponent) would follow.
 fleet;seize_the_day;If you buy Seize the Day on your Fleet turn, you will only get an extra turn from it if any other turns (from an opponent) would follow.
 fool;harsh_winter;When you somehow gain Fool (e.g. via Shaman or Treasurer) during your turn while Harsh Winter is active, since it does not have a pile, you do not add or remove Debt anywhere.
-footpad;innovation;If you gain a card and use Footpad to cause a shuffle, you cannot play it using Innovation anymore (but you could choose to resolve the on-gain play first).
-footpad;rush;If you gain a card and use Footpad to cause a shuffle, you cannot play it using Rush anymore (but you could choose to resolve the on-gain play first).
+footpad;innovation;If you gain a card and use Footpad to cause a shuffle, you cannot play it using Innovation anymore. (but you could choose to resolve the on-gain play first)
+footpad;rush;If you gain a card and use Footpad to cause a shuffle, you cannot play it using Rush anymore. (but you could choose to resolve the on-gain play first)
 footpad;siren;If you gain a Siren and somehow trigger a shuffle by drawing a card using Footpad, you are no longer required to trash an Action card for the Siren to stay in your deck.
-footpad;spell_scroll;If you gain a card and use Footpad to cause a shuffle, you cannot play it using Spell Scroll anymore (but you could choose to resolve the on-gain play first).
+footpad;spell_scroll;If you gain a card and use Footpad to cause a shuffle, you cannot play it using Spell Scroll anymore.
 footpad;villa;If you return to your Action phase using Villa, you are still gaining the card during the Buy phase, so Footpad's ability doesn't trigger.
 forager;sewers;If you trash a Treasure that is unique to the trash with Sewers in reaction to Forager's trashing, said Treasure will be considered by Forager's check for unique Treasures, i.e. yield $.
 foray;harsh_winter;When you gain a Loot via foray during your turn while Harsh Winter is active, you add or remove Debt for the Loot pile.
 foray;panic;When you discard a Loot gained from foray from play while Panic is active, you need to return it to the top of the Loot pile. When discarding multiple, you get to choose the order. Endless Chalice and Jewels are exceptions as they (bar e.g. Highwayman) never get discarded from play.
 foray;patron;If you buy Foray during your Buy phase and reveal a Patron this way, you will not get +1 Coffers since it's not an Action phase.
 forts;gatekeeper;If you gain an Action or Treasure and put it in your hand using Hill Fort while under the Gatekeeper attack, you still need to Exile it if you don't have a copy of it in Exile unless you somehow manage to play it during the on-gain-window (e.g. via City-State, or if it has a reaction that plays it, like Sheepdog or Berserker).
-forts;innovation;If you gain a card and use Hill Fort to cause a shuffle, you cannot play it using Innovation anymore (but you could choose to resolve the on-gain play first).
+forts;innovation;If you gain a card and use Hill Fort to cause a shuffle, you cannot play it using Innovation anymore. (but you could choose to resolve the on-gain play first)
 forts;lost_arts;You may put the + Action token on the Forts pile using Lost Arts. This will affect all of its cards.
 forts;pathfinding;You may put the + Card token on the Forts pile using Pathfinding. This will affect all of its cards.
 forts;peasant;You may put any token on the Forts pile using Teacher. This will affect all of its cards.
 forts;plan;You may put the trashing token on the Forts pile using Plan. This will affect all of its cards.
 forts;reckless;[Only if Reckless is on Tent] If Tent is Reckless, you may topdeck it during Clean-up, circumventing Reckless' return-to-pile prompt.
-forts;rush;If you gain a card and use Hill Fort to cause a shuffle, you cannot play it using Rush anymore (but you could choose to resolve the on-gain play first).
+forts;rush;If you gain a card and use Hill Fort to cause a shuffle, you cannot play it using Rush anymore. (but you could choose to resolve the on-gain play first)
 forts;seaway;You may put the + Buy token on the Forts pile using Seaway. This will affect all of its cards.
 forts;sheepdog;If you gain a Sheepdog to your hand using Hill Fort, you can immediately react to its own gain and play it.
 forts;siren;"If you gain a Siren and somehow trigger a shuffle by drawing a card using Hill Fort, you are no longer required to trash an Action card for the Siren to stay in your deck.
 If you gain a Siren and put it in your hand using Hill Fort, you still need to trash an Action from your hand in order to not trash the Siren."
-forts;spell_scroll;If you gain a card and use Hill Fort to cause a shuffle, you cannot play it using Spell Scroll anymore (but you could choose to resolve the on-gain play first).
+forts;spell_scroll;If you gain a card and use Hill Fort to cause a shuffle, you cannot play it using Spell Scroll anymore.
 forts;training;You may put the + $1 token on the Forts pile using Training. This will affect all of its cards.
 forts;walled_village;Since you count the Action cards for Walled Village first before discarding cards from play, even if you plan on topdecking Tent, it still gets counted for Walled Village's assessment.
 forts;way_of_the_butterfly;If you play Tent using Way of the Butterfly, you may still topdeck it when you discard it from play.
@@ -1220,13 +1220,13 @@ innovation;livery;When you gain a Livery and play it immediately using Innovatio
 innovation;progress;When you gain a card while Progress is active, you get to choose between topdecking it and playing it immediately using Innovation (you can only do one).
 innovation;royal_seal;When you gain a card, you can decide whether to immediately play it using Innovation, or topdeck it using Royal Seal.
 innovation;search;When you gain the last Search and play it immediately using Innovation, it will not be trashed and you will not gain a Loot due to its 'Next Time' wording. [This used to be bugged in the TGG client, let us know if it's resolved!]
-innovation;sheepdog;If you gain a card and use Sheepdog to cause a shuffle, you cannot play it using Innovation anymore (but you could choose to resolve the on-gain play first).
+innovation;sheepdog;If you gain a card and use Sheepdog to cause a shuffle, you cannot play it using Innovation anymore. (but you could choose to resolve the on-gain play first)
 innovation;siren;If you gain a Siren and use Innovation to play the Siren, Siren no longer requires you to trash an Action card from your hand in order to not trash the Siren.
 innovation;skirmisher;When you gain a Skirmisher and play it immediately using Innovation, its effect will trigger, causing your opponents to discard.
 innovation;sleigh;When you gain a card, you can decide whether to immediately play it using Innovation, or topdeck it using Sleigh.
 innovation;tiara;When you gain a card, you can decide whether to immediately play it using Innovation, or topdeck it using Tiara.
 innovation;tracker;When you gain a card, you can decide whether to immediately play it using Innovation, or topdeck it using Tracker.
-innovation;trail;If you gain a card and use Trail to cause a shuffle, you cannot play it using Innovation anymore (but you could choose to resolve the on-gain play first).
+innovation;trail;If you gain a card and use Trail to cause a shuffle, you cannot play it using Innovation anymore. (but you could choose to resolve the on-gain play first)
 innovation;trappers_lodge;When you gain a card, you can decide whether to immediately play it using Innovation, or topdeck it using Trapper's Lodge.
 innovation;travelling_fair;When you gain a card, you can decide whether to immediately play it using Innovation, or topdeck it using Travelling Fair.
 innovation;watchtower;When you gain a card, you can decide whether to immediately play it using Innovation, or topdeck it using Watchtower.
@@ -1649,13 +1649,13 @@ royal_seal;villa;If you gain a Villa, you can decide whether to topdeck it using
 ruins;seaway;You may put the + Buy token on the Ruins pile using Seaway. This will affect all of its cards.
 ruins;training;You may put the + $1 token on the Ruins pile using Training. This will affect all of its cards.
 rush;search;When you gain the last Search and play it immediately using Rush, it will not be trashed and you will not gain a Loot due to its 'Next Time' wording. [This used to be bugged in the TGG client, let us know if it's resolved!]
-rush;sheepdog;If you gain a card and use Sheepdog to cause a shuffle, you cannot play it using Rush anymore (but you could choose to resolve the on-gain play first).
+rush;sheepdog;If you gain a card and use Sheepdog to cause a shuffle, you cannot play it using Rush anymore. (but you could choose to resolve the on-gain play first)
 rush;siren;If you gain a Siren and use Rush to play the Siren, Siren no longer requires you to trash an Action card from your hand in order to not trash the Siren.
 rush;skirmisher;When you gain a Skirmisher and play it immediately using Rush, its effect will trigger, causing your opponents to discard.
 rush;sleigh;When you gain a card, you can decide whether to immediately play it using Rush, or topdeck it using Sleigh.
 rush;tiara;When you gain a card, you can decide whether to immediately play it using Rush, or topdeck it using Tiara.
 rush;tracker;When you gain a card, you can decide whether to immediately play it using Rush, or topdeck it using Tracker.
-rush;trail;If you gain a card and use Trail to cause a shuffle, you cannot play it using Rush anymore (but you could choose to resolve the on-gain play first).
+rush;trail;If you gain a card and use Trail to cause a shuffle, you cannot play it using Rush anymore. (but you could choose to resolve the on-gain play first)
 rush;trappers_lodge;When you gain a card, you can decide whether to immediately play it using Rush, or topdeck it using Trapper's Lodge.
 rush;travelling_fair;When you gain a card, you can decide whether to immediately play it using Rush, or topdeck it using Travelling Fair.
 rush;watchtower;When you gain a card, you can decide whether to immediately play it using Rush, or topdeck it using Watchtower.
@@ -1706,7 +1706,7 @@ seize_the_day;wizards;If you play Lich and then buy Seize the Day, the Seize the
 settlers/bustling_village;training;You may put the + $1 token on the Settlers/Bustling Village pile using Training. This will affect all of its cards.
 sheepdog;siren;If you gain a Siren and somehow trigger a shuffle by drawing a card using Sheepdog, you are no longer required to trash an Action card for the Siren to stay in your deck.
 sheepdog;soothsayer;If an opponent plays Soothsayer and you gain a Curse, you may react with Sheepdogs. Once you're done reacting, you draw a card due to Soothsayer, and if that card is a Sheepdog, it is too late for you to react with that one.
-sheepdog;spell_scroll;If you gain a card and use Sheepdog to cause a shuffle, you cannot play it using Spell Scroll anymore (but you could choose to resolve the on-gain play first).
+sheepdog;spell_scroll;If you gain a card and use Sheepdog to cause a shuffle, you cannot play it using Spell Scroll anymore.
 sheepdog;swap;If you gain a Sheepdog to your hand using Swap, you can immediately react to its own gain and play it.
 sheepdog;transmogrify;If you gain a Sheepdog to your hand using Transmogrify, you can immediately react to its own gain and play it.
 sheepdog;way_of_the_butterfly;When you react and play Sheepdog during another player's turn, you can decide to play it as Way of the Butterfly.
@@ -1731,7 +1731,7 @@ sheepdog;way_of_the_turtle;When you react and play Sheepdog during another playe
 sheepdog;way_of_the_worm;When you react and play Sheepdog during another player's turn, you can decide to play it as Way of the Worm.
 sheepdog;wish;If you gain a Sheepdog to your hand using Wish, you can immediately react to its own gain and play it.
 siren;sleigh;If you gain a Siren and choose to topdeck it using Sleigh, you don't need to trash an Action card in order for it to stay in your deck.
-siren;spell_scroll;If you gain a Siren and use Spell Scroll to play the Siren, Siren no longer requires you to trash an Action card from your hand in order to not trash the Siren.
+siren;spell_scroll;If you gain a Siren via Spell Scroll, it trashes itself before you would get the chance to play it (unless you trash an Action for it).
 siren;summon;If you gain a Siren and set it aside using Summon, you still need to trash an Action from your hand in order to not trash the Siren.
 siren;swap;If you gain a Siren and put it in your hand using Swap, you still need to trash an Action from your hand in order to not trash the Siren.
 siren;tiara;If you gain a Siren and choose to topdeck it using Tiara, you don't need to trash an Action card in order for it to stay in your deck.
@@ -1748,7 +1748,7 @@ smugglers;way_of_the_mouse;If Smugglers is the Mouse card and you are able to so
 soothsayer;watchtower;If an opponent plays Soothsayer and you gain a Curse and draw a Watchtower, it is too late for you to react with that Watchtower to trash the Curse (or put the Curse onto your deck).
 souk;way_of_the_chameleon;If you play a Souk as Way of the Chameleon, you will draw 7 cards, and then after drawing lose $1 for each card you have in your hand, without going below $0. 
 specialist;urchin;If you play an Urchin multiple times using Specialist, you may not trash this Urchin, since you need to play *another* attack card to be able to trash it.
-spell_scroll;trail;If you gain a card and use Trail to cause a shuffle, you cannot play it using Spell Scroll anymore (but you could choose to resolve the on-gain play first).
+spell_scroll;trail;If you gain a card and use Trail to cause a shuffle, you cannot play it using Spell Scroll anymore.
 spell_scroll;way_of_the_butterfly;"When you play Spell Scroll, you can still decide to play it as Way of the Butterfly, whether you are in your Action or in your Buy phase.
 If you play Spell Scroll using Way of the Butterfly, it will return to the top of the Loot pile and be the next Loot anyone gains."
 spell_scroll;way_of_the_camel;When you play Spell Scroll, you can still decide to play it as Way of the Camel, whether you are in your Action or in your Buy phase.
