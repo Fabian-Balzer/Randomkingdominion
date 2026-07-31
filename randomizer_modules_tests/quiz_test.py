@@ -1,15 +1,19 @@
+import pickle
+
 import pytest
 
 from random_kingdominion.streamlit_util.quiz_setup.run_state import (
     QUIZ_SCORING_VERSION,
     CompletedQuizRound,
     QuizAnswers,
+    QuizMode,
     QuizPhase,
     QuizRunState,
 )
 from random_kingdominion.streamlit_util.quiz_setup.util import (
     load_quiz_widget_value,
     reset_quiz_answers,
+    reset_quiz_workflow,
     save_quiz_widget_value,
     st_calc_quiz_score,
 )
@@ -127,9 +131,7 @@ def test_quiz_run_state_tracks_completed_round_history() -> None:
     run_state = QuizRunState(round_count=10, completed_rounds=[completed_round])
 
     assert run_state.completed_rounds == [completed_round]
-    assert run_state.completed_rounds[0].submitted_answers.quality_values == {
-        "draw": 2
-    }
+    assert run_state.completed_rounds[0].submitted_answers.quality_values == {"draw": 2}
 
 
 def test_quiz_run_state_uses_independent_ids_and_history() -> None:
@@ -156,3 +158,86 @@ def test_quiz_run_state_rejects_invalid_round_position(
             round_count=round_count,
             current_round_index=current_round_index,
         )
+
+
+def test_quiz_run_submission_is_idempotent() -> None:
+    run_state = QuizRunState.start(10, "Village, Smithy")
+    answers = QuizAnswers({"draw": 2}, "yes")
+
+    assert run_state.submit_round(answers, 12.5) is True
+    assert run_state.submit_round(answers, 12.5) is False
+    assert run_state.phase is QuizPhase.SOLUTION
+    assert run_state.cumulative_score == 12.5
+    assert len(run_state.completed_rounds) == 1
+
+
+def test_quiz_run_start_selects_mode_and_is_serializable() -> None:
+    practice = QuizRunState.start(1, "Practice Kingdom")
+    multi_run = QuizRunState.start(10, "Run Kingdom")
+
+    assert practice.mode is QuizMode.PRACTICE
+    assert multi_run.mode is QuizMode.RUN
+    assert pickle.loads(pickle.dumps(multi_run)) == multi_run
+
+
+def test_quiz_run_advances_and_resets_current_round() -> None:
+    run_state = QuizRunState.start(10, "Village, Smithy")
+    run_state.submit_round(QuizAnswers({"draw": 2}, "yes"), 12.5)
+
+    run_state.advance_round("Market, Chapel")
+
+    assert run_state.phase is QuizPhase.ANSWERING
+    assert run_state.current_round_index == 1
+    assert run_state.current_kingdom == "Market, Chapel"
+    assert run_state.submitted_answers is None
+    assert run_state.round_score is None
+    assert run_state.cumulative_score == 12.5
+
+
+def test_quiz_run_finishes_after_last_scored_round() -> None:
+    run_state = QuizRunState.start(1, "Village, Smithy")
+    run_state.submit_round(QuizAnswers({"draw": 2}, "yes"), 15)
+
+    run_state.advance_round("")
+
+    assert run_state.phase is QuizPhase.FINISHED
+    assert run_state.cumulative_score == 15
+    assert run_state.average_score == 15
+    assert run_state.perfect_round_count == 1
+    assert run_state.maximum_score == 15
+
+
+def test_quiz_run_summary_metrics_cover_multiple_rounds() -> None:
+    run_state = QuizRunState.start(10, "First")
+    run_state.submit_round(QuizAnswers({}, "yes"), 15)
+    run_state.advance_round("Second")
+    run_state.submit_round(QuizAnswers({}, "no"), 10)
+
+    assert run_state.cumulative_score == 25
+    assert run_state.average_score == 12.5
+    assert run_state.perfect_round_count == 1
+    assert run_state.maximum_score == 150
+
+
+def test_reset_quiz_workflow_clears_run_and_preserves_unrelated_state() -> None:
+    state = {
+        "quiz_run_state": QuizRunState.start(10, "Village, Smithy"),
+        "quiz_current_kingdom": "legacy kingdom",
+        "quiz_has_started": True,
+        "quiz_quality_buy_str": "yes",
+        "_quiz_quality_buy_str": "yes",
+        "quiz_quality_slider_draw": 2,
+        "_quiz_quality_slider_draw": 2,
+        "unrelated": "keep me",
+    }
+
+    reset_quiz_workflow(state, ["draw"])
+
+    assert "quiz_run_state" not in state
+    assert "quiz_current_kingdom" not in state
+    assert "quiz_has_started" not in state
+    assert "quiz_quality_buy_str" not in state
+    assert "_quiz_quality_buy_str" not in state
+    assert state["quiz_quality_slider_draw"] == -1
+    assert "_quiz_quality_slider_draw" not in state
+    assert state["unrelated"] == "keep me"

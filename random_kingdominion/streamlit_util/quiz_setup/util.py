@@ -38,6 +38,18 @@ def reset_quiz_answers(
         state[f"quiz_quality_slider_{quality}"] = -1
 
 
+def reset_quiz_workflow(
+    state: MutableMapping[str, Any], quality_names: Sequence[str]
+) -> None:
+    state.pop("quiz_run_state", None)
+    state.pop("quiz_current_kingdom", None)
+    state.pop("quiz_has_started", None)
+    for key in list(state):
+        if key.startswith("_quiz_quality_"):
+            state.pop(key, None)
+    reset_quiz_answers(state, quality_names)
+
+
 def load_quiz_widget_value(state: MutableMapping[str, Any], answer_key: str) -> str:
     widget_key = f"_{answer_key}"
     if answer_key in state:
@@ -56,9 +68,13 @@ def save_quiz_widget_value(state: MutableMapping[str, Any], answer_key: str) -> 
 
 
 def generate_random_quiz_kingdom(quality_names: Sequence[str]) -> None:
-    _k = KingdomRandomizer().randomize_new_kingdom()
-    st.session_state["quiz_current_kingdom"] = _k.get_dombot_csv_string()
+    st.session_state["quiz_current_kingdom"] = generate_random_quiz_kingdom_string()
     reset_quiz_answers(st.session_state, quality_names)
+
+
+def generate_random_quiz_kingdom_string() -> str:
+    kingdom = KingdomRandomizer().randomize_new_kingdom()
+    return kingdom.get_dombot_csv_string()
 
 
 def get_quiz_quality_names() -> list[str]:

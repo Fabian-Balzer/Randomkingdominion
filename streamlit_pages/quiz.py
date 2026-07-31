@@ -10,7 +10,7 @@ rk.build_page_header(
     "Learn more about the CSO and kingdom qualities on the about page.",
 )
 st.write(
-    """Are you able to infer the engine qualities for a given kingdom? I highly recommend reading the instructions below before getting started."""
+    """Are you able to infer the engine qualities for a given kingdom? I highly recommend reading the instructions below before getting started. Note that this website is not optimized for mobile devices."""
 )
 
 explanations = {}

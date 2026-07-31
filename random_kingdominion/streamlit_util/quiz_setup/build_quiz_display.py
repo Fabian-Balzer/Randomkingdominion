@@ -1,4 +1,4 @@
-from typing import Literal
+from typing import Literal, cast
 
 import matplotlib.pyplot as plt
 import streamlit as st
@@ -8,10 +8,13 @@ from ...kingdom import Kingdom
 from ...utils import DOM_BEIGE, DOM_BLUE, get_quality_icon_fpath
 from ..common_widgets import st_build_kingdom_csv_display, st_display_kingdom_images
 from ..image_util import st_plot_kingdom_qualities
+from .run_state import BuyAvailability, QuizAnswers, QuizMode, QuizPhase, QuizRunState
 from .util import (
-    generate_random_quiz_kingdom,
+    generate_random_quiz_kingdom_string,
     get_quiz_quality_names,
     load_quiz_widget_value,
+    reset_quiz_answers,
+    reset_quiz_workflow,
     save_quiz_widget_value,
     st_calc_quiz_score,
 )
@@ -162,7 +165,11 @@ def plot_score_bar(score: float):
     return fig
 
 
-def show_solution_button(solution_possible: bool = False) -> None:
+def show_solution_button(
+    run_state: QuizRunState,
+    k: Kingdom,
+    solution_possible: bool = False,
+) -> None:
     f = st.container(horizontal=True, horizontal_alignment="left")
     if not solution_possible:
         f.info(
@@ -175,8 +182,17 @@ def show_solution_button(solution_possible: bool = False) -> None:
             width="stretch",
             type="primary",
         ):
+            selected_values = _get_selected_values()
+            buy_str = cast(BuyAvailability, _get_buy_availability())
+            answers = QuizAnswers(selected_values, buy_str)
+            score = st_calc_quiz_score(
+                selected_values,
+                k.total_qualities,
+                buy_str,
+                k.buy_availability,
+            )
+            run_state.submit_round(answers, score)
             st.session_state["quiz_show_solution"] = True
-            st.session_state["quiz_has_started"] = False
             st.rerun()
 
 
@@ -192,12 +208,7 @@ def _get_buy_availability() -> str:
     return st.session_state.get("quiz_quality_buy_str", "")
 
 
-def solution_section(k: Kingdom) -> None:
-    selected_values = _get_selected_values()
-    buy_str = _get_buy_availability()
-    score = st_calc_quiz_score(
-        selected_values, k.total_qualities, buy_str, k.buy_availability
-    )
+def solution_section(score: float) -> None:
     # If .5 points, show one decimal place, otherwise show no decimal places
     score_str = f"{score:.1f}" if score % 1 != 0 else f"{int(score)}"
     with st.container():
@@ -248,69 +259,151 @@ def st_build_kingdom_display_options() -> tuple[bool, bool]:
     return checkbox_large_view, checkbox_full_image
 
 
+def _build_mode_navigation(quality_names: list[str]) -> None:
+    mode_label = st.segmented_control(
+        "Quiz Mode",
+        ["Practice", "10 Kingdom Run"],
+        default="Practice",
+        width="stretch",
+    )
+    selected_mode = (
+        QuizMode.RUN if mode_label == "10 Kingdom Run" else QuizMode.PRACTICE
+    )
+    if selected_mode is QuizMode.PRACTICE:
+        st.caption("Explore one kingdom at a time without a cumulative score.")
+        button_label = "Start Practice"
+        round_count = 1
+    else:
+        st.caption("Score ten kingdoms in a row and review your combined result.")
+        button_label = "Start 10 Kingdom Run"
+        round_count = 10
+
+    if st.button(button_label, type="primary", width="stretch"):
+        kingdom = generate_random_quiz_kingdom_string()
+        st.session_state["quiz_run_state"] = QuizRunState.start(
+            round_count,
+            kingdom,
+            selected_mode,
+        )
+        reset_quiz_answers(st.session_state, quality_names)
+        st.rerun()
+
+
+def _build_run_header(run_state: QuizRunState, quality_names: list[str]) -> None:
+    header = st.container(horizontal=True, horizontal_alignment="distribute")
+    if run_state.mode is QuizMode.RUN:
+        header.markdown(
+            f"**Round {run_state.current_round_index + 1} of {run_state.round_count}**"
+        )
+        header.markdown(
+            f"**Score: {run_state.cumulative_score:g}/{run_state.maximum_score}**"
+        )
+        st.progress(
+            len(run_state.completed_rounds) / run_state.round_count,
+            text="Run progress",
+        )
+    else:
+        header.markdown("**Practice**")
+
+    if header.button("Stop / Reset", type="secondary"):
+        reset_quiz_workflow(st.session_state, quality_names)
+        st.rerun()
+
+
+def _build_finished_summary(run_state: QuizRunState) -> None:
+    st.subheader("10 Kingdom Run Complete")
+    col1, col2, col3 = st.columns(3)
+    col1.metric(
+        "Total Score",
+        f"{run_state.cumulative_score:g}/{run_state.maximum_score}",
+    )
+    col2.metric("Average", f"{run_state.average_score:.1f}/15")
+    col3.metric(
+        "Perfect Rounds",
+        f"{run_state.perfect_round_count}/{run_state.round_count}",
+    )
+
+
+def _advance_or_restart(run_state: QuizRunState, quality_names: list[str]) -> None:
+    if run_state.mode is QuizMode.PRACTICE:
+        label = "Practice Another Kingdom"
+    elif run_state.current_round_index + 1 == run_state.round_count:
+        label = "View Run Summary"
+    else:
+        label = "Next Kingdom"
+
+    if st.button(label, type="primary", width="stretch"):
+        if run_state.mode is QuizMode.PRACTICE:
+            st.session_state["quiz_run_state"] = QuizRunState.start(
+                1,
+                generate_random_quiz_kingdom_string(),
+                QuizMode.PRACTICE,
+            )
+        else:
+            next_kingdom = (
+                ""
+                if run_state.current_round_index + 1 == run_state.round_count
+                else generate_random_quiz_kingdom_string()
+            )
+            run_state.advance_round(next_kingdom)
+        reset_quiz_answers(st.session_state, quality_names)
+        st.rerun()
+
+
 def st_build_full_quiz_display() -> None:
 
     quality_names = get_quiz_quality_names()
-    solution_is_shown = st.session_state.get("quiz_show_solution", False)
-    quiz_has_started = st.session_state.get("quiz_has_started", False)
-    randomize_button = st.container()
+    run_state = st.session_state.get("quiz_run_state")
+    if not isinstance(run_state, QuizRunState):
+        _build_mode_navigation(quality_names)
+        return
 
-    k_str = st.session_state.get("quiz_current_kingdom", "")
-    if k_str == "":
-        st.info("Click the button to generate a random kingdom to start the quiz.")
+    _build_run_header(run_state, quality_names)
+    if run_state.phase is QuizPhase.FINISHED:
+        _build_finished_summary(run_state)
+        return
+
+    solution_is_shown = run_state.phase is QuizPhase.SOLUTION
+    k_str = run_state.current_kingdom
+    k = Kingdom.from_dombot_csv_string(k_str)
+
+    large_kingdom_view, checkbox_full_image = st_build_kingdom_display_options()
+    selection_cont = st.container(border=True)
+    if large_kingdom_view:
+        col0 = selection_cont.expander("The Kingdom", expanded=True)
+        col1, col2 = selection_cont.columns(2)
     else:
-        k = Kingdom.from_dombot_csv_string(k_str)
+        col0, col1, col2 = selection_cont.columns(3)
+        col0 = col0.container(border=True)
+        col0.write("The Kingdom")
 
-        large_kingdom_view, checkbox_full_image = st_build_kingdom_display_options()
-        selection_cont = st.container(border=True)
-        if large_kingdom_view:
-            col0 = selection_cont.expander("The Kingdom", expanded=True)
-            col1, col2 = selection_cont.columns(2)
-        else:
-            col0, col1, col2 = selection_cont.columns(3)
-            col0 = col0.container(border=True)
-            col0.write("The Kingdom")
-
-        with col0:
-            _fragmented_kingdom_display(
-                k_str,
-                exclude_qualities=not solution_is_shown,
-                checkbox_full_image=checkbox_full_image,
-            )
-            if solution_is_shown:
-                st.info(
-                    "By hovering over the images, you can now see the individual qualities."
-                )
-
-        with col2.container(border=True):
-            if not solution_is_shown:
-                st.write("Adjust Qualities")
-                _st_build_buy_selection(solution_is_shown)
-                qualities_selection(quality_names, solution_is_shown)
-            else:
-                solution_section(k)
-
-        selected_values = _get_selected_values()
-        buy_str = _get_buy_availability()
-        solution_possible = (
-            all(v != -1 for v in selected_values.values()) and buy_str != ""
+    with col0:
+        _fragmented_kingdom_display(
+            k_str,
+            exclude_qualities=not solution_is_shown,
+            checkbox_full_image=checkbox_full_image,
         )
+        if solution_is_shown:
+            st.info(
+                "By hovering over the images, you can now see the individual qualities."
+            )
 
-        with col1.container(border=True):
-            plot_qualities(solution_possible, solution_is_shown, k)
-
+    with col2.container(border=True):
         if not solution_is_shown:
-            show_solution_button(solution_possible)
+            st.write("Adjust Qualities")
+            _st_build_buy_selection(solution_is_shown)
+            qualities_selection(quality_names, solution_is_shown)
+        else:
+            solution_section(run_state.round_score or 0.0)
 
-    if randomize_button.button(
-        "Generate New Random Kingdom",
-        help="Generate a new random kingdom for the quiz.",
-        width="stretch",
-        type="secondary" if quiz_has_started else "primary",
-    ):
-        generate_random_quiz_kingdom(quality_names)
-        solution_is_shown = False
-        quiz_has_started = True
-        st.session_state["quiz_show_solution"] = False
-        st.session_state["quiz_has_started"] = True
-        st.rerun()
+    selected_values = _get_selected_values()
+    buy_str = _get_buy_availability()
+    solution_possible = all(v != -1 for v in selected_values.values()) and buy_str != ""
+
+    with col1.container(border=True):
+        plot_qualities(solution_possible, solution_is_shown, k)
+
+    if solution_is_shown:
+        _advance_or_restart(run_state, quality_names)
+    else:
+        show_solution_button(run_state, k, solution_possible)
