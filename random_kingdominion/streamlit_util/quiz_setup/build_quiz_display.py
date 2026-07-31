@@ -11,6 +11,8 @@ from ..image_util import st_plot_kingdom_qualities
 from .util import (
     generate_random_quiz_kingdom,
     get_quiz_quality_names,
+    load_quiz_widget_value,
+    save_quiz_widget_value,
     st_calc_quiz_score,
 )
 
@@ -33,19 +35,24 @@ def _st_build_buy_selection(
     solution_is_shown: bool,
 ) -> Literal["yes", "no", "maybe"] | None:
     c = st.container(border=True)
+    answer_key = "quiz_quality_buy_str"
     return c.radio(
         "Buy Availability",
         ["yes", "maybe", "no"],
         index=None,
         horizontal=True,
-        key="quiz_quality_buy_str",
+        key=load_quiz_widget_value(st.session_state, answer_key),
         disabled=solution_is_shown,
         format_func=str.capitalize,
+        on_change=save_quiz_widget_value,
+        args=(st.session_state, answer_key),
     )
 
 
 def qualities_selection(quality_names: list[str], solution_is_shown: bool) -> None:
     for quality in quality_names:
+        answer_key = f"quiz_quality_slider_{quality}"
+        st.session_state.setdefault(answer_key, -1)
         cols = st.columns([1, 8])
         with cols[0]:
             st.image(
@@ -57,19 +64,23 @@ def qualities_selection(quality_names: list[str], solution_is_shown: bool) -> No
                 f"{quality.capitalize()}",
                 help=quality.capitalize(),
                 options=[-1, 0, 0.5, 1, 2, 3, 4],
-                value=st.session_state.get(f"quiz_quality_slider_{quality}", -1),
-                key=f"quiz_quality_slider_{quality}",
+                key=load_quiz_widget_value(st.session_state, answer_key),
                 format_func=lambda x: (
                     "Select please" if x == -1 else str(x if x % 1 != 0 else int(x))
                 ),
                 label_visibility="collapsed",
                 disabled=solution_is_shown,
+                on_change=save_quiz_widget_value,
+                args=(st.session_state, answer_key),
             )
 
 
 @st.fragment
-def _show_selected_buy_icon(buy_str: Literal["", "yes", "no", "maybe"]):
-    if buy_str == "":
+def _show_selected_buy_icon(
+    buy_str: Literal["", "yes", "no", "maybe"] | None,
+) -> None:
+    if not buy_str:
+        st.caption("No buy option selected")
         return
     cont = st.container(horizontal=True, horizontal_alignment="center")
     fpath = PATH_ASSETS.joinpath(f"icons/qualities/buys_icon_{buy_str}.png")

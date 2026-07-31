@@ -38,6 +38,23 @@ def reset_quiz_answers(
         state[f"quiz_quality_slider_{quality}"] = -1
 
 
+def load_quiz_widget_value(state: MutableMapping[str, Any], answer_key: str) -> str:
+    widget_key = f"_{answer_key}"
+    if answer_key in state:
+        state[widget_key] = state[answer_key]
+    else:
+        state.pop(widget_key, None)
+    return widget_key
+
+
+def save_quiz_widget_value(state: MutableMapping[str, Any], answer_key: str) -> None:
+    widget_value = state.get(f"_{answer_key}")
+    if widget_value is None:
+        state.pop(answer_key, None)
+    else:
+        state[answer_key] = widget_value
+
+
 def generate_random_quiz_kingdom(quality_names: Sequence[str]) -> None:
     _k = KingdomRandomizer().randomize_new_kingdom()
     st.session_state["quiz_current_kingdom"] = _k.get_dombot_csv_string()
