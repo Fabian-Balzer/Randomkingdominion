@@ -10,14 +10,14 @@ rk.build_page_header(
     "Learn more about the CSO and kingdom qualities on the about page.",
 )
 st.write(
-    """Are you able to to infer the engine qualities for a given kingdom? I highly recommend to read the instructions below before getting started."""
+    """Are you able to infer the engine qualities for a given kingdom? I highly recommend reading the instructions below before getting started."""
 )
 
 explanations = {}
 explanations[
     "❓ About this quiz"
 ] = """In this quiz, you get to try to infer the engine qualities for a given kingdom. 
-This quiz is mainly just a silly little thing that I set up because I was curious in how well I would be able to guess these by only looking at the CSOs, so don't expect too much.
+This quiz is mainly just a silly little thing that I set up because I was curious about how well I would be able to guess these by only looking at the CSOs, so don't expect too much.
 
 The kingdom plot is generated using a weird formula (see *Quality Calculation Details*), calculating the total quality for each of *Gain, Thinning, Draw, Village, Alt-VP* and *Attacks* based on the individual qualities of the CSOs that are part of it.
 
@@ -26,9 +26,7 @@ I do think that this might generally help you to analyze a given kingdom for its
 To take part in the quiz yourself, you only have to roll a kingdom and set the qualities to the values you think are right. I recommend reading through the *Tips and Tricks* section before starting.
 """
 
-explanations[
-    "🧮 Quality Calculation Details"
-] = """
+explanations["🧮 Quality Calculation Details"] = """
 A total value in a kingdom is based on the CSOs' values of that quality, which individually can be 0, 1, 2 or 3, and in special, limited or luck-based cases (like Loots, Boons, Knights) also 0.5. The total value is then calculated based on the following rules:
 - **0**: \\
 If there are no CSOs with a value, then the total value is zero.
@@ -99,6 +97,7 @@ def _build_explanation_section():
         tabs = st.segmented_control(
             "Explanations",
             list(explanations.keys()),
+            default="❓ About this quiz",
             width="stretch",
             label_visibility="collapsed",
         )

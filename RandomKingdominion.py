@@ -80,12 +80,12 @@ pg = st.navigation(
                 url_path="about",
                 icon=rk.ST_ICONS["about"],
             ),
-            # st.Page(
-            #     "streamlit_pages/quiz.py",
-            #     title="Quiz",
-            #     url_path="quiz",
-            #     icon=rk.ST_ICONS["quiz"],
-            # ),
+            st.Page(
+                "streamlit_pages/quiz.py",
+                title="Quiz",
+                url_path="quiz",
+                icon=rk.ST_ICONS["quiz"],
+            ),
         ],
         f"{rk.ST_ICONS['cso_qualities']}CSO Quality Descriptions": quality_pages,
     },

@@ -29,19 +29,22 @@ def _fragmented_kingdom_display(
     st_build_kingdom_csv_display(k)
 
 
-def _st_build_buy_selection(solution_is_shown) -> Literal["yes", "no", "maybe"]:
+def _st_build_buy_selection(
+    solution_is_shown: bool,
+) -> Literal["yes", "no", "maybe"] | None:
     c = st.container(border=True)
-    avail = c.radio(
+    return c.radio(
         "Buy Availability",
-        ["Yes", "Maybe", "No"],
+        ["yes", "maybe", "no"],
+        index=None,
         horizontal=True,
         key="quiz_quality_buy_str",
         disabled=solution_is_shown,
+        format_func=str.capitalize,
     )
-    return avail.lower()  # type: ignore
 
 
-def qualities_selection(quality_names, solution_is_shown):
+def qualities_selection(quality_names: list[str], solution_is_shown: bool) -> None:
     for quality in quality_names:
         cols = st.columns([1, 8])
         with cols[0]:
@@ -77,7 +80,7 @@ def plot_qualities(
     solution_possible: bool,
     solution_is_shown: bool,
     k: Kingdom,
-):
+) -> None:
     linecolor = "darkred" if solution_possible else "gray"
     selected_values = {
         q: st.session_state.get(f"quiz_quality_slider_{q}", -1)
@@ -90,11 +93,11 @@ def plot_qualities(
         )
     st.write("Your Estimated Qualities")
     st.pyplot(fig, True)
+    plt.close(fig)
     _show_selected_buy_icon(st.session_state.get("quiz_quality_buy_str", ""))
-    return fig
 
 
-def plot_score_bar(score):
+def plot_score_bar(score: float):
     fig, ax = plt.subplots(figsize=(0.2, 1))
     # Color ranges
     ranges = [
@@ -148,7 +151,7 @@ def plot_score_bar(score):
     return fig
 
 
-def show_solution_button(solution_possible: bool = False):
+def show_solution_button(solution_possible: bool = False) -> None:
     f = st.container(horizontal=True, horizontal_alignment="left")
     if not solution_possible:
         f.info(
@@ -178,7 +181,7 @@ def _get_buy_availability() -> str:
     return st.session_state.get("quiz_quality_buy_str", "")
 
 
-def solution_section(k: Kingdom):
+def solution_section(k: Kingdom) -> None:
     selected_values = _get_selected_values()
     buy_str = _get_buy_availability()
     score = st_calc_quiz_score(
@@ -214,6 +217,7 @@ def solution_section(k: Kingdom):
         fig = plot_score_bar(score)
         with st.container(horizontal=True, horizontal_alignment="center"):
             st.pyplot(fig, True, width="content")
+        plt.close(fig)
 
 
 def st_build_kingdom_display_options() -> tuple[bool, bool]:
@@ -225,8 +229,6 @@ def st_build_kingdom_display_options() -> tuple[bool, bool]:
             key="quiz_kingdom_view_large",
         )
     with col2:
-        print(st.session_state.get("quiz_kingdom_view_full_image", True))
-        print("quiz_kingdom_view_full_image" in st.session_state)
         checkbox_full_image = st.checkbox(
             "Show Full Images",
             value=st.session_state.get("quiz_kingdom_view_full_image", True),
@@ -235,7 +237,7 @@ def st_build_kingdom_display_options() -> tuple[bool, bool]:
     return checkbox_large_view, checkbox_full_image
 
 
-def st_build_full_quiz_display():
+def st_build_full_quiz_display() -> None:
 
     quality_names = get_quiz_quality_names()
     solution_is_shown = st.session_state.get("quiz_show_solution", False)
@@ -275,7 +277,6 @@ def st_build_full_quiz_display():
                 _st_build_buy_selection(solution_is_shown)
                 qualities_selection(quality_names, solution_is_shown)
             else:
-                st.session_state.get("quiz_quality_buy_str", "")
                 solution_section(k)
 
         selected_values = _get_selected_values()
