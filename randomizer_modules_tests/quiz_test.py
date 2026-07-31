@@ -1,6 +1,9 @@
 import pytest
 
 from random_kingdominion.streamlit_util.quiz_setup.run_state import (
+    QUIZ_SCORING_VERSION,
+    CompletedQuizRound,
+    QuizAnswers,
     QuizPhase,
     QuizRunState,
 )
@@ -80,6 +83,14 @@ def test_quiz_run_state_starts_not_started() -> None:
 
     assert run_state.phase is QuizPhase.NOT_STARTED
     assert run_state.phase == "not_started"
+    assert run_state.round_count == 1
+    assert run_state.current_round_index == 0
+    assert run_state.current_kingdom == ""
+    assert run_state.submitted_answers is None
+    assert run_state.round_score is None
+    assert run_state.cumulative_score == 0
+    assert run_state.completed_rounds == []
+    assert run_state.scoring_version == QUIZ_SCORING_VERSION
 
 
 @pytest.mark.parametrize("phase", list(QuizPhase))
@@ -87,3 +98,61 @@ def test_quiz_run_state_accepts_each_phase(phase: QuizPhase) -> None:
     run_state = QuizRunState(phase=phase)
 
     assert run_state.phase is phase
+
+
+def test_quiz_run_state_tracks_run_and_current_round() -> None:
+    answers = QuizAnswers({"draw": 2, "gain": 1.5}, "yes")
+    run_state = QuizRunState(
+        phase=QuizPhase.SOLUTION,
+        round_count=10,
+        current_round_index=2,
+        current_kingdom="Village, Smithy",
+        submitted_answers=answers,
+        round_score=12.5,
+        cumulative_score=37.0,
+    )
+
+    assert run_state.run_id
+    assert run_state.current_round_index == 2
+    assert run_state.current_kingdom == "Village, Smithy"
+    assert run_state.submitted_answers is answers
+    assert run_state.round_score == 12.5
+    assert run_state.cumulative_score == 37.0
+    assert run_state.scoring_version == QUIZ_SCORING_VERSION
+
+
+def test_quiz_run_state_tracks_completed_round_history() -> None:
+    answers = QuizAnswers({"draw": 2}, "maybe")
+    completed_round = CompletedQuizRound(0, "Village, Smithy", answers, 13.5)
+    run_state = QuizRunState(round_count=10, completed_rounds=[completed_round])
+
+    assert run_state.completed_rounds == [completed_round]
+    assert run_state.completed_rounds[0].submitted_answers.quality_values == {
+        "draw": 2
+    }
+
+
+def test_quiz_run_state_uses_independent_ids_and_history() -> None:
+    first_run = QuizRunState()
+    second_run = QuizRunState()
+
+    first_run.completed_rounds.append(
+        CompletedQuizRound(0, "Village, Smithy", QuizAnswers({}, "no"), 3)
+    )
+
+    assert first_run.run_id != second_run.run_id
+    assert second_run.completed_rounds == []
+
+
+@pytest.mark.parametrize(
+    ("round_count", "current_round_index"),
+    [(0, 0), (10, -1), (10, 10)],
+)
+def test_quiz_run_state_rejects_invalid_round_position(
+    round_count: int, current_round_index: int
+) -> None:
+    with pytest.raises(ValueError):
+        QuizRunState(
+            round_count=round_count,
+            current_round_index=current_round_index,
+        )
