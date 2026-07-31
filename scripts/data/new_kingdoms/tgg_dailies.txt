@@ -1,3 +1,5 @@
+2026-07-26---pixie, tracker, vagrant, scrap, secret_cave, tunnel, bard, blockade, shepherd, hireling, pious(tracker), raid -x twist_delayed_joy
+2026-07-25---beggar, fools_gold, pixie, secluded_shrine, nomads, wandering_minstrel, skirmisher, witch, farmland, rice, way_of_the_turtle, demand
 2026-07-05---artist, patrician, pixie, broker, fortress, tiara, baker, crypt, wealthy_village, sack_of_loot, kintsugi, band_of_nomads, colonies -x stamp_chameleonized(broker), start_replace_copper(stronghold), start_replace_copper(tiara)
 2026-06-28---abundance, broker, groom, ironmonger, landing_party, herald, cobbler, haggler, rogue, expand, order_of_astrologers, way_of_the_frog, colonies, shelters -x stamp_durationified(herald), stamp_treasurified(broker)
 2026-06-27---artist, ratcatcher, university, anvil, goatherd, oasis, town, figurine, rabble, swamp_hag, orchard, sea_trade

@@ -173,6 +173,7 @@ Cultist/Way of the Horse;With Way of the Horse, playing Cultist will provide you
 Cultist/Way of the Pig;With Way of the Pig, playing Cultist to give your opponent Ruins will not do as much damage as your opponent can always pig them.;Counter;;
 Cursed/Watchtower;With Watchtower in hand, you can immediately trash the Curse (and even the Cursed card) when gaining a Cursed card, and even topdeck the Loot if you so want it.;Weak Synergy;;
 Cutpurse/Patron;Making your opponent reveal a hand of Patrons might not have the desired effect. In games with Cutpurse, Patron and Copper trashing, this might disincentivize going for Cutpurse even more.;Counter;;
+Archer/Patron;Making your opponent reveal Patrons in their hand while playing Archer will yield them Coffers.;Counter;;
 Daimyo/Enlightenment;As soon as Enlightenment is active, playing a Daimyo before ending your Action phase will let you double-play Treasures for their Treasure effect.;Synergy;https://youtu.be/eJEdtWTF01g;Fabi: Daily playthrough
 Daimyo/Joust;Being able to combine Renown with a couple of Daimyos is usually game-winning;Combo;https://youtu.be/eJEdtWTF01g?si=Yg0H_9P1F0xeeKbI&t=1240;Fabi: Daily playthrough
 Daimyo/King's Court;Very loopy replays of King's Court are possible here.;Synergy;https://youtu.be/eDWcrB-qDFU?t=1298;Fabi: Daily playthrough
@@ -252,6 +253,9 @@ Feodum/Groom;Rushing for Grooms early on you will be able to then gobble up both
 Feodum/Salt the Earth;Get Silvers in deck quickly if needed.;Weak Synergy;;
 Feodum/Watchtower;With Watchtower in hand, you can immediately trash any Feoda you gain, which is sometimes nice to give you a boost in payload.;Weak Synergy;;
 Ferry/Poet;Reducing the cost of Poet with Ferry enables them to draw each other.;Synergy;;
+Banquet/Quartermaster;Opening double Banquet for Quartermasters (QM) followed by more QMs at every chance you get leaves you in a position where you can easily pick up lots of Silvers and rush for Provinces. Might play differently in a mirror as Estates and QMs might empty.;Rush;;
+Banquet/Souk;Board-dependent synergy in terms of how aggressively you go for Souks, but exchanging your starting Estates for Coppers is certainly an accelerant.;Synergy;;
+Desperation/Quartermaster;Opening double Quartermaster (QMs) with the help of Desperation and then a few more QMs during the second and third shuffle will position you well to pick up Provinces (don't hesitate to utilize Desperation for that as well). In a mirror, QMs, Estates and Curses might empty before any meaningful game can happen, so be careful.;Rush;;
 Ferry/Quartermaster;Reducing the cost of Quartermaster with Ferry enables them to gain each other, and access them easily. Games might end in some sort of QM rush.;Rush;;
 Ferry/Rebuild;Usually, the problem with Rebuild can be getting enough of them into your deck quickly - if you manage to put Ferry on Rebuild t1, throwing loads of Rebuilds into the deck and hoping for the best can empty Provinces with ~18 points by t11. Just be aware that strong engines also might be sped up by Ferry being around.;Combo;https://youtu.be/kw0jN_b40rU;Sharur: League match
 Ferry/Seer;Reducing the cost of Seer with Ferry enables them to draw each other.;Synergy;;

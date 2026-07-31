@@ -1,4 +1,122 @@
 - campaign_effects:
+  - delayed_joy
+  cards:
+  - bard
+  - blockade
+  - hireling
+  - pixie
+  - scrap
+  - secret_cave
+  - shepherd
+  - tracker
+  - tunnel
+  - vagrant
+  expansions:
+  - Adventures
+  - Dark Ages
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Seaside, 2E
+  idx: 335482750518589332233501359906560806408
+  landscapes:
+  - pious
+  - raid
+  name: '2026-07-26'
+  notes:
+    crucial_cards: [Shepherd, Tunnel, Tracker, Pixie]
+    ending: [Province]
+    link: 'https://youtu.be/KToZrm1tTQA'
+    name: 'Delayed Crash'
+    points: [45, 20]
+    subtitle: 'In Which The Game Decides It Can''t Allow Us To Carry Home A Nice Win'
+    turns: [9, 8]
+  traits:
+  - - pious
+    - tracker
+- cards:
+  - beggar
+  - farmland
+  - fools_gold
+  - nomads
+  - pixie
+  - rice
+  - secluded_shrine
+  - skirmisher
+  - wandering_minstrel
+  - witch
+  expansions:
+  - Allies
+  - Base, 2E
+  - Dark Ages
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Rising Sun
+  idx: 127646573737220553231083866608873226290
+  landscapes:
+  - demand
+  - way_of_the_turtle
+  name: '2026-07-25'
+  notes:
+    crucial_cards:
+    - Wandering Minstrel
+    - Goat
+    - Witch
+    - Way of the Turtle
+    ending:
+    - Curse
+    - Wandering Minstrel
+    - Pixie
+    link: https://youtu.be/uZPYOHbrzeU
+    name: Wandering Curses
+    openings:
+    - grade: C
+      t1: Pixie, trash Estate
+      t1_csos:
+      - goat
+      - estate
+      - pixie
+      t2: Silver, or Nomads, or Pixie
+      t2_csos:
+      - Silver
+      type: 4/3|3/4
+    - grade: C
+      t1: 'If Goat in hand: Trash Copper, buy Silver, else Demand Pixie'
+      t1_csos:
+      - Goat
+      - copper
+      - silver
+      - demand
+      - pixie
+      t2: Buy Pixie
+      t2_csos:
+      - pixie
+      type: 5/2
+    - grade: C
+      t1: Pixie, trash Estate if possible
+      t1_csos:
+      - pixie
+      - goat
+      - estate
+      t2: 'If Goat in hand: Trash Copper, buy Silver, else Demand Pixie'
+      t2_csos:
+      - Goat
+      - copper
+      - silver
+      - demand
+      - pixie
+      type: 2/5
+    points:
+    - 19
+    - 18
+    subtitle: Getting Destroyed Early On, Then Barely Holding It Together
+    turns:
+    - 15
+    - 14
+- campaign_effects:
   - chameleonized
   - replace_copper
   cards:
@@ -27,13 +145,23 @@
   - kintsugi
   name: '2026-07-05'
   notes:
-    crucial_cards: [Wealthy Village, Artist, Broker, Stronghold]
-    ending: [Colony, Pixie]
+    crucial_cards:
+    - Wealthy Village
+    - Artist
+    - Broker
+    - Stronghold
+    ending:
+    - Colony
+    - Pixie
     link: ''
-    name: 'Wealthy Failures'
-    points: [53, 42]
-    subtitle: 'After An Awful Opening, Bad Plays Lead To A Desperate Catch-Up Attempt'
-    turns: [9, 8]
+    name: Wealthy Failures
+    points:
+    - 53
+    - 42
+    subtitle: After An Awful Opening, Bad Plays Lead To A Desperate Catch-Up Attempt
+    turns:
+    - 9
+    - 8
   stamps_and_effects:
   - - chameleonized
     - broker

@@ -17,13 +17,13 @@ PLAYLIST_DICT = {
         "name": "Fabyy",
     },
     "jnails_dailies": {
-        "url": "https://youtube.com/playlist?list=PLsrQ73qPvJ0vJXoNnDbaKtzpYAJGmY7Ol&si=F8agck3WdokN89EO",
+        "url": "https://www.youtube.com/playlist?list=PLsrQ73qPvJ0vJXoNnDbaKtzpYAJGmY7Ol",
         "cols": ["id", "title", "duration", "upload_date"],
         "key": "jnails_dailies",
         "name": "JNails",
     },
     "sharur_dailies": {
-        "url": "https://youtube.com/playlist?list=PLq5BpmSKn1YN8I4AhBpHYv7veETUsUtxG&si=LaiyxVIilRA4DemS",
+        "url": "https://www.youtube.com/playlist?list=PLq5BpmSKn1YN8I4AhBpHYv7veETUsUtxG",
         "cols": ["id", "title"],  # Title format: contains YYYY-MM-DD
         "key": "sharur_dailies",
         "name": "Sharur",

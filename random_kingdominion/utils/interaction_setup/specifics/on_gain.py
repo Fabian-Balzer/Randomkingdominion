@@ -125,13 +125,18 @@ def _add_on_gain_play_kiln_interaction(on_gain_play_cso: str, df: pd.DataFrame):
 def _add_on_gain_play_siren_interaction(on_gain_play_cso: str, df: pd.DataFrame):
     if on_gain_play_cso in ["Gondola", "Silver Mine"]:
         return
-    rule = f"If you gain a Siren and use {on_gain_play_cso} to play the Siren, Siren no longer requires you to trash an Action card from your hand in order to not trash the Siren."
+    if on_gain_play_cso == "Spell Scroll":
+        rule = f"If you gain a Siren via {on_gain_play_cso}, it trashes itself before you would get the chance to play it (unless you trash an Action for it)."
+    else:
+        rule = f"If you gain a Siren and use {on_gain_play_cso} to play the Siren, Siren no longer requires you to trash an Action card from your hand in order to not trash the Siren."
     add_interaction("Siren", on_gain_play_cso, rule, df)
 
 
 def _add_on_gain_play_changeling_interaction(on_gain_play_cso: str, df: pd.DataFrame):
     if on_gain_play_cso == "Gondola":
         rule = f"When gaining a Gondola, you can both exchange it for a Changeling and make use of its on-gain effect."
+    elif on_gain_play_cso == "Spell Scroll":
+        rule = f"When gaining a card via Spell Scroll, you can first exchange it for a Changeling, but then won't be able to play it."
     else:
         rule = f"If you play a gained card using {on_gain_play_cso}, you cannot exchange it for a Changeling afterwards. Conversely, you cannot play it anymore after having exchanged it for a Changeling."
     add_interaction("Changeling", on_gain_play_cso, rule, df)
@@ -152,7 +157,9 @@ def _add_on_play_shuffle_trigger_interaction(
 ):
     if on_gain_play_cso == "Gondola":
         return
-    rule = f"If you gain a card and use {shuffle_trigger_cso} to cause a shuffle, you cannot play it using {on_gain_play_cso} anymore (but you could choose to resolve the on-gain play first)."
+    rule = f"If you gain a card and use {shuffle_trigger_cso} to cause a shuffle, you cannot play it using {on_gain_play_cso} anymore."
+    if on_gain_play_cso != "Spell Scroll":
+        rule += " (but you could choose to resolve the on-gain play first)"
     add_interaction(shuffle_trigger_cso, on_gain_play_cso, rule, df)
 
 
@@ -163,6 +170,8 @@ def _add_on_gain_play_topdecker_interaction(
         return
     elif choice:
         rule = f"When you gain a card, you can decide whether to immediately play it using {on_play_cso}, or topdeck it using {topdecker}."
+    elif on_play_cso == "Spell Scroll":
+        rule = f"When you gain a card and immediately topdeck it using {topdecker}, you will not be able to play it using {on_play_cso}."
     else:
         rule = f"When you gain a card using {topdecker} and immediately play it using {on_play_cso}, you will not be able to topdeck it."
     if topdecker == "Progress":
@@ -283,9 +292,11 @@ def _add_on_gain_hand_gatekeeper_interaction(hand_cso: str, df: pd.DataFrame):
         rule += " Note that if you gain a Falconer to your hand somehow while under the Gatekeeper attack (e.g. via Artisan), reacting and playing it means that you do not have to Exile it."
     add_interaction("Gatekeeper", hand_cso, rule, df, add_together_if_present=True)
 
+
 def _add_night_gain_to_hand_gatekeeper(df: pd.DataFrame):
     rule = "Guardian|Den of Sin|Night Watchman|Ghost Town/Gatekeeper---If you gain a {card_a} to your hand while under the Gatekeeper attack, you do not exile it."
     TODO
+
 
 def _add_multi_gain_gatekeeper_interaction(df: pd.DataFrame):
     multi_gain = {
