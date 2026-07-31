@@ -1,5 +1,9 @@
 import pytest
 
+from random_kingdominion.streamlit_util.quiz_setup.run_state import (
+    QuizPhase,
+    QuizRunState,
+)
 from random_kingdominion.streamlit_util.quiz_setup.util import (
     load_quiz_widget_value,
     reset_quiz_answers,
@@ -69,3 +73,17 @@ def test_quiz_widget_state_sync_keeps_empty_buy_unselected() -> None:
     widget_key = load_quiz_widget_value(state, "quiz_quality_buy_str")
 
     assert widget_key not in state
+
+
+def test_quiz_run_state_starts_not_started() -> None:
+    run_state = QuizRunState()
+
+    assert run_state.phase is QuizPhase.NOT_STARTED
+    assert run_state.phase == "not_started"
+
+
+@pytest.mark.parametrize("phase", list(QuizPhase))
+def test_quiz_run_state_accepts_each_phase(phase: QuizPhase) -> None:
+    run_state = QuizRunState(phase=phase)
+
+    assert run_state.phase is phase

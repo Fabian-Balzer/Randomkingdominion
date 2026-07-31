@@ -97,7 +97,7 @@ def _build_explanation_section():
         tabs = st.segmented_control(
             "Explanations",
             list(explanations.keys()),
-            default="❓ About this quiz",
+            default=None,
             width="stretch",
             label_visibility="collapsed",
         )
