@@ -8,6 +8,11 @@ from ...kingdom import Kingdom
 from ...utils import DOM_BEIGE, DOM_BLUE, get_quality_icon_fpath
 from ..common_widgets import st_build_kingdom_csv_display, st_display_kingdom_images
 from ..image_util import st_plot_kingdom_qualities
+from .persistence import (
+    QuizPersistenceError,
+    persist_quiz_run,
+    restore_persisted_quiz_run,
+)
 from .run_state import BuyAvailability, QuizAnswers, QuizMode, QuizPhase, QuizRunState
 from .util import (
     generate_random_quiz_kingdom_string,
@@ -191,7 +196,8 @@ def show_solution_button(
                 buy_str,
                 k.buy_availability,
             )
-            run_state.submit_round(answers, score)
+            if run_state.submit_round(answers, score):
+                persist_quiz_run(st.session_state, run_state)
             st.session_state["quiz_show_solution"] = True
             st.rerun()
 
@@ -280,11 +286,13 @@ def _build_mode_navigation(quality_names: list[str]) -> None:
 
     if st.button(button_label, type="primary", width="stretch"):
         kingdom = generate_random_quiz_kingdom_string()
-        st.session_state["quiz_run_state"] = QuizRunState.start(
+        run_state = QuizRunState.start(
             round_count,
             kingdom,
             selected_mode,
         )
+        st.session_state["quiz_run_state"] = run_state
+        persist_quiz_run(st.session_state, run_state)
         reset_quiz_answers(st.session_state, quality_names)
         st.rerun()
 
@@ -334,11 +342,12 @@ def _advance_or_restart(run_state: QuizRunState, quality_names: list[str]) -> No
 
     if st.button(label, type="primary", width="stretch"):
         if run_state.mode is QuizMode.PRACTICE:
-            st.session_state["quiz_run_state"] = QuizRunState.start(
+            run_state = QuizRunState.start(
                 1,
                 generate_random_quiz_kingdom_string(),
                 QuizMode.PRACTICE,
             )
+            st.session_state["quiz_run_state"] = run_state
         else:
             next_kingdom = (
                 ""
@@ -346,6 +355,7 @@ def _advance_or_restart(run_state: QuizRunState, quality_names: list[str]) -> No
                 else generate_random_quiz_kingdom_string()
             )
             run_state.advance_round(next_kingdom)
+        persist_quiz_run(st.session_state, run_state)
         reset_quiz_answers(st.session_state, quality_names)
         st.rerun()
 
@@ -355,8 +365,21 @@ def st_build_full_quiz_display() -> None:
     quality_names = get_quiz_quality_names()
     run_state = st.session_state.get("quiz_run_state")
     if not isinstance(run_state, QuizRunState):
+        try:
+            run_state = restore_persisted_quiz_run(st.session_state)
+        except QuizPersistenceError:
+            st.session_state.pop("quiz_run_record", None)
+            st.warning("The saved quiz run could not be restored and was reset.")
+            run_state = None
+        if run_state is not None:
+            st.session_state["quiz_run_state"] = run_state
+
+    if not isinstance(run_state, QuizRunState):
         _build_mode_navigation(quality_names)
         return
+
+    if "quiz_run_record" not in st.session_state:
+        persist_quiz_run(st.session_state, run_state)
 
     _build_run_header(run_state, quality_names)
     if run_state.phase is QuizPhase.FINISHED:

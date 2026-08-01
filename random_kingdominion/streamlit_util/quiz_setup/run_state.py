@@ -4,6 +4,7 @@ from typing import Literal
 from uuid import uuid4
 
 QUIZ_SCORING_VERSION = "1"
+QUIZ_RUN_RECORD_KEY = "quiz_run_record"
 BuyAvailability = Literal["yes", "maybe", "no"]
 
 

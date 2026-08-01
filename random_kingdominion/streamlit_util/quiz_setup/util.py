@@ -5,6 +5,7 @@ import streamlit as st
 
 from ...constants import QUALITIES_AVAILABLE
 from ...kingdom import KingdomRandomizer
+from .run_state import QUIZ_RUN_RECORD_KEY
 
 
 def st_calc_quiz_score(
@@ -42,6 +43,7 @@ def reset_quiz_workflow(
     state: MutableMapping[str, Any], quality_names: Sequence[str]
 ) -> None:
     state.pop("quiz_run_state", None)
+    state.pop(QUIZ_RUN_RECORD_KEY, None)
     state.pop("quiz_current_kingdom", None)
     state.pop("quiz_has_started", None)
     for key in list(state):
