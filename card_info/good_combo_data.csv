@@ -28,6 +28,7 @@ alms;villa;Almsing for Villas will allow you to play your Treasures later, allow
 amass;rebuild;Usually, the problem with Rebuild can be getting enough of them into your deck quickly - Amass lets you open double Rebuild, and allows you to easily pick up more if you miss them. Don't forget to buy some extra Duchies and Estates a bit later on as well! Be careful at evaluating this though, as some fast engine strategies (that also benefit from the early Amass boost) might still pose a challenge.;Combo;;
 animal_fair;necropolis;Necropolis is a great Animal Fair target in the opening.;Weak Synergy;;
 apprentice;market_square;Apprenticing Golds while discarding Market Squares is a nice Engine in itself, providing draw, Buys, and payload.;Combo;;
+archer;patron;Making your opponent reveal Patrons in their hand while playing Archer will yield them Coffers.;Counter;;
 architects_guild;guildmaster;Once you play two Guildmasters, gaining any card allows you to cascade down gaining cheaper cards, giving you lots of sudden pile pressure.;Synergy;;
 arena;enlightenment;As soon as Enlightenment is active, you'll be able to discard Coppers to Arena for some VP.;Weak Synergy;;
 arena;faithful_hound;Discarding Faithful Hound to Arena will put it in hand for your next turn, where you'll be able to discard it again.;Weak Synergy;;
@@ -47,6 +48,8 @@ bandit_camp;monkey;With Monkey around, Bandit Camps might draw your opponent lot
 banquet;buried_treasure;This Rush is a bit different from Banquet/Spices as it struggles to hit $8 later on, so you might want to pivot into aggressively piling Duchies and Estates. Nonetheless, opening Banquet/Buried Treasure into double Banquet turn 2 is rather strong;Rush;;
 banquet;enlightenment;As soon as Enlightenment is active, Banquet essentially becomes a cheap way to gain more expensive cards.;Weak Synergy;Fabi: Daily playthrough;https://youtu.be/4X1GPEVV4Hg
 banquet;merchant_guild;Sometimes, getting a few Merchant Guilds in play and spamming Banquet to rack up Coffers is a good way to get a quick boost.;Weak Synergy;Fabi: Daily playthrough;https://youtu.be/4X1GPEVV4Hg
+banquet;quartermaster;Opening double Banquet for Quartermasters (QM) followed by more QMs at every chance you get leaves you in a position where you can easily pick up lots of Silvers and rush for Provinces. Might play differently in a mirror as Estates and QMs might empty.;Rush;;
+banquet;souk;Board-dependent synergy in terms of how aggressively you go for Souks, but exchanging your starting Estates for Coppers is certainly an accelerant.;Synergy;;
 banquet;spices;This rush can get to 4 Provinces in 8-10 turns, and to 6 (39 VP) in ~12-14 turns. Opening double Banquet for Spices, racking up Coffers this way (in a mirror probably until Spices are gone) and then just Provincing out will outpace most engines.;Rush;;
 barbarian;fortress;Having a Fortress trashed from the top of your deck will put it into your hand and gain you a cheaper Action card.;Counter;;
 barbarian;overlord;With Barbarian, you can trash your opponent's Overlords into Curses, while also playing Overlords as Barbarians is possible, making for a weird game of luck (I'm not even sure what to classify this as).;Synergy;;
@@ -240,6 +243,7 @@ demand;monkey;With Monkey around, gaining Horses with Demand will usually be muc
 demand;procession;Horses are insane Procession targets. Whatever you do, using Demand to stuff Horses and Processions into the deck as soon as possible is usually a winning move.;Combo;;
 den_of_sin;haunted_woods;Night cards are heavily disincentivized with Haunted Woods around, as you will have to topdeck your hand whenever buying cards, which happens before you would be able to play any Night cards. When buying Den of Sin while under the HW attack, it even topdecked immediately instead of gained to your hand.;Counter;;
 den_of_sin;prepare;Preparing a Night card such as Den of Sin will prevent you from being able to play it during your Night phase, and at the start of your next turn, it will just be discarded.;Nombo;;
+desperation;quartermaster;Opening double Quartermaster (QMs) with the help of Desperation and then a few more QMs during the second and third shuffle will position you well to pick up Provinces (don't hesitate to utilize Desperation for that as well). In a mirror, QMs, Estates and Curses might empty before any meaningful game can happen, so be careful.;Rush;;
 desperation;watchtower;With Watchtower in hand, you can trash the Curses you gain from buying Desperation, essentially making it worth $2 and giving you the ability to topdeck stuff.;Weak Synergy;;
 develop;kings_court;With a $5 cost draw card, there is an autopile with KC/KC/Develop as long as there's a $4 cost available, piling lots of things.;Combo;tracer: Showcase video;https://www.youtube.com/watch?v=zS6Nv5H0WjM
 develop;poor_house;Developing Coppers or Estates will gain you Poor Houses, which you usually don't want.;Nombo;;

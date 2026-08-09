@@ -1,3 +1,689 @@
+- cards:
+  - astrolabe
+  - berserker
+  - blockade
+  - forts
+  - galleria
+  - haggler
+  - jack_of_all_trades
+  - merchant_camp
+  - spice_merchant
+  - sycophant
+  expansions:
+  - Allies
+  - Hinterlands, 2E
+  - Seaside, 2E
+  idx: 97050933880746519302628153048231265339
+  landscapes:
+  - coastal_haven
+  name: '2026-07-31'
+- cards:
+  - charm
+  - city
+  - collection
+  - crystal_ball
+  - engineer
+  - kings_court
+  - patrician/emporium
+  - peddler
+  - quarry
+  - wild_hunt
+  expansions:
+  - Empires
+  - Prosperity, 2E
+  idx: 10098322801576541331335597351735364988
+  landscapes:
+  - arena
+  - keep
+  name: '2026-07-30'
+  use_colonies: true
+- cards:
+  - baron
+  - black_cat
+  - cardinal
+  - duke
+  - farm
+  - goatherd
+  - lurker
+  - replace
+  - stockpile
+  - wishing_well
+  expansions:
+  - Intrigue, 2E
+  - Menagerie
+  idx: 18909482831573946095343576057483002266
+  landscapes:
+  - way_of_the_mouse
+  mouse_card: sleigh
+  name: '2026-07-29'
+- cards:
+  - barge
+  - bounty_hunter
+  - camel_train
+  - coven
+  - destrier
+  - displace
+  - goatherd
+  - groom
+  - livery
+  - mastermind
+  expansions:
+  - Menagerie
+  idx: 332612945996299655766253970387342358760
+  landscapes:
+  - invest
+  - way_of_the_mole
+  name: '2026-07-28'
+- cards:
+  - artisan
+  - council_room
+  - harbinger
+  - investment
+  - laboratory
+  - moneylender
+  - rabble
+  - throne_room
+  - vassal
+  - witch
+  expansions:
+  - Base, 2E
+  - Prosperity, 2E
+  idx: 207107635207366304226061801240386424960
+  name: '2026-07-27'
+  use_colonies: true
+- cards:
+  - berserker
+  - cartographer
+  - first_mate
+  - flagship
+  - frigate
+  - jack_of_all_trades
+  - landing_party
+  - market
+  - moat
+  - pickaxe
+  expansions:
+  - Base, 2E
+  - Hinterlands, 2E
+  - Plunder
+  idx: 177104657389031634596990336271487684950
+  landscapes:
+  - maelstrom
+  - scrounge
+  name: '2026-07-24'
+- cards:
+  - bazaar
+  - corsair
+  - farmhands
+  - fishing_village
+  - hamlet
+  - horn_of_plenty
+  - menagerie
+  - smugglers
+  - treasure_map
+  - treasury
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Seaside, 2E
+  idx: 48673218185891957302867085088268873616
+  name: '2026-07-23'
+- cards:
+  - baron
+  - candlestick_maker
+  - courtier
+  - farrier
+  - herald
+  - infirmary
+  - masquerade
+  - merchant_guild
+  - replace
+  - steward
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Intrigue, 2E
+  idx: 263697150605934964367037931431014249782
+  name: '2026-07-22'
+- cards:
+  - archive
+  - capital
+  - castles
+  - enchantress
+  - farmers_market
+  - groundskeeper
+  - legionary
+  - settlers/bustling_village
+  - villa
+  - wild_hunt
+  expansions:
+  - Empires
+  idx: 319631568965599939427194388425138646627
+  landscapes:
+  - basilica
+  - ritual
+  name: '2026-07-21'
+- cards:
+  - amulet
+  - bandit
+  - caravan_guard
+  - coin_of_the_realm
+  - guide
+  - lost_city
+  - magpie
+  - miser
+  - peasant
+  - throne_room
+  expansions:
+  - Adventures
+  - Base, 2E
+  idx: 32211086993508547402142801958017560120
+  landscapes:
+  - pilgrimage
+  - plan
+  name: '2026-07-20'
+- campaign_effects:
+  - replace_copper
+  - with_horse
+  cards:
+  - astrolabe
+  - black_cat
+  - contract
+  - fishmonger
+  - gondola
+  - grotto
+  - raider
+  - rope
+  - sculptor
+  - vineyard
+  expansions:
+  - Alchemy
+  - Allies
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Renaissance
+  - Rising Sun
+  - Seaside, 2E
+  idx: 244804460111608208495469627181631967308
+  landscapes:
+  - band_of_nomads
+  - foresight
+  name: '2026-07-19'
+  stamps_and_effects:
+  - - replace_copper
+    - spoils,_spoils,_spoils,_spoils,_spoils,_spoils,_spoils
+  - - with_horse
+    - rope
+- cards:
+  - black_cat
+  - blessed_village
+  - chariot_race
+  - fortune_hunter
+  - herbalist
+  - highway
+  - procession
+  - search
+  - trader
+  - trail
+  expansions:
+  - Adventures
+  - Alchemy
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Renaissance
+  idx: 80335647824548449515085921234213346345
+  landscapes:
+  - pageant
+  - scouting_party
+  name: '2026-07-18'
+- cards:
+  - bishop
+  - fishmonger
+  - graverobber
+  - hunting_grounds
+  - ninja
+  - rice
+  - riverboat
+  - snake_witch
+  - tea_house
+  - tiara
+  expansions:
+  - Dark Ages
+  - Prosperity, 2E
+  - Rising Sun
+  idx: 283965390903476038974549862203692403372
+  landscapes:
+  - flourishing_trade
+  name: '2026-07-17'
+  riverboat_card: rabble
+- cards:
+  - barbarian
+  - bauble
+  - bishop
+  - expand
+  - galleria
+  - hoard
+  - mint
+  - odysseys
+  - royal_galley
+  - war_chest
+  expansions:
+  - Allies
+  - Prosperity, 2E
+  idx: 62471536015072606602977444645356716852
+  landscapes:
+  - league_of_bankers
+  name: '2026-07-16'
+  use_colonies: true
+- cards:
+  - alchemist
+  - apothecary
+  - butcher
+  - footpad
+  - herald
+  - herbalist
+  - merchant_guild
+  - plaza
+  - scrying_pool
+  - university
+  expansions:
+  - Alchemy
+  - Cornucopia & Guilds, 2E
+  idx: 140946267188594508011723922274840222962
+  name: '2026-07-15'
+- cards:
+  - beggar
+  - forager
+  - fortress
+  - junk_dealer
+  - marauder
+  - mystic
+  - poor_house
+  - sage
+  - squire
+  - storeroom
+  expansions:
+  - Dark Ages
+  idx: 152924914680662950935165660839818354464
+  name: '2026-07-14'
+  use_shelters: true
+- cards:
+  - archive
+  - crown
+  - encampment/plunder
+  - enchantress
+  - groundskeeper
+  - harbinger
+  - settlers/bustling_village
+  - villa
+  - village
+  - wild_hunt
+  expansions:
+  - Base, 2E
+  - Empires
+  idx: 259147553679436983104254277037459205971
+  landscapes:
+  - tax
+  - wolf_den
+  name: '2026-07-13'
+- campaign_effects:
+  - shadowified
+  cards:
+  - altar
+  - band_of_misfits
+  - cursed_village
+  - experiment
+  - ghost_town
+  - imperial_envoy
+  - kings_cache
+  - poet
+  - trader
+  - trading_post
+  expansions:
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Nocturne
+  - Plunder
+  - Renaissance
+  - Rising Sun
+  idx: 311238067009855187475034208328349317093
+  landscapes:
+  - baths
+  - biding_time
+  - cursed
+  name: '2026-07-12'
+  stamps_and_effects:
+  - - shadowified
+    - band_of_misfits
+  traits:
+  - - cursed
+    - band_of_misfits
+- cards:
+  - cabin_boy
+  - cobbler
+  - importer
+  - legionary
+  - pilgrim
+  - sanctuary
+  - seer
+  - storyteller
+  - village
+  - village_green
+  expansions:
+  - Adventures
+  - Allies
+  - Base, 2E
+  - Empires
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Renaissance
+  idx: 230778828118225044865878460044325505661
+  landscapes:
+  - circle_of_witches
+  - hasty
+  - innovation
+  name: '2026-07-11'
+  traits:
+  - - hasty
+    - legionary
+- cards:
+  - artist
+  - cage
+  - figurine
+  - fishmonger
+  - giant
+  - port
+  - riverboat
+  - secluded_shrine
+  - swamp_hag
+  - taskmaster
+  expansions:
+  - Adventures
+  - Plunder
+  - Rising Sun
+  idx: 10898773575816071206219636180182325829
+  landscapes:
+  - borrow
+  - bureaucracy
+  - continue
+  name: '2026-07-10'
+  riverboat_card: tea_house
+- cards:
+  - band_of_misfits
+  - blockade
+  - count
+  - death_cart
+  - graverobber
+  - native_village
+  - pirate
+  - procession
+  - sea_chart
+  - squire
+  expansions:
+  - Dark Ages
+  - Seaside, 2E
+  idx: 243608430219464696439522652473182993848
+  name: '2026-07-09'
+  use_shelters: true
+- cards:
+  - bounty_hunter
+  - crystal_ball
+  - displace
+  - hostelry
+  - kiln
+  - magnate
+  - sanctuary
+  - sleigh
+  - war_chest
+  - workers_village
+  expansions:
+  - Menagerie
+  - Prosperity, 2E
+  idx: 85433531780932472085173439271764799376
+  landscapes:
+  - ride
+  - stampede
+  name: '2026-07-08'
+- cards:
+  - courtier
+  - diplomat
+  - farm
+  - lurker
+  - mining_village
+  - nobles
+  - pawn
+  - steward
+  - trading_post
+  - upgrade
+  expansions:
+  - Intrigue, 2E
+  idx: 166170538464396887730509177315560296614
+  name: '2026-07-07'
+- cards:
+  - bureaucrat
+  - carpenter
+  - forts
+  - militia
+  - modify
+  - odysseys
+  - skirmisher
+  - smithy
+  - town
+  - witch
+  expansions:
+  - Allies
+  - Base, 2E
+  idx: 98585766744041682077858242366565950687
+  name: '2026-07-06'
+- cards:
+  - anvil
+  - augurs
+  - black_cat
+  - distant_lands
+  - fisherman
+  - forge
+  - gondola
+  - haunted_woods
+  - highway
+  - skirmisher
+  expansions:
+  - Adventures
+  - Allies
+  - Hinterlands, 2E
+  - Menagerie
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  idx: 300565965647186810226220864628044901117
+  landscapes:
+  - road_network
+  - training
+  name: '2026-07-04'
+- cards:
+  - ducat
+  - patron
+  - priest
+  - rice_broker
+  - river_shrine
+  - scepter
+  - scholar
+  - scrap
+  - stockpile
+  - village_green
+  expansions:
+  - Menagerie
+  - Renaissance
+  - Rising Sun
+  idx: 143643830395569352556077409586156709062
+  landscapes:
+  - progress
+  - silos
+  - way_of_the_otter
+  name: '2026-07-03'
+- cards:
+  - cargo_ship
+  - flag_bearer
+  - hideout
+  - improve
+  - ironmonger
+  - knights
+  - lackeys
+  - poor_house
+  - squire
+  - storeroom
+  expansions:
+  - Dark Ages
+  - Renaissance
+  idx: 239661428729772822869962964220047732466
+  landscapes:
+  - citadel
+  - piazza
+  name: '2026-07-02'
+- cards:
+  - apothecary
+  - castles
+  - chariot_race
+  - encampment/plunder
+  - gladiator/fortune
+  - royal_blacksmith
+  - sacrifice
+  - temple
+  - university
+  - wild_hunt
+  expansions:
+  - Alchemy
+  - Empires
+  idx: 301729080398323908312117455444971123574
+  landscapes:
+  - advance
+  - ritual
+  name: '2026-07-01'
+- cards:
+  - anvil
+  - charlatan
+  - city
+  - kings_court
+  - mint
+  - quarry
+  - rabble
+  - tiara
+  - war_chest
+  - watchtower
+  expansions:
+  - Prosperity, 2E
+  idx: 213771937350251266793925426466138681150
+  name: '2026-06-30'
+  use_colonies: true
+- cards:
+  - cargo_ship
+  - harbinger
+  - poacher
+  - remodel
+  - scepter
+  - sculptor
+  - spices
+  - throne_room
+  - treasurer
+  - vassal
+  expansions:
+  - Base, 2E
+  - Renaissance
+  idx: 315813909973422420498327913847928264951
+  landscapes:
+  - exploration
+  - sinister_plot
+  name: '2026-06-29'
+- cards:
+  - armory
+  - faithful_hound
+  - familiar
+  - guide
+  - infirmary
+  - laboratory
+  - livery
+  - mining_village
+  - souk
+  - steward
+  expansions:
+  - Adventures
+  - Alchemy
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Renaissance
+  idx: 121272707248581050266764425510549572598
+  landscapes:
+  - piazza
+  - rich
+  name: '2026-08-01'
+  notes:
+    crucial_cards:
+    - Livery
+    - Souk
+    - Mining Village
+    - Infirmary
+    ending:
+    - Province
+    - Mining Village
+    link: https://youtu.be/kD2sDOJuezg
+    name: Infirmed Souking
+    openings:
+    - grade: B
+      t1: Infirmary, overpaying $1, trashing Estate
+      t1_csos:
+      - Infirmary
+      - Estate
+      t2: Silver, or Steward, or Armory on $4
+      t2_csos:
+      - Silver
+      type: 4/3
+    - grade: C-
+      t1: Steward
+      t1_csos:
+      - Steward
+      t2: Armory
+      t2_csos:
+      - Armory
+      type: 3/4
+    - grade: A
+      t1: Infirmary, overpaying $3, trashing whatever you draw
+      t1_csos:
+      - infirmary
+      - estate
+      - copper
+      t2: Armory, or Silver, or Steward
+      t2_csos:
+      - armory
+      type: 5/2|2/5
+    - grade: B
+      t1: Skip turn, or Faithful Hound
+      t1_csos:
+      - tragic_hero
+      t2: Livery
+      t2_csos:
+      - livery
+      type: 2/5
+    points:
+    - 39
+    - 12
+    subtitle: Steamrolling AI After A Nice Opening
+    turns:
+    - 13
+    - 12
+  traits:
+  - - rich
+    - familiar
 - campaign_effects:
   - delayed_joy
   cards:
@@ -25,13 +711,22 @@
   - raid
   name: '2026-07-26'
   notes:
-    crucial_cards: [Shepherd, Tunnel, Tracker, Pixie]
-    ending: [Province]
-    link: 'https://youtu.be/KToZrm1tTQA'
-    name: 'Delayed Crash'
-    points: [45, 20]
-    subtitle: 'In Which The Game Decides It Can''t Allow Us To Carry Home A Nice Win'
-    turns: [9, 8]
+    crucial_cards:
+    - Shepherd
+    - Tunnel
+    - Tracker
+    - Pixie
+    ending:
+    - Province
+    link: https://youtu.be/KToZrm1tTQA
+    name: Delayed Crash
+    points:
+    - 45
+    - 20
+    subtitle: In Which The Game Decides It Can't Allow Us To Carry Home A Nice Win
+    turns:
+    - 9
+    - 8
   traits:
   - - pious
     - tracker

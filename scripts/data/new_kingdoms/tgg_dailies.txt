@@ -1,6 +1,37 @@
+2026-08-01---faithful_hound, guide, steward, infirmary, familiar, armory, mining_village, laboratory, livery, souk, rich(familiar), piazza
+2026-07-31---sycophant, astrolabe, forts, merchant_camp, blockade, jack_of_all_trades, spice_merchant, berserker, galleria, haggler, coastal_haven
+2026-07-30---engineer, patrician, quarry, charm, city, collection, crystal_ball, wild_hunt, kings_court, peddler, arena, keep, colonies
+2026-07-29---black_cat, lurker, goatherd, stockpile, wishing_well, baron, cardinal, duke, replace, farm, way_of_the_mouse(sleigh)
+2026-07-28---camel_train, goatherd, bounty_hunter, groom, barge, coven, displace, livery, mastermind, destrier, way_of_the_mole, invest
+2026-07-27---harbinger, vassal, investment, moneylender, throne_room, council_room, laboratory, rabble, witch, artisan, colonies
 2026-07-26---pixie, tracker, vagrant, scrap, secret_cave, tunnel, bard, blockade, shepherd, hireling, pious(tracker), raid -x twist_delayed_joy
 2026-07-25---beggar, fools_gold, pixie, secluded_shrine, nomads, wandering_minstrel, skirmisher, witch, farmland, rice, way_of_the_turtle, demand
+2026-07-24---moat, flagship, jack_of_all_trades, landing_party, berserker, cartographer, first_mate, frigate, market, pickaxe, maelstrom, scrounge
+2026-07-23---hamlet, fishing_village, menagerie, smugglers, farmhands, treasure_map, bazaar, corsair, horn_of_plenty, treasury
+2026-07-22---candlestick_maker, farrier, masquerade, steward, infirmary, baron, herald, courtier, merchant_guild, replace
+2026-07-21---settlers, castles, enchantress, farmers_market, villa, archive, capital, groundskeeper, legionary, wild_hunt, ritual, basilica
+2026-07-20---coin_of_the_realm, peasant, amulet, caravan_guard, guide, magpie, miser, throne_room, bandit, lost_city, plan, pilgrimage
+2026-07-19---vineyard, black_cat, fishmonger, grotto, astrolabe, gondola, rope, contract, sculptor, raider, band_of_nomads, foresight -x stamp_with_horse(rope), start_replace_copper(spoils), start_replace_copper(spoils), start_replace_copper(spoils), start_replace_copper(spoils), start_replace_copper(spoils), start_replace_copper(spoils), start_replace_copper(spoils)
+2026-07-18---black_cat, herbalist, search, chariot_race, blessed_village, fortune_hunter, procession, trader, trail, highway, scouting_party, pageant
+2026-07-17---fishmonger, snake_witch, riverboat(rabble), bishop, ninja, tiara, graverobber, tea_house, hunting_grounds, rice, flourishing_trade
+2026-07-16---bauble, odysseys, bishop, royal_galley, barbarian, galleria, mint, war_chest, hoard, expand, league_of_bankers, colonies
+2026-07-15---herbalist, apothecary, scrying_pool, university, alchemist, plaza, herald, butcher, footpad, merchant_guild
+2026-07-14---poor_house, beggar, squire, forager, sage, storeroom, fortress, marauder, junk_dealer, mystic, shelters
+2026-07-13---encampment, settlers, enchantress, harbinger, village, villa, archive, crown, groundskeeper, wild_hunt, tax, wolf_den
+2026-07-12---experiment, ghost_town, poet, trader, band_of_misfits, cursed_village, imperial_envoy, trading_post, altar, kings_cache, baths, cursed(band_of_misfits), biding_time -x stamp_shadowified(band_of_misfits)
+2026-07-11---importer, village, cabin_boy, village_green, cobbler, legionary, pilgrim, sanctuary, seer, storyteller, hasty(legionary), innovation, circle_of_witches
+2026-07-10---artist, cage, fishmonger, riverboat(tea_house), secluded_shrine, taskmaster, port, figurine, giant, swamp_hag, continue, borrow, bureaucracy
+2026-07-09---native_village, squire, sea_chart, blockade, death_cart, procession, band_of_misfits, count, graverobber, pirate, shelters
+2026-07-08---sleigh, bounty_hunter, hostelry, workers_village, crystal_ball, displace, kiln, magnate, sanctuary, war_chest, ride, stampede
+2026-07-07---lurker, pawn, steward, diplomat, mining_village, courtier, trading_post, upgrade, farm, nobles
+2026-07-06---forts, odysseys, bureaucrat, carpenter, militia, smithy, town, modify, skirmisher, witch
 2026-07-05---artist, patrician, pixie, broker, fortress, tiara, baker, crypt, wealthy_village, sack_of_loot, kintsugi, band_of_nomads, colonies -x stamp_chameleonized(broker), start_replace_copper(stronghold), start_replace_copper(tiara)
+2026-07-04---black_cat, anvil, augurs, gondola, distant_lands, haunted_woods, highway, skirmisher, fisherman, forge, road_network, training
+2026-07-03---ducat, scrap, stockpile, patron, priest, river_shrine, village_green, rice_broker, scepter, scholar, silos, way_of_the_otter, progress
+2026-07-02---poor_house, lackeys, squire, cargo_ship, improve, storeroom, flag_bearer, hideout, ironmonger, knights, citadel, piazza
+2026-07-01---royal_blacksmith, encampment, apothecary, university, castles, chariot_race, gladiator, sacrifice, temple, wild_hunt, ritual, advance
+2026-06-30---anvil, watchtower, quarry, tiara, charlatan, city, mint, rabble, war_chest, kings_court, colonies
+2026-06-29---cargo_ship, harbinger, vassal, poacher, remodel, throne_room, scepter, sculptor, spices, treasurer, exploration, sinister_plot
 2026-06-28---abundance, broker, groom, ironmonger, landing_party, herald, cobbler, haggler, rogue, expand, order_of_astrologers, way_of_the_frog, colonies, shelters -x stamp_durationified(herald), stamp_treasurified(broker)
 2026-06-27---artist, ratcatcher, university, anvil, goatherd, oasis, town, figurine, rabble, swamp_hag, orchard, sea_trade
 2026-06-26---develop, masquerade, conspirator, diplomat, trail, duke, highway, stables, vault, nobles
