@@ -1,7 +1,8 @@
 from collections.abc import MutableMapping, Sequence
-from typing import Any
+from typing import Any, cast
 
 import streamlit as st
+from streamlit.runtime.state import SessionStateProxy
 
 from ...constants import QUALITIES_AVAILABLE
 from ...kingdom import KingdomRandomizer
@@ -30,29 +31,25 @@ def st_calc_quiz_score(
     return score
 
 
-def reset_quiz_answers(
-    state: MutableMapping[str, Any], quality_names: Sequence[str]
-) -> None:
+def reset_quiz_answers(state: SessionStateProxy, quality_names: Sequence[str]) -> None:
     state["quiz_show_solution"] = False
     state.pop("quiz_quality_buy_str", None)
     for quality in quality_names:
-        state[f"quiz_quality_slider_{quality}"] = -1
+        state[f"quiz_quality_slider_{quality}"] = None
 
 
-def reset_quiz_workflow(
-    state: MutableMapping[str, Any], quality_names: Sequence[str]
-) -> None:
+def reset_quiz_workflow(state: SessionStateProxy, quality_names: Sequence[str]) -> None:
     state.pop("quiz_run_state", None)
     state.pop(QUIZ_RUN_RECORD_KEY, None)
     state.pop("quiz_current_kingdom", None)
     state.pop("quiz_has_started", None)
     for key in list(state):
-        if key.startswith("_quiz_quality_"):
+        if cast(str, key).startswith("_quiz_quality_"):
             state.pop(key, None)
     reset_quiz_answers(state, quality_names)
 
 
-def load_quiz_widget_value(state: MutableMapping[str, Any], answer_key: str) -> str:
+def load_quiz_widget_value(state: SessionStateProxy, answer_key: str) -> str:
     widget_key = f"_{answer_key}"
     if answer_key in state:
         state[widget_key] = state[answer_key]
@@ -61,7 +58,7 @@ def load_quiz_widget_value(state: MutableMapping[str, Any], answer_key: str) -> 
     return widget_key
 
 
-def save_quiz_widget_value(state: MutableMapping[str, Any], answer_key: str) -> None:
+def save_quiz_widget_value(state: SessionStateProxy, answer_key: str) -> None:
     widget_value = state.get(f"_{answer_key}")
     if widget_value is None:
         state.pop(answer_key, None)

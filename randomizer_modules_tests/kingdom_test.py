@@ -261,7 +261,7 @@ def test_liaison_addition_and_removal():
     kingdom = randomizer.randomize_new_kingdom()
     assert (
         "league_of_bankers" in kingdom.landscapes
-    ), "Ally has not been chosen correctly"
+    ), f"Ally has not been chosen correctly, landscapes are {kingdom.landscapes}"
     assert np.sum(kingdom.kingdom_card_df["IsLiaison"]) > 0, "No liaison chosen"
     # First, reroll the ally:
     new_kingdom = randomizer.reroll_single_cso(kingdom, "league_of_bankers")

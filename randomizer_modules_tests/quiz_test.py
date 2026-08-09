@@ -1,18 +1,33 @@
 import json
 import pickle
+from datetime import datetime
 
 import pytest
 
 from random_kingdominion.kingdom import Kingdom
 from random_kingdominion.streamlit_util.quiz_setup.persistence import (
-    QuizPersistenceError, deserialize_quiz_run, persist_quiz_run,
-    restore_persisted_quiz_run, serialize_quiz_run)
+    QuizPersistenceError,
+    deserialize_quiz_run,
+    persist_quiz_run,
+    restore_persisted_quiz_run,
+    serialize_quiz_run,
+)
 from random_kingdominion.streamlit_util.quiz_setup.run_state import (
-    QUIZ_SCORING_VERSION, CompletedQuizRound, QuizAnswers, QuizMode, QuizPhase,
-    QuizRunState)
+    QUIZ_SCORING_VERSION,
+    CompletedQuizRound,
+    QuizAnswers,
+    QuizDifficulty,
+    QuizMode,
+    QuizPhase,
+    QuizRunState,
+)
 from random_kingdominion.streamlit_util.quiz_setup.util import (
-    load_quiz_widget_value, reset_quiz_answers, reset_quiz_workflow,
-    save_quiz_widget_value, st_calc_quiz_score)
+    load_quiz_widget_value,
+    reset_quiz_answers,
+    reset_quiz_workflow,
+    save_quiz_widget_value,
+    st_calc_quiz_score,
+)
 
 
 @pytest.mark.parametrize(
@@ -123,7 +138,11 @@ def test_quiz_run_state_tracks_run_and_current_round() -> None:
 
 def test_quiz_run_state_tracks_completed_round_history() -> None:
     answers = QuizAnswers({"draw": 2}, "maybe")
-    completed_round = CompletedQuizRound(0, "Village, Smithy", answers, 13.5)
+    start_time = datetime(2026, 1, 1)
+    end_time = datetime(2026, 1, 1, 1)
+    completed_round = CompletedQuizRound(
+        0, "Village, Smithy", answers, 13.5, start_time=start_time, end_time=end_time
+    )
     run_state = QuizRunState(round_count=10, completed_rounds=[completed_round])
 
     assert run_state.completed_rounds == [completed_round]
@@ -133,9 +152,18 @@ def test_quiz_run_state_tracks_completed_round_history() -> None:
 def test_quiz_run_state_uses_independent_ids_and_history() -> None:
     first_run = QuizRunState()
     second_run = QuizRunState()
+    start_time = datetime(2026, 1, 1)
+    end_time = datetime(2026, 1, 1, 1)
 
     first_run.completed_rounds.append(
-        CompletedQuizRound(0, "Village, Smithy", QuizAnswers({}, "no"), 3)
+        CompletedQuizRound(
+            0,
+            "Village, Smithy",
+            QuizAnswers({}, "no"),
+            3,
+            start_time=start_time,
+            end_time=end_time,
+        )
     )
 
     assert first_run.run_id != second_run.run_id
@@ -157,7 +185,9 @@ def test_quiz_run_state_rejects_invalid_round_position(
 
 
 def test_quiz_run_submission_is_idempotent() -> None:
-    run_state = QuizRunState.start(10, "Village, Smithy")
+    run_state = QuizRunState.start(
+        10, QuizDifficulty.PRACTICE, "Village, Smithy", QuizMode.PRACTICE
+    )
     answers = QuizAnswers({"draw": 2}, "yes")
 
     assert run_state.submit_round(answers, 12.5) is True
@@ -168,8 +198,12 @@ def test_quiz_run_submission_is_idempotent() -> None:
 
 
 def test_quiz_run_start_selects_mode_and_is_serializable() -> None:
-    practice = QuizRunState.start(1, "Practice Kingdom")
-    multi_run = QuizRunState.start(10, "Run Kingdom")
+    practice = QuizRunState.start(
+        1, QuizDifficulty.PRACTICE, "Practice Kingdom", QuizMode.PRACTICE
+    )
+    multi_run = QuizRunState.start(
+        10, QuizDifficulty.PRACTICE, "Run Kingdom", QuizMode.RUN
+    )
 
     assert practice.mode is QuizMode.PRACTICE
     assert multi_run.mode is QuizMode.RUN
@@ -177,7 +211,9 @@ def test_quiz_run_start_selects_mode_and_is_serializable() -> None:
 
 
 def test_quiz_run_advances_and_resets_current_round() -> None:
-    run_state = QuizRunState.start(10, "Village, Smithy")
+    run_state = QuizRunState.start(
+        10, QuizDifficulty.PRACTICE, "Village, Smithy", QuizMode.RUN
+    )
     run_state.submit_round(QuizAnswers({"draw": 2}, "yes"), 12.5)
 
     run_state.advance_round("Market, Chapel")
@@ -191,7 +227,9 @@ def test_quiz_run_advances_and_resets_current_round() -> None:
 
 
 def test_quiz_run_finishes_after_last_scored_round() -> None:
-    run_state = QuizRunState.start(1, "Village, Smithy")
+    run_state = QuizRunState.start(
+        1, QuizDifficulty.PRACTICE, "Village, Smithy", QuizMode.PRACTICE
+    )
     run_state.submit_round(QuizAnswers({"draw": 2}, "yes"), 15)
 
     run_state.advance_round("")
@@ -204,7 +242,7 @@ def test_quiz_run_finishes_after_last_scored_round() -> None:
 
 
 def test_quiz_run_summary_metrics_cover_multiple_rounds() -> None:
-    run_state = QuizRunState.start(10, "First")
+    run_state = QuizRunState.start(10, QuizDifficulty.PRACTICE, "First", QuizMode.RUN)
     run_state.submit_round(QuizAnswers({}, "yes"), 15)
     run_state.advance_round("Second")
     run_state.submit_round(QuizAnswers({}, "no"), 10)
@@ -217,7 +255,9 @@ def test_quiz_run_summary_metrics_cover_multiple_rounds() -> None:
 
 def test_reset_quiz_workflow_clears_run_and_preserves_unrelated_state() -> None:
     state = {
-        "quiz_run_state": QuizRunState.start(10, "Village, Smithy"),
+        "quiz_run_state": QuizRunState.start(
+            10, QuizDifficulty.PRACTICE, "Village, Smithy", QuizMode.RUN
+        ),
         "quiz_run_record": "saved record",
         "quiz_current_kingdom": "legacy kingdom",
         "quiz_has_started": True,
@@ -243,7 +283,9 @@ def test_reset_quiz_workflow_clears_run_and_preserves_unrelated_state() -> None:
 
 def test_quiz_run_persistence_restores_scored_progress() -> None:
     kingdom = Kingdom(cards=["Village", "Smithy"])
-    run_state = QuizRunState.start(10, kingdom.get_dombot_csv_string())
+    run_state = QuizRunState.start(
+        10, QuizDifficulty.PRACTICE, kingdom.get_dombot_csv_string(), QuizMode.RUN
+    )
     quality_values = {
         quality: value
         for quality, value in kingdom.total_qualities.items()
@@ -266,7 +308,9 @@ def test_quiz_run_persistence_restores_scored_progress() -> None:
 
 def test_quiz_run_persistence_recomputes_tampered_scores() -> None:
     kingdom = Kingdom(cards=["Village", "Smithy"])
-    run_state = QuizRunState.start(10, kingdom.get_dombot_csv_string())
+    run_state = QuizRunState.start(
+        10, QuizDifficulty.PRACTICE, kingdom.get_dombot_csv_string(), QuizMode.RUN
+    )
     quality_values = {
         quality: value
         for quality, value in kingdom.total_qualities.items()
@@ -290,7 +334,9 @@ def test_quiz_run_persistence_recomputes_tampered_scores() -> None:
 
 
 def test_quiz_run_persistence_rejects_unknown_scoring_version() -> None:
-    run_state = QuizRunState.start(10, "Village, Smithy")
+    run_state = QuizRunState.start(
+        10, QuizDifficulty.PRACTICE, "Village, Smithy", QuizMode.RUN
+    )
     record = json.loads(serialize_quiz_run(run_state))
     record["scoring_version"] = "future"
 
@@ -299,7 +345,9 @@ def test_quiz_run_persistence_rejects_unknown_scoring_version() -> None:
 
 
 def test_quiz_run_persistence_restores_from_session_mapping() -> None:
-    run_state = QuizRunState.start(10, "Village, Smithy")
+    run_state = QuizRunState.start(
+        10, QuizDifficulty.PRACTICE, "Village, Smithy", QuizMode.RUN
+    )
     state = {}
 
     persist_quiz_run(state, run_state)
@@ -322,7 +370,9 @@ def test_quiz_run_persistence_restores_finished_cumulative_score() -> None:
         kingdom.buy_availability,
         kingdom.buy_availability,
     )
-    run_state = QuizRunState.start(1, kingdom.get_dombot_csv_string())
+    run_state = QuizRunState.start(
+        1, QuizDifficulty.PRACTICE, kingdom.get_dombot_csv_string(), QuizMode.RUN
+    )
     run_state.submit_round(answers, trusted_score)
     run_state.advance_round("")
 

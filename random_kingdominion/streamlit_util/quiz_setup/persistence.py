@@ -1,11 +1,21 @@
 import json
-from collections.abc import MutableMapping
+from datetime import datetime
 from typing import Any, cast
 
+from streamlit.runtime.state import SessionStateProxy
+
 from ...kingdom import Kingdom
-from .run_state import (QUIZ_RUN_RECORD_KEY, QUIZ_SCORING_VERSION,
-                        BuyAvailability, CompletedQuizRound, QuizAnswers,
-                        QuizMode, QuizPhase, QuizRunState)
+from .run_state import (
+    QUIZ_RUN_RECORD_KEY,
+    QUIZ_SCORING_VERSION,
+    BuyAvailability,
+    CompletedQuizRound,
+    QuizAnswers,
+    QuizDifficulty,
+    QuizMode,
+    QuizPhase,
+    QuizRunState,
+)
 from .util import st_calc_quiz_score
 
 QUIZ_RUN_SCHEMA_VERSION = 1
@@ -15,14 +25,12 @@ class QuizPersistenceError(ValueError):
     pass
 
 
-def persist_quiz_run(
-    state: MutableMapping[str, Any], run_state: QuizRunState
-) -> None:
+def persist_quiz_run(state: SessionStateProxy, run_state: QuizRunState) -> None:
     state[QUIZ_RUN_RECORD_KEY] = serialize_quiz_run(run_state)
 
 
 def restore_persisted_quiz_run(
-    state: MutableMapping[str, Any],
+    state: SessionStateProxy,
 ) -> QuizRunState | None:
     serialized_run = state.get(QUIZ_RUN_RECORD_KEY)
     if serialized_run is None:
@@ -32,6 +40,23 @@ def restore_persisted_quiz_run(
     return deserialize_quiz_run(serialized_run)
 
 
+def _serialize_completed_round(round_result: CompletedQuizRound) -> dict[str, Any]:
+    return {
+        "round_index": round_result.round_index,
+        "kingdom": round_result.kingdom,
+        "submitted_answers": {
+            "quality_values": {
+                quality: float(value)
+                for quality, value in round_result.submitted_answers.quality_values.items()
+            },
+            "buy_availability": round_result.submitted_answers.buy_availability,
+        },
+        "score": round_result.score,
+        "start_time": round_result.start_time.isoformat(),
+        "end_time": round_result.end_time.isoformat(),
+    }
+
+
 def serialize_quiz_run(run_state: QuizRunState) -> str:
     record = {
         "schema_version": QUIZ_RUN_SCHEMA_VERSION,
@@ -39,22 +64,13 @@ def serialize_quiz_run(run_state: QuizRunState) -> str:
         "mode": run_state.mode.value,
         "phase": run_state.phase.value,
         "round_count": run_state.round_count,
+        "difficulty": run_state.difficulty.value,
         "current_round_index": run_state.current_round_index,
         "current_kingdom": run_state.current_kingdom,
         "scoring_version": run_state.scoring_version,
+        "last_round_start": run_state.last_round_start.isoformat(),
         "completed_rounds": [
-            {
-                "round_index": round_result.round_index,
-                "kingdom": round_result.kingdom,
-                "submitted_answers": {
-                    "quality_values": {
-                        quality: float(value)
-                        for quality, value in round_result.submitted_answers.quality_values.items()
-                    },
-                    "buy_availability": round_result.submitted_answers.buy_availability,
-                },
-                "score": round_result.score,
-            }
+            _serialize_completed_round(round_result)
             for round_result in run_state.completed_rounds
         ],
     }
@@ -87,12 +103,14 @@ def _restore_quiz_run(record: dict[str, Any]) -> QuizRunState:
         run_id=str(record["run_id"]),
         mode=QuizMode(record["mode"]),
         phase=QuizPhase(record["phase"]),
+        difficulty=QuizDifficulty(record["difficulty"]),
         round_count=int(record["round_count"]),
         current_round_index=int(record["current_round_index"]),
         current_kingdom=str(record["current_kingdom"]),
         completed_rounds=completed_rounds,
         cumulative_score=sum(round_result.score for round_result in completed_rounds),
         scoring_version=str(record["scoring_version"]),
+        last_round_start=datetime.fromisoformat(record["last_round_start"]),
     )
     _validate_restored_progress(run_state)
     if run_state.phase is QuizPhase.SOLUTION:
@@ -121,11 +139,21 @@ def _restore_completed_round(record: dict[str, Any]) -> CompletedQuizRound:
         buy_availability,
         kingdom.buy_availability,
     )
+    start_time = record.get("start_time")
+    end_time = record.get("end_time")
+    if start_time is None or end_time is None:
+        raise QuizPersistenceError(
+            "The saved quiz round has an unsupported start time."
+        )
+    start_time = datetime.fromisoformat(start_time)
+    end_time = datetime.fromisoformat(end_time)
     return CompletedQuizRound(
         round_index=int(record["round_index"]),
         kingdom=kingdom_string,
         submitted_answers=answers,
         score=trusted_score,
+        start_time=start_time,
+        end_time=end_time,
     )
 
 

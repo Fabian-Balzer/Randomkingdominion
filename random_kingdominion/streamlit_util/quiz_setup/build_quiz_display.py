@@ -1,3 +1,4 @@
+from time import sleep, time
 from typing import Literal, cast
 
 import matplotlib.pyplot as plt
@@ -13,7 +14,14 @@ from .persistence import (
     persist_quiz_run,
     restore_persisted_quiz_run,
 )
-from .run_state import BuyAvailability, QuizAnswers, QuizMode, QuizPhase, QuizRunState
+from .run_state import (
+    BuyAvailability,
+    QuizAnswers,
+    QuizDifficulty,
+    QuizMode,
+    QuizPhase,
+    QuizRunState,
+)
 from .util import (
     generate_random_quiz_kingdom_string,
     get_quiz_quality_names,
@@ -44,42 +52,42 @@ def _st_build_buy_selection(
 ) -> Literal["yes", "no", "maybe"] | None:
     c = st.container(border=True)
     answer_key = "quiz_quality_buy_str"
-    return c.radio(
+    return c.segmented_control(
         "Buy Availability",
         ["yes", "maybe", "no"],
-        index=None,
-        horizontal=True,
+        selection_mode="single",
+        default=None,
         key=load_quiz_widget_value(st.session_state, answer_key),
         disabled=solution_is_shown,
         format_func=str.capitalize,
         on_change=save_quiz_widget_value,
         args=(st.session_state, answer_key),
+        width="stretch",
     )
 
 
-def qualities_selection(quality_names: list[str], solution_is_shown: bool) -> None:
+def _st_build_qualities_selection(
+    quality_names: list[str], solution_is_shown: bool
+) -> None:
     for quality in quality_names:
         answer_key = f"quiz_quality_slider_{quality}"
         st.session_state.setdefault(answer_key, -1)
         cols = st.columns([1, 8])
         with cols[0]:
-            st.image(
-                get_quality_icon_fpath(quality),
-                width="stretch",
-            )
+            st.image(get_quality_icon_fpath(quality), width="stretch")
+
         with cols[1]:
-            st.select_slider(
+            st.segmented_control(
                 f"{quality.capitalize()}",
-                help=quality.capitalize(),
-                options=[-1, 0, 0.5, 1, 2, 3, 4],
+                ["0", ":star:", "1", "2", "3", "4"],
                 key=load_quiz_widget_value(st.session_state, answer_key),
-                format_func=lambda x: (
-                    "Select please" if x == -1 else str(x if x % 1 != 0 else int(x))
-                ),
-                label_visibility="collapsed",
+                default=None,
                 disabled=solution_is_shown,
                 on_change=save_quiz_widget_value,
                 args=(st.session_state, answer_key),
+                width="stretch",
+                label_visibility="collapsed",
+                help=f"Select {quality.capitalize()} quality value",
             )
 
 
@@ -95,22 +103,40 @@ def _show_selected_buy_icon(
     cont.image(fpath, caption="Selected", width=60)
 
 
+def _to_val(s: str | None) -> float:
+    if s == ":star:":
+        return 0.5
+    if s is None:
+        return -1.0
+    return float(s)
+
+
+def _get_selected_user_values() -> dict[str, float]:
+    """Returns a dictionary of the selected user values for each quality, with -1.0 for unselected qualities."""
+    selected_values = {
+        q: st.session_state.get(f"quiz_quality_slider_{q}", None)
+        for q in get_quiz_quality_names()
+    }
+    selected_values = {q: _to_val(v) for q, v in selected_values.items()}
+    return selected_values
+
+
 def plot_qualities(
     solution_possible: bool,
     solution_is_shown: bool,
     k: Kingdom,
 ) -> None:
     linecolor = "darkred" if solution_possible else "gray"
-    selected_values = {
-        q: st.session_state.get(f"quiz_quality_slider_{q}", -1)
-        for q in get_quiz_quality_names()
-    }
+    selected_values = _get_selected_user_values()
     fig = st_plot_kingdom_qualities(selected_values, linecolor=linecolor)
     if solution_is_shown:
         fig = st_plot_kingdom_qualities(
             k.total_qualities, fig.axes[0], buy_str=k.buy_availability
         )
-    st.write("Your Estimated Qualities")
+    st.text(
+        "Your Estimated Qualities",
+        help="The qualities you selected for this kingdom in gray (as long as you aren't finished), then in red. Once the solution is shown, the actual qualities are shown in blue.",
+    )
     st.pyplot(fig, True)
     plt.close(fig)
     _show_selected_buy_icon(st.session_state.get("quiz_quality_buy_str", ""))
@@ -187,7 +213,7 @@ def show_solution_button(
             width="stretch",
             type="primary",
         ):
-            selected_values = _get_selected_values()
+            selected_values = _get_selected_user_values()
             buy_str = cast(BuyAvailability, _get_buy_availability())
             answers = QuizAnswers(selected_values, buy_str)
             score = st_calc_quiz_score(
@@ -202,14 +228,6 @@ def show_solution_button(
             st.rerun()
 
 
-def _get_selected_values() -> dict[str, float]:
-    quality_names = get_quiz_quality_names()
-    selected_values: dict[str, float] = {}
-    for q in quality_names:
-        selected_values[q] = st.session_state.get(f"quiz_quality_slider_{q}", -1)
-    return selected_values
-
-
 def _get_buy_availability() -> str:
     return st.session_state.get("quiz_quality_buy_str", "")
 
@@ -219,62 +237,76 @@ def solution_section(score: float) -> None:
     score_str = f"{score:.1f}" if score % 1 != 0 else f"{int(score)}"
     with st.container():
         # Color depending on score achieved
-        # 0-5 points: red, 5-10 points: orange, 10-13 points: light green, 13-15 points: green
         msg = ""
-        if score <= 1:
+        if score < 1:
             color = "red"
-            msg = "Did you deliberately go for a low score? :)"
+            msg = "Cheeky! Did you deliberately go for a low score? It's genuinely not that easy to achieve! :)"
         elif score <= 8:
             color = "orange"
-            msg = "Off by a quite a bit, I know you'll get better after thinking a bit more! There were probably one or two important CSOs you missed."
+            msg = "Off by a quite a bit, I know you'll get there if you think about the kingdoms a bit more! There were probably one or two important CSOs you missed."
         elif score <= 11:
             color = "gold"
             msg = "Not bad, you got the general idea :)"
         elif score < 15:
             color = "lightgreen"
-            msg = "Great job, you really know your way around in Dominion! The offsets might be due to my subjective quality assessments."
+            msg = "Great job, you really know your way around Dominion kingdoms!\nI wouldn't be surprised if the offsets are due to subjective subtleties in my quality assessments."
         elif score == 15:
             color = "green"
-            msg = "Wow, perfect score! You really know your Dominion!"
+            msg = "Wow, congrats, perfect score!\nYou really know your Dominion (and my way of quality assessments)!"
 
         st.markdown(
             f"<h2 style='color: {color};'>Score: {score_str}/15</h2>{msg}",
             unsafe_allow_html=True,
         )
-        # TODO: 1D bar plot:
         fig = plot_score_bar(score)
         with st.container(horizontal=True, horizontal_alignment="center"):
             st.pyplot(fig, True, width="content")
         plt.close(fig)
 
 
-def st_build_kingdom_display_options() -> tuple[bool, bool]:
-    col1, col2 = st.columns(2)
-    with col1:
-        checkbox_large_view = st.checkbox(
-            "Large Kingdom View",
-            value=st.session_state.get("quiz_kingdom_view_large", False),
-            key="quiz_kingdom_view_large",
-        )
-    with col2:
-        checkbox_full_image = st.checkbox(
-            "Show Full Images",
-            value=st.session_state.get("quiz_kingdom_view_full_image", True),
-            key="quiz_kingdom_view_full_image",
-        )
-    return checkbox_large_view, checkbox_full_image
+def _get_current_run_mode() -> QuizMode:
+    mode_label = st.session_state.get("quiz_run_mode", QuizMode.PRACTICE)
+    return QuizMode.from_display_key(mode_label)
+
+
+def _get_current_difficulty() -> QuizDifficulty:
+    difficulty_label = st.session_state.get(
+        "quiz_difficulty_selection", QuizDifficulty.PRACTICE
+    )
+    return QuizDifficulty.from_display_key(difficulty_label)
+
+
+def _build_run_mode_selection() -> None:
+    st.segmented_control(
+        "Quiz Mode",
+        list(QuizMode),
+        default=_get_current_run_mode(),
+        width="stretch",
+        key="quiz_run_mode",
+        help="\\\n".join([m.get_description() for m in QuizMode]),
+    )
+
+
+def _build_difficulty_selection() -> None:
+    st.segmented_control(
+        "Difficulty",
+        list(QuizDifficulty),
+        default=_get_current_difficulty(),
+        width="stretch",
+        selection_mode="single",
+        required=True,
+        key="quiz_difficulty_selection",
+        help="\\\n".join([m.get_description() for m in QuizDifficulty]),
+    )
 
 
 def _build_mode_navigation(quality_names: list[str]) -> None:
-    mode_label = st.segmented_control(
-        "Quiz Mode",
-        ["Practice", "10 Kingdom Run"],
-        default="Practice",
-        width="stretch",
-    )
-    selected_mode = (
-        QuizMode.RUN if mode_label == "10 Kingdom Run" else QuizMode.PRACTICE
-    )
+    col0, col1 = st.container(border=True).columns([1, 2])
+    with col0:
+        _build_run_mode_selection()
+    with col1:
+        _build_difficulty_selection()
+    selected_mode = _get_current_run_mode()
     if selected_mode is QuizMode.PRACTICE:
         st.caption("Explore one kingdom at a time without a cumulative score.")
         button_label = "Start Practice"
@@ -288,18 +320,41 @@ def _build_mode_navigation(quality_names: list[str]) -> None:
         kingdom = generate_random_quiz_kingdom_string()
         run_state = QuizRunState.start(
             round_count,
-            kingdom,
-            selected_mode,
+            difficulty=_get_current_difficulty(),
+            kingdom=kingdom,
+            mode=selected_mode,
         )
-        st.session_state["quiz_run_state"] = run_state
         persist_quiz_run(st.session_state, run_state)
         reset_quiz_answers(st.session_state, quality_names)
         st.rerun()
 
 
+@st.fragment(run_every=0.5)
+def _build_timer_display(run_state: QuizRunState) -> None:
+    with st.container(horizontal=True, horizontal_alignment="left"):
+        if st.checkbox("Hide Timer", value=True, key="quiz_show_timer"):
+            return
+
+        elapsed_seconds = int(run_state.get_elapsed_time_of_current_round())
+        minutes, seconds = divmod(elapsed_seconds, 60)
+        if run_state.mode is QuizMode.PRACTICE:
+            st.text(f"Time: {minutes:02d}:{seconds:02d}")
+            return
+        elapsed_seconds_tot = int(run_state.get_total_elapsed_time_so_far())
+        total_minutes, total_seconds = divmod(elapsed_seconds_tot, 60)
+        st.text(
+            f"Round Time: {minutes:02d}:{seconds:02d}, Total time: {total_minutes:02d}:{total_seconds:02d}"
+        )
+
+
 def _build_run_header(run_state: QuizRunState, quality_names: list[str]) -> None:
     header = st.container(horizontal=True, horizontal_alignment="distribute")
     if run_state.mode is QuizMode.RUN:
+        diff = run_state.difficulty
+        header.text(
+            f"Difficulty: {diff.value}",
+            help=f"The difficulty level you selected for this run: {diff.get_description(include_name=False)}",
+        )
         header.markdown(
             f"**Round {run_state.current_round_index + 1} of {run_state.round_count}**"
         )
@@ -312,6 +367,8 @@ def _build_run_header(run_state: QuizRunState, quality_names: list[str]) -> None
         )
     else:
         header.markdown("**Practice**")
+    with header:
+        _build_timer_display(run_state)
 
     if header.button("Stop / Reset", type="secondary"):
         reset_quiz_workflow(st.session_state, quality_names)
@@ -344,10 +401,10 @@ def _advance_or_restart(run_state: QuizRunState, quality_names: list[str]) -> No
         if run_state.mode is QuizMode.PRACTICE:
             run_state = QuizRunState.start(
                 1,
+                _get_current_difficulty(),
                 generate_random_quiz_kingdom_string(),
                 QuizMode.PRACTICE,
             )
-            st.session_state["quiz_run_state"] = run_state
         else:
             next_kingdom = (
                 ""
@@ -361,25 +418,17 @@ def _advance_or_restart(run_state: QuizRunState, quality_names: list[str]) -> No
 
 
 def st_build_full_quiz_display() -> None:
-
     quality_names = get_quiz_quality_names()
-    run_state = st.session_state.get("quiz_run_state")
-    if not isinstance(run_state, QuizRunState):
-        try:
-            run_state = restore_persisted_quiz_run(st.session_state)
-        except QuizPersistenceError:
-            st.session_state.pop("quiz_run_record", None)
-            st.warning("The saved quiz run could not be restored and was reset.")
-            run_state = None
-        if run_state is not None:
-            st.session_state["quiz_run_state"] = run_state
+    try:
+        run_state = restore_persisted_quiz_run(st.session_state)
+    except QuizPersistenceError:
+        st.session_state.pop("quiz_run_record", None)
+        st.warning("The saved quiz run could not be restored and was reset.")
+        run_state = None
 
     if not isinstance(run_state, QuizRunState):
         _build_mode_navigation(quality_names)
         return
-
-    if "quiz_run_record" not in st.session_state:
-        persist_quiz_run(st.session_state, run_state)
 
     _build_run_header(run_state, quality_names)
     if run_state.phase is QuizPhase.FINISHED:
@@ -390,21 +439,29 @@ def st_build_full_quiz_display() -> None:
     k_str = run_state.current_kingdom
     k = Kingdom.from_dombot_csv_string(k_str)
 
-    large_kingdom_view, checkbox_full_image = st_build_kingdom_display_options()
     selection_cont = st.container(border=True)
-    if large_kingdom_view:
+
+    checkbox_large_view = st.sidebar.checkbox(
+        "Large Kingdom View",
+        value=st.session_state.get("quiz_kingdom_view_large", False),
+        key="quiz_kingdom_view_large",
+    )
+    if checkbox_large_view:
         col0 = selection_cont.expander("The Kingdom", expanded=True)
         col1, col2 = selection_cont.columns(2)
     else:
         col0, col1, col2 = selection_cont.columns(3)
         col0 = col0.container(border=True)
         col0.write("The Kingdom")
-
     with col0:
+        full_img = run_state.difficulty != QuizDifficulty.HARD
+        exclude_qualities = (
+            not solution_is_shown and run_state.difficulty != QuizDifficulty.PRACTICE
+        )
         _fragmented_kingdom_display(
             k_str,
-            exclude_qualities=not solution_is_shown,
-            checkbox_full_image=checkbox_full_image,
+            exclude_qualities=exclude_qualities,
+            checkbox_full_image=full_img,
         )
         if solution_is_shown:
             st.info(
@@ -415,11 +472,11 @@ def st_build_full_quiz_display() -> None:
         if not solution_is_shown:
             st.write("Adjust Qualities")
             _st_build_buy_selection(solution_is_shown)
-            qualities_selection(quality_names, solution_is_shown)
+            _st_build_qualities_selection(quality_names, solution_is_shown)
         else:
             solution_section(run_state.round_score or 0.0)
 
-    selected_values = _get_selected_values()
+    selected_values = _get_selected_user_values()
     buy_str = _get_buy_availability()
     solution_possible = all(v != -1 for v in selected_values.values()) and buy_str != ""
 

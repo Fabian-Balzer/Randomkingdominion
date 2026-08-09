@@ -18,7 +18,7 @@ def test_quality_availability(df: pd.DataFrame):
 
 def test_quality_reasonability(df: pd.DataFrame):
     for quality in rk.QUALITIES_AVAILABLE:
-        assert set(np.unique(df[quality + "_quality"])).issubset([0, 1, 2, 3])
+        assert set(np.unique(df[quality + "_quality"])).issubset([0, 0.5, 1, 2, 3])
 
 
 def _test_type_availability(df: pd.DataFrame, qual_name: str):
