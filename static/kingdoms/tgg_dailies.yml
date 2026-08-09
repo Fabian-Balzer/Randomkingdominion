@@ -1,4 +1,426 @@
 - cards:
+  - advisor
+  - border_guard
+  - conspirator
+  - courtier
+  - ducat
+  - footpad
+  - improve
+  - lackeys
+  - mining_village
+  - wishing_well
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Intrigue, 2E
+  - Renaissance
+  idx: 277634594372469041476178682599041768084
+  landscapes:
+  - academy
+  - citadel
+  name: '2026-08-07'
+- cards:
+  - border_guard
+  - island
+  - native_village
+  - salvager
+  - scholar
+  - sculptor
+  - swashbuckler
+  - tide_pools
+  - treasure_map
+  - treasurer
+  expansions:
+  - Renaissance
+  - Seaside, 2E
+  idx: 115600401587578602293518856599573848388
+  landscapes:
+  - citadel
+  - piazza
+  name: '2026-08-06'
+- cards:
+  - beggar
+  - catacombs
+  - death_cart
+  - feodum
+  - junk_dealer
+  - rice_broker
+  - river_shrine
+  - riverboat
+  - samurai
+  - squire
+  divine_wind_cso_str: count, hunting_grounds, snake_witch, poet, artist, scavenger,
+    rustic_village, knights, aristocrat, kitsune
+  expansions:
+  - Dark Ages
+  - Rising Sun
+  idx: 269245322100627467989155613476645978384
+  landscapes:
+  - credit
+  - divine_wind
+  - gather
+  name: '2026-08-05'
+  riverboat_card: litter
+  use_shelters: true
+- campaign_effects:
+  - from_the_throne
+  - treasurified
+  cards:
+  - bridge_troll
+  - crossroads
+  - cutthroat
+  - diplomat
+  - displace
+  - jewelled_egg
+  - merchant_ship
+  - poet
+  - sheepdog
+  - wishing_well
+  expansions:
+  - Adventures
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Plunder
+  - Rising Sun
+  - Seaside, 2E
+  idx: 36206573497346480004722940018898753504
+  landscapes:
+  - harsh_winter
+  - way_of_the_worm
+  name: '2026-08-09'
+  notes:
+    crucial_cards:
+    - Poet
+    - Bridge Troll
+    - Merchant Ship
+    - Harsh Winter
+    ending:
+    - Estate
+    - Poet
+    - Bridge Troll
+    link: https://youtu.be/36w7S6Q1adQ
+    name: Harsh Poetry
+    openings:
+    - grade: B-
+      t1: Poet
+      t1_csos:
+      - poet
+      t2: Wishing Well
+      t2_csos:
+      - wishing_well
+      type: 4/3|3/4
+    - grade: C+
+      t1: Displace, or Bridge Troll
+      t1_csos:
+      - displace
+      t2: Crossroads, or nothing
+      t2_csos:
+      - crossroads
+      type: 5/2|2/5
+    points:
+    - 47
+    - 15
+    subtitle: Struggling To End It After Being Miles Ahead
+    turns:
+    - 12
+    - 11
+  stamps_and_effects:
+  - - treasurified
+    - merchant_ship
+- cards:
+  - apothecary
+  - baker
+  - band_of_misfits
+  - daimyo
+  - den_of_sin
+  - first_mate
+  - grotto
+  - marquis
+  - treasury
+  - wishing_well
+  expansions:
+  - Adventures
+  - Alchemy
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Nocturne
+  - Plunder
+  - Rising Sun
+  - Seaside, 2E
+  idx: 92509056064820128367070560785354029704
+  landscapes:
+  - ritual
+  - seaway
+  name: '2026-08-08'
+  notes:
+    crucial_cards:
+    - Seaway
+    - Wishing Well
+    - Daimyo
+    - Grotto
+    ending:
+    - Province
+    link: https://youtu.be/u2EFOolr8ig
+    name: Seawell
+    openings:
+    - grade: C
+      t1: Potion, or Wishing Well
+      t1_csos:
+      - potion
+      t2: Grotto
+      t2_csos:
+      - grotto
+      type: 4/3
+    - grade: B
+      t1: Grotto
+      t1_csos:
+      - grotto
+      t2: Den of Sin
+      t2_csos:
+      - den_of_sin
+      type: 3/4
+    - grade: B-
+      t1: Band of Misfits
+      t1_csos:
+      - band_of_misfits
+      t2: Grotto
+      t2_csos:
+      - grotto
+      type: 5/2
+    - grade: B+
+      t1: Grotto
+      t1_csos:
+      - grotto
+      t2: Den of Sin
+      t2_csos:
+      - den_of_sin
+      type: 2/5
+    points:
+    - 39
+    - 12
+    subtitle: Building Excessively Pays Off In Two Explosive Turns
+    turns:
+    - 13
+    - 12
+  use_shelters: true
+- cards:
+  - armory
+  - bandit_camp
+  - count
+  - feodum
+  - forager
+  - graverobber
+  - knights
+  - pillage
+  - poor_house
+  - scavenger
+  expansions:
+  - Dark Ages
+  idx: 164557210701640046969687121911237222740
+  name: '2026-08-04'
+  notes:
+    crucial_cards: []
+    ending: []
+    link: ''
+    name: ''
+    openings:
+    - grade: ''
+      t1: ''
+      t1_csos: []
+      t2: ''
+      t2_csos: []
+      type: 4/3|3/4
+    - grade: ''
+      t1: ''
+      t1_csos: []
+      t2: ''
+      t2_csos: []
+      type: 5/2|2/5
+    points: []
+    subtitle: ''
+    turns: []
+  use_shelters: true
+- cards:
+  - artisan
+  - chapel
+  - daimyo
+  - festival
+  - merchant
+  - moneylender
+  - mountain_shrine
+  - ninja
+  - poacher
+  - snake_witch
+  expansions:
+  - Base, 2E
+  - Rising Sun
+  idx: 11726386500825356926906997362073426048
+  landscapes:
+  - rapid_expansion
+  - receive_tribute
+  name: '2026-08-03'
+  notes:
+    crucial_cards: []
+    ending: []
+    link: ''
+    name: ''
+    openings:
+    - grade: ''
+      t1: ''
+      t1_csos: []
+      t2: ''
+      t2_csos: []
+      type: 4/3|3/4
+    - grade: ''
+      t1: ''
+      t1_csos: []
+      t2: ''
+      t2_csos: []
+      type: 5/2|2/5
+    points: []
+    subtitle: ''
+    turns: []
+- campaign_effects:
+  - from_the_throne
+  - with_cube
+  cards:
+  - capital_city
+  - enlarge
+  - ferryman
+  - guide
+  - mill
+  - patrician/emporium
+  - plaza
+  - sentinel
+  - tiara
+  - vineyard
+  expansions:
+  - Adventures
+  - Alchemy
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Intrigue, 2E
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  ferryman_pile: secret_passage
+  idx: 318382693907063932433280093613958962094
+  landscapes:
+  - crop_rotation
+  - delve
+  name: '2026-08-02'
+  notes:
+    crucial_cards:
+    - Ferryman
+    - Enlarge
+    - Crop Rotation
+    - Vineyard
+    ending:
+    - Estate
+    - Patrician
+    - Ferryman
+    link: https://youtu.be/KBJ--NTGLok
+    name: Enlarged Crops
+    points:
+    - 53
+    - 38
+    subtitle: Enlarging Our Way Through In A Tight Fast-Paced Kingdom
+    turns:
+    - 10
+    - 9
+  stamps_and_effects:
+  - - with_cube
+    - crop_rotation
+- cards:
+  - armory
+  - faithful_hound
+  - familiar
+  - guide
+  - infirmary
+  - laboratory
+  - livery
+  - mining_village
+  - souk
+  - steward
+  expansions:
+  - Adventures
+  - Alchemy
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Renaissance
+  idx: 121272707248581050266764425510549572598
+  landscapes:
+  - piazza
+  - rich
+  name: '2026-08-01'
+  notes:
+    crucial_cards:
+    - Livery
+    - Souk
+    - Mining Village
+    - Infirmary
+    ending:
+    - Province
+    - Mining Village
+    link: https://youtu.be/kD2sDOJuezg
+    name: Infirmed Souking
+    openings:
+    - grade: B
+      t1: Infirmary, overpaying $1, trashing Estate
+      t1_csos:
+      - Infirmary
+      - Estate
+      t2: Silver, or Steward, or Armory on $4
+      t2_csos:
+      - Silver
+      type: 4/3
+    - grade: C-
+      t1: Steward
+      t1_csos:
+      - Steward
+      t2: Armory
+      t2_csos:
+      - Armory
+      type: 3/4
+    - grade: A
+      t1: Infirmary, overpaying $3, trashing whatever you draw
+      t1_csos:
+      - infirmary
+      - estate
+      - copper
+      t2: Armory, or Silver, or Steward
+      t2_csos:
+      - armory
+      type: 5/2|2/5
+    - grade: B
+      t1: Skip turn, or Faithful Hound
+      t1_csos:
+      - tragic_hero
+      t2: Livery
+      t2_csos:
+      - livery
+      type: 2/5
+    points:
+    - 39
+    - 12
+    subtitle: Steamrolling AI After A Nice Opening
+    turns:
+    - 13
+    - 12
+  traits:
+  - - rich
+    - familiar
+- cards:
   - astrolabe
   - berserker
   - blockade
@@ -91,6 +513,133 @@
   idx: 207107635207366304226061801240386424960
   name: '2026-07-27'
   use_colonies: true
+- campaign_effects:
+  - delayed_joy
+  cards:
+  - bard
+  - blockade
+  - hireling
+  - pixie
+  - scrap
+  - secret_cave
+  - shepherd
+  - tracker
+  - tunnel
+  - vagrant
+  expansions:
+  - Adventures
+  - Dark Ages
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Seaside, 2E
+  idx: 335482750518589332233501359906560806408
+  landscapes:
+  - pious
+  - raid
+  name: '2026-07-26'
+  notes:
+    crucial_cards:
+    - Shepherd
+    - Tunnel
+    - Tracker
+    - Pixie
+    ending:
+    - Province
+    link: https://youtu.be/KToZrm1tTQA
+    name: Delayed Crash
+    points:
+    - 45
+    - 20
+    subtitle: In Which The Game Decides It Can't Allow Us To Carry Home A Nice Win
+    turns:
+    - 9
+    - 8
+  traits:
+  - - pious
+    - tracker
+- cards:
+  - beggar
+  - farmland
+  - fools_gold
+  - nomads
+  - pixie
+  - rice
+  - secluded_shrine
+  - skirmisher
+  - wandering_minstrel
+  - witch
+  expansions:
+  - Allies
+  - Base, 2E
+  - Dark Ages
+  - Hinterlands, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Rising Sun
+  idx: 127646573737220553231083866608873226290
+  landscapes:
+  - demand
+  - way_of_the_turtle
+  name: '2026-07-25'
+  notes:
+    crucial_cards:
+    - Wandering Minstrel
+    - Goat
+    - Witch
+    - Way of the Turtle
+    ending:
+    - Curse
+    - Wandering Minstrel
+    - Pixie
+    link: https://youtu.be/uZPYOHbrzeU
+    name: Wandering Curses
+    openings:
+    - grade: C
+      t1: Pixie, trash Estate
+      t1_csos:
+      - goat
+      - estate
+      - pixie
+      t2: Silver, or Nomads, or Pixie
+      t2_csos:
+      - Silver
+      type: 4/3|3/4
+    - grade: C
+      t1: 'If Goat in hand: Trash Copper, buy Silver, else Demand Pixie'
+      t1_csos:
+      - Goat
+      - copper
+      - silver
+      - demand
+      - pixie
+      t2: Buy Pixie
+      t2_csos:
+      - pixie
+      type: 5/2
+    - grade: C
+      t1: Pixie, trash Estate if possible
+      t1_csos:
+      - pixie
+      - goat
+      - estate
+      t2: 'If Goat in hand: Trash Copper, buy Silver, else Demand Pixie'
+      t2_csos:
+      - Goat
+      - copper
+      - silver
+      - demand
+      - pixie
+      type: 2/5
+    points:
+    - 19
+    - 18
+    subtitle: Getting Destroyed Early On, Then Barely Holding It Together
+    turns:
+    - 15
+    - 14
 - cards:
   - berserker
   - cartographer
@@ -481,6 +1030,58 @@
   - Base, 2E
   idx: 98585766744041682077858242366565950687
   name: '2026-07-06'
+- campaign_effects:
+  - chameleonized
+  - replace_copper
+  cards:
+  - artist
+  - baker
+  - broker
+  - crypt
+  - fortress
+  - patrician/emporium
+  - pixie
+  - sack_of_loot
+  - tiara
+  - wealthy_village
+  expansions:
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Rising Sun
+  idx: 79998847985805644043456753148921531445
+  landscapes:
+  - band_of_nomads
+  - kintsugi
+  name: '2026-07-05'
+  notes:
+    crucial_cards:
+    - Wealthy Village
+    - Artist
+    - Broker
+    - Stronghold
+    ending:
+    - Colony
+    - Pixie
+    link: ''
+    name: Wealthy Failures
+    points:
+    - 53
+    - 42
+    subtitle: After An Awful Opening, Bad Plays Lead To A Desperate Catch-Up Attempt
+    turns:
+    - 9
+    - 8
+  stamps_and_effects:
+  - - chameleonized
+    - broker
+  - - replace_copper
+    - stronghold,_tiara
+  use_colonies: true
 - cards:
   - anvil
   - augurs
@@ -599,270 +1200,6 @@
   - exploration
   - sinister_plot
   name: '2026-06-29'
-- cards:
-  - armory
-  - faithful_hound
-  - familiar
-  - guide
-  - infirmary
-  - laboratory
-  - livery
-  - mining_village
-  - souk
-  - steward
-  expansions:
-  - Adventures
-  - Alchemy
-  - Base, 2E
-  - Cornucopia & Guilds, 2E
-  - Dark Ages
-  - Hinterlands, 2E
-  - Intrigue, 2E
-  - Menagerie
-  - Nocturne
-  - Plunder
-  - Renaissance
-  idx: 121272707248581050266764425510549572598
-  landscapes:
-  - piazza
-  - rich
-  name: '2026-08-01'
-  notes:
-    crucial_cards:
-    - Livery
-    - Souk
-    - Mining Village
-    - Infirmary
-    ending:
-    - Province
-    - Mining Village
-    link: https://youtu.be/kD2sDOJuezg
-    name: Infirmed Souking
-    openings:
-    - grade: B
-      t1: Infirmary, overpaying $1, trashing Estate
-      t1_csos:
-      - Infirmary
-      - Estate
-      t2: Silver, or Steward, or Armory on $4
-      t2_csos:
-      - Silver
-      type: 4/3
-    - grade: C-
-      t1: Steward
-      t1_csos:
-      - Steward
-      t2: Armory
-      t2_csos:
-      - Armory
-      type: 3/4
-    - grade: A
-      t1: Infirmary, overpaying $3, trashing whatever you draw
-      t1_csos:
-      - infirmary
-      - estate
-      - copper
-      t2: Armory, or Silver, or Steward
-      t2_csos:
-      - armory
-      type: 5/2|2/5
-    - grade: B
-      t1: Skip turn, or Faithful Hound
-      t1_csos:
-      - tragic_hero
-      t2: Livery
-      t2_csos:
-      - livery
-      type: 2/5
-    points:
-    - 39
-    - 12
-    subtitle: Steamrolling AI After A Nice Opening
-    turns:
-    - 13
-    - 12
-  traits:
-  - - rich
-    - familiar
-- campaign_effects:
-  - delayed_joy
-  cards:
-  - bard
-  - blockade
-  - hireling
-  - pixie
-  - scrap
-  - secret_cave
-  - shepherd
-  - tracker
-  - tunnel
-  - vagrant
-  expansions:
-  - Adventures
-  - Dark Ages
-  - Hinterlands, 2E
-  - Menagerie
-  - Nocturne
-  - Plunder
-  - Seaside, 2E
-  idx: 335482750518589332233501359906560806408
-  landscapes:
-  - pious
-  - raid
-  name: '2026-07-26'
-  notes:
-    crucial_cards:
-    - Shepherd
-    - Tunnel
-    - Tracker
-    - Pixie
-    ending:
-    - Province
-    link: https://youtu.be/KToZrm1tTQA
-    name: Delayed Crash
-    points:
-    - 45
-    - 20
-    subtitle: In Which The Game Decides It Can't Allow Us To Carry Home A Nice Win
-    turns:
-    - 9
-    - 8
-  traits:
-  - - pious
-    - tracker
-- cards:
-  - beggar
-  - farmland
-  - fools_gold
-  - nomads
-  - pixie
-  - rice
-  - secluded_shrine
-  - skirmisher
-  - wandering_minstrel
-  - witch
-  expansions:
-  - Allies
-  - Base, 2E
-  - Dark Ages
-  - Hinterlands, 2E
-  - Menagerie
-  - Nocturne
-  - Plunder
-  - Rising Sun
-  idx: 127646573737220553231083866608873226290
-  landscapes:
-  - demand
-  - way_of_the_turtle
-  name: '2026-07-25'
-  notes:
-    crucial_cards:
-    - Wandering Minstrel
-    - Goat
-    - Witch
-    - Way of the Turtle
-    ending:
-    - Curse
-    - Wandering Minstrel
-    - Pixie
-    link: https://youtu.be/uZPYOHbrzeU
-    name: Wandering Curses
-    openings:
-    - grade: C
-      t1: Pixie, trash Estate
-      t1_csos:
-      - goat
-      - estate
-      - pixie
-      t2: Silver, or Nomads, or Pixie
-      t2_csos:
-      - Silver
-      type: 4/3|3/4
-    - grade: C
-      t1: 'If Goat in hand: Trash Copper, buy Silver, else Demand Pixie'
-      t1_csos:
-      - Goat
-      - copper
-      - silver
-      - demand
-      - pixie
-      t2: Buy Pixie
-      t2_csos:
-      - pixie
-      type: 5/2
-    - grade: C
-      t1: Pixie, trash Estate if possible
-      t1_csos:
-      - pixie
-      - goat
-      - estate
-      t2: 'If Goat in hand: Trash Copper, buy Silver, else Demand Pixie'
-      t2_csos:
-      - Goat
-      - copper
-      - silver
-      - demand
-      - pixie
-      type: 2/5
-    points:
-    - 19
-    - 18
-    subtitle: Getting Destroyed Early On, Then Barely Holding It Together
-    turns:
-    - 15
-    - 14
-- campaign_effects:
-  - chameleonized
-  - replace_copper
-  cards:
-  - artist
-  - baker
-  - broker
-  - crypt
-  - fortress
-  - patrician/emporium
-  - pixie
-  - sack_of_loot
-  - tiara
-  - wealthy_village
-  expansions:
-  - Allies
-  - Cornucopia & Guilds, 2E
-  - Dark Ages
-  - Empires
-  - Nocturne
-  - Plunder
-  - Prosperity, 2E
-  - Rising Sun
-  idx: 79998847985805644043456753148921531445
-  landscapes:
-  - band_of_nomads
-  - kintsugi
-  name: '2026-07-05'
-  notes:
-    crucial_cards:
-    - Wealthy Village
-    - Artist
-    - Broker
-    - Stronghold
-    ending:
-    - Colony
-    - Pixie
-    link: ''
-    name: Wealthy Failures
-    points:
-    - 53
-    - 42
-    subtitle: After An Awful Opening, Bad Plays Lead To A Desperate Catch-Up Attempt
-    turns:
-    - 9
-    - 8
-  stamps_and_effects:
-  - - chameleonized
-    - broker
-  - - replace_copper
-    - stronghold,_tiara
-  use_colonies: true
 - campaign_effects:
   - durationified
   - treasurified

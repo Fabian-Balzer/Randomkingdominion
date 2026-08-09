@@ -1,3 +1,11 @@
+2026-08-09---crossroads, jewelled_egg, sheepdog, wishing_well, diplomat, poet, bridge_troll, cutthroat, displace, merchant_ship, harsh_winter, way_of_the_worm -x twist_from_the_throne, stamp_treasurified(merchant_ship)
+2026-08-08---daimyo, grotto, apothecary, wishing_well, baker, band_of_misfits, den_of_sin, first_mate, treasury, marquis, ritual, seaway, shelters
+2026-08-07---border_guard, ducat, lackeys, improve, wishing_well, advisor, conspirator, mining_village, courtier, footpad, citadel, academy
+2026-08-06---border_guard, native_village, island, salvager, tide_pools, treasure_map, scholar, sculptor, swashbuckler, treasurer, citadel, piazza
+2026-08-05---beggar, squire, riverboat(litter), death_cart, feodum, river_shrine, catacombs, junk_dealer, rice_broker, samurai, gather, credit, divine_wind(count, hunting_grounds, snake_witch, poet, artist, scavenger, rustic_village, knights, aristocrat, kitsune), shelters
+2026-08-04---poor_house, forager, armory, feodum, scavenger, bandit_camp, count, graverobber, knights, pillage, shelters
+2026-08-03---mountain_shrine, daimyo, chapel, snake_witch, merchant, moneylender, ninja, poacher, festival, artisan, rapid_expansion, receive_tribute
+2026-08-02---vineyard, patrician, guide, sentinel, mill, plaza, tiara, capital_city, enlarge, ferryman(secret_passage), crop_rotation, delve -x start_with_cube(crop_rotation), twist_from_the_throne
 2026-08-01---faithful_hound, guide, steward, infirmary, familiar, armory, mining_village, laboratory, livery, souk, rich(familiar), piazza
 2026-07-31---sycophant, astrolabe, forts, merchant_camp, blockade, jack_of_all_trades, spice_merchant, berserker, galleria, haggler, coastal_haven
 2026-07-30---engineer, patrician, quarry, charm, city, collection, crystal_ball, wild_hunt, kings_court, peddler, arena, keep, colonies
