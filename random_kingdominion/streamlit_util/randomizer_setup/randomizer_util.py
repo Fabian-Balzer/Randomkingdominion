@@ -51,6 +51,10 @@ def save_config() -> CustomConfigParser:
         "allowed_landscape_types",
         st.session_state["allowed_landscape_types"],
     )
+    excl_levels = [
+        str(i) for i in range(11) if i not in st.session_state["allowed_card_levels"]
+    ]
+    config.setlist("Specialization", "excluded_card_levels", excl_levels)
 
     config.set(
         "General",

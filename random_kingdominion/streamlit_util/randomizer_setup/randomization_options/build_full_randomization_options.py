@@ -12,6 +12,7 @@ from .expansion_select import build_expansion_selection
 from .landscape_options import build_landscape_option_selection
 from .likes_and_bans import build_like_ban_selection
 from .mechanics import build_mechanics_options
+from .card_level_options import build_card_level_selection
 from .quality_options import build_quality_selection
 
 
@@ -57,6 +58,7 @@ def st_build_full_randomization_options():
                 f"{ST_ICONS['landscapes']}Landscapes",
                 f"{ST_ICONS['cso_qualities']}Engine Qualities",
                 f"{ST_ICONS['bans']}Likes/Bans",
+                f"{ST_ICONS['card_levels']}Card Levels",
             ]
         )
     with TABS[0]:
@@ -69,3 +71,5 @@ def st_build_full_randomization_options():
         build_quality_selection()
     with TABS[4]:
         build_like_ban_selection()
+    with TABS[5]:
+        build_card_level_selection()

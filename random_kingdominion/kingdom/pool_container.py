@@ -83,13 +83,16 @@ class PoolContainer:
 
         # Drop excluded card levels
         excluded_card_levels = self.config.getlist(
-            "Specialization", "excluded_card_levels"
+            "Specialization", "excluded_card_levels", fallback=[]
         )
+        excluded_card_levels = [int(level) for level in excluded_card_levels]
         pool = pool[~pool["card_level"].isin(excluded_card_levels)]
 
         # Drop bans and rerolls
         banned_csos = self.config.getlist("General", "banned_csos")
         pool = pool.drop(rerolled_csos + banned_csos, errors="ignore")
+        if len(pool) == 0:
+            return pool
 
         # Set the weights to account for liked and disliked cards
         disliked = self.config.getlist("General", "disliked_csos")

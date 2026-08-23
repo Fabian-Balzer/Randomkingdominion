@@ -163,6 +163,7 @@ ST_ICONS = {
     "mechanics": "⚙️",
     "landscapes": "🖼️",
     "bans": "🚫",
+    "card_levels": "📚",
     "kingdom_qualities": "🏰",
     "future_development": "🔮",
     "changelog": "📝",
