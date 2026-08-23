@@ -4,6 +4,8 @@ from .add_extra_components import add_extra_components
 from .add_parent_column import add_parent_column
 from .add_quality_info import add_quality_info
 
+from .add_card_levels import add_card_levels
+
 
 def add_additional_info_columns(df):
     """Adds additional columns to the given dataframe."""
@@ -13,5 +15,6 @@ def add_additional_info_columns(df):
     df = add_amount_info(df)
     link_base = "https://wiki.dominionstrategy.com/index.php/"
     df["WikiLink"] = df["Name"].str.replace(" ", "_").apply(lambda x: link_base + x)
+    df = add_card_levels(df)
     df = add_extra_components(df)
     return df

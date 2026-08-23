@@ -81,6 +81,12 @@ class PoolContainer:
         # Discard all non-supply-non-landscape-non-ally cards as we don't need them to draw from
         pool = pool[pool["IsInSupply"] | pool["IsExtendedLandscape"]]
 
+        # Drop excluded card levels
+        excluded_card_levels = self.config.getlist(
+            "Specialization", "excluded_card_levels"
+        )
+        pool = pool[~pool["card_level"].isin(excluded_card_levels)]
+
         # Drop bans and rerolls
         banned_csos = self.config.getlist("General", "banned_csos")
         pool = pool.drop(rerolled_csos + banned_csos, errors="ignore")
