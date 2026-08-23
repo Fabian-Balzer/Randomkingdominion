@@ -52,7 +52,7 @@ def get_col_config() -> dict[str, dict]:
     col_config = {
         f"{col}": {
             "label": f"{get_short_qual_name(col)}-Q",
-            "width": 40,
+            "width": 30,
             "help": col.replace("_", " ").title(),
         }
         for col in ALL_CACHED_CSOS.columns
@@ -67,29 +67,34 @@ def get_col_config() -> dict[str, dict]:
         for col in ALL_CACHED_CSOS.columns
         if "types" in col
     }
+    col_config["card_level"] = {
+        "label": ST_ICONS["card_levels"],
+        "help": "The card level of this CSO, as defined by dominion.games",
+        "width": 20,
+    }
     col_config["num_combos"] = {
         "label": ST_ICONS["combos"],
         "help": "Number of pairwise combos (or synergies, nombos, or counters) this CSO is involved in",
-        "width": 30,
+        "width": 20,
     }
     col_config["num_interactions"] = {
         "label": ST_ICONS["interactions"],
         "help": "Number of special pairwise rules interactions this CSO is involved in",
-        "width": 30,
+        "width": 20,
     }
     col_config["IsExtendedLandscape"] = {
         "label": "Landscape",
-        "width": 40,
+        "width": 30,
         "help": "Whether this CSO is an extended landscape (including Allies/Prophecies)",
     }
     col_config["IsOtherThing"] = {
         "label": "Other Thing",
-        "width": 40,
+        "width": 30,
         "help": "Whether this CSO is neither card nor landscape",
     }
     col_config["IsInSupply"] = {
         "label": "In Supply",
-        "width": 40,
+        "width": 30,
         "help": "Whether this CSO in the supply of a kingdom",
     }
     col_config["Extra Components"] = {
@@ -150,6 +155,7 @@ def get_column_order() -> list[str]:
         "num_combos",
         "num_interactions",
         "Text",
+        "card_level",
         "WikiLink",
         "IsExtendedLandscape",
         "IsOtherThing",
@@ -161,9 +167,10 @@ def get_column_order() -> list[str]:
 def display_stylysed_cso_df(df: pd.DataFrame, with_reroll=False, **kwargs):
     df = df.copy()
     for qual in QUALITIES_AVAILABLE:
-        df[f"{qual}_quality"] = df[f"{qual}_quality"].apply(
-            lambda x: "0.5" if x == 0.5 else str(int(x))
-        )
+        if f"{qual}_quality" in df.columns:
+            df[f"{qual}_quality"] = df[f"{qual}_quality"].apply(
+                lambda x: "0.5" if x == 0.5 else str(int(x))
+            )
     if with_reroll:
         df["Reroll?"] = np.zeros(len(df), dtype=bool)
     if "ImagePath" in df.columns:

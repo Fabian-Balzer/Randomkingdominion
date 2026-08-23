@@ -1,3 +1,5 @@
+from typing import Any, cast
+
 import numpy as np
 import pandas as pd
 import streamlit as st
@@ -222,7 +224,7 @@ def _st_build_random_selection_button(df: pd.DataFrame, name_extra: str = ""):
     ):
         if len(df) > 0:
             series = df.sample().iloc[0]
-            kingdom = Kingdom.from_dict(series.to_dict())
+            kingdom = Kingdom.from_dict(cast(dict[str, Any], series.to_dict()))
             st.session_state["oracle_kingdom_input"] = kingdom.get_dombot_csv_string()
             if name_extra != "":
                 kingdom.name += f" [{name_extra}]"

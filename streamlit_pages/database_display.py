@@ -13,6 +13,37 @@ rk.build_page_header(
     "Learn more about how the card qualities were devised.",
 )
 
+
+def _build_card_level_filter_widget() -> list[int]:
+    """Build the card level filter widget and return the selected card levels."""
+    st.text(
+        "Select card levels to allow in the filtering, as provided by dominion.games."
+    )
+    res = st.segmented_control(
+        "Allowed card levels",
+        options=list(range(11)),
+        default=list(range(11)),
+        selection_mode="multi",
+        key="allowed_card_level_filtering",
+        help="Which card levels to show.",
+        width="stretch",
+    )
+    c1, c2 = st.columns(2)
+    c1.button(
+        "Deselect All",
+        on_click=lambda: st.session_state.update({"allowed_card_level_filtering": []}),
+        width="stretch",
+    )
+    c2.button(
+        "Select All",
+        on_click=lambda: st.session_state.update(
+            {"allowed_card_level_filtering": list(range(11))}
+        ),
+        width="stretch",
+    )
+    return res
+
+
 SELECTED_EXPANSIONS = []
 with st.expander("Filtering options", expanded=False, icon="🔍"):
     filter_header_container = st.container()
@@ -175,6 +206,8 @@ with st.expander("Filtering options", expanded=False, icon="🔍"):
                 value=False,
                 help="Filter for CSOs that require extra components to play with.",
             )
+        with st.container(border=True):
+            allowed_card_levels = _build_card_level_filter_widget()
         st.session_state["landscape_is_checked"] = is_landscape
     with TABS[5]:
         st.write(
@@ -253,9 +286,13 @@ def filter_full_df_for_options(df: pd.DataFrame) -> pd.DataFrame:
         filter_mask &= df["IsRealSupplyCard"]
     if is_landscape:
         filter_mask &= df["IsExtendedLandscape"]
+    filter_mask &= df["card_level"].isin(allowed_card_levels)
     if has_extra_components:
         filter_mask &= df["HasExtraComponents"]
-    if any((in_supply, is_card, is_landscape, has_extra_components)):
+    if (
+        any((in_supply, is_card, is_landscape, has_extra_components))
+        or len(allowed_card_levels) < 11
+    ):
         filt_str += "🔧"
     if cso_types and not disable_cso_filtering:
         filt_str = "🔣" + filt_str
