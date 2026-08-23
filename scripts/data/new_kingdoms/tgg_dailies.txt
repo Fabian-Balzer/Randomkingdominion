@@ -1,3 +1,17 @@
+2026-08-23---bauble, crossroads, aristocrat, death_cart, diplomat, rope, shepherd, capital, cursed_village, galleria, nearby(galleria), architects_guild, fleet -x stamp_chameleonized(galleria)
+2026-08-22---royal_blacksmith, university, camel_train, caravan_guard, develop, masquerade, change, mill, butcher, den_of_sin, way_of_the_otter, amass
+2026-08-21---anvil, bard, bishop, exorcist, charlatan, den_of_sin, rabble, tragic_hero, raider, bank, citadel, barracks, colonies
+2026-08-20---leprechaun, blockade, cemetery, conclave, devils_workshop, necromancer, crypt, den_of_sin, idol, wharf
+2026-08-19---candlestick_maker, farrier, stonemason, infirmary, island, tide_pools, herald, merchant_guild, sea_witch, soothsayer
+2026-08-18---border_guard, experiment, inventor, silk_merchant, recruiter, sculptor, seer, spices, swashbuckler, treasurer, canal, barracks
+2026-08-17---workshop, infirmary, moneylender, plaza, poacher, baker, bandit, festival, footpad, laboratory
+2026-08-16---camel_train, mountain_village, quarry, sailor, temple, villa, bridge_troll, cartographer, highway, hunting_lodge, ferry, lost_arts, colonies -x stamp_got_it_already(ferry), stamp_durationified(highway)
+2026-08-15---poor_house, workshop, ironmonger, island, idol, royal_carriage, seer, silver_mine, villain, fisherman, populate, plan
+2026-08-14---daimyo, artist, overlord, catapult, chariot_race, mountain_village, crown, gold_mine, scepter, treasurer, academy, tax
+2026-08-13---supplies, goatherd, stockpile, bounty_hunter, quarry, collection, displace, kiln, mint, paddock, way_of_the_camel, demand
+2026-08-12---mountain_shrine, aristocrat, alley, bishop, clerk, ninja, river_shrine, collection, imperial_envoy, forge, divine_wind(investment, vault, fishmonger, rice, rustic_village, daimyo, crystal_ball, charlatan, quarry, war_chest), kintsugi
+2026-08-11---underling, wizards, courier, barbarian, contract, galleria, guildmaster, hunter, specialist, swap, woodworkers_guild
+2026-08-10---cargo_ship, experiment, improve, vassal, inventor, patron, throne_room, festival, sentry, treasurer, road_network
 2026-08-09---crossroads, jewelled_egg, sheepdog, wishing_well, diplomat, poet, bridge_troll, cutthroat, displace, merchant_ship, harsh_winter, way_of_the_worm -x twist_from_the_throne, stamp_treasurified(merchant_ship)
 2026-08-08---daimyo, grotto, apothecary, wishing_well, baker, band_of_misfits, den_of_sin, first_mate, treasury, marquis, ritual, seaway, shelters
 2026-08-07---border_guard, ducat, lackeys, improve, wishing_well, advisor, conspirator, mining_village, courtier, footpad, citadel, academy

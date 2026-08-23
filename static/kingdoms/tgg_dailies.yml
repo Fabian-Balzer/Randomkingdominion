@@ -1,66 +1,469 @@
 - cards:
-  - advisor
-  - border_guard
-  - conspirator
-  - courtier
-  - ducat
-  - footpad
-  - improve
-  - lackeys
-  - mining_village
-  - wishing_well
+  - butcher
+  - camel_train
+  - caravan_guard
+  - change
+  - den_of_sin
+  - develop
+  - masquerade
+  - mill
+  - royal_blacksmith
+  - university
+  expansions:
+  - Adventures
+  - Alchemy
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Rising Sun
+  idx: 135474954215876752055719528007515716960
+  landscapes:
+  - amass
+  - way_of_the_otter
+  name: '2026-08-22'
+- cards:
+  - anvil
+  - bank
+  - bard
+  - bishop
+  - charlatan
+  - den_of_sin
+  - exorcist
+  - rabble
+  - raider
+  - tragic_hero
+  expansions:
+  - Nocturne
+  - Prosperity, 2E
+  - Renaissance
+  idx: 38712218841177737589667703586549981667
+  landscapes:
+  - barracks
+  - citadel
+  name: '2026-08-21'
+  use_colonies: true
+- cards:
+  - blockade
+  - cemetery
+  - conclave
+  - crypt
+  - den_of_sin
+  - devils_workshop
+  - idol
+  - leprechaun
+  - necromancer
+  - wharf
+  expansions:
+  - Nocturne
+  - Seaside, 2E
+  idx: 11364517698089381507404068105521625529
+  name: '2026-08-20'
+- cards:
+  - candlestick_maker
+  - farrier
+  - herald
+  - infirmary
+  - island
+  - merchant_guild
+  - sea_witch
+  - soothsayer
+  - stonemason
+  - tide_pools
   expansions:
   - Cornucopia & Guilds, 2E
-  - Intrigue, 2E
-  - Renaissance
-  idx: 277634594372469041476178682599041768084
-  landscapes:
-  - academy
-  - citadel
-  name: '2026-08-07'
+  - Seaside, 2E
+  idx: 327976270953267126783838500181971754042
+  name: '2026-08-19'
 - cards:
   - border_guard
-  - island
-  - native_village
-  - salvager
-  - scholar
+  - experiment
+  - inventor
+  - recruiter
   - sculptor
+  - seer
+  - silk_merchant
+  - spices
   - swashbuckler
-  - tide_pools
-  - treasure_map
   - treasurer
   expansions:
   - Renaissance
-  - Seaside, 2E
-  idx: 115600401587578602293518856599573848388
+  idx: 322621049801539486503267865160350247910
   landscapes:
-  - citadel
-  - piazza
-  name: '2026-08-06'
-- cards:
-  - beggar
-  - catacombs
+  - barracks
+  - canal
+  name: '2026-08-18'
+- campaign_effects:
+  - chameleonized
+  cards:
+  - aristocrat
+  - bauble
+  - capital
+  - crossroads
+  - cursed_village
   - death_cart
-  - feodum
-  - junk_dealer
-  - rice_broker
-  - river_shrine
-  - riverboat
-  - samurai
-  - squire
-  divine_wind_cso_str: count, hunting_grounds, snake_witch, poet, artist, scavenger,
-    rustic_village, knights, aristocrat, kitsune
+  - diplomat
+  - galleria
+  - rope
+  - shepherd
   expansions:
+  - Allies
   - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Nocturne
+  - Plunder
+  - Renaissance
   - Rising Sun
-  idx: 269245322100627467989155613476645978384
+  idx: 40848300362802810825349610624169729949
   landscapes:
-  - credit
+  - architects_guild
+  - fleet
+  - nearby
+  name: '2026-08-23'
+  notes:
+    crucial_cards:
+    - Shepherd
+    - Galleria
+    - Crossroads
+    - Bauble
+    ending:
+    - Province
+    - Rope
+    - Estate
+    link: https://youtu.be/hHPJf7bqG_U
+    name: Green Breeze
+    openings:
+    - grade: B
+      t1: Rope
+      t1_csos:
+      - rope
+      t2: Crossroads, or Silver, or Bauble
+      t2_csos:
+      - Crossroads
+      type: 4/3|3/4
+    - grade: B
+      t1: Galleria, or Rope
+      t1_csos:
+      - galleria
+      t2: Bauble, or Crossroads
+      t2_csos:
+      - bauble
+      type: 5/2|2/5
+    points:
+    - 71
+    - 14
+    subtitle: Cruising Through With A Well-Controlled Deck
+    turns:
+    - 16
+    - 15
+  stamps_and_effects:
+  - - chameleonized
+    - galleria
+  traits:
+  - - nearby
+    - galleria
+- cards:
+  - baker
+  - bandit
+  - festival
+  - footpad
+  - infirmary
+  - laboratory
+  - moneylender
+  - plaza
+  - poacher
+  - workshop
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  idx: 212260346396202048461323989129654379249
+  name: '2026-08-17'
+- campaign_effects:
+  - durationified
+  - got_it_already
+  cards:
+  - bridge_troll
+  - camel_train
+  - cartographer
+  - highway
+  - hunting_lodge
+  - mountain_village
+  - quarry
+  - sailor
+  - temple
+  - villa
+  expansions:
+  - Adventures
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
+  idx: 317405012945775561840411276635971519300
+  landscapes:
+  - ferry
+  - lost_arts
+  name: '2026-08-16'
+  notes:
+    crucial_cards:
+    - Ferry
+    - Bridge Troll
+    - Highway
+    - Sailor
+    ending:
+    - Duchy
+    - Villa
+    - Bridge Troll
+    link: https://youtu.be/Ncqb1kfme5A
+    name: Bridge Trolled
+    openings:
+    - grade: B+
+      t1: Ferry on Bridge Troll, buy Sailor
+      t1_csos:
+      - ferry
+      - bridge_troll
+      - sailor
+      t2: Buy Bridge Troll
+      t2_csos:
+      - bridge_troll
+      type: 4/3|3/4
+    - grade: D
+      t1: Ferry on Bridge Troll, buy Sailor
+      t1_csos:
+      - ferry
+      - bridge_troll
+      - sailor
+      t2: Cry a bit, skip turn
+      t2_csos:
+      - tragic_hero
+      type: 5/2|2/5
+    points:
+    - 46
+    - 5
+    subtitle: One Of The Most Frustrating Series Of Playthroughs Here So Far
+    tries: 4
+    turns:
+    - 9
+    - 8
+  stamps_and_effects:
+  - - durationified
+    - highway
+  - - got_it_already
+    - ferry
+  use_colonies: true
+- cards:
+  - fisherman
+  - idol
+  - ironmonger
+  - island
+  - poor_house
+  - royal_carriage
+  - seer
+  - silver_mine
+  - villain
+  - workshop
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Dark Ages
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Renaissance
+  - Seaside, 2E
+  idx: 8484131881909169762306897511602054832
+  landscapes:
+  - plan
+  - populate
+  name: '2026-08-15'
+- cards:
+  - artist
+  - catapult/rocks
+  - chariot_race
+  - crown
+  - daimyo
+  - gold_mine
+  - mountain_village
+  - overlord
+  - scepter
+  - treasurer
+  expansions:
+  - Empires
+  - Renaissance
+  - Rising Sun
+  idx: 152442720907255999907280155865840305659
+  landscapes:
+  - academy
+  - tax
+  name: '2026-08-14'
+  notes:
+    crucial_cards:
+    - Daimyo
+    - Overlord
+    - Treasurer
+    - Crown
+    ending:
+    - Province
+    - Daimyo
+    link: https://youtu.be/-wdGVminLrA
+    name: Overlord's Crown
+    openings:
+    - grade: C
+      t1: Catapult
+      t1_csos:
+      - catapult
+      t2: Overlord
+      t2_csos:
+      - overlord
+      type: 4/3|3/4
+    - grade: C-
+      t1: Treasurer
+      t1_csos:
+      - treasurer
+      t2: Skip turn (paying off Debt), or Overlord
+      t2_csos:
+      - tragic_hero
+      type: 5/2
+    - grade: D+
+      t1: Tax Catapult
+      t1_csos:
+      - tax
+      - catapult
+      t2: Buy Treasurer, or Catapult
+      t2_csos:
+      - treasurer
+      type: 2/5
+    points:
+    - 55
+    - 5
+    subtitle: Utilizing A Strong Command-Card Combo
+    turns:
+    - 16
+    - 15
+- cards:
+  - bounty_hunter
+  - collection
+  - displace
+  - goatherd
+  - kiln
+  - mint
+  - paddock
+  - quarry
+  - stockpile
+  - supplies
+  expansions:
+  - Menagerie
+  - Prosperity, 2E
+  idx: 261985031162391799785070987833157021480
+  landscapes:
+  - demand
+  - way_of_the_camel
+  name: '2026-08-13'
+  notes:
+    crucial_cards:
+    - Supplies
+    - Collection
+    - Demand
+    - Mint
+    ending:
+    - Supplies
+    - Collection
+    - Stockpile
+    link: https://youtu.be/n1mcatCIA2o
+    name: Minty Supply
+    openings:
+    - grade: B-
+      t1: Bounty Hunter
+      t1_csos:
+      - bounty_hunter
+      t2: Stockpile, or Supplies
+      t2_csos:
+      - stockpile
+      type: 4/3|3/4
+    - grade: A
+      t1: Mint, or Demand/Bounty Hunter
+      t1_csos:
+      - mint
+      t2: Supplies, or play Horse, BH and Mint
+      t2_csos:
+      - supplies
+      type: 5/2
+    - grade: A
+      t1: Supplies
+      t1_csos:
+      - supplies
+      t2: Mint
+      t2_csos:
+      - mint
+      type: 2/5
+    points:
+    - 85
+    - 24
+    subtitle: Racing Ahead In This Speedy Combo Kingdom
+    turns:
+    - 12
+    - 11
+- cards:
+  - alley
+  - aristocrat
+  - bishop
+  - clerk
+  - collection
+  - forge
+  - imperial_envoy
+  - mountain_shrine
+  - ninja
+  - river_shrine
+  divine_wind_cso_str: investment, vault, fishmonger, rice, rustic_village, daimyo,
+    crystal_ball, charlatan, quarry, war_chest
+  expansions:
+  - Prosperity, 2E
+  - Rising Sun
+  idx: 146281492917963319358986943591621364520
+  landscapes:
   - divine_wind
-  - gather
-  name: '2026-08-05'
-  riverboat_card: litter
-  use_shelters: true
+  - kintsugi
+  name: '2026-08-12'
+- cards:
+  - barbarian
+  - contract
+  - courier
+  - galleria
+  - guildmaster
+  - hunter
+  - specialist
+  - swap
+  - underling
+  - wizards
+  expansions:
+  - Allies
+  idx: 79115567640061128678787644421585994387
+  landscapes:
+  - woodworkers_guild
+  name: '2026-08-11'
+- cards:
+  - cargo_ship
+  - experiment
+  - festival
+  - improve
+  - inventor
+  - patron
+  - sentry
+  - throne_room
+  - treasurer
+  - vassal
+  expansions:
+  - Base, 2E
+  - Renaissance
+  idx: 115319837899890522117033615336326606964
+  landscapes:
+  - road_network
+  name: '2026-08-10'
 - campaign_effects:
   - from_the_throne
   - treasurified
@@ -205,6 +608,69 @@
     turns:
     - 13
     - 12
+  use_shelters: true
+- cards:
+  - advisor
+  - border_guard
+  - conspirator
+  - courtier
+  - ducat
+  - footpad
+  - improve
+  - lackeys
+  - mining_village
+  - wishing_well
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Intrigue, 2E
+  - Renaissance
+  idx: 277634594372469041476178682599041768084
+  landscapes:
+  - academy
+  - citadel
+  name: '2026-08-07'
+- cards:
+  - border_guard
+  - island
+  - native_village
+  - salvager
+  - scholar
+  - sculptor
+  - swashbuckler
+  - tide_pools
+  - treasure_map
+  - treasurer
+  expansions:
+  - Renaissance
+  - Seaside, 2E
+  idx: 115600401587578602293518856599573848388
+  landscapes:
+  - citadel
+  - piazza
+  name: '2026-08-06'
+- cards:
+  - beggar
+  - catacombs
+  - death_cart
+  - feodum
+  - junk_dealer
+  - rice_broker
+  - river_shrine
+  - riverboat
+  - samurai
+  - squire
+  divine_wind_cso_str: count, hunting_grounds, snake_witch, poet, artist, scavenger,
+    rustic_village, knights, aristocrat, kitsune
+  expansions:
+  - Dark Ages
+  - Rising Sun
+  idx: 269245322100627467989155613476645978384
+  landscapes:
+  - credit
+  - divine_wind
+  - gather
+  name: '2026-08-05'
+  riverboat_card: litter
   use_shelters: true
 - cards:
   - armory
