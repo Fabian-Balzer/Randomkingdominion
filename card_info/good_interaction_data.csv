@@ -68,6 +68,7 @@ bad_omens;trail;Putting cards into your discard pile via Bad Omens with a Trail 
 bad_omens;tunnel;Putting cards into your discard pile via Bad Omens with a Tunnel in your deck does not count as discarding Tunnel, so you do not get to react.
 bad_omens;village_green;Putting cards into your discard pile via Bad Omens with a Village Green in your deck does not count as discarding Village Green, so you do not get to react.
 bad_omens;weaver;Putting cards into your discard pile via Bad Omens with a Weaver in your deck does not count as discarding Weaver, so you do not get to react.
+baker;divine_wind;If Baker is added to the kingdom once Divine Wind is triggered, everyone gets +1 coffers.
 ball;gatekeeper;If you gain two cards from the same pile using Ball while under the Gatekeeper attack, if you don't already have a copy in Exile, you need to exile the first, but may discard the exiled copy along with the gain of the second.
 ball;harbor_village;If you play a card giving only +$1 and use that to remove the -Coin token after playing Harbor Village, you don't get +$1 from Harbor Village as the card didn't produce any $.
 band_of_misfits;carpenter;If you play Carpenter using Band of Misfits, you can gain a Carpenter with it (despite Band of Misfits saying 'leaving it there', as this just refers to the card moving into play).
@@ -209,6 +210,7 @@ cabin_boy;townsfolk;If you play a Cabin Boy using Elder, due to the 'this turn' 
 cabin_boy;way_of_the_chameleon;If you play Cabin Boy using Way of the Chameleon, remember that Way of the Chameleon only affects stuff happening *this turn*, so on your next turn, you will get the normal bonus from Cabin Boy.
 cache;gatekeeper;If you gain two Coppers using Cache while under the Gatekeeper attack, if you don't already have a copy in Exile, you need to exile the first, but may discard the exiled copy along with the gain of the second.
 cage;mandarin;If you gain a Mandarin and have played Cage before that, you put it on top of your deck, but the duration effect still persists.
+canal;plateau_shepherds;Since Canal only reduces the cost of cards during your turns, at the end of the game, it doesn't reduce the cost of cards as far as Plateau Shepherds is concerned.
 capital;crypt;If you play Capital and set it aside with Crypt, not get 6D since you did not discard Capital from play.
 capital;herbalist;Even if you topdeck Capital using Herbalist's ability, you will still get 6D since you discard it from play.
 capital;highwayman;"If you are under Highwayman attack and play Capital as your first Treasure, you do not get +6$ and +1 Buy; however, you will still get 6D when discarding Capital from play."
@@ -379,12 +381,14 @@ changeling;rush;If you play a gained card using Rush, you cannot exchange it for
 changeling;sculptor;If you play Sculptor to gain a Treasure and exchange it for a Changeling, will still get the Villager (but the Changeling will be gained to your discard pile).
 changeling;silk_merchant;If you gain Silk Merchant and exchange it for a Changeling, will still get the Coffers and Villager (but the Changeling will be gained to your discard pile).
 changeling;spell_scroll;When gaining a card via Spell Scroll, you can first exchange it for a Changeling, but then won't be able to play it.
+charlatan;divine_wind;In games where Charlatan is part of the initial kingdom, Curses are also Treasures worth $1 even after Divine Wind has removed it from the Supply. If Charlatan is instead part of the Divine Wind kingdom, the additional rule comes online once Divine Wind has been triggered.
 charm;destrier;"If you choose the 'Gain Card with same cost' option for two Charms and then buy a Destrier (e.g. costing $6 at that moment), you will first gain the Destrier, then another card costing $5, then one costing $4 (and Destriers will cost $3).
 If, after playing Charms, you gain some other card costing $6, you may not gain a Destrier that cost $6 prior to that as it will change its cost to $5 due to the gain."
 charm;fisherman;If you choose the 'Gain Card with same cost' option for Charm and then gain a Fisherman costing $2 (and it goes to your discard pile), you will be able to gain a $5-cost card from Charm. Conversely, you could gain a $5-cost card first (to your discard pile), and then gain Fisherman off the Charm.
 charm;gatekeeper;If you gain two or more copies of the same card upon gain with Charm while under the Gatekeeper attack, if you don't already have a copy in Exile, you need to exile the first, but may discard the exiled copy along with the gain of the last copy.
 charm;spell_scroll;When you play a Charm by gaining it via Spell Scroll and choose the 'gain another card' option, you will not gain another $5 cost card due to its 'Next Time' wording. Instead, you'll gain a differently named card with the same cost for the next card you gain.
 charm;wayfarer;If you choose the 'Gain Card with same cost' option, you will always (unless you gain another card in-between somehow with e.g. Haggler) be able to gain a Wayfarer off of any card you gain next, since Wayfarer changes its cost to said card. This even works with Debt and Potion cost cards.
+cheap;plateau_shepherds;[Relevant if Cheap is on $3 or $2 cost card] If Cheap is assigned to a card initially costing $3 (like e.g. Underling), it becomes a $2 cost card as far as Plateau Shepherds (PS) is concerned. Conversely, a card (say, Bauble) reduced to costing $1 due to Cheap will not be eligible for PS anymore.
 citadel;urchin;If you play an Urchin multiple times using Citadel, you may not trash this Urchin, since you need to play *another* attack card to be able to trash it.
 city-state;colonnade;If you use City-State to immediately play an Action you gained, you can take 2 VP from Colonnade.
 city-state;crafters_guild;When you gain a card using Crafter's Guild and immediately play it using City-State, you will not be able to topdeck it.
@@ -594,6 +598,7 @@ daimyo;vassal;If you play Daimyo and then Vassal, which discards and plays anoth
 death_cart;necromancer;If you play Death Cart using Necromancer and try to trash itself, it stays where it was, and you do not get the effect you would have gotten from trashing it.
 death_cart;overlord;If you play Death Cart using Overlord and try to trash itself, it stays where it was, and you do not get the effect you would have gotten from trashing it.
 death_cart;prince;If you have set aside Death Cart with Prince and try to trash itself when you play it, it stays where it was, and you do not get the effect you would have gotten from trashing it.
+defiled_shrine;divine_wind;If Defiled Shrine is present, once Divine Wind triggers, no additional VP chips are added onto the new piles (since Defiled Shrine itself is not newly added).
 delusion;enlightenment;Once Enlightenment is active and Treasures become Actions, Delusion will disallow you from buying Treasures.
 demand;den_of_sin;If you gain a Den of Sin using Demand, it is topdecked instead of being gained to your hand.
 demand;gatekeeper;When you gain an Action or Treasure using Demand while under the Gatekeeper attack, it will be gained on top of your deck and then Exiled if you do not have a copy of it in Exile.
@@ -687,6 +692,7 @@ distant_lands;overlord;If you play a Distant Lands using Overlord, you don't put
 divine_wind;encampment/plunder;Once Divine Wind has been triggered, when you play an Encampment that came from the initial supply, if you don't reveal a Gold or Plunder, then you set aside the Encampment but since it has no pile to return to, it stays set aside for the rest of the game (it still counts as one of your cards for scoring).
 divine_wind;experiment;Once Divine Wind has been triggered, when you play an Experiment that came from the initial supply, you get +2 Cards and +1 Action, but it does not return to a pile and stays in play. This is because Experiment does not have a pile to return to.
 divine_wind;farmers_market;Once Divine Wind is triggered and the Farmers' Market pile is removed from the supply, since there is no pile to gather VP tokens on, the gathering will have no effect.
+divine_wind;footpad;In games where Footpad is part of the initial kingdom, you still get +1 Card for every card gained during an Action phase even after Divine Wind has removed it from the Supply. If Footpad is instead part of the Divine Wind kingdom, the additional rule comes online once Divine Wind has been triggered.
 divine_wind;hermit;Once Divine Wind has been triggered, you cannot exchange Hermit for Madman anymore as there is no pile to return to. If you play a Madman, it returns to its pile (as non-supply piles are not removed by Divine Wind).
 divine_wind;lost_arts;Once Divine Wind is triggered, the + Action token is removed from its pile upon the pile's removal if you have bought Lost Arts before that.
 divine_wind;obelisk;Once Divine Wind has been triggered, cards from the initial Obelisk pile will continue to be worth 2 VP.
@@ -694,9 +700,12 @@ divine_wind;page;Once Divine Wind is triggered and the Page pile is removed from
 divine_wind;pathfinding;Once Divine Wind is triggered, the + Card token is removed from its pile upon the pile's removal if you have bought Pathfinding before that.
 divine_wind;peasant;"Once Divine Wind is triggered and the Peasant pile is removed from the supply, you cannot exchange your Peasants for other Travellers anymore since they have no pile to return to. You can however continue to exchange any Travellers further up the line as their non-supply piles stay.
 Once Divine Wind is triggered, any token is removed from its pile upon the pile's removal."
+divine_wind;reckless;As all Traits, Reckless will still affect its pile even after Divine Wind has been triggered. However, due to the Reckless pile not being part of the kingdom anymore, you then cannot return cards from it during cleanup, and they will stay within your deck (getting discarded during cleanup instead).
 divine_wind;seaway;Once Divine Wind is triggered, the + Buy token is removed from its pile upon the pile's removal if you have bought Seaway before that.
+divine_wind;shaman;In games where Shaman is part of the initial kingdom, you still gain a card costing up to $6 from the trash at the beginning of your turn even after Divine Wind has removed it from the Supply. If Shaman is instead part of the Divine Wind kingdom, the additional rule comes online once Divine Wind has been triggered.
 divine_wind;snake_witch;Once Divine Wind has been triggered, previously gained Snake Witches will never be able to Curse as they do not have a pile to return to.
 divine_wind;swap;Once Divine Wind has been triggered, you cannot return any Action cards whose piles have been removed using Swap as there is no pile to return them to.
+divine_wind;tax;If Tax is present, once Divine Wind triggers, no additional Debt tokens are added onto the new piles (since Tax itself is not newly added).
 divine_wind;temple;Once Divine Wind is triggered and the Temple pile is removed from the supply, since there is no pile to gather VP tokens on, the gathering will have no effect.
 divine_wind;training;Once Divine Wind is triggered, the + $1 token is removed from its pile upon the pile's removal if you have bought Training before that.
 divine_wind;vampire;Once Divine Wind has been triggered, you cannot exchange Vampire for Bat anymore as there is no pile to return to, and likewise cannot exchange Bats for Vampires anymore as their pile is gone.
@@ -763,7 +772,7 @@ enlightenment;highwayman;Once Enlightenment is active, while you're under Highwa
 enlightenment;innovation;If Enlightenment is active and you gain a Treasure in your buy phase, you can play it immediately using Innovation, causing you to receive the usual effect.
 enlightenment;landing_party;Landing Party/Enlightenment---When you play a Treasure as your first card with Landing Parties set aside, you first finish resolving it before topdecking the Landing Parties, i.e., if Enlightenment is active and you play a Treasure during your Action phase, you first get +1 Card and +1 Action, and then topdeck Landing Parties.
 enlightenment;lost_arts;Even if Enlightenment is active, you may not put the + Action token on any Treasure pile using Lost Arts as it's not natively an Action supply pile.
-enlightenment;orchard;Once Enlightenment is active, for Orchard, Treasures will also be considered while scoring.
+enlightenment;orchard;Once Enlightenment is active, for Orchard, Treasures will also be considered for Enlightenment while scoring.
 enlightenment;pathfinding;Even if Enlightenment is active, you may not put the + Card token on any Treasure pile using Pathfinding as it's not natively an Action supply pile.
 enlightenment;peasant;Even if Enlightenment is active, you may not put any token on any Treasure pile using Teacher as it's not natively an Action supply pile.
 enlightenment;plan;Even if Enlightenment is active, you may not put the trashing token on any Treasure pile using Plan as it's not natively an Action supply pile.
@@ -774,8 +783,8 @@ enlightenment;seaway;If Enlightenment is active, you may gain an Action-Treasure
 enlightenment;spell_scroll;"If Enlightenment is active and you gain a Treasure in your buy phase, you can play it immediately using Spell Scroll, causing you to receive the usual effect.
 If Enlightenment is active, Spell Scroll's Action phase mode is overwritten by Enlightenment."
 enlightenment;training;Even if Enlightenment is active, you may not put the + $1 token on any Treasure pile using Training as it's not natively an Action supply pile.
-enlightenment;triumphal_arch;Once Enlightenment is active, for Triumphal Arch, Treasures will also be considered while scoring.
-enlightenment;vineyard;Once Enlightenment is active, for Vineyard, Treasures will also be considered while scoring.
+enlightenment;triumphal_arch;Once Enlightenment is active, for Triumphal Arch, Treasures will also be considered for Enlightenment while scoring.
+enlightenment;vineyard;Once Enlightenment is active, for Vineyard, Treasures will also be considered for Enlightenment while scoring.
 enlightenment;way_of_the_butterfly;Once Enlightenment is active, you can choose to play your Treasures as Way of the Butterfly both in your Action and Buy phase.
 enlightenment;way_of_the_camel;Once Enlightenment is active, you can choose to play your Treasures as Way of the Camel both in your Action and Buy phase.
 enlightenment;way_of_the_chameleon;Once Enlightenment is active, you can choose to play your Treasures as Way of the Chameleon both in your Action and Buy phase. However, during your Action phase, Way of the Chameleon will not have any effect, you still get +1 Card +1 Action from Enlightenment. During your Buy phase, Chameleon will affect them, switching +$ to +Cards and vice versa (you can e.g. play a Silver to draw two cards).
@@ -857,6 +866,7 @@ ferry;page;Putting the -$2 token on the Page pile using Ferry will affect only P
 ferry;patrician/emporium;You may put the -$2 token on the Patrician/Emporium pile using Ferry. This will affect all of its cards.
 ferry;peasant;"Putting the -$2 token on the Peasant pile using Ferry will affect only Peasant, not any card you exchange it for.
 If you have put the -$2 token on any pile using Ferry, you may not put further tokens on it with Teacher."
+ferry;plateau_shepherds;Since Ferry only reduces the cost of cards during your turns, at the end of the game, the Ferry token does not reduce the cost of cards as far as Plateau Shepherds is concerned.
 ferry;ruins;You may put the -$2 token on the Ruins pile using Ferry. This will affect all of its cards.
 ferry;sauna/avanto;You may put the -$2 token on the Sauna/Avanto pile using Ferry. This will affect all of its cards.
 ferry;settlers/bustling_village;You may put the -$2 token on the Settlers/Bustling Village pile using Ferry. This will affect all of its cards.
@@ -891,6 +901,7 @@ first_mate;relic;If you have your -1 Card Token on your deck when drawing with F
 fisherman;growth;Fisherman's cost will be evaluated after each gain, so you can usually not gain one after having gained a Silver when Growth is active.
 fisherman;haggler;Fisherman's cost will be evaluated after each gain, so if you e.g. buy a Fisherman for $2 after having played a Haggler, you will be able to gain a card costing less than $5 (as long as the Fisherman is in the Discard Pile). On the other hand, you normally cannot gain a Fisherman for $2 off of a $5 cost gain.
 fisherman;livery;After having played Livery, Fisherman's cost is evaluated when you gain it, so you will not gain a Horse when gaining a Fisherman that costs $2.
+fisherman;plateau_shepherds;At the end of the game, Fisherman costs $5 and is thus not eligible for Plateau Shepherds.
 fisherman;stonemason;Even if you have an empty discard pile while overpaying on the Stonemason buy, it will be gained (to your discard pile) first, causing the Fisherman to cost $5 for the overpay.
 fisherman;taskmaster;For Taskmaster, the cost of Fisherman when you gain it is important, you will not renew Taskmaster's ability if Fisherman costs $2 when (before) you gain it.
 fisherman;wayfarer;After gaining a Fisherman to your Discard pile, even if it only cost $2, Wayfarer will cost $5 afterwards.
@@ -912,7 +923,9 @@ fleet;odysseys;If you play Voyage on your Fleet turn, you will only get an extra
 fleet;outpost;If you play Outpost on your Fleet turn, you will only get an extra turn from it if any other turns (from an opponent) would follow.
 fleet;possession;If you play Possession on your Fleet turn, you will only get an extra turn from it if any other turns (from an opponent) would follow.
 fleet;seize_the_day;If you buy Seize the Day on your Fleet turn, you will only get an extra turn from it if any other turns (from an opponent) would follow.
+flourishing_trade;plateau_shepherds;If Flourishing Trade is active by the end of the game, the new (reduced) cost of cards will be considered for Plateau Shepherds (PS), so you would e.g. be awarded PS points for Silvers, but not for Estates.
 fool;harsh_winter;When you somehow gain Fool (e.g. via Shaman or Treasurer) during your turn while Harsh Winter is active, since it does not have a pile, you do not add or remove Debt anywhere.
+fools_gold;reckless;[Only if Reckless is on Fool's Gold] A Reckless Fool's Gold played as the first Fool's Gold will only yield $2 in total.
 footpad;innovation;If you gain a card and use Footpad to cause a shuffle, you cannot play it using Innovation anymore. (but you could choose to resolve the on-gain play first)
 footpad;rush;If you gain a card and use Footpad to cause a shuffle, you cannot play it using Rush anymore. (but you could choose to resolve the on-gain play first)
 footpad;siren;If you gain a Siren and somehow trigger a shuffle by drawing a card using Footpad, you are no longer required to trash an Action card for the Siren to stay in your deck.
@@ -1480,7 +1493,7 @@ outpost;seize_the_day;"Buying Seize the Day on an extra Outpost turn will still 
 Playing Outpost on an extra Seize the Day turn will not give you an extra turn, but you will still only draw 3 cards for your next turn."
 outpost;specialist;If you play an Outpost using Specialist, you will still only take one extra turn, but the Specialist will stay out with it anyways.
 outpost;throne_room;If you play an Outpost using Throne Room, you will still only take one extra turn, but the Throne Room will stay out with it anyways.
-outpost;wizards;If you play Lich and then play Outpost, the Outpost turn is skipped, but you only draw 3 cards for your next turn. If, however, you play Lich during an extra turn, even if you play Outpost then, your next normal turn will still be skipped.
+outpost;wizards;If you play Lich and then play Outpost, the Outpost turn is skipped, but you only draw 3 cards for your next turn and Outpost will stay in play. If, however, you play Lich during an extra turn, even if you play Outpost then, your next normal turn will still be skipped.
 overlord;pillage;If you play Pillage using Overlord and try to trash itself, it stays where it was, and you do not get the effect you would have gotten from trashing it.
 overlord;pixie;If you play Pixie using Overlord and try to trash itself, it stays where it was, and you do not get the effect you would have gotten from trashing it.
 overlord;ratcatcher;If you play a Ratcatcher using Overlord, you don't put anything onto your Tavern mat.
