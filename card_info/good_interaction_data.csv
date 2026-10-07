@@ -358,6 +358,7 @@ cavalry;wine_merchant;When you return to your Action phase using Cavalry, you ar
 cave_dwellers;clerk;"You may react Clerks both before and after using Favors for Cave Dwellers, but not in-between; you could e.g. react Clerk, use Cave Dwellers two times, and then react another Clerk you've just drawn. After that, you may not use Cave Dwellers again."
 cemetery;harsh_winter;When you somehow gain Cemetery (e.g. via Shaman or Treasurer) during your turn while Harsh Winter is active, since it does not have a pile, you do not add or remove Debt anywhere.
 cemetery;haunted_woods;If you buy a Cemetery while under the Haunted Woods attack, you can choose whether to first trash cards from your hand, or whether to first topdeck your hand.
+champion;frigate;When the Frigate attack is blocked via Champion by all opponents and thus not affecting anyone, Frigate doesn't stay in play and is discarded in the Clean-up phase the same turn it is played.
 chancellor;faithful_hound;Playing Chancellor with a Faithful Hound in your deck does not count as discarding Faithful Hound, so you do not get to react.
 chancellor;trail;Playing Chancellor with a Trail in your deck does not count as discarding Trail, so you do not get to react.
 chancellor;tunnel;Playing Chancellor with a Tunnel in your deck does not count as discarding Tunnel, so you do not get to react.
@@ -563,13 +564,16 @@ crypt;reckless;[Only if Reckless is on a Treasure] If Reckless is on a Treasure 
 crypt;tiara;If you play a Duration Treasure using Tiara, you can still set it aside with Crypt that turn, but NOT get the duration effect off of both plays for the next turn (e.g. Tiara on Astrolabe, you can Crypt away the Tiara and will get +$1 and +1 Buys on your next turn). You can also Crypt the Tiara on a later turn.
 crystal_ball;landing_party;When you play Crystal Ball as the first card on your turn with Landing Parties set aside, you first finish resolving Crystal Ball before topdecking the Landing Parties.
 cultist;market_square;When trashing a Cultist with Market Square in hand, you get to decide which effect to resolve first, and can even react a Market Square you have just drawn from the on-trash draw ability of Cultist.
+cursed;frigate;When the Frigate attack is blocked via Shield by all opponents and thus not affecting anyone, Frigate doesn't stay in play and is discarded in the Clean-up phase the same turn it is played.
 cursed;harsh_winter;When you gain a Loot via cursed during your turn while Harsh Winter is active, you add or remove Debt for the Loot pile.
 cursed;panic;When you discard a Loot gained from cursed from play while Panic is active, you need to return it to the top of the Loot pile. When discarding multiple, you get to choose the order. Endless Chalice and Jewels are exceptions as they (bar e.g. Highwayman) never get discarded from play.
 cursed_village;haunted_woods;If you buy a Cursed Village while under the Haunted Woods attack, you can choose whether to first receive the next Hex, or whether to first topdeck your hand.
 cursed_village;raid;If you have your -1 Card Token on your deck when drawing with Cursed Village, the Token is removed and the number of cards drawn to is the same as stated on Cursed Village as long as you are supposed to draw at least 1 card.
 cursed_village;relic;If you have your -1 Card Token on your deck when drawing with Cursed Village, the Token is removed and the number of cards drawn to is the same as stated on Cursed Village as long as you are supposed to draw at least 1 card.
+cutthroat;frigate;When the Frigate attack is blocked via Shield by all opponents and thus not affecting anyone, Frigate doesn't stay in play and is discarded in the Clean-up phase the same turn it is played.
 cutthroat;harsh_winter;When you gain a Loot via cutthroat during your turn while Harsh Winter is active, you add or remove Debt for the Loot pile.
 cutthroat;panic;When you discard a Loot gained from cutthroat from play while Panic is active, you need to return it to the top of the Loot pile. When discarding multiple, you get to choose the order. Endless Chalice and Jewels are exceptions as they (bar e.g. Highwayman) never get discarded from play.
+cutthroat;tunnel;If you activate a Tunnel by discarding to Cutthroat's attack, the Gold you gain from Tunnel won't activate said Cutthroat's Loot gaining effect.
 daimyo;disciple;If you play Daimyo and then Disciple, which you use to play another Daimyo from your hand, since the next non-Command card you replay is the Disciple, it is replayed one more time afterwards by the second Daimyo.
 daimyo;enlightenment;If you play Daimyo as the last card during your Action phase while Enlightenment is active, the first Treasure you play during your Buy phase will be replayed for its Treasure effect.
 daimyo;first_mate;If you play Daimyo and then First Mate, which you use to play another Daimyo from your hand, since the next non-Command card you replay is the First Mate, it is replayed one more time afterwards by the second Daimyo.
@@ -915,6 +919,7 @@ footpad;siren;If you gain a Siren and somehow trigger a shuffle by drawing a car
 footpad;spell_scroll;If you gain a card and use Footpad to cause a shuffle, you cannot play it using Spell Scroll anymore.
 footpad;villa;If you return to your Action phase using Villa, you are still gaining the card during the Buy phase, so Footpad's ability doesn't trigger.
 forager;sewers;If you trash a Treasure that is unique to the trash with Sewers in reaction to Forager's trashing, said Treasure will be considered by Forager's check for unique Treasures, i.e. yield $.
+foray;frigate;When the Frigate attack is blocked via Shield by all opponents and thus not affecting anyone, Frigate doesn't stay in play and is discarded in the Clean-up phase the same turn it is played.
 foray;harsh_winter;When you gain a Loot via foray during your turn while Harsh Winter is active, you add or remove Debt for the Loot pile.
 foray;panic;When you discard a Loot gained from foray from play while Panic is active, you need to return it to the top of the Loot pile. When discarding multiple, you get to choose the order. Endless Chalice and Jewels are exceptions as they (bar e.g. Highwayman) never get discarded from play.
 foray;patron;If you buy Foray during your Buy phase and reveal a Patron this way, you will not get +1 Coffers since it's not an Action phase.
@@ -954,6 +959,18 @@ forts;way_of_the_sheep;If you play Tent using Way of the Sheep, you may still to
 forts;way_of_the_squirrel;If you play Tent using Way of the Squirrel, you may still topdeck it when you discard it from play.
 forts;way_of_the_turtle;If you play Tent using Way of the Turtle, you may still topdeck it when you discard it from play.
 forts;way_of_the_worm;If you play Tent using Way of the Worm, you may still topdeck it when you discard it from play.
+frigate;guardian;When the Frigate attack is blocked via Guardian by all opponents and thus not affecting anyone, Frigate doesn't stay in play and is discarded in the Clean-up phase the same turn it is played.
+frigate;invasion;When the Frigate attack is blocked via Shield by all opponents and thus not affecting anyone, Frigate doesn't stay in play and is discarded in the Clean-up phase the same turn it is played.
+frigate;jewelled_egg;When the Frigate attack is blocked via Shield by all opponents and thus not affecting anyone, Frigate doesn't stay in play and is discarded in the Clean-up phase the same turn it is played.
+frigate;lighthouse;When the Frigate attack is blocked via Lighthouse by all opponents and thus not affecting anyone, Frigate doesn't stay in play and is discarded in the Clean-up phase the same turn it is played.
+frigate;looting;When the Frigate attack is blocked via Shield by all opponents and thus not affecting anyone, Frigate doesn't stay in play and is discarded in the Clean-up phase the same turn it is played.
+frigate;moat;When the Frigate attack is blocked via Moat by all opponents and thus not affecting anyone, Frigate doesn't stay in play and is discarded in the Clean-up phase the same turn it is played.
+frigate;peril;When the Frigate attack is blocked via Shield by all opponents and thus not affecting anyone, Frigate doesn't stay in play and is discarded in the Clean-up phase the same turn it is played.
+frigate;pickaxe;When the Frigate attack is blocked via Shield by all opponents and thus not affecting anyone, Frigate doesn't stay in play and is discarded in the Clean-up phase the same turn it is played.
+frigate;prosper;When the Frigate attack is blocked via Shield by all opponents and thus not affecting anyone, Frigate doesn't stay in play and is discarded in the Clean-up phase the same turn it is played.
+frigate;sack_of_loot;When the Frigate attack is blocked via Shield by all opponents and thus not affecting anyone, Frigate doesn't stay in play and is discarded in the Clean-up phase the same turn it is played.
+frigate;search;When the Frigate attack is blocked via Shield by all opponents and thus not affecting anyone, Frigate doesn't stay in play and is discarded in the Clean-up phase the same turn it is played.
+frigate;wealthy_village;When the Frigate attack is blocked via Shield by all opponents and thus not affecting anyone, Frigate doesn't stay in play and is discarded in the Clean-up phase the same turn it is played.
 from_the_throne;urchin;If you play an Urchin multiple times using From the Throne, you may not trash this Urchin, since you need to play *another* attack card to be able to trash it.
 galleria;gondola;When you gain a Gondola and play a Galleria from your hand, you will immediately get +Buy from the Gondola gain.
 galleria;innovation;"When you gain a cost-reducing card (like Highway, Bridge, or Inventor) and play it immediately using Innovation after having played a Galleria, the card's cost before the gain will determine whether you get +Buy (e.g. you won't get +Buy if Highway costs $5 before gaining and playing it).

@@ -3,7 +3,7 @@
 import pandas as pd
 
 from ....logger import LOGGER
-from ..interaction_util import add_multiple_interactions_from_single
+from ..interaction_util import add_interaction, add_multiple_interactions_from_single
 
 
 def _add_arena_interactions(df: pd.DataFrame):
@@ -25,6 +25,11 @@ def _add_all_deck_into_discard_interactions(df: pd.DataFrame):
     add_multiple_interactions_from_single(deck_disc, df)
 
 
+def _add_cutthroat_interaction(df: pd.DataFrame):
+    rule = "If you activate a Tunnel by discarding to Cutthroat's attack, the Gold you gain from Tunnel won't activate said Cutthroat's Loot gaining effect."
+    add_interaction("Cutthroat", "Tunnel", rule, df)
+
+
 ##########################################################################################################
 # Final function
 def add_all_on_discard_interactions(df: pd.DataFrame, verbose=False) -> None:
@@ -33,5 +38,6 @@ def add_all_on_discard_interactions(df: pd.DataFrame, verbose=False) -> None:
     _add_arena_interactions(df)
     _add_vassal_interactions(df)
     _add_all_deck_into_discard_interactions(df)
+    _add_cutthroat_interaction(df)
     if verbose:
         LOGGER.info(f"Added {len(df) - num_before} discarding interactions.")

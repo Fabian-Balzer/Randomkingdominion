@@ -48,7 +48,7 @@ def _add_all_plateau_shepherds_interactions(df: pd.DataFrame):
     add_interaction(
         "Cheap",
         "Plateau Shepherds",
-        "[Relevant if Cheap is on $3 or $2 cost card] If Cheap is assigned to a card initially costing $3, it becomes a $2 cost card as far as Plateau Shepherds (PS) is concerned. Conversely, a card reduced to costing $1 due to Cheap will not be eligible for PS anymore.",
+        "[Relevant if Cheap is on $3 or $2 cost card] If Cheap is assigned to a card initially costing $3 (like e.g. Underling), it becomes a $2 cost card as far as Plateau Shepherds (PS) is concerned. Conversely, a card (say, Bauble) reduced to costing $1 due to Cheap will not be eligible for PS anymore.",
         df,
     )
     add_interaction(
@@ -60,13 +60,19 @@ def _add_all_plateau_shepherds_interactions(df: pd.DataFrame):
     add_interaction(
         "Canal",
         "Plateau Shepherds",
-        "Since Canal only reduces the cost of cards during your turns, at the end of the game, it doesn't reduce the cost of cards as far as Plateau Shepherds (PS) is concerned.",
+        "Since Canal only reduces the cost of cards during your turns, at the end of the game, it doesn't reduce the cost of cards as far as Plateau Shepherds is concerned.",
         df,
     )
     add_interaction(
         "Ferry",
         "Plateau Shepherds",
-        "Since Ferry only reduces the cost of cards during your turns, at the end of the game, the Ferry token does not reduce the cost of cards as far as Plateau Shepherds (PS) is concerned.",
+        "Since Ferry only reduces the cost of cards during your turns, at the end of the game, the Ferry token does not reduce the cost of cards as far as Plateau Shepherds is concerned.",
+        df,
+    )
+    add_interaction(
+        "Fisherman",
+        "Plateau Shepherds",
+        "At the end of the game, Fisherman costs $5 and is thus not eligible for Plateau Shepherds.",
         df,
     )
     # If multiple allies were allowed, the interaction with Family of Inventors would be important.
@@ -103,5 +109,6 @@ def add_all_allies_interactions(df: pd.DataFrame, verbose=False) -> None:
     num_before = len(df)
     _add_all_city_state_interactions(df)
     _add_individual_allies_interactions(df)
+    _add_all_plateau_shepherds_interactions(df)
     if verbose:
         LOGGER.info(f"Added {len(df) - num_before} allies interactions.")

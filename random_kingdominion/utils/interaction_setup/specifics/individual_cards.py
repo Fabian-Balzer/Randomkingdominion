@@ -11,6 +11,7 @@ from ..constants import (
     CAN_PLAY_TREASURES_IN_ACTION_PHASE,
     GATHERING_CARDS,
     TRAVELLER_BASE_CARDS,
+    ALL_LOOT_GIVERS,
 )
 from ..interaction_util import add_interaction, add_multiple_interactions_from_single
 
@@ -24,6 +25,14 @@ def _add_gathering_black_market_interaction(other: str, df: pd.DataFrame):
 def _add_traveller_black_market_interaction(other: str, df: pd.DataFrame):
     rule = f"When you get {other} from the Black Market deck, you cannot exchange it for other Travellers."
     add_interaction("Black Market", other, rule, df)
+
+
+def _add_all_frigate_defense_interactions(df: pd.DataFrame):
+    rule = "When the Frigate attack is blocked via {defense_card} by all opponents and thus not affecting anyone, Frigate doesn't stay in play and is discarded in the Clean-up phase the same turn it is played."
+    for card in ["Moat", "Guardian", "Lighthouse", "Champion"]:
+        add_interaction("Frigate", card, rule.format(defense_card=card), df)
+    for card in ALL_LOOT_GIVERS:
+        add_interaction("Frigate", card, rule.format(defense_card="Shield"), df)
 
 
 def _add_all_black_market_interactions(df: pd.DataFrame):
@@ -739,6 +748,7 @@ def add_all_individual_card_interactions(df: pd.DataFrame, verbose=False) -> Non
     _add_all_experiment_interactions(df)
     _add_all_farmland_interactions(df)
     _add_all_ferryman_interactions(df)
+    _add_all_frigate_defense_interactions(df)
     _add_all_grand_market_interactions(df)
     _add_all_harbor_village_interactions(df)
     _add_all_highwayman_interactions(df)

@@ -16,7 +16,11 @@ _EXTRA_TURN_GIVERS = [
 
 def _add_lich_interactions(df: pd.DataFrame):
     for extra_turn_giver, acquire_str, condition in [
-        ("outpost", "play", ", but you only draw 3 cards for your next turn"),
+        (
+            "outpost",
+            "play",
+            ", but you only draw 3 cards for your next turn and Outpost will stay in play",
+        ),
         ("voyage", "play", ", and your next turn proceeds as normal"),
         (
             "journey",

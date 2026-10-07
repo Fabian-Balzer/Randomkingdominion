@@ -1,97 +1,42 @@
 
 
-## 2026-07-20 22:51:24
-Added: 0
-Changed: 22 
+## 2026-09-11 13:41:34
+Added: 17
+Changed: 0 
 Removed: 0
+### Added 17 Interactions
 
-### Changed 22 Interactions
-
-#### band_of_nomads - city-state
-If you gain a card and use Band of Nomads to cause a shuffle, you cannot play it using City-State anymore (but you could choose to resolve the on-gain play first).
-*HAS BEEN CHANGED TO*
-If you gain a card and use Band of Nomads to cause a shuffle, you cannot play it using City-State anymore. (but you could choose to resolve the on-gain play first)
-#### band_of_nomads - innovation
-If you gain a card and use Band of Nomads to cause a shuffle, you cannot play it using Innovation anymore (but you could choose to resolve the on-gain play first).
-*HAS BEEN CHANGED TO*
-If you gain a card and use Band of Nomads to cause a shuffle, you cannot play it using Innovation anymore. (but you could choose to resolve the on-gain play first)
-#### band_of_nomads - rush
-If you gain a card and use Band of Nomads to cause a shuffle, you cannot play it using Rush anymore (but you could choose to resolve the on-gain play first).
-*HAS BEEN CHANGED TO*
-If you gain a card and use Band of Nomads to cause a shuffle, you cannot play it using Rush anymore. (but you could choose to resolve the on-gain play first)
-#### band_of_nomads - spell_scroll
-If you gain a card and use Band of Nomads to cause a shuffle, you cannot play it using Spell Scroll anymore (but you could choose to resolve the on-gain play first).
-*HAS BEEN CHANGED TO*
-If you gain a card and use Band of Nomads to cause a shuffle, you cannot play it using Spell Scroll anymore.
-#### changeling - spell_scroll
-If you play a gained card using Spell Scroll, you cannot exchange it for a Changeling afterwards. Conversely, you cannot play it anymore after having exchanged it for a Changeling.
-*HAS BEEN CHANGED TO*
-When gaining a card via Spell Scroll, you can first exchange it for a Changeling, but then won't be able to play it.
-#### city-state - footpad
-If you gain a card and use Footpad to cause a shuffle, you cannot play it using City-State anymore (but you could choose to resolve the on-gain play first).
-*HAS BEEN CHANGED TO*
-If you gain a card and use Footpad to cause a shuffle, you cannot play it using City-State anymore. (but you could choose to resolve the on-gain play first)
-#### city-state - forts
-If you gain a card and use Hill Fort to cause a shuffle, you cannot play it using City-State anymore (but you could choose to resolve the on-gain play first).
-*HAS BEEN CHANGED TO*
-If you gain a card and use Hill Fort to cause a shuffle, you cannot play it using City-State anymore. (but you could choose to resolve the on-gain play first)
-#### city-state - sheepdog
-If you gain a card and use Sheepdog to cause a shuffle, you cannot play it using City-State anymore (but you could choose to resolve the on-gain play first).
-*HAS BEEN CHANGED TO*
-If you gain a card and use Sheepdog to cause a shuffle, you cannot play it using City-State anymore. (but you could choose to resolve the on-gain play first)
-#### city-state - trail
-If you gain a card and use Trail to cause a shuffle, you cannot play it using City-State anymore (but you could choose to resolve the on-gain play first).
-*HAS BEEN CHANGED TO*
-If you gain a card and use Trail to cause a shuffle, you cannot play it using City-State anymore. (but you could choose to resolve the on-gain play first)
-#### footpad - innovation
-If you gain a card and use Footpad to cause a shuffle, you cannot play it using Innovation anymore (but you could choose to resolve the on-gain play first).
-*HAS BEEN CHANGED TO*
-If you gain a card and use Footpad to cause a shuffle, you cannot play it using Innovation anymore. (but you could choose to resolve the on-gain play first)
-#### footpad - rush
-If you gain a card and use Footpad to cause a shuffle, you cannot play it using Rush anymore (but you could choose to resolve the on-gain play first).
-*HAS BEEN CHANGED TO*
-If you gain a card and use Footpad to cause a shuffle, you cannot play it using Rush anymore. (but you could choose to resolve the on-gain play first)
-#### footpad - spell_scroll
-If you gain a card and use Footpad to cause a shuffle, you cannot play it using Spell Scroll anymore (but you could choose to resolve the on-gain play first).
-*HAS BEEN CHANGED TO*
-If you gain a card and use Footpad to cause a shuffle, you cannot play it using Spell Scroll anymore.
-#### forts - innovation
-If you gain a card and use Hill Fort to cause a shuffle, you cannot play it using Innovation anymore (but you could choose to resolve the on-gain play first).
-*HAS BEEN CHANGED TO*
-If you gain a card and use Hill Fort to cause a shuffle, you cannot play it using Innovation anymore. (but you could choose to resolve the on-gain play first)
-#### forts - rush
-If you gain a card and use Hill Fort to cause a shuffle, you cannot play it using Rush anymore (but you could choose to resolve the on-gain play first).
-*HAS BEEN CHANGED TO*
-If you gain a card and use Hill Fort to cause a shuffle, you cannot play it using Rush anymore. (but you could choose to resolve the on-gain play first)
-#### forts - spell_scroll
-If you gain a card and use Hill Fort to cause a shuffle, you cannot play it using Spell Scroll anymore (but you could choose to resolve the on-gain play first).
-*HAS BEEN CHANGED TO*
-If you gain a card and use Hill Fort to cause a shuffle, you cannot play it using Spell Scroll anymore.
-#### innovation - sheepdog
-If you gain a card and use Sheepdog to cause a shuffle, you cannot play it using Innovation anymore (but you could choose to resolve the on-gain play first).
-*HAS BEEN CHANGED TO*
-If you gain a card and use Sheepdog to cause a shuffle, you cannot play it using Innovation anymore. (but you could choose to resolve the on-gain play first)
-#### innovation - trail
-If you gain a card and use Trail to cause a shuffle, you cannot play it using Innovation anymore (but you could choose to resolve the on-gain play first).
-*HAS BEEN CHANGED TO*
-If you gain a card and use Trail to cause a shuffle, you cannot play it using Innovation anymore. (but you could choose to resolve the on-gain play first)
-#### rush - sheepdog
-If you gain a card and use Sheepdog to cause a shuffle, you cannot play it using Rush anymore (but you could choose to resolve the on-gain play first).
-*HAS BEEN CHANGED TO*
-If you gain a card and use Sheepdog to cause a shuffle, you cannot play it using Rush anymore. (but you could choose to resolve the on-gain play first)
-#### rush - trail
-If you gain a card and use Trail to cause a shuffle, you cannot play it using Rush anymore (but you could choose to resolve the on-gain play first).
-*HAS BEEN CHANGED TO*
-If you gain a card and use Trail to cause a shuffle, you cannot play it using Rush anymore. (but you could choose to resolve the on-gain play first)
-#### sheepdog - spell_scroll
-If you gain a card and use Sheepdog to cause a shuffle, you cannot play it using Spell Scroll anymore (but you could choose to resolve the on-gain play first).
-*HAS BEEN CHANGED TO*
-If you gain a card and use Sheepdog to cause a shuffle, you cannot play it using Spell Scroll anymore.
-#### siren - spell_scroll
-If you gain a Siren and use Spell Scroll to play the Siren, Siren no longer requires you to trash an Action card from your hand in order to not trash the Siren.
-*HAS BEEN CHANGED TO*
-If you gain a Siren via Spell Scroll, it trashes itself before you would get the chance to play it (unless you trash an Action for it).
-#### spell_scroll - trail
-If you gain a card and use Trail to cause a shuffle, you cannot play it using Spell Scroll anymore (but you could choose to resolve the on-gain play first).
-*HAS BEEN CHANGED TO*
-If you gain a card and use Trail to cause a shuffle, you cannot play it using Spell Scroll anymore.
+#### champion - frigate
+When the Frigate attack is blocked via Champion by all opponents and thus not affecting anyone, Frigate doesn't stay in play and is discarded in the Clean-up phase the same turn it is played.
+#### cursed - frigate
+When the Frigate attack is blocked via Shield by all opponents and thus not affecting anyone, Frigate doesn't stay in play and is discarded in the Clean-up phase the same turn it is played.
+#### cutthroat - frigate
+When the Frigate attack is blocked via Shield by all opponents and thus not affecting anyone, Frigate doesn't stay in play and is discarded in the Clean-up phase the same turn it is played.
+#### cutthroat - tunnel
+If you activate a Tunnel by discarding to Cutthroat's attack, the Gold you gain from Tunnel won't activate said Cutthroat's Loot gaining effect.
+#### foray - frigate
+When the Frigate attack is blocked via Shield by all opponents and thus not affecting anyone, Frigate doesn't stay in play and is discarded in the Clean-up phase the same turn it is played.
+#### frigate - guardian
+When the Frigate attack is blocked via Guardian by all opponents and thus not affecting anyone, Frigate doesn't stay in play and is discarded in the Clean-up phase the same turn it is played.
+#### frigate - invasion
+When the Frigate attack is blocked via Shield by all opponents and thus not affecting anyone, Frigate doesn't stay in play and is discarded in the Clean-up phase the same turn it is played.
+#### frigate - jewelled_egg
+When the Frigate attack is blocked via Shield by all opponents and thus not affecting anyone, Frigate doesn't stay in play and is discarded in the Clean-up phase the same turn it is played.
+#### frigate - lighthouse
+When the Frigate attack is blocked via Lighthouse by all opponents and thus not affecting anyone, Frigate doesn't stay in play and is discarded in the Clean-up phase the same turn it is played.
+#### frigate - looting
+When the Frigate attack is blocked via Shield by all opponents and thus not affecting anyone, Frigate doesn't stay in play and is discarded in the Clean-up phase the same turn it is played.
+#### frigate - moat
+When the Frigate attack is blocked via Moat by all opponents and thus not affecting anyone, Frigate doesn't stay in play and is discarded in the Clean-up phase the same turn it is played.
+#### frigate - peril
+When the Frigate attack is blocked via Shield by all opponents and thus not affecting anyone, Frigate doesn't stay in play and is discarded in the Clean-up phase the same turn it is played.
+#### frigate - pickaxe
+When the Frigate attack is blocked via Shield by all opponents and thus not affecting anyone, Frigate doesn't stay in play and is discarded in the Clean-up phase the same turn it is played.
+#### frigate - prosper
+When the Frigate attack is blocked via Shield by all opponents and thus not affecting anyone, Frigate doesn't stay in play and is discarded in the Clean-up phase the same turn it is played.
+#### frigate - sack_of_loot
+When the Frigate attack is blocked via Shield by all opponents and thus not affecting anyone, Frigate doesn't stay in play and is discarded in the Clean-up phase the same turn it is played.
+#### frigate - search
+When the Frigate attack is blocked via Shield by all opponents and thus not affecting anyone, Frigate doesn't stay in play and is discarded in the Clean-up phase the same turn it is played.
+#### frigate - wealthy_village
+When the Frigate attack is blocked via Shield by all opponents and thus not affecting anyone, Frigate doesn't stay in play and is discarded in the Clean-up phase the same turn it is played.

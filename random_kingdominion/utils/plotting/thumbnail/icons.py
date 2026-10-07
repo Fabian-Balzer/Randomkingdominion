@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.axes import Axes
 from matplotlib.offsetbox import AnnotationBbox, OffsetImage
+from PIL import Image, ImageDraw
 from scipy.ndimage import zoom as zoom_image
 
 from ....constants import PATH_ASSETS
@@ -82,8 +83,35 @@ def annotate_campaign_seal(ax: Axes, x0=0.01, y0=0.87, zoom=0.4):
 def annotate_ftw_img(ax: Axes, ftw_num: int, x0: float, y0: float, zoom=0.3):
     """Annotate the Find-the-win image."""
     fpath = PATH_ASSETS.joinpath(f"other/youtube/ftw/ftw_{ftw_num}.png")
-    img = plt.imread(fpath)
-    imagebox = OffsetImage(img, zoom=zoom)
+    img = Image.open(fpath).convert("RGBA")
+    new_width = 680
+    new_height = round(img.height * new_width / img.width)
+    img = img.resize((new_width, new_height), resample=Image.Resampling.LANCZOS)
+
+    border_width = 8
+    corner_radius = 28
+    mask = Image.new("L", img.size, 0)
+    ImageDraw.Draw(mask).rounded_rectangle(
+        (0, 0, img.width - 1, img.height - 1),
+        radius=corner_radius,
+        fill=255,
+    )
+    img.putalpha(mask)
+
+    framed_img = Image.new(
+        "RGBA",
+        (img.width + 2 * border_width, img.height + 2 * border_width),
+        (0, 0, 0, 0),
+    )
+    ImageDraw.Draw(framed_img).rounded_rectangle(
+        (0, 0, framed_img.width - 1, framed_img.height - 1),
+        radius=corner_radius + border_width,
+        fill=(255, 255, 255, 255),
+    )
+    framed_img.alpha_composite(img, (border_width, border_width))
+    img = framed_img
+
+    imagebox = OffsetImage(np.asarray(img), zoom=zoom)
     ab = AnnotationBbox(imagebox, (x0, y0), frameon=False, box_alignment=(1, 1), pad=0)
     ax.add_artist(ab)
 

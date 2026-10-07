@@ -18,6 +18,8 @@ def _add_individual_trait_interactions(df: pd.DataFrame):
     add_interaction("Reckless", "Crossroads", crossroads, df)
     hwman = "[Only if Inspiring is on a Treasure] If you play an Inspiring Treasure as your first Treasure while under the Highwayman attack, you can still play a unique Action card with it."
     add_interaction("Inspiring", "Highwayman", hwman, df)
+    fg = "[Only if Reckless is on Fool's Gold] A Reckless Fool's Gold played as the first Fool's Gold will only yield $2 in total."
+    add_interaction("Reckless", "Fool's Gold", fg, df)
     for throne in ALL_THRONE_CARDS:
         rule = f"When you play a Reckless card using {throne}, it is played four times (although technically, two of these times the initial instructions are only followed again, and it is not a 'play' for the purpose of e.g. Conspirator)."
         key = sanitize_cso_name(throne)

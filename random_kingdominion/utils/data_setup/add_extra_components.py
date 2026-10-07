@@ -128,7 +128,7 @@ def _determine_extra_components(cso: pd.Series) -> list[str]:
         extra_components += [
             "+ Action tokens",
             "+ Buy tokens",
-            "+$1 tokens",
+            "+ $1 tokens",
             "+ Card tokens",
         ]
     # Random Seaside, Prosperity, Cornucopia and Dark Ages stuff:

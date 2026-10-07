@@ -44,7 +44,7 @@ def do_ftw_extras(ax: Axes, k: "Kingdom", config: ThumbnailConfig) -> Path:
     if len(k.campaign_effects) > 0:
         annotate_campaign_seal(ax, 0.518, 0.655, 0.3)
     annotate_dominion_logo(ax, 0.95, 0.67, 0.55)
-    annotate_ftw_img(ax, ftw_num, 0.965, 0.65, 0.4)
+    annotate_ftw_img(ax, ftw_num, 0.975, 0.65, 0.4)
     annotate_twists(ax, k, 0.4, 0.75)
     annotate_difficulty(ax, k.unpacked_notes["ftw_difficulty"], 0.72, 0.1)
     fname = f"ftw_{ftw_num}_thumbnail.png"

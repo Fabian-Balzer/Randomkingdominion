@@ -4,11 +4,25 @@ import pandas as pd
 
 from ....constants import HEIRLOOM_DICT
 from ....logger import LOGGER
-from ..constants import (ACTION_TREASURES, ALL_HORSE_GAINERS, ALL_LOOT_GIVERS,
-                         ALL_LOOTS, GATHERING_CARDS, TGG_BUG_DISCLAIMER,
-                         TRAVELLER_BASE_CARDS)
-from ..interaction_util import (add_interaction,
-                                add_multiple_interactions_from_single)
+from ..constants import (
+    ACTION_TREASURES,
+    ALL_HORSE_GAINERS,
+    ALL_LOOT_GIVERS,
+    ALL_LOOTS,
+    GATHERING_CARDS,
+    TGG_BUG_DISCLAIMER,
+    TRAVELLER_BASE_CARDS,
+)
+from ..interaction_util import add_interaction, add_multiple_interactions_from_single
+
+
+def _add_game_change_divine_wind_interactions(df: pd.DataFrame):
+    rule = f"In games where Footpad is part of the initial kingdom, you still get +1 Card for every card gained during an Action phase even after Divine Wind has removed it from the Supply. If Footpad is instead part of the Divine Wind kingdom, the additional rule comes online once Divine Wind has been triggered."
+    add_interaction("Divine Wind", "Footpad", rule, df)
+    rule = f"In games where Charlatan is part of the initial kingdom, Curses are also Treasures worth $1 even after Divine Wind has removed it from the Supply. If Charlatan is instead part of the Divine Wind kingdom, the additional rule comes online once Divine Wind has been triggered."
+    add_interaction("Divine Wind", "Charlatan", rule, df)
+    rule = f"In games where Shaman is part of the initial kingdom, you still gain a card costing up to $6 from the trash at the beginning of your turn even after Divine Wind has removed it from the Supply. If Shaman is instead part of the Divine Wind kingdom, the additional rule comes online once Divine Wind has been triggered."
+    add_interaction("Divine Wind", "Shaman", rule, df)
 
 
 def _add_gathering_divine_wind_interaction(other: str, df: pd.DataFrame):
@@ -17,6 +31,7 @@ def _add_gathering_divine_wind_interaction(other: str, df: pd.DataFrame):
 
 
 def _add_traveller_divine_wind_interaction(other: str, df: pd.DataFrame):
+    """Handling page and peasant interactions with Divine Wind."""
     rule = f"Once Divine Wind is triggered and the {other} pile is removed from the supply, you cannot exchange your {other}s for other Travellers anymore since they have no pile to return to. You can however continue to exchange any Travellers further up the line as their non-supply piles stay."
     add_interaction("Divine Wind", other, rule, df)
 
@@ -82,10 +97,34 @@ def _add_individual_divine_wind_interactions(df: pd.DataFrame):
         "Once Divine Wind has been triggered, you cannot return any Action cards whose piles have been removed using Swap as there is no pile to return them to.",
         df,
     )
+    add_interaction(
+        "Divine Wind",
+        "baker",
+        "If Baker is added to the kingdom once Divine Wind is triggered, everyone gets +1 coffers.",
+        df,
+    )
+    add_interaction(
+        "Divine Wind",
+        "defiled shrine",
+        "If Defiled Shrine is present, once Divine Wind triggers, no additional VP chips are added onto the new piles (since Defiled Shrine itself is not newly added).",
+        df,
+    )
+    add_interaction(
+        "Divine Wind",
+        "tax",
+        "If Tax is present, once Divine Wind triggers, no additional Debt tokens are added onto the new piles (since Tax itself is not newly added).",
+        df,
+    )
+    add_interaction(
+        "Divine Wind",
+        "reckless",
+        "As all Traits, Reckless will still affect its pile even after Divine Wind has been triggered. However, due to the Reckless pile not being part of the kingdom anymore, you then cannot return cards from it during cleanup, and they will stay within your deck (getting discarded during cleanup instead).",
+        df,
+    )
 
 
 def _add_all_divine_wind_interactions(df: pd.DataFrame):
-    # More interactions in 'events'
+    # More interactions, especically concerning Tokens, in 'events'
     for gathering_cso in GATHERING_CARDS:
         _add_gathering_divine_wind_interaction(gathering_cso, df)
 
@@ -93,6 +132,7 @@ def _add_all_divine_wind_interactions(df: pd.DataFrame):
         _add_traveller_divine_wind_interaction(traveller_base_cso, df)
 
     _add_individual_divine_wind_interactions(df)
+    _add_game_change_divine_wind_interactions(df)
 
 
 def _add_all_harsh_winter_interactions(df: pd.DataFrame):
@@ -176,7 +216,7 @@ def _add_enlightenment_interactions(df: pd.DataFrame):
     )
     replay_inter = "Daimyo|Flagship/Enlightenment---If you play {card_a} as the last card during your Action phase while Enlightenment is active, the first Treasure you play during your Buy phase will be replayed for its Treasure effect."
     add_multiple_interactions_from_single(replay_inter, df)
-    action_scoring = "Vineyard|Triumphal Arch|Orchard/Enlightenment---Once Enlightenment is active, for {card_a}, Treasures will also be considered while scoring."
+    action_scoring = "Vineyard|Triumphal Arch|Orchard/Enlightenment---Once Enlightenment is active, for {card_a}, Treasures will also be considered for {card_b} while scoring."
     add_multiple_interactions_from_single(action_scoring, df)
 
 
