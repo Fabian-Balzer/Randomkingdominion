@@ -1,4 +1,5 @@
 import re
+from collections.abc import Callable
 from datetime import datetime
 
 import pandas as pd
@@ -82,17 +83,48 @@ def _get_date_from_title_and_upload_date(
     return _format_ymd(year, month, day)  # type: ignore
 
 
+def _get_yudai_date_from_title(title: str) -> str | None:
+    match = re.search(
+        r"\bTGG Daily Dominion\b.*?(?<!\d)(?:"
+        r"(?P<year_first_year>\d{4})/(?P<year_first_month>\d{1,2})/"
+        r"(?P<year_first_day>\d{1,2})|"
+        r"(?P<month_first_month>\d{1,2})/(?P<month_first_day>\d{1,2})/"
+        r"(?P<month_first_year>\d{4}))(?!\d)",
+        title,
+        re.IGNORECASE,
+    )
+    if not match:
+        return None
+
+    if year := match.group("year_first_year"):
+        return _format_ymd(
+            year,
+            match.group("year_first_month"),
+            match.group("year_first_day"),
+        )
+    return _format_ymd(
+        match.group("month_first_year"),
+        match.group("month_first_month"),
+        match.group("month_first_day"),
+    )
+
+
 def _process_general_entries(
     key: str,
-    regexp: re.Pattern,
+    regexp: re.Pattern | None,
     add_year: bool = False,
     filter_str: str | None = None,
+    date_parser: Callable[[str], str | None] | None = None,
 ) -> dict[str, str]:
     data = yml_load_entries(key)
     if len(data) == 0:
         return {}
 
-    if add_year:
+    if date_parser:
+        dates = [date_parser(record["title"]) for record in data]
+    elif add_year:
+        if regexp is None:
+            raise ValueError(f"{key}: A date pattern is required when add_year is set.")
         dates = [
             _get_date_from_title_and_upload_date(
                 record["title"], record["upload_date"], regexp
@@ -100,6 +132,8 @@ def _process_general_entries(
             for record in data
         ]
     else:
+        if regexp is None:
+            raise ValueError(f"{key}: A date pattern or date parser is required.")
         dates = [_get_date_from_title(record["title"], regexp) for record in data]
     ids = [record["id"] for record in data]
     titles = [record["title"] for record in data]
@@ -142,9 +176,10 @@ PROCESSOR_DICT = {
     ),
     "yudai_dailies": lambda: _process_general_entries(
         "yudai_dailies",
-        re.compile(r"(?P<year>\d{4})/(?P<month>\d{1,2})/(?P<day>\d{1,2})"),
+        None,
         False,
         "tgg daily dominion",
+        _get_yudai_date_from_title,
     ),
     "sharur_dailies": lambda: _process_general_entries(
         "sharur_dailies",

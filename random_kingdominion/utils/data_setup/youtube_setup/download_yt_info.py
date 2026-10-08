@@ -9,6 +9,20 @@ from ....logger import LOGGER
 from .util import yml_load_entries, yml_save_entries
 
 
+class _YoutubeDLLogger:
+    def debug(self, message: str) -> None:
+        LOGGER.debug(message)
+
+    def warning(self, message: str) -> None:
+        LOGGER.warning(message)
+
+    def error(self, message: str) -> None:
+        if "Private video" in message:
+            LOGGER.debug(message)
+        else:
+            LOGGER.error(message)
+
+
 def _process_subtitles(subtitles_dict: dict, key):
     """Process the subtitles dict to extract the English automatic subtitles."""
     if "en" not in subtitles_dict:
@@ -45,6 +59,8 @@ def load_yt_info(playlist_dict_entry: dict) -> list[dict]:
         "ignoreerrors": True,
         "nocheckcertificate": True,
         "force_generic_extractor": True,  # stops fancy format logic
+        "logger": _YoutubeDLLogger(),
+        "js_runtimes": {"node": {}},
     }
     if playlist_dict_entry.get("flat", False):
         ydl_opts["extract_flat"] = "in_playlist"
@@ -57,8 +73,11 @@ def load_yt_info(playlist_dict_entry: dict) -> list[dict]:
         info = ydl.extract_info(playlist_url, download=False)
     good_cols = playlist_dict_entry["cols"].copy()
     for entry in info.get("entries", []):
-        req_sub = entry.get("requested_subtitles", None)
-        if isinstance(entry, dict) and req_sub is not None:
+        if not isinstance(entry, dict):
+            LOGGER.debug(f"{key}: Skipping unavailable playlist entry")
+            continue
+        req_sub = entry.get("requested_subtitles")
+        if req_sub is not None:
             _process_subtitles(req_sub, entry["id"])
 
     new_entries = [

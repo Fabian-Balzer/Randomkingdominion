@@ -1,3 +1,50 @@
+
+2026-10-08---raze, amulet, caravan_guard, importer, magpie, port, bridge_troll, royal_carriage, skirmisher, hireling, order_of_astrologers
+2026-10-07---faithful_hound, guardian, herbalist, monastery, secret_cave, exorcist, shepherd, cobbler, crypt, tragic_hero
+2026-10-06---courtyard, steward, baron, conspirator, ironworks, mill, courtier, duke, minion, trading_post
+2026-10-05---courtyard, lurker, moat, ironworks, moneylender, poacher, market, patrol, witch, farm
+2026-10-04---clashes, leprechaun, bridge, quarry, bridge_troll, cursed_village, vampire, werewolf, grand_market, animal_fair, inspiring(quarry), keep -x twist_sale
+2026-10-03---native_village, shaman, harbinger, riverboat(swap), secluded_shrine, sentinel, galleria, knights, villain, kings_cache, rush, enclave
+2026-10-02---anvil, clashes, odysseys, wizards, bishop, secret_passage, workers_village, courtier, skirmisher, swap, order_of_astrologers
+2026-10-01---courier, flagship, innkeeper, landing_party, rope, royal_galley, cutthroat, hunter, mining_road, pickaxe, mirror, inherited(pickaxe)
+2026-09-30---improve, nomads, patron, research, margrave, recruiter, swashbuckler, treasurer, wheelwright, border_village, citadel, innovation
+2026-09-29---lurker, shanty_town, wishing_well, bridge, conspirator, mill, secret_passage, torturer, trading_post, farm
+2026-09-28---lackeys, harbinger, gardens, moneylender, patron, library, old_witch, sculptor, spices, villain, barracks, star_chart
+2026-09-27---settlers, clashes, wishing_well, familiar, alley, change, inventor, rustic_village, kitsune, kings_court, bureaucracy, pathfinding, lost_arts -x twist_shoppers, start_replace_copper(rocks)
+2026-09-26---aristocrat, gladiator, diplomat, poacher, tide_pools, transmogrify, cobbler, inn, royal_carriage, expand, travelling_fair, academy
+2026-09-25---fools_gold, workshop, bureaucrat, poacher, remodel, smithy, trail, haggler, library, souk
+2026-09-24---grotto, farrier, advisor, fortune_hunter, plaza, herald, crew, cutthroat, merchant_guild, silver_mine, hasty(silver_mine), fated(crew)
+2026-09-23---vagrant, hermit, feodum, wandering_minstrel, graverobber, knights, mint, rabble, vault, altar, colonies
+2026-09-22---beggar, hermit, armory, procession, scavenger, wandering_minstrel, mystic, rogue, altar, hunting_grounds, shelters
+2026-09-21---lighthouse, sea_chart, vassal, cutpurse, remodel, salvager, smithy, bandit, corsair, outpost
+2026-09-20---jewelled_egg, gladiator, guard_dog, hermit, market_square, monkey, ranger, swamp_shacks, magnate, replace, nearby(guard_dog) -x stamp_plus_action(swamp_shacks)
+2026-09-19---fishmonger, sleigh, forts, ghost_town, swindler, village, collection, imperial_envoy, merchant_ship, mystic
+2026-09-18---mountain_shrine, daimyo, dungeon, infirmary, poet, transmogrify, baker, footpad, lost_city, samurai, training, amass, divine_wind(distant_lands, page, miser, stonemason, snake_witch, journeyman, magpie, wine_merchant, guide, aristocrat)
+2026-09-17---ratcatcher, raze, sleigh, guide, bounty_hunter, cavalry, falconer, royal_carriage, storyteller, fisherman, enhance, travelling_fair
+2026-09-16---engineer, city_quarter, encampment, patrician, gladiator, sacrifice, villa, archive, crown, forum, triumphal_arch, triumph
+2026-09-15---druid(the_skys_gift, the_mountains_gift, the_earths_gift), monastery, night_watchman, bard, devils_workshop, exorcist, necromancer, idol, vampire, werewolf
+2026-09-14---vassal, wishing_well, bridge, ironworks, militia, poacher, secret_passage, throne_room, minion, farm
+2026-09-13---camel_train, leprechaun, familiar, villa, charm, gatekeeper, journeyman, merchant_guild, sanctuary, villain, enclave, avoid -x stamp_motivational(enclave), stamp_cost_2_less(enclave)
+2026-09-12---mountain_shrine, fools_gold, grotto, ratcatcher, stonemason, experiment, alley, stables, swap, border_village, aqueduct, good_harvest
+2026-09-11---squire, sage, conspirator, bandit_camp, catacombs, counterfeit, minion, mystic, patrol, farm, shelters
+2026-09-10---herbalist, settlers, university, catapult, farmers_market, alchemist, philosophers_stone, villa, apprentice, wild_hunt, triumphal_arch, triumph
+2026-09-09---fools_gold, develop, goatherd, stockpile, bounty_hunter, cardinal, berserker, coven, haggler, animal_fair, way_of_the_frog, reap
+2026-09-08---develop, tunnel, trail, weaver, cauldron, haggler, highway, margrave, wheelwright, witchs_hut
+2026-09-07---augurs, harbinger, odysseys, bureaucrat, emissary, galleria, highwayman, skirmisher, witch, marquis, fellowship_of_scribes
+2026-09-06--- native_village, patrician, peasant, pixie, storeroom, weaver, frigate, hunting_party, junk_dealer, magnate, star_chart, colonies -x twist_room_for_more(distant_lands), start_10_villagers
+2026-09-05---daimyo, secluded_shrine, carpenter, messenger, swamp_shacks, trail, barbarian, falconer, quartermaster, sculptor, fountain, seaway
+2026-09-04---lackeys, moat, vagrant, cargo_ship, forager, sage, fortress, bandit, graverobber, swashbuckler, cathedral, fair
+2026-09-03---monastery, university, fool, secret_cave, familiar, cemetery, shepherd, skulk, tormentor, werewolf
+2026-09-02---black_cat, stockpile, infirmary, bounty_hunter, cardinal, cavalry, barge, journeyman, livery, fisherman, way_of_the_ox, invest
+2026-09-01---mountain_shrine, daimyo, fishmonger, aristocrat, riverboat(litter), root_cellar, alley, rice_broker, tea_house, rice, receive_tribute, good_harvest
+2026-08-31---chapel, ducat, lackeys, acting_troupe, cargo_ship, village, bureaucrat, inventor, priest, swashbuckler, citadel, exploration
+2026-08-30---druid(the_swamps_gift, the_rivers_gift, the_fields_gift), encampment, tracker, scrying_pool, amulet, root_cellar, bard, blessed_village, weaver, trading_post, bonfire, star_chart -x twist_turn_turn_turn, start_replace_copper(ghost)
+2026-08-29---sheepdog, vassal, hostelry, necromancer, transmogrify, cobbler, magnate, mine, modify, hireling, city_gate, triumphal_arch, colonies
+2026-08-28---stonemason, camel_train, scheme, snowy_village, bounty_hunter, groom, nomads, spice_merchant, cauldron, destrier, way_of_the_squirrel, demand
+2026-08-27---fishmonger, augurs, clashes, forts, ninja, river_shrine, modify, rice_broker, skirmisher, tea_house, good_harvest, asceticism
+2026-08-26---bauble, native_village, sycophant, fishing_village, wizards, blockade, royal_galley, sailor, pirate, swap, forest_dwellers
+2026-08-25---stowaway, taskmaster, flagship, fortune_hunter, gondola, maroon, rope, buried_treasure, frigate, trickster, rich(fortune_hunter), cheap(rope)
+2026-08-24---cellar, coin_of_the_realm, page, peasant, port, transmogrify, distant_lands, haunted_woods, mine, wine_merchant, expedition, plan
 2026-08-23---bauble, crossroads, aristocrat, death_cart, diplomat, rope, shepherd, capital, cursed_village, galleria, nearby(galleria), architects_guild, fleet -x stamp_chameleonized(galleria)
 2026-08-22---royal_blacksmith, university, camel_train, caravan_guard, develop, masquerade, change, mill, butcher, den_of_sin, way_of_the_otter, amass
 2026-08-21---anvil, bard, bishop, exorcist, charlatan, den_of_sin, rabble, tragic_hero, raider, bank, citadel, barracks, colonies
@@ -577,4 +624,3 @@
 2025-01-13---chapel, merchant, village, remake, throne_room, bandit, horn_of_plenty, library, market, mine
 2025-01-12---city_quarter, fool, storeroom, vassal, caravan, change, kiln, mastermind, tea_house, wild_hunt, way_of_the_squirrel, aqueduct, bureaucracy
 2025-01-11---druid(the_earths_gift, the_flames_gift, the_swamps_gift), astrolabe, caravan_guard, forts, gladiator, armory, patron, hunting_lodge, sculptor, swamp_hag, way_of_the_butterfly, trade, shelters
-2025-01-10---ghost_town, shanty_town, swindler, silk_merchant,

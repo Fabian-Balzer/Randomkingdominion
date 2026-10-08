@@ -1,4 +1,22 @@
 - cards:
+  - amulet
+  - bridge_troll
+  - caravan_guard
+  - hireling
+  - importer
+  - magpie
+  - port
+  - raze
+  - royal_carriage
+  - skirmisher
+  expansions:
+  - Adventures
+  - Allies
+  idx: 312348345407734237118569249768450361235
+  landscapes:
+  - order_of_astrologers
+  name: '2026-10-08'
+- cards:
   - cobbler
   - crypt
   - exorcist
@@ -15,32 +33,48 @@
   idx: 40123788735151936435132923610545298745
   name: '2026-10-07'
   notes:
-    crucial_cards: [Ghost, Tragic Hero, Shepherd, Magic Lamp]
-    ending: [Province, Estate]
-    link: 'https://youtu.be/UDhuXeGyUkg'
-    name: 'Tragic Ghosts'
+    crucial_cards:
+    - Ghost
+    - Tragic Hero
+    - Shepherd
+    - Magic Lamp
+    ending:
+    - Province
+    - Estate
+    link: https://youtu.be/UDhuXeGyUkg
+    name: Tragic Ghosts
     openings:
-    - grade: 'C'
-      t1: 'Silver, or Shepherd'
-      t1_csos: [Silver]
-      t2: 'Secret Cave'
-      t2_csos: [Secret Cave]
+    - grade: C
+      t1: Silver, or Shepherd
+      t1_csos:
+      - Silver
+      t2: Secret Cave
+      t2_csos:
+      - Secret Cave
       type: 4/3
-    - grade: 'C'
-      t1: 'Secret Cave, or Guardian'
-      t1_csos: [Secret Cave]
-      t2: 'Silver, or Shepherd, or Cobbler'
-      t2_csos: [Silver]
+    - grade: C
+      t1: Secret Cave, or Guardian
+      t1_csos:
+      - Secret Cave
+      t2: Silver, or Shepherd, or Cobbler
+      t2_csos:
+      - Silver
       type: 4/3|3/4
-    - grade: 'B+'
-      t1: 'Cobbler'
-      t1_csos: [cobbler]
-      t2: 'Monastery, or Faithful Hound'
-      t2_csos: [monastery]
+    - grade: B+
+      t1: Cobbler
+      t1_csos:
+      - cobbler
+      t2: Monastery, or Faithful Hound
+      t2_csos:
+      - monastery
       type: 5/2|2/5
-    points: [48, 40]
-    subtitle: 'Almost Screwing It Up After An Early Lamp Pop'
-    turns: [15, 14]
+    points:
+    - 48
+    - 40
+    subtitle: Almost Screwing It Up After An Early Lamp Pop
+    turns:
+    - 15
+    - 14
 - cards:
   - baron
   - conspirator
