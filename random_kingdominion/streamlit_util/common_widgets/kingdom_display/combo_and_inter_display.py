@@ -23,7 +23,7 @@ def st_build_combo_and_inter_display(csos: list[str]):
         "streamlit_pages/interactions.py",
         label="More about interactions",
         icon=ST_ICONS["interactions"],
-        use_container_width=True,
+        width="stretch",
         help="Visit the page that contains more information on the available interactions in the database.",
     )
     combos = filter_combo_or_inter_df_for_csos(
@@ -42,6 +42,6 @@ def st_build_combo_and_inter_display(csos: list[str]):
         "streamlit_pages/combos.py",
         label="More about synergies",
         icon="🎊",
-        use_container_width=True,
+        width="stretch",
         help="Visit the page that contains more information on the available combos in the database.",
     )

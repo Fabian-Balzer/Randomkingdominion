@@ -118,7 +118,7 @@ def _build_single_reroll_button(cso_name: str, reroll_callback: Callable[[str], 
         "Reroll",
         on_click=lambda c=cso_name: reroll_callback(sanitize_cso_name(c)),
         key=f"reroll_{cso_name}",
-        use_container_width=True,
+        width="stretch",
         type="primary",
     ):
         st.rerun()

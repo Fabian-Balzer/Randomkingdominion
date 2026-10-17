@@ -23,7 +23,7 @@ def _build_page_info(desc: str, link_help: str = ""):
             "streamlit_pages/about.py",
             label="More details",
             icon=ST_ICONS["about"],
-            use_container_width=True,
+            width="stretch",
             help=link_help,
         )
 
@@ -37,7 +37,7 @@ def build_page_header(title: str, desc: str, link_help: str = ""):
     cols[1].button(
         button_text,
         on_click=toggle_showing_info,
-        use_container_width=True,
+        width="stretch",
         key="show_more_info",
         help="Show more info about the page.",
     )

@@ -13,7 +13,7 @@ def _build_reroll_selection_button(
         "Reroll selected CSOs",
         help="Reroll the CSOs you selected to generate a new kingdom.",
         on_click=reroll_selection_callback,
-        use_container_width=True,
+        width="stretch",
         key=key,
         type="primary",
     ):
