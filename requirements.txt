@@ -1,9 +1,12 @@
-streamlit
-pandas
-numpy
-matplotlib
-PyYAML
-st-copy-to-clipboard
-scipy
-streamlit-extras
-colorama
+# Exact versions the app and test suite are verified with (Python 3.13).
+# Bump deliberately, then run `python -m pytest randomizer_modules_tests`.
+streamlit==1.60.0
+pandas==2.3.3
+numpy==2.3.5
+matplotlib==3.10.8
+pillow==12.0.0
+PyYAML==6.0.3
+st-copy-to-clipboard==0.1.6
+scipy==1.16.3
+streamlit-extras==0.7.8
+colorama==0.4.6

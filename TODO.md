@@ -20,6 +20,7 @@ Things and ideas I am having to improve
 - Add capability to manipulate name, notes etc. for a given kingdom in the UI
 - Add sorting options for kingdom (Cost as default, but also Card Name and Expansion?)
 - Improve the kingdom overview
+- Add a kingdom history (e.g. the last randomized kingdoms of a session, building on `KingdomManager`)
 - Implement showing the whole kingdom to set up (e.g. Wishes, Boons, Loot, Ruins)
 - Add possibility of clicking on a single card/landscape to get full screen view
 - Save the UI state in config (for collapsible views)
