@@ -1,48 +1,31 @@
-from collections.abc import MutableMapping, Sequence
-from typing import Any, cast
+from collections.abc import Sequence
+from typing import cast
 
-import streamlit as st
 from streamlit.runtime.state import SessionStateProxy
 
-from ...constants import QUALITIES_AVAILABLE
 from ...kingdom import KingdomRandomizer
 from .run_state import QUIZ_RUN_RECORD_KEY
 
+QUIZ_BUY_ANSWER_KEY = "quiz_quality_buy_str"
+# Durable keys for settings whose widgets are not rendered during a round
+QUIZ_MODE_KEY = "quiz_run_mode"
+QUIZ_DIFFICULTY_KEY = "quiz_difficulty_selection"
+QUIZ_HIDE_TIMER_KEY = "quiz_hide_timer"
+QUIZ_LARGE_VIEW_KEY = "quiz_kingdom_view_large"
 
-def st_calc_quiz_score(
-    user_vals: dict[str, float],
-    real_vals: dict[str, float],
-    buy_str_user: str,
-    buy_str_kingdom: str,
-) -> float:
-    score = 0.0
-    if buy_str_user.lower() == buy_str_kingdom:
-        score += 3
-    for qual, user_val in user_vals.items():
-        if qual not in real_vals:
-            raise ValueError(f"Quality {qual!r} is not available in the kingdom.")
-        diff = abs(real_vals[qual] - user_val)
-        if diff == 0:
-            score += 2
-        elif diff == 0.5:
-            score += 1.5
-        elif diff == 1:
-            score += 1
-    return score
+
+def get_quality_answer_key(quality: str) -> str:
+    return f"quiz_quality_slider_{quality}"
 
 
 def reset_quiz_answers(state: SessionStateProxy, quality_names: Sequence[str]) -> None:
-    state["quiz_show_solution"] = False
-    state.pop("quiz_quality_buy_str", None)
+    state.pop(QUIZ_BUY_ANSWER_KEY, None)
     for quality in quality_names:
-        state[f"quiz_quality_slider_{quality}"] = None
+        state.pop(get_quality_answer_key(quality), None)
 
 
 def reset_quiz_workflow(state: SessionStateProxy, quality_names: Sequence[str]) -> None:
-    state.pop("quiz_run_state", None)
     state.pop(QUIZ_RUN_RECORD_KEY, None)
-    state.pop("quiz_current_kingdom", None)
-    state.pop("quiz_has_started", None)
     for key in list(state):
         if cast(str, key).startswith("_quiz_quality_"):
             state.pop(key, None)
@@ -50,6 +33,8 @@ def reset_quiz_workflow(state: SessionStateProxy, quality_names: Sequence[str]) 
 
 
 def load_quiz_widget_value(state: SessionStateProxy, answer_key: str) -> str:
+    """Copy the durable value of `answer_key` into the state of its widget, which
+    Streamlit forgets whenever the widget isn't rendered. Returns the widget key."""
     widget_key = f"_{answer_key}"
     if answer_key in state:
         state[widget_key] = state[answer_key]
@@ -66,17 +51,6 @@ def save_quiz_widget_value(state: SessionStateProxy, answer_key: str) -> None:
         state[answer_key] = widget_value
 
 
-def generate_random_quiz_kingdom(quality_names: Sequence[str]) -> None:
-    st.session_state["quiz_current_kingdom"] = generate_random_quiz_kingdom_string()
-    reset_quiz_answers(st.session_state, quality_names)
-
-
 def generate_random_quiz_kingdom_string() -> str:
     kingdom = KingdomRandomizer().randomize_new_kingdom()
     return kingdom.get_dombot_csv_string()
-
-
-def get_quiz_quality_names() -> list[str]:
-    quality_names = [q for q in QUALITIES_AVAILABLE if q != "interactivity"]
-    quality_names = quality_names[3::-1] + quality_names[:3:-1]
-    return quality_names

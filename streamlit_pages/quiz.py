@@ -80,14 +80,14 @@ In case you want to read more, I have provided a few more insights and lists of 
 
 explanations[
     "🏆 Scoring"
-] = """The score awarded for completing the quiz is based on the offsets to the real values: For each quality, you are awarded 
+] = f"""The score awarded for completing the quiz is based on the offsets to the real values: For each quality, you are awarded 
 - 2 points if you are correct, otherwise
 - 1.5 points if you are off by at most 0.5 (only important for luck-based/limited qualities), otherwise
 - 1 point if you are only off by at most 1, and
 - 0 points if you are off by more than 1.
 - You receive an additional 3 points for correctly assessing the Buy situation.
 
-Scoring anything above 10 points is pretty good, and above 12 points is pretty impressive, but don't worry too much about the score - it's just for fun, and the main point is to train your ability to analyze kingdoms for their qualities, which is a skill that can be helpful when playing.
+Out of the maximum of {rk.MAX_ROUND_SCORE} points per kingdom, scoring anything above {rk.GOOD_SCORE_THRESHOLD} points is pretty good, and above {rk.IMPRESSIVE_SCORE_THRESHOLD} points is pretty impressive, but don't worry too much about the score - it's just for fun, and the main point is to train your ability to analyze kingdoms for their qualities, which is a skill that can be helpful when playing.
 """
 
 

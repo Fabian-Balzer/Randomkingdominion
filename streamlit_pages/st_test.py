@@ -41,7 +41,7 @@ def create_card(exp: str):
             st.button(
                 f"{exp}",
                 key=f"color button {exp}",
-                use_container_width=True,
+                width="stretch",
                 on_click=lambda: _toggle_exp(exp),
             )
 

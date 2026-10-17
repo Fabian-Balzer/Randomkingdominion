@@ -112,21 +112,21 @@ def _build_group_select_buttons():
         st.button(
             "Reset",
             on_click=lambda: _toggle_all_qualities(False, 0),
-            use_container_width=True,
+            width="stretch",
             help="Reset everything such that the randomization is not influenced.",
         )
     with cols[1]:
         st.button(
             "Enable all",
             on_click=lambda: _toggle_all_qualities(False, 2),
-            use_container_width=True,
+            width="stretch",
             help="Enable all qualities to be required for the randomized kingdom. This usually results in a kingdom suitable for engines.",
         )
     with cols[2]:
         st.button(
             "Exclude all",
             on_click=lambda: _toggle_all_qualities(True),
-            use_container_width=True,
+            width="stretch",
             help="Have the randomizer consider only CSOs that do not have any qualities.",
         )
 

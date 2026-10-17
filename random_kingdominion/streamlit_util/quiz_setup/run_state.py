@@ -1,69 +1,67 @@
 from dataclasses import dataclass, field
 from datetime import datetime
 from enum import StrEnum
-from typing import Literal
 from uuid import uuid4
+
+from .scoring import MAX_ROUND_SCORE, BuyAvailability
 
 QUIZ_SCORING_VERSION = "1"
 QUIZ_RUN_RECORD_KEY = "quiz_run_record"
-BuyAvailability = Literal["yes", "maybe", "no"]
 
 
 class QuizMode(StrEnum):
-    PRACTICE = "🧪 Practice"
-    RUN = "🏁 Run"
+    PRACTICE = "practice"
+    RUN = "run"
 
-    @classmethod
-    def from_display_key(cls, key: str) -> "QuizMode":
-        if key == "🧪 Practice":
-            return QuizMode.PRACTICE
-        elif key == "🏁 Run":
-            return QuizMode.RUN
-        else:
-            raise ValueError(f"Unknown display key: {key!r}")
+    @property
+    def label(self) -> str:
+        return {QuizMode.PRACTICE: "🧪 Practice", QuizMode.RUN: "🏁 Run"}[self]
+
+    @property
+    def round_count(self) -> int:
+        return {QuizMode.PRACTICE: 1, QuizMode.RUN: 10}[self]
 
     def get_description(self, include_name: bool = True) -> str:
-        d = ""
-        if self is QuizMode.PRACTICE:
-            d = "Explore one kingdom at a time without a cumulative score."
-        elif self is QuizMode.RUN:
-            d = "Score ten kingdoms in a row and review your combined result."
-        else:
-            raise ValueError(f"Unknown quiz mode: {self!r}")
+        d = {
+            QuizMode.PRACTICE: "Explore one kingdom at a time without a cumulative score.",
+            QuizMode.RUN: f"Score {self.round_count} kingdoms in a row and review your combined result.",
+        }[self]
         if not include_name:
             return d
-        return f"**{self.value}**: {d}"
+        return f"**{self.label}**: {d}"
 
 
 class QuizDifficulty(StrEnum):
-    PRACTICE = "🧪 Practice"
-    EASY = "🌱 Easy"
-    HARD = "🔥 Hard"
+    OPEN_BOOK = "open_book"
+    EASY = "easy"
+    HARD = "hard"
 
-    @classmethod
-    def from_display_key(cls, key: str) -> "QuizDifficulty":
-        if key == "🧪 Practice":
-            return QuizDifficulty.PRACTICE
-        elif key == "🌱 Easy":
-            return QuizDifficulty.EASY
-        elif key == "🔥 Hard":
-            return QuizDifficulty.HARD
-        else:
-            raise ValueError(f"Unknown display key: {key!r}")
+    @property
+    def label(self) -> str:
+        return {
+            QuizDifficulty.OPEN_BOOK: "📖 Open Book",
+            QuizDifficulty.EASY: "🌱 Easy",
+            QuizDifficulty.HARD: "🔥 Hard",
+        }[self]
+
+    @property
+    def shows_hints(self) -> bool:
+        """Whether the CSO quality values are shown in the tooltips while answering."""
+        return self is QuizDifficulty.OPEN_BOOK
+
+    @property
+    def shows_card_text(self) -> bool:
+        return self is not QuizDifficulty.HARD
 
     def get_description(self, include_name: bool = True) -> str:
-        d = ""
-        if self is QuizDifficulty.PRACTICE:
-            d = "Full cards including text, hints with quality values shown."
-        elif self is QuizDifficulty.EASY:
-            d = "Full cards including text, hints with quality values hidden."
-        elif self is QuizDifficulty.HARD:
-            d = "Card texts hidden, no hints, only pictures."
-        else:
-            raise ValueError(f"Unknown quiz difficulty: {self!r}")
+        d = {
+            QuizDifficulty.OPEN_BOOK: "Full cards including text, hints with quality values shown.",
+            QuizDifficulty.EASY: "Full cards including text, hints with quality values hidden.",
+            QuizDifficulty.HARD: "Card texts hidden, no hints, only pictures.",
+        }[self]
         if not include_name:
             return d
-        return f"**{self.value}**: {d}"
+        return f"**{self.label}**: {d}"
 
 
 class QuizPhase(StrEnum):
@@ -97,7 +95,7 @@ class CompletedQuizRound:
 class QuizRunState:
     run_id: str = field(default_factory=lambda: str(uuid4()))
     mode: QuizMode = QuizMode.PRACTICE
-    difficulty: QuizDifficulty = QuizDifficulty.PRACTICE
+    difficulty: QuizDifficulty = QuizDifficulty.OPEN_BOOK
     phase: QuizPhase = QuizPhase.NOT_STARTED
     round_count: int = 1
     current_round_index: int = 0
@@ -175,7 +173,8 @@ class QuizRunState:
             return 0.0
 
     def get_total_elapsed_time_so_far(self) -> float:
-        if self.phase is QuizPhase.FINISHED:
+        # Once scored, the current round is already part of the completed rounds.
+        if self.phase is not QuizPhase.ANSWERING:
             return self.total_elapsed_time
         return self.total_elapsed_time + self.get_elapsed_time_of_current_round()
 
@@ -187,11 +186,11 @@ class QuizRunState:
 
     @property
     def perfect_round_count(self) -> int:
-        return sum(round_result.score == 15 for round_result in self.completed_rounds)
+        return sum(round_result.score == MAX_ROUND_SCORE for round_result in self.completed_rounds)
 
     @property
     def maximum_score(self) -> int:
-        return self.round_count * 15
+        return self.round_count * MAX_ROUND_SCORE
 
     @property
     def total_elapsed_time(self) -> float:

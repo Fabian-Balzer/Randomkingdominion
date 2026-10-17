@@ -4,11 +4,9 @@ from typing import Any, cast
 
 from streamlit.runtime.state import SessionStateProxy
 
-from ...kingdom import Kingdom
 from .run_state import (
     QUIZ_RUN_RECORD_KEY,
     QUIZ_SCORING_VERSION,
-    BuyAvailability,
     CompletedQuizRound,
     QuizAnswers,
     QuizDifficulty,
@@ -16,9 +14,10 @@ from .run_state import (
     QuizPhase,
     QuizRunState,
 )
-from .util import st_calc_quiz_score
+from .scoring import BuyAvailability, score_quiz_round
 
-QUIZ_RUN_SCHEMA_VERSION = 1
+# Version 2: mode and difficulty are stored as stable ids instead of display labels.
+QUIZ_RUN_SCHEMA_VERSION = 2
 
 
 class QuizPersistenceError(ValueError):
@@ -132,13 +131,7 @@ def _restore_completed_round(record: dict[str, Any]) -> CompletedQuizRound:
 
     answers = QuizAnswers(quality_values, buy_availability)
     kingdom_string = str(record["kingdom"])
-    kingdom = Kingdom.from_dombot_csv_string(kingdom_string)
-    trusted_score = st_calc_quiz_score(
-        quality_values,
-        kingdom.total_qualities,
-        buy_availability,
-        kingdom.buy_availability,
-    )
+    trusted_score = score_quiz_round(quality_values, buy_availability, kingdom_string)
     start_time = record.get("start_time")
     end_time = record.get("end_time")
     if start_time is None or end_time is None:

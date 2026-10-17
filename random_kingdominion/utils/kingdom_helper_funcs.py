@@ -32,9 +32,13 @@ def _calculate_total_quality(values: Collection[float]) -> float:
 
     Examples
     --------
-    >>> _calculate_total_quality([1, 2, 3, 4, 4])
+    >>> _calculate_total_quality([1, 2, 3])
+    3
+    >>> _calculate_total_quality([3, 3])
     4
     >>> _calculate_total_quality([1, 1, 1, 1, 2])
+    2
+    >>> _calculate_total_quality([1, 1, 1, 1, 2, 2])
     3
     >>> _calculate_total_quality([1, 1, 1, 1, 1])
     2
@@ -60,7 +64,7 @@ def _calculate_total_quality(values: Collection[float]) -> float:
     nonzero = np.nonzero(counts)[0][-1] if np.any(counts) else 0
     if nonzero == 0 and 0.5 in values:
         return 0.5
-    return nonzero
+    return int(nonzero)
 
 
 def get_total_quality(qual_name: str, kingdom_df: pd.DataFrame) -> float:

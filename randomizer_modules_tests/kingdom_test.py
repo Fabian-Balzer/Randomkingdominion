@@ -318,3 +318,13 @@ def test_omen_addition_and_removal():
     new_kingdom = randomizer.reroll_single_cso(kingdom, omen)
     assert omen not in new_kingdom.cards
     assert not new_kingdom.contains_prophecy()
+
+
+def test_total_quality_docstring_examples():
+    import doctest
+    import importlib
+
+    helper_funcs = importlib.import_module(
+        "random_kingdominion.utils.kingdom_helper_funcs"
+    )
+    assert doctest.testmod(helper_funcs).failed == 0
