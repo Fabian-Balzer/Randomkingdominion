@@ -5,10 +5,14 @@ from ...constants import ALL_CSOS, PATH_CARD_PICS
 
 def load_cso_img_by_key(cso_key: str, resize: bool = True) -> Image.Image:
     """Load the image of the card specified by the cso_key"""
+    if is_coin_curse := (cso_key == "curse_with_coin"):
+        cso_key = "charlatan"
     cso = ALL_CSOS.loc[cso_key]
     fpath = PATH_CARD_PICS.joinpath(cso["ImagePath"])  # type: ignore
     if not fpath.exists():
         raise FileNotFoundError(f"Couldn't find the image at {fpath}")
+    if is_coin_curse:
+        fpath = fpath.with_stem("Curse_With_Coin")
     img = Image.open(fpath)
     if not resize or cso_key == "ruins":
         return img
@@ -31,7 +35,8 @@ def crop_img_by_percentage(img: Image.Image, crop_rect: list[float]) -> Image.Im
 
 def get_square_cutout(cso_key: str) -> Image.Image:
     """Get a more or less square cutout of the central region of the given cso."""
-    entry = ALL_CSOS.loc[cso_key]
+    alt_key = cso_key if cso_key != "curse_with_coin" else "charlatan"
+    entry = ALL_CSOS.loc[alt_key]
     crop_rect = [0.15, 0.11, 0.85, 0.51]
     if (
         entry["IsExtendedLandscape"]

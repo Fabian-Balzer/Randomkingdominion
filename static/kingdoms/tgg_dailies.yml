@@ -1,4 +1,433 @@
 - cards:
+  - artisan
+  - bandit_camp
+  - bauble
+  - fairgrounds
+  - pixie
+  - quartermaster
+  - sacrifice
+  - siren
+  - tea_house
+  - tools
+  expansions:
+  - Allies
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Nocturne
+  - Plunder
+  - Rising Sun
+  idx: 133992238283172966085257527816187873605
+  landscapes:
+  - fawning
+  - kind_emperor
+  - peaceful_cult
+  - tax
+  name: '2026-10-17'
+  notes:
+    crucial_cards: [Pixie, Bauble, Siren, Tea House]
+    ending: [Curse, Tea House, Pixie]
+    link: 'https://youtu.be/Ag64-UjHQXg'
+    name: 'Siren Baublissimo'
+    openings:
+    - grade: 'A'
+      t1: 'Pixie, trashing two Estates'
+      t1_csos: [pixie, goat, estate, peaceful_cult]
+      t2: 'Bauble, paying off Debt'
+      t2_csos: [bauble, tax]
+      type: 4/3|3/4
+    - grade: 'B'
+      t1: 'Quartermaster'
+      t1_csos: [quartermaster]
+      t2: 'Pay off Debt, trash two Estates if possible'
+      t2_csos: [Tax, peaceful_cult, estate]
+      type: 5/2
+    - grade: 'B-'
+      t1: 'Pixie, trash two Estates if possible'
+      t1_csos: [pixie, peaceful_cult, estate]
+      t2: 'Bauble, paying off Debt'
+      t2_csos: [bauble, tax]
+      type: 2/5
+    points: [15, 6]
+    subtitle: 'Using A Trick AI Ignores In This 4 Landscape Crazyness'
+    turns: [11, 10]
+  traits:
+  - - fawning
+    - pixie
+- cards:
+  - advisor
+  - butcher
+  - familiar
+  - farrier
+  - golem
+  - merchant_guild
+  - philosophers_stone
+  - plaza
+  - university
+  - vineyard
+  expansions:
+  - Alchemy
+  - Cornucopia & Guilds, 2E
+  idx: 84734684499363776145573597735982861718
+  name: '2026-10-15'
+  notes:
+    crucial_cards:
+    - Butcher
+    - Farrier
+    - University
+    - Vineyard
+    ending:
+    - Plaza
+    - Advisor
+    - Farrier
+    link: https://youtu.be/OEakvOTaFvY
+    name: Butchered Potions
+    openings:
+    - grade: C
+      t1: Potion
+      t1_csos:
+      - potion
+      t2: Silver, or Farrier overpaying $1
+      t2_csos:
+      - Silver
+      type: 4/3
+    - grade: C
+      t1: Silver
+      t1_csos:
+      - Silver
+      t2: Potion
+      t2_csos:
+      - potion
+      type: 3/4
+    - grade: B-
+      t1: Butcher
+      t1_csos:
+      - butcher
+      t2: Farrier
+      t2_csos:
+      - farrier
+      type: 5/2|2/5
+    points:
+    - 16
+    - 0
+    subtitle: Fast One In Which AI Seemed To Have A Nice Start (But Then Ignored Potion)
+    turns:
+    - 12
+    - 11
+- cards:
+  - flag_bearer
+  - improve
+  - jack_of_all_trades
+  - mountain_village
+  - old_witch
+  - scholar
+  - seer
+  - spice_merchant
+  - wheelwright
+  - witchs_hut
+  expansions:
+  - Hinterlands, 2E
+  - Renaissance
+  idx: 285006931317316163164457504972412475510
+  landscapes:
+  - capitalism
+  - silos
+  name: '2026-10-14'
+  notes:
+    crucial_cards:
+    - Improve
+    - Old Witch
+    - Seer
+    - Capitalism
+    ending:
+    - Curse
+    - Improve
+    - Mountain Village
+    link: https://youtu.be/BBiv8gysbFE
+    name: Capitalizing Improves
+    openings:
+    - grade: B
+      t1: Spice Merchant
+      t1_csos:
+      - spice_merchant
+      t2: Improve
+      t2_csos:
+      - improve
+      type: 4/3|3/4
+    - grade: B-
+      t1: Old Witch
+      t1_csos:
+      - old_witch
+      t2: Skip turn
+      t2_csos:
+      - tragic_hero
+      type: 5/2|2/5
+    points:
+    - 13
+    - 7
+    subtitle: Having A Rather Speedy Run Through A Nice Improve Kingdom
+    turns:
+    - 11
+    - 10
+- cards:
+  - bandit_camp
+  - death_cart
+  - forager
+  - hermit
+  - hunting_grounds
+  - knights
+  - market_square
+  - poor_house
+  - rogue
+  - vagrant
+  expansions:
+  - Dark Ages
+  idx: 301440423288520416056705666119387798107
+  name: '2026-10-13'
+  use_shelters: true
+- cards:
+  - artisan
+  - bridge
+  - conspirator
+  - courtyard
+  - ironworks
+  - militia
+  - mill
+  - pawn
+  - smithy
+  - torturer
+  expansions:
+  - Base, 2E
+  - Intrigue, 2E
+  idx: 91398089878414107012876737100518740843
+  name: '2026-10-12'
+- campaign_effects:
+  - garbage_heap
+  - incoming
+  cards:
+  - change
+  - galleria
+  - guildmaster
+  - mountain_shrine
+  - overlord
+  - scrying_pool
+  - swamp_hag
+  - sycophant
+  - trading_post
+  - underling
+  expansions:
+  - Adventures
+  - Alchemy
+  - Allies
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Rising Sun
+  idx: 40020652759889350141667318929008660999
+  landscapes:
+  - coastal_haven
+  - great_leader
+  - way_of_the_frog
+  name: '2026-10-11'
+  notes:
+    crucial_cards:
+    - Mountain Shrine
+    - Change
+    - Galleria
+    - Coastal Haven
+    ending:
+    - Province
+    link: https://youtu.be/8py2UG2brNs
+    name: Mountain Heap
+    openings:
+    - grade: B+
+      t1: Trash Estate, buy Mountain Shrine
+      t1_csos:
+      - Estate
+      - Mountain Shrine
+      t2: Trash Estates if possible, buy Underling
+      t2_csos:
+      - Estate
+      - Underling
+      type: 4/3
+    - grade: B
+      t1: Trash Estate, buy Mountain Shrine, Haven Estate
+      t1_csos:
+      - Estate
+      - Mountain Shrine
+      - coastal_haven
+      - Estate
+      t2: Trash Estates if possible, buy Underling
+      t2_csos:
+      - Estate
+      - Underling
+      type: 3/4
+    - grade: C+
+      t1: Trash Copper, buy Mountain Shrine
+      t1_csos:
+      - Copper
+      - Mountain Shrine
+      t2: Trash Estates, buy Underling, Coastal Haven Estate if necessary
+      t2_csos:
+      - Estate
+      - Estate
+      - Underling
+      type: 5/2
+    - grade: C+
+      t1: Trash Estate, buy Mountain Shrine, Haven Estate
+      t1_csos:
+      - Estate
+      - Mountain Shrine
+      - coastal_haven
+      - Estate
+      t2: Trash Estate and Copper, buy Underling
+      t2_csos:
+      - Estate
+      - Copper
+      - Underling
+      type: 2/5
+    points:
+    - 30
+    - 21
+    subtitle: A Tight And Fast One
+    turns:
+    - 10
+    - 9
+- cards:
+  - baker
+  - baron
+  - border_village
+  - fairgrounds
+  - leprechaun
+  - sack_of_loot
+  - scepter
+  - sentry
+  - shop
+  - trail
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Renaissance
+  idx: 239758523208762292447107745827868373170
+  landscapes:
+  - capitalism
+  - way_of_the_mule
+  name: '2026-10-10'
+  notes:
+    crucial_cards:
+    - Shop
+    - Sentry
+    - Trail
+    - Sack of loot
+    ending:
+    - Sentry
+    - trail
+    - baker
+    link: https://youtu.be/4beYjqGaYPM
+    name: Trail o' Sentries
+    openings:
+    - grade: B
+      t1: Sentry (spending the Coffers)
+      t1_csos:
+      - sentry
+      t2: Shop
+      t2_csos:
+      - shop
+      type: 4/3|3/4
+    - grade: B
+      t1: Sentry
+      t1_csos:
+      - sentry
+      t2: Shop (spending the Coffers, or nothing)
+      t2_csos:
+      - shop
+      type: 5/2|2/5
+    points:
+    - 13
+    - 15
+    subtitle: Building Some Janky But Fun Draw
+    turns:
+    - 13
+    - 12
+- cards:
+  - capital
+  - figurine
+  - first_mate
+  - landing_party
+  - overlord
+  - pilgrim
+  - sacrifice
+  - sentry
+  - smithy
+  - swamp_shacks
+  expansions:
+  - Base, 2E
+  - Empires
+  - Plunder
+  idx: 261775373112324908729458871434180675679
+  landscapes:
+  - bury
+  - salt_the_earth
+  name: '2026-10-09'
+  notes:
+    crucial_cards:
+    - Landing Party
+    - Overlord
+    - Salt the earth
+    - Capital
+    ending:
+    - Province
+    link: https://youtu.be/dnXA-_wo2Y4
+    name: Salty Landing
+    openings:
+    - grade: B
+      t1: Sacrifice
+      t1_csos:
+      - sacrifice
+      t2: Overlord, or Silver
+      t2_csos:
+      - overlord
+      type: 4/3
+    - grade: B-
+      t1: Silver, or Overlord
+      t1_csos:
+      - silver
+      t2: Sacrifice, or nothing
+      t2_csos:
+      - sacrifice
+      type: 3/4
+    - grade: A-
+      t1: Sentry
+      t1_csos:
+      - Sentry
+      t2: Bury Sentry, maybe buy Overlord
+      t2_csos:
+      - bury
+      - sentry
+      - overlord
+      type: 5/2
+    - grade: C
+      t1: Buy Overlord
+      t1_csos:
+      - overlord
+      t2: Pay off debt
+      t2_csos:
+      - tax
+      type: 2/5
+    points:
+    - 34
+    - 13
+    subtitle: Staying Minimalistic Pays Off In Face Of Salt The Earth
+    turns:
+    - 15
+    - 14
+- cards:
   - amulet
   - bridge_troll
   - caravan_guard

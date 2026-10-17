@@ -1,4 +1,11 @@
-
+2026-10-17---bauble, pixie, siren, sacrifice, tools, bandit_camp, quartermaster, tea_house, artisan, fairgrounds, tax, fawning(pixie), peaceful_cult, kind_emperor
+2026-10-15---vineyard, farrier, university, familiar, philosophers_stone, advisor, plaza, golem, butcher, merchant_guild
+2026-10-14---improve, flag_bearer, jack_of_all_trades, mountain_village, spice_merchant, old_witch, scholar, seer, wheelwright, witchs_hut, silos, capitalism
+2026-10-13---poor_house, vagrant, forager, hermit, market_square, death_cart, bandit_camp, knights, rogue, hunting_grounds, shelters
+2026-10-12---courtyard, pawn, bridge, conspirator, ironworks, militia, mill, smithy, torturer, artisan
+2026-10-11---mountain_shrine, overlord, sycophant, scrying_pool, underling, change, galleria, guildmaster, swamp_hag, trading_post, coastal_haven, great_leader, way_of_the_frog -x twist_garbage_heap, twist_incoming
+2026-10-10---leprechaun, shop, baron, trail, baker, scepter, sentry, border_village, fairgrounds, sack_of_loot, capitalism, way_of_the_mule
+2026-10-09---overlord, landing_party, sacrifice, smithy, swamp_shacks, capital, figurine, first_mate, pilgrim, sentry, bury, salt_the_earth
 2026-10-08---raze, amulet, caravan_guard, importer, magpie, port, bridge_troll, royal_carriage, skirmisher, hireling, order_of_astrologers
 2026-10-07---faithful_hound, guardian, herbalist, monastery, secret_cave, exorcist, shepherd, cobbler, crypt, tragic_hero
 2026-10-06---courtyard, steward, baron, conspirator, ironworks, mill, courtier, duke, minion, trading_post

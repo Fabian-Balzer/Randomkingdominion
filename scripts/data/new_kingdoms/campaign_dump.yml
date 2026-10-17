@@ -5594,3 +5594,60 @@
   num_themes: 2
   theme_1: card:junk_dealer
   theme_2: category:lab
+- key: '983306919'
+  kingdoms:
+  - augurs, wizards, page, raider, library, fishing_village, mint, gardens, expand,
+    warehouse, alliance, order_of_astrologers, colonies
+  - kings_cache, wild_hunt, temple, farmers_market, haggler, crystal_ball, graverobber,
+    specialist, shaman, herbalist, alliance, colonies -x stamp_plus_coin(kings_cache)
+  - graverobber, knights, wizards, forts, forager, hunter, encampment, secret_passage,
+    quartermaster, ninja, alliance, city_state, peril, shelters -x stamp_cost_2_less(alliance),
+    stamp_plus_buy(graverobber)
+  - forts, castles, marauder, bank, pilgrim, hostelry, enlarge, catacombs, falconer,
+    specialist, alliance, foray -x stamp_cost_2_less(alliance), twist_typhoon(plaza,
+    gondola, werewolf, animal_fair, cauldron, carpenter, bounty_hunter, sentinel,
+    odysseys, courtyard, university, crystal_ball, engineer, pillage, mapmaker, upgrade,
+    haven, sculptor, scavenger, innkeeper)
+  - leprechaun, knights, wild_hunt, farmers_market, distant_lands, crystal_ball, mountain_village,
+    rustic_village, capital, changeling, alliance, panic, kintsugi -x stamp_cost_2_less(alliance),
+    stamp_with_villager(leprechaun), start_replace_estate(leprechaun), start_replace_estate(leprechaun)
+  - riverboat(treasurer), page, death_cart, marauder, wild_hunt, crystal_ball, forager,
+    sauna, ironmonger, exorcist, alliance, pious(riverboat(treasurer))
+  - farmland, knights, marauder, augurs, farmers_market, hunting_party, gatekeeper,
+    encampment, port, fisherman, alliance, tireless(farmland), shelters -x stamp_cost_2_less(alliance)
+  - farmers_market, wizards, townsfolk, peasant, forager, baker, ironmonger, walled_village,
+    amulet, forum, alliance, desert_guides, donate, shelters -x stamp_cost_2_less(alliance),
+    stamp_cost_2_less(alliance), stamp_cost_2_less(alliance)
+  - odysseys, farmers_market, peasant, forts, innkeeper, sanctuary, gatekeeper, inn,
+    mountain_village, blessed_village, alliance -x stamp_motivational(alliance)
+  - golem, scrying_pool, search, forts, wizards, peasant, death_cart, innkeeper, mapmaker,
+    baron, alliance, family_of_inventors, kintsugi -x stamp_cost_2_less(alliance),
+    start_replace_estate(potion), start_replace_estate(potion), start_in_play(search)
+  num_themes: 2
+  theme_1: landscape:alliance
+  theme_2: category:weird_type
+- key: '840825652'
+  kingdoms:
+  - abundance, supplies, philosophers_stone, stash, herald, gondola, dungeon, stockpile,
+    snake_witch, displace, guildhall
+  - tools, pickaxe, gondola, tragic_hero, gladiator, mining_village, pixie, siren,
+    herald, mapmaker, orchard, road_network -x start_replace_copper(pickaxe)
+  - scepter, rope, anvil, buried_treasure, ironworks, rice_broker, outpost, seer,
+    tide_pools, diplomat, prosper, way_of_the_rat -x stamp_treasurified(ironworks)
+  - rice, sack_of_loot, cage, spices, poor_house, sauna, pirate, displace, rebuild,
+    wheelwright -x stamp_treasurified(poor_house)
+  - hoard, bauble, farm, ducat, raider, tools, castles, gladiator, townsfolk, specialist,
+    order_of_masons, credit, colonies -x twist_so_much_stuff
+  - spices, crucible, figurine, tools, stowaway, haggler, grotto, guardian, storeroom,
+    improve, prosper -x start_replace_copper(tools)
+  - hoard, crystal_ball, sack_of_loot, supplies, tragic_hero, storyteller, squire,
+    gatekeeper, guard_dog, blockade, bargain, tax, shelters -x twist_sale
+  - tools, sack_of_loot, capital, hoard, priest, maroon, counterfeit, pixie, odysseys,
+    masquerade, cursed(hoard) -x start_double_pile(duchy), start_double_pile(hoard)
+  - rice, gondola, collection, sack_of_loot, farm, crown, cutthroat, city, gear, flag_bearer,
+    populate, academy, colonies -x twist_mirror_loot
+  - investment, jewelled_egg, capital, spices, coin_of_the_realm, pickaxe, riverboat(sanctuary),
+    scrying_pool, fishing_village, fishmonger, scouting_party -x twist_mirror_loot,
+    twist_fast_track
+  num_themes: 1
+  theme_1: category:treasure

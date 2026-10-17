@@ -92,7 +92,8 @@ def annotate_single_crucial_cso(
 ):
     position = x0 + 0.19 * (index % 2), y0 - 0.32 * (index // 2)
     icon = get_square_cutout(cso_key)
-    entry = ALL_CSOS.loc[cso_key]
+    alt_key = cso_key if cso_key != "curse_with_coin" else "curse"
+    entry = ALL_CSOS.loc[alt_key]
     if (
         entry["IsExtendedLandscape"]
         or entry["IsOtherThing"]
