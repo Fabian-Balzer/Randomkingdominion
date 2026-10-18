@@ -509,7 +509,7 @@
 2025-05-17---ducat, lurker, masquerade, steward, baron, diplomat, patron, cauldron, spices, treasurer, citadel, star_chart
 2025-05-16---philosophers_stone, investment, quarry, workers_village, collection, rabble, vault, hoard, grand_market, expand, colonies
 2025-05-15---blessed_village, necromancer, crystal_ball, mint, tragic_hero, war_chest, grand_market, bank, expand, kings_court, colonies
-2025-05-14---blessed_village, necromancer, crystal_ball, mint, tragic_hero, war_chest, grand_market, bank, expand, kings_court, colonies
+2025-05-14---philosophers_stone, investment, quarry, workers_village, collection, rabble, vault, hoard, grand_market, expand, colonies
 2025-05-13---guardian, fool, ghost_town, secret_cave, blessed_village, shepherd, cobbler, tragic_hero, vampire, raider
 2025-05-12---stonemason, merchant, village, workshop, gardens, plaza, throne_room, footpad, journeyman, library
 2025-05-11---haven, pawn, develop, marauder, port, secret_passage, transmogrify, collection, galleria, wharf, mountain_pass, shy(wharf), stamp_plus_coin(galleria)

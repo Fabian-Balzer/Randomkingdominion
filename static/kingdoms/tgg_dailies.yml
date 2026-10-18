@@ -1,23 +1,20 @@
 - cards:
-  - city_quarter
-  - diplomat
-  - duke
-  - engineer
-  - farmhands
-  - hamlet
-  - mill
-  - pawn
-  - torturer
-  - villa
+  - collection
+  - expand
+  - grand_market
+  - hoard
+  - investment
+  - philosophers_stone
+  - quarry
+  - rabble
+  - vault
+  - workers_village
   expansions:
-  - Cornucopia & Guilds, 2E
-  - Empires
-  - Intrigue, 2E
-  idx: 140948760659074434953554241519682372247
-  landscapes:
-  - basilica
-  - baths
-  name: '2026-10-16'
+  - Alchemy
+  - Prosperity, 2E
+  idx: 146259871984679150197204072262070959853
+  name: '2025-05-14'
+  use_colonies: true
 - cards:
   - abundance
   - artist
@@ -179,6 +176,26 @@
   traits:
   - - fawning
     - pixie
+- cards:
+  - city_quarter
+  - diplomat
+  - duke
+  - engineer
+  - farmhands
+  - hamlet
+  - mill
+  - pawn
+  - torturer
+  - villa
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Intrigue, 2E
+  idx: 140948760659074434953554241519682372247
+  landscapes:
+  - basilica
+  - baths
+  name: '2026-10-16'
 - cards:
   - advisor
   - butcher
@@ -18422,23 +18439,6 @@
   - Prosperity, 2E
   idx: 335200232761004659625785024488037496261
   name: '2025-05-15'
-  use_colonies: true
-- cards:
-  - bank
-  - blessed_village
-  - crystal_ball
-  - expand
-  - grand_market
-  - kings_court
-  - mint
-  - necromancer
-  - tragic_hero
-  - war_chest
-  expansions:
-  - Nocturne
-  - Prosperity, 2E
-  idx: 191348977334194306590182891474632509681
-  name: '2025-05-14'
   use_colonies: true
 - cards:
   - blessed_village
