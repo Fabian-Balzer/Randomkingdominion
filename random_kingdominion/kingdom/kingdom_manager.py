@@ -240,6 +240,8 @@ class KingdomManager:
             LOGGER.info(f"Added {k.name}")
         if not has_added_kingdoms:
             return
+        if ftype == "tgg_dailies":
+            self.sort_by_name()
         savepath = {
             "tgg_dailies": FPATH_KINGDOMS_TGG_DAILIES,
             "fabi_recsets": FPATH_KINGDOMS_FABI_RECSETS,
@@ -374,7 +376,11 @@ class KingdomManager:
                     kingdom_data for kingdom_data in data if "cards" in kingdom_data
                 ]
             if sort:
-                self.kingdoms.sort(key=lambda k: k.get("name", ""), reverse=True)
+                self.sort_by_name()
+
+    def sort_by_name(self, newest_first: bool = True):
+        """Sort the kingdoms by name, i.e. the TGG Dailies by date."""
+        self.kingdoms.sort(key=lambda k: k.get("name", ""), reverse=newest_first)
 
     def save_kingdoms_to_yaml(self, file_path: str | Path):
         if isinstance(file_path, str):
@@ -384,3 +390,15 @@ class KingdomManager:
                 file_path = FPATH_KINGDOMS_RECOMMENDED.parent.joinpath(file_path)
         with open(file_path, "w", encoding="utf-8") as yaml_file:
             yaml_file.write(self.yaml_repr)
+
+
+def sort_kingdom_yaml_file(
+    file_path: str | Path = FPATH_KINGDOMS_TGG_DAILIES, newest_first: bool = True
+):
+    """Sort the kingdoms of the given yaml file by name, i.e. the TGG Dailies by date,
+    and save it in place. Unlike `load_kingdoms_from_yaml`, this keeps every entry."""
+    file_path = Path(file_path)
+    with open(file_path, "r", encoding="utf-8") as yaml_file:
+        manager = KingdomManager.from_yaml(yaml_file.read())
+    manager.sort_by_name(newest_first)
+    manager.save_kingdoms_to_yaml(file_path)

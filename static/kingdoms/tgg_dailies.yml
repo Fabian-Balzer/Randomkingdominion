@@ -1,21 +1,4 @@
 - cards:
-  - collection
-  - expand
-  - grand_market
-  - hoard
-  - investment
-  - philosophers_stone
-  - quarry
-  - rabble
-  - vault
-  - workers_village
-  expansions:
-  - Alchemy
-  - Prosperity, 2E
-  idx: 146259871984679150197204072262070959853
-  name: '2025-05-14'
-  use_colonies: true
-- cards:
   - abundance
   - artist
   - capital
@@ -4383,6 +4366,99 @@
     turns:
     - 13
     - 12
+- cards:
+  - farmhands
+  - guard_dog
+  - highway
+  - hunting_party
+  - jack_of_all_trades
+  - nobles
+  - oasis
+  - replace
+  - scheme
+  - torturer
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  idx: 258730442801132997879383662497029502223
+  name: '2026-06-12'
+- cards:
+  - carnival
+  - catapult/rocks
+  - crown
+  - encampment/plunder
+  - jester
+  - legionary
+  - remake
+  - royal_blacksmith
+  - temple
+  - villa
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Empires
+  idx: 317298756230429252670715348014390017527
+  landscapes:
+  - obelisk
+  - wedding
+  name: '2026-06-11'
+  obelisk_pile: remake
+- cards:
+  - caravan
+  - fishing_village
+  - kings_cache
+  - lighthouse
+  - mapmaker
+  - pirate
+  - rope
+  - shaman
+  - siren
+  - wealthy_village
+  expansions:
+  - Plunder
+  - Seaside, 2E
+  idx: 192266726989570055117728397161714753579
+  landscapes:
+  - bury
+  - invasion
+  name: '2026-06-10'
+- cards:
+  - archive
+  - chariot_race
+  - city_quarter
+  - crown
+  - gladiator/fortune
+  - groundskeeper
+  - legionary
+  - patrician/emporium
+  - villa
+  - wild_hunt
+  expansions:
+  - Empires
+  idx: 205622051947737839527475107223746681468
+  landscapes:
+  - keep
+  - wall
+  name: '2026-06-09'
+- cards:
+  - council_room
+  - dungeon
+  - festival
+  - gear
+  - harbinger
+  - library
+  - lost_city
+  - magpie
+  - storyteller
+  - treasure_trove
+  expansions:
+  - Adventures
+  - Base, 2E
+  idx: 185610411605697297643063922545717821436
+  landscapes:
+  - ferry
+  - plan
+  name: '2026-06-08'
 - campaign_effects:
   - double_pile
   - replace_estate
@@ -5560,6 +5636,107 @@
     - modify
   use_shelters: true
 - cards:
+  - baker
+  - craftsman
+  - kiln
+  - kitsune
+  - mill
+  - mountain_shrine
+  - research
+  - sacrifice
+  - sentinel
+  - trader
+  expansions:
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Hinterlands, 2E
+  - Intrigue, 2E
+  - Menagerie
+  - Renaissance
+  - Rising Sun
+  idx: 334028141458358410306864320491882647438
+  landscapes:
+  - bureaucracy
+  - keep
+  name: '2026-04-25'
+- cards:
+  - advisor
+  - apothecary
+  - baker
+  - bank
+  - clerk
+  - grand_market
+  - philosophers_stone
+  - soothsayer
+  - tiara
+  - workers_village
+  expansions:
+  - Alchemy
+  - Cornucopia & Guilds, 2E
+  - Prosperity, 2E
+  idx: 295121847045873169693130269367208874477
+  name: '2026-04-24'
+- cards:
+  - advisor
+  - baker
+  - black_cat
+  - bounty_hunter
+  - butcher
+  - hostelry
+  - kiln
+  - sleigh
+  - snowy_village
+  - stockpile
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Menagerie
+  idx: 17952536415657687946624869860431186855
+  landscapes:
+  - pursue
+  - way_of_the_otter
+  name: '2026-04-23'
+- cards:
+  - bridge_troll
+  - cabin_boy
+  - crucible
+  - distant_lands
+  - harbor_village
+  - hireling
+  - magpie
+  - messenger
+  - treasure_trove
+  - wealthy_village
+  expansions:
+  - Adventures
+  - Plunder
+  idx: 304967400432166901833682135128658215833
+  landscapes:
+  - fated
+  - quest
+  name: '2026-04-22'
+  traits:
+  - - fated
+    - crucible
+- cards:
+  - abundance
+  - buried_treasure
+  - cabin_boy
+  - fortune_hunter
+  - maroon
+  - pendant
+  - pilgrim
+  - sack_of_loot
+  - taskmaster
+  - trickster
+  expansions:
+  - Plunder
+  idx: 278170946916364689512498334218548886122
+  landscapes:
+  - peril
+  - rush
+  name: '2026-04-21'
+- cards:
   - artisan
   - bandit
   - border_guard
@@ -6655,6 +6832,25 @@
   - barracks
   - piazza
   name: '2026-03-20'
+- cards:
+  - barge
+  - caravan_guard
+  - cavalry
+  - falconer
+  - gatekeeper
+  - gear
+  - messenger
+  - paddock
+  - ranger
+  - sleigh
+  expansions:
+  - Adventures
+  - Menagerie
+  idx: 185425465133905788255639585510367709130
+  landscapes:
+  - banish
+  - way_of_the_pig
+  name: '2026-03-19'
 - cards:
   - armory
   - charm
@@ -11588,6 +11784,45 @@
     turns:
     - 10
     - 10
+- cards:
+  - bishop
+  - charlatan
+  - collection
+  - familiar
+  - grand_market
+  - kings_court
+  - mint
+  - tiara
+  - war_chest
+  - watchtower
+  expansions:
+  - Alchemy
+  - Prosperity, 2E
+  idx: 191751336699139768792457546895098974972
+  name: '2025-12-18'
+  use_colonies: true
+- cards:
+  - cobbler
+  - crypt
+  - exorcist
+  - leprechaun
+  - maroon
+  - necromancer
+  - quartermaster
+  - siren
+  - tools
+  - trickster
+  expansions:
+  - Nocturne
+  - Plunder
+  idx: 331339596873487043306019913457461850837
+  landscapes:
+  - looting
+  - pious
+  name: '2025-12-17'
+  traits:
+  - - pious
+    - maroon
 - cards:
   - border_guard
   - cargo_ship
@@ -18386,6 +18621,34 @@
   stamps_and_effects:
   - - chameleonized
     - catacombs
+- army_pile: corsair
+  cards:
+  - archive
+  - bishop
+  - corsair
+  - encampment/plunder
+  - highway
+  - innkeeper
+  - jewelled_egg
+  - mint
+  - peasant
+  - river_shrine
+  - sheepdog
+  expansions:
+  - Adventures
+  - Allies
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Plunder
+  - Prosperity, 2E
+  - Rising Sun
+  - Seaside, 2E
+  idx: 53720695331328946396752017364961074244
+  landscapes:
+  - approaching_army
+  - borrow
+  name: '2025-05-17'
 - cards:
   - baron
   - cauldron
@@ -18401,11 +18664,11 @@
   - Hinterlands, 2E
   - Intrigue, 2E
   - Renaissance
-  idx: 79930223940655740724309036598539456163
+  idx: 100405463458676026288147002326347097170
   landscapes:
   - citadel
   - star_chart
-  name: '2025-05-17'
+  name: '2025-05-16'
 - cards:
   - collection
   - expand
@@ -18420,8 +18683,8 @@
   expansions:
   - Alchemy
   - Prosperity, 2E
-  idx: 234612072493915408890391314692875297182
-  name: '2025-05-16'
+  idx: 156020532572867694966259981171080343068
+  name: '2025-05-15'
   use_colonies: true
 - cards:
   - bank
@@ -18437,8 +18700,8 @@
   expansions:
   - Nocturne
   - Prosperity, 2E
-  idx: 335200232761004659625785024488037496261
-  name: '2025-05-15'
+  idx: 323574145014603956076926717182072572033
+  name: '2025-05-14'
   use_colonies: true
 - cards:
   - blessed_village
@@ -24141,6 +24404,22 @@
   idx: 12676408970427940585585819880097410604
   name: '2024-12-27'
   winrate: .nan
+- cards:
+  - corsair
+  - courtyard
+  - fishing_village
+  - haven
+  - island
+  - pirate
+  - sea_chart
+  - tide_pools
+  - treasure_map
+  - warehouse
+  expansions:
+  - Intrigue, 2E
+  - Seaside, 2E
+  idx: 112790117431363635220011377301064711025
+  name: '2024-12-26'
 - cards:
   - baker
   - butcher
