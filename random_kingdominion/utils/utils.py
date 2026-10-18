@@ -1,4 +1,5 @@
 import os
+from functools import lru_cache
 from pathlib import Path
 from typing import Collection
 
@@ -35,9 +36,16 @@ def filter_combo_or_inter_df_for_csos(
     return df[mask]
 
 
+@lru_cache(maxsize=1)
+def _get_cso_name_dict() -> dict[str, str]:
+    # Built once: converting the column on every call cost ~0.6 ms per name.
+    # ALL_CSOS isn't changed after import, so the dict can't go stale.
+    return ALL_CSOS["Name"].to_dict()
+
+
 def get_cso_name(cso_key: str, default_val: str = "NOT FOUND") -> str:
     """Savely return the name of the cso with the given key."""
-    return ALL_CSOS["Name"].to_dict().get(cso_key, default_val)
+    return _get_cso_name_dict().get(cso_key, default_val)
 
 
 def convert_upper_camel_to_snake_case(name: str) -> str:

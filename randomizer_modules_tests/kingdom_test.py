@@ -328,3 +328,42 @@ def test_total_quality_docstring_examples():
         "random_kingdominion.utils.kingdom_helper_funcs"
     )
     assert doctest.testmod(helper_funcs).failed == 0
+
+
+def test_cso_names_match_the_card_data():
+    """get_cso_name builds its name dict only once (M9); it must still agree with ALL_CSOS."""
+    from random_kingdominion.utils import utils
+
+    for key, name in rk.ALL_CSOS["Name"].items():
+        assert rk.get_cso_name(key) == name
+    assert rk.get_cso_name("not_a_cso") == "NOT FOUND"
+    assert rk.get_cso_name("not_a_cso", default_val="") == ""
+    assert utils._get_cso_name_dict() is utils._get_cso_name_dict()
+
+
+def test_dombot_string_uses_display_names_of_cards_and_extra_piles():
+    kingdom = rk.Kingdom(
+        cards=[
+            "kings_court",
+            "young_witch",
+            "village",
+            "smithy",
+            "wine_merchant",
+            "ferryman",
+            "gladiator",
+            "sir_martin",
+            "vassal",
+            "merchant_camp",
+        ],
+        landscapes=["way_of_the_mouse"],
+        bane_pile="moat",
+        ferryman_pile="cellar",
+        mouse_card="harbinger",
+        use_colonies=True,
+    )
+
+    assert kingdom.get_dombot_csv_string() == (
+        "Colonies, Ferryman (Cellar), Gladiator, King's Court, Merchant Camp, "
+        "No Shelters, Sir Martin, Smithy, Vassal, Village, "
+        "Way of the Mouse (Harbinger), Wine Merchant, Young Witch (Moat)"
+    )
