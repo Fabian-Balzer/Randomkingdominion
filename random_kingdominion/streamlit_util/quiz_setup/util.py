@@ -11,7 +11,6 @@ QUIZ_BUY_ANSWER_KEY = "quiz_quality_buy_str"
 QUIZ_MODE_KEY = "quiz_run_mode"
 QUIZ_DIFFICULTY_KEY = "quiz_difficulty_selection"
 QUIZ_HIDE_TIMER_KEY = "quiz_hide_timer"
-QUIZ_LARGE_VIEW_KEY = "quiz_kingdom_view_large"
 
 
 def get_quality_answer_key(quality: str) -> str:

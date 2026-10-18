@@ -26,7 +26,9 @@ from random_kingdominion.streamlit_util.quiz_setup.scoring import (
     PERFECT_BAND,
     SCORE_BANDS,
     calc_quiz_score,
+    get_buy_points,
     get_kingdom_solution,
+    get_quality_points,
     get_score_band,
 )
 from random_kingdominion.streamlit_util.quiz_setup.util import (
@@ -473,3 +475,54 @@ def test_total_elapsed_time_does_not_count_the_scored_round_twice() -> None:
 
     assert run_state.get_elapsed_time_of_current_round() == 5
     assert run_state.get_total_elapsed_time_so_far() == 5
+
+
+@pytest.mark.parametrize(
+    ("user_value", "real_value", "expected_points"),
+    [(2, 2, 2), (2.5, 2, 1.5), (1, 2, 1), (0, 2, 0), (0.5, 0, 1.5)],
+)
+def test_quality_points(user_value: float, real_value: float, expected_points: float) -> None:
+    assert get_quality_points(user_value, real_value) == expected_points
+
+
+def test_buy_points() -> None:
+    assert get_buy_points("Yes", "yes") == 3
+    assert get_buy_points("maybe", "yes") == 0
+
+
+def test_kingdom_solution_explains_the_totals() -> None:
+    kingdom_str = Kingdom(
+        cards=["Village", "Smithy", "Laboratory", "Library", "Moat", "Market", "Chapel"]
+    ).get_dombot_csv_string()
+    solution = get_kingdom_solution(kingdom_str)
+
+    draw = dict(solution.contributions["draw"])
+    assert draw["Smithy"] == 2 and draw["Moat"] == 1
+    # Contributions are sorted by value, highest first
+    values = [v for _, v in solution.contributions["draw"]]
+    assert values == sorted(values, reverse=True)
+    # Three 2s (Smithy, Laboratory, Library) combine into a 3
+    assert "3×2 → 1×3" in solution.aggregation_steps["draw"]
+    assert solution.quality_values["draw"] == 3
+    assert solution.aggregation_steps["altvp"] == ("no contributions: 0",)
+    assert ("Market", False) in solution.buy_sources
+    assert solution.buy_availability == "yes"
+    assert "Chapel" in solution.card_names
+    assert solution.landscape_names == ()
+
+
+def test_landscape_text_crop_keeps_the_upper_part() -> None:
+    from PIL import Image
+
+    from random_kingdominion.utils.plotting.image_handling import (
+        LANDSCAPE_TEXT_BOX_TOP,
+        TRAIT_TEXT_BOX_TOP,
+        crop_landscape_text,
+    )
+
+    img = Image.new("RGB", (367, 224))
+    assert crop_landscape_text(img).size == (367, round(224 * LANDSCAPE_TEXT_BOX_TOP))
+    assert crop_landscape_text(img, is_trait=True).size == (
+        367,
+        round(224 * TRAIT_TEXT_BOX_TOP),
+    )

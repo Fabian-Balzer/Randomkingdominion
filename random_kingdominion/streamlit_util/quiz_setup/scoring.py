@@ -8,6 +8,7 @@ from types import MappingProxyType
 from typing import Literal
 
 from ...kingdom import Kingdom
+from ...utils.kingdom_helper_funcs import explain_total_quality
 
 BuyAvailability = Literal["yes", "maybe", "no"]
 
@@ -68,25 +69,32 @@ def get_score_band(score: float) -> ScoreBand:
     return CHEEKY_BAND
 
 
+def get_quality_points(user_val: float, real_val: float) -> float:
+    diff = abs(real_val - user_val)
+    if diff == 0:
+        return EXACT_QUALITY_POINTS
+    if diff == 0.5:
+        return 1.5
+    if diff == 1:
+        return 1
+    return 0
+
+
+def get_buy_points(buy_str_user: str, buy_str_kingdom: str) -> float:
+    return BUY_POINTS if buy_str_user.lower() == buy_str_kingdom else 0
+
+
 def calc_quiz_score(
     user_vals: Mapping[str, float],
     real_vals: Mapping[str, float],
     buy_str_user: str,
     buy_str_kingdom: str,
 ) -> float:
-    score = 0.0
-    if buy_str_user.lower() == buy_str_kingdom:
-        score += BUY_POINTS
+    score = get_buy_points(buy_str_user, buy_str_kingdom)
     for qual, user_val in user_vals.items():
         if qual not in real_vals:
             raise ValueError(f"Quality {qual!r} is not available in the kingdom.")
-        diff = abs(real_vals[qual] - user_val)
-        if diff == 0:
-            score += EXACT_QUALITY_POINTS
-        elif diff == 0.5:
-            score += 1.5
-        elif diff == 1:
-            score += 1
+        score += get_quality_points(user_val, real_vals[qual])
     return score
 
 
@@ -94,16 +102,50 @@ def calc_quiz_score(
 class KingdomSolution:
     quality_values: Mapping[str, float]
     buy_availability: BuyAvailability
+    # Per quality: the (name, value) of each contributing CSO, highest first
+    contributions: Mapping[str, tuple[tuple[str, float], ...]]
+    # Per quality: how the total was combined from the CSO values
+    aggregation_steps: Mapping[str, tuple[str, ...]]
+    # The (name, is_conditional) of each CSO providing +Buy
+    buy_sources: tuple[tuple[str, bool], ...]
+    card_names: tuple[str, ...]
+    landscape_names: tuple[str, ...]
 
 
 @lru_cache(maxsize=256)
 def get_kingdom_solution(kingdom_str: str) -> KingdomSolution:
-    """Return the real quiz qualities and Buy availability of the given kingdom string.
+    """Return the real quiz qualities and Buy availability of the given kingdom string,
+    plus everything needed to explain them.
     Cached, as building a kingdom is comparatively expensive and happens on every rerun.
     """
     kingdom = Kingdom.from_dombot_csv_string(kingdom_str)
+    # The totals are calculated from the full kingdom, including extra CSOs (e.g. a Bane)
+    df = kingdom.full_kingdom_df
     quality_values = {q: float(kingdom.total_qualities[q]) for q in QUIZ_QUALITY_NAMES}
-    return KingdomSolution(MappingProxyType(quality_values), kingdom.buy_availability)
+    contributions = {}
+    aggregation_steps = {}
+    for q in QUIZ_QUALITY_NAMES:
+        col = f"{q}_quality"
+        contributing = df[df[col] > 0].sort_values([col, "Name"], ascending=[False, True])
+        contributions[q] = tuple(
+            (str(name), float(val))
+            for name, val in zip(contributing["Name"], contributing[col])
+        )
+        aggregation_steps[q] = tuple(explain_total_quality(df[col].to_list())[1])
+    buy_sources = tuple(
+        (str(name), "Buys" not in gain_types)
+        for name, gain_types in zip(df["Name"], df["gain_types"])
+        if "Buys" in gain_types or "Buys*" in gain_types
+    )
+    return KingdomSolution(
+        quality_values=MappingProxyType(quality_values),
+        buy_availability=kingdom.buy_availability,
+        contributions=MappingProxyType(contributions),
+        aggregation_steps=MappingProxyType(aggregation_steps),
+        buy_sources=buy_sources,
+        card_names=tuple(kingdom.kingdom_card_df["Name"]),
+        landscape_names=tuple(kingdom.kingdom_landscape_df["Name"]),
+    )
 
 
 def score_quiz_round(

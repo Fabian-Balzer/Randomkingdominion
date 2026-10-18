@@ -2,13 +2,16 @@ from collections.abc import Mapping
 from typing import TypeVar, cast
 
 import matplotlib.pyplot as plt
+import pandas as pd
 import streamlit as st
 
 from ...constants import PATH_ASSETS
 from ...kingdom import Kingdom
-from ...utils import DOM_BEIGE, DOM_BLUE, get_quality_icon_fpath
+from ...utils import DOM_BEIGE, get_quality_icon_fpath
 from ..common_widgets import st_build_kingdom_csv_display, st_display_kingdom_images
 from ..image_util import st_plot_kingdom_qualities
+from ..quality_display import EMOJI_DICT
+from .explanations import st_build_explanation_section, st_build_explanation_selector
 from .persistence import (
     QuizPersistenceError,
     persist_quiz_run,
@@ -23,11 +26,15 @@ from .run_state import (
     QuizRunState,
 )
 from .scoring import (
+    BUY_POINTS,
+    EXACT_QUALITY_POINTS,
     MAX_ROUND_SCORE,
     QUIZ_QUALITY_NAMES,
     SCORE_BANDS,
     BuyAvailability,
+    get_buy_points,
     get_kingdom_solution,
+    get_quality_points,
     get_score_band,
     score_quiz_round,
 )
@@ -35,7 +42,6 @@ from .util import (
     QUIZ_BUY_ANSWER_KEY,
     QUIZ_DIFFICULTY_KEY,
     QUIZ_HIDE_TIMER_KEY,
-    QUIZ_LARGE_VIEW_KEY,
     QUIZ_MODE_KEY,
     generate_random_quiz_kingdom_string,
     get_quality_answer_key,
@@ -50,15 +56,27 @@ _QUALITY_OPTIONS = ["0", ":star:", "1", "2", "3", "4"]
 _E = TypeVar("_E", QuizMode, QuizDifficulty)
 
 
+_BUY_EXPLANATIONS = {
+    "yes": "unconditional +Buy available",
+    "maybe": "only conditional +Buy",
+    "no": "no +Buy",
+}
+
+
+def _get_quality_label(quality: str) -> str:
+    return "Alt-VP" if quality == "altvp" else quality.capitalize()
+
+
 @st.fragment
 def _fragmented_kingdom_display(
-    k: Kingdom, exclude_qualities: bool, checkbox_full_image: bool = False
+    k: Kingdom, exclude_qualities: bool, show_card_text: bool = True
 ):
     st_display_kingdom_images(
         k,
-        show_full_image=checkbox_full_image,
+        show_full_image=show_card_text,
         show_tooltips=True,
         exclude_tooltip_qualities=exclude_qualities,
+        hide_landscape_text=not show_card_text,
     )
     st_build_kingdom_csv_display(k)
 
@@ -86,14 +104,14 @@ def _st_build_qualities_selection() -> None:
 
         with cols[1]:
             st.segmented_control(
-                f"{quality.capitalize()}",
+                _get_quality_label(quality),
                 _QUALITY_OPTIONS,
                 key=load_quiz_widget_value(st.session_state, answer_key),
                 on_change=save_quiz_widget_value,
                 args=(st.session_state, answer_key),
                 width="stretch",
                 label_visibility="collapsed",
-                help=f"Select {quality.capitalize()} quality value",
+                help=f"Select {_get_quality_label(quality)} quality value",
             )
 
 
@@ -156,93 +174,162 @@ def _plot_qualities(run_state: QuizRunState) -> None:
             buy_str=solution.buy_availability,
         )
     st.text(
-        "Your Estimated Qualities",
+        (
+            "Your Estimate [RED] vs. Solution [BLUE]"
+            if run_state.phase is QuizPhase.SOLUTION
+            else "Your Estimated Qualities"
+        ),
         help="The qualities you selected for this kingdom in gray (as long as you aren't finished), then in red. Once the solution is shown, the actual qualities are shown in blue.",
     )
-    st.pyplot(fig, True)
+    with st.container(horizontal=True, horizontal_alignment="center"):
+        st.pyplot(fig, True, width=320)
     plt.close(fig)
-    _show_selected_buy_icon(buy_str)
+    # While answering, the Buy selection itself shows the choice already
+    if run_state.phase is QuizPhase.SOLUTION:
+        _show_selected_buy_icon(buy_str)
 
 
 def plot_score_bar(score: float):
+    """A vertical bar of the score bands: the achieved part in full colour, the rest
+    faded, and a marker at the score."""
     fig, ax = plt.subplots(figsize=(0.2, 1))
     band_ends = [band.bar_start for band in SCORE_BANDS[1:]] + [MAX_ROUND_SCORE]
-    ranges = [
-        (band.bar_start, end, band.color) for band, end in zip(SCORE_BANDS, band_ends)
-    ]
-    for start, end, color in ranges:
-        ax.bar(
-            0,
-            end - start,
-            bottom=start,
-            color=color,
-            edgecolor="k",
-            width=0.5,
-            alpha=0.7,
-            linewidth=0.3,
-        )
-    for start, end, color in ranges:
-        if score < start:
-            continue
-        end = min(end, score)
-        ax.bar(
-            0,
-            end - start,
-            bottom=start,
-            color=color,
-            edgecolor="k",
-            width=0.5,
-            linewidth=0.3,
-        )
-    ax.bar(0, score, color="none", edgecolor=DOM_BLUE, width=0.5, linewidth=2)
-    ax.bar(0, score, color=DOM_BLUE, edgecolor="none", width=0.5, alpha=0.4)
+    for band, end in zip(SCORE_BANDS, band_ends):
+        start = band.bar_start
+        ax.bar(0, end - start, bottom=start, color=band.color, width=0.5, alpha=0.25)
+        if score > start:
+            ax.bar(
+                0, min(end, score) - start, bottom=start, color=band.color, width=0.5
+            )
     ax.bar(
-        0, MAX_ROUND_SCORE, color="none", edgecolor=DOM_BLUE, width=0.5, linewidth=0.5
+        0, MAX_ROUND_SCORE, color="none", edgecolor="#333333", width=0.5, linewidth=0.6
     )
-    ax.axhline(score, color=DOM_BLUE, linewidth=3)
+    # Not clipped, so that the marker stays fully visible for a perfect score
+    ax.plot(
+        [-0.4, 0.4],
+        [score, score],
+        color="#222222",
+        linewidth=5,
+        solid_capstyle="butt",
+        clip_on=False,
+    )
+    ax.set_xlim(-0.5, 0.5)
     ax.set_ylim(0, MAX_ROUND_SCORE)
     ax.set_xticks([])
-    ax.set_yticks(list(range(0, MAX_ROUND_SCORE + 1, 3)), minor=False)
-    ax.spines["top"].set_visible(False)
-    ax.spines["right"].set_visible(False)
-    ax.spines["left"].set_visible(False)
-    ax.spines["bottom"].set_visible(False)
-    ax.tick_params(
-        axis="y", which="minor", direction="in", length=6, color="black", reset=True
-    )
+    ax.set_yticks(list(range(0, MAX_ROUND_SCORE + 1, 3)))
+    for spine in ax.spines.values():
+        spine.set_visible(False)
     fig.subplots_adjust(left=0.05, right=0.95, top=1, bottom=0)
     fig.set_facecolor(DOM_BEIGE)
     ax.set_facecolor(DOM_BEIGE)
     return fig
 
 
-def show_solution_button(run_state: QuizRunState, answers: QuizAnswers | None) -> None:
-    f = st.container(horizontal=True, horizontal_alignment="left")
+def _build_submit_button(run_state: QuizRunState) -> None:
+    answers = _get_complete_answers()
+    num_answered = sum(v is not None for v in _get_selected_quality_values().values())
+    num_answered += _get_selected_buy_availability() is not None
+    num_questions = len(QUIZ_QUALITY_NAMES) + 1
+    label = "Show Solution"
     if answers is None:
-        f.info(
-            "Please select all qualities and buy availability to unlock the solution."
-        )
-        return
-    if f.button("Click here to show Solution", width="stretch", type="primary"):
+        label += f" ({num_answered}/{num_questions} answered)"
+    clicked = st.button(
+        label,
+        type="primary",
+        width="stretch",
+        disabled=answers is None,
+        help="Select Buy availability and one value for all qualities to unlock the solution.",
+    )
+    if clicked and answers is not None:
         score = score_quiz_round(
             answers.quality_values, answers.buy_availability, run_state.current_kingdom
         )
         if run_state.submit_round(answers, score):
             persist_quiz_run(st.session_state, run_state)
-        st.rerun()
+        st.rerun(scope="app")
 
 
-def solution_section(score: float) -> None:
+def _build_settings_badges(run_state: QuizRunState) -> None:
+    """Show the mode and difficulty, and flag whether quality hints were shown."""
+    with st.container(horizontal=True):
+        st.badge(run_state.mode.label, color="gray")
+        st.badge(run_state.difficulty.label, color="gray")
+        if run_state.difficulty.shows_hints:
+            st.badge("Quality hints were shown", icon="💡", color="orange")
+
+
+def solution_section(run_state: QuizRunState) -> None:
+    score = run_state.round_score or 0.0
     band = get_score_band(score)
-    with st.container():
+    text_col, bar_col = st.columns([3, 1], vertical_alignment="center")
+    with text_col:
         st.markdown(
             f"<h2 style='color: {band.color};'>Score: {score:g}/{MAX_ROUND_SCORE}</h2>{band.message}",
             unsafe_allow_html=True,
         )
-        fig = plot_score_bar(score)
-        with st.container(horizontal=True, horizontal_alignment="center"):
-            st.pyplot(fig, True, width="content")
-        plt.close(fig)
+        _build_settings_badges(run_state)
+    fig = plot_score_bar(score)
+    bar_col.pyplot(fig, True, width="content")
+    plt.close(fig)
+
+
+def _get_points_icon(points: float, max_points: float) -> str:
+    if points == max_points:
+        return "✅"
+    return "🟡" if points > 0 else "❌"
+
+
+def _build_solution_breakdown(answers: QuizAnswers, kingdom_str: str) -> None:
+    """Show a table of how each quality's total came together, next to the answers."""
+    solution = get_kingdom_solution(kingdom_str)
+    header = [
+        "",
+        "Quality",
+        "You",
+        "Solution",
+        "Points",
+        "Contributing CSOs",
+        "Calculation",
+    ]
+    rows = [header, [":-:", "---", ":-:", ":-:", ":-:", "---", "---"]]
+    for q in QUIZ_QUALITY_NAMES:
+        user_val = answers.quality_values[q]
+        real_val = solution.quality_values[q]
+        points = get_quality_points(user_val, real_val)
+        contributions = ", ".join(
+            f"{name} ({val:g})" for name, val in solution.contributions[q]
+        )
+        rows.append(
+            [
+                _get_points_icon(points, EXACT_QUALITY_POINTS),
+                f"{EMOJI_DICT[q]} {_get_quality_label(q)}",
+                f"{user_val:g}",
+                f"**{real_val:g}**",
+                f"{points:g}/{EXACT_QUALITY_POINTS}",
+                contributions or "–",
+                "; ".join(solution.aggregation_steps[q]),
+            ]
+        )
+    buy_points = get_buy_points(answers.buy_availability, solution.buy_availability)
+    buy_sources = ", ".join(
+        name + (" (conditional)" if is_conditional else "")
+        for name, is_conditional in solution.buy_sources
+    )
+    rows.append(
+        [
+            _get_points_icon(buy_points, BUY_POINTS),
+            "🛒 Buy",
+            answers.buy_availability.capitalize(),
+            f"**{solution.buy_availability.capitalize()}**",
+            f"{buy_points:g}/{BUY_POINTS}",
+            buy_sources or "–",
+            _BUY_EXPLANATIONS[solution.buy_availability],
+        ]
+    )
+    st.markdown("\n".join("| " + " | ".join(row) + " |" for row in rows))
+    st.caption(
+        "A value of 0.5 corresponds to :star: in the selection.\n'4×1 → 1×2' means that four CSOs with a value of 1 count as one with a value of 2; see *Quality Calculation Details* at the top for the full rules."
+    )
 
 
 def _get_durable_selection(key: str, enum_cls: type[_E], default: _E) -> _E:
@@ -298,10 +385,11 @@ def _start_new_run(mode: QuizMode, difficulty: QuizDifficulty) -> None:
     )
     persist_quiz_run(st.session_state, run_state)
     reset_quiz_answers(st.session_state, QUIZ_QUALITY_NAMES)
-    st.rerun()
+    st.rerun(scope="app")
 
 
 def _build_mode_navigation() -> None:
+    st_build_explanation_section()
     col0, col1 = st.container(border=True).columns([1, 2])
     with col0:
         _build_enum_selection("Quiz Mode", QuizMode, QUIZ_MODE_KEY, QuizMode.PRACTICE)
@@ -328,63 +416,205 @@ def _format_duration(seconds: float) -> str:
     return f"{minutes:02d}:{seconds:02d}"
 
 
-def _show_timer_text(run_state: QuizRunState) -> None:
+def _get_timer_label(run_state: QuizRunState) -> str:
     round_time = _format_duration(run_state.get_elapsed_time_of_current_round())
     if run_state.mode is QuizMode.PRACTICE:
-        st.text(f"Time: {round_time}")
-        return
+        return f"⏱ {round_time}"
     total_time = _format_duration(run_state.get_total_elapsed_time_so_far())
-    st.text(f"Round Time: {round_time}, Total time: {total_time}")
+    return f"⏱ {round_time} / {total_time}"
 
 
-def _build_timer_display(run_state: QuizRunState) -> None:
-    st.session_state.setdefault(QUIZ_HIDE_TIMER_KEY, True)
-    hide_timer = st.checkbox(
-        "Hide Timer",
-        key=load_quiz_widget_value(st.session_state, QUIZ_HIDE_TIMER_KEY),
-        on_change=save_quiz_widget_value,
-        args=(st.session_state, QUIZ_HIDE_TIMER_KEY),
+def _build_timer_button(run_state: QuizRunState) -> None:
+    """A single button that shows the time (or offers to show it) and toggles it."""
+    hidden = st.session_state[QUIZ_HIDE_TIMER_KEY]
+    clicked = st.button(
+        "⏱ Show time" if hidden else _get_timer_label(run_state),
+        # A fixed key, as the label changes every second
+        key="quiz_timer_button",
+        width="stretch",
+        help=(
+            "Show the elapsed time."
+            if hidden
+            else "Elapsed time of this round (and of the whole run). Click to hide."
+        ),
     )
-    if hide_timer:
-        return
-    if run_state.phase is QuizPhase.ANSWERING:
-        # Only keep refreshing while the clock is actually running
-        st.fragment(_show_timer_text, run_every=1.0)(run_state)
-    else:
-        _show_timer_text(run_state)
+    if clicked:
+        st.session_state[QUIZ_HIDE_TIMER_KEY] = not hidden
+        # Whether the timer refreshes every second is decided in the full run
+        st.rerun(scope="app")
+
+
+def _build_timer(run_state: QuizRunState) -> None:
+    st.session_state.setdefault(QUIZ_HIDE_TIMER_KEY, True)
+    # Only keep refreshing while the clock is actually running and visible
+    is_ticking = (
+        not st.session_state[QUIZ_HIDE_TIMER_KEY]
+        and run_state.phase is QuizPhase.ANSWERING
+    )
+    st.fragment(_build_timer_button, run_every=1.0 if is_ticking else None)(run_state)
 
 
 def _build_run_header(run_state: QuizRunState) -> None:
-    header = st.container(horizontal=True, horizontal_alignment="distribute")
+    # Fixed slots, so that nothing moves when e.g. the timer is shown or hidden
+    settings_col, progress_col, timer_col, actions_col = st.columns(
+        [3, 2, 2, 3], vertical_alignment="center"
+    )
+    with settings_col:
+        _build_settings_badges(run_state)
     if run_state.mode is QuizMode.RUN:
-        diff = run_state.difficulty
-        header.text(
-            f"Difficulty: {diff.label}",
-            help=f"The difficulty level you selected for this run: {diff.get_description(include_name=False)}",
+        progress_col.markdown(
+            f"**Round {run_state.current_round_index + 1} of {run_state.round_count}** · Score {run_state.cumulative_score:g}/{run_state.maximum_score}"
         )
-        header.markdown(
-            f"**Round {run_state.current_round_index + 1} of {run_state.round_count}**"
-        )
-        header.markdown(
-            f"**Score: {run_state.cumulative_score:g}/{run_state.maximum_score}**"
-        )
-        st.progress(
-            len(run_state.completed_rounds) / run_state.round_count,
-            text="Run progress",
+    if run_state.phase is not QuizPhase.FINISHED:
+        with timer_col:
+            _build_timer(run_state)
+
+    actions = actions_col.container(horizontal=True, horizontal_alignment="right")
+    with actions.popover("❓ Rules & Tips"):
+        st_build_explanation_selector()
+    if run_state.phase is QuizPhase.FINISHED:
+        # Nothing to lose anymore, so no confirmation needed
+        actions.button("Back to Start", on_click=_reset_quiz)
+    elif actions.button("Stop / Reset", type="secondary"):
+        _confirm_reset_dialog(run_state)
+
+    if run_state.mode is QuizMode.RUN:
+        st.progress(len(run_state.completed_rounds) / run_state.round_count)
+
+
+def _reset_quiz() -> None:
+    reset_quiz_workflow(st.session_state, QUIZ_QUALITY_NAMES)
+
+
+@st.dialog("Stop this quiz?")
+def _confirm_reset_dialog(run_state: QuizRunState) -> None:
+    if run_state.mode is QuizMode.RUN:
+        st.write(
+            f"You are in round {run_state.current_round_index + 1} of {run_state.round_count} with {run_state.cumulative_score:g} points so far. This progress will be lost."
         )
     else:
-        header.markdown("**Practice**")
-    if run_state.phase is not QuizPhase.FINISHED:
-        with header:
-            _build_timer_display(run_state)
-
-    if header.button("Stop / Reset", type="secondary"):
-        reset_quiz_workflow(st.session_state, QUIZ_QUALITY_NAMES)
+        st.write("The current kingdom will be discarded.")
+    buttons = st.container(horizontal=True, horizontal_alignment="right")
+    if buttons.button("Cancel"):
         st.rerun()
+    # Resetting in a callback, as the dialog's own rerun only reruns the dialog
+    if buttons.button("Stop quiz", type="primary", on_click=_reset_quiz):
+        st.rerun()
+
+
+def _get_kingdom_summary(kingdom_str: str) -> str:
+    solution = get_kingdom_solution(kingdom_str)
+    summary = ", ".join(solution.card_names)
+    if solution.landscape_names:
+        summary += " | " + ", ".join(solution.landscape_names)
+    return summary
+
+
+def _build_round_table(run_state: QuizRunState) -> None:
+    rows = [
+        {
+            "Round": r.round_index + 1,
+            "Score": r.score,
+            "Time": _format_duration(r.elapsed_time),
+            "Kingdom": _get_kingdom_summary(r.kingdom),
+        }
+        for r in run_state.completed_rounds
+    ]
+    st.dataframe(
+        pd.DataFrame(rows),
+        hide_index=True,
+        column_config={
+            "Round": st.column_config.NumberColumn("Round", width="small"),
+            "Score": st.column_config.ProgressColumn(
+                "Score", min_value=0, max_value=MAX_ROUND_SCORE, format="%g"
+            ),
+            "Time": st.column_config.TextColumn("Time", width="small"),
+            "Kingdom": st.column_config.TextColumn("Kingdom (cards | landscapes)"),
+        },
+    )
+
+
+def _build_quality_tendencies(run_state: QuizRunState) -> None:
+    """Show per quality how often the answer was exact, and whether the user tends
+    to over- or underestimate it."""
+    rounds = run_state.completed_rounds
+    rows = []
+    for q in QUIZ_QUALITY_NAMES:
+        offsets = [
+            r.submitted_answers.quality_values[q]
+            - get_kingdom_solution(r.kingdom).quality_values[q]
+            for r in rounds
+        ]
+        rows.append(
+            {
+                "Quality": f"{EMOJI_DICT[q]} {_get_quality_label(q)}",
+                "Exact": f"{sum(o == 0 for o in offsets)}/{len(rounds)}",
+                "Avg. points": sum(get_quality_points(o, 0) for o in offsets)
+                / len(rounds),
+                "Avg. offset": f"{sum(offsets) / len(rounds):+.1f}",
+            }
+        )
+    buy_correct = sum(
+        get_buy_points(
+            r.submitted_answers.buy_availability,
+            get_kingdom_solution(r.kingdom).buy_availability,
+        )
+        > 0
+        for r in rounds
+    )
+    rows.append(
+        {
+            "Quality": "🛒 Buy",
+            "Exact": f"{buy_correct}/{len(rounds)}",
+            "Avg. points": buy_correct / len(rounds) * EXACT_QUALITY_POINTS,
+            "Avg. offset": "–",
+        }
+    )
+    st.dataframe(
+        pd.DataFrame(rows),
+        hide_index=True,
+        column_config={
+            "Avg. points": st.column_config.ProgressColumn(
+                "Avg. points",
+                min_value=0,
+                max_value=EXACT_QUALITY_POINTS,
+                format="%.1f",
+                help=f"Average points per round, scaled to {EXACT_QUALITY_POINTS} (the Buy row is scaled down from {BUY_POINTS}).",
+            ),
+            "Avg. offset": st.column_config.TextColumn(
+                "Avg. offset",
+                help="Your answer minus the real value, on average. Positive values mean you tend to overestimate the quality, negative ones that you underestimate it.",
+            ),
+        },
+    )
+
+
+def _format_round_option(round_index: int) -> str:
+    # Module-level instead of a lambda, as session state has to stay picklable
+    return str(round_index + 1)
+
+
+@st.fragment
+def _build_round_details(run_state: QuizRunState) -> None:
+    round_index = st.segmented_control(
+        "Show the details of round",
+        list(range(len(run_state.completed_rounds))),
+        format_func=_format_round_option,
+        default=0,
+        required=True,
+        key="quiz_summary_round",
+        width="stretch",
+    )
+    completed_round = run_state.completed_rounds[round_index or 0]
+    st.markdown(f"**Kingdom:** {_get_kingdom_summary(completed_round.kingdom)}")
+    _build_solution_breakdown(
+        completed_round.submitted_answers, completed_round.kingdom
+    )
 
 
 def _build_finished_summary(run_state: QuizRunState) -> None:
     st.subheader(f"{run_state.round_count} Kingdom Run Complete")
+    _build_settings_badges(run_state)
     col1, col2, col3, col4 = st.columns(4)
     col1.metric(
         "Total Score",
@@ -396,6 +626,18 @@ def _build_finished_summary(run_state: QuizRunState) -> None:
         f"{run_state.perfect_round_count}/{run_state.round_count}",
     )
     col4.metric("Total Time", _format_duration(run_state.total_elapsed_time))
+    if st.button("Play again with the same settings", type="primary", width="stretch"):
+        _start_new_run(run_state.mode, run_state.difficulty)
+
+    with st.container(border=True):
+        st.markdown("#### 📋 Rounds")
+        _build_round_table(run_state)
+    with st.container(border=True):
+        st.markdown("#### 🎯 Your tendencies per quality")
+        _build_quality_tendencies(run_state)
+    with st.container(border=True):
+        st.markdown("#### 🔎 Round details")
+        _build_round_details(run_state)
 
 
 def _advance_or_restart(run_state: QuizRunState) -> None:
@@ -416,7 +658,27 @@ def _advance_or_restart(run_state: QuizRunState) -> None:
     run_state.advance_round(next_kingdom)
     persist_quiz_run(st.session_state, run_state)
     reset_quiz_answers(st.session_state, QUIZ_QUALITY_NAMES)
-    st.rerun()
+    st.rerun(scope="app")
+
+
+@st.fragment
+def _build_side_column(run_state: QuizRunState) -> None:
+    """The answers (or the score) with the submit (or next) button, and the plot.
+    A fragment, so that answer clicks only rerun this column instead of the whole page
+    with all its card images; submitting and advancing rerun the whole page."""
+    solution_is_shown = run_state.phase is QuizPhase.SOLUTION
+    # The button right below the inputs/score, so it stays above the fold
+    with st.container(border=True):
+        if solution_is_shown:
+            solution_section(run_state)
+            _advance_or_restart(run_state)
+        else:
+            st.write("Adjust Qualities")
+            _st_build_buy_selection()
+            _st_build_qualities_selection()
+            _build_submit_button(run_state)
+    with st.container(border=True):
+        _plot_qualities(run_state)
 
 
 def st_build_full_quiz_display() -> None:
@@ -439,46 +701,27 @@ def st_build_full_quiz_display() -> None:
     solution_is_shown = run_state.phase is QuizPhase.SOLUTION
     k = Kingdom.from_dombot_csv_string(run_state.current_kingdom)
 
-    selection_cont = st.container(border=True)
-
-    st.session_state.setdefault(QUIZ_LARGE_VIEW_KEY, False)
-    checkbox_large_view = st.sidebar.checkbox(
-        "Large Kingdom View",
-        key=load_quiz_widget_value(st.session_state, QUIZ_LARGE_VIEW_KEY),
-        on_change=save_quiz_widget_value,
-        args=(st.session_state, QUIZ_LARGE_VIEW_KEY),
-    )
-    if checkbox_large_view:
-        col0 = selection_cont.expander("The Kingdom", expanded=True)
-        col1, col2 = selection_cont.columns(2)
-    else:
-        col0, col1, col2 = selection_cont.columns(3)
-        col0 = col0.container(border=True)
-        col0.write("The Kingdom")
-    with col0:
+    kingdom_col, side_col = st.container(border=True).columns([2, 1])
+    with kingdom_col.container(border=True):
+        st.write("The Kingdom")
         difficulty = run_state.difficulty
         _fragmented_kingdom_display(
             k,
             exclude_qualities=not solution_is_shown and not difficulty.shows_hints,
-            checkbox_full_image=difficulty.shows_card_text,
+            # Once solved, reveal the card texts to make the solution easier to follow
+            show_card_text=difficulty.shows_card_text or solution_is_shown,
         )
         if solution_is_shown:
             st.info(
                 "By hovering over the images, you can now see the individual qualities."
             )
 
-    with col2.container(border=True):
-        if solution_is_shown:
-            solution_section(run_state.round_score or 0.0)
-        else:
-            st.write("Adjust Qualities")
-            _st_build_buy_selection()
-            _st_build_qualities_selection()
+    with side_col:
+        _build_side_column(run_state)
 
-    with col1.container(border=True):
-        _plot_qualities(run_state)
-
-    if solution_is_shown:
-        _advance_or_restart(run_state)
-    else:
-        show_solution_button(run_state, _get_complete_answers())
+    if solution_is_shown and run_state.submitted_answers is not None:
+        with st.container(border=True):
+            st.markdown("#### 🔎 How the values are calculated")
+            _build_solution_breakdown(
+                run_state.submitted_answers, run_state.current_kingdom
+            )

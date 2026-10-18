@@ -45,8 +45,26 @@ def _calculate_total_quality(values: Collection[float]) -> float:
     >>> _calculate_total_quality([3, 1, 1, 1, 1, 1])
     3
     """
+    return explain_total_quality(values)[0]
+
+
+def explain_total_quality(values: Collection[float]) -> tuple[float, list[str]]:
+    """Calculate the total quality value as described in `_calculate_total_quality`,
+    and also return the steps of the calculation as short human-readable strings,
+    e.g. ``(3, ["4×1 → 1×2", "3×2 → 1×3", "highest: 3"])``.
+
+    Examples
+    --------
+    >>> explain_total_quality([1, 1, 1, 1, 2, 2])
+    (3, ['4×1 → 1×2', '3×2 → 1×3', 'highest: 3'])
+    >>> explain_total_quality([0.5, 0.5])
+    (0.5, ['only limited/luck-based contributions: 0.5'])
+    >>> explain_total_quality([])
+    (0, ['no contributions: 0'])
+    """
     # Remove all zeros from the list
     values = [val for val in values if val != 0]
+    steps: list[str] = []
 
     # Initialize array with zeros representing 0, 1, 2, 3, 4
     counts = np.zeros(5)
@@ -58,13 +76,19 @@ def _calculate_total_quality(values: Collection[float]) -> float:
         counts[i] += values.count(i)
         if i == 0:
             continue
-        counts[i + 1] += counts[i] // (5 - i)
+        promoted = int(counts[i] // (5 - i))
+        if promoted > 0:
+            steps.append(f"{promoted * (5 - i)}×{i} → {promoted}×{i + 1}")
+        counts[i + 1] += promoted
 
     # Look where the first nonzero value sits.
     nonzero = np.nonzero(counts)[0][-1] if np.any(counts) else 0
     if nonzero == 0 and 0.5 in values:
-        return 0.5
-    return int(nonzero)
+        return 0.5, ["only limited/luck-based contributions: 0.5"]
+    if nonzero == 0:
+        return 0, ["no contributions: 0"]
+    steps.append(f"highest: {nonzero}")
+    return int(nonzero), steps
 
 
 def get_total_quality(qual_name: str, kingdom_df: pd.DataFrame) -> float:
