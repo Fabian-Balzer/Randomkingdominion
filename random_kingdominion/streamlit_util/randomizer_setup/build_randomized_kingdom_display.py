@@ -5,7 +5,7 @@ from ..common_widgets import (
     st_build_full_kingdom_display,
     st_build_kingdom_sidebar_display,
 )
-from .randomizer_util import load_config
+from .randomizer_util import RANDOMIZED_KINGDOM_FRAGMENT_KEY, load_config
 from .reroll_callbacks import reroll_cso, reroll_selected_csos
 
 
@@ -41,7 +41,7 @@ def _build_incomplete_randomization_warning(k: Kingdom):
             st.warning(pretext + _get_invalidity_issues_text(k))
 
 
-@st.fragment
+@st.fragment(key=RANDOMIZED_KINGDOM_FRAGMENT_KEY)
 def st_build_current_randomized_kingdom_display():
     k = Kingdom.from_dombot_csv_string(st.session_state["randomized_kingdom"])
     with st.container(border=True):

@@ -9,15 +9,15 @@ from .. import display_stylysed_cso_df
 def _build_reroll_selection_button(
     key: str, reroll_selection_callback: Callable[[], None]
 ):
-    if st.button(
+    # No st.rerun() afterwards: the click reruns the fragment showing the kingdom
+    st.button(
         "Reroll selected CSOs",
         help="Reroll the CSOs you selected to generate a new kingdom.",
         on_click=reroll_selection_callback,
         width="stretch",
         key=key,
         type="primary",
-    ):
-        st.rerun()
+    )
 
 
 def st_build_reroll_kingdom_display(

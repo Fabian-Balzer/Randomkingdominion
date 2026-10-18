@@ -1,3 +1,5 @@
+from functools import lru_cache
+
 import streamlit as st
 from streamlit_extras.add_vertical_space import add_vertical_space
 from streamlit_extras.grid import grid
@@ -45,20 +47,26 @@ def _toggle_all_expansions(value: bool):
 
 
 def _build_toggle_row():
+    # wrap=True: since Streamlit 1.63, labels of buttons directly in columns are cut
+    # off instead of wrapping on narrow screens
     cols = st.columns(3)
     cols[0].button(
         "Select all",
-        on_click=lambda: _toggle_all_expansions(True),
+        on_click=_toggle_all_expansions,
+        args=(True,),
         width="stretch",
         type="primary",
         icon="✅",
+        wrap=True,
     )
     cols[1].button(
         "Clear selection",
-        on_click=lambda: _toggle_all_expansions(False),
+        on_click=_toggle_all_expansions,
+        args=(False,),
         width="stretch",
         type="primary",
         icon="❌",
+        wrap=True,
     )
     cols[2].button(
         "Select all except 1E",
@@ -66,6 +74,7 @@ def _build_toggle_row():
         width="stretch",
         type="primary",
         icon="☑️",
+        wrap=True,
     )
 
 
@@ -114,17 +123,24 @@ def _toggle_exp(exp: str):
     st.session_state["selected_expansions"] = sel_expansions
 
 
+@lru_cache(maxsize=None)
+def _get_exp_button_label(exp: str) -> str:
+    """The icon and name of the expansion; cached, as encoding the 24 icons took
+    ~50 ms on every rerun of the expansion selection."""
+    fpath = "./static/" + get_expansion_icon_path(exp, relative_only=True)
+    bytes = img_to_bytes(fpath)
+    return f"![exp_icon](data:image/png;base64,{bytes})\\\n{exp}"
+
+
 def build_exp_checkbox(exp: str):
     sel_expansions = get_selected_expansions()
     is_sel = exp in sel_expansions
-    fpath = "./static/" + get_expansion_icon_path(exp, relative_only=True)
-    bytes = img_to_bytes(fpath)
-    label = f"![exp_icon](data:image/png;base64,{bytes})\\\n{exp}"
     st.button(
-        label,
+        _get_exp_button_label(exp),
         key=f"color button {exp}",
         width="stretch",
-        on_click=lambda: _toggle_exp(exp),
+        on_click=_toggle_exp,
+        args=(exp,),
         type="primary" if is_sel else "secondary",
     )
 

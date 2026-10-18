@@ -115,23 +115,40 @@ def save_config() -> CustomConfigParser:
     return config
 
 
+# The fragment showing the randomized kingdom, so that a new randomization can rerun
+# just that fragment instead of the whole page
+RANDOMIZED_KINGDOM_FRAGMENT_KEY = "randomized_kingdom_display"
+
+
 def randomize_new_kingdom():
-    """Randomize a kingdom given the current session state."""
+    """Randomize a kingdom given the current session state (callback of the
+    "Randomize" button)."""
+    is_kingdom_shown = st.session_state.get("randomized_kingdom", "") != ""
     config = save_config()
     if len(config.get_expansions()) == 0:
+        st.toast("No expansions selected! Please select at least one.", icon="❌")
         return
     randomizer = KingdomRandomizer(config)
     k = randomizer.randomize_new_kingdom()
     st.session_state["randomized_kingdom"] = k.get_dombot_csv_string()
     if k.is_empty:
-        st.session_state["randomization_toast"] = (
-            "Randomization failed. Maybe loosen randomization constraints?"
+        st.toast(
+            "Randomization failed. Maybe loosen randomization constraints?",
+            icon="❌",
+            duration=7,
         )
     elif not k.is_valid:
-        st.session_state["randomization_toast"] = (
-            "Randomization resulted in an invalid kingdom. Maybe loosen randomization constraints?"
+        st.toast(
+            "Randomization resulted in an invalid kingdom. Maybe loosen randomization constraints?",
+            icon="⚠️",
+            duration=7,
         )
     else:
-        st.session_state["randomization_toast"] = (
-            "Randomization successful!\nGood luck and have fun!"
+        st.toast(
+            "Randomization successful!\nGood luck and have fun!", icon="🎉", duration=7
         )
+    if is_kingdom_shown:
+        # Nothing else on the page depends on the kingdom, so the options (and their
+        # sidebar overviews) don't need to rerun. The first kingdom needs a full
+        # rerun, as its fragment doesn't exist yet.
+        st.rerun(RANDOMIZED_KINGDOM_FRAGMENT_KEY)

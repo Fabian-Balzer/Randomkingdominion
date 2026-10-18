@@ -1,5 +1,7 @@
+from io import BytesIO
 from typing import Literal
 
+import matplotlib.pyplot as plt
 import streamlit as st
 
 from ....kingdom import Kingdom
@@ -38,17 +40,29 @@ def st_build_kingdom_csv_display(k: Kingdom, wrap_lines: bool = True):
     st.container(height=2, border=False)
 
 
+@st.cache_data(max_entries=256, show_spinner=False)
+def _get_kingdom_miniplot_png(
+    qualities: tuple[tuple[str, float], ...], buy_str: str, title: str
+) -> bytes:
+    """Render the quality plot once per kingdom: building and rendering it took
+    ~0.55 s, on every rerun of the kingdom display."""
+    fig = plot_kingdom_qualities(dict(qualities), buy_str=buy_str)
+    if title != "":
+        fig.axes[0].set_title(title, fontsize=14, pad=10)
+    fig.set_facecolor("none")
+    buffer = BytesIO()
+    # The defaults of st.pyplot
+    fig.savefig(buffer, format="png", bbox_inches="tight", dpi=200)
+    plt.close(fig)
+    return buffer.getvalue()
+
+
 def _build_kingdom_miniplot_display(k: Kingdom):
     """Display a small plot of the kingdom's card qualities."""
-    fig = plot_kingdom_qualities(k.total_qualities, buy_str=k.buy_availability)
-    if k.name != "":
-        fig.axes[0].set_title(
-            get_video_title(k),
-            fontsize=14,
-            pad=10,
-        )
-    fig.set_facecolor("none")
-    st.pyplot(fig)
+    qualities = tuple((q, float(v)) for q, v in k.total_qualities.items())
+    title = get_video_title(k) if k.name != "" else ""
+    png = _get_kingdom_miniplot_png(qualities, k.buy_availability, title)
+    st.image(png, width="stretch")
     text = "The kingdom quality plot gives you a quick overview of the distribution of CSO qualities in this kingdom.\nHover over the CSOs in the card view to see which qualities they contribute.\nFor more information about kingdom qualities, visit the About page."
     _display_more_info_tt(text)
 
@@ -101,8 +115,17 @@ def st_build_kingdom_sidebar_display(
     with st.container(gap=None):
         st_build_kingdom_csv_display(k, wrap_lines=loc == "randomizer")
         _build_match_info_display(k)
-        with st.expander("Kingdom plot", expanded=loc == "oracle", icon="🧭"):
-            _build_kingdom_miniplot_display(k)
+        plot_expander = st.expander(
+            "Kingdom plot",
+            expanded=loc == "oracle",
+            icon="🧭",
+            key=f"kingdom_plot_expander_{loc}",
+            # Tracks whether it's open, so that the plot is only drawn when shown
+            on_change="rerun",
+        )
+        with plot_expander:
+            if plot_expander.open:
+                _build_kingdom_miniplot_display(k)
         st.container(height=2, border=False)
         _build_kingdom_interactions_display(k)
         st.container(height=2, border=False)

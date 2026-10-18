@@ -132,14 +132,17 @@ def display_cso_image(
 
 
 def _build_single_reroll_button(cso_name: str, reroll_callback: Callable[[str], None]):
-    if st.button(
+    # No st.rerun() afterwards: the click reruns the fragment showing the kingdom,
+    # which is all that changes (a full rerun would also rebuild all options).
+    # args instead of a lambda, as session state has to stay picklable.
+    st.button(
         "Reroll",
-        on_click=lambda c=cso_name: reroll_callback(sanitize_cso_name(c)),
+        on_click=reroll_callback,
+        args=(sanitize_cso_name(cso_name),),
         key=f"reroll_{cso_name}",
         width="stretch",
         type="primary",
-    ):
-        st.rerun()
+    )
 
 
 def _display_shelter_use(

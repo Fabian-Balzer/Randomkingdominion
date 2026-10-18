@@ -127,6 +127,9 @@ def _st_build_qualities_selection() -> None:
                 width="stretch",
                 label_visibility="collapsed",
                 help=f"Select {_get_quality_label(quality)} quality value",
+                # Directly in a column, the options would otherwise stay on one
+                # scrolling row (Streamlit >= 1.63) and could hide the 4
+                wrap=True,
             )
 
 
@@ -404,6 +407,9 @@ def _build_enum_selection(
         on_change=save_quiz_widget_value,
         args=(st.session_state, durable_key),
         help="\\\n".join([option.get_description() for option in enum_cls]),
+        # Mode and difficulty are directly in columns, where the options would
+        # otherwise stay on one scrolling row (Streamlit >= 1.63)
+        wrap=True,
     )
 
 
@@ -441,7 +447,8 @@ def _build_expansion_toggle_row() -> None:
     # rerun of a round in AppTest, which keeps the start screen's buttons from the
     # run interrupted by st.rerun() (see the conftest of the tests).
     for col, (label, icon, expansions) in zip(st.columns(3), _EXPANSION_SHORTCUTS):
-        if col.button(label, width="stretch", icon=icon):
+        # wrap=True: labels of buttons directly in columns are cut off otherwise
+        if col.button(label, width="stretch", icon=icon, wrap=True):
             st.session_state[QUIZ_EXPANSIONS_KEY] = list(expansions)
             # Rerun, so that the count in the expander's label is updated as well
             st.rerun(scope="app")
@@ -465,6 +472,7 @@ def _build_expansion_selection() -> None:
             args=(st.session_state, QUIZ_EXPANSIONS_KEY),
             label_visibility="collapsed",
             width="stretch",
+            wrap=True,
         )
 
 
@@ -492,7 +500,7 @@ def _build_pool_availability(pool: QuizKingdomPool, mode: QuizMode) -> bool:
         advice = "select more expansions, switch to Practice, or choose another pool."
     st.warning(
         f"Only {num_available} {pool.source.label} {kingdoms} only your expansions, "
-        f"but a {mode.label} needs {mode.round_count}. Please {advice}"
+        + f"but a {mode.label} needs {mode.round_count}. Please {advice}"
     )
     return False
 
