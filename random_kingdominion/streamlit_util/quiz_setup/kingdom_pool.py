@@ -91,7 +91,7 @@ class QuizPoolSource(StrEnum):
         d = {
             QuizPoolSource.RANDOM: "Freshly randomized kingdoms from your expansions.",
             QuizPoolSource.RECOMMENDED: "The recommended kingdoms from the rulebooks (at most two expansions each).",
-            QuizPoolSource.TGG_DAILIES: "The daily kingdoms of the Temple Gates Games client.",
+            QuizPoolSource.TGG_DAILIES: "The daily kingdoms of the Temple Gates Games client, except those with twists, stamps or setup effects (as in the TGG Campaigns), which the qualities don't cover.",
         }[self]
         if not include_name:
             return d
@@ -161,6 +161,11 @@ def _is_set(info: dict, key: str) -> bool:
     return info.get(key) is True
 
 
+def _has_campaign_effects(info: dict) -> bool:
+    effects = info.get("campaign_effects")
+    return isinstance(effects, list) and len(effects) > 0
+
+
 def _get_identity_of_info(info: dict) -> _KingdomIdentity:
     non_supply = {sanitize_cso_name(info.get(f, "")) for f in _NON_SUPPLY_FIELDS}
     supply = set(sanitize_cso_list(info.get("cards", []))) - non_supply
@@ -211,6 +216,10 @@ def _load_curated_kingdoms(source: QuizPoolSource) -> tuple[_CuratedKingdom, ...
         raise ValueError(f"{source} is not a curated pool.")
     kingdoms: dict[_KingdomIdentity, _CuratedKingdom] = {}
     for info in manager.kingdoms:
+        # Twists, stamps and setup effects change a kingdom in ways the qualities
+        # don't cover (the same reason the TGG Campaigns aren't offered)
+        if _has_campaign_effects(info):
+            continue
         identity = _get_identity_of_info(info)
         # Duplicates count once, so that a run can't contain the same kingdom twice
         kingdoms.setdefault(

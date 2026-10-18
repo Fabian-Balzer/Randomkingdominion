@@ -92,7 +92,7 @@ def construct_short_qual_desc(qual: str) -> str:
     cols = st.columns([0.9, 0.1], vertical_alignment="center")
     with cols[1]:
         img_path = STATIC_FPATH.joinpath(f"icons/qualities/{qual}.jpg")
-        st.image(str(img_path), use_column_width=True)
+        st.image(str(img_path), width="stretch")
     with cols[0]:
         st.page_link(
             f"streamlit_pages/qualities/{qual}.py",

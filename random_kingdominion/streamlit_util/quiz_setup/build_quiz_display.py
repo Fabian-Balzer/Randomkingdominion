@@ -11,7 +11,11 @@ from ...utils import DOM_BEIGE, get_quality_icon_fpath
 from ..common_widgets import st_build_kingdom_csv_display, st_display_kingdom_images
 from ..image_util import st_plot_kingdom_qualities
 from ..quality_display import EMOJI_DICT
-from .explanations import st_build_explanation_section, st_build_explanation_selector
+from .explanations import (
+    get_feedback_text,
+    st_build_explanation_section,
+    st_build_explanation_selector,
+)
 from .kingdom_pool import (
     QUIZ_DEFAULT_EXPANSIONS,
     QUIZ_EXPANSION_OPTIONS,
@@ -343,7 +347,8 @@ def _build_solution_breakdown(answers: QuizAnswers, kingdom_str: str) -> None:
     )
     st.markdown("\n".join("| " + " | ".join(row) + " |" for row in rows))
     st.caption(
-        "A value of 0.5 corresponds to :star: in the selection.\n'4×1 → 1×2' means that four CSOs with a value of 1 count as one with a value of 2; see *Quality Calculation Details* at the top for the full rules."
+        "A value of 0.5 corresponds to :star: in the selection.\n'4×1 → 1×2' means that four CSOs with a value of 1 count as one with a value of 2; see *Quality Calculation Details* at the top for the full rules.\n"
+        + get_feedback_text()
     )
 
 
@@ -469,7 +474,10 @@ def _build_pool_availability(pool: QuizKingdomPool, mode: QuizMode) -> bool:
     if not pool.expansions:
         st.warning("No expansions selected! Please select at least one expansion.")
         return False
-    num_available = count_available_kingdoms(pool)
+    # Only shown if it takes a while, i.e. the first time a curated pool is loaded on
+    # this server; afterwards the pool is cached for all sessions
+    with st.spinner(f"Loading the {pool.source.label} kingdoms..."):
+        num_available = count_available_kingdoms(pool)
     if num_available is None:
         st.caption(f"✔ Random kingdoms from {pool.expansion_summary}.")
         return True

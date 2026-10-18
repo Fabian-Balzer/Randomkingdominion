@@ -5,6 +5,18 @@ import streamlit as st
 
 from .scoring import GOOD_SCORE_THRESHOLD, IMPRESSIVE_SCORE_THRESHOLD, MAX_ROUND_SCORE
 
+# Where to send feedback on the ratings; set the video URL once the showcase is out
+QUIZ_FEEDBACK_DISCORD_NAME = "Fabi_1000"
+QUIZ_FEEDBACK_VIDEO_URL = ""
+
+
+def get_feedback_text() -> str:
+    text = f"Disagree with a rating? DM me on Discord (**{QUIZ_FEEDBACK_DISCORD_NAME}**)"
+    if QUIZ_FEEDBACK_VIDEO_URL:
+        text += f" or comment under the [showcase video]({QUIZ_FEEDBACK_VIDEO_URL})"
+    return text + "."
+
+
 QUIZ_INTRO = """Are you able to infer the engine qualities for a given kingdom? I highly recommend reading the instructions below before getting started. Note that this website is not optimized for mobile devices."""
 
 EXPLANATIONS: dict[str, str] = {}
@@ -38,7 +50,7 @@ If there are no CSOs with a value, then the total value is zero.
 
 EXPLANATIONS[
     "💡 Tips and Tricks"
-] = """I highly recommend to read this section thoroughly before starting, and to make sure you've understood how a quality value is calculated (see the previous tab).
+] = f"""I highly recommend to read this section thoroughly before starting, and to make sure you've understood how a quality value is calculated (see the previous tab).
 Go through the qualities one by one, looking at all CSOs in the kingdom (including extra stuff like a Ferryman or Riverboat card). Try to find the ones that might contribute to that quality, and then assess their strengths individually, finally combining them according to the formula.
 
 Here are some specific tips for assessing each quality:
@@ -67,7 +79,7 @@ Here are some specific tips for assessing each quality:
     - Note that even some non-Attack cards can have an Attack quality of 1 if they can mess with your deck or even your turn (Masquerade, Monkey, Possession).
 
 
-If you completely disagree with a certain quality assessment, DM me on Discord :)
+If you completely disagree with a certain quality assessment: {get_feedback_text()}
 
 In case you want to read more, I have provided a few more insights and lists of all CSOs on the respective sites for each quality.
 """

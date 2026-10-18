@@ -148,6 +148,8 @@ def test_solution_view_uses_submitted_answers(app: AppTest) -> None:
     assert any("Contributing CSOs" in m.value for m in app.markdown)
     assert any("Open Book" in m.value and "badge" in m.value for m in app.markdown)
     assert any("Quality hints were shown" in m.value for m in app.markdown)
+    # Where to send feedback on the ratings
+    assert any("Fabi_1000" in c.value for c in app.caption)
 
 
 def test_last_run_round_leads_to_summary(app: AppTest) -> None:

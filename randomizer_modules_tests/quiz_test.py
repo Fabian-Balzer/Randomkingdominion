@@ -4,8 +4,8 @@ from datetime import datetime
 
 import pytest
 
-from random_kingdominion.kingdom import Kingdom
-from random_kingdominion.streamlit_util.quiz_setup import kingdom_pool
+from random_kingdominion.kingdom import Kingdom, KingdomManager
+from random_kingdominion.streamlit_util.quiz_setup import explanations, kingdom_pool
 from random_kingdominion.streamlit_util.quiz_setup.kingdom_pool import (
     QUIZ_DEFAULT_EXPANSIONS,
     QUIZ_EXPANSION_OPTIONS,
@@ -733,3 +733,23 @@ def test_quiz_run_persistence_rejects_records_without_a_pool() -> None:
 
     with pytest.raises(QuizPersistenceError, match="schema"):
         deserialize_quiz_run(json.dumps(record))
+
+
+def test_curated_pools_leave_out_kingdoms_with_campaign_effects() -> None:
+    """Twists, stamps and setup effects aren't covered by the qualities."""
+    manager = KingdomManager()
+    manager.load_tgg_dailies()
+    with_effects = [k for k in manager.kingdoms if k.get("campaign_effects")]
+    curated = kingdom_pool._load_curated_kingdoms(QuizPoolSource.TGG_DAILIES)
+
+    assert with_effects, "the filter isn't tested if no Daily has campaign effects"
+    assert not any(k.info.get("campaign_effects") for k in curated)
+    assert {k.name for k in curated}.isdisjoint(k["name"] for k in with_effects)
+
+
+def test_feedback_text_names_discord_and_later_the_video(monkeypatch) -> None:
+    assert "Fabi_1000" in explanations.get_feedback_text()
+    assert "video" not in explanations.get_feedback_text()
+
+    monkeypatch.setattr(explanations, "QUIZ_FEEDBACK_VIDEO_URL", "https://youtu.be/x")
+    assert "[showcase video](https://youtu.be/x)" in explanations.get_feedback_text()
