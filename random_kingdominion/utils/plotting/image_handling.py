@@ -103,6 +103,21 @@ def get_cropped_card_img_without_text(cso_key: str):
     return compose_images_vertically(crop_1, crop_2)
 
 
+# On all landscape types (Events, Projects, Ways, Landmarks, Allies, Prophecies),
+# the text box starts below 66 % of the image height. Traits have it a bit lower,
+# and need the extra height for their name on the vertical side banners.
+LANDSCAPE_TEXT_BOX_TOP = 0.65
+TRAIT_TEXT_BOX_TOP = 0.71
+
+
+def crop_landscape_text(img: Image.Image, is_trait: bool = False) -> Image.Image:
+    """Cut off the text box of a landscape image, keeping the name, cost, type and art.
+    Cropping instead of zooming, since zooming would cut off the cost and the
+    type, and for Traits even the name (which is on the side banners)."""
+    text_box_top = TRAIT_TEXT_BOX_TOP if is_trait else LANDSCAPE_TEXT_BOX_TOP
+    return crop_img_by_percentage(img, [0, 0, 1, text_box_top])
+
+
 def overlay_cutout(
     base_img: Image.Image,
     overlay_img: Image.Image,

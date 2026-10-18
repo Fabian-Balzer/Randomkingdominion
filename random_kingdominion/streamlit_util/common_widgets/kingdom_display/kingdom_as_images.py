@@ -9,6 +9,7 @@ from PIL import Image, ImageDraw, ImageOps
 from ....kingdom import Kingdom
 from ....utils import (
     crop_img_by_percentage,
+    crop_landscape_text,
     get_cropped_card_img_without_text,
     get_cso_quality_description,
     invert_dict,
@@ -32,20 +33,20 @@ def round_corners(img: Image.Image, radius: int, padding_px: int = 10) -> Image.
     return img
 
 
-def display_cso_image(
+def get_cso_display_image(
     cso: pd.Series,
     kingdom: Kingdom,
     full_image: bool = False,
-    show_tooltip: bool = False,
-    exclude_tooltip_qualities: bool = False,
-):
-    """Display the card image of a CSO with a tooltip containing the card's name, expansion, and text."""
+    hide_landscape_text: bool = False,
+) -> Image.Image:
+    """Compose the image of a CSO as displayed for the given kingdom, including
+    overlays for e.g. the Bane, Ferryman, Trait or Obelisk piles.
+    Landscapes are shown in full unless `hide_landscape_text` is set, independent of `full_image`."""
     cso_key = str(cso.name)
-    name = kingdom.get_cso_name_with_extra(cso_key)
-    full_image = full_image or cso["IsExtendedLandscape"]
+    is_landscape = bool(cso["IsExtendedLandscape"])
     img = (
         load_cso_img_by_key(cso_key)
-        if full_image
+        if full_image or is_landscape
         else get_cropped_card_img_without_text(cso_key)
     )
     # TODO: Add support for the full image positioning, currently it's ugly.
@@ -96,7 +97,24 @@ def display_cso_image(
         trait_img = load_cso_img_by_key(trait_key)
         trait_img = crop_img_by_percentage(trait_img, [0, 0.12, 0.063, 0.88])
         img = overlay_cutout(img, trait_img, 0.95, (0.01, 0.15))
-    img = round_corners(img, 15)
+    if is_landscape and hide_landscape_text:
+        # Only now, as the overlay positions above refer to the full landscape image
+        img = crop_landscape_text(img, is_trait="Trait" in cso["Types"])
+    return round_corners(img, 15)
+
+
+def display_cso_image(
+    cso: pd.Series,
+    kingdom: Kingdom,
+    full_image: bool = False,
+    show_tooltip: bool = False,
+    exclude_tooltip_qualities: bool = False,
+    hide_landscape_text: bool = False,
+):
+    """Display the card image of a CSO with a tooltip containing the card's name, expansion, and text."""
+    cso_key = str(cso.name)
+    name = kingdom.get_cso_name_with_extra(cso_key)
+    img = get_cso_display_image(cso, kingdom, full_image, hide_landscape_text)
     if show_tooltip:
         tooltip = name + f"<br>From <b><em>{cso['Expansion']}</b></em>"
         quals = get_cso_quality_description(cso_key, True)
@@ -172,6 +190,7 @@ def st_display_kingdom_images(
     exclude_tooltip_qualities: bool = False,
     sorting: str = "Cost",
     single_reroll_callback: Callable[[str], None] | None = None,
+    hide_landscape_text: bool = False,
 ):
     """Display only the images of the cards and landscapes in the kingdom."""
     sorting_options = {
@@ -212,6 +231,7 @@ def st_display_kingdom_images(
                 full_image=show_full_image,
                 show_tooltip=show_tooltips,
                 exclude_tooltip_qualities=exclude_tooltip_qualities,
+                hide_landscape_text=hide_landscape_text,
             )
             if single_reroll_callback is not None and st.session_state.get(
                 "show_reroll_buttons", False
