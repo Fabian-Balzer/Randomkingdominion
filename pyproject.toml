@@ -28,3 +28,8 @@ include-package-data = true
 
 [tool.setuptools.packages.find]
 where = ["."]
+
+[tool.pytest.ini_options]
+markers = [
+    "slow: drives a page through Streamlit's AppTest (seconds per test); skip with -m 'not slow'",
+]
