@@ -3,6 +3,7 @@ from datetime import datetime
 from enum import StrEnum
 from uuid import uuid4
 
+from .kingdom_pool import QuizKingdomPool
 from .scoring import MAX_ROUND_SCORE, BuyAvailability
 
 QUIZ_SCORING_VERSION = "1"
@@ -96,6 +97,7 @@ class QuizRunState:
     run_id: str = field(default_factory=lambda: str(uuid4()))
     mode: QuizMode = QuizMode.PRACTICE
     difficulty: QuizDifficulty = QuizDifficulty.OPEN_BOOK
+    pool: QuizKingdomPool = field(default_factory=QuizKingdomPool)
     phase: QuizPhase = QuizPhase.NOT_STARTED
     round_count: int = 1
     current_round_index: int = 0
@@ -120,9 +122,11 @@ class QuizRunState:
         difficulty: QuizDifficulty,
         kingdom: str,
         mode: QuizMode,
+        pool: QuizKingdomPool | None = None,
     ) -> "QuizRunState":
         return cls(
             mode=mode,
+            pool=pool if pool is not None else QuizKingdomPool(),
             phase=QuizPhase.ANSWERING,
             difficulty=difficulty,
             round_count=round_count,
@@ -162,6 +166,14 @@ class QuizRunState:
         self.round_score = None
         self.phase = QuizPhase.ANSWERING
         self.last_round_start = datetime.now()
+
+    @property
+    def used_kingdoms(self) -> set[str]:
+        """The kingdoms of this run so far, which mustn't come up again."""
+        used = {round_result.kingdom for round_result in self.completed_rounds}
+        if self.current_kingdom:
+            used.add(self.current_kingdom)
+        return used
 
     def get_elapsed_time_of_current_round(self) -> float:
         if self.phase is QuizPhase.ANSWERING:

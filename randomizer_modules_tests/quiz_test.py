@@ -5,6 +5,18 @@ from datetime import datetime
 import pytest
 
 from random_kingdominion.kingdom import Kingdom
+from random_kingdominion.streamlit_util.quiz_setup import kingdom_pool
+from random_kingdominion.streamlit_util.quiz_setup.kingdom_pool import (
+    QUIZ_DEFAULT_EXPANSIONS,
+    QUIZ_EXPANSION_OPTIONS,
+    QuizKingdomPool,
+    QuizPoolSource,
+    count_available_kingdoms,
+    draw_quiz_kingdom,
+    get_curated_kingdom_name,
+    get_quiz_randomizer_config,
+    uses_only_expansions,
+)
 from random_kingdominion.streamlit_util.quiz_setup.persistence import (
     QuizPersistenceError,
     deserialize_quiz_run,
@@ -415,13 +427,24 @@ def test_score_bar_bands_are_ordered_and_end_with_perfect() -> None:
     assert PERFECT_BAND.bar_start < MAX_ROUND_SCORE
 
 
-@pytest.mark.parametrize("enum_cls", [QuizMode, QuizDifficulty])
+@pytest.mark.parametrize("enum_cls", [QuizMode, QuizDifficulty, QuizPoolSource])
 def test_quiz_enums_use_stable_ids_and_separate_labels(enum_cls) -> None:
     for member in enum_cls:
         assert member.value.isascii()
         assert member.label != member.value
         assert enum_cls(member.value) is member
         assert member.label in member.get_description()
+
+
+def test_quiz_enum_ids_are_unique_across_selections() -> None:
+    """The selection widgets look up all labels by id in one dict."""
+    ids = [
+        option.value
+        for enum_cls in (QuizMode, QuizDifficulty, QuizPoolSource)
+        for option in enum_cls
+    ]
+
+    assert len(ids) == len(set(ids))
 
 
 def test_quiz_mode_round_counts() -> None:
@@ -526,3 +549,187 @@ def test_landscape_text_crop_keeps_the_upper_part() -> None:
         367,
         round(224 * TRAIT_TEXT_BOX_TOP),
     )
+
+
+# T1: kingdom pools
+
+
+def test_default_pool_is_random_without_first_editions_and_promos() -> None:
+    pool = QuizKingdomPool()
+
+    assert pool.source is QuizPoolSource.RANDOM
+    assert pool.expansions == QUIZ_DEFAULT_EXPANSIONS
+    assert not any("1E" in exp for exp in pool.expansions)
+    assert "Promo" not in pool.expansions
+    assert set(QUIZ_EXPANSION_OPTIONS) - set(pool.expansions) == {
+        "Promo",
+        *(exp for exp in QUIZ_EXPANSION_OPTIONS if "1E" in exp),
+    }
+
+
+def test_pool_sorts_expansions_and_rejects_unknown_ones() -> None:
+    pool = QuizKingdomPool(QuizPoolSource.RECOMMENDED, ("Seaside, 2E", "Base, 2E"))
+
+    assert pool == QuizKingdomPool(
+        QuizPoolSource.RECOMMENDED, ("Base, 2E", "Seaside, 2E")
+    )
+    assert pool.label == "⭐ Recommended · 2 expansions"
+    assert QuizKingdomPool(expansions=("Alchemy",)).expansion_summary == "1 expansion"
+    assert (
+        QuizKingdomPool(expansions=QUIZ_EXPANSION_OPTIONS).expansion_summary
+        == "all expansions"
+    )
+    with pytest.raises(ValueError, match="Unknown expansions"):
+        QuizKingdomPool(expansions=("Base",))
+
+
+def test_quiz_randomizer_config_is_independent_of_the_default_bans() -> None:
+    config = get_quiz_randomizer_config(["Alchemy", "Base, 2E"])
+
+    assert config.getlist("General", "banned_csos") == []
+    assert config.get_expansions(add_renewed_bases=False) == ["Alchemy", "Base, 2E"]
+
+
+@pytest.mark.parametrize(
+    ("csos_expansions", "selected", "expected"),
+    [
+        # Cards in both editions are available with either of them
+        ({"Base"}, ["Base, 1E"], True),
+        ({"Base"}, ["Base, 2E"], True),
+        ({"Base", "Base, 2E"}, ["Base, 1E"], False),
+        ({"Base", "Base, 1E"}, ["Base, 1E"], True),
+        # The 2E merger of Cornucopia and Guilds
+        ({"Cornucopia", "Guilds"}, ["Cornucopia & Guilds, 2E"], True),
+        ({"Cornucopia", "Guilds"}, ["Cornucopia, 1E", "Guilds, 1E"], True),
+        ({"Cornucopia", "Guilds"}, ["Cornucopia, 1E"], False),
+        ({"Cornucopia & Guilds, 2E"}, ["Cornucopia, 1E", "Guilds, 1E"], False),
+        ({"Unknown"}, list(QUIZ_EXPANSION_OPTIONS), False),
+        (set(), [], True),
+    ],
+)
+def test_expansion_filter_handles_editions(
+    csos_expansions: set[str], selected: list[str], expected: bool
+) -> None:
+    assert uses_only_expansions(csos_expansions, selected) is expected
+
+
+def test_random_pool_draws_from_the_selected_expansions() -> None:
+    pool = QuizKingdomPool(expansions=("Alchemy",))
+    kingdom = Kingdom.from_dombot_csv_string(draw_quiz_kingdom(pool))
+
+    assert kingdom.expansions == ["Alchemy"]
+    assert count_available_kingdoms(pool) is None
+    assert get_curated_kingdom_name(pool, kingdom.get_dombot_csv_string()) is None
+
+
+def test_random_pool_redraws_kingdoms_of_the_run(monkeypatch) -> None:
+    first, second = (
+        Kingdom(cards=["Village", "Smithy"]),
+        Kingdom(cards=["Market", "Chapel"]),
+    )
+    draws = [first, first, second]
+
+    class FakeRandomizer:
+        def __init__(self, config) -> None:
+            pass
+
+        def randomize_new_kingdom(self) -> Kingdom:
+            return draws.pop(0)
+
+    monkeypatch.setattr(kingdom_pool, "KingdomRandomizer", FakeRandomizer)
+
+    kingdom_str = draw_quiz_kingdom(QuizKingdomPool(), {first.get_dombot_csv_string()})
+
+    assert kingdom_str == second.get_dombot_csv_string()
+    assert draws == []
+
+
+def test_empty_selection_has_no_kingdoms() -> None:
+    for source in QuizPoolSource:
+        pool = QuizKingdomPool(source, ())
+        assert count_available_kingdoms(pool) == 0
+        with pytest.raises(ValueError, match="no expansions"):
+            draw_quiz_kingdom(pool)
+
+
+def test_curated_pool_only_uses_selected_expansions_and_never_repeats() -> None:
+    all_recommended = QuizKingdomPool(QuizPoolSource.RECOMMENDED, QUIZ_EXPANSION_OPTIONS)
+    pool = QuizKingdomPool(QuizPoolSource.RECOMMENDED, ("Base, 2E",))
+    num_available = count_available_kingdoms(pool)
+    assert num_available is not None
+    assert 0 < num_available < count_available_kingdoms(all_recommended)  # type: ignore
+
+    drawn: list[str] = []
+    for _ in range(num_available):
+        drawn.append(draw_quiz_kingdom(pool, exclude=drawn))
+
+    assert len(set(drawn)) == num_available
+    for kingdom_str in drawn:
+        assert Kingdom.from_dombot_csv_string(kingdom_str).expansions == ["Base, 2E"]
+        # Each curated kingdom can be named once it's solved
+        assert get_curated_kingdom_name(pool, kingdom_str)
+    with pytest.raises(ValueError, match="no kingdoms left"):
+        draw_quiz_kingdom(pool, exclude=drawn)
+
+
+def test_tgg_dailies_count_duplicates_once() -> None:
+    pool = QuizKingdomPool(QuizPoolSource.TGG_DAILIES, QUIZ_EXPANSION_OPTIONS)
+    curated = kingdom_pool._load_curated_kingdoms(QuizPoolSource.TGG_DAILIES)
+
+    assert count_available_kingdoms(pool) == len({k.identity for k in curated})
+    assert get_curated_kingdom_name(
+        pool, draw_quiz_kingdom(pool)
+    ) in {k.name for k in curated}
+
+
+def test_used_kingdoms_cover_completed_and_current_rounds() -> None:
+    run_state = QuizRunState.start(10, QuizDifficulty.EASY, "First", QuizMode.RUN)
+    run_state.submit_round(QuizAnswers({}, "no"), 0)
+    run_state.advance_round("Second")
+
+    assert run_state.used_kingdoms == {"First", "Second"}
+
+
+def test_quiz_run_persistence_restores_the_pool() -> None:
+    pool = QuizKingdomPool(QuizPoolSource.TGG_DAILIES, ("Base, 2E", "Alchemy"))
+    run_state = QuizRunState.start(
+        10, QuizDifficulty.HARD, "Village, Smithy", QuizMode.RUN, pool=pool
+    )
+    record = json.loads(serialize_quiz_run(run_state))
+
+    assert record["pool"] == {
+        "source": "tgg_dailies",
+        "expansions": ["Base, 2E", "Alchemy"],
+    }
+    restored_run = deserialize_quiz_run(serialize_quiz_run(run_state))
+    assert restored_run.pool == pool
+    assert restored_run == run_state
+
+
+@pytest.mark.parametrize(
+    "pool_record",
+    [
+        {"source": "campaigns", "expansions": ["Base, 2E"]},
+        {"source": "random", "expansions": ["Base"]},
+        {"source": "random", "expansions": "Base, 2E"},
+        {"source": "random"},
+    ],
+)
+def test_quiz_run_persistence_rejects_invalid_pools(pool_record: dict) -> None:
+    run_state = QuizRunState.start(1, QuizDifficulty.EASY, "Village", QuizMode.PRACTICE)
+    record = json.loads(serialize_quiz_run(run_state))
+    record["pool"] = pool_record
+
+    with pytest.raises(QuizPersistenceError):
+        deserialize_quiz_run(json.dumps(record))
+
+
+def test_quiz_run_persistence_rejects_records_without_a_pool() -> None:
+    """Records of schema version 2 had no pool; they are rejected and reset."""
+    run_state = QuizRunState.start(1, QuizDifficulty.EASY, "Village", QuizMode.PRACTICE)
+    record = json.loads(serialize_quiz_run(run_state))
+    del record["pool"]
+    record["schema_version"] = 2
+
+    with pytest.raises(QuizPersistenceError, match="schema"):
+        deserialize_quiz_run(json.dumps(record))

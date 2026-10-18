@@ -17,6 +17,11 @@ Pitfalls when writing page tests with Streamlit's AppTest:
 - AppTest always reruns the whole script, never just a fragment or dialog. A button
   inside an `st.dialog` is therefore only rendered while the dialog is open, and its
   click is lost on the rerun; let such buttons act in an `on_click` callback.
+- After an `st.rerun()`, AppTest keeps the elements of the interrupted run in its
+  tree (e.g. the quiz's start screen next to the first round) and sends their state
+  with the next run. Callbacks of buttons that aren't rendered anymore then fire
+  (their `False` differs from the removed old state). Handle clicks on such screens
+  inline (`if st.button(...)`) instead of in `on_click`.
 - AppTest can't deselect a segmented control (`set_value(None)` is ignored); emulate
   it by changing session state the way the widget's callback would.
 - Popovers are generic blocks in AppTest; read their label via `.proto.popover.label`.

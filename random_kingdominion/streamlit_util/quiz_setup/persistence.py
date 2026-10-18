@@ -4,6 +4,7 @@ from typing import Any, cast
 
 from streamlit.runtime.state import SessionStateProxy
 
+from .kingdom_pool import QuizKingdomPool, QuizPoolSource
 from .run_state import (
     QUIZ_RUN_RECORD_KEY,
     QUIZ_SCORING_VERSION,
@@ -17,7 +18,8 @@ from .run_state import (
 from .scoring import BuyAvailability, score_quiz_round
 
 # Version 2: mode and difficulty are stored as stable ids instead of display labels.
-QUIZ_RUN_SCHEMA_VERSION = 2
+# Version 3: the kingdom pool (source and expansions) is stored.
+QUIZ_RUN_SCHEMA_VERSION = 3
 
 
 class QuizPersistenceError(ValueError):
@@ -64,6 +66,10 @@ def serialize_quiz_run(run_state: QuizRunState) -> str:
         "phase": run_state.phase.value,
         "round_count": run_state.round_count,
         "difficulty": run_state.difficulty.value,
+        "pool": {
+            "source": run_state.pool.source.value,
+            "expansions": list(run_state.pool.expansions),
+        },
         "current_round_index": run_state.current_round_index,
         "current_kingdom": run_state.current_kingdom,
         "scoring_version": run_state.scoring_version,
@@ -103,6 +109,7 @@ def _restore_quiz_run(record: dict[str, Any]) -> QuizRunState:
         mode=QuizMode(record["mode"]),
         phase=QuizPhase(record["phase"]),
         difficulty=QuizDifficulty(record["difficulty"]),
+        pool=_restore_pool(record["pool"]),
         round_count=int(record["round_count"]),
         current_round_index=int(record["current_round_index"]),
         current_kingdom=str(record["current_kingdom"]),
@@ -117,6 +124,16 @@ def _restore_quiz_run(record: dict[str, Any]) -> QuizRunState:
         run_state.submitted_answers = current_round.submitted_answers
         run_state.round_score = current_round.score
     return run_state
+
+
+def _restore_pool(record: dict[str, Any]) -> QuizKingdomPool:
+    expansions = record["expansions"]
+    if not isinstance(expansions, list):
+        raise QuizPersistenceError("The saved quiz expansions are invalid.")
+    # Unknown sources or expansions raise a ValueError
+    return QuizKingdomPool(
+        QuizPoolSource(record["source"]), tuple(str(exp) for exp in expansions)
+    )
 
 
 def _restore_completed_round(record: dict[str, Any]) -> CompletedQuizRound:

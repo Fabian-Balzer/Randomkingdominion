@@ -1,12 +1,19 @@
 """Regression tests that drive the quiz page through Streamlit's AppTest."""
 
 import json
+from enum import StrEnum
 from pathlib import Path
 
 import pytest
 from streamlit.testing.v1 import AppTest
 
 from random_kingdominion.kingdom import Kingdom
+from random_kingdominion.streamlit_util.quiz_setup.kingdom_pool import (
+    QUIZ_DEFAULT_EXPANSIONS,
+    QUIZ_EXPANSION_OPTIONS,
+    QuizKingdomPool,
+    QuizPoolSource,
+)
 from random_kingdominion.streamlit_util.quiz_setup.persistence import (
     serialize_quiz_run,
 )
@@ -138,7 +145,7 @@ def test_solution_view_uses_submitted_answers(app: AppTest) -> None:
     assert _run_record(app)["phase"] == "solution"
     assert any("Score:" in m.value for m in app.markdown)
     # F1: the breakdown table, F2: the settings badges
-    assert any("How it adds up" in m.value for m in app.markdown)
+    assert any("Contributing CSOs" in m.value for m in app.markdown)
     assert any("Open Book" in m.value and "badge" in m.value for m in app.markdown)
     assert any("Quality hints were shown" in m.value for m in app.markdown)
 
@@ -165,11 +172,14 @@ def test_last_run_round_leads_to_summary(app: AppTest) -> None:
     assert metrics["Total Score"].endswith("/150")
     # F2: an Easy run doesn't get the hints badge
     assert not any("Quality hints were shown" in m.value for m in app.markdown)
+    # T1: the pool, as scores from different pools aren't comparable
+    assert any("🎲 Random · 16 expansions" in m.value for m in app.markdown)
+    assert any(c.value.startswith("Kingdoms drawn from: ") for c in app.caption)
     # F3: round table, tendencies table and the round details
     rounds_df, tendencies_df = (d.value for d in app.dataframe)
     assert list(rounds_df["Round"]) == list(range(1, 11))
     assert len(tendencies_df) == len(QUIZ_QUALITY_NAMES) + 1
-    assert any("How it adds up" in m.value for m in app.markdown)
+    assert any("Contributing CSOs" in m.value for m in app.markdown)
     assert any(b.label == "Play again with the same settings" for b in app.button)
 
 
@@ -235,3 +245,142 @@ def test_timer_is_one_fixed_button_that_toggles(app: AppTest) -> None:
     assert not app.exception
     assert timer.label.startswith("⏱ 00:")
     assert app.session_state["quiz_hide_timer"] is False
+
+
+# T1: kingdom pools
+
+
+def _start_button(at: AppTest):
+    return next(b for b in at.button if b.label.startswith("Start "))
+
+
+def test_pool_selection_defaults_to_random_kingdoms_from_default_expansions(
+    app: AppTest,
+) -> None:
+    assert _segmented(app, "_quiz_pool_source").value == QuizPoolSource.RANDOM
+    assert _segmented(app, "_quiz_expansions").value == list(QUIZ_DEFAULT_EXPANSIONS)
+    assert any(c.value.startswith("✔ Random kingdoms from") for c in app.caption)
+
+    _button(app, "Start Practice").click().run()
+
+    assert not app.exception
+    assert _run_record(app)["pool"] == {
+        "source": "random",
+        "expansions": list(QUIZ_DEFAULT_EXPANSIONS),
+    }
+    assert any("🎲 Random · 16 expansions" in m.value for m in app.markdown)
+
+
+def test_too_small_pool_is_explained_before_starting(app: AppTest) -> None:
+    _segmented(app, "_quiz_pool_source").set_value(QuizPoolSource.RECOMMENDED).run()
+    _segmented(app, "_quiz_expansions").set_value(["Base, 2E"]).run()
+    _segmented(app, "_quiz_run_mode").set_value(QuizMode.RUN).run()
+
+    assert not app.exception
+    assert _start_button(app).disabled
+    assert any("but a 🏁 Run needs 10" in w.value for w in app.warning)
+
+    # A single kingdom is enough to practice
+    _segmented(app, "_quiz_run_mode").set_value(QuizMode.PRACTICE).run()
+    assert not _start_button(app).disabled
+    assert not app.warning
+    assert any("Recommended kingdoms use only your" in c.value for c in app.caption)
+
+
+def test_expansion_shortcuts_and_empty_selection(app: AppTest) -> None:
+    _button(app, "Clear selection").click().run()
+
+    assert _segmented(app, "_quiz_expansions").value == []
+    assert _start_button(app).disabled
+    assert any("No expansions selected" in w.value for w in app.warning)
+
+    _button(app, "Select all").click().run()
+    assert _segmented(app, "_quiz_expansions").value == list(QUIZ_EXPANSION_OPTIONS)
+    assert not _start_button(app).disabled
+
+    _button(app, "Select all except 1E").click().run()
+    assert not any("1E" in exp for exp in _segmented(app, "_quiz_expansions").value)
+    assert "Promo" in _segmented(app, "_quiz_expansions").value
+
+
+def test_pool_selection_survives_a_round_and_reset(app: AppTest) -> None:
+    _segmented(app, "_quiz_pool_source").set_value(QuizPoolSource.TGG_DAILIES).run()
+    _segmented(app, "_quiz_expansions").set_value(["Base, 2E", "Intrigue, 2E"]).run()
+    _button(app, "Start Practice").click().run()
+    assert _run_record(app)["pool"]["source"] == "tgg_dailies"
+
+    _button(app, "Stop / Reset").click().run()
+    _button(app, "Stop quiz").click().run()
+
+    assert not app.exception
+    assert _segmented(app, "_quiz_pool_source").value == QuizPoolSource.TGG_DAILIES
+    assert _segmented(app, "_quiz_expansions").value == ["Base, 2E", "Intrigue, 2E"]
+
+
+def test_curated_kingdom_is_named_once_solved(app: AppTest) -> None:
+    _segmented(app, "_quiz_pool_source").set_value(QuizPoolSource.RECOMMENDED).run()
+    _button(app, "Start Practice").click().run()
+    assert not any("Recommended kingdom *" in m.value for m in app.markdown)
+
+    _answer_everything(app)
+    _button(app, "Show Solution").click().run()
+
+    assert not app.exception
+    assert any("⭐ Recommended · 16 expansions" in m.value for m in app.markdown)
+    assert any(m.value.startswith("⭐ Recommended kingdom *") for m in app.markdown)
+
+
+def test_run_draws_its_next_kingdoms_from_the_pool_without_repeats(
+    app: AppTest,
+) -> None:
+    pool = QuizKingdomPool(QuizPoolSource.RECOMMENDED, ("Base, 2E",))
+    # The pool has fewer than 10 kingdoms; with two rounds left it still suffices
+    run_state = QuizRunState.start(
+        10, QuizDifficulty.EASY, TEST_KINGDOM, QuizMode.RUN, pool=pool
+    )
+    answers = QuizAnswers({q: 1.0 for q in QUIZ_QUALITY_NAMES}, "no")
+    for _ in range(8):
+        run_state.submit_round(answers, 0)
+        run_state.advance_round(TEST_KINGDOM)
+    app.session_state[QUIZ_RUN_RECORD_KEY] = serialize_quiz_run(run_state)
+    app.run()
+
+    _answer_everything(app)
+    _button(app, "Show Solution").click().run()
+    _button(app, "Next Kingdom").click().run()
+    _answer_everything(app)
+    _button(app, "Show Solution").click().run()
+    _button(app, "View Run Summary").click().run()
+
+    assert not app.exception
+    record = _run_record(app)
+    kingdoms = [r["kingdom"] for r in record["completed_rounds"]]
+    assert kingdoms[-1] != kingdoms[-2]
+    assert Kingdom.from_dombot_csv_string(kingdoms[-1]).expansions == ["Base, 2E"]
+    rounds_df = app.dataframe[0].value
+    assert "Name" in rounds_df.columns
+    assert rounds_df["Name"].iloc[-1] != "–"
+
+
+class _ReloadedQuizDifficulty(StrEnum):
+    """Stands in for QuizDifficulty after Streamlit reloaded its module: same ids,
+    but a different class, so that pickle can't store the old members anymore."""
+
+    HARD = "hard"
+
+
+def test_selections_are_stored_as_plain_ids(app: AppTest) -> None:
+    app.session_state["quiz_difficulty_selection"] = _ReloadedQuizDifficulty.HARD
+    app.run()
+
+    assert not app.exception
+    assert _segmented(app, "_quiz_difficulty_selection").value == QuizDifficulty.HARD
+    for key in [
+        "quiz_run_mode",
+        "_quiz_run_mode",
+        "quiz_difficulty_selection",
+        "_quiz_difficulty_selection",
+        "quiz_pool_source",
+        "_quiz_pool_source",
+    ]:
+        assert type(app.session_state[key]) is str, key

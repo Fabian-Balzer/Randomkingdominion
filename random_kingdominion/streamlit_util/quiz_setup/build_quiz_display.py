@@ -12,6 +12,16 @@ from ..common_widgets import st_build_kingdom_csv_display, st_display_kingdom_im
 from ..image_util import st_plot_kingdom_qualities
 from ..quality_display import EMOJI_DICT
 from .explanations import st_build_explanation_section, st_build_explanation_selector
+from .kingdom_pool import (
+    QUIZ_DEFAULT_EXPANSIONS,
+    QUIZ_EXPANSION_OPTIONS,
+    QuizKingdomPool,
+    QuizPoolSource,
+    count_available_kingdoms,
+    draw_quiz_kingdom,
+    get_curated_kingdom_name,
+    sort_expansions,
+)
 from .persistence import (
     QuizPersistenceError,
     persist_quiz_run,
@@ -41,9 +51,10 @@ from .scoring import (
 from .util import (
     QUIZ_BUY_ANSWER_KEY,
     QUIZ_DIFFICULTY_KEY,
+    QUIZ_EXPANSIONS_KEY,
     QUIZ_HIDE_TIMER_KEY,
     QUIZ_MODE_KEY,
-    generate_random_quiz_kingdom_string,
+    QUIZ_POOL_SOURCE_KEY,
     get_quality_answer_key,
     load_quiz_widget_value,
     reset_quiz_answers,
@@ -53,7 +64,7 @@ from .util import (
 
 _QUALITY_OPTIONS = ["0", ":star:", "1", "2", "3", "4"]
 
-_E = TypeVar("_E", QuizMode, QuizDifficulty)
+_E = TypeVar("_E", QuizMode, QuizDifficulty, QuizPoolSource)
 
 
 _BUY_EXPLANATIONS = {
@@ -250,10 +261,12 @@ def _build_submit_button(run_state: QuizRunState) -> None:
 
 
 def _build_settings_badges(run_state: QuizRunState) -> None:
-    """Show the mode and difficulty, and flag whether quality hints were shown."""
+    """Show the mode, difficulty and kingdom pool, and flag whether quality hints
+    were shown."""
     with st.container(horizontal=True):
         st.badge(run_state.mode.label, color="gray")
         st.badge(run_state.difficulty.label, color="gray")
+        st.badge(run_state.pool.label, color="gray")
         if run_state.difficulty.shows_hints:
             st.badge("Quality hints were shown", icon="💡", color="orange")
 
@@ -268,6 +281,8 @@ def solution_section(run_state: QuizRunState) -> None:
             unsafe_allow_html=True,
         )
         _build_settings_badges(run_state)
+        if title := _get_kingdom_title(run_state, run_state.current_kingdom):
+            st.markdown(title)
     fig = plot_score_bar(score)
     bar_col.pyplot(fig, True, width="content")
     plt.close(fig)
@@ -349,9 +364,17 @@ def _get_selected_difficulty() -> QuizDifficulty:
     )
 
 
-def _get_option_label(option: QuizMode | QuizDifficulty) -> str:
+# The ids are unique across the enums, so one lookup serves all selections
+_OPTION_LABELS = {
+    option.value: option.label
+    for enum_cls in (QuizMode, QuizDifficulty, QuizPoolSource)
+    for option in enum_cls
+}
+
+
+def _get_option_label(option_id: str) -> str:
     # Module-level instead of a lambda, as session state has to stay picklable
-    return option.label
+    return _OPTION_LABELS[option_id]
 
 
 def _build_enum_selection(
@@ -359,12 +382,15 @@ def _build_enum_selection(
 ) -> None:
     """Build a required segmented control whose choice survives the widget not being
     rendered (e.g. during a round)."""
+    # Only the plain ids go into session state: pickle stores enum members by
+    # reference, which fails once Streamlit reloads their module after a code change
+    # (the member in session state then belongs to the old class).
     st.session_state[durable_key] = _get_durable_selection(
         durable_key, enum_cls, default
-    )
+    ).value
     st.segmented_control(
         label,
-        list(enum_cls),
+        [option.value for option in enum_cls],
         format_func=_get_option_label,
         selection_mode="single",
         required=True,
@@ -376,12 +402,110 @@ def _build_enum_selection(
     )
 
 
-def _start_new_run(mode: QuizMode, difficulty: QuizDifficulty) -> None:
+def _get_selected_pool_source() -> QuizPoolSource:
+    return _get_durable_selection(
+        QUIZ_POOL_SOURCE_KEY, QuizPoolSource, QuizPoolSource.RANDOM
+    )
+
+
+def _get_selected_expansions() -> tuple[str, ...]:
+    selected = st.session_state.get(QUIZ_EXPANSIONS_KEY, QUIZ_DEFAULT_EXPANSIONS)
+    if not isinstance(selected, (list, tuple)):
+        return QUIZ_DEFAULT_EXPANSIONS
+    return sort_expansions(selected)
+
+
+def _get_selected_pool() -> QuizKingdomPool:
+    return QuizKingdomPool(_get_selected_pool_source(), _get_selected_expansions())
+
+
+_EXPANSION_SHORTCUTS: tuple[tuple[str, str, tuple[str, ...]], ...] = (
+    ("Select all", "✅", QUIZ_EXPANSION_OPTIONS),
+    ("Clear selection", "❌", ()),
+    (
+        "Select all except 1E",
+        "☑️",
+        tuple(exp for exp in QUIZ_EXPANSION_OPTIONS if "1E" not in exp),
+    ),
+)
+
+
+def _build_expansion_toggle_row() -> None:
+    """The same shortcuts as in the randomizer's expansion selection."""
+    # Handled inline instead of in on_click callbacks: those can fire on the first
+    # rerun of a round in AppTest, which keeps the start screen's buttons from the
+    # run interrupted by st.rerun() (see the conftest of the tests).
+    for col, (label, icon, expansions) in zip(st.columns(3), _EXPANSION_SHORTCUTS):
+        if col.button(label, width="stretch", icon=icon):
+            st.session_state[QUIZ_EXPANSIONS_KEY] = list(expansions)
+            # Rerun, so that the count in the expander's label is updated as well
+            st.rerun(scope="app")
+
+
+def _build_expansion_selection() -> None:
+    """The expansions the kingdoms may use, for random and curated pools alike.
+    Independent of the randomizer's expansion selection."""
+    selected = _get_selected_expansions()
+    st.session_state[QUIZ_EXPANSIONS_KEY] = list(selected)
+    label = f"Your expansions ({len(selected)} of {len(QUIZ_EXPANSION_OPTIONS)} selected)"
+    # A key, so that the expander stays open when the count in its label changes
+    with st.expander(label, key="quiz_expansions_expander"):
+        _build_expansion_toggle_row()
+        st.pills(
+            "Expansions",
+            QUIZ_EXPANSION_OPTIONS,
+            selection_mode="multi",
+            key=load_quiz_widget_value(st.session_state, QUIZ_EXPANSIONS_KEY),
+            on_change=save_quiz_widget_value,
+            args=(st.session_state, QUIZ_EXPANSIONS_KEY),
+            label_visibility="collapsed",
+            width="stretch",
+        )
+
+
+def _build_pool_availability(pool: QuizKingdomPool, mode: QuizMode) -> bool:
+    """Show how many kingdoms the pool has, and whether that's enough for the mode.
+    Returns whether the quiz can be started."""
+    if not pool.expansions:
+        st.warning("No expansions selected! Please select at least one expansion.")
+        return False
+    num_available = count_available_kingdoms(pool)
+    if num_available is None:
+        st.caption(f"✔ Random kingdoms from {pool.expansion_summary}.")
+        return True
+    if num_available >= mode.round_count:
+        st.caption(
+            f"✔ {num_available} {pool.source.label} kingdoms use only your expansions."
+        )
+        return True
+    kingdoms = "kingdom uses" if num_available == 1 else "kingdoms use"
+    advice = "select more expansions or choose another pool."
+    if mode is QuizMode.RUN:
+        advice = "select more expansions, switch to Practice, or choose another pool."
+    st.warning(
+        f"Only {num_available} {pool.source.label} {kingdoms} only your expansions, "
+        f"but a {mode.label} needs {mode.round_count}. Please {advice}"
+    )
+    return False
+
+
+def _get_kingdom_title(run_state: QuizRunState, kingdom_str: str) -> str | None:
+    """The name of a curated kingdom, to be shown once it's solved."""
+    name = get_curated_kingdom_name(run_state.pool, kingdom_str)
+    if name is None:
+        return None
+    return run_state.pool.source.get_kingdom_name_label(name)
+
+
+def _start_new_run(
+    mode: QuizMode, difficulty: QuizDifficulty, pool: QuizKingdomPool
+) -> None:
     run_state = QuizRunState.start(
         mode.round_count,
         difficulty=difficulty,
-        kingdom=generate_random_quiz_kingdom_string(),
+        kingdom=draw_quiz_kingdom(pool),
         mode=mode,
+        pool=pool,
     )
     persist_quiz_run(st.session_state, run_state)
     reset_quiz_answers(st.session_state, QUIZ_QUALITY_NAMES)
@@ -390,7 +514,8 @@ def _start_new_run(mode: QuizMode, difficulty: QuizDifficulty) -> None:
 
 def _build_mode_navigation() -> None:
     st_build_explanation_section()
-    col0, col1 = st.container(border=True).columns([1, 2])
+    settings = st.container(border=True)
+    col0, col1 = settings.columns([1, 2])
     with col0:
         _build_enum_selection("Quiz Mode", QuizMode, QUIZ_MODE_KEY, QuizMode.PRACTICE)
     with col1:
@@ -401,14 +526,23 @@ def _build_mode_navigation() -> None:
             QuizDifficulty.OPEN_BOOK,
         )
     mode = _get_selected_mode()
-    st.caption(mode.get_description(include_name=False))
+    with settings:
+        st.caption(mode.get_description(include_name=False))
+        _build_enum_selection(
+            "Kingdom Pool", QuizPoolSource, QUIZ_POOL_SOURCE_KEY, QuizPoolSource.RANDOM
+        )
+        _build_expansion_selection()
+        pool = _get_selected_pool()
+        can_start = _build_pool_availability(pool, mode)
     if mode is QuizMode.PRACTICE:
         button_label = "Start Practice"
     else:
         button_label = f"Start {mode.round_count} Kingdom Run"
 
-    if st.button(button_label, type="primary", width="stretch"):
-        _start_new_run(mode, _get_selected_difficulty())
+    if st.button(
+        button_label, type="primary", width="stretch", disabled=not can_start
+    ):
+        _start_new_run(mode, _get_selected_difficulty(), pool)
 
 
 def _format_duration(seconds: float) -> str:
@@ -517,6 +651,11 @@ def _build_round_table(run_state: QuizRunState) -> None:
             "Score": r.score,
             "Time": _format_duration(r.elapsed_time),
             "Kingdom": _get_kingdom_summary(r.kingdom),
+            **(
+                {"Name": get_curated_kingdom_name(run_state.pool, r.kingdom) or "–"}
+                if run_state.pool.source.is_curated
+                else {}
+            ),
         }
         for r in run_state.completed_rounds
     ]
@@ -606,6 +745,8 @@ def _build_round_details(run_state: QuizRunState) -> None:
         width="stretch",
     )
     completed_round = run_state.completed_rounds[round_index or 0]
+    if title := _get_kingdom_title(run_state, completed_round.kingdom):
+        st.markdown(title)
     st.markdown(f"**Kingdom:** {_get_kingdom_summary(completed_round.kingdom)}")
     _build_solution_breakdown(
         completed_round.submitted_answers, completed_round.kingdom
@@ -615,6 +756,7 @@ def _build_round_details(run_state: QuizRunState) -> None:
 def _build_finished_summary(run_state: QuizRunState) -> None:
     st.subheader(f"{run_state.round_count} Kingdom Run Complete")
     _build_settings_badges(run_state)
+    st.caption(f"Kingdoms drawn from: {', '.join(run_state.pool.expansions)}")
     col1, col2, col3, col4 = st.columns(4)
     col1.metric(
         "Total Score",
@@ -637,7 +779,7 @@ def _build_finished_summary(run_state: QuizRunState) -> None:
         st.markdown("#### 🔎 Round details")
         _build_round_details(run_state)
     if st.button("Play again with the same settings", type="primary", width="stretch"):
-        _start_new_run(run_state.mode, run_state.difficulty)
+        _start_new_run(run_state.mode, run_state.difficulty, run_state.pool)
 
 
 def _advance_or_restart(run_state: QuizRunState) -> None:
@@ -652,9 +794,13 @@ def _advance_or_restart(run_state: QuizRunState) -> None:
     if not st.button(label, type="primary", width="stretch"):
         return
     if run_state.mode is QuizMode.PRACTICE:
-        _start_new_run(QuizMode.PRACTICE, run_state.difficulty)
+        _start_new_run(QuizMode.PRACTICE, run_state.difficulty, run_state.pool)
         return
-    next_kingdom = "" if is_last_round else generate_random_quiz_kingdom_string()
+    next_kingdom = (
+        ""
+        if is_last_round
+        else draw_quiz_kingdom(run_state.pool, exclude=run_state.used_kingdoms)
+    )
     run_state.advance_round(next_kingdom)
     persist_quiz_run(st.session_state, run_state)
     reset_quiz_answers(st.session_state, QUIZ_QUALITY_NAMES)

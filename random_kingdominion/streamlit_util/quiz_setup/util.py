@@ -3,13 +3,14 @@ from typing import cast
 
 from streamlit.runtime.state import SessionStateProxy
 
-from ...kingdom import KingdomRandomizer
 from .run_state import QUIZ_RUN_RECORD_KEY
 
 QUIZ_BUY_ANSWER_KEY = "quiz_quality_buy_str"
 # Durable keys for settings whose widgets are not rendered during a round
 QUIZ_MODE_KEY = "quiz_run_mode"
 QUIZ_DIFFICULTY_KEY = "quiz_difficulty_selection"
+QUIZ_POOL_SOURCE_KEY = "quiz_pool_source"
+QUIZ_EXPANSIONS_KEY = "quiz_expansions"
 QUIZ_HIDE_TIMER_KEY = "quiz_hide_timer"
 
 
@@ -48,8 +49,3 @@ def save_quiz_widget_value(state: SessionStateProxy, answer_key: str) -> None:
         state.pop(answer_key, None)
     else:
         state[answer_key] = widget_value
-
-
-def generate_random_quiz_kingdom_string() -> str:
-    kingdom = KingdomRandomizer().randomize_new_kingdom()
-    return kingdom.get_dombot_csv_string()
