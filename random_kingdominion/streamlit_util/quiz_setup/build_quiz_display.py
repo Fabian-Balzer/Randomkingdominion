@@ -626,8 +626,6 @@ def _build_finished_summary(run_state: QuizRunState) -> None:
         f"{run_state.perfect_round_count}/{run_state.round_count}",
     )
     col4.metric("Total Time", _format_duration(run_state.total_elapsed_time))
-    if st.button("Play again with the same settings", type="primary", width="stretch"):
-        _start_new_run(run_state.mode, run_state.difficulty)
 
     with st.container(border=True):
         st.markdown("#### 📋 Rounds")
@@ -638,6 +636,8 @@ def _build_finished_summary(run_state: QuizRunState) -> None:
     with st.container(border=True):
         st.markdown("#### 🔎 Round details")
         _build_round_details(run_state)
+    if st.button("Play again with the same settings", type="primary", width="stretch"):
+        _start_new_run(run_state.mode, run_state.difficulty)
 
 
 def _advance_or_restart(run_state: QuizRunState) -> None:

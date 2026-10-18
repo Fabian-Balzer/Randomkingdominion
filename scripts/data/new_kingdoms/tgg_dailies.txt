@@ -1,4 +1,6 @@
+2026-10-18---engineer, daimyo, artist, overlord, search, abundance, rustic_village, capital, imperial_envoy, kitsune, rush, nearby(imperial_envoy), sickness
 2026-10-17---bauble, pixie, siren, sacrifice, tools, bandit_camp, quartermaster, tea_house, artisan, fairgrounds, tax, fawning(pixie), peaceful_cult, kind_emperor
+2026-10-16---engineer, city_quarter, hamlet, pawn, diplomat, farmhands, mill, villa, duke, torturer, basilica, baths
 2026-10-15---vineyard, farrier, university, familiar, philosophers_stone, advisor, plaza, golem, butcher, merchant_guild
 2026-10-14---improve, flag_bearer, jack_of_all_trades, mountain_village, spice_merchant, old_witch, scholar, seer, wheelwright, witchs_hut, silos, capitalism
 2026-10-13---poor_house, vagrant, forager, hermit, market_square, death_cart, bandit_camp, knights, rogue, hunting_grounds, shelters

@@ -1,4 +1,102 @@
 - cards:
+  - city_quarter
+  - diplomat
+  - duke
+  - engineer
+  - farmhands
+  - hamlet
+  - mill
+  - pawn
+  - torturer
+  - villa
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Empires
+  - Intrigue, 2E
+  idx: 140948760659074434953554241519682372247
+  landscapes:
+  - basilica
+  - baths
+  name: '2026-10-16'
+- cards:
+  - abundance
+  - artist
+  - capital
+  - daimyo
+  - engineer
+  - imperial_envoy
+  - kitsune
+  - overlord
+  - rustic_village
+  - search
+  expansions:
+  - Empires
+  - Plunder
+  - Rising Sun
+  idx: 209038686926831755075785171836489719052
+  landscapes:
+  - nearby
+  - rush
+  - sickness
+  name: '2026-10-18'
+  notes:
+    crucial_cards:
+    - Rush
+    - Overlord
+    - Daimyo
+    - Capital
+    ending:
+    - Province
+    - Curse
+    - Search
+    extra_twists:
+    - Multitrait
+    link: ''
+    name: Rushed Slog
+    openings:
+    - grade: C
+      t1: Buy Rush and Overlord, play as Kitsune
+      t1_csos:
+      - Rush
+      - Overlord
+      - Kitsune
+      t2: Pay off Debt
+      t2_csos:
+      - tax
+      type: 4/3|3/4
+    - grade: B
+      t1: Buy Kitsune
+      t1_csos:
+      - Kitsune
+      t2: Buy Rush and Overlord, play as Kitsune
+      t2_csos:
+      - Rush
+      - Overlord
+      - Kitsune
+      type: 5/2
+    - grade: C
+      t1: Buy Rush and Overlord, play as Kitsune
+      t1_csos:
+      - Rush
+      - Overlord
+      - Kitsune
+      t2: Pay off Debt
+      t2_csos:
+      - tax
+      type: 2/5
+    points:
+    - 31
+    - 25
+    subtitle: One Of The Most Awful Kingdoms I've Seen In A While
+    turns:
+    - 24
+    - 23
+  traits:
+  - - nearby
+    - imperial_envoy
+  - - nearby
+    - engineer
+- cards:
   - artisan
   - bandit_camp
   - bauble
@@ -26,32 +124,58 @@
   - tax
   name: '2026-10-17'
   notes:
-    crucial_cards: [Pixie, Bauble, Siren, Tea House]
-    ending: [Curse, Tea House, Pixie]
-    link: 'https://youtu.be/Ag64-UjHQXg'
-    name: 'Siren Baublissimo'
+    crucial_cards:
+    - Pixie
+    - Bauble
+    - Siren
+    - Tea House
+    ending:
+    - Curse
+    - Tea House
+    - Pixie
+    link: https://youtu.be/Ag64-UjHQXg
+    name: Siren Baublissimo
     openings:
-    - grade: 'A'
-      t1: 'Pixie, trashing two Estates'
-      t1_csos: [pixie, goat, estate, peaceful_cult]
-      t2: 'Bauble, paying off Debt'
-      t2_csos: [bauble, tax]
+    - grade: A
+      t1: Pixie, trashing two Estates
+      t1_csos:
+      - pixie
+      - goat
+      - estate
+      - peaceful_cult
+      t2: Bauble, paying off Debt
+      t2_csos:
+      - bauble
+      - tax
       type: 4/3|3/4
-    - grade: 'B'
-      t1: 'Quartermaster'
-      t1_csos: [quartermaster]
-      t2: 'Pay off Debt, trash two Estates if possible'
-      t2_csos: [Tax, peaceful_cult, estate]
+    - grade: B
+      t1: Quartermaster
+      t1_csos:
+      - quartermaster
+      t2: Pay off Debt, trash two Estates if possible
+      t2_csos:
+      - Tax
+      - peaceful_cult
+      - estate
       type: 5/2
-    - grade: 'B-'
-      t1: 'Pixie, trash two Estates if possible'
-      t1_csos: [pixie, peaceful_cult, estate]
-      t2: 'Bauble, paying off Debt'
-      t2_csos: [bauble, tax]
+    - grade: B-
+      t1: Pixie, trash two Estates if possible
+      t1_csos:
+      - pixie
+      - peaceful_cult
+      - estate
+      t2: Bauble, paying off Debt
+      t2_csos:
+      - bauble
+      - tax
       type: 2/5
-    points: [15, 6]
-    subtitle: 'Using A Trick AI Ignores In This 4 Landscape Crazyness'
-    turns: [11, 10]
+    points:
+    - 15
+    - 6
+    subtitle: Using A Trick AI Ignores In This 4 Landscape Crazyness
+    turns:
+    - 11
+    - 10
   traits:
   - - fawning
     - pixie
