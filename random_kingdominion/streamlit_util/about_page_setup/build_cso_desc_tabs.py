@@ -73,7 +73,7 @@ def st_build_cso_description_tabs():
                 "attack": 0,
                 "altvp": 2,
             },
-            buy_str="Buys",
+            buy_str="yes",
         )
         fig.set_facecolor("none")
         st.pyplot(fig)

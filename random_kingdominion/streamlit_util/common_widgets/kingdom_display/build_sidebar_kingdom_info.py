@@ -42,7 +42,9 @@ def st_build_kingdom_csv_display(k: Kingdom, wrap_lines: bool = True):
 
 @st.cache_data(max_entries=256, show_spinner=False)
 def _get_kingdom_miniplot_png(
-    qualities: tuple[tuple[str, float], ...], buy_str: str, title: str
+    qualities: tuple[tuple[str, float], ...],
+    buy_str: Literal["no", "maybe", "yes"],
+    title: str,
 ) -> bytes:
     """Render the quality plot once per kingdom: building and rendering it took
     ~0.55 s, on every rerun of the kingdom display."""

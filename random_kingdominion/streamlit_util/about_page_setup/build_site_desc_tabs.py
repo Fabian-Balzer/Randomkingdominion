@@ -64,18 +64,33 @@ Please contact me via [discord](https://discord.gg/dominiongame) (e.g. in the #r
     return cso_combos_desc_text
 
 
+def _get_quiz_desc_text() -> str:
+    quiz_desc_text = """The Quiz lets you test how well you can read a kingdom: for a given kingdom, you estimate its engine qualities (Gain, Thinning, Draw, Village, Alt-VP and Attacks) as well as whether +Buy is available, and see how close you got to the values derived from my CSO ratings (see the description of CSOs above).
+
+### How to play
+
+- **Modes**: Practice single kingdoms, or play a run of 10 kingdoms and review your total score and your tendencies (e.g. whether you usually overestimate Draw) at the end.
+- **Difficulties**: *Open Book* shows the qualities of each CSO as hints, *Easy* shows the full cards, and *Hard* only shows the pictures, without any card text.
+- **Kingdoms**: Either randomized from the expansions you select, or drawn from the recommended kingdoms or the TGG Dailies (also only those using your expansions).
+
+After each kingdom, a breakdown shows how each quality's value came together from the individual CSOs. If you disagree with a rating, let me know!"""
+    return quiz_desc_text
+
+
 def st_build_site_desc_tabs():
     randomizer_desc_text = _get_randomizer_desc_text()
     oracle_text = _get_oracle_desc_text()
     cso_db_text = _get_cso_database_desc_text()
     cso_interactions_text = _get_cso_interactions_desc_text()
     cso_combos_text = _get_cso_combos_desc_text()
+    quiz_text = _get_quiz_desc_text()
     tab_names = [
         f"{ST_ICONS['randomizer']} Randomizer",
         f"{ST_ICONS['oracle']} Kingdom Oracle",
         f"{ST_ICONS['cso_overview']} CSO Database",
         f"{ST_ICONS['interactions']} CSO Interactions",
         f"{ST_ICONS['combos']} CSO Combos",
+        f"{ST_ICONS['quiz']} Quiz",
     ]
     tabs = st.tabs(tab_names)
 
@@ -93,3 +108,12 @@ def st_build_site_desc_tabs():
 
     with tabs[4]:
         st.write(cso_combos_text)
+
+    with tabs[5]:
+        st.write(quiz_text)
+        st.page_link(
+            "streamlit_pages/quiz.py",
+            label="Take the quiz",
+            icon=ST_ICONS["quiz"],
+            help="Estimate the engine qualities of random or curated kingdoms.",
+        )

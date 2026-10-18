@@ -1,8 +1,21 @@
 
 - 1.5.1 (2026-10-18):
   - Updated to new streamlit version to improve randomizer performance.
+    + Randomizing and rerolling now only reload the kingdom display instead of the whole page (randomizing used to even load it twice).
+    + The kingdom plot in the sidebar is now only drawn when its expander is opened, and only once per kingdom.
+    + The expansion selection reacts faster.
+  - Sped up looking up CSO names, which makes displaying kingdoms faster on all pages.
+  - Reduced the empty space at the top of each page.
+  - Randomizing without any selected expansions now shows a warning.
+  - Fixed a memory leak caused by the kingdom plot in the sidebar.
 - 1.5.0 (2026-10-18):
-  - Added kingdom quiz!
+  - Added kingdom quiz! Estimate the engine qualities and +Buy availability of a kingdom and see how close you get to my ratings.
+    + Practice single kingdoms, or play a run of 10 kingdoms with a summary of your score and tendencies.
+    + Three difficulties, Open Book (with quality hints), Easy, and Hard (card texts hidden).
+    + Kingdoms are randomized from your selected expansions, or drawn from the recommended kingdoms or TGG Dailies.
+    + After each kingdom, a breakdown shows how each quality's value came together.
+  - Added a description of the quiz to the 'about' page.
+  - Added missing Dailies, removed a duplicate one, and sorted them by date.
 - 1.4.4 (2026-03-15):
   - Added capability to download a selection of filtered Dailies or other sets as a csv file.
   - Added a few more interactions and combos, and Dailies as usual.
