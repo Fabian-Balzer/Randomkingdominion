@@ -69,7 +69,7 @@ def _get_quiz_desc_text() -> str:
 
 ### How to play
 
-- **Modes**: Practice single kingdoms, or play a run of 10 kingdoms and review your total score and your tendencies (e.g. whether you usually overestimate Draw) at the end.
+- **Modes**: Practice single kingdoms, or play a run of 5 kingdoms and review your total score and your tendencies (e.g. whether you usually overestimate Draw) at the end.
 - **Difficulties**: *Open Book* shows the qualities of each CSO as hints, *Easy* shows the full cards, and *Hard* only shows the pictures, without any card text.
 - **Kingdoms**: Either randomized from the expansions you select, or drawn from the recommended kingdoms or the TGG Dailies (also only those using your expansions).
 

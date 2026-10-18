@@ -449,7 +449,7 @@ def test_quiz_enum_ids_are_unique_across_selections() -> None:
 
 def test_quiz_mode_round_counts() -> None:
     assert QuizMode.PRACTICE.round_count == 1
-    assert QuizMode.RUN.round_count == 10
+    assert QuizMode.RUN.round_count == 5
 
 
 def test_only_open_book_shows_hints_and_only_hard_hides_text() -> None:

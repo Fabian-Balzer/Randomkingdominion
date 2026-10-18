@@ -20,7 +20,7 @@ class QuizMode(StrEnum):
 
     @property
     def round_count(self) -> int:
-        return {QuizMode.PRACTICE: 1, QuizMode.RUN: 10}[self]
+        return {QuizMode.PRACTICE: 1, QuizMode.RUN: 5}[self]
 
     def get_description(self, include_name: bool = True) -> str:
         d = {

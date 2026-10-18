@@ -8,6 +8,7 @@
   - Reduced the empty space at the top of each page.
   - Randomizing without any selected expansions now shows a warning.
   - Fixed a memory leak caused by the kingdom plot in the sidebar.
+  - Shortened quiz runs from 10 to 5 kingdoms.
 - 1.5.0 (2026-10-18):
   - Added kingdom quiz! Estimate the engine qualities and +Buy availability of a kingdom and see how close you get to my ratings.
     + Practice single kingdoms, or play a run of 10 kingdoms with a summary of your score and tendencies.

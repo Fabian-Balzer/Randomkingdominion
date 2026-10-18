@@ -25,7 +25,10 @@ from random_kingdominion.streamlit_util.quiz_setup.run_state import (
     QuizPhase,
     QuizRunState,
 )
-from random_kingdominion.streamlit_util.quiz_setup.scoring import QUIZ_QUALITY_NAMES
+from random_kingdominion.streamlit_util.quiz_setup.scoring import (
+    MAX_ROUND_SCORE,
+    QUIZ_QUALITY_NAMES,
+)
 
 # Each test renders the page several times, which takes seconds
 pytestmark = pytest.mark.slow
@@ -153,11 +156,12 @@ def test_solution_view_uses_submitted_answers(app: AppTest) -> None:
 
 
 def test_last_run_round_leads_to_summary(app: AppTest) -> None:
+    num_rounds = QuizMode.RUN.round_count
     run_state = QuizRunState.start(
-        10, QuizDifficulty.EASY, TEST_KINGDOM, QuizMode.RUN
+        num_rounds, QuizDifficulty.EASY, TEST_KINGDOM, QuizMode.RUN
     )
     answers = QuizAnswers({q: 1.0 for q in QUIZ_QUALITY_NAMES}, "no")
-    for _ in range(9):
+    for _ in range(num_rounds - 1):
         run_state.submit_round(answers, 0)
         run_state.advance_round(TEST_KINGDOM)
     app.session_state[QUIZ_RUN_RECORD_KEY] = serialize_quiz_run(run_state)
@@ -171,7 +175,7 @@ def test_last_run_round_leads_to_summary(app: AppTest) -> None:
     assert _run_record(app)["phase"] == QuizPhase.FINISHED.value
     metrics = {m.label: m.value for m in app.metric}
     assert set(metrics) == {"Total Score", "Average", "Perfect Rounds", "Total Time"}
-    assert metrics["Total Score"].endswith("/150")
+    assert metrics["Total Score"].endswith(f"/{num_rounds * MAX_ROUND_SCORE}")
     # F2: an Easy run doesn't get the hints badge
     assert not any("Quality hints were shown" in m.value for m in app.markdown)
     # T1: the pool, as scores from different pools aren't comparable
@@ -179,7 +183,7 @@ def test_last_run_round_leads_to_summary(app: AppTest) -> None:
     assert any(c.value.startswith("Kingdoms drawn from: ") for c in app.caption)
     # F3: round table, tendencies table and the round details
     rounds_df, tendencies_df = (d.value for d in app.dataframe)
-    assert list(rounds_df["Round"]) == list(range(1, 11))
+    assert list(rounds_df["Round"]) == list(range(1, num_rounds + 1))
     assert len(tendencies_df) == len(QUIZ_QUALITY_NAMES) + 1
     assert any("Contributing CSOs" in m.value for m in app.markdown)
     assert any(b.label == "Play again with the same settings" for b in app.button)
@@ -275,12 +279,14 @@ def test_pool_selection_defaults_to_random_kingdoms_from_default_expansions(
 
 def test_too_small_pool_is_explained_before_starting(app: AppTest) -> None:
     _segmented(app, "_quiz_pool_source").set_value(QuizPoolSource.RECOMMENDED).run()
-    _segmented(app, "_quiz_expansions").set_value(["Base, 2E"]).run()
+    # Only 2 recommended kingdoms use nothing but this expansion
+    _segmented(app, "_quiz_expansions").set_value(["Cornucopia & Guilds, 2E"]).run()
     _segmented(app, "_quiz_run_mode").set_value(QuizMode.RUN).run()
 
     assert not app.exception
     assert _start_button(app).disabled
-    assert any("but a 🏁 Run needs 10" in w.value for w in app.warning)
+    needs = f"but a 🏁 Run needs {QuizMode.RUN.round_count}"
+    assert any(needs in w.value for w in app.warning)
 
     # A single kingdom is enough to practice
     _segmented(app, "_quiz_run_mode").set_value(QuizMode.PRACTICE).run()
@@ -336,12 +342,13 @@ def test_run_draws_its_next_kingdoms_from_the_pool_without_repeats(
     app: AppTest,
 ) -> None:
     pool = QuizKingdomPool(QuizPoolSource.RECOMMENDED, ("Base, 2E",))
-    # The pool has fewer than 10 kingdoms; with two rounds left it still suffices
+    # Play the last two rounds of a run
+    num_rounds = QuizMode.RUN.round_count
     run_state = QuizRunState.start(
-        10, QuizDifficulty.EASY, TEST_KINGDOM, QuizMode.RUN, pool=pool
+        num_rounds, QuizDifficulty.EASY, TEST_KINGDOM, QuizMode.RUN, pool=pool
     )
     answers = QuizAnswers({q: 1.0 for q in QUIZ_QUALITY_NAMES}, "no")
-    for _ in range(8):
+    for _ in range(num_rounds - 2):
         run_state.submit_round(answers, 0)
         run_state.advance_round(TEST_KINGDOM)
     app.session_state[QUIZ_RUN_RECORD_KEY] = serialize_quiz_run(run_state)
