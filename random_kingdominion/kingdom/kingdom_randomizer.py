@@ -58,11 +58,13 @@ class KingdomRandomizer:
             random_kingdom.add_landscape(pick)
         if random_kingdom.contains_omen() and not random_kingdom.contains_prophecy():
             pick = self.pool_con.pick_prophecy(random_kingdom.quality_of_selection)
-            if pick == "approaching_army":
-                self.pick_army_pile(random_kingdom)
             # A prophecy is not different from other landscapes, only picked under different conditions,
             # Except that it doesn't count towards the landscape number.
+            # Add it before picking the army pile, as picking that card checks
+            # for a missing Prophecy again and would otherwise add a second one.
             random_kingdom.add_landscape(pick)
+            if pick == "approaching_army":
+                self.pick_army_pile(random_kingdom)
         return was_added
 
     def pick_bane_pile(self, random_kingdom: RandomizedKingdom, repick=True):
@@ -270,9 +272,10 @@ class KingdomRandomizer:
                 random_kingdom.add_landscape(pick)
             elif "Prophecy" in removed_types:
                 pick = self.pool_con.pick_prophecy(random_kingdom.quality_of_selection)
+                # Added first, see pick_next_card
+                random_kingdom.add_landscape(pick)
                 if pick == "approaching_army":
                     self.pick_army_pile(random_kingdom)
-                random_kingdom.add_landscape(pick)
             else:
                 self.pick_next_landscape(random_kingdom)
         elif random_kingdom.riverboat_card == cso_name:
