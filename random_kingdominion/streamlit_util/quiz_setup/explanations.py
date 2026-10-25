@@ -7,17 +7,19 @@ from .scoring import GOOD_SCORE_THRESHOLD, IMPRESSIVE_SCORE_THRESHOLD, MAX_ROUND
 
 # Where to send feedback on the ratings; set the video URL once the showcase is out
 QUIZ_FEEDBACK_DISCORD_NAME = "Fabi_1000"
-QUIZ_FEEDBACK_VIDEO_URL = ""
+QUIZ_FEEDBACK_VIDEO_URL = "https://youtu.be/05d1lCy8S0o"
 
 
 def get_feedback_text() -> str:
-    text = f"Disagree with a rating? DM me on Discord (**{QUIZ_FEEDBACK_DISCORD_NAME}**)"
+    text = (
+        f"Disagree with a rating? DM me on Discord (**{QUIZ_FEEDBACK_DISCORD_NAME}**)"
+    )
     if QUIZ_FEEDBACK_VIDEO_URL:
         text += f" or comment under the [showcase video]({QUIZ_FEEDBACK_VIDEO_URL})"
     return text + "."
 
 
-QUIZ_INTRO = """Are you able to infer the engine qualities for a given kingdom? I highly recommend reading the instructions below before getting started. Note that this website is not optimized for mobile devices."""
+QUIZ_INTRO = """How good can you read a given kingdom?\n\nDISCLAIMER: This stuff is pretty subjective and meant for fun, not claiming to be the ultimate authority.\n\nI highly recommend reading the instructions below before getting started."""
 
 EXPLANATIONS: dict[str, str] = {}
 EXPLANATIONS[
@@ -96,6 +98,8 @@ EXPLANATIONS[
 Out of the maximum of {MAX_ROUND_SCORE} points per kingdom, scoring anything above {GOOD_SCORE_THRESHOLD} points is pretty good, and above {IMPRESSIVE_SCORE_THRESHOLD} points is pretty impressive, but don't worry too much about the score - it's just for fun, and the main point is to train your ability to analyze kingdoms for their qualities, which is a skill that can be helpful when playing.
 """
 
+EXPLANATIONS["📺 Video"] = "_placeholder"
+
 
 @st.fragment
 def st_build_explanation_selector() -> None:
@@ -106,6 +110,15 @@ def st_build_explanation_selector() -> None:
         width="stretch",
         label_visibility="collapsed",
     )
+    if choice == "📺 Video":
+        st.write(
+            "Here's a video introducing this quiz - feel free to leave feedback as comments on the video:"
+        )
+        _, container, _ = st.columns([20, 60, 20])
+        with container:
+            with st.container(border=True):
+                st.video(QUIZ_FEEDBACK_VIDEO_URL)
+        return
     if choice is not None:
         st.markdown(EXPLANATIONS[choice])
 

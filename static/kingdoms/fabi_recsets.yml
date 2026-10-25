@@ -1,4 +1,252 @@
 - cards:
+  - astrolabe
+  - farrier
+  - infirmary
+  - leprechaun
+  - mystic
+  - peasant
+  - samurai
+  - sycophant
+  - trail
+  - treasurer
+  expansions:
+  - Adventures
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Nocturne
+  - Plunder
+  - Renaissance
+  - Rising Sun
+  - Seaside, 2E
+  idx: 207805656732502128965594532036397668500
+  landscapes:
+  - forest_dwellers
+  - launch
+  - triumph
+  name: Launching Chaos
+  notes: '{"Comment": "An insane kingdom initially posted by Communal on the Dominion
+    discord. There''s a wealth of incredible stuff going on, and it seems hard to
+    set your priorities."'
+- cards:
+  - cutthroat
+  - footpad
+  - hunting_grounds
+  - lackeys
+  - magnate
+  - mountain_shrine
+  - rabble
+  - treasure_map
+  - workers_village
+  - workshop
+  expansions:
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Rising Sun
+  - Seaside, 2E
+  idx: 285632667922587295906231038584173721005
+  landscapes:
+  - biding_time
+  name: Treasure Pad
+  notes: '{"Comment": "Incredibly fun Biding Time stuff, paired with a nice use case
+    for Treasure Maps.", "Previous Results": "1-0 in 9 turns as first player against
+    Hard AI, 3-pile (Lackeys, Treasure Map, Worker''s Village), or 55-0 in 10 turns
+    on Provinces."'
+- cards:
+  - archive
+  - castles
+  - duke
+  - horn_of_plenty
+  - livery
+  - pillage
+  - replace
+  - storyteller
+  - treasurer
+  - treasury
+  expansions:
+  - Adventures
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Intrigue, 2E
+  - Menagerie
+  - Renaissance
+  - Seaside, 2E
+  idx: 36919728507354854901850552307791392015
+  name: Replaced
+  notes: '{"Comment": "No Village, single Buy, yet interesting.", "Previous Results":
+    "30-28 as second player against Hard AI, 3-pile (Castles, Curse, Archive)"'
+- cards:
+  - aristocrat
+  - bridge_troll
+  - corsair
+  - displace
+  - forager
+  - grand_market
+  - guard_dog
+  - lookout
+  - river_shrine
+  - trader
+  expansions:
+  - Adventures
+  - Dark Ages
+  - Hinterlands, 2E
+  - Menagerie
+  - Prosperity, 2E
+  - Rising Sun
+  - Seaside, 2E
+  idx: 176724192895374439580994588278962115788
+  landscapes:
+  - growth
+  name: Limited Trolling
+  notes: '{"Comment": "Rather limited Village situation makes for a fun Bridge Troll
+    dance."'
+  use_shelters: true
+- cards:
+  - astrolabe
+  - bandit
+  - bounty_hunter
+  - bridge_troll
+  - den_of_sin
+  - hoard
+  - mining_road
+  - old_witch
+  - philosophers_stone
+  - stockpile
+  expansions:
+  - Adventures
+  - Alchemy
+  - Base, 2E
+  - Menagerie
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Renaissance
+  - Seaside, 2E
+  idx: 208298029109100655025840397355929102755
+  landscapes:
+  - way_of_the_chameleon
+  name: Limited Trolling vol. 2
+  notes: '{"Comment": "Even faster stuff with no Village in sight.", "Previous Results":
+    "13-3 as first player against Hard AI, 3-pile (Estate, Den of Sin, Stockpile)"'
+- cards:
+  - acting_troupe
+  - anvil
+  - archive
+  - bishop
+  - coin_of_the_realm
+  - fortress
+  - library
+  - market
+  - nomads
+  - tunnel
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Menagerie
+  - Prosperity, 2E
+  - Renaissance
+  idx: 305808132025987227148213723848427065729
+  landscapes:
+  - capitalism
+  - stampede
+  name: Bishopping Spree
+  notes: '{"Comment": "There''s a neat golden deck here (I picked this one up from
+    a #kingdom-analysis post on the discord). Takes a bit to close out once there.",
+    "Previous Results": "159-41 in 20 turns as second player against Hard AI (Bishop,
+    Nomads, Market)"'
+- cards:
+  - crew
+  - feodum
+  - ghost_town
+  - guide
+  - sentry
+  - stables
+  - swamp_hag
+  - swamp_shacks
+  - transmogrify
+  - wild_hunt
+  expansions:
+  - Adventures
+  - Base, 2E
+  - Dark Ages
+  - Empires
+  - Hinterlands, 2E
+  - Nocturne
+  - Plunder
+  - Renaissance
+  idx: 21434331670358965067164477665163268314
+  landscapes:
+  - city_gate
+  - prosper
+  name: Balanced Prosperity
+  notes: '{"Comment": "Little bit of everything in this neat kingdom where you shouldn''t
+    build too small.", "Previous Results": "47--1 in 17 turns as first player against
+    Hard AI (Curse, Estate, Ghost Town)"'
+- cards:
+  - alley
+  - hamlet
+  - kings_cache
+  - outpost
+  - samurai
+  - shaman
+  - tunnel
+  - villain
+  - walled_village
+  - war_chest
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Hinterlands, 2E
+  - Menagerie
+  - Plunder
+  - Promo
+  - Prosperity, 2E
+  - Renaissance
+  - Rising Sun
+  - Seaside, 2E
+  idx: 305847390650819801865224930614344263738
+  landscapes:
+  - way_of_the_owl
+  name: Owl City
+  notes: '{"Comment": "Amazing kingdom to test the capabilities of your Alleys", "Previous
+    Results": "26-12 in 12 turns as first player against Hard AI (Hamlet, Villain,
+    Walled Village)"'
+- cards:
+  - bank
+  - border_village
+  - coin_of_the_realm
+  - coven
+  - gear
+  - quartermaster
+  - rabble
+  - rope
+  - supplies
+  - tools
+  expansions:
+  - Adventures
+  - Hinterlands, 2E
+  - Menagerie
+  - Plunder
+  - Prosperity, 2E
+  idx: 275684993235565413611544524141784992073
+  landscapes:
+  - friendly
+  name: Banking Success
+  notes: '{"Comment": "Supercharged Bank, anyone?", "Previous Results": "43-19 in
+    12 turns as second player against Hard AI (Province, Rope)"'
+  traits:
+  - - friendly
+    - rabble
+- cards:
   - contract
   - enchantress
   - farmers_market

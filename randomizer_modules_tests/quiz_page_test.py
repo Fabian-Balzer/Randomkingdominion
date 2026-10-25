@@ -14,9 +14,7 @@ from random_kingdominion.streamlit_util.quiz_setup.kingdom_pool import (
     QuizKingdomPool,
     QuizPoolSource,
 )
-from random_kingdominion.streamlit_util.quiz_setup.persistence import (
-    serialize_quiz_run,
-)
+from random_kingdominion.streamlit_util.quiz_setup.persistence import serialize_quiz_run
 from random_kingdominion.streamlit_util.quiz_setup.run_state import (
     QUIZ_RUN_RECORD_KEY,
     QuizAnswers,
@@ -80,7 +78,9 @@ def _answer_everything(at: AppTest, value: str = "2", buy: str = "yes") -> None:
 def test_start_screen_renders_with_defaults(app: AppTest) -> None:
     assert not app.exception
     assert _segmented(app, "_quiz_run_mode").value == QuizMode.PRACTICE
-    assert _segmented(app, "_quiz_difficulty_selection").value == QuizDifficulty.OPEN_BOOK
+    assert (
+        _segmented(app, "_quiz_difficulty_selection").value == QuizDifficulty.OPEN_BOOK
+    )
 
 
 @pytest.mark.parametrize("stale_value", [None, "🧪 Practice"])
@@ -150,7 +150,7 @@ def test_solution_view_uses_submitted_answers(app: AppTest) -> None:
     # F1: the breakdown table, F2: the settings badges
     assert any("Contributing CSOs" in m.value for m in app.markdown)
     assert any("Open Book" in m.value and "badge" in m.value for m in app.markdown)
-    assert any("Quality hints were shown" in m.value for m in app.markdown)
+    assert any("Quality hints shown" in m.value for m in app.markdown)
     # Where to send feedback on the ratings
     assert any("Fabi_1000" in c.value for c in app.caption)
 
@@ -177,7 +177,7 @@ def test_last_run_round_leads_to_summary(app: AppTest) -> None:
     assert set(metrics) == {"Total Score", "Average", "Perfect Rounds", "Total Time"}
     assert metrics["Total Score"].endswith(f"/{num_rounds * MAX_ROUND_SCORE}")
     # F2: an Easy run doesn't get the hints badge
-    assert not any("Quality hints were shown" in m.value for m in app.markdown)
+    assert not any("Quality hints shown" in m.value for m in app.markdown)
     # T1: the pool, as scores from different pools aren't comparable
     assert any("🎲 Random · 16 expansions" in m.value for m in app.markdown)
     assert any(c.value.startswith("Kingdoms drawn from: ") for c in app.caption)
@@ -203,6 +203,107 @@ def test_play_again_keeps_mode_and_difficulty(app: AppTest) -> None:
     assert (record["mode"], record["difficulty"]) == ("run", "hard")
     assert record["phase"] == "answering"
     assert record["completed_rounds"] == []
+
+
+def _share_expander(at: AppTest):
+    return next(e for e in at.expander if e.label == "Share your result as an image")
+
+
+def test_finished_run_can_be_shared_as_an_image(app: AppTest) -> None:
+    run_state = QuizRunState.start(1, QuizDifficulty.HARD, TEST_KINGDOM, QuizMode.RUN)
+    run_state.submit_round(QuizAnswers({q: 1.0 for q in QUIZ_QUALITY_NAMES}, "no"), 0)
+    run_state.advance_round("")
+    app.session_state[QUIZ_RUN_RECORD_KEY] = serialize_quiz_run(run_state)
+    app.run()
+    # Only drawn once opened, as that takes a few seconds for a full run
+    assert not _share_expander(app).proto.expanded
+    assert not app.get("download_button")
+
+    # What opening the expander does
+    app.session_state["quiz_share_expander"] = True
+    app.run()
+    app.text_input[0].input("Tester").run()
+
+    assert not app.exception
+    assert app.session_state["quiz_player_name"] == "Tester"
+    assert len(app.get("download_button")) == 1
+    copy_button = app.get("html")[0].proto.body
+    assert "Copy image" in copy_button and "data:image/png;base64," in copy_button
+
+
+def test_solved_practice_kingdom_can_be_shared(app: AppTest) -> None:
+    _button(app, "Start Practice").click().run()
+    assert not any(e.label == "Share your result as an image" for e in app.expander)
+
+    _answer_everything(app)
+    _button(app, "Show Solution").click().run()
+    app.session_state["quiz_share_expander"] = True
+    app.run()
+
+    assert not app.exception
+    assert len(app.get("download_button")) == 1
+
+
+def test_practice_kingdom_can_be_rerolled_after_confirmation(app: AppTest) -> None:
+    _segmented(app, "_quiz_difficulty_selection").set_value(QuizDifficulty.EASY).run()
+    _button(app, "Start Practice").click().run()
+    _segmented(app, "_quiz_quality_buy_str").set_value("yes").run()
+    kingdom_before = _run_record(app)["current_kingdom"]
+
+    _button(app, "🎲 Reroll kingdom").click().run()
+    _button(app, "Cancel").click().run()
+    assert _run_record(app)["current_kingdom"] == kingdom_before
+
+    _button(app, "🎲 Reroll kingdom").click().run()
+    _button(app, "Reroll").click().run()
+
+    assert not app.exception
+    record = _run_record(app)
+    assert record["current_kingdom"] != kingdom_before
+    assert (record["mode"], record["difficulty"]) == ("practice", "easy")
+    assert record["phase"] == "answering"
+    assert "quiz_quality_buy_str" not in app.session_state
+
+
+@pytest.mark.parametrize(
+    ("mode", "difficulty"),
+    [(QuizMode.PRACTICE, QuizDifficulty.HARD), (QuizMode.RUN, QuizDifficulty.EASY)],
+)
+def test_no_reroll_in_hard_practice_or_runs(
+    app: AppTest, mode: QuizMode, difficulty: QuizDifficulty
+) -> None:
+    _segmented(app, "_quiz_run_mode").set_value(mode).run()
+    _segmented(app, "_quiz_difficulty_selection").set_value(difficulty).run()
+    start_label = next(b.label for b in app.button if b.label.startswith("Start"))
+    _button(app, start_label).click().run()
+
+    assert _run_record(app)["phase"] == "answering"
+    assert not any(b.label == "🎲 Reroll kingdom" for b in app.button)
+
+
+def test_kingdom_string_is_only_shown_with_the_solution(app: AppTest) -> None:
+    _button(app, "Start Practice").click().run()
+    assert not any(e.label == "Kingdom string to copy" for e in app.expander)
+
+    _answer_everything(app)
+    _button(app, "Show Solution").click().run()
+    assert any(e.label == "Kingdom string to copy" for e in app.expander)
+
+
+def test_random_answers_button_only_in_debug_mode(
+    app: AppTest, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    _button(app, "Start Practice").click().run()
+    assert not any("random answers" in b.label for b in app.button)
+
+    monkeypatch.setenv("RK_DEBUG", "1")
+    app.run()
+    _button(app, "🐞 Submit random answers").click().run()
+
+    assert not app.exception
+    record = _run_record(app)
+    assert record["phase"] == "solution"
+    assert len(record["completed_rounds"]) == 1
 
 
 def test_reset_needs_confirmation_and_cancel_keeps_the_run(app: AppTest) -> None:
@@ -232,10 +333,10 @@ def test_layout_has_kingdom_and_side_column_without_toggle(app: AppTest) -> None
 
 def test_explanations_move_into_a_popover_during_a_round(app: AppTest) -> None:
     """UI 5: intro and explanations only on the start screen, a popover during a round."""
-    assert any("Are you able to infer" in m.value for m in app.markdown)
+    assert any("How good can you read" in m.value for m in app.markdown)
     _button(app, "Start Practice").click().run()
 
-    assert not any("Are you able to infer" in m.value for m in app.markdown)
+    assert not any("How good can you read" in m.value for m in app.markdown)
     assert any(p.proto.popover.label == "❓ Rules & Tips" for p in app.get("popover"))
 
 

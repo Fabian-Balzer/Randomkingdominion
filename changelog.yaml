@@ -1,4 +1,7 @@
 
+- 1.5.2 (2026-10-25):
+  - Added sharable image at the end of a quiz run
+  - Minor improvements to quiz UI
 - 1.5.1 (2026-10-18):
   - Updated to new streamlit version to improve randomizer performance.
     + Randomizing and rerolling now only reload the kingdom display instead of the whole page (randomizing used to even load it twice).

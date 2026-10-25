@@ -1,3 +1,332 @@
+- campaign_effects:
+  - plus_card
+  - replace_estate
+  cards:
+  - carpenter
+  - city
+  - displace
+  - livery
+  - messenger
+  - paddock
+  - procession
+  - smugglers
+  - swashbuckler
+  - tanuki
+  expansions:
+  - Adventures
+  - Allies
+  - Dark Ages
+  - Menagerie
+  - Prosperity, 2E
+  - Renaissance
+  - Rising Sun
+  - Seaside, 2E
+  idx: 14183779136145027081906850742753605469
+  landscapes:
+  - guildhall
+  - training
+  name: '2026-10-25'
+  notes:
+    crucial_cards:
+    - Procession
+    - Livery
+    - City
+    - Messenger
+    ending:
+    - Messenger
+    - Procession
+    - City
+    link: https://youtu.be/YV1GUGpeOog
+    name: Carpentry Procession
+    openings:
+    - grade: C
+      t1: Procession
+      t1_csos:
+      - procession
+      t2: Play Carpenter to gain Messenger, buy Silver
+      t2_csos:
+      - carpenter
+      - messenger
+      - silver
+      type: 4/3|3/4
+    - grade: B
+      t1: Tanuki, or Livery, or Paddock
+      t1_csos:
+      - tanuki
+      t2: Play Carpenter, gain Messenger
+      t2_csos:
+      - carpenter
+      - messenger
+      type: 5/2|2/5
+    points:
+    - 42
+    - 1
+    subtitle: Crazy Combo Stuff Plus Some More Accelerants
+    turns:
+    - 9
+    - 8
+  stamps_and_effects:
+  - - plus_card
+    - swashbuckler
+  - - replace_estate
+    - carpenter
+  use_colonies: true
+- cards:
+  - bazaar
+  - bishop
+  - exorcist
+  - farmhands
+  - farrier
+  - feodum
+  - golem
+  - laboratory
+  - stonemason
+  - wealthy_village
+  expansions:
+  - Adventures
+  - Alchemy
+  - Base, 2E
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Nocturne
+  - Plunder
+  - Prosperity, 2E
+  - Seaside, 2E
+  idx: 227462668336101108385125467194930795666
+  landscapes:
+  - scouting_party
+  - tireless
+  name: '2026-10-24'
+  notes:
+    crucial_cards:
+    - Farrier
+    - Exorcist
+    - Wealthy Village
+    - Stonemason
+    ending:
+    - Stonemason
+    - Farrier
+    - Laboratory
+    link: https://youtu.be/EDMK356_KBk
+    name: Wealthy Farrying
+    openings:
+    - grade: B
+      t1: Exorcist
+      t1_csos:
+      - exorcist
+      t2: Farrier, overpaying $1, or Silver, or Scouting Party
+      t2_csos:
+      - Farrier
+      type: 4/3
+    - grade: B
+      t1: Silver
+      t1_csos:
+      - silver
+      t2: Exorcist
+      t2_csos:
+      - exorcist
+      type: 3/4
+    - grade: C
+      t1: Exorcist, or Laboratory
+      t1_csos:
+      - Exorcist
+      t2: Scouting Party
+      t2_csos:
+      - scouting_party
+      type: 5/2
+    - grade: C-
+      t1: Farrier
+      t1_csos:
+      - farrier
+      t2: Exorcist, or Laboratory
+      t2_csos:
+      - Exorcist
+      type: 2/5
+    points:
+    - 37
+    - 20
+    subtitle: Another Fast One Boosted By AI's Kind Bishop
+    turns:
+    - 12
+    - 11
+  traits:
+  - - tireless
+    - golem
+  use_colonies: true
+- cards:
+  - artist
+  - bank
+  - charlatan
+  - collection
+  - farmhands
+  - investment
+  - mountain_shrine
+  - shop
+  - snake_witch
+  - tanuki
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Prosperity, 2E
+  - Rising Sun
+  idx: 156412930265244875577966036136928867429
+  landscapes:
+  - kind_emperor
+  - receive_tribute
+  name: '2026-10-23'
+  notes:
+    crucial_cards:
+    - Tanuki
+    - Kind Emperor
+    - Mountain Shrine
+    - Collection
+    ending:
+    - Collection
+    - Snake Witch
+    - Farmhands
+    link: https://youtu.be/zyc_BQ8go_0
+    name: Emperor's Collection
+    openings:
+    - grade: B+
+      t1: Investment
+      t1_csos:
+      - investment
+      t2: Mountain Shrine
+      t2_csos:
+      - mountain_shrine
+      type: 4/3
+    - grade: C
+      t1: Shop
+      t1_csos:
+      - shop
+      t2: Mountain Shrine, or Investment
+      t2_csos:
+      - mountain_shrine
+      type: 3/4
+    - grade: A
+      t1: Tanuki
+      t1_csos:
+      - tanuki
+      t2: Mountain Shrine
+      t2_csos:
+      - mountain_shrine
+      type: 5/2
+    - grade: B
+      t1: Snake Witch
+      t1_csos:
+      - snake_witch
+      t2: Tanuki
+      t2_csos:
+      - tanuki
+      type: 2/5
+    points:
+    - 31
+    - 30
+    subtitle: Counting Out An Incredibly Clutch One
+    turns:
+    - 10
+    - 9
+- cards:
+  - alley
+  - aristocrat
+  - artist
+  - bank
+  - daimyo
+  - grand_market
+  - litter
+  - mountain_shrine
+  - snake_witch
+  - workers_village
+  expansions:
+  - Prosperity, 2E
+  - Rising Sun
+  idx: 64955403245827193550956602204872897077
+  landscapes:
+  - growth
+  - sea_trade
+  name: '2026-10-22'
+- cards:
+  - baker
+  - blockade
+  - farrier
+  - lighthouse
+  - merchant_guild
+  - plaza
+  - sailor
+  - soothsayer
+  - tide_pools
+  - treasure_map
+  expansions:
+  - Cornucopia & Guilds, 2E
+  - Seaside, 2E
+  idx: 282961129097404329868005476128359792793
+  name: '2026-10-21'
+- cards:
+  - cartographer
+  - develop
+  - guard_dog
+  - haggler
+  - highway
+  - inn
+  - margrave
+  - stables
+  - weaver
+  - witchs_hut
+  expansions:
+  - Hinterlands, 2E
+  idx: 192361517443189322574170346714779308426
+  name: '2026-10-20'
+  notes:
+    crucial_cards:
+    - Weaver
+    - Inn
+    - Develop
+    - Guard Dog
+    ending:
+    - Weaver
+    - Inn
+    - Guard Dog
+    link: https://youtu.be/laFXFP_E1nI
+    name: Weaving it Inn
+    openings:
+    - grade: D
+      t1: Develop, or Weaver
+      t1_csos:
+      - develop
+      t2: Silver
+      t2_csos:
+      - Silver
+      type: 4/3|3/4
+    - grade: B-
+      t1: Margrave, or Witch's Hut
+      t1_csos:
+      - margrave
+      t2: Skip turn
+      t2_csos:
+      - tragic_hero
+      type: 5/2|2/5
+    points:
+    - 34
+    - 0
+    subtitle: In Which A Hilarious Oopsie Happens
+    turns:
+    - 13
+    - 12
+- cards:
+  - charlatan
+  - collection
+  - council_room
+  - festival
+  - library
+  - mint
+  - moneylender
+  - peddler
+  - poacher
+  - rabble
+  expansions:
+  - Base, 2E
+  - Prosperity, 2E
+  idx: 232870200482760587192717151989780114000
+  name: '2026-10-19'
 - cards:
   - abundance
   - artist

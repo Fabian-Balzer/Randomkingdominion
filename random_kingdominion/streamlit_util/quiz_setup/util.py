@@ -1,3 +1,4 @@
+import os
 from collections.abc import Sequence
 from typing import cast
 
@@ -12,6 +13,15 @@ QUIZ_DIFFICULTY_KEY = "quiz_difficulty_selection"
 QUIZ_POOL_SOURCE_KEY = "quiz_pool_source"
 QUIZ_EXPANSIONS_KEY = "quiz_expansions"
 QUIZ_HIDE_TIMER_KEY = "quiz_hide_timer"
+QUIZ_PLAYER_NAME_KEY = "quiz_player_name"
+
+# Streamlit has no debug switch of its own; start the app with RK_DEBUG=1 instead
+DEBUG_ENV_VAR = "RK_DEBUG"
+
+
+def is_debug_mode() -> bool:
+    """Whether to show helpers for testing, e.g. submitting random answers."""
+    return os.environ.get(DEBUG_ENV_VAR, "") not in ("", "0")
 
 
 def get_quality_answer_key(quality: str) -> str:

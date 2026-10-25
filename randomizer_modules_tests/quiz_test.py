@@ -1,11 +1,17 @@
 import json
 import pickle
 from datetime import datetime
+from io import BytesIO
 
 import pytest
+from PIL import Image
 
 from random_kingdominion.kingdom import Kingdom, KingdomManager
-from random_kingdominion.streamlit_util.quiz_setup import explanations, kingdom_pool
+from random_kingdominion.streamlit_util.quiz_setup import (
+    explanations,
+    kingdom_pool,
+    share_image,
+)
 from random_kingdominion.streamlit_util.quiz_setup.kingdom_pool import (
     QUIZ_DEFAULT_EXPANSIONS,
     QUIZ_EXPANSION_OPTIONS,
@@ -36,12 +42,17 @@ from random_kingdominion.streamlit_util.quiz_setup.run_state import (
 from random_kingdominion.streamlit_util.quiz_setup.scoring import (
     MAX_ROUND_SCORE,
     PERFECT_BAND,
+    QUIZ_QUALITY_NAMES,
     SCORE_BANDS,
     calc_quiz_score,
     get_buy_points,
     get_kingdom_solution,
     get_quality_points,
     get_score_band,
+)
+from random_kingdominion.streamlit_util.quiz_setup.share_image import (
+    MAX_PLAYER_NAME_LENGTH,
+    get_quiz_share_png,
 )
 from random_kingdominion.streamlit_util.quiz_setup.util import (
     load_quiz_widget_value,
@@ -753,3 +764,62 @@ def test_feedback_text_names_discord_and_later_the_video(monkeypatch) -> None:
 
     monkeypatch.setattr(explanations, "QUIZ_FEEDBACK_VIDEO_URL", "https://youtu.be/x")
     assert "[showcase video](https://youtu.be/x)" in explanations.get_feedback_text()
+
+
+def _finished_run(kingdom_str: str, num_rounds: int, mode: QuizMode) -> QuizRunState:
+    run_state = QuizRunState.start(num_rounds, QuizDifficulty.HARD, kingdom_str, mode)
+    answers = QuizAnswers({q: 0.5 for q in QUIZ_QUALITY_NAMES}, "yes")
+    for i in range(num_rounds):
+        run_state.submit_round(answers, 7.5)
+        run_state.advance_round(kingdom_str if i + 1 < num_rounds else "")
+    return run_state
+
+
+def test_share_summary_has_plain_labels_and_a_bounded_name() -> None:
+    kingdom_str = Kingdom(cards=["Village", "Smithy"]).get_dombot_csv_string()
+    run_state = _finished_run(kingdom_str, 2, QuizMode.RUN)
+
+    summary = share_image._get_share_summary(run_state, "  " + "x" * 50 + " ")
+
+    # The font has no emoji and no middle dot
+    assert summary.settings == "Hard | Random | 16 expansions"
+    assert summary.title == "2 Kingdom Run"
+    assert summary.player_name == "x" * MAX_PLAYER_NAME_LENGTH
+    assert summary.total_score == 15
+    assert summary.maximum_score == 2 * MAX_ROUND_SCORE
+    assert [r.quality_values for r in summary.rounds] == [(0.5,) * 6] * 2
+
+
+def test_share_image_is_a_cached_png_that_grows_with_the_rounds() -> None:
+    kingdom_str = Kingdom(
+        cards=["Village", "Smithy", "Chapel", "Market", "Witch"],
+        landscapes=["Delve"],
+        use_colonies=True,
+    ).get_dombot_csv_string()
+    practice = _finished_run(kingdom_str, 1, QuizMode.PRACTICE)
+    run = _finished_run(kingdom_str, 3, QuizMode.RUN)
+
+    practice_png = get_quiz_share_png(practice, "Tester")
+    run_png = get_quiz_share_png(run)
+
+    assert practice_png.startswith(b"\x89PNG")
+    assert get_quiz_share_png(practice, "Tester") is practice_png
+    with Image.open(BytesIO(practice_png)) as practice_img:
+        with Image.open(BytesIO(run_png)) as run_img:
+            assert run_img.width > practice_img.width
+            assert run_img.height == practice_img.height
+
+
+@pytest.mark.parametrize(
+    ("num_cards", "expected"),
+    [
+        # Cheapest first: the lower row holds the cheaper half, left to right
+        (10, [(c, 1) for c in range(5)] + [(c, 0) for c in range(5)]),
+        # As in the kingdom view, an odd count leaves the lower left slot empty
+        (11, [(c, 1) for c in range(1, 6)] + [(c, 0) for c in range(6)]),
+    ],
+)
+def test_share_image_arranges_cards_like_the_kingdom_view(
+    num_cards: int, expected: list[tuple[int, int]]
+) -> None:
+    assert share_image._get_card_grid_positions(num_cards) == expected

@@ -1,4 +1,7 @@
+import base64
+import random
 from collections.abc import Mapping
+from string import Template
 from typing import TypeVar, cast
 
 import matplotlib.pyplot as plt
@@ -52,14 +55,17 @@ from .scoring import (
     get_score_band,
     score_quiz_round,
 )
+from .share_image import MAX_PLAYER_NAME_LENGTH, get_quiz_share_png
 from .util import (
     QUIZ_BUY_ANSWER_KEY,
     QUIZ_DIFFICULTY_KEY,
     QUIZ_EXPANSIONS_KEY,
     QUIZ_HIDE_TIMER_KEY,
     QUIZ_MODE_KEY,
+    QUIZ_PLAYER_NAME_KEY,
     QUIZ_POOL_SOURCE_KEY,
     get_quality_answer_key,
+    is_debug_mode,
     load_quiz_widget_value,
     reset_quiz_answers,
     reset_quiz_workflow,
@@ -84,7 +90,10 @@ def _get_quality_label(quality: str) -> str:
 
 @st.fragment
 def _fragmented_kingdom_display(
-    k: Kingdom, exclude_qualities: bool, show_card_text: bool = True
+    k: Kingdom,
+    exclude_qualities: bool,
+    show_card_text: bool = True,
+    show_kingdom_string: bool = True,
 ):
     st_display_kingdom_images(
         k,
@@ -93,7 +102,8 @@ def _fragmented_kingdom_display(
         exclude_tooltip_qualities=exclude_qualities,
         hide_landscape_text=not show_card_text,
     )
-    st_build_kingdom_csv_display(k)
+    if show_kingdom_string:
+        st_build_kingdom_csv_display(k)
 
 
 def _st_build_buy_selection() -> None:
@@ -259,12 +269,27 @@ def _build_submit_button(run_state: QuizRunState) -> None:
         help="Select Buy availability and one value for all qualities to unlock the solution.",
     )
     if clicked and answers is not None:
-        score = score_quiz_round(
-            answers.quality_values, answers.buy_availability, run_state.current_kingdom
-        )
-        if run_state.submit_round(answers, score):
-            persist_quiz_run(st.session_state, run_state)
-        st.rerun(scope="app")
+        _submit_answers(run_state, answers)
+
+
+def _submit_answers(run_state: QuizRunState, answers: QuizAnswers) -> None:
+    score = score_quiz_round(
+        answers.quality_values, answers.buy_availability, run_state.current_kingdom
+    )
+    if run_state.submit_round(answers, score):
+        persist_quiz_run(st.session_state, run_state)
+    st.rerun(scope="app")
+
+
+def _build_random_answers_button(run_state: QuizRunState) -> None:
+    """Debug only: skip straight to the score screen."""
+    if st.button("🐞 Submit random answers", width="stretch"):
+        quality_values = {
+            q: cast(float, _to_val(random.choice(_QUALITY_OPTIONS)))
+            for q in QUIZ_QUALITY_NAMES
+        }
+        buy = cast(BuyAvailability, random.choice(["yes", "maybe", "no"]))
+        _submit_answers(run_state, QuizAnswers(quality_values, buy))
 
 
 def _build_settings_badges(run_state: QuizRunState) -> None:
@@ -275,7 +300,7 @@ def _build_settings_badges(run_state: QuizRunState) -> None:
         st.badge(run_state.difficulty.label, color="gray")
         st.badge(run_state.pool.label, color="gray")
         if run_state.difficulty.shows_hints:
-            st.badge("Quality hints were shown", icon="💡", color="orange")
+            st.badge("Quality hints shown", icon="💡", color="orange")
 
 
 def solution_section(run_state: QuizRunState) -> None:
@@ -459,7 +484,9 @@ def _build_expansion_selection() -> None:
     Independent of the randomizer's expansion selection."""
     selected = _get_selected_expansions()
     st.session_state[QUIZ_EXPANSIONS_KEY] = list(selected)
-    label = f"Your expansions ({len(selected)} of {len(QUIZ_EXPANSION_OPTIONS)} selected)"
+    label = (
+        f"Your expansions ({len(selected)} of {len(QUIZ_EXPANSION_OPTIONS)} selected)"
+    )
     # A key, so that the expander stays open when the count in its label changes
     with st.expander(label, key="quiz_expansions_expander"):
         _build_expansion_toggle_row()
@@ -513,19 +540,46 @@ def _get_kingdom_title(run_state: QuizRunState, kingdom_str: str) -> str | None:
     return run_state.pool.source.get_kingdom_name_label(name)
 
 
-def _start_new_run(
-    mode: QuizMode, difficulty: QuizDifficulty, pool: QuizKingdomPool
+def _begin_run(
+    mode: QuizMode,
+    difficulty: QuizDifficulty,
+    pool: QuizKingdomPool,
+    exclude: set[str] | None = None,
 ) -> None:
     run_state = QuizRunState.start(
         mode.round_count,
         difficulty=difficulty,
-        kingdom=draw_quiz_kingdom(pool),
+        kingdom=draw_quiz_kingdom(pool, exclude=exclude or set()),
         mode=mode,
         pool=pool,
     )
     persist_quiz_run(st.session_state, run_state)
     reset_quiz_answers(st.session_state, QUIZ_QUALITY_NAMES)
+
+
+def _start_new_run(
+    mode: QuizMode, difficulty: QuizDifficulty, pool: QuizKingdomPool
+) -> None:
+    _begin_run(mode, difficulty, pool)
     st.rerun(scope="app")
+
+
+def _reroll_practice_kingdom() -> None:
+    # Reads the run itself instead of taking it as an argument, as callback
+    # arguments end up in session state, which has to stay picklable
+    run_state = restore_persisted_quiz_run(st.session_state)
+    if run_state is None:
+        return
+    try:
+        _begin_run(
+            QuizMode.PRACTICE,
+            run_state.difficulty,
+            run_state.pool,
+            exclude=run_state.used_kingdoms,
+        )
+    except ValueError:
+        # The current kingdom was the only one left in the pool
+        _begin_run(QuizMode.PRACTICE, run_state.difficulty, run_state.pool)
 
 
 def _build_mode_navigation() -> None:
@@ -555,9 +609,7 @@ def _build_mode_navigation() -> None:
     else:
         button_label = f"Start {mode.round_count} Kingdom Run"
 
-    if st.button(
-        button_label, type="primary", width="stretch", disabled=not can_start
-    ):
+    if st.button(button_label, type="primary", width="stretch", disabled=not can_start):
         _start_new_run(mode, _get_selected_difficulty(), pool)
 
 
@@ -622,6 +674,8 @@ def _build_run_header(run_state: QuizRunState) -> None:
     actions = actions_col.container(horizontal=True, horizontal_alignment="right")
     with actions.popover("❓ Rules & Tips"):
         st_build_explanation_selector()
+    if _can_reroll(run_state) and actions.button("🎲 Reroll kingdom"):
+        _confirm_reroll_dialog()
     if run_state.phase is QuizPhase.FINISHED:
         # Nothing to lose anymore, so no confirmation needed
         actions.button("Back to Start", on_click=_reset_quiz)
@@ -649,6 +703,26 @@ def _confirm_reset_dialog(run_state: QuizRunState) -> None:
         st.rerun()
     # Resetting in a callback, as the dialog's own rerun only reruns the dialog
     if buttons.button("Stop quiz", type="primary", on_click=_reset_quiz):
+        st.rerun()
+
+
+def _can_reroll(run_state: QuizRunState) -> bool:
+    """Practice kingdoms can be swapped while answering, except in Hard."""
+    return (
+        run_state.mode is QuizMode.PRACTICE
+        and run_state.phase is QuizPhase.ANSWERING
+        and run_state.difficulty is not QuizDifficulty.HARD
+    )
+
+
+@st.dialog("Reroll this kingdom?")
+def _confirm_reroll_dialog() -> None:
+    st.write("You get a new kingdom; your answers for this one are discarded.")
+    buttons = st.container(horizontal=True, horizontal_alignment="right")
+    if buttons.button("Cancel"):
+        st.rerun()
+    # In a callback, as the dialog's own rerun only reruns the dialog
+    if buttons.button("Reroll", type="primary", on_click=_reroll_practice_kingdom):
         st.rerun()
 
 
@@ -769,6 +843,78 @@ def _build_round_details(run_state: QuizRunState) -> None:
     )
 
 
+# Streamlit has no element to copy an image. The ClipboardItem gets a promise
+# instead of the blob, so that the write still counts as part of the click (Safari).
+_COPY_IMAGE_HTML = Template(
+    """<button id="quiz-share-copy" style="font: inherit; color: inherit; cursor: pointer;
+    background: transparent; border: 1px solid rgba(128, 128, 128, 0.4);
+    border-radius: 0.5rem; padding: 0.4rem 0.8rem;">📋 Copy image</button>
+<script>
+(() => {
+  const button = document.getElementById("quiz-share-copy");
+  const label = button.textContent;
+  const showResult = (text) => {
+    button.textContent = text;
+    setTimeout(() => { button.textContent = label; }, 3000);
+  };
+  button.addEventListener("click", () => {
+    try {
+      const blob = fetch("data:image/png;base64,$png").then((r) => r.blob());
+      navigator.clipboard
+        .write([new ClipboardItem({ "image/png": blob })])
+        .then(() => showResult("✅ Copied!"))
+        .catch(() => showResult("❌ Not supported here, please download"));
+    } catch {
+      showResult("❌ Not supported here, please download");
+    }
+  });
+})();
+</script>"""
+)
+
+
+def _build_copy_image_button(png: bytes) -> None:
+    html = _COPY_IMAGE_HTML.substitute(png=base64.b64encode(png).decode("ascii"))
+    st.html(html, width="content", unsafe_allow_javascript=True)
+
+
+@st.fragment
+def _build_share_section(run_state: QuizRunState) -> None:
+    """An image of the result to copy or download, e.g. to share it on Discord.
+    Only drawn while the expander is open, as that takes a few seconds for a run."""
+    expander = st.expander(
+        "Share your result as an image",
+        icon="📤",
+        key="quiz_share_expander",
+        # Tracks whether it's open
+        on_change="rerun",
+    )
+    with expander:
+        if not expander.open:
+            return
+        player_name = st.text_input(
+            "Your name on the image (optional)",
+            max_chars=MAX_PLAYER_NAME_LENGTH,
+            key=load_quiz_widget_value(st.session_state, QUIZ_PLAYER_NAME_KEY),
+            on_change=save_quiz_widget_value,
+            args=(st.session_state, QUIZ_PLAYER_NAME_KEY),
+        )
+        with st.spinner("Drawing your result..."):
+            png = get_quiz_share_png(run_state, player_name or "")
+        date = run_state.completed_rounds[-1].end_time.strftime("%Y-%m-%d")
+        with st.container(horizontal=True):
+            _build_copy_image_button(png)
+            st.download_button(
+                "Download",
+                png,
+                file_name=f"dominion_quiz_{date}.png",
+                mime="image/png",
+                icon="💾",
+                on_click="ignore",
+            )
+        st.image(png, width="stretch")
+
+
 def _build_finished_summary(run_state: QuizRunState) -> None:
     st.subheader(f"{run_state.round_count} Kingdom Run Complete")
     _build_settings_badges(run_state)
@@ -784,6 +930,7 @@ def _build_finished_summary(run_state: QuizRunState) -> None:
         f"{run_state.perfect_round_count}/{run_state.round_count}",
     )
     col4.metric("Total Time", _format_duration(run_state.total_elapsed_time))
+    _build_share_section(run_state)
 
     with st.container(border=True):
         st.markdown("#### 📋 Rounds")
@@ -839,6 +986,11 @@ def _build_side_column(run_state: QuizRunState) -> None:
             _st_build_buy_selection()
             _st_build_qualities_selection()
             _build_submit_button(run_state)
+            if is_debug_mode():
+                _build_random_answers_button(run_state)
+    # Runs are shared from their summary instead
+    if solution_is_shown and run_state.mode is QuizMode.PRACTICE:
+        _build_share_section(run_state)
     with st.container(border=True):
         _plot_qualities(run_state)
 
@@ -872,6 +1024,8 @@ def st_build_full_quiz_display() -> None:
             exclude_qualities=not solution_is_shown and not difficulty.shows_hints,
             # Once solved, reveal the card texts to make the solution easier to follow
             show_card_text=difficulty.shows_card_text or solution_is_shown,
+            # Only a distraction while answering
+            show_kingdom_string=solution_is_shown,
         )
         if solution_is_shown:
             st.info(
