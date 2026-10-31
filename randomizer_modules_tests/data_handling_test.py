@@ -68,7 +68,7 @@ def test_expansion_availability(df: pd.DataFrame):
 # once its image is there (the second test below fails until then)
 _STAMP_IMAGES_TO_ADD = {
     f"CampaignEffects/stamps/{name}.png"
-    for name in ["also_gold", "also_silver", "bonus_money", "coin_way", "cost_2d_less"]
+    for name in ["also_gold", "also_silver", "coin_way"]
 }
 
 

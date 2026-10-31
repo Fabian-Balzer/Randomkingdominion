@@ -1,4 +1,5 @@
 import numpy as np
+import pytest
 
 import random_kingdominion as rk
 
@@ -387,3 +388,123 @@ def test_expansions_without_edition_map_to_the_second_edition():
     # Fortune Teller is only in the first edition, which then covers Young Witch too
     kingdom = rk.Kingdom(["village", "young_witch", "fortune_teller"])
     assert kingdom.expansions == ["Base, 2E", "Cornucopia, 1E"]
+
+
+# DomBot strings as they appear in scripts/data/new_kingdoms/, with the special
+# targets the parser has to recognize (M5, safety net for splitting the parser, M19)
+_DOMBOT_CASES = {
+    "bane": (
+        "hamlet, farmhands, gardens, young_witch(village), ferryman(shop), "
+        "horn_of_plenty, jester, library, mine, artisan, stamp_offers_insight(ferryman)",
+        {
+            "bane_pile": "village",
+            "ferryman_pile": "shop",
+            "stamps_and_effects": [["offers_insight", "ferryman"]],
+        },
+    ),
+    "ferryman": (
+        "hamlet, vassal, workshop, farmhands, gardens, carnival, ferryman(remake), "
+        "horn_of_plenty, jester, joust",
+        {"ferryman_pile": "remake"},
+    ),
+    "riverboat": (
+        "riverboat(imperial_envoy), village, smithy, chapel, market, militia, witch, "
+        "festival, library, laboratory",
+        {"riverboat_card": "imperial_envoy"},
+    ),
+    "mouse": (
+        "secret_cave, shop, bridge, sailor, ferryman(marauder), governor, hunter, mine, "
+        "quartermaster, sanctuary, practice, way_of_the_mouse(squire)",
+        {"mouse_card": "squire", "ferryman_pile": "marauder"},
+    ),
+    "obelisk_and_stamp": (
+        "city_quarter, patrician, moneylender, remodel, villa, charm, council_room, "
+        "crown, forum, witch, obelisk(patrician), basilica, stamp_pay_later(crown)",
+        {
+            "obelisk_pile": "patrician/emporium",
+            "stamps_and_effects": [["pay_later", "crown"]],
+        },
+    ),
+    "approaching_army": (
+        "fishmonger, sentinel, shop, wizards, alley, ninja, river_shrine, emissary, "
+        "ferryman(clashes), tea_house, approaching_army(jester), woodworkers_guild",
+        {"army_pile": "jester", "ferryman_pile": "clashes"},
+    ),
+    "druid_boons": (
+        "druid(the_moons_gift, the_suns_gift, the_mountains_gift), faithful_hound, "
+        "tracker, fool, secret_cave, bard, militia, shepherd, cursed_village, "
+        "sacred_grove",
+        {"druid_boons": ["the_moons_gift", "the_mountains_gift", "the_suns_gift"]},
+    ),
+    "trait": (
+        "engineer, daimyo, artist, overlord, search, abundance, rustic_village, "
+        "capital, imperial_envoy, kitsune, rush, nearby(imperial_envoy), sickness",
+        {"traits": [["nearby", "imperial_envoy"]]},
+    ),
+    "two_stamps_on_one_card": (
+        "cage, siren, stowaway, gondola, rope, council_room, frigate, mining_road, "
+        "sentry, trickster, nearby(rope), stamp_treasurified(mining_road), "
+        "stamp_durationified(mining_road)",
+        {
+            "traits": [["nearby", "rope"]],
+            "stamps_and_effects": [
+                ["durationified", "mining_road"],
+                ["treasurified", "mining_road"],
+            ],
+        },
+    ),
+}
+
+
+@pytest.mark.parametrize(
+    "dombot_str, expected", _DOMBOT_CASES.values(), ids=_DOMBOT_CASES.keys()
+)
+def test_dombot_string_special_targets(dombot_str: str, expected: dict):
+    kingdom = rk.Kingdom.from_dombot_csv_string(dombot_str)
+    assert kingdom.notes == ""
+    for attr, value in expected.items():
+        assert getattr(kingdom, attr) == value, attr
+    _test_dombot_readin_readout(dombot_str)
+
+
+@pytest.mark.xfail(
+    strict=True,
+    reason="M19: the second target of the same trait is dropped while parsing",
+)
+def test_same_trait_on_two_cards():
+    kingdom = rk.Kingdom.from_dombot_csv_string(
+        "engineer, daimyo, artist, overlord, search, abundance, rustic_village, "
+        "capital, imperial_envoy, kitsune, rush, nearby(imperial_envoy), "
+        "nearby(engineer), sickness"
+    )
+    assert kingdom.traits == [["nearby", "engineer"], ["nearby", "imperial_envoy"]]
+
+
+@pytest.mark.xfail(
+    strict=True,
+    reason="M19: several targets of one start effect are merged into 'silver,_estate',"
+    " and only the first survives printing and parsing again",
+)
+def test_start_effect_with_two_targets():
+    dombot_str = (
+        "fishing_village, lookout, sea_chart, village, warehouse, sailor, bandit, "
+        "corsair, festival, laboratory, start_replace_copper(silver), "
+        "start_replace_copper(estate)"
+    )
+    kingdom = rk.Kingdom.from_dombot_csv_string(dombot_str)
+    assert kingdom.stamps_and_effects == [["replace_copper", "silver, estate"]]
+    _test_dombot_readin_readout(dombot_str)
+
+
+@pytest.mark.xfail(
+    strict=True,
+    reason="M19: the Divine Wind CSOs are printed with display names and come back"
+    " as a different string",
+)
+def test_divine_wind_survives_printing_and_parsing():
+    _test_dombot_readin_readout(
+        "mountain_shrine, daimyo, dungeon, infirmary, poet, transmogrify, baker, "
+        "footpad, lost_city, samurai, training, amass, divine_wind(distant_lands, page, "
+        "miser, stonemason, snake_witch, journeyman, magpie, wine_merchant, guide, "
+        "aristocrat)"
+    )
