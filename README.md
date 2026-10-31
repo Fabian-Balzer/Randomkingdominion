@@ -30,6 +30,21 @@ source .venv/bin/activate
 
 The Streamlit entry point is `RandomKingdominion.py`; run it with Streamlit rather than `python RandomKingdominion.py`. The root `requirements.txt` lists the app's Python dependencies.
 
+## Development
+
+Dependencies are declared twice on purpose: `requirements.txt` pins the exact versions the deployed app installs and the tests pass with, while `pyproject.toml` describes the package with loose lower bounds. A test keeps both lists in sync. Optional extras: `pip install -e .[scripts]` for the data download scripts, `.[test]` for pytest.
+
+Running the tests:
+
+```sh
+python -m pytest randomizer_modules_tests                 # everything (~1.5 min)
+python -m pytest randomizer_modules_tests -m "not slow"   # without the Streamlit page tests (~25 s)
+```
+
+Pitfalls for writing page tests with Streamlit's `AppTest` are listed in the docstring of `randomizer_modules_tests/conftest.py`.
+
+Upgrading Streamlit (or another pinned package): bump the pin in `requirements.txt` (and the floor in `pyproject.toml` if new APIs are used), run the full test suite, then click through the pages once in a browser.
+
 ## Web card scraper
 
 `wiki_card_scraper.py` is a (probably at this point outdated, hasn't been tested in a while) separate helper that retrieves card and Ally information from the Dominion Strategy Wiki and prints formatted table entries. Review its output and update the local data manually as needed; it does not automatically update the app's data or images.

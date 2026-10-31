@@ -17,11 +17,37 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
+# Loose lower bounds describing the package; the exact versions the app is verified
+# with are pinned in requirements.txt (what the deployed app installs).
+# `dependency_pins_test.py` checks that both lists agree.
+# Only the Streamlit floor is a known requirement (fragment reruns, `on_change="rerun"`,
+# theme padding); the others are the release series currently in use.
 dependencies = [
-    "numpy",
-    "matplotlib",
+    "streamlit>=1.66",
+    "pandas>=2.2",
+    "numpy>=2.0",
+    "matplotlib>=3.8",
+    "pillow>=10.0",
+    "PyYAML>=6.0",
+    "scipy>=1.13",
+    "streamlit-extras>=0.7",
+    "st-copy-to-clipboard>=0.1.6",
+    "colorama>=0.4",
 ]
 requires-python = ">=3.11"
+
+[project.optional-dependencies]
+# Data download and maintenance scripts (scripts/, utils/data_setup/)
+scripts = [
+    "requests",
+    "beautifulsoup4",
+    "yt-dlp",
+    "pyperclip",
+    "pywin32; sys_platform == 'win32'",
+]
+# Legacy PyQt GUI (random_kingdominion/widgets/, see M17 in maintenance_plan.md)
+gui = ["PyQt5"]
+test = ["pytest>=8"]
 
 [tool.setuptools]
 include-package-data = true

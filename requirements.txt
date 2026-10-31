@@ -1,5 +1,7 @@
 # Exact versions the app and test suite are verified with (Python 3.13).
 # Bump deliberately, then run `python -m pytest randomizer_modules_tests`.
+# Every package here needs a lower bound in pyproject.toml and vice versa
+# (checked by randomizer_modules_tests/dependency_pins_test.py).
 streamlit==1.66.0
 pandas==2.3.3
 numpy==2.3.5
