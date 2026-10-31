@@ -1,0 +1,42 @@
+# Runs the whole test suite (including the slow Streamlit page tests) on GitHub's
+# servers for every push to main, every pull request, and on demand.
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch: # "Run workflow" button in the Actions tab
+
+# A newer push to the same branch cancels the run that is still going
+concurrency:
+  group: tests-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: |
+            requirements.txt
+            pyproject.toml
+
+      - name: Install dependencies
+        # The exact pins of the deployment first, then the package itself with the
+        # extras the tests need (yt-dlp, beautifulsoup4, pytest)
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install -e ".[scripts,test]"
+
+      - name: Run the tests
+        run: python -m pytest randomizer_modules_tests
