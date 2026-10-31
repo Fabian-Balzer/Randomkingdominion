@@ -4,6 +4,7 @@
   - Some Inn-teractions added
   - A few combos and Dailies
   - The code is now licensed under the GNU AGPL-3.0-or-later (before: Apache 2.0)
+  - Faster app start using vectorised interaction and combo counting (about 1.5 s faster when the app wakes up)
 - 1.5.2 (2026-10-25):
   - Added sharable image at the end of a quiz run
   - Minor improvements to quiz UI

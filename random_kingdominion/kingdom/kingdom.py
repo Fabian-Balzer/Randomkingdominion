@@ -13,7 +13,12 @@ from uuid import uuid4
 import numpy as np
 import pandas as pd
 
-from ..constants import ALL_CSOS, QUALITIES_AVAILABLE, RENEWED_EXPANSIONS
+from ..constants import (
+    ALL_CSOS,
+    EXPANSION_DICT,
+    QUALITIES_AVAILABLE,
+    RENEWED_EXPANSIONS,
+)
 from ..logger import LOGGER
 from ..utils import (copy_to_clipboard, get_cso_name, get_total_quality,
                      sanitize_cso_list, sanitize_cso_name, sort_kingdom)
@@ -201,14 +206,15 @@ class Kingdom:
         new_string = remove_deep_nested_parentheses(csv_string)
         if new_string != csv_string:
             note_str += "Removed nested parentheses, they currently aren't supported. You may list nested stuff separately.\n"
-        for col_str in ["colony", "colony/platinum", "platinum"]:
-            new_string = (
-                new_string.lower()
-                .replace(col_str, "colonies")
-                .replace("landscapes: ", ", ")
-                .replace("city_state", "city-state")
-                .replace("will_o_wisp", "will-o-wisp")
-            )
+        new_string = (
+            new_string.lower()
+            .replace("landscapes: ", ", ")
+            .replace("city_state", "city-state")
+            .replace("will_o_wisp", "will-o-wisp")
+        )
+        # Longest spelling first; "colony/platinum" would become "colonies/colonies"
+        for col_str in ["colony/platinum", "colony", "platinum"]:
+            new_string = new_string.replace(col_str, "colonies")
         # Search for all single entries (we can't just split by "," because of druid boons)
         pattern = r"\s*,\s*(?![^()]*\))"
         full_list = re.split(pattern, new_string)
@@ -529,12 +535,7 @@ class Kingdom:
                     not f"{exp}, 1E" in unique_expansions
                     and not f"{exp}, 2E" in unique_expansions
                 ):
-                    added_exp = (
-                        f"{exp}, 2E"
-                        if exp not in ["Cornucopia", "Guilds"]
-                        else "Cornucopia & Guilds, 2E"
-                    )
-                    exps_to_add.append(added_exp)
+                    exps_to_add.append(EXPANSION_DICT[exp])
                 exps_to_remove.append(exp)
         self.expansions = [
             str(exp)

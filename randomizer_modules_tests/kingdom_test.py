@@ -367,3 +367,23 @@ def test_dombot_string_uses_display_names_of_cards_and_extra_piles():
         "No Shelters, Sir Martin, Smithy, Vassal, Village, "
         "Way of the Mouse (Harbinger), Wine Merchant, Young Witch (Moat)"
     )
+
+
+def test_colony_spellings_in_dombot_strings():
+    """All Colony/Platinum spellings switch Colonies on and aren't reported as
+    unrecognized (M19: "colony/platinum" used to turn into "colonies/colonies")."""
+    for colony_str in ["colonies", "colony", "platinum", "colony/platinum"]:
+        kingdom = rk.Kingdom.from_dombot_csv_string(f"village, smithy, {colony_str}")
+        assert kingdom.use_colonies, colony_str
+        assert kingdom.cards == ["smithy", "village"]
+        assert kingdom.notes == ""
+    assert not rk.Kingdom.from_dombot_csv_string("village, no colonies").use_colonies
+
+
+def test_expansions_without_edition_map_to_the_second_edition():
+    # Village is in both Base editions, Young Witch in both Cornucopia editions
+    kingdom = rk.Kingdom(["village", "young_witch"])
+    assert kingdom.expansions == ["Base, 2E", "Cornucopia & Guilds, 2E"]
+    # Fortune Teller is only in the first edition, which then covers Young Witch too
+    kingdom = rk.Kingdom(["village", "young_witch", "fortune_teller"])
+    assert kingdom.expansions == ["Base, 2E", "Cornucopia, 1E"]
