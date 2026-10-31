@@ -363,7 +363,7 @@ class KingdomManager:
 
     def save_last_100_kingdoms(self):
         if not self.in_last_kingdom_mode:
-            print("Skipped saving last 100 kingdoms as not started in lastKingdomMode")
+            LOGGER.info("Skipped saving last 100 kingdoms as not started in lastKingdomMode")
             return
         self.save_kingdoms_to_yaml(FPATH_KINGDOMS_LAST100)
 

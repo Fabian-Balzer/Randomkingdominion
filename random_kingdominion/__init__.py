@@ -41,18 +41,23 @@ def _remove_streamlit_logs():
     streamlit_logger.addFilter(StreamlitFilter())
 
 
-# from .streamlit_util import *
+def _is_missing_package(e: ModuleNotFoundError, packages: set[str]) -> bool:
+    """Whether the error comes from one of the given optional packages not being
+    installed (as opposed to a broken import inside our own code)."""
+    return (e.name or "").split(".")[0] in packages
 
+
+# Only a missing optional package may be skipped while any other import error is a bug.
 try:
     _remove_streamlit_logs()
     from .streamlit_util import *
-
-
-except ImportError as e:
+except ModuleNotFoundError as e:
+    if not _is_missing_package(e, {"streamlit", "streamlit_extras"}):
+        raise
     LOGGER.warning(f"Couldn't locate valid streamlit installation ({e})")
 
 try:
     from .widgets import *
-except ImportError as e:
-    # LOGGER.warning(f"Couldn't locate valid PyQt installation ({e})")
-    pass
+except ModuleNotFoundError as e:
+    if not _is_missing_package(e, {"PyQt5"}):
+        raise

@@ -1,5 +1,6 @@
 """Module containing constants, not to be modified!"""
 
+import ast
 import os
 import re
 from dataclasses import dataclass
@@ -44,7 +45,7 @@ def read_dataframe_from_file(fpath: str | Path, eval_lists=False):
             for colname in df.columns:
                 if "type" in colname.lower() or colname == "Extra Components":
                     # Make sure we properly handle lists
-                    df[colname] = df[colname].apply(eval)
+                    df[colname] = df[colname].apply(ast.literal_eval)
     else:
         raise FileNotFoundError(
             2, f"Couldn't find the file at {fpath}, please download it first."

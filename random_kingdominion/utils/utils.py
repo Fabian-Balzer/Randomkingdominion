@@ -13,6 +13,7 @@ from ..constants import (
     RENEWED_EXPANSIONS,
     SPECIAL_QUAL_TYPES_AVAILABLE,
 )
+from ..logger import LOGGER
 from .kingdom_helper_funcs import sanitize_cso_list
 
 
@@ -53,9 +54,14 @@ def convert_upper_camel_to_snake_case(name: str) -> str:
     return "".join(["_" + c.lower() if c.isupper() else c for c in name]).lstrip("_")
 
 
+def _version_tuple(changelog_key: str) -> tuple[int, ...]:
+    """Turn a changelog version key like ``"1.5.3 (2026-10-31)"`` into ``(1, 5, 3)``."""
+    return tuple(int(part) for part in changelog_key.split(" ")[0].split("."))
+
+
 def get_version() -> str:
     """Return the version of the package."""
-    return max(get_changelog().keys()).split(" ")[0]
+    return max(get_changelog().keys(), key=_version_tuple).split(" ")[0]
 
 
 def get_changelog() -> dict[str, list[str]]:
@@ -127,13 +133,13 @@ def ask_file_overwrite(fpath: str | Path) -> bool:
     """
     path, fname = os.path.split(fpath)
     if not os.path.exists(fpath):
-        print(f"Writing the file '{fpath}'")
+        LOGGER.info(f"Writing the file '{fpath}'")
         return True
     question = f"The file '{fname}' already exists at {path}. Continue and Replace it (y/n)?\n>>> "
     if ask_yes_now(question):
-        print(f"Overwriting '{fpath}'")
+        LOGGER.info(f"Overwriting '{fpath}'")
         return True
-    print(f"Skipped writing '{fpath}' as it already existed.")
+    LOGGER.info(f"Skipped writing '{fpath}' as it already existed.")
     return False
 
 
@@ -162,10 +168,10 @@ def write_dataframe_to_file(
     if not overwrite and not ask_file_overwrite(fpath):
         return
     elif overwrite and os.path.exists(fpath):
-        print(f"Overwriting '{fpath}' with {len(df)} rows.")
+        LOGGER.info(f"Overwriting '{fpath}' with {len(df)} rows.")
     df.to_csv(fpath, sep=";", index=False)
     if verbose:
-        print(f"Successfully wrote the file '{fpath}' with {len(df)} rows.")
+        LOGGER.info(f"Successfully wrote the file '{fpath}' with {len(df)} rows.")
 
 
 def override(func):

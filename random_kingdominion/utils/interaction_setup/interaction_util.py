@@ -40,7 +40,7 @@ def add_interaction(
             return
         elif not overwrite:
             return
-        print("Overwriting the existing rule.")
+        LOGGER.info("Overwriting the existing rule.")
     df.loc[ident] = [c1, c2, interaction]
     df.sort_index(inplace=True)
 
