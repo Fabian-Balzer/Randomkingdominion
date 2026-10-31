@@ -41,6 +41,13 @@ def display_image_with_tooltip(
     except FileNotFoundError:
         st.write(f"Couldn't find the image at {img}")
         return
+    display_html_image_with_tooltip(img_html, tooltip, link_url)
+
+
+def display_html_image_with_tooltip(
+    img_html: str, tooltip: str = "", link_url: str | None = None
+):
+    """Display an image already converted with `img_to_html` with a tooltip on hover."""
     if link_url is not None:
         img_html = f"""<a href="{link_url}" target="_blank">
             {img_html}

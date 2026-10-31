@@ -1,3 +1,4 @@
+from functools import cache
 from math import ceil
 from typing import Callable
 
@@ -18,8 +19,19 @@ from ....utils import (
     sanitize_cso_name,
 )
 from ...constants import ALL_CACHED_CSOS, ST_ICONS
-from ...image_util import display_image_with_tooltip
+from ...image_util import display_html_image_with_tooltip, img_to_html
 from .extra_components_display import st_build_small_extra_component_display
+
+# CSOs that show another pile of the kingdom on top, and the attribute naming that pile
+_OVERLAY_SOURCES = {
+    "young_witch": "bane_pile",
+    "ferryman": "ferryman_pile",
+    "riverboat": "riverboat_card",
+    "druid": "druid_boons",
+    "way_of_the_mouse": "mouse_card",
+    "obelisk": "obelisk_pile",
+    "approaching_army": "army_pile",
+}
 
 
 def round_corners(img: Image.Image, radius: int, padding_px: int = 10) -> Image.Image:
@@ -103,6 +115,52 @@ def get_cso_display_image(
     return round_corners(img, 15)
 
 
+def has_kingdom_overlay(cso_key: str, kingdom: Kingdom) -> bool:
+    """Whether `get_cso_display_image` draws something specific to the kingdom onto
+    the CSO, e.g. the Bane on Young Witch or the Obelisk marker on its pile."""
+    source = _OVERLAY_SOURCES.get(cso_key)
+    if source is not None and getattr(kingdom, source):
+        return True
+    marked_piles = {kingdom.obelisk_pile, kingdom.bane_pile, kingdom.army_pile} - {""}
+    traits = kingdom.trait_dict
+    return cso_key in marked_piles or cso_key in traits or cso_key in traits.values()
+
+
+@cache
+def _get_empty_kingdom() -> Kingdom:
+    return Kingdom([])
+
+
+# ~160-260 KB per image: 600 entries take at most ~150 MB of the app's memory
+# (Community Cloud: 690 MB to 2.7 GB), enough for the default view of all cards
+@st.cache_data(max_entries=600, show_spinner=False)
+def get_cso_image_html_without_overlays(
+    cso_key: str, full_image: bool, hide_landscape_text: bool
+) -> str:
+    """The image of a CSO as HTML for kingdoms that don't draw anything onto it.
+    Cached across sessions, as composing and encoding it takes ~17 ms."""
+    cso: pd.Series = ALL_CACHED_CSOS.loc[cso_key]  # type: ignore
+    img = get_cso_display_image(
+        cso, _get_empty_kingdom(), full_image, hide_landscape_text
+    )
+    return img_to_html(img)
+
+
+def _get_cso_image_html(
+    cso: pd.Series, kingdom: Kingdom, full_image: bool, hide_landscape_text: bool
+) -> str:
+    cso_key = str(cso.name)
+    if has_kingdom_overlay(cso_key, kingdom):
+        img = get_cso_display_image(cso, kingdom, full_image, hide_landscape_text)
+        return img_to_html(img)
+    # Landscapes are always shown in full, and only they can hide their text, so the
+    # other flag doesn't change the image and mustn't split the cache entries
+    is_landscape = bool(cso["IsExtendedLandscape"])
+    return get_cso_image_html_without_overlays(
+        cso_key, full_image and not is_landscape, hide_landscape_text and is_landscape
+    )
+
+
 def display_cso_image(
     cso: pd.Series,
     kingdom: Kingdom,
@@ -114,7 +172,7 @@ def display_cso_image(
     """Display the card image of a CSO with a tooltip containing the card's name, expansion, and text."""
     cso_key = str(cso.name)
     name = kingdom.get_cso_name_with_extra(cso_key)
-    img = get_cso_display_image(cso, kingdom, full_image, hide_landscape_text)
+    img_html = _get_cso_image_html(cso, kingdom, full_image, hide_landscape_text)
     if show_tooltip:
         tooltip = name + f"<br>From <b><em>{cso['Expansion']}</b></em>"
         quals = get_cso_quality_description(cso_key, True)
@@ -124,11 +182,7 @@ def display_cso_image(
             )
     else:
         tooltip = ""
-    display_image_with_tooltip(
-        img,
-        tooltip,
-        cso["WikiLink"],
-    )
+    display_html_image_with_tooltip(img_html, tooltip, cso["WikiLink"])
 
 
 def _build_single_reroll_button(cso_name: str, reroll_callback: Callable[[str], None]):
