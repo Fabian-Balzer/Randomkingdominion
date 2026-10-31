@@ -4,6 +4,12 @@ fabyy_transcriptions/
 
 reddit_kotw.html
 Dominion Rules Lookup - Database.csv
+
+# Local agent instructions and planning files
+CLAUDE.md
+maintenance_plan.md
+maintenance_done.md
+quiz_implementation_plan.md
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
