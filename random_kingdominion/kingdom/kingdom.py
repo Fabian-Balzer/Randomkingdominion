@@ -20,8 +20,13 @@ from ..constants import (
     RENEWED_EXPANSIONS,
 )
 from ..logger import LOGGER
-from ..utils import (copy_to_clipboard, get_cso_name, get_total_quality,
-                     sanitize_cso_list, sanitize_cso_name, sort_kingdom)
+from ..utils import (
+    get_cso_name,
+    get_total_quality,
+    sanitize_cso_list,
+    sanitize_cso_name,
+    sort_kingdom,
+)
 from .invalidity_stuff import InvalidityReason
 
 
@@ -878,7 +883,3 @@ class Kingdom:
     #     """Returns the actual expansions used; e.g., if Base, 1E and Base, 2E are both present, they will both be
     #     returned, but if there is only Base and Base 1E, only Base 1E will be returned, and if there's only
     #     Base, just Base 2E will be returned."""
-
-    def copy_to_clipboard(self):
-        """Copies the kingdom to the clipboard."""
-        copy_to_clipboard(self.get_dombot_csv_string())

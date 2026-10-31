@@ -55,9 +55,3 @@ except ModuleNotFoundError as e:
     if not _is_missing_package(e, {"streamlit", "streamlit_extras"}):
         raise
     LOGGER.warning(f"Couldn't locate valid streamlit installation ({e})")
-
-try:
-    from .widgets import *
-except ModuleNotFoundError as e:
-    if not _is_missing_package(e, {"PyQt5"}):
-        raise

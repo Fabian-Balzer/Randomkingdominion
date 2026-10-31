@@ -1,4 +1,0 @@
-from .attack_type_group_widget import AttackTypeGroupWidget
-from .expansion_group_widget import ExpansionGroupWidget
-from .general_settings_widget import GeneralSettingsWidget
-from .quality_selection_group_widget import QualitySelectionGroupWidget

@@ -3,38 +3,13 @@
 import ast
 import os
 import re
-from dataclasses import dataclass
 from pathlib import Path
 from typing import Literal
 
 import pandas as pd
-from matplotlib import colormaps as cm  # type: ignore
 
 from .cso_frame_utils import get_unique_entries_of_list_column
 from .cso_series_utils import listlike_contains
-
-
-@dataclass(frozen=True)
-class ColorPalette:
-    """Registry for the colors used"""
-
-    selected_green = "rgba(108,197,90,0.7)"
-    way = "rgb(218, 242, 254)"
-    event = "rgb(160, 175, 178)"
-    ally = "rgb(218, 196, 155)"
-    landmark = "rgb(73, 156, 96)"
-    trait = "rgb(150, 145, 186)"
-    project = "rgb(236, 172, 165)"
-    prophecy = "rgb(78, 171, 198)"
-
-    def get_bar_level_color(self, level_value: int):
-        """Return the color for one of the bar values"""
-        assert 0 <= level_value <= 4, f"Wrong level value {level_value}"
-        return cm.get_cmap("Greens")(level_value / 4)
-
-    def get_color_for_type(self, type_name: str):
-        """Return the color for the given type."""
-        return getattr(self, type_name.lower())
 
 
 def read_dataframe_from_file(fpath: str | Path, eval_lists=False):
@@ -382,8 +357,6 @@ def load_combo_or_inter_df(pair_type: Literal["combo", "interaction"]) -> pd.Dat
 
 ALL_INTERACTIONS = load_combo_or_inter_df("interaction")
 ALL_COMBOS = load_combo_or_inter_df("combo")
-
-COLOR_PALETTE = ColorPalette()
 
 
 class EmptyError(Exception):

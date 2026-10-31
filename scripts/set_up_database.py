@@ -42,10 +42,10 @@ import argparse
 
 import random_kingdominion as rk
 from random_kingdominion.utils.data_setup import (
+    add_image_paths,
     build_card_df,
-    download_wiki_data,
     perform_full_yt_processing,
-    write_image_database,
+    read_wiki_card_list,
 )
 from random_kingdominion.utils.interaction_setup import (
     write_combo_database,
@@ -56,18 +56,18 @@ from random_kingdominion.utils.interaction_setup import (
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "--download",
-        "-d",
-        action="store_true",
-        default=False,
-        help="If set, the script will try to download the data freshly from the Cards List page of the wiki, and try to download all unavailable pictures from the Wiki and write the image database.",
+        "--wiki_html",
+        "-w",
+        type=str,
+        default=None,
+        help="Path to a copy of the wiki's List of cards page saved in a browser (https://wiki.dominionstrategy.com/index.php/List_of_cards, 'Save page as', HTML only). Its card table is parsed and written to the raw data file; missing card images are listed, they have to be added by hand.",
     )
     parser.add_argument(
         "--overwrite",
         "-o",
         action="store_true",
         default=False,
-        help="If set, the script will overwrite the existing data files (e.g. the processed one, and, if you've downloaded it, the raw data one). Otherwise, you'll be prompted to confirm overwriting.",
+        help="If set, the script will overwrite the existing data files (e.g. the processed one, and, with --wiki_html, the raw data one). Otherwise, you'll be prompted to confirm overwriting.",
     )
     parser.add_argument(
         "--main_db",
@@ -108,25 +108,24 @@ def parse_args():
 
 
 def main():
-    """Main function to download the card data from the wiki and write it to a file.
-    Asks the user if they want to download the data from the wiki, and whether they want to write the image database.
+    """Main function to (re)build the data files in card_info from their sources.
+    Without --overwrite, asks before replacing an existing file.
     """
     args = parse_args()
     if not (
-        args.download
+        args.wiki_html
         or args.main_db
         or args.interactions
         or args.combos
         or args.youtube
     ):
         rk.LOGGER.warning(
-            "No action specified. Use --download, --main_db, --youtube, --interactions, or --combos, or -d, -m, -i, -c flags to run any mode."
+            "No action specified. Use --wiki_html, --main_db, --youtube, --interactions, or --combos, or -w, -m, -y, -i, -c flags to run any mode."
         )
         return
     overwrite, verbose = args.overwrite, args.verbose
-    if args.download:
-        df = download_wiki_data()
-        df = write_image_database(df)
+    if args.wiki_html:
+        df = add_image_paths(read_wiki_card_list(args.wiki_html))
         rk.write_dataframe_to_file(
             df, rk.FPATH_RAW_DATA, overwrite=overwrite, verbose=verbose
         )

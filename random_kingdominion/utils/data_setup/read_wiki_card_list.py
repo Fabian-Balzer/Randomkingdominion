@@ -1,12 +1,14 @@
-"""Download data from the cards-list page of the wiki"""
+"""Read the card table from a saved copy of the wiki's List of cards page.
+
+The wiki sits behind a bot check, so the page is saved by hand in a browser
+(https://wiki.dominionstrategy.com/index.php/List_of_cards, "Save page as", HTML only).
+"""
 
 from io import StringIO
+from pathlib import Path
 
 import pandas as pd
-import requests
-from bs4 import BeautifulSoup, NavigableString, Tag
-
-_WIKI_URL = "http://wiki.dominionstrategy.com/index.php/List_of_cards"
+from bs4 import BeautifulSoup, Tag
 
 
 def _fix_cost_and_vp(doc: Tag) -> None:
@@ -33,15 +35,18 @@ def _improve_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def download_wiki_data() -> pd.DataFrame:
-    """Reads the data from the wiki page and returns a dataframe with the
-    necessary data"""
+def read_wiki_card_list(html_path: str | Path) -> pd.DataFrame:
+    """Read the card table from a saved List of cards page and return it as a
+    dataframe with the raw card data columns (without ``ImagePath``)."""
     table_class = "wikitable sortable"
-    response = requests.get(_WIKI_URL)
-    soup = BeautifulSoup(response.text, "html.parser")
+    html = Path(html_path).read_text(encoding="utf-8")
+    soup = BeautifulSoup(html, "html.parser")
     card_table = soup.find("table", {"class": table_class})
     if not isinstance(card_table, Tag):
-        raise ValueError("Could not find the card table on the wiki page.")
+        raise ValueError(
+            f"Could not find the card table in '{html_path}'. Is it a saved copy "
+            "of the List of cards page (and not e.g. the wiki's bot check page)?"
+        )
     _fix_cost_and_vp(card_table)
     # print(card_table.find('span', {"class": "coin-icon"}))
     # Remove the non-breaking spaces, turning them into regular spaces:

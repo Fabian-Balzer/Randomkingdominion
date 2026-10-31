@@ -32,7 +32,7 @@ The Streamlit entry point is `RandomKingdominion.py`; run it with Streamlit rath
 
 ## Development
 
-Dependencies are declared twice on purpose: `requirements.txt` pins the exact versions the deployed app installs and the tests pass with, while `pyproject.toml` describes the package with loose lower bounds. A test keeps both lists in sync. Optional extras: `pip install -e .[scripts]` for the data download scripts, `.[test]` for pytest.
+Dependencies are declared twice on purpose: `requirements.txt` pins the exact versions the deployed app installs and the tests pass with, while `pyproject.toml` describes the package with loose lower bounds. A test keeps both lists in sync. Optional extras: `pip install -e .[scripts]` for the data maintenance scripts, `.[test]` for pytest. The test suite needs both (`pip install -e .[scripts,test]`).
 
 Running the tests:
 
@@ -45,9 +45,17 @@ Pitfalls for writing page tests with Streamlit's `AppTest` are listed in the doc
 
 Upgrading Streamlit (or another pinned package): bump the pin in `requirements.txt` (and the floor in `pyproject.toml` if new APIs are used), run the full test suite, then click through the pages once in a browser.
 
-## Web card scraper
+## Updating the card data
 
-`wiki_card_scraper.py` is a (probably at this point outdated, hasn't been tested in a while) separate helper that retrieves card and Ally information from the Dominion Strategy Wiki and prints formatted table entries. Review its output and update the local data manually as needed; it does not automatically update the app's data or images.
+The files in `card_info/` are built by `scripts/set_up_database.py`; never edit the `good_*.csv` files by hand. The test suite fails if one of them is out of date.
+
+New cards come from the wiki's [List of cards](https://wiki.dominionstrategy.com/index.php/List_of_cards), which has to be saved by hand (the wiki is protected by a bot check):
+
+1. Open the page in a browser and save it ("Save page as", HTML only).
+2. `python scripts/set_up_database.py --wiki_html <saved page>.html -o` parses its card table into `card_info/raw_card_data.csv` and lists the card images that are missing in `static/card_pictures/`; add those by hand.
+3. Add the new cards' qualities and types in `card_info/specifics/*.json`, then rebuild the card table with `python scripts/set_up_database.py -m -o`.
+
+Interactions (`-i`, from `random_kingdominion/utils/interaction_setup/specifics/`) and combos (`-c`, from `card_info/raw_combo_data.csv`) are rebuilt the same way.
 
 ## License
 

@@ -72,47 +72,6 @@ def get_changelog() -> dict[str, list[str]]:
     return {k: v if isinstance(v, list) else [v] for k, v in log.items()}
 
 
-def copy_to_clipboard_pyperclip(text: str):
-    """Copy text to clipboard, compatible with desktop and web environments."""
-    import pyperclip  # type: ignore
-    import streamlit as st
-    import streamlit.components.v1 as components
-
-    try:
-        # Try using pyperclip for desktop environments
-        pyperclip.copy(text)
-        st.toast("Text copied to clipboard!", icon="📋")
-    except pyperclip.PyperclipException:
-        # Fallback to JavaScript for web environments
-        components.html(
-            f"""
-            <script>
-                function copyToClipboard(text) {{
-                    const el = document.createElement('textarea');
-                    el.value = text;
-                    document.body.appendChild(el);
-                    el.select();
-                    document.execCommand('copy');
-                    document.body.removeChild(el);
-                }}
-                copyToClipboard("{text}");
-            </script>
-        """,
-            height=0,
-        )
-        st.toast("Tried to copy text to clipboard", icon="📋")
-
-
-def copy_to_clipboard(text: str):
-    """Copies the given text into the user's clipboard."""
-    import win32clipboard
-
-    win32clipboard.OpenClipboard()
-    win32clipboard.EmptyClipboard()
-    win32clipboard.SetClipboardText(text, win32clipboard.CF_UNICODETEXT)
-    win32clipboard.CloseClipboard()
-
-
 def ask_file_overwrite(fpath: str | Path) -> bool:
     """Prompts the user if there already exists a file at the given fpath
 
@@ -174,13 +133,6 @@ def write_dataframe_to_file(
         LOGGER.info(f"Successfully wrote the file '{fpath}' with {len(df)} rows.")
 
 
-def override(func):
-    """
-    Decorator to indicate that a method is overridden.
-    """
-    return func
-
-
 def get_expansion_icon_path(expansion: str, relative_only: bool = False) -> str:
     """Returns the image path for the given expansion icon."""
     base = "icons/expansions/"
@@ -196,14 +148,6 @@ def get_expansion_icon_path(expansion: str, relative_only: bool = False) -> str:
     if relative_only:
         return rel_path
     return str(PATH_ASSETS.joinpath(rel_path))
-
-
-def get_row_and_col(index: int, max_columns: int) -> tuple[int, int]:
-    """Calculate the row and column for the given index in a grid with
-    max_columns as the maximum amount of columns."""
-    row = index // max_columns
-    column = index % max_columns
-    return row, column
 
 
 def get_quality_icon_fpath(quality_name: str) -> Path:

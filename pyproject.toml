@@ -38,16 +38,13 @@ dependencies = [
 requires-python = ">=3.11"
 
 [project.optional-dependencies]
-# Data download and maintenance scripts (scripts/, utils/data_setup/)
+# Data maintenance scripts (scripts/, utils/data_setup/): beautifulsoup4 parses the
+# saved wiki card list, requests and yt-dlp fetch the YouTube video info
 scripts = [
     "requests",
     "beautifulsoup4",
     "yt-dlp",
-    "pyperclip",
-    "pywin32; sys_platform == 'win32'",
 ]
-# Legacy PyQt GUI (random_kingdominion/widgets/, see M17 in maintenance_plan.md)
-gui = ["PyQt5"]
 test = ["pytest>=8"]
 
 [tool.setuptools]
