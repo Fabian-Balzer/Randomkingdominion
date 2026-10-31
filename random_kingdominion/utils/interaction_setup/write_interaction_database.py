@@ -93,7 +93,9 @@ def _log_combo_or_inter_changes(
     )
 
 
-def write_interaction_database(overwrite: bool = False, verbose: bool = True):
+def build_interaction_df(verbose: bool = False) -> pd.DataFrame:
+    """Collect all interactions from the specifics modules, i.e. what
+    ``write_interaction_database`` writes to ``good_interaction_data.csv``."""
     df = get_empty_interaction_df()
     # MECHANICS
     add_all_cost_change_interactions(df, verbose=verbose)
@@ -114,7 +116,11 @@ def write_interaction_database(overwrite: bool = False, verbose: bool = True):
     add_all_allies_interactions(df, verbose=verbose)
     # INDIVIDUALS
     add_all_individual_card_interactions(df, verbose=verbose)
+    return df
 
+
+def write_interaction_database(overwrite: bool = False, verbose: bool = True):
+    df = build_interaction_df(verbose)
     fpath = PATH_CARD_INFO.joinpath("good_interaction_data.csv")
     old_df = pd.read_csv(fpath, sep=";")
     _log_combo_or_inter_changes(df, old_df, "interaction")
@@ -125,21 +131,28 @@ def write_interaction_database(overwrite: bool = False, verbose: bool = True):
         )
 
 
+def find_combo_data_errors(df: pd.DataFrame) -> list[str]:
+    """Unknown CSOs and combo types in the combo data built from ``raw_combo_data``."""
+    errors = [
+        f"Found unknown CSO '{cso}' in combo data."
+        for cso in sorted(set(df["CSO1"].tolist() + df["CSO2"].tolist()))
+        if cso not in ALL_CSOS.index
+    ]
+    for _, row in df.iterrows():
+        if row["Type"] not in VALID_COMBO_TYPES:
+            errors.append(
+                f"Found unknown combo type '{row['Type']}' in combo data for entry {row['CSO1']}/{row['CSO2']}."
+            )
+    return errors
+
+
 def write_combo_database(overwrite: bool = True, verbose: bool = True):
     """Basic Sanitization of the human-readable raw combo data into"""
     df = get_combo_df(verbose)
-    error_occured = False
-    for cso in set(df["CSO1"].tolist() + df["CSO2"].tolist()):
-        if cso not in ALL_CSOS.index:
-            LOGGER.warning(f"Found unknown CSO '{cso}' in combo data.")
-            error_occured = True
-    for _, row in df.iterrows():
-        if row["Type"] not in VALID_COMBO_TYPES:
-            LOGGER.warning(
-                f"Found unknown combo type '{row['Type']}' in combo data for entry {row['CSO1']}/{row['CSO2']}."
-            )
-            error_occured = True
-    if error_occured:
+    errors = find_combo_data_errors(df)
+    for error in errors:
+        LOGGER.warning(error)
+    if errors:
         LOGGER.error(
             "Errors occured while processing the combo data.\nABORTING writing the combo database. Please fix the issues in 'raw_combo_data' and try again."
         )

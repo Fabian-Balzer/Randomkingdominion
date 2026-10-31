@@ -5,7 +5,8 @@ import streamlit as st
 
 from .scoring import GOOD_SCORE_THRESHOLD, IMPRESSIVE_SCORE_THRESHOLD, MAX_ROUND_SCORE
 
-# Where to send feedback on the ratings; set the video URL once the showcase is out
+# Where to send feedback on the ratings; without a video URL, the feedback text and
+# the explanations leave the showcase video out
 QUIZ_FEEDBACK_DISCORD_NAME = "Fabi_1000"
 QUIZ_FEEDBACK_VIDEO_URL = "https://youtu.be/05d1lCy8S0o"
 
@@ -98,19 +99,25 @@ EXPLANATIONS[
 Out of the maximum of {MAX_ROUND_SCORE} points per kingdom, scoring anything above {GOOD_SCORE_THRESHOLD} points is pretty good, and above {IMPRESSIVE_SCORE_THRESHOLD} points is pretty impressive, but don't worry too much about the score - it's just for fun, and the main point is to train your ability to analyze kingdoms for their qualities, which is a skill that can be helpful when playing.
 """
 
-EXPLANATIONS["📺 Video"] = "_placeholder, see below"
+VIDEO_TAB = "📺 Video"
+
+
+def get_explanation_tabs() -> list[str]:
+    """The explanation tabs, plus the video tab if a showcase video is set."""
+    tabs = list(EXPLANATIONS)
+    return tabs + [VIDEO_TAB] if QUIZ_FEEDBACK_VIDEO_URL else tabs
 
 
 @st.fragment
 def st_build_explanation_selector() -> None:
     choice = st.segmented_control(
         "Explanations",
-        list(EXPLANATIONS),
+        get_explanation_tabs(),
         default=None,
         width="stretch",
         label_visibility="collapsed",
     )
-    if choice == "📺 Video":
+    if choice == VIDEO_TAB:
         st.write(
             "Here's a video introducing this quiz - feel free to leave feedback as comments on the video:"
         )

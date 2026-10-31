@@ -758,12 +758,15 @@ def test_curated_pools_leave_out_kingdoms_with_campaign_effects() -> None:
     assert {k.name for k in curated}.isdisjoint(k["name"] for k in with_effects)
 
 
-def test_feedback_text_names_discord_and_later_the_video(monkeypatch) -> None:
+def test_feedback_text_names_discord_and_the_video_if_set(monkeypatch) -> None:
+    monkeypatch.setattr(explanations, "QUIZ_FEEDBACK_VIDEO_URL", "")
     assert "Fabi_1000" in explanations.get_feedback_text()
     assert "video" not in explanations.get_feedback_text()
+    assert explanations.VIDEO_TAB not in explanations.get_explanation_tabs()
 
     monkeypatch.setattr(explanations, "QUIZ_FEEDBACK_VIDEO_URL", "https://youtu.be/x")
     assert "[showcase video](https://youtu.be/x)" in explanations.get_feedback_text()
+    assert explanations.get_explanation_tabs()[-1] == explanations.VIDEO_TAB
 
 
 def _finished_run(kingdom_str: str, num_rounds: int, mode: QuizMode) -> QuizRunState:

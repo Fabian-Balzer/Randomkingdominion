@@ -42,8 +42,7 @@ import argparse
 
 import random_kingdominion as rk
 from random_kingdominion.utils.data_setup import (
-    add_additional_entries,
-    add_additional_info_columns,
+    build_card_df,
     download_wiki_data,
     perform_full_yt_processing,
     write_image_database,
@@ -132,11 +131,8 @@ def main():
             df, rk.FPATH_RAW_DATA, overwrite=overwrite, verbose=verbose
         )
     if args.main_db:
-        df = rk.read_dataframe_from_file(rk.FPATH_RAW_DATA)
-        df = add_additional_entries(df)
-        df = add_additional_info_columns(df)
         rk.write_dataframe_to_file(
-            df, rk.FPATH_CARD_DATA, overwrite=overwrite, verbose=verbose
+            build_card_df(), rk.FPATH_CARD_DATA, overwrite=overwrite, verbose=verbose
         )
     if args.interactions:
         write_interaction_database(overwrite=overwrite, verbose=verbose)
