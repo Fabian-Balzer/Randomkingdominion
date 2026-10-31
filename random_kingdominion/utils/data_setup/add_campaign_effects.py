@@ -564,4 +564,5 @@ def add_campaign_effects(df: pd.DataFrame) -> pd.DataFrame:
 def _get_effect_img_path(name: str, effect_type: str):
     if effect_type != "Stamp":
         return "CampaignEffects/" + "campaign_seal.png"
-    return "CampaignEffects/stamps/" + name.replace(" ", "_") + ".png"
+    # The stamp images are named in lower case; paths are case-sensitive on Linux
+    return "CampaignEffects/stamps/" + name.replace(" ", "_").lower() + ".png"

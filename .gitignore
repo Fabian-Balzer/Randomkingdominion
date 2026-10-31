@@ -4,6 +4,8 @@ fabyy_transcriptions/
 
 reddit_kotw.html
 Dominion Rules Lookup - Database.csv
+# Working file for the stamp images (macro-enabled PowerPoint)
+scripts/data/stamp_arrangements.pptm
 
 # Local agent instructions and planning files
 CLAUDE.md
