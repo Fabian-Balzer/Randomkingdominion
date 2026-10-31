@@ -49,6 +49,16 @@ Upgrading Streamlit (or another pinned package): bump the pin in `requirements.t
 
 `wiki_card_scraper.py` is a (probably at this point outdated, hasn't been tested in a while) separate helper that retrieves card and Ally information from the Dominion Strategy Wiki and prints formatted table entries. Review its output and update the local data manually as needed; it does not automatically update the app's data or images.
 
-## Affiliations
+## License
 
-Dominion is a game by Donald X. Vaccarino and published by Rio Grande Games. This project is fan-made and is not affiliated with either party. Card images are from the Dominion Strategy Wiki and are available under the [Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported license](https://creativecommons.org/licenses/by-nc-sa/3.0/).
+The code is licensed under the [GNU Affero General Public License v3.0 or later](LICENSE.txt) (AGPL-3.0-or-later). In short: you may use, modify and share it, but modified versions, including ones only run as a hosted web app, have to be published under the same license, with their source code available to their users. Versions up to 1.5.2 were released under the Apache License 2.0.
+
+Additional terms under section 7(b) of the GNU AGPL apply to all code in this repository: modified versions must retain the notice "Based on Random KingDominion by Fabian Balzer (https://github.com/Fabian-Balzer/Randomkingdominion)" in the user interface, e.g. on an About page.
+
+## Affiliations and data sources
+
+Dominion is a game by Donald X. Vaccarino and published by Rio Grande Games. This project is fan-made and is not affiliated with either party. Card names, card text and card art are © Rio Grande Games / Donald X. Vaccarino.
+
+Card images are from the [Dominion Strategy Wiki](https://wiki.dominionstrategy.com) and are available under the [Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported license](https://creativecommons.org/licenses/by-nc-sa/3.0/) (CC BY-NC-SA 3.0).
+
+Card data (names, expansions, types, costs and card text) is based on the [List of cards](https://wiki.dominionstrategy.com/index.php/List_of_cards) of the Dominion Strategy Wiki by its contributors, used under CC BY-NC-SA 3.0. It was reformatted and extended with this project's own qualities and types; the resulting card table (`card_info/good_card_data.csv`) is shared under the same license.
