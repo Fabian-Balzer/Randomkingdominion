@@ -1,6 +1,3 @@
-from pathlib import Path
-
-import numpy as np
 import pandas as pd
 import streamlit as st
 
@@ -8,7 +5,7 @@ from ..constants import (
     ALL_COMBOS,
     ALL_INTERACTIONS,
     EXPANSION_LIST,
-    FPATH_CARD_DATA,
+    PATH_ASSETS,
     PATH_CARD_INFO,
     RENEWED_EXPANSIONS,
     VALID_COMBO_TYPES,
@@ -45,7 +42,6 @@ def get_cached_expansions():
 
 # COOKIES = CookieController()
 
-STATIC_FPATH = Path("./static")
 ALL_EXPANSIONS = get_cached_expansions()
 NUM_EXPS = len(ALL_EXPANSIONS)
 LIKE_BAN_OPTIONS = {
@@ -116,9 +112,16 @@ def get_cached_combo_df() -> pd.DataFrame:
     return _load_cached_combo_df(mod_time)
 
 
+def count_cso_occurrences(pair_index: pd.Index, cso_index: pd.Index) -> pd.Series:
+    """Count in how many of the ``"cso1___cso2"`` pairs each CSO occurs; a pair of
+    a CSO with itself (e.g. ``"outpost___outpost"``) only counts once."""
+    pairs = pair_index.to_series().str.split("___").apply(set)
+    return pairs.explode().value_counts().reindex(cso_index, fill_value=0)
+
+
 @st.cache_data
-def _load_cached_csos(mod_time: int) -> pd.DataFrame:
-    _ = mod_time + 1  # Dummy calculation to trigger cache invalidation
+def _load_cached_csos(combo_mod_time: int, inter_mod_time: int) -> pd.DataFrame:
+    _ = combo_mod_time + inter_mod_time  # Only there to key the cache
     from random_kingdominion import ALL_CSOS
 
     df = ALL_CSOS.copy()
@@ -126,24 +129,19 @@ def _load_cached_csos(mod_time: int) -> pd.DataFrame:
     df["Name and Expansion"] = df.apply(
         lambda x: f"{x['Name']} ({x['Expansion']})", axis=1
     )
-    df["num_combos"] = df.index.to_series().apply(
-        lambda x: np.sum(
-            ALL_COMBOS.index.to_series().str.split("___").apply(lambda y: x in y)
-        )
-    )
-    df["num_interactions"] = df.index.to_series().apply(
-        lambda x: np.sum(
-            ALL_INTERACTIONS.index.to_series().str.split("___").apply(lambda y: x in y)
-        )
-    )
+    df["num_combos"] = count_cso_occurrences(ALL_COMBOS.index, df.index)
+    df["num_interactions"] = count_cso_occurrences(ALL_INTERACTIONS.index, df.index)
     return df
 
 
 def get_cached_csos() -> pd.DataFrame:
     """Get the streamlit-cached CSO dataframe."""
-    fpath = PATH_CARD_INFO.joinpath("good_combo_data.csv")
-    mod_time = get_modification_timestamp(fpath)
-    return _load_cached_csos(mod_time)
+    return _load_cached_csos(
+        get_modification_timestamp(PATH_CARD_INFO.joinpath("good_combo_data.csv")),
+        get_modification_timestamp(
+            PATH_CARD_INFO.joinpath("good_interaction_data.csv")
+        ),
+    )
 
 
 ALL_CACHED_CSOS = get_cached_csos()

@@ -1,13 +1,13 @@
 import streamlit as st
 
 from ..constants import PATH_ASSETS, QUALITIES_AVAILABLE
-from .constants import ALL_CACHED_CSOS, STATIC_FPATH
 from .common_widgets import display_stylysed_cso_df
+from .constants import ALL_CACHED_CSOS
 from .helpers import build_page_header, img_to_html
 
 
 def get_qual_image_html(qual: str, size: int | None = None):
-    img = img_to_html(STATIC_FPATH.joinpath(f"icons/qualities/{qual}.jpg"))
+    img = img_to_html(PATH_ASSETS.joinpath(f"icons/qualities/{qual}.jpg"))
     if size is not None:
         img = img.replace("auto", f"{size}px")
     return img
@@ -91,7 +91,7 @@ def construct_short_qual_desc(qual: str) -> str:
     # return
     cols = st.columns([0.9, 0.1], vertical_alignment="center")
     with cols[1]:
-        img_path = STATIC_FPATH.joinpath(f"icons/qualities/{qual}.jpg")
+        img_path = PATH_ASSETS.joinpath(f"icons/qualities/{qual}.jpg")
         st.image(str(img_path), width="stretch")
     with cols[0]:
         st.page_link(
