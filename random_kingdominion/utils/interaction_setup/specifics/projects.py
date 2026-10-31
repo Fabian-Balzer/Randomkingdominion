@@ -27,12 +27,22 @@ def _add_sewers_interactions(df: pd.DataFrame):
     )
 
 
+def _add_capitalism_interactions(df: pd.DataFrame):
+    add_interaction(
+        "prosper",
+        "capitalism",
+        "If you have bought Capitalism, you may gain copies of Actions that are now also Treasures when buying Prosper.",
+        df,
+    )
+
+
 ##########################################################################################################
 # Final function
 def add_all_project_interactions(df: pd.DataFrame, verbose=False) -> None:
     """Adds all project interactions to the DataFrame."""
     num_before = len(df)
     _add_sewers_interactions(df)
+    _add_capitalism_interactions(df)
     # Fleet interactions on extra turn page.
     if verbose:
         LOGGER.info(f"Added {len(df) - num_before} project interactions.")

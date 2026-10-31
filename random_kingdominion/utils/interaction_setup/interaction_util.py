@@ -71,6 +71,11 @@ def add_multiple_interactions_from_single(
 ) -> None:
     """Same as ``add_multiple_interactions``, however the single_str is split by "---"
     assuming the first part are the csos and the second part is the interaction.
+    Use the '/' character to separate the first and second CSOs, and the '|' character to separate multiple CSOs.
+
+    Example:
+    >>> single_str = "Develop|Artificer|Replace/Inn---If you gain an Inn using {card_a}, it is first topdecked, but then your deck will be shuffled afterwards."
+    >>> add_multiple_interactions_from_single(single_str, df)
     """
     csos, inter = single_str.split("---")
     add_multiple_interactions(

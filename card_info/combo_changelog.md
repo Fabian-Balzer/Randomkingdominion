@@ -1,10 +1,14 @@
 
 
-## 2026-10-18 11:46:13
-Added: 1
+## 2026-10-31 11:31:02
+Added: 3
 Changed: 0 
 Removed: 0
-### Added 1 Combos
+### Added 3 Combos
 
-#### merchant_camp - ronin (Synergy)
-Guaranteed draw-to-7 with Ronins becomes especially good draw if you get to start it off with handsize-decreasing Villages at the start of each turn. Just be careful not to topdeck 5, prohibiting a new shuffle trigger to be able to play more Ronins.
+#### capitalism - prosper (Weak Synergy)
+If you have bought Capitalism, you may gain copies of Actions that are now also Treasures when buying Prosper.
+#### diplomat - gang_of_pickpockets (Synergy)
+With Gang of Pickpockets being the Ally, the first Diplomat you play is guaranteed to activate its +Action clause.
+#### faithful_hound - sage (Weak Synergy)
+Sage will skip over and discard any Faithful Hounds, putting them into your hand for the next turn. Usually not super relevant unless you can somehow make use of the increased starting handsize somehow.

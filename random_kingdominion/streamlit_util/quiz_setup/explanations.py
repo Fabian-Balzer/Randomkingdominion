@@ -98,7 +98,7 @@ EXPLANATIONS[
 Out of the maximum of {MAX_ROUND_SCORE} points per kingdom, scoring anything above {GOOD_SCORE_THRESHOLD} points is pretty good, and above {IMPRESSIVE_SCORE_THRESHOLD} points is pretty impressive, but don't worry too much about the score - it's just for fun, and the main point is to train your ability to analyze kingdoms for their qualities, which is a skill that can be helpful when playing.
 """
 
-EXPLANATIONS["📺 Video"] = "_placeholder"
+EXPLANATIONS["📺 Video"] = "_placeholder, see below"
 
 
 @st.fragment

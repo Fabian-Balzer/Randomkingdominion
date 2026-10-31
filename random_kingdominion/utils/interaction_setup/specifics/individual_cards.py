@@ -6,12 +6,12 @@ from ....constants import ALL_CSOS, ROTATOR_DICT, SPLITPILE_DICT
 from ....logger import LOGGER
 from ..constants import (
     ACTION_TREASURES,
+    ALL_LOOT_GIVERS,
     ALL_THRONE_CARDS,
     ALL_THRONES,
     CAN_PLAY_TREASURES_IN_ACTION_PHASE,
     GATHERING_CARDS,
     TRAVELLER_BASE_CARDS,
-    ALL_LOOT_GIVERS,
 )
 from ..interaction_util import add_interaction, add_multiple_interactions_from_single
 

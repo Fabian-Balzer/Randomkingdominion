@@ -1,3 +1,287 @@
+- cards:
+  - altar
+  - cabin_boy
+  - experiment
+  - flag_bearer
+  - guildmaster
+  - hideout
+  - kitsune
+  - merchant_guild
+  - rats
+  - warehouse
+  expansions:
+  - Allies
+  - Cornucopia & Guilds, 2E
+  - Dark Ages
+  - Empires
+  - Plunder
+  - Renaissance
+  - Rising Sun
+  - Seaside, 2E
+  idx: 15378724075640486308568177856189073915
+  landscapes:
+  - fountain
+  - good_harvest
+  - mountain_folk
+  name: '2026-10-31'
+  notes:
+    crucial_cards:
+    - Experiment
+    - Kitsune
+    - Mountain Folk
+    - Merchant Guild
+    ending:
+    - Province
+    - Curse
+    link: https://youtu.be/koblXoHqkkU
+    name: Experiments To Run
+    openings:
+    - grade: B
+      t1: Hideout
+      t1_csos:
+      - hideout
+      t2: Experiment
+      t2_csos:
+      - experiment
+      - experiment
+      type: 4/3|3/4
+    - grade: B
+      t1: Kitsune
+      t1_csos:
+      - kitsune
+      t2: Skip turn
+      t2_csos:
+      - tragic_hero
+      type: 5/2|2/5
+    points:
+    - 48
+    - 16
+    subtitle: Getting Ahead While Building A Neat Deck With Limited Draw
+    turns:
+    - 14
+    - 13
+  use_shelters: true
+- cards:
+  - castles
+  - cemetery
+  - changeling
+  - crown
+  - forum
+  - idol
+  - leprechaun
+  - nobles
+  - replace
+  - temple
+  expansions:
+  - Empires
+  - Intrigue, 2E
+  - Nocturne
+  idx: 115532290620637436859098054347787398217
+  landscapes:
+  - aqueduct
+  - colonnade
+  name: '2026-10-30'
+- cards:
+  - cardinal
+  - coven
+  - falconer
+  - flag_bearer
+  - gatekeeper
+  - goatherd
+  - hostelry
+  - scepter
+  - scrap
+  - village_green
+  expansions:
+  - Menagerie
+  - Renaissance
+  idx: 255067551894154969610791458587325169995
+  landscapes:
+  - citadel
+  - way_of_the_turtle
+  name: '2026-10-29'
+  notes:
+    crucial_cards:
+    - Flag Bearer
+    - Scrap
+    - Falconer
+    - Hostelry
+    ending:
+    - Curse
+    - Flag Bearer
+    - Hostelry
+    link: https://youtu.be/OntQv7boFb4
+    name: Scrapping Flags
+    openings:
+    - grade: B
+      t1: Scrap
+      t1_csos:
+      - scrap
+      t2: Scrap
+      t2_csos:
+      - scrap
+      type: 4/3
+    - grade: B
+      t1: Scrap
+      t1_csos:
+      - scrap
+      t2: Scrap, or maybe Flag Bearer if AI got it on its t1
+      t2_csos:
+      - scrap
+      type: 3/4
+    - grade: C-
+      t1: Falconer
+      t1_csos:
+      - falconer
+      t2: Skip turn
+      t2_csos:
+      - tragic_hero
+      type: 5/2|2/5
+    points:
+    - 10
+    - 6
+    subtitle: A Smooth Playthrough In A Tricky Kingdom
+    turns:
+    - 12
+    - 11
+- cards:
+  - gatekeeper
+  - goatherd
+  - groom
+  - hunting_lodge
+  - kiln
+  - research
+  - sanctuary
+  - sculptor
+  - silk_merchant
+  - wayfarer
+  expansions:
+  - Menagerie
+  - Renaissance
+  idx: 100851670332661902920134259141520611032
+  landscapes:
+  - guildhall
+  - way_of_the_frog
+  name: '2026-10-28'
+  notes:
+    crucial_cards:
+    - Groom
+    - Sculptor
+    - Silk Merchant
+    - Hunting Lodge
+    ending:
+    - estate
+    - groom
+    - silk_merchant
+    link: ''
+    name: Silky Grooms
+    openings:
+    - grade: B
+      t1: Silk Merchant
+      t1_csos:
+      - silk_merchant
+      t2: Groom, or Research
+      t2_csos:
+      - groom
+      type: 4/3
+    - grade: C
+      t1: Silver
+      t1_csos:
+      - silver
+      t2: Silk Merchant, or Groom
+      t2_csos:
+      - silk_merchant
+      type: 3/4
+    - grade: B-
+      t1: Sculptor
+      t1_csos:
+      - sculptor
+      t2: Skip turn
+      t2_csos:
+      - tragic_hero
+      type: 5/2|2/5
+    points:
+    - 20
+    - 8
+    subtitle: Flying Too Close To The Sun In A Very Fast One
+    tries: 2
+    turns:
+    - 11
+    - 10
+- cards:
+  - amulet
+  - distant_lands
+  - duplicate
+  - lost_city
+  - messenger
+  - port
+  - relic
+  - royal_carriage
+  - storyteller
+  - transmogrify
+  expansions:
+  - Adventures
+  idx: 234706839358341885237483234175397392716
+  landscapes:
+  - alms
+  - seaway
+  name: '2026-10-27'
+  notes:
+    crucial_cards:
+    - Messenger
+    - Transmogrify
+    - Alms
+    - Port
+    ending:
+    - Messenger
+    - Ports
+    - Transmogrify
+    link: https://youtu.be/GhlmhjuVueY
+    name: Porting the Message
+    openings:
+    - grade: B+
+      t1: Alms for Transmogrify
+      t1_csos:
+      - alms
+      - transmogrify
+      t2: Alms for Transmogrify
+      t2_csos:
+      - alms
+      - transmogrify
+      type: 4/3|3/4
+    - grade: A-
+      t1: Seaway Transmogrify, or Storyteller
+      t1_csos:
+      - seaway
+      - transmogrify
+      t2: Alms for Transmogrify
+      t2_csos:
+      - alms
+      - transmogrify
+      type: 5/2|2/5
+    points:
+    - 10
+    - 8
+    subtitle: Risking It All On The Last Turn In A Hypercharged TMog-Kingdom
+    turns:
+    - 9
+    - 8
+- cards:
+  - anvil
+  - charlatan
+  - clerk
+  - crystal_ball
+  - laboratory
+  - poacher
+  - quarry
+  - rabble
+  - sentry
+  - workshop
+  expansions:
+  - Base, 2E
+  - Prosperity, 2E
+  idx: 238053250883885870113071556779199821908
+  name: '2026-10-26'
 - campaign_effects:
   - plus_card
   - replace_estate

@@ -1,3 +1,9 @@
+2026-10-31---experiment, warehouse, cabin_boy, flag_bearer, hideout, rats, guildmaster, kitsune, merchant_guild, altar, fountain, good_harvest, mountain_folk, shelters
+2026-10-30---castles, changeling, leprechaun, cemetery, temple, crown, forum, idol, replace, nobles, colonnade, aqueduct
+2026-10-29---goatherd, scrap, cardinal, flag_bearer, hostelry, village_green, coven, falconer, gatekeeper, scepter, way_of_the_turtle, citadel
+2026-10-28---goatherd, groom, research, silk_merchant, gatekeeper, hunting_lodge, kiln, sanctuary, sculptor, wayfarer, guildhall, way_of_the_frog
+2026-10-27---amulet, duplicate, messenger, port, transmogrify, distant_lands, lost_city, relic, royal_carriage, storyteller, alms, seaway
+2026-10-26---anvil, workshop, clerk, poacher, quarry, charlatan, crystal_ball, laboratory, rabble, sentry
 2026-10-25---smugglers, carpenter, messenger, procession, city, displace, livery, paddock, swashbuckler, tanuki, guildhall, training, colonies -x stamp_plus_card(swashbuckler), start_replace_estate(carpenter)
 2026-10-24---farrier, stonemason, bishop, exorcist, farmhands, feodum, golem, bazaar, laboratory, wealthy_village, scouting_party, tireless(golem), colonies
 2026-10-23---mountain_shrine, artist, snake_witch, shop, farmhands, investment, charlatan, collection, tanuki, bank, kind_emperor, receive_tribute

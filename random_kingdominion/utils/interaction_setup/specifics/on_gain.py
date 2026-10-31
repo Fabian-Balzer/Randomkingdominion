@@ -17,6 +17,55 @@ from ..constants import (
 from ..interaction_util import add_interaction, add_multiple_interactions_from_single
 
 
+def _add_all_on_gain_inn_interactions(df: pd.DataFrame):
+    add_multiple_interactions_from_single(
+        "Innovation|City-State|Rush|Spell Scroll/Inn---If you gain an Inn, you cannot use {card_a} to play it if you choose to shuffle it in first.",
+        df,
+    )
+    for cso in CAN_TOPDECK_ON_GAIN:
+        add_interaction(
+            cso,
+            "Inn",
+            f"If you gain an Inn and have the option to topdeck it using {cso}, you can choose the order. If you choose to shuffle in Action cards first, you can only topdeck it afterwards if you haven't shuffled the Inn itself in. If you choose to topdeck the Inn before shuffling Action cards in, your deck will be shuffled afterwards and it won't stay on top.",
+            df,
+        )
+    # Can't use WILL_TOPDECK_ON_GAIN here because of the cost reduction clause and GRobber edge case.
+    add_multiple_interactions_from_single(
+        "Develop|Artificer|Replace|Invasion/Inn---If you gain an Inn using {card_a}, it is first topdecked, but then your deck will be shuffled afterwards.",
+        df,
+    )
+    add_interaction(
+        "Graverobber",
+        "Inn",
+        "If you gain an Inn from the trash using Graverobber, it is first topdecked, but then your deck will be shuffled afterwards.",
+        df,
+    )
+    add_interaction(
+        "Progress",
+        "Inn",
+        "If you gain an Inn while Progress is active, you may choose to topdeck it first, but then your deck will be shuffled afterwards, or first shuffle Action cards in your deck, in which case it is only topdecked afterwards if you did not shuffle the Inn itself in.",
+        df,
+    )
+    add_interaction(
+        "Demand",
+        "Inn",
+        "[Only with Cost Reduction] If you gain an Inn onto your deck using Demand (enabled by Cost Reduction), it is first topdecked, but then your deck will be shuffled afterwards.",
+        df,
+    )
+    add_interaction(
+        "Crafter's Guild",
+        "Inn",
+        "[Only with start-of-turn Cost Reduction] If you gain an Inn onto your deck using Crafter's Guild (enabled by Cost Reduction), it is first topdecked, but then your deck will be shuffled afterwards.",
+        df,
+    )
+    add_interaction(
+        "Armory",
+        "Inn",
+        "[Only with Cost Reduction] If you gain an Inn onto your deck using Armory (enabled by Cost Reduction), it is first topdecked, but then your deck will be shuffled afterwards.",
+        df,
+    )
+
+
 ### On-Gain/Overpay interactions
 def _add_on_overpay_infirmary_interaction(on_gain_play_cso: str, df: pd.DataFrame):
     if on_gain_play_cso in ["Spell Scroll", "Gondola"]:
@@ -295,7 +344,8 @@ def _add_on_gain_hand_gatekeeper_interaction(hand_cso: str, df: pd.DataFrame):
 
 def _add_night_gain_to_hand_gatekeeper(df: pd.DataFrame):
     rule = "Guardian|Den of Sin|Night Watchman|Ghost Town/Gatekeeper---If you gain a {card_a} to your hand while under the Gatekeeper attack, you do not exile it."
-    TODO
+    TODO: CONFIRM
+    add_multiple_interactions_from_single(rule, df)
 
 
 def _add_multi_gain_gatekeeper_interaction(df: pd.DataFrame):
@@ -678,5 +728,6 @@ def add_all_on_gain_interactions(df: pd.DataFrame, verbose=False):
     _add_other_on_gain_interactions(df)
     _add_all_on_gain_basilica_interactions(df)
     _add_all_on_gain_colonnade_interactions(df)
+    _add_all_on_gain_inn_interactions(df)
     if verbose:
         LOGGER.info(f"Added {len(df) - num_before} on-gain interactions.")

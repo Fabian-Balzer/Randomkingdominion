@@ -129,6 +129,7 @@ capitalism;enlightenment;As soon as Enlightenment is active, Capitalism can turn
 capitalism;landing_party;Great way to topdeck the Landing Parties each turn if there is a +$-giving cantrip.;Synergy;;
 capitalism;panic;As soon as Panic is active, Capitalism will cause you to return your $-bearing Actions to the Supply when discarding them from play.;Nombo;;
 capitalism;patron;With Capitalism bought, playing Patrons as Treasures will turn them into Villages.;Weak Synergy;;
+capitalism;prosper;If you have bought Capitalism, you may gain copies of Actions that are now also Treasures when buying Prosper.;Weak Synergy;;
 capitalism;souk;With Capitalism active, you can play the Souks as the last Treasures, increasing their value.;Synergy;;
 captain;ferry;Reducing the cost of Captain with Ferry enables you to pick them up easily early on, and later on you might enable your Captains to play a key $5 or $6 cost Action.;Synergy;;
 carpenter;footpad;With Footpad around, Carpenter becomes pretty strong, and with an empty deck and discard pile, Carpenter can even autopile as long as on other piles are empty.;Synergy;;
@@ -258,6 +259,7 @@ develop;kings_court;With a $5 cost draw card, there is an autopile with KC/KC/De
 develop;poor_house;Developing Coppers or Estates will gain you Poor Houses, which you usually don't want.;Nombo;;
 devils_workshop;haunted_woods;Night cards are heavily disincentivized with Haunted Woods around, as you will have to topdeck your hand whenever buying cards, which happens before you would be able to play any Night cards.;Counter;;
 devils_workshop;prepare;Preparing a Night card such as Devil's Workshop will prevent you from being able to play it during your Night phase, and at the start of your next turn, it will just be discarded.;Nombo;;
+diplomat;gang_of_pickpockets;With Gang of Pickpockets being the Ally, the first Diplomat you play is guaranteed to activate its +Action clause.;Synergy;;
 displace;kings_court;With a $5 cost draw card, there is an autopile with KC/KC/Displace by Displacing King's Courts into the draw cards and Displaces, and the Draw card into KCs.;Combo;ceviri: Showcase video;https://youtu.be/IHU60AcKnsY?si=iYg4w702LAnkV2gQ&t=179
 distant_lands;innovation;Innovation makes Distant Land gains stronger - essentially 4 VP chips for $5 and passing up on your Innovation otherwise.;Weak Synergy;;
 divine_wind;experiment;Having Experiments in your deck while Divine Wind gets activated will allow you to keep them around as Laboratories after their pile has gone.;Combo;;
@@ -305,6 +307,7 @@ enlightenment;woodworkers_guild;As soon as Enlightenment is active, Coppers beco
 envoy;patron;Minor reveal synergy to generate Coffers while drawing. The Villagers also come in pretty handy with Envoys.;Weak Synergy;;
 exorcist;haunted_woods;Night cards are heavily disincentivized with Haunted Woods around, as you will have to topdeck your hand whenever buying cards, which happens before you would be able to play any Night cards.;Counter;;
 exorcist;prepare;Preparing a Night card such as Exorcist will prevent you from being able to play it during your Night phase, and at the start of your next turn, it will just be discarded.;Nombo;;
+faithful_hound;sage;Sage will skip over and discard any Faithful Hounds, putting them into your hand for the next turn. Usually not super relevant unless you can somehow make use of the increased starting handsize somehow.;Weak Synergy;;
 falconer;sheepdog;Gaining Sheepdogs to hand allows you to immediately play them for draw, and also helps to trigger other Falconers you (or your opponent) might have in hand.;Synergy;Fabi: Campaign playthrough;https://youtu.be/z8XAsSQTiZs
 familiar;woodworkers_guild;With Woodworkers' Guild, you can trash an Action card into a Familiar without having to gain a Potion.;Weak Synergy;;
 farmhands;landing_party;Setting aside Treasures to play them at the start of your turn might sometimes be worth it to trigger the Landing Party topdecking.;Weak Synergy;;
