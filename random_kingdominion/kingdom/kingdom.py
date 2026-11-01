@@ -449,7 +449,10 @@ class Kingdom:
         if "double_deck" in self.campaign_effects:
             starting_deck += starting_deck
         effect_targets = self.effect_targets
-        for target in effect_targets.get("replace_estate", []):
+        # From the Supply or not, the replacement ends up in the starting deck
+        for target in effect_targets.get("replace_estate", []) + effect_targets.get(
+            "replace_estate_from_pile", []
+        ):
             starting_deck[starting_deck.index("estate")] = target
         for target in effect_targets.get("replace_copper", []):
             starting_deck[starting_deck.index("copper")] = target
@@ -486,6 +489,7 @@ class Kingdom:
                 for effect in [
                     "replace_copper",
                     "replace_estate",
+                    "replace_estate_from_pile",
                     "double_deck",
                     "add_each_pile",
                     "add_card",
@@ -723,6 +727,10 @@ class Kingdom:
             for cso in cards + self.landscapes
             for extra in special_dict[cso]
         ]
+        if self.bane_pile and "young_witch" not in self.cards:
+            # Young Witch as a non-supply pile (e.g. Ferryman's) still has a Bane,
+            # which would otherwise be printed with it (parsed back as "bane")
+            proper_strings.append(f"Bane ({get_cso_name(self.bane_pile)})")
         if not ignore_col_shelt:
             proper_strings.append("Shelters" if self.use_shelters else "No Shelters")
             proper_strings.append("Colonies" if self.use_colonies else "No Colonies")
@@ -781,6 +789,12 @@ class Kingdom:
     def contains_prophecy(self) -> bool:
         """Checks whether this kingdom contains a prophecy"""
         return np.sum(self.kingdom_landscape_df["IsProphecy"]) > 0
+
+    def contains_young_witch(self) -> bool:
+        """Checks whether this kingdom uses Young Witch and thus needs a Bane, also
+        as a non-supply pile (e.g. Ferryman's)."""
+        non_supply_piles = [self.ferryman_pile, self.riverboat_card, self.mouse_card]
+        return "young_witch" in self.cards + non_supply_piles
 
     def pretty_print(self) -> str:
         """Return a string describing the most important things about this kingdom"""

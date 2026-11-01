@@ -1097,15 +1097,15 @@
   name: Dark Ages 3
   stamps_and_effects:
   - - replace_copper
-    - ruins
+    - abandoned_mine
   - - replace_copper
-    - ruins
+    - survivors
   - - replace_estate
-    - ruins
+    - ruined_library
   - - replace_estate
-    - ruins
+    - ruined_market
   - - replace_estate
-    - ruins
+    - ruined_village
   use_shelters: true
 - campaign_effects:
   - replace_copper
@@ -1562,10 +1562,9 @@
   landscapes:
   - travelling_fair
   name: Adventures 4
-  notes: 'Duplicates: {''start_tavern(copper)'': 2}
-
-    '
   stamps_and_effects:
+  - - tavern
+    - copper
   - - tavern
     - copper
 - campaign_effects:
@@ -3455,7 +3454,7 @@
   - - with_horse
     - supplies
 - campaign_effects:
-  - replace_estate
+  - replace_estate_from_pile
   cards:
   - bandit
   - cavalry
@@ -3494,11 +3493,11 @@
     - 8
     - 7
   stamps_and_effects:
-  - - replace_estate
+  - - replace_estate_from_pile
     - horse
-  - - replace_estate
+  - - replace_estate_from_pile
     - horse
-  - - replace_estate
+  - - replace_estate_from_pile
     - horse
 - campaign_effects:
   - action_way
@@ -4122,8 +4121,26 @@
   - - cursed
     - longship
   - - patient
+    - cage
+  - - patient
+    - crucible
+  - - patient
+    - cutthroat
+  - - patient
+    - festival
+  - - patient
+    - fortune_hunter
+  - - patient
     - harbor_village
-- cards:
+  - - patient
+    - longship
+  - - patient
+    - maroon
+  - - patient
+    - silver_mine
+- campaign_effects:
+  - in_play
+  cards:
   - cabin_boy
   - grotto
   - harbor_village
@@ -4165,6 +4182,9 @@
     turns:
     - 15
     - 14
+  stamps_and_effects:
+  - - in_play
+    - search
   traits:
   - - inspiring
     - secluded_shrine

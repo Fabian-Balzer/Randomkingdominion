@@ -186,8 +186,9 @@ class KingdomRandomizer:
         if len(self.config.get_expansions(False)) == 0:
             return random_kingdom.get_kingdom()
         num_cards -= random_kingdom.num_selected_cards
-        bane_incl = random_kingdom.contains_card(
-            "young_witch"
+        bane_incl = (
+            random_kingdom.contains_card("young_witch")
+            or random_kingdom.ferryman_pile == "young_witch"
         ) and random_kingdom.contains_card(random_kingdom.bane_pile)
         if bane_incl:
             num_cards += 1

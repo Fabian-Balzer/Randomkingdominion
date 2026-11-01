@@ -118,6 +118,10 @@ def sort_kingdom(df: pd.DataFrame) -> pd.DataFrame:
     return df.drop(["NameSort", "CostSort"], axis=1)
 
 
+# Other names in use for a CSO, e.g. first-edition or TGG's internal names
+_CSO_ALIASES = {"harem": "farm", "harem_farm": "farm", "cost_zero": "free"}
+
+
 def sanitize_cso_name(name: str, replace_parent_pile: bool = False) -> str:
     """Return a sanitized version of the name of the cso."""
     if isinstance(name, float) or name == "":
@@ -133,8 +137,7 @@ def sanitize_cso_name(name: str, replace_parent_pile: bool = False) -> str:
         .replace("twist_", "")
         .replace("start_", "")
     )
-    if name == "harem" or name == "harem_farm":
-        return "farm"
+    name = _CSO_ALIASES.get(name, name)
     if not replace_parent_pile:
         return name
     from ..constants import ALL_CSOS

@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "random_kingdominion"
 # Keep in sync with the newest entry of changelog.yaml (checked by dependency_pins_test.py)
-version = "1.5.3"
+version = "1.5.4"
 authors = [
     { name = "Fabian Balzer" }
 ]

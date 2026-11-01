@@ -1,5 +1,6 @@
 """File for the KingdomManager class."""
 
+from datetime import date
 from pathlib import Path
 from typing import Any, Literal
 
@@ -25,6 +26,28 @@ try:
     pd.set_option("future.no_silent_downcasting", True)
 except pd.errors.OptionError:
     pass
+
+
+# Since February 2025, TGG's Sunday Dailies use campaign features, e.g. a Trait on
+# two piles
+_FIRST_CAMPAIGN_DAILY = date(2025, 2, 2)
+
+
+def is_campaign_daily(name: str) -> bool:
+    """Whether the TGG Daily with the given name (its date) may use campaign rules.
+
+    Examples
+    --------
+    >>> is_campaign_daily("2025-02-02")  # The first Sunday in February 2025
+    True
+    >>> is_campaign_daily("2025-01-26"), is_campaign_daily("2025-02-01")
+    (False, False)
+    """
+    try:
+        day = date.fromisoformat(name)
+    except ValueError:
+        return False
+    return day >= _FIRST_CAMPAIGN_DAILY and day.weekday() == 6
 
 
 def _load_tgg_winrate_data() -> dict[str, float]:
@@ -193,7 +216,10 @@ class KingdomManager:
             has_added_kingdoms = True
             k = Kingdom.from_dombot_csv_string(kingdom_str)
             k.name = name
-            if ftype == "campaigns" and not k.is_campaign:
+            may_use_campaign_rules = ftype == "campaigns" or (
+                ftype == "tgg_dailies" and is_campaign_daily(name)
+            )
+            if may_use_campaign_rules and not k.is_campaign:
                 k.is_campaign = True
                 k.invalidity_reasons = InvalidityReason.check_kingdom_validity(k)
             if len(parts := (line.split("---"))) > 2:
@@ -348,6 +374,8 @@ class KingdomManager:
         win_data = _load_tgg_winrate_data()
         for k in self.kingdoms:
             k["winrate"] = _add_winrate(k["name"], win_data)
+            if is_campaign_daily(k["name"]):
+                k["is_campaign"] = True
 
     def load_fabi_recsets_kingdoms(self, reload=False):
         self.load_kingdoms_from_yaml(FPATH_KINGDOMS_FABI_RECSETS)

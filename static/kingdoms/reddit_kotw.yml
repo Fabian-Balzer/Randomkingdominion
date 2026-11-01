@@ -2444,7 +2444,7 @@
   - academy
   - obelisk
   name: kotw 8/14
-  obelisk_pile: on_experiment
+  obelisk_pile: experiment
 - cards:
   - berserker
   - crossroads

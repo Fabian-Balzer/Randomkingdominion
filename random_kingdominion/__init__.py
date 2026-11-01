@@ -4,7 +4,7 @@ import warnings
 from .constants import *
 from .cso_frame_utils import *
 from .cso_series_utils import *
-from .kingdom import Kingdom, KingdomManager, KingdomRandomizer
+from .kingdom import Kingdom, KingdomManager, KingdomRandomizer, is_campaign_daily
 from .logger import LOGGER
 from .utils import *
 

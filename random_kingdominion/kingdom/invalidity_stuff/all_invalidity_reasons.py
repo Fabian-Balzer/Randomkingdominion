@@ -19,7 +19,7 @@ class BaneButNoYoungWitch(InvalidityReason):
         return "There is a Bane pile but no Young Witch in the kingdom."
 
     def check_if_invalid(self, k: Kingdom) -> bool:
-        return k.bane_pile != "" and "young_witch" not in k.cards
+        return k.bane_pile != "" and not k.contains_young_witch()
 
 
 @dataclass
@@ -28,7 +28,7 @@ class YoungWitchButNoBane(InvalidityReason):
         return "There is a Young Witch in the kingdom but no Bane pile."
 
     def check_if_invalid(self, k: Kingdom) -> bool:
-        return k.bane_pile == "" and "young_witch" in k.cards
+        return k.bane_pile == "" and k.contains_young_witch()
 
 
 @dataclass

@@ -140,6 +140,59 @@ def test_young_witch():
     assert "young_witch" not in new_kingdom.cards
 
 
+def test_young_witch_as_ferryman_pile_gets_a_bane(monkeypatch):
+    """Young Witch as Ferryman's pile still needs a Bane, which is then the only
+    reason for an extra Supply pile."""
+    from random_kingdominion.kingdom.invalidity_stuff import InvalidityReason
+    from random_kingdominion.kingdom.pool_container import PoolContainer
+
+    pick_next_card = PoolContainer.pick_next_card
+
+    def pick_young_witch_for_ferryman(self, qualities, special_card_to_pick_for=None):
+        if special_card_to_pick_for != "ferryman":
+            return pick_next_card(self, qualities, special_card_to_pick_for)
+        self.main_pool = self.main_pool.drop("young_witch", errors="ignore")
+        return "young_witch"
+
+    monkeypatch.setattr(PoolContainer, "pick_next_card", pick_young_witch_for_ferryman)
+    config = rk.CustomConfigParser(load_default=True)
+    config.setlist("General", "required_csos", ["ferryman"])
+    randomizer = rk.KingdomRandomizer(config)
+    kingdom = randomizer.randomize_new_kingdom()
+    assert kingdom.ferryman_pile == "young_witch"
+    assert "young_witch" not in kingdom.cards
+    assert kingdom.bane_pile in kingdom.cards
+    assert InvalidityReason.check_kingdom_validity(kingdom) == []
+    # Rerolling the Ferryman pile removes the Bane
+    monkeypatch.undo()
+    new_kingdom = randomizer.reroll_single_cso(kingdom, "young_witch")
+    assert new_kingdom.ferryman_pile not in ["", "young_witch"]
+    assert new_kingdom.bane_pile == ""
+    assert kingdom.bane_pile not in new_kingdom.cards
+
+
+# Daily 2024-03-20
+_FERRYMAN_ON_YOUNG_WITCH = (
+    "barge, bounty_hunter, camel_train, cavalry, ferryman(young_witch), hamlet, "
+    "horn_of_plenty, remake, sleigh, stockpile, bane(black_cat)"
+)
+
+
+def test_young_witch_as_ferryman_pile_in_dombot_strings():
+    kingdom = rk.Kingdom.from_dombot_csv_string(_FERRYMAN_ON_YOUNG_WITCH)
+    assert kingdom.ferryman_pile == "young_witch"
+    assert kingdom.bane_pile == "black_cat"
+    assert "black_cat" in kingdom.cards and "young_witch" not in kingdom.cards
+    assert kingdom.is_valid, kingdom.invalidity_reasons
+    # The Bane can't be printed with Young Witch, which isn't in the cards
+    assert "Bane (Black Cat)" in kingdom.get_dombot_csv_string()
+    _test_dombot_readin_readout(_FERRYMAN_ON_YOUNG_WITCH)
+
+    without_bane = _FERRYMAN_ON_YOUNG_WITCH.replace(", bane(black_cat)", "")
+    kingdom = rk.Kingdom.from_dombot_csv_string(without_bane)
+    assert _reason_keys(kingdom) == {"young_witch_but_no_bane"}
+
+
 def test_druid_boons():
     """Test whether druid boons are forced in after specifying druid"""
     config = rk.CustomConfigParser(load_default=True)
@@ -567,6 +620,22 @@ def test_replace_estate_from_pile_is_its_own_effect():
         "replace_estate": ["silver"],
         "replace_estate_from_pile": ["moat"],
     }
+    assert kingdom.has_modified_starting_deck
+    deck = kingdom.get_starting_deck
+    assert deck.count("estate") == 1
+    assert deck.count("silver") == 1 and deck.count("moat") == 1
+
+
+def test_campaign_effect_aliases():
+    """TGG calls the Free Stamp 'cost_zero' (Daily 2025-08-17)."""
+    assert rk.sanitize_cso_name("stamp_cost_zero") == "free"
+    assert rk.sanitize_cso_name("harem") == "farm"
+    kingdom = rk.Kingdom.from_dombot_csv_string(
+        "monastery, sleigh, watchtower, sailor, wandering_minstrel, crypt, ronin, "
+        "farmland, nobles, wayfarer, seize_the_day, stamp_cost_zero(seize_the_day)"
+    )
+    assert kingdom.notes == ""
+    assert kingdom.effect_targets == {"free": ["seize_the_day"]}
 
 
 def test_divine_wind_survives_printing_and_parsing():

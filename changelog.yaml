@@ -1,4 +1,9 @@
 
+- 1.5.4 (2026-11-01):
+  - Fixed Traits, Stamps and start effects that were missing or wrong in some Dailies and campaigns (e.g. a Trait on only one of its two piles, or the Ruins pile instead of the specific Ruins in the starting deck)
+  - Sunday Dailies since February 2025 count as campaign kingdoms, as they use campaign rules, so multi-Traits can be parsed accordingly
+  - Young Witch as a Ferryman pile now keeps its Bane and is no longer marked as invalid
+  - Fixed some Dailies with cards listed twice or among the landscapes
 - 1.5.3 (2026-10-31):
   - Minor tweaks to card qualities (Livery, Paddock, Gamble)
   - Some Inn-teractions added

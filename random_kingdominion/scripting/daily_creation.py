@@ -4,7 +4,8 @@ from datetime import datetime, timedelta
 from pathlib import Path
 
 from ..constants import PATH_MAIN
-from ..kingdom import Kingdom, KingdomManager
+from ..kingdom import Kingdom, KingdomManager, is_campaign_daily
+from ..kingdom.invalidity_stuff import InvalidityReason
 from ..logger import LOGGER
 from ..utils.plotting import (
     create_opening_hints,
@@ -39,8 +40,11 @@ def _parse_existing_kingdoms_in_txt(txt_path: Path) -> dict[str, str]:
     return existing_kingdoms
 
 
-def _validate_kingdom_string(kingdom_str: str):
+def _validate_kingdom_string(kingdom_str: str, date: str):
     k = Kingdom.from_dombot_csv_string(kingdom_str)
+    if is_campaign_daily(date) and not k.is_campaign:
+        k.is_campaign = True
+        k.invalidity_reasons = InvalidityReason.check_kingdom_validity(k)
     if not k.is_valid:
         raise ValueError(
             f"Kingdom is invalid for the following reasons:\n\t{k.invalidity_reasons}"
@@ -65,7 +69,7 @@ def register_daily_kingdom(
         else:
             raise ValueError(f"A kingdom for {date} already exists:\n\t'{existing}'")
     if validate:
-        _validate_kingdom_string(kingdom_str)
+        _validate_kingdom_string(kingdom_str, date)
     existing_kingdoms[date] = kingdom_str.strip()
     new_text = "\n".join(
         f"{d}---{ks}" for d, ks in sorted(existing_kingdoms.items())[::-1]

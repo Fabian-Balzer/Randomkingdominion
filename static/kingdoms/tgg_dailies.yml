@@ -5233,6 +5233,8 @@
   stamps_and_effects:
   - - double_pile
     - duchy
+  - - double_pile
+    - province
   - - replace_estate
     - overgrown_estate
   - - replace_estate
@@ -6008,10 +6010,9 @@
   - ball
   - transport
   name: '2026-05-10'
-  notes: 'Duplicates: {''stamp_also_silver(ball)'': 2}
-
-    '
   stamps_and_effects:
+  - - also_silver
+    - ball
   - - also_silver
     - ball
   - - motivational
@@ -13367,6 +13368,8 @@
     - farrier
   traits:
   - - fawning
+    - duplicate
+  - - fawning
     - soothsayer
 - cards:
   - alchemist
@@ -16286,7 +16289,7 @@
   name: '2025-09-07'
   stamps_and_effects:
   - - replace_copper
-    - wizards
+    - lich
   use_colonies: true
 - cards:
   - apprentice
@@ -16406,6 +16409,7 @@
   idx: 99605715433943889182539100852300040658
   name: '2025-09-01'
 - campaign_effects:
+  - plus_action
   - with_villager
   cards:
   - bandit_camp
@@ -16433,10 +16437,9 @@
   - fawning
   - triumphal_arch
   name: '2025-08-31'
-  notes: 'The following inputs could not be associated with any known CSOs: ''with_action''
-
-    '
   stamps_and_effects:
+  - - plus_action
+    - mining_village
   - - with_villager
     - pixie
   traits:
@@ -17824,6 +17827,8 @@
   name: '2025-07-27'
   traits:
   - - shy
+    - apprentice
+  - - shy
     - fishing_village
   use_shelters: true
 - cards:
@@ -18427,6 +18432,8 @@
   name: '2025-06-29'
   traits:
   - - tireless
+    - horn_of_plenty
+  - - tireless
     - ranger
   use_colonies: true
 - cards:
@@ -18582,6 +18589,8 @@
   stamps_and_effects:
   - - double_pile
     - minion
+  - - double_pile
+    - ruins
   - - with_spoils
     - death_cart
   traits:
@@ -18742,7 +18751,7 @@
   - - chameleonized
     - hunting_grounds
   - - replace_copper
-    - wizards
+    - lich
   traits:
   - - tireless
     - treasury
@@ -19477,7 +19486,9 @@
   - Cornucopia & Guilds, 2E
   idx: 121405498761466028211047697248876700327
   name: '2025-05-12'
-- cards:
+- campaign_effects:
+  - plus_coin
+  cards:
   - collection
   - develop
   - galleria
@@ -19503,6 +19514,9 @@
   - mountain_pass
   - shy
   name: '2025-05-11'
+  stamps_and_effects:
+  - - plus_coin
+    - galleria
   traits:
   - - shy
     - wharf
@@ -20469,6 +20483,8 @@
     - 8
   stamps_and_effects:
   - - plus_coin
+    - souk
+  - - plus_coin
     - way_of_the_otter
   - - replace_copper
     - spoils
@@ -20890,13 +20906,15 @@
     - 13
   stamps_and_effects:
   - - replace_copper
-    - ruins
+    - ruined_library
   - - replace_copper
-    - ruins
+    - survivors
   - - replace_estate
-    - ruins
+    - abandoned_mine
   - - replace_estate
-    - ruins
+    - ruined_market
+  - - replace_estate
+    - ruined_village
 - cards:
   - graverobber
   - guildmaster
@@ -29921,7 +29939,7 @@
   - develop
   - feodum
   - hamlet
-  - hamlet
+  - hermit
   - moneylender
   - necromancer
   - peasant
@@ -30376,7 +30394,6 @@
   idx: 48460509879554925029571017832894743126
   landscapes:
   - banquet
-  - beggar
   - way_of_the_ox
   name: '2024-04-27'
   winrate: 0.1427
@@ -30633,7 +30650,7 @@
   - shaman
   - village
   - young_witch
-  - guardian
+  - groundskeeper
   expansions:
   - Base, 2E
   - Cornucopia & Guilds, 2E
@@ -30646,7 +30663,6 @@
   idx: 336527931734568996369200674387338468457
   landscapes:
   - citadel
-  - groundskeeper
   - triumph
   name: '2024-04-14'
   winrate: 0.204
@@ -31158,6 +31174,7 @@
   - ferryman
   - hamlet
   - horn_of_plenty
+  - black_cat
   - remake
   - sleigh
   - stockpile
@@ -31165,9 +31182,8 @@
   - Cornucopia & Guilds, 2E
   - Menagerie
   idx: 99625143679831341343805143555431351684
-  landscapes:
-  - black_cat
-  - young_witch
+  bane_pile: black_cat
+  ferryman_pile: young_witch
   name: '2024-03-20'
   winrate: 0.1474
 - cards:
@@ -33782,7 +33798,7 @@
   idx: 41622822740478714274923541223589531391
   landscapes:
   - fleet
-  - plaza
+  - piazza
   name: '2023-11-17'
   winrate: .nan
 - cards:
@@ -36118,7 +36134,6 @@
   - Prosperity, 2E
   idx: 88998382979611854878213547599948980341
   landscapes:
-  - forager
   - pathfinding
   name: '2023-07-29'
   winrate: .nan
