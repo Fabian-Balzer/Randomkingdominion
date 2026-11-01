@@ -26,7 +26,6 @@ from .constants import (
     ALL_CACHED_CSOS,
     ST_ICONS,
     count_cso_occurrences,
-    get_cached_expansions,
 )
 from .helpers import build_page_header, get_cached_unique_types
 from .kingdom_oracle_setup import (
@@ -47,7 +46,6 @@ __all__ = [
     "ALL_CACHED_CSOS",
     "ST_ICONS",
     "count_cso_occurrences",
-    "get_cached_expansions",
     "get_cached_unique_types",
     # Page setup
     "build_page_header",

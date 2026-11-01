@@ -4,8 +4,9 @@ import streamlit as st
 from streamlit_extras.add_vertical_space import add_vertical_space
 from streamlit_extras.grid import grid
 
+from ....constants import EXPANSION_LIST
 from ....utils import get_expansion_icon_path
-from ...constants import ALL_EXPANSIONS, NUM_EXPS
+from ...constants import NUM_EXPS
 from ...image_util import st_build_expansion_icon_with_tt
 from ...image_util.image_handling import img_to_bytes
 from ..randomizer_util import get_or_initialize_key, load_config
@@ -38,12 +39,12 @@ def _build_exp_num_row():
 
 def _select_non_1e():
     st.session_state["selected_expansions"] = [
-        exp for exp in ALL_EXPANSIONS if "1E" not in exp
+        exp for exp in EXPANSION_LIST if "1E" not in exp
     ]
 
 
 def _toggle_all_expansions(value: bool):
-    st.session_state["selected_expansions"] = ALL_EXPANSIONS.copy() if value else []
+    st.session_state["selected_expansions"] = EXPANSION_LIST.copy() if value else []
 
 
 def _build_toggle_row():
@@ -99,9 +100,9 @@ def _build_sorting_options():
 def get_sorted_expansions() -> list[str]:
     """Retrieve the expansions sorted by the user's preference."""
     exps = (
-        sorted(ALL_EXPANSIONS)
+        sorted(EXPANSION_LIST)
         if st.session_state.get("Exp sorting", "") == "Alphabetical"
-        else ALL_EXPANSIONS
+        else EXPANSION_LIST
     )
     if st.session_state.get("Exp move 1e", True):
         non_first_ed = [exp for exp in exps if "1E" not in exp]
@@ -168,9 +169,9 @@ def get_selected_expansions(sort=False) -> list[str]:
     if not sort:
         return selected
     exps = (
-        sorted(ALL_EXPANSIONS)
+        sorted(EXPANSION_LIST)
         if st.session_state.get("Exp sorting", "") == "Alphabetical"
-        else ALL_EXPANSIONS
+        else EXPANSION_LIST
     )
     return [sel for sel in exps if sel in selected]
 

@@ -59,7 +59,9 @@ def _wait_until_idle(frame: Frame, timeout_s: float):
 def _open_page_and_click(page: Page, url: str, button_name: str):
     start = time.monotonic()
     print(f"Opening {url}")
-    page.goto(url)
+    # By default, `goto` waits up to 30 s for the load event of the page and all its
+    # frames, which a waking or busy app can exceed; `_find_app_frame` does the waiting
+    page.goto(url, wait_until="domcontentloaded", timeout=APP_START_TIMEOUT_S * 1000)
     frame = _find_app_frame(page, APP_START_TIMEOUT_S)
     button = frame.get_by_role("button", name=re.compile(re.escape(button_name)))
     button.first.click(timeout=LOADING_TIMEOUT_S * 1000)

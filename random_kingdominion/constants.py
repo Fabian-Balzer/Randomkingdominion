@@ -118,8 +118,6 @@ QUALITIES_AVAILABLE = [
 ]
 
 
-SPECIAL_QUAL_TYPES_AVAILABLE = sorted(["attack", "thinning", "gain", "draw", "village"])
-
 PATH_MODULE = Path(__file__).resolve().parent
 """Path to the random_kingdominion python module."""
 PATH_MAIN = PATH_MODULE.parent
@@ -291,7 +289,6 @@ EXPANSION_LIST: list[str] = [
     "Promo",
 ]
 """All expansions as a list."""
-ALL_EXPANSIONS = [exp for exp in EXPANSION_LIST if exp not in RENEWED_EXPANSIONS]
 
 DEBT_INDUCERS = [
     "Root Cellar",

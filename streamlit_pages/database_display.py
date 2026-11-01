@@ -117,7 +117,7 @@ with st.expander("Filtering options", expanded=False, icon="🔍"):
         cols = st.columns(
             spec=[0.7, 0.15, 0.15], gap="small", vertical_alignment="bottom"
         )
-        all_expansions = rks.get_cached_expansions()
+        all_expansions = rk.EXPANSION_LIST
 
         with cols[1]:
             disable_exp_filtering = st.checkbox(

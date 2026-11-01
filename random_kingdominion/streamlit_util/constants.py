@@ -3,8 +3,8 @@ import streamlit as st
 
 from ..constants import (
     ALL_COMBOS,
-    ALL_EXPANSIONS,
     ALL_INTERACTIONS,
+    EXPANSION_LIST,
     PATH_CARD_INFO,
     VALID_COMBO_TYPES,
     load_combo_or_inter_df,
@@ -33,14 +33,9 @@ COMBO_COLOR_DICT = _get_combo_color_dict()
 # from streamlit_cookies_controller import CookieController
 
 
-@st.cache_data
-def get_cached_expansions():
-    return list(ALL_EXPANSIONS)
-
-
 # COOKIES = CookieController()
 
-NUM_EXPS = len(ALL_EXPANSIONS)
+NUM_EXPS = len(EXPANSION_LIST)
 LIKE_BAN_OPTIONS = {
     "Banned": "These CSOs are excluded from the draw pool during randomization.",
     "Required": "These CSOs will be included in the kingdom (unless they are from different expansions than the selected ones, in that case it depends on whether you want to allow that). This overrides any bans.",

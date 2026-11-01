@@ -1,9 +1,9 @@
 import pandas as pd
 import streamlit as st
 
-from ...constants import VALID_COMBO_TYPES
+from ...constants import EXPANSION_LIST, VALID_COMBO_TYPES
 from ...utils import filter_combo_or_inter_df_for_csos
-from ..constants import ST_ICONS, get_cached_expansions
+from ..constants import ST_ICONS
 from .constants import PAIR_TYPE
 from .util import (
     get_combo_icon,
@@ -32,7 +32,7 @@ def build_combo_inter_filter_expansion(
 
     relevant_expansions = [
         exp
-        for exp in get_cached_expansions()
+        for exp in EXPANSION_LIST
         if exp in df["exp_1"].unique() or exp in df["exp_2"].unique()
     ]
     key = f"{pair_type}_expansion_filter"

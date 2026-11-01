@@ -1,14 +1,16 @@
 """The core of Random KingDominion: card data, kingdoms and plotting, without Streamlit.
 
 Pages import the Streamlit layer explicitly (``import random_kingdominion.streamlit_util
-as rks``). ``__all__`` holds the names used outside the package (pages, scripts, tests,
-notebooks); everything else is reachable through its submodule.
+as rks``). ``__all__`` holds the names meant for use outside the package (pages,
+scripts, tests, notebooks); everything else is reachable through its submodule.
 """
 
 from .constants import (
+    ALL_COMBOS,
     ALL_CSOS,
-    ALL_EXPANSIONS,
     ALL_INTERACTIONS,
+    CARD_TYPES_AVAILABLE,
+    EXPANSION_DICT,
     EXPANSION_LIST,
     EXTENDED_LANDSCAPE_LIST,
     FPATH_CARD_DATA,
@@ -35,8 +37,10 @@ from .utils import (
     CustomConfigParser,
     get_changelog,
     get_cso_name,
+    get_cso_quality_description,
     get_cso_sort_ranks,
     get_quality_icon_fpath,
+    get_total_quality,
     get_version,
     sanitize_cso_list,
     sanitize_cso_name,
@@ -45,24 +49,36 @@ from .utils import (
 from .utils.plotting import (
     CAMPAIGN_CONFIG,
     DAILY_COLOR,
+    DAILY_CONFIG,
     DOM_BEIGE,
     DOM_BLUE,
+    FTW_CONFIG,
     MATCH_CONFIG,
+    RECSET_CONFIG,
     XKCD_FONT,
+    AIIconConfig,
+    ExpansionIconsConfig,
+    KingdomDisplayConfig,
+    KingdomPlotConfig,
     ThumbnailConfig,
+    TitleConfig,
     create_opening_hints,
     create_thumbnail,
     crop_img_symmetrically,
     get_kingdom_quality_fig,
     load_cso_img_by_key,
+    plot_kingdom_qualities,
+    plot_quality_polygon,
     save_temporary_kingdom_plot,
 )
 
 __all__ = [
     # Card data
+    "ALL_COMBOS",
     "ALL_CSOS",
-    "ALL_EXPANSIONS",
     "ALL_INTERACTIONS",
+    "CARD_TYPES_AVAILABLE",
+    "EXPANSION_DICT",
     "EXPANSION_LIST",
     "EXTENDED_LANDSCAPE_LIST",
     "QUALITIES_AVAILABLE",
@@ -99,18 +115,31 @@ __all__ = [
     "get_version",
     "sanitize_cso_list",
     "sanitize_cso_name",
+    # Qualities
+    "get_cso_quality_description",
+    "get_kingdom_quality_fig",
+    "get_total_quality",
+    "plot_kingdom_qualities",
+    "plot_quality_polygon",
     # Plotting and thumbnails
-    "CAMPAIGN_CONFIG",
     "DAILY_COLOR",
     "DOM_BEIGE",
     "DOM_BLUE",
-    "MATCH_CONFIG",
     "XKCD_FONT",
+    "AIIconConfig",
+    "CAMPAIGN_CONFIG",
+    "DAILY_CONFIG",
+    "ExpansionIconsConfig",
+    "FTW_CONFIG",
+    "KingdomDisplayConfig",
+    "KingdomPlotConfig",
+    "MATCH_CONFIG",
+    "RECSET_CONFIG",
     "ThumbnailConfig",
+    "TitleConfig",
     "create_opening_hints",
     "create_thumbnail",
     "crop_img_symmetrically",
-    "get_kingdom_quality_fig",
     "load_cso_img_by_key",
     "save_temporary_kingdom_plot",
 ]
