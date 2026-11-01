@@ -34,10 +34,6 @@ Code to read the table data and save it as CSV
 
 # %%
 
-import sys
-
-sys.path.append("..")
-
 import argparse
 
 import random_kingdominion as rk
