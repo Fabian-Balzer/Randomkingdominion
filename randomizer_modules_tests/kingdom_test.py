@@ -1087,6 +1087,9 @@ def test_allies_and_prophecies_among_divine_wind_piles(dombot_str: str, is_valid
         assert kingdom.is_valid, kingdom.invalidity_reasons[0].get_description()
     else:
         assert _reason_keys(kingdom) == {"divine_wind_incorrect"}
+        # The piles parse fine, so the message mustn't claim otherwise (M28)
+        description = kingdom.invalidity_reasons[0].get_description()
+        assert description.startswith("The Divine Wind piles are invalid: ")
     _test_dombot_readin_readout(dombot_str)
 
 

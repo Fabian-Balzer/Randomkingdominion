@@ -1,0 +1,9 @@
+# Opens a pull request when an action used in .github/workflows/ has a new major
+# version (the workflows refer to major tags, so minor updates arrive by themselves).
+# The Python packages stay pinned by hand (requirements.txt, see README).
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"

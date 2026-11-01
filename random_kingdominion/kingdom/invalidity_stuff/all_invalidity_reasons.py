@@ -49,10 +49,9 @@ class BaneSyntaxNotSupported(InvalidityReason):
 @dataclass
 class DivineWindIncorrect(InvalidityReason):
     def get_description(self) -> str:
-        return (
-            "Could not parse the provided Divine Wind kingdom;\n\tinvalidities: "
-            + self.params.get("subk_invalidity", "unknown error")
-        )
+        # Also used when the piles parse fine but break a rule (M28)
+        problems = self.params.get("subk_invalidity", "unknown error")
+        return f"The Divine Wind piles are invalid: {problems}"
 
     def check_if_invalid(self, k: Kingdom) -> bool:
         dw_k = k.divine_wind_subkingdom
