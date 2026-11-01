@@ -32,7 +32,7 @@ The Streamlit entry point is `RandomKingdominion.py`; run it with Streamlit rath
 
 ## Development
 
-Dependencies are declared twice on purpose: `requirements.txt` pins the exact versions the deployed app installs and the tests pass with, while `pyproject.toml` describes the package with loose lower bounds. A test keeps both lists in sync. Optional extras: `pip install -e .[scripts]` for the data maintenance scripts, `.[test]` for pytest, Black and ruff. The test suite needs both (`pip install -e .[scripts,test]`). The scripts in `scripts/` import the package from this editable install as well, so they run from any directory (e.g. `python scripts/set_up_database.py -m -o` from the repository root).
+Dependencies are declared twice on purpose: `requirements.txt` pins the exact versions the deployed app installs and the tests pass with, while `pyproject.toml` describes the package with loose lower bounds. A test keeps both lists in sync. The package's core (`import random_kingdominion as rk`: card data, kingdoms, plotting) runs without Streamlit; the app's Streamlit layer (`import random_kingdominion.streamlit_util as rks`) needs the `app` extra. Further extras: `pip install -e .[scripts]` for the data maintenance scripts, `.[test]` for pytest, Black and ruff. The test suite needs all three (`pip install -e .[app,scripts,test]`). The scripts in `scripts/` import the package from this editable install as well, so they run from any directory (e.g. `python scripts/set_up_database.py -m -o` from the repository root).
 
 Running the tests:
 

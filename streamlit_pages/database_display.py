@@ -5,9 +5,10 @@ import pandas as pd
 import streamlit as st
 
 import random_kingdominion as rk
+import random_kingdominion.streamlit_util as rks
 from random_kingdominion.streamlit_util.constants import ST_ICONS
 
-rk.build_page_header(
+rks.build_page_header(
     "Dominion Card and Landscape Database",
     "On this page, you can filter and view the card database of all dominion Card-Shaped Objects (CSOs), and sort and filter them to hunt for whatever you might need, including my hand-curated CSO qualities described in the *about* page.",
     "Learn more about how the card qualities were devised.",
@@ -116,7 +117,7 @@ with st.expander("Filtering options", expanded=False, icon="🔍"):
         cols = st.columns(
             spec=[0.7, 0.15, 0.15], gap="small", vertical_alignment="bottom"
         )
-        all_expansions = rk.get_cached_expansions()
+        all_expansions = rks.get_cached_expansions()
 
         with cols[1]:
             disable_exp_filtering = st.checkbox(
@@ -142,7 +143,7 @@ with st.expander("Filtering options", expanded=False, icon="🔍"):
                 key="expansions_disable_1e",
             )
     with TABS[2]:
-        unique_types = rk.get_cached_unique_types()
+        unique_types = rks.get_cached_unique_types()
         cols = st.columns(
             spec=[0.7, 0.15, 0.15], gap="small", vertical_alignment="bottom"
         )
@@ -213,7 +214,7 @@ with st.expander("Filtering options", expanded=False, icon="🔍"):
         st.write(
             "Select the columns you want excluded from being displayed in the table."
         )
-        col_config = rk.get_col_config()
+        col_config = rks.get_col_config()
         all_labels = [desc["label"] for desc in col_config.values()]
         qual_labels = [label for label in all_labels if "-Q" in label]
         types_labels = [
@@ -351,11 +352,11 @@ def filter_full_df_for_options(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-FILTERED_DF = filter_full_df_for_options(rk.ALL_CACHED_CSOS)
+FILTERED_DF = filter_full_df_for_options(rks.ALL_CACHED_CSOS)
 filt_str = st.session_state.get("database_filter_str")
 
 st.write(
-    f"#### {filt_str}Filtering for {len(FILTERED_DF)}/{len(rk.ALL_CACHED_CSOS)} available Card-Shaped Objects (CSOs)"
+    f"#### {filt_str}Filtering for {len(FILTERED_DF)}/{len(rks.ALL_CACHED_CSOS)} available Card-Shaped Objects (CSOs)"
 )
 if FILTERED_DF.shape[0] > 300:
     st.warning(
@@ -368,7 +369,7 @@ cols = [
 if "Image" in cols:
     cols.remove("Image")
     cols = ["ImagePath"] + cols
-rk.display_stylysed_cso_df(FILTERED_DF[cols + ["Name"]], with_reroll=False)
+rks.display_stylysed_cso_df(FILTERED_DF[cols + ["Name"]], with_reroll=False)
 
 text = "*Hint*: You can click on the column names to sort the table."
 st.info(text)

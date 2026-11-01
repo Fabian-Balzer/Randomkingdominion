@@ -8,14 +8,13 @@ import streamlit as st
 from PIL import Image, ImageDraw, ImageOps
 
 from ....kingdom import Kingdom
-from ....utils import (
+from ....utils import get_cso_quality_description, sanitize_cso_name
+from ....utils.plotting import (
     crop_img_by_percentage,
     crop_landscape_text,
     get_cropped_card_img_without_text,
-    get_cso_quality_description,
     load_cso_img_by_key,
     overlay_cutout,
-    sanitize_cso_name,
 )
 from ...constants import ALL_CACHED_CSOS, ST_ICONS
 from ...image_util import display_html_image_with_tooltip, img_to_html

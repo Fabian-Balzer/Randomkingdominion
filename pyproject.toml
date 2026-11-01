@@ -24,21 +24,25 @@ classifiers = [
 # `dependency_pins_test.py` checks that both lists agree.
 # Only the Streamlit floor is a known requirement (fragment reruns, `on_change="rerun"`,
 # theme padding); the others are the release series currently in use.
+# The core (`import random_kingdominion`) runs without Streamlit, see the `app` extra.
 dependencies = [
-    "streamlit>=1.66",
     "pandas>=2.2",
     "numpy>=2.0",
     "matplotlib>=3.8",
     "pillow>=10.0",
     "PyYAML>=6.0",
     "scipy>=1.13",
-    "streamlit-extras>=0.7",
-    "st-copy-to-clipboard>=0.1.6",
     "colorama>=0.4",
 ]
 requires-python = ">=3.12"  # f-strings with nested quotes (PEP 701)
 
 [project.optional-dependencies]
+# The Streamlit app and its layer (random_kingdominion.streamlit_util, M18)
+app = [
+    "streamlit>=1.66",
+    "streamlit-extras>=0.7",
+    "st-copy-to-clipboard>=0.1.6",
+]
 # Data maintenance scripts (scripts/, utils/data_setup/): beautifulsoup4 parses the
 # saved wiki card list, requests and yt-dlp fetch the YouTube video info
 scripts = [
@@ -79,8 +83,6 @@ extend-exclude = ["*.ipynb"]
 select = ["F"]
 
 [tool.ruff.lint.per-file-ignores]
-# Star imports make the package's names reachable as rk.<name> (M18)
-"__init__.py" = ["F401", "F403"]
 "random_kingdominion/utils/interaction_setup/write_interaction_database.py" = [
     "F403",
     "F405",

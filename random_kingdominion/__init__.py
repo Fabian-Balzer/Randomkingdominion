@@ -1,57 +1,116 @@
-import logging
-import warnings
+"""The core of Random KingDominion: card data, kingdoms and plotting, without Streamlit.
 
-from .constants import *
-from .cso_frame_utils import *
-from .cso_series_utils import *
+Pages import the Streamlit layer explicitly (``import random_kingdominion.streamlit_util
+as rks``). ``__all__`` holds the names used outside the package (pages, scripts, tests,
+notebooks); everything else is reachable through its submodule.
+"""
+
+from .constants import (
+    ALL_CSOS,
+    ALL_EXPANSIONS,
+    ALL_INTERACTIONS,
+    EXPANSION_LIST,
+    EXTENDED_LANDSCAPE_LIST,
+    FPATH_CARD_DATA,
+    FPATH_KINGDOMS_FABI_RECSETS,
+    FPATH_KINGDOMS_KOTW_REDDIT,
+    FPATH_KINGDOMS_TGG_DAILIES,
+    FPATH_RAW_DATA,
+    PATH_ASSETS,
+    PATH_CARD_INFO,
+    PATH_CARD_PICS,
+    PATH_MAIN,
+    PATH_MODULE,
+    QUALITIES_AVAILABLE,
+    RENEWED_EXPANSIONS,
+    ROTATOR_DICT,
+    SPECIAL_QUAL_TYPES_AVAILABLE,
+    SPLIT_CARD_TYPES,
+    SPLITPILE_DICT,
+    read_dataframe_from_file,
+)
 from .kingdom import Kingdom, KingdomManager, KingdomRandomizer, is_campaign_daily
 from .logger import LOGGER
-from .utils import *
+from .utils import (
+    CustomConfigParser,
+    get_changelog,
+    get_cso_name,
+    get_cso_sort_ranks,
+    get_quality_icon_fpath,
+    get_version,
+    sanitize_cso_list,
+    sanitize_cso_name,
+    write_dataframe_to_file,
+)
+from .utils.plotting import (
+    CAMPAIGN_CONFIG,
+    DAILY_COLOR,
+    DOM_BEIGE,
+    DOM_BLUE,
+    MATCH_CONFIG,
+    XKCD_FONT,
+    ThumbnailConfig,
+    create_opening_hints,
+    create_thumbnail,
+    crop_img_symmetrically,
+    get_kingdom_quality_fig,
+    load_cso_img_by_key,
+    save_temporary_kingdom_plot,
+)
 
-
-# Custom logging filter to ignore specific Streamlit warning
-class StreamlitFilter(logging.Filter):
-    def filter(self, record):
-        ignored_messages = [
-            "Thread 'MainThread': missing ScriptRunContext!",
-            "No runtime found, using MemoryCacheStorageManager",
-            "Session state does not function when running a script without `streamlit run`",
-            "to view this Streamlit app on a browser,",
-            "missing ScriptRunContext! This warning can be ignored when running in bare mode.",
-        ]
-        return all([message not in record.getMessage() for message in ignored_messages])
-
-
-def _remove_streamlit_logs():
-    # Configure logging to include the logger's name
-    formatter = logging.Formatter("%(name)s - %(levelname)s - %(message)s")
-    handler = logging.StreamHandler()
-    handler.setFormatter(formatter)
-
-    # Get the Streamlit logger and add the custom filter and handler
-    for log_key in [
-        "scriptrunner_utils.script_run_context",
-        "caching.cache_data_api",
-        "state.session_state_proxy",
-        "scriptrunner",
-    ]:
-        streamlit_logger = logging.getLogger(f"streamlit.runtime.{log_key}")
-        streamlit_logger.addFilter(StreamlitFilter())
-    streamlit_logger = logging.getLogger("streamlit")
-    streamlit_logger.addFilter(StreamlitFilter())
-
-
-def _is_missing_package(e: ModuleNotFoundError, packages: set[str]) -> bool:
-    """Whether the error comes from one of the given optional packages not being
-    installed (as opposed to a broken import inside our own code)."""
-    return (e.name or "").split(".")[0] in packages
-
-
-# Only a missing optional package may be skipped while any other import error is a bug.
-try:
-    _remove_streamlit_logs()
-    from .streamlit_util import *
-except ModuleNotFoundError as e:
-    if not _is_missing_package(e, {"streamlit", "streamlit_extras"}):
-        raise
-    LOGGER.warning(f"Couldn't locate valid streamlit installation ({e})")
+__all__ = [
+    # Card data
+    "ALL_CSOS",
+    "ALL_EXPANSIONS",
+    "ALL_INTERACTIONS",
+    "EXPANSION_LIST",
+    "EXTENDED_LANDSCAPE_LIST",
+    "QUALITIES_AVAILABLE",
+    "RENEWED_EXPANSIONS",
+    "ROTATOR_DICT",
+    "SPECIAL_QUAL_TYPES_AVAILABLE",
+    "SPLIT_CARD_TYPES",
+    "SPLITPILE_DICT",
+    # Paths and files
+    "FPATH_CARD_DATA",
+    "FPATH_KINGDOMS_FABI_RECSETS",
+    "FPATH_KINGDOMS_KOTW_REDDIT",
+    "FPATH_KINGDOMS_TGG_DAILIES",
+    "FPATH_RAW_DATA",
+    "PATH_ASSETS",
+    "PATH_CARD_INFO",
+    "PATH_CARD_PICS",
+    "PATH_MAIN",
+    "PATH_MODULE",
+    "read_dataframe_from_file",
+    "write_dataframe_to_file",
+    # Kingdoms
+    "Kingdom",
+    "KingdomManager",
+    "KingdomRandomizer",
+    "is_campaign_daily",
+    # Helpers
+    "LOGGER",
+    "CustomConfigParser",
+    "get_changelog",
+    "get_cso_name",
+    "get_cso_sort_ranks",
+    "get_quality_icon_fpath",
+    "get_version",
+    "sanitize_cso_list",
+    "sanitize_cso_name",
+    # Plotting and thumbnails
+    "CAMPAIGN_CONFIG",
+    "DAILY_COLOR",
+    "DOM_BEIGE",
+    "DOM_BLUE",
+    "MATCH_CONFIG",
+    "XKCD_FONT",
+    "ThumbnailConfig",
+    "create_opening_hints",
+    "create_thumbnail",
+    "crop_img_symmetrically",
+    "get_kingdom_quality_fig",
+    "load_cso_img_by_key",
+    "save_temporary_kingdom_plot",
+]

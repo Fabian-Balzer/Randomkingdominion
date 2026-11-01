@@ -3,7 +3,7 @@ from typing import Callable
 import streamlit as st
 
 from ....kingdom import Kingdom
-from ....utils import get_video_title
+from ....utils.plotting import get_video_title
 from ...constants import ST_ICONS
 from .. import display_stylysed_cso_df
 from .combo_and_inter_display import st_build_combo_and_inter_display

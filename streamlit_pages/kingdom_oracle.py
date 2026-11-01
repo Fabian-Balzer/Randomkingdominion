@@ -1,6 +1,6 @@
-import random_kingdominion as rk
+import random_kingdominion.streamlit_util as rks
 
-rk.build_page_header(
+rks.build_page_header(
     "Dominion Kingdom Oracle",
     (
         "This page allows you to easily input a kingdom to visualize its engine qualities "
@@ -10,8 +10,8 @@ rk.build_page_header(
     "Learn more about the CSO and kingdom qualities on the 'About' page.",
 )
 
-rk.st_build_existing_kingdom_select()
+rks.st_build_existing_kingdom_select()
 
-k = rk.st_build_oracle_kingdom_input_display()
+k = rks.st_build_oracle_kingdom_input_display()
 
-rk.st_build_oracle_kingdom_display(k)
+rks.st_build_oracle_kingdom_display(k)

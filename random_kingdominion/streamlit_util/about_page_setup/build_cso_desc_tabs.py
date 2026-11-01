@@ -1,7 +1,7 @@
 import streamlit as st
 
 from ...constants import QUALITIES_AVAILABLE
-from ...utils import plot_kingdom_qualities
+from ...utils.plotting import plot_kingdom_qualities
 from ..constants import ST_ICONS
 from ..quality_display import construct_short_qual_desc
 

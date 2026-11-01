@@ -291,6 +291,7 @@ EXPANSION_LIST: list[str] = [
     "Promo",
 ]
 """All expansions as a list."""
+ALL_EXPANSIONS = [exp for exp in EXPANSION_LIST if exp not in RENEWED_EXPANSIONS]
 
 DEBT_INDUCERS = [
     "Root Cellar",

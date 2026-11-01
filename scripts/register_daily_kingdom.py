@@ -2,7 +2,7 @@
 
 import argparse
 
-import random_kingdominion.scripting as rks
+import random_kingdominion.scripting as rksc
 
 
 def parse_args():
@@ -45,7 +45,7 @@ def parse_args():
         help="Validate of the kingdom string.",
     )
     args = parser.parse_args()
-    rks.log_args(args, __file__, parser=parser)
+    rksc.log_args(args, __file__, parser=parser)
     return args
 
 
@@ -53,16 +53,16 @@ def main():
     args = parse_args()
     manager = None
     if args.kingdom_string is not None:
-        manager = rks.register_daily_kingdom(
+        manager = rksc.register_daily_kingdom(
             args.kingdom_string,
             args.date,
             replace=args.replace,
             validate=args.validate,
         )
     if args.youtube_setup:
-        rks.set_up_daily_video_assets(args.date, manager)
+        rksc.set_up_daily_video_assets(args.date, manager)
     if args.plot:
-        rks.plot_daily_kingdom(args.date, manager)
+        rksc.plot_daily_kingdom(args.date, manager)
 
 
 if __name__ == "__main__":

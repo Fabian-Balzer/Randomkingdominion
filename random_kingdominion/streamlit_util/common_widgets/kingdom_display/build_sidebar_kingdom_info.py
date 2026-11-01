@@ -5,11 +5,8 @@ import matplotlib.pyplot as plt
 import streamlit as st
 
 from ....kingdom import Kingdom
-from ....utils import (
-    filter_combo_or_inter_df_for_csos,
-    get_video_title,
-    plot_kingdom_qualities,
-)
+from ....utils import filter_combo_or_inter_df_for_csos
+from ....utils.plotting import get_video_title, plot_kingdom_qualities
 from ...constants import ST_ICONS, get_cached_combo_df, get_cached_inter_df
 from .. import st_display_combo_md, st_display_inter_md
 

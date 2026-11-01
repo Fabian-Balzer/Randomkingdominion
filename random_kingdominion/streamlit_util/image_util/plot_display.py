@@ -6,13 +6,13 @@ from matplotlib.figure import Figure
 
 from ...constants import QUALITIES_AVAILABLE
 from ...kingdom import Kingdom
-from ...utils import (
+from ...utils.plotting import (
+    DOM_BLUE,
     annotate_buy_icon,
     get_kingdom_quality_fig,
     plot_quality_polygon,
     set_up_ax_for_quality_plot,
 )
-from ...utils.plotting import DOM_BLUE
 
 
 def st_display_full_kingdom_fig(k: Kingdom, with_border=False):

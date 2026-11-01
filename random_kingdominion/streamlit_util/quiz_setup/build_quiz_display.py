@@ -10,7 +10,8 @@ import streamlit as st
 
 from ...constants import PATH_ASSETS
 from ...kingdom import Kingdom
-from ...utils import DOM_BEIGE, get_quality_icon_fpath
+from ...utils import get_quality_icon_fpath
+from ...utils.plotting import DOM_BEIGE
 from ..common_widgets import st_build_kingdom_csv_display, st_display_kingdom_images
 from ..image_util import st_plot_kingdom_qualities
 from ..quality_display import EMOJI_DICT

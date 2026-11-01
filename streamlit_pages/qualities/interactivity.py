@@ -1,3 +1,3 @@
-import random_kingdominion as rk
+import random_kingdominion.streamlit_util as rks
 
-rk.build_quality_page("interactivity")
+rks.build_quality_page("interactivity")

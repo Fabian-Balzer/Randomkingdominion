@@ -18,7 +18,10 @@ def _pyproject_project() -> dict:
 
 
 def _pyproject_requirements() -> dict[str, Requirement]:
-    deps = _pyproject_project()["dependencies"]
+    """The core dependencies plus the `app` extra, which requirements.txt pins for the
+    deployed app (M18)."""
+    project = _pyproject_project()
+    deps = project["dependencies"] + project["optional-dependencies"]["app"]
     return {canonicalize_name(req.name): req for req in map(Requirement, deps)}
 
 

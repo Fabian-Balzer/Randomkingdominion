@@ -3,10 +3,9 @@ import streamlit as st
 
 from ..constants import (
     ALL_COMBOS,
+    ALL_EXPANSIONS,
     ALL_INTERACTIONS,
-    EXPANSION_LIST,
     PATH_CARD_INFO,
-    RENEWED_EXPANSIONS,
     VALID_COMBO_TYPES,
     load_combo_or_inter_df,
 )
@@ -36,12 +35,11 @@ COMBO_COLOR_DICT = _get_combo_color_dict()
 
 @st.cache_data
 def get_cached_expansions():
-    return [exp for exp in EXPANSION_LIST if exp not in RENEWED_EXPANSIONS]
+    return list(ALL_EXPANSIONS)
 
 
 # COOKIES = CookieController()
 
-ALL_EXPANSIONS = get_cached_expansions()
 NUM_EXPS = len(ALL_EXPANSIONS)
 LIKE_BAN_OPTIONS = {
     "Banned": "These CSOs are excluded from the draw pool during randomization.",

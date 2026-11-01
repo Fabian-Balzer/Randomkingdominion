@@ -1,8 +1,8 @@
 import streamlit as st
 
-import random_kingdominion as rk
+import random_kingdominion.streamlit_util as rks
 
-rk.build_page_header(
+rks.build_page_header(
     "What is this site about?",
     "Here, I'll try to shed some light on the ideas concerning my approach to the randomizer, the individual and kingdom-wide CSO (short for Card-Shaped Object, including landscapes) qualities.",
 )
@@ -11,7 +11,7 @@ st.write(
 )
 
 segmented_options = [
-    f"{rk.ST_ICONS['video']} Introduction Video",
+    f"{rks.ST_ICONS['video']} Introduction Video",
     "🃏 About CSOs",
     "📝 Description of subsites",
     "ℹ️ Miscellaneous",
@@ -28,23 +28,23 @@ control = control_container.segmented_control(
 
 if control == segmented_options[0]:
     with control_container:
-        rk.st_build_introduction_video_showcase()
+        rks.st_build_introduction_video_showcase()
 
 if control == segmented_options[1]:
     with control_container:
         st.write(
             "Card-Shaped Objects (CSOs) are the central elements in Dominion, representing various game components such as landscapes and cards."
         )
-        rk.st_build_cso_description_tabs()
+        rks.st_build_cso_description_tabs()
 
 if control == segmented_options[2]:
     with control_container:
         st.write("More details about the different pages of this site:")
-        rk.st_build_site_desc_tabs()
+        rks.st_build_site_desc_tabs()
 
 if control == segmented_options[3]:
     with control_container:
-        rk.st_build_more_info_tabs()
+        rks.st_build_more_info_tabs()
 
 affiliation_text = """Dominion is a game by Donald X. Vaccarino and published by Rio Grande Games.
 This project has no affiliation with either party, it is merely a fan-made tool.

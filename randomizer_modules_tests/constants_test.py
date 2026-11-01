@@ -3,6 +3,7 @@
 import pandas as pd
 
 import random_kingdominion as rk
+import random_kingdominion.streamlit_util as rks
 
 
 def test_filenames():
@@ -29,13 +30,13 @@ def test_list_columns_are_parsed_as_lists():
 
 def test_cso_occurrences_are_counted_once_per_pair():
     pairs = pd.Index(["moat___village", "outpost___outpost", "moat___outpost"])
-    counts = rk.count_cso_occurrences(pairs, pd.Index(["moat", "outpost", "smithy"]))
+    counts = rks.count_cso_occurrences(pairs, pd.Index(["moat", "outpost", "smithy"]))
     assert counts.tolist() == [2, 2, 0]
 
 
 def test_cso_occurrence_counts_match_the_pairs():
     """The vectorised count (M14) agrees with checking every pair for every CSO."""
     pairs = rk.ALL_INTERACTIONS.index.to_series().str.split("___")
-    counts = rk.count_cso_occurrences(rk.ALL_INTERACTIONS.index, rk.ALL_CSOS.index)
+    counts = rks.count_cso_occurrences(rk.ALL_INTERACTIONS.index, rk.ALL_CSOS.index)
     for cso in ["moat", "outpost", "black_market", "village"]:
         assert counts[cso] == pairs.apply(lambda pair: cso in pair).sum(), cso

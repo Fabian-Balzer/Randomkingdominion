@@ -4,6 +4,7 @@ import pytest
 from PIL import Image
 
 import random_kingdominion as rk
+import random_kingdominion.streamlit_util as rks
 from random_kingdominion.streamlit_util.common_widgets.kingdom_display import (
     kingdom_as_images as images,
 )
@@ -32,7 +33,7 @@ def test_overlays_are_detected_exactly_where_they_are_drawn(dombot_str: str):
     empty = rk.Kingdom([])
     num_overlays = 0
     for cso_key in kingdom.cards + kingdom.landscapes:
-        cso = rk.ALL_CACHED_CSOS.loc[cso_key]
+        cso = rks.ALL_CACHED_CSOS.loc[cso_key]
         with_kingdom = images.get_cso_display_image(cso, kingdom)
         unchanged = _same_image(with_kingdom, images.get_cso_display_image(cso, empty))
         has_overlay = images.has_kingdom_overlay(cso_key, kingdom)
@@ -53,7 +54,7 @@ def test_overlays_are_detected_exactly_where_they_are_drawn(dombot_str: str):
 def test_cached_image_equals_the_composed_one(
     cso_key: str, full_image: bool, hide_landscape_text: bool
 ):
-    cso = rk.ALL_CACHED_CSOS.loc[cso_key]
+    cso = rks.ALL_CACHED_CSOS.loc[cso_key]
     kingdom = rk.Kingdom(["village", "smithy"], landscapes=["training"])
     composed = images.get_cso_display_image(
         cso, kingdom, full_image, hide_landscape_text
@@ -82,7 +83,7 @@ def test_images_are_composed_once_per_distinct_look(monkeypatch):
         for key in ["village", "training"]:
             for full_image in (False, True):
                 for hide_text in (False, True):
-                    cso = rk.ALL_CACHED_CSOS.loc[key]
+                    cso = rks.ALL_CACHED_CSOS.loc[key]
                     images._get_cso_image_html(cso, kingdom, full_image, hide_text)
     # Village cropped and in full, Training with and without its text
     assert sorted(composed) == ["training", "training", "village", "village"]

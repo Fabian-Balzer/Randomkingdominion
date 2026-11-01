@@ -33,6 +33,7 @@ Code to open a GUI Dominion randomizer
 import streamlit as st
 
 import random_kingdominion as rk
+import random_kingdominion.streamlit_util as rks
 
 st.set_page_config(
     layout="wide",
@@ -43,7 +44,7 @@ st.set_page_config(
 rk.LOGGER.setLevel("ERROR")
 
 quality_pages = [
-    rk.get_quality_page_navigation(qual) for qual in rk.QUALITIES_AVAILABLE
+    rks.get_quality_page_navigation(qual) for qual in rk.QUALITIES_AVAILABLE
 ]
 
 pg = st.navigation(
@@ -56,46 +57,46 @@ pg = st.navigation(
                 "streamlit_pages/randomizer.py",
                 title="Dominion Kingdom Randomizer",
                 url_path="randomizer",
-                icon=rk.ST_ICONS["randomizer"],
+                icon=rks.ST_ICONS["randomizer"],
             ),
             st.Page(
                 "streamlit_pages/kingdom_oracle.py",
                 title="Kingdom Oracle",
                 url_path="oracle",
-                icon=rk.ST_ICONS["oracle"],
+                icon=rks.ST_ICONS["oracle"],
             ),
             st.Page(
                 "streamlit_pages/database_display.py",
                 title="CSO Database",
                 url_path="cso_overview",
-                icon=rk.ST_ICONS["cso_overview"],
+                icon=rks.ST_ICONS["cso_overview"],
             ),
             st.Page(
                 "streamlit_pages/interactions.py",
                 title="CSO Interactions",
                 url_path="interactions",
-                icon=rk.ST_ICONS["interactions"],
+                icon=rks.ST_ICONS["interactions"],
             ),
             st.Page(
                 "streamlit_pages/combos.py",
                 title="CSO Combos",
                 url_path="combos",
-                icon=rk.ST_ICONS["combos"],
+                icon=rks.ST_ICONS["combos"],
             ),
             st.Page(
                 "streamlit_pages/quiz.py",
                 title="Quiz",
                 url_path="quiz",
-                icon=rk.ST_ICONS["quiz"],
+                icon=rks.ST_ICONS["quiz"],
             ),
             st.Page(
                 "streamlit_pages/about.py",
                 title="About and more",
                 url_path="about",
-                icon=rk.ST_ICONS["about"],
+                icon=rks.ST_ICONS["about"],
             ),
         ],
-        f"{rk.ST_ICONS['cso_qualities']}CSO Quality Descriptions": quality_pages,
+        f"{rks.ST_ICONS['cso_qualities']}CSO Quality Descriptions": quality_pages,
     },
     expanded=False,
 )

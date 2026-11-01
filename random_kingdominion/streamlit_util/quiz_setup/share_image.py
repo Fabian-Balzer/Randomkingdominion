@@ -15,13 +15,13 @@ from PIL import Image, ImageDraw, ImageOps
 
 from ...constants import QUALITIES_AVAILABLE
 from ...kingdom import Kingdom
-from ...utils import (
+from ...utils import get_version
+from ...utils.plotting import (
     DOM_BEIGE,
     DOM_BLUE,
     XKCD_FONT,
     annotate_buy_icon,
     get_square_cutout,
-    get_version,
     plot_quality_polygon,
     set_up_ax_for_quality_plot,
 )
