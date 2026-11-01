@@ -27,6 +27,12 @@ from ..utils import (
     sanitize_cso_list,
     sanitize_cso_name,
 )
+from .dombot_parsing import (
+    get_kingdom_fields,
+    normalize_dombot_string,
+    resolve_dombot_entries,
+    tokenize_dombot_string,
+)
 from .invalidity_stuff import InvalidityReason
 
 
@@ -93,30 +99,6 @@ def _normalize_divine_wind_str(divine_wind_str: str) -> str:
         return ""  # Also a missing value (NaN) in a DataFrame row
     entries = re.split(r"\s*,\s*(?![^()]*\))", divine_wind_str)
     return ", ".join(sorted(sanitize_cso_name(e) for e in entries if e.strip()))
-
-
-def remove_deep_nested_parentheses(s: str) -> str:
-    """Remove all parentheses and stuff in them that are nested deeper than one layer,
-    e.g. "Nearby(Druid(_boons_))" -> "Nearby(Druid)".
-    """
-    stack = []
-    result = []
-
-    for char in s:
-        if char == "(":
-            stack.append(char)
-            if len(stack) == 1:
-                result.append(char)
-        elif char == ")":
-            if len(stack) == 1:
-                result.append(char)
-            if stack:
-                stack.pop()
-        else:
-            if not stack or len(stack) == 1:
-                result.append(char)
-
-    return "".join(result)
 
 
 @dataclass(order=True)
@@ -224,194 +206,15 @@ class Kingdom:
         add_unrecognized_notes=True,
         check_validity=True,
     ) -> Kingdom:
-        """Try to initialize the kingdom from a given comma-separated value string similar to
-        the one that DomBot produces using the !kingdom -r -l command.
-        Does not support deep nesting (e.g. Nearby(Druid(_boons_)) would be ignored).
+        """Initialize the kingdom from a comma-separated string like the one DomBot
+        produces with the !kingdom -r -l command. Special targets may be nested,
+        e.g. ``ferryman(young_witch(vassal))``; see `dombot_parsing` for the steps.
         """
-        note_str = ""
-        # remove the -m parameter sometimes present in TGG kingdoms
-        for char in ["-m ", "-x ", ". ", "; "]:
-            csv_string = csv_string.replace(char, ", ")
-        # Remove all parentheses and stuff in them that are nested deeper than one layer
-        new_string = remove_deep_nested_parentheses(csv_string)
-        if new_string != csv_string:
-            note_str += "Removed nested parentheses, they currently aren't supported. You may list nested stuff separately.\n"
-        new_string = (
-            new_string.lower()
-            .replace("landscapes: ", ", ")
-            .replace("city_state", "city-state")
-            .replace("will_o_wisp", "will-o-wisp")
-        )
-        # Search for all single entries (we can't just split by "," because of druid boons)
-        pattern = r"\s*,\s*(?![^()]*\))"
-        full_list = re.split(pattern, new_string)
-        full_list = [entry.replace(":", "(") for entry in full_list]
-        # Only standalone entries: "start_double_pile(colony)" targets the Colony pile.
-        # Longest spelling first; "colony/platinum" would become "colonies/colonies"
-        for i, entry in enumerate(full_list):
-            if "(" not in entry:
-                for col_str in ["colony/platinum", "colony", "platinum"]:
-                    entry = entry.replace(col_str, "colonies")
-                full_list[i] = entry
-        # Marks a kingdom that may use campaign rules (see `is_campaign`)
-        is_campaign = "campaign" in full_list
-        full_list = [entry for entry in full_list if entry != "campaign"]
-        # Specials are collected from all entries: a campaign effect may appear
-        # several times (start_replace_copper(silver) twice replaces two Coppers),
-        # and a Trait may have several targets in campaigns
-        special_dict: defaultdict[str, list[str]] = defaultdict(list)
-        for entry in full_list:
-            if "(" in entry:
-                cso, inside = entry.split("(", 1)
-                special_dict[sanitize_cso_name(cso, True)].append(inside.strip(") "))
-        effect_keys = set(ALL_CSOS.index[ALL_CSOS["IsCampaignEffect"]])
-        duplicates = [
-            entry
-            for entry in full_list
-            if full_list.count(entry) > 1
-            and sanitize_cso_name(entry.split("(")[0], True) not in effect_keys
-        ]
-        full_list = list(set(full_list))
-        # Find the instance of Colonies/NoColonies:
-        colony_indicator = next(
-            filter(lambda entry: "colonies" in entry.lower(), full_list), "no"
-        )
-        use_colonies = "no" not in colony_indicator.lower()
-        shelter_indicator = next(
-            filter(lambda entry: "shelters" in entry.lower(), full_list), "no"
-        )
-        use_shelters = "no" not in shelter_indicator.lower()
-        # Handle the CSOs and recognize special values:
-        cso_list = [
-            entry
-            for entry in full_list
-            if not ("colonies" in entry.lower() or "shelters" in entry.lower())
-        ]
-        cso_list = [sanitize_cso_name(entry.split("(")[0], True) for entry in cso_list]
-
-        def single_special(key: str) -> str:
-            """The target of a special that only takes one (e.g. the Bane)."""
-            return special_dict[key][0] if special_dict.get(key) else ""
-
-        druid_boons = (
-            [sanitize_cso_name(boon) for boon in single_special("druid").split(",")]
-            if "druid" in special_dict
-            else []
-        )
-        divine_wind_cso_str = single_special("divine_wind")
-        bane_pile = sanitize_cso_name(
-            single_special("young_witch") or single_special("bane"), True
-        )
-        if bane_pile != "":
-            cso_list += [bane_pile]
-        obelisk_pile = sanitize_cso_name(single_special("obelisk"), True)
-        ferryman_pile = sanitize_cso_name(single_special("ferryman"), True)
-        riverboat_card = sanitize_cso_name(single_special("riverboat"), True)
-        army_pile = sanitize_cso_name(single_special("approaching_army"), True)
-        if army_pile != "":
-            cso_list += [army_pile]
-        mouse_card = sanitize_cso_name(single_special("way_of_the_mouse"), True)
-
-        # Replace the split pile thingies:
-        avail_csos = [cso for cso in cso_list if cso in ALL_CSOS.index]
-        unrecognized_csos = [cso for cso in cso_list if cso not in ALL_CSOS.index]
-        avail_csos = np.unique(avail_csos)
-        csos = ALL_CSOS.loc[avail_csos]
-        # if len(unrecognized_csos) > 0:
-        #     LOGGER.info(f"Could not recognize the following terms: {unrecognized_csos}")
-        cards = csos[csos["IsInSupply"]]
-        landscapes = csos[csos["IsExtendedLandscape"]]
-        campaign_effects = csos[csos["IsCampaignEffect"]]
-        # Add Traits plus their targets (if not in there already). Outside of
-        # campaigns, a Trait has exactly one supply pile as its target; several
-        # targets or non-supply ones (e.g. Gold) are kept, and the validity check
-        # marks them as campaign-only.
-        traits = []
-        for trait, _ in landscapes[landscapes["IsTrait"]].iterrows():
-            for raw_target in special_dict.get(str(trait), []):
-                target = sanitize_cso_name(raw_target, True)
-                if target not in ALL_CSOS.index:
-                    unrecognized_csos.append(target)
-                elif [trait, target] not in traits:
-                    traits.append([trait, target])
-        supply_targets = [
-            t[1] for t in traits if ALL_CSOS.loc[t[1], "IsInSupply"]
-        ]
-        if len(supply_targets) > 0:
-            cards = pd.concat(
-                [cards, ALL_CSOS.loc[[t for t in supply_targets if t not in cards.index]]]
-            )
-        # Add Stamps plus their targets (if not in there already), one pair per
-        # target; several targets of one effect may also come comma-separated
-        stamps_and_effects = []
-        for campaign_effect, _ in campaign_effects.iterrows():
-            # We don't want to replace a starting conjurer with Wizards
-            replace_parent_pile = not str(campaign_effect).startswith("replace")
-            for raw_target in special_dict.get(str(campaign_effect), []):
-                for target in _split_targets(raw_target, replace_parent_pile):
-                    if target not in ALL_CSOS.index:
-                        unrecognized_csos.append(target)
-                    else:
-                        stamps_and_effects.append([campaign_effect, target])
-        if len(stamps_and_effects) > 0:
-            # Only the target of an effect with a single target is a pile of the
-            # kingdom; e.g. Typhoon's list or the replacements of the starting
-            # cards aren't
-            num_targets = defaultdict(int)
-            for effect, _ in stamps_and_effects:
-                num_targets[effect] += 1
-            new_targets = ALL_CSOS.loc[
-                [
-                    t[1]
-                    for t in stamps_and_effects
-                    if num_targets[t[0]] == 1
-                    and t[1] not in cards.index
-                    and t[1] not in landscapes.index
-                    and t[0] not in ["replace_copper", "replace_estate", "trash_pile"]
-                ]
-            ]
-            cards = pd.concat(
-                [
-                    cards,
-                    new_targets.loc[new_targets["IsInSupply"]],
-                ]
-            )
-            landscapes = pd.concat(
-                [
-                    landscapes,
-                    new_targets.loc[new_targets["IsExtendedLandscape"]],
-                ]
-            )
-        if "" in unrecognized_csos:
-            unrecognized_csos.remove("")
-        if "bane" in unrecognized_csos:
-            unrecognized_csos.remove("bane")
-        if add_unrecognized_notes and len(unrecognized_csos) > 0:
-            un_str = ", ".join([f"'{cso}'" for cso in unrecognized_csos])
-            note_str += f"The following inputs could not be associated with any known CSOs: {un_str}\n"
-        if add_unrecognized_notes and len(duplicates) > 0:
-            dup_counts = {entry: duplicates.count(entry) for entry in duplicates}
-            note_str += f"Duplicates: {dup_counts}\n"
-        k = Kingdom(
-            cards.index.to_list(),
-            landscapes=landscapes.index.to_list(),
-            campaign_effects=campaign_effects.index.to_list(),
-            use_colonies=use_colonies,
-            use_shelters=use_shelters,
-            bane_pile=bane_pile,
-            obelisk_pile=obelisk_pile,
-            ferryman_pile=ferryman_pile,
-            riverboat_card=riverboat_card,
-            mouse_card=mouse_card,
-            druid_boons=druid_boons,
-            army_pile=army_pile,
-            divine_wind_cso_str=divine_wind_cso_str,
-            traits=traits,
-            notes=note_str,
-            name=name,
-            stamps_and_effects=stamps_and_effects,
-            is_campaign=is_campaign,
-        )
+        normalized = normalize_dombot_string(csv_string)
+        entries, syntax_notes = tokenize_dombot_string(normalized)
+        parsed = resolve_dombot_entries(entries)
+        fields = get_kingdom_fields(parsed, syntax_notes, add_unrecognized_notes)
+        k = Kingdom(**fields, name=name)
         if check_validity:
             k.invalidity_reasons = InvalidityReason.check_kingdom_validity(k)
         return k

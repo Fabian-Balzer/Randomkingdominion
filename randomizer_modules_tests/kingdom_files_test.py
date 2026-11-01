@@ -156,7 +156,10 @@ def test_stored_kingdoms_keep_the_targets_of_their_input(name: str):
 
 def test_start_effects_replace_by_cards_not_by_piles():
     """A starting card is replaced by a specific card (Survivors, Lich), not by its
-    split pile (Ruins, Wizards), which older parser versions stored."""
+    split pile (Ruins, Wizards), which older parser versions stored. The same holds
+    for adding a card to the deck, the Tavern mat or play (M19)."""
+    from random_kingdominion.kingdom.dombot_parsing import _EFFECTS_ON_SPECIFIC_CARDS
+
     csos = rk.ALL_CSOS
     split_piles = set(
         csos.loc[csos["HasParentPile"], "ParentPile"].map(rk.sanitize_cso_name)
@@ -166,7 +169,7 @@ def test_start_effects_replace_by_cards_not_by_piles():
         for path in KINGDOM_FILES
         for info in _load(path)
         for effect, target in info.get("stamps_and_effects") or []
-        if effect.startswith("replace") and target in split_piles
+        if effect in _EFFECTS_ON_SPECIFIC_CARDS and target in split_piles
     ]
     assert problems == [], "\n".join(problems)
 

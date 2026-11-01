@@ -703,3 +703,180 @@ def test_colony_as_a_campaign_effect_target():
     assert kingdom.use_colonies
     assert kingdom.notes == ""
     assert kingdom.effect_targets == {"double_pile": ["colony", "province"]}
+
+
+def test_dombot_parsing_docstring_examples():
+    import doctest
+
+    from random_kingdominion.kingdom import dombot_parsing
+
+    assert doctest.testmod(dombot_parsing).failed == 0
+
+
+def _entry_tree(entries) -> list:
+    """Tokenized entries as names, or (name, arguments) if they have any."""
+    return [(e.name, _entry_tree(e.args)) if e.args else e.name for e in entries]
+
+
+_UNCLOSED = ["Closed 1 '(' at the end of the entry."]
+_UNOPENED = ["Ignored 1 ')' without a '('."]
+
+
+@pytest.mark.parametrize(
+    "dombot_str, tree, notes",
+    [
+        ("village, smithy", ["village", "smithy"], []),
+        (" village ,, smithy , ", ["village", "smithy"], []),
+        (
+            "druid(the_earths_gift, the_flames_gift, the_swamps_gift), moat",
+            [
+                ("druid", ["the_earths_gift", "the_flames_gift", "the_swamps_gift"]),
+                "moat",
+            ],
+            [],
+        ),
+        (
+            "nearby(druid(the_earths_gift, the_flames_gift)), druid",
+            [("nearby", [("druid", ["the_earths_gift", "the_flames_gift"])]), "druid"],
+            [],
+        ),
+        ("a(b(c(d)), e)", [("a", [("b", [("c", ["d"])]), "e"])], []),
+        ("young_witch(), moat", ["young_witch", "moat"], []),
+        # Broken input: an unclosed "(" ends with its entry, a stray ")" is dropped
+        ("village, smithy(, market", ["village", "smithy", "market"], _UNCLOSED),
+        ("young_witch(moat, smithy", [("young_witch", ["moat"]), "smithy"], _UNCLOSED),
+        ("a(b(c), d, e", [("a", [("b", ["c"])]), "d", "e"], _UNCLOSED),
+        (
+            "smithy(, market(moat",
+            ["smithy", ("market", ["moat"])],
+            ["Closed 2 '(' at the end of the entry."],
+        ),
+        ("village, smithy), market", ["village", "smithy", "market"], _UNOPENED),
+        ("smithy(moat)), market", [("smithy", ["moat"]), "market"], _UNOPENED),
+        (
+            "young_witch(moat) extra, market",
+            [("young_witch", ["moat"]), "market"],
+            ["Ignored 'extra' after 'young_witch(moat)'."],
+        ),
+    ],
+)
+def test_tokenize_dombot_string(dombot_str: str, tree: list, notes: list[str]):
+    from random_kingdominion.kingdom.dombot_parsing import tokenize_dombot_string
+
+    entries, actual_notes = tokenize_dombot_string(dombot_str)
+    assert _entry_tree(entries) == tree
+    assert actual_notes == notes
+
+
+def test_normalized_colon_syntax_and_separators():
+    from random_kingdominion.kingdom.dombot_parsing import (
+        normalize_dombot_string,
+        tokenize_dombot_string,
+    )
+
+    normalized = normalize_dombot_string(
+        "Black Cat, Way_of_the_Mouse:Menagerie, Conquest -m NoColonies; NoShelters"
+    )
+    assert _entry_tree(tokenize_dombot_string(normalized)[0]) == [
+        "black cat",
+        ("way_of_the_mouse", ["menagerie"]),
+        "conquest",
+        "nocolonies",
+        "noshelters",
+    ]
+
+
+# Daily 2024-03-20, with the Bane nested into Ferryman's pile
+_FERRYMAN_ON_NESTED_YOUNG_WITCH = (
+    "barge, bounty_hunter, camel_train, cavalry, ferryman(young_witch(black_cat)), "
+    "hamlet, horn_of_plenty, remake, sleigh, stockpile"
+)
+
+
+def test_nested_special_targets():
+    """A target resolves its own targets without becoming a pile itself (M19)."""
+    kingdom = rk.Kingdom.from_dombot_csv_string(_FERRYMAN_ON_NESTED_YOUNG_WITCH)
+    assert kingdom.notes == ""
+    assert kingdom.ferryman_pile == "young_witch"
+    assert kingdom.bane_pile == "black_cat"
+    assert "black_cat" in kingdom.cards and "young_witch" not in kingdom.cards
+    assert kingdom.is_valid, kingdom.invalidity_reasons
+    assert kingdom == rk.Kingdom.from_dombot_csv_string(_FERRYMAN_ON_YOUNG_WITCH)
+    _test_dombot_readin_readout(_FERRYMAN_ON_NESTED_YOUNG_WITCH)
+
+    kingdom = rk.Kingdom.from_dombot_csv_string(
+        "nearby(druid(the_earths_gift, the_flames_gift, the_swamps_gift)), village, "
+        "smithy, militia, market, mine, witch, festival, library, moat"
+    )
+    assert kingdom.notes == ""
+    assert kingdom.traits == [["nearby", "druid"]]
+    assert kingdom.druid_boons == [
+        "the_earths_gift",
+        "the_flames_gift",
+        "the_swamps_gift",
+    ]
+    assert "druid" in kingdom.cards  # As a Trait's target
+    assert kingdom.is_valid, kingdom.invalidity_reasons
+
+
+def test_specials_inside_typhoon_are_ignored():
+    """Typhoon's piles join later, like Divine Wind's, so their specials don't apply
+    to the kingdom (campaign Rising Sun 5; M19, step 9)."""
+    kingdom = rk.Kingdom.from_dombot_csv_string(
+        "mountain_shrine, snake_witch, aristocrat, council_room, gold_mine, kitsune, "
+        "mine, ronin, artisan, samurai, good_harvest, credit, twist_typhoon(harbinger, "
+        "alley, riverboat(imperial_envoy), village)"
+    )
+    assert kingdom.notes == (
+        "Specials inside Typhoon aren't supported yet, ignored the targets of: "
+        "riverboat(imperial_envoy).\n"
+    )
+    assert kingdom.riverboat_card == ""
+    assert kingdom.effect_targets["typhoon"] == [
+        "alley",
+        "harbinger",
+        "riverboat",
+        "village",
+    ]
+    assert kingdom.is_valid, kingdom.invalidity_reasons
+
+
+def test_ignored_and_unknown_targets_get_notes():
+    kingdom = rk.Kingdom.from_dombot_csv_string(
+        "village(smithy), young_witch(moat, cellar), young_witch(harbinger), "
+        "ferryman(not_a_card), obelisk(village)"
+    )
+    assert kingdom.bane_pile == "moat"  # The first one counts
+    assert kingdom.ferryman_pile == ""
+    assert kingdom.obelisk_pile == "village"
+    assert kingdom.notes == (
+        "The following inputs could not be associated with any known CSOs: "
+        "'not_a_card'\n"
+        "The following targets were ignored, as their CSO takes none or only one: "
+        "'village(smithy)', 'young_witch(cellar)', 'young_witch(harbinger)'\n"
+    )
+    # Repeating the same target is a duplicate, not an ignored target
+    kingdom = rk.Kingdom.from_dombot_csv_string("young_witch(moat), young_witch(moat)")
+    assert kingdom.notes == "Duplicates: {'young_witch(moat)': 2}\n"
+
+
+def test_unrecognized_inputs_are_noted_in_input_order():
+    kingdom = rk.Kingdom.from_dombot_csv_string("village, zzz, smithy, foo, aaa, foo")
+    assert kingdom.notes.startswith(
+        "The following inputs could not be associated with any known CSOs: "
+        "'zzz', 'foo', 'aaa'\n"
+    )
+
+
+@pytest.mark.parametrize("effect", ["add_card", "in_play", "tavern"])
+def test_effects_on_specific_cards_keep_the_card(effect: str):
+    """Like the replacements of starting cards, these target a specific card (Lich),
+    not its split pile (Wizards), which doesn't become a pile either (M19)."""
+    kingdom = rk.Kingdom.from_dombot_csv_string(
+        f"village, smithy, militia, moat, market, mine, witch, festival, library, "
+        f"laboratory -x start_{effect}(lich)"
+    )
+    assert kingdom.notes == ""
+    assert kingdom.effect_targets == {effect: ["lich"]}
+    assert "wizards" not in kingdom.cards and "lich" not in kingdom.cards
+    _test_dombot_readin_readout(f"village, smithy -x start_{effect}(lich)")
