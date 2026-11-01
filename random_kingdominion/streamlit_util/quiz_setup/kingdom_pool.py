@@ -10,10 +10,13 @@ from functools import lru_cache
 
 from ...constants import (
     EXPANSION_LIST,
+    FPATH_KINGDOMS_RECOMMENDED,
+    FPATH_KINGDOMS_TGG_DAILIES,
     QUALITIES_AVAILABLE,
     SPECIAL_QUAL_TYPES_AVAILABLE,
 )
 from ...kingdom import Kingdom, KingdomManager, KingdomRandomizer
+from ...utils import get_modification_timestamp
 from ...utils.config import CustomConfigParser, add_renewed_base_expansions
 from ...utils.kingdom_helper_funcs import sanitize_cso_list, sanitize_cso_name
 
@@ -192,15 +195,33 @@ def _get_csos_expansions(info: dict) -> frozenset[str]:
         return frozenset({"Unknown"})
 
 
-@lru_cache(maxsize=None)
+_SOURCE_FILES = {
+    QuizPoolSource.RECOMMENDED: FPATH_KINGDOMS_RECOMMENDED,
+    QuizPoolSource.TGG_DAILIES: FPATH_KINGDOMS_TGG_DAILIES,
+}
+
+
+def _get_file_mod_time(source: QuizPoolSource) -> int:
+    """The caches below are keyed by it, as Community Cloud copies a push into the
+    running app without restarting it (M27), which kept the old Dailies."""
+    if source not in _SOURCE_FILES:
+        raise ValueError(f"{source} is not a curated pool.")
+    return get_modification_timestamp(_SOURCE_FILES[source])
+
+
 def _load_curated_kingdoms(source: QuizPoolSource) -> tuple[_CuratedKingdom, ...]:
+    return _load_curated_kingdoms_of_file(source, _get_file_mod_time(source))
+
+
+@lru_cache(maxsize=4)
+def _load_curated_kingdoms_of_file(
+    source: QuizPoolSource, mod_time: int
+) -> tuple[_CuratedKingdom, ...]:
     manager = KingdomManager()
     if source is QuizPoolSource.RECOMMENDED:
         manager.load_recommended_kingdoms()
-    elif source is QuizPoolSource.TGG_DAILIES:
-        manager.load_tgg_dailies()
     else:
-        raise ValueError(f"{source} is not a curated pool.")
+        manager.load_tgg_dailies()
     kingdoms: dict[_KingdomIdentity, _CuratedKingdom] = {}
     for info in manager.kingdoms:
         # Twists, stamps and setup effects change a kingdom in ways the qualities
@@ -218,14 +239,22 @@ def _load_curated_kingdoms(source: QuizPoolSource) -> tuple[_CuratedKingdom, ...
     return tuple(kingdoms.values())
 
 
-@lru_cache(maxsize=64)
 def _get_available_curated_kingdoms(
     pool: QuizKingdomPool,
 ) -> tuple[_CuratedKingdom, ...]:
     """The curated kingdoms of the pool that only use its expansions."""
+    return _get_available_curated_kingdoms_of_file(
+        pool, _get_file_mod_time(pool.source)
+    )
+
+
+@lru_cache(maxsize=64)
+def _get_available_curated_kingdoms_of_file(
+    pool: QuizKingdomPool, mod_time: int
+) -> tuple[_CuratedKingdom, ...]:
     return tuple(
         k
-        for k in _load_curated_kingdoms(pool.source)
+        for k in _load_curated_kingdoms_of_file(pool.source, mod_time)
         if uses_only_expansions(k.csos_expansions, pool.expansions)
     )
 
@@ -250,15 +279,19 @@ def count_available_kingdoms(pool: QuizKingdomPool) -> int | None:
     return len(_get_available_curated_kingdoms(pool))
 
 
-@lru_cache(maxsize=None)
-def _get_curated_names(source: QuizPoolSource) -> dict[_KingdomIdentity, str]:
-    return {k.identity: k.name for k in _load_curated_kingdoms(source) if k.name}
+@lru_cache(maxsize=4)
+def _get_curated_names(
+    source: QuizPoolSource, mod_time: int
+) -> dict[_KingdomIdentity, str]:
+    kingdoms = _load_curated_kingdoms_of_file(source, mod_time)
+    return {k.identity: k.name for k in kingdoms if k.name}
 
 
 def get_curated_kingdom_name(pool: QuizKingdomPool, kingdom_str: str) -> str | None:
     if not pool.source.is_curated:
         return None
-    return _get_curated_names(pool.source).get(_get_identity_of_string(kingdom_str))
+    names = _get_curated_names(pool.source, _get_file_mod_time(pool.source))
+    return names.get(_get_identity_of_string(kingdom_str))
 
 
 def get_quiz_randomizer_config(expansions: Sequence[str]) -> CustomConfigParser:

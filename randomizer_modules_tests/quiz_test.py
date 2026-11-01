@@ -703,6 +703,29 @@ def test_curated_pool_only_uses_selected_expansions_and_never_repeats() -> None:
         draw_quiz_kingdom(pool, exclude=drawn)
 
 
+def test_curated_pools_pick_up_changed_kingdom_files(monkeypatch) -> None:
+    """Community Cloud copies a push into the running app, so a pool cached once
+    per process kept the old Dailies; it's keyed by the file's modification time."""
+    loads = []
+    load_recommended = KingdomManager.load_recommended_kingdoms
+
+    def counting_load(self):
+        loads.append(1)
+        load_recommended(self)
+
+    monkeypatch.setattr(KingdomManager, "load_recommended_kingdoms", counting_load)
+    mod_time = [-1]  # Not a real file's, so not cached by other tests
+    monkeypatch.setattr(kingdom_pool, "_get_file_mod_time", lambda _: mod_time[0])
+    pool = QuizKingdomPool(QuizPoolSource.RECOMMENDED, QUIZ_EXPANSION_OPTIONS)
+
+    count = count_available_kingdoms(pool)
+    assert get_curated_kingdom_name(pool, draw_quiz_kingdom(pool))
+    assert len(loads) == 1  # Once for all of them
+    mod_time[0] = -2  # The file was updated
+    assert count_available_kingdoms(pool) == count
+    assert len(loads) == 2
+
+
 def test_tgg_dailies_count_duplicates_once() -> None:
     pool = QuizKingdomPool(QuizPoolSource.TGG_DAILIES, QUIZ_EXPANSION_OPTIONS)
     curated = kingdom_pool._load_curated_kingdoms(QuizPoolSource.TGG_DAILIES)
