@@ -12,9 +12,9 @@ st.write(
 
 segmented_options = [
     f"{rk.ST_ICONS['video']} Introduction Video",
-    f"🃏 About CSOs",
-    f"📝 Description of subsites",
-    f"ℹ️ Miscellaneous",
+    "🃏 About CSOs",
+    "📝 Description of subsites",
+    "ℹ️ Miscellaneous",
     "⚠️ Affiliations",
 ]
 

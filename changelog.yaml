@@ -10,6 +10,7 @@
   - Riverboat could get the whole Knights pile; it now gets single cards (e.g. one Knight), like Way of the Mouse (e.g. Settlers), and only from piles that aren't in the kingdom
   - A Liaison as Riverboat's or Way of the Mouse's card or as Ferryman's pile could come without an Ally after a reroll
   - Druid as Way of the Mouse's card, with its Boons, is no longer marked as invalid
+  - Kingdom strings may list several targets of a Trait in one entry, as TGG's campaigns do (e.g. "friendly(scavenger, trickster)"), and understand TGG's "chameleonize" Stamp
   - The card database's "Require CSOs to be cards" filter no longer lists the Knights, Castles and Ruins piles themselves, only their cards
   - Kingdom strings may nest special targets, e.g. "ferryman(young_witch(vassal))" for Vassal as the Bane of Young Witch as Ferryman's pile, and are printed that way
   - Divine Wind's piles may have their own special targets (e.g. a Bane), count for the expansions you need, and are checked for Allies and Prophecies

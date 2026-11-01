@@ -2,7 +2,7 @@
 
 import pandas as pd
 
-from ....constants import ALL_CSOS, ROTATOR_DICT, SPLITPILE_DICT
+from ....constants import ROTATOR_DICT, SPLITPILE_DICT
 from ....logger import LOGGER
 from ..constants import (
     ACTION_TREASURES,
@@ -512,7 +512,7 @@ def _add_all_reserve_interactions(df: pd.DataFrame):
     cheap_reserves = "Ratcatcher|Guide|Duplicate|Transmogrify"
     bom_cap = f"Band of Misfits|Captain/{cheap_reserves}---If you play a {{card_b}} using {{card_a}}, you don't put anything onto your Tavern mat."
     add_multiple_interactions_from_single(bom_cap, df)
-    summon = f"Summon/Ratcatcher|Guide|Transmogrify---If you buy Summon to set aside a {{card_b}} and play it at the start of your next turn, you'll immediately be able to call it then."
+    summon = "Summon/Ratcatcher|Guide|Transmogrify---If you buy Summon to set aside a {card_b} and play it at the start of your next turn, you'll immediately be able to call it then."
     add_multiple_interactions_from_single(summon, df)
     rule = "If you buy Summon to set aside a Royal Carriage (e.g. by having Cost Reduction) and play it at the start of your next turn, you'll immediately be able to call it then."
     add_interaction("Summon", "Royal Carriage", rule, df)
@@ -599,7 +599,7 @@ def _add_all_patron_interactions(df: pd.DataFrame):
 
 
 def _add_all_peasant_interactions(df: pd.DataFrame):
-    rule = f"You can never put any token on the Castles pile (even with Small or Opulent Castle on top) using Teacher because they are only a Victory Supply pile, not an Action supply pile."
+    rule = "You can never put any token on the Castles pile (even with Small or Opulent Castle on top) using Teacher because they are only a Victory Supply pile, not an Action supply pile."
     add_interaction("Castles", "Peasant", rule, df)
     splitpiles = (
         list(SPLITPILE_DICT.keys()) + list(ROTATOR_DICT.keys()) + ["Ruins", "Knights"]
@@ -607,11 +607,11 @@ def _add_all_peasant_interactions(df: pd.DataFrame):
     for pile in splitpiles:
         rule = f"You may put any token on the {pile} pile using Teacher. This will affect all of its cards."
         add_interaction(pile, "Peasant", rule, df)
-    rule = f"Once Divine Wind is triggered, any token is removed from its pile upon the pile's removal."
+    rule = "Once Divine Wind is triggered, any token is removed from its pile upon the pile's removal."
     add_interaction("Peasant", "Divine Wind", rule, df, add_together_if_present=True)
-    rule = f"Even after buying Inheritance, you may not put any token on the Estate pile using Teacher as it's not natively an Action supply pile."
+    rule = "Even after buying Inheritance, you may not put any token on the Estate pile using Teacher as it's not natively an Action supply pile."
     add_interaction("Inheritance", "Peasant", rule, df)
-    rule = f"Even if Enlightenment is active, you may not put any token on any Treasure pile using Teacher as it's not natively an Action supply pile."
+    rule = "Even if Enlightenment is active, you may not put any token on any Treasure pile using Teacher as it's not natively an Action supply pile."
     add_interaction("Enlightenment", "Peasant", rule, df)
 
 

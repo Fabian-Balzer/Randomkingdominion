@@ -76,7 +76,7 @@ def _add_on_overpay_infirmary_interaction(on_gain_play_cso: str, df: pd.DataFram
 
 def _add_on_gain_play_duplicate_interaction(on_gain_play_cso: str, df: pd.DataFrame):
     if on_gain_play_cso == "Gondola":
-        rule = f"When you gain a Gondola and play a Duplicate from your hand, you may call it directly to gain another Gondola."
+        rule = "When you gain a Gondola and play a Duplicate from your hand, you may call it directly to gain another Gondola."
     else:
         rule = f"When you gain Duplicate and play it immediately using {on_gain_play_cso}, you may call it directly to gain another copy of it."
     add_interaction("Duplicate", on_gain_play_cso, rule, df)
@@ -86,7 +86,7 @@ def _add_on_gain_play_enlightenment_interactions(
     on_gain_play_cso: str, df: pd.DataFrame
 ):
     if on_gain_play_cso == "Gondola":
-        rule = f"If Enlightenment is active and you gain a Gondola in your buy phase, you can play an Treasure from your hand, which will give you the usual effect."
+        rule = "If Enlightenment is active and you gain a Gondola in your buy phase, you can play an Treasure from your hand, which will give you the usual effect."
     else:
         rule = f"If Enlightenment is active and you gain a Treasure in your buy phase, you can play it immediately using {on_gain_play_cso}, causing you to receive the usual effect."
     add_interaction("Enlightenment", on_gain_play_cso, rule, df)
@@ -99,13 +99,13 @@ def _add_on_gain_play_gatekeeper_interaction(
         return
     rule = f"If your opponent has played Gatekeeper, you gain a{extra_str} card and you don't have a copy of the gained card in Exile, you may choose whether to resolve {on_gain_play_cso} or the exiling first; if you play the gained{extra_str} card, it cannot be moved to Exile and vice versa."
     if on_gain_play_cso == "Berserker":
-        rule = f"If your opponent has played Gatekeeper, you gain a Berserker and you don't have a copy of Berserker in Exile, you may choose whether to resolve playing the Berserker or the exiling first; if you play it, it cannot be moved to Exile and vice versa."
+        rule = "If your opponent has played Gatekeeper, you gain a Berserker and you don't have a copy of Berserker in Exile, you may choose whether to resolve playing the Berserker or the exiling first; if you play it, it cannot be moved to Exile and vice versa."
     add_interaction("Gatekeeper", on_gain_play_cso, rule, df)
 
 
 def _add_on_gain_play_galleria_interaction(on_gain_play_cso: str, df: pd.DataFrame):
     if on_gain_play_cso == "Gondola":
-        rule = f"When you gain a Gondola and play a Galleria from your hand, you will immediately get +Buy from the Gondola gain."
+        rule = "When you gain a Gondola and play a Galleria from your hand, you will immediately get +Buy from the Gondola gain."
     else:
         rule = f"When you gain a cost-reducing card (like Highway, Bridge, or Inventor) and play it immediately using {on_gain_play_cso} after having played a Galleria, the card's cost before the gain will determine whether you get +Buy (e.g. you won't get +Buy if Highway costs $5 before gaining and playing it).\nOn the other hand, if you gain a Galleria and play it immediately using {on_gain_play_cso}, you will get +Buy from the Galleria gain if you have reduced its cost to $3 or $4 prior to the gain."
     add_interaction("Galleria", on_gain_play_cso, rule, df)
@@ -113,7 +113,7 @@ def _add_on_gain_play_galleria_interaction(on_gain_play_cso: str, df: pd.DataFra
 
 def _add_on_gain_play_inventor_interactions(on_gain_play_cso: str, df: pd.DataFrame):
     if on_gain_play_cso == "Gondola":
-        rule = f"When you gain a Gondola with an Inventor and use its on-gain ability to play an Inventor from your hand, since the first Inventor is not resolved, its cost-reduction does not apply then."
+        rule = "When you gain a Gondola with an Inventor and use its on-gain ability to play an Inventor from your hand, since the first Inventor is not resolved, its cost-reduction does not apply then."
     else:
         rule = f"When you play an Inventor to gain and play another Inventor immediately using {on_gain_play_cso}, the cost of the cards will not yet be reduced as the first Inventor's 'gain a card costing up to $4' effect has not been resolved."
     add_interaction("Inventor", on_gain_play_cso, rule, df)
@@ -121,7 +121,7 @@ def _add_on_gain_play_inventor_interactions(on_gain_play_cso: str, df: pd.DataFr
 
 def _add_on_gain_play_haggler_interaction(on_gain_play_cso: str, df: pd.DataFrame):
     if on_gain_play_cso == "Gondola":
-        rule = f"When you buy and gain a Gondola and play a Haggler from your hand, you will gain a card costing less than the Gondola."
+        rule = "When you buy and gain a Gondola and play a Haggler from your hand, you will gain a card costing less than the Gondola."
     else:
         rule = f"When you buy and gain a Haggler and play it immediately using {on_gain_play_cso}, you will gain a card costing less than it."
     add_interaction("Haggler", on_gain_play_cso, rule, df)
@@ -129,7 +129,7 @@ def _add_on_gain_play_haggler_interaction(on_gain_play_cso: str, df: pd.DataFram
 
 def _add_on_gain_play_livery_interaction(on_gain_play_cso: str, df: pd.DataFrame):
     if on_gain_play_cso == "Gondola":
-        rule = f"When you gain a Gondola and play a Livery from your hand, you will gain a Horse due to the Gondola gain."
+        rule = "When you gain a Gondola and play a Livery from your hand, you will gain a Horse due to the Gondola gain."
     else:
         rule = f"When you gain a Livery and play it immediately using {on_gain_play_cso}, you gain a Horse from its gain."
     add_interaction("Livery", on_gain_play_cso, rule, df)
@@ -137,7 +137,7 @@ def _add_on_gain_play_livery_interaction(on_gain_play_cso: str, df: pd.DataFrame
 
 def _add_on_gain_play_guildmaster_interaction(on_gain_play_cso: str, df: pd.DataFrame):
     if on_gain_play_cso == "Gondola":
-        rule = f"When you gain a Gondola and play a Guildmaster from your hand, you will receive a Favor due to the Gondola gain."
+        rule = "When you gain a Gondola and play a Guildmaster from your hand, you will receive a Favor due to the Gondola gain."
     else:
         rule = f"When you gain a Guildmaster and play it immediately using {on_gain_play_cso}, you receive a Favor from its gain."
     add_interaction("Guildmaster", on_gain_play_cso, rule, df)
@@ -165,7 +165,7 @@ def _add_on_gain_play_skirmisher_interaction(on_gain_play_cso: str, df: pd.DataF
 
 def _add_on_gain_play_kiln_interaction(on_gain_play_cso: str, df: pd.DataFrame):
     if on_gain_play_cso == "Gondola":
-        rule = f"When you gain a Gondola and play a Kiln from your hand, you will not be able to gain another Gondola due to Kiln's 'Next Time' wording. Instead, the next card you play will be subject to its effect."
+        rule = "When you gain a Gondola and play a Kiln from your hand, you will not be able to gain another Gondola due to Kiln's 'Next Time' wording. Instead, the next card you play will be subject to its effect."
     else:
         rule = f"When you gain a Kiln and play it immediately using {on_gain_play_cso}, you will not be able to gain another Kiln due to its 'Next Time' wording. Instead, the next card you play will be subject to its effect."
     add_interaction("Kiln", on_gain_play_cso, rule, df)
@@ -183,9 +183,9 @@ def _add_on_gain_play_siren_interaction(on_gain_play_cso: str, df: pd.DataFrame)
 
 def _add_on_gain_play_changeling_interaction(on_gain_play_cso: str, df: pd.DataFrame):
     if on_gain_play_cso == "Gondola":
-        rule = f"When gaining a Gondola, you can both exchange it for a Changeling and make use of its on-gain effect."
+        rule = "When gaining a Gondola, you can both exchange it for a Changeling and make use of its on-gain effect."
     elif on_gain_play_cso == "Spell Scroll":
-        rule = f"When gaining a card via Spell Scroll, you can first exchange it for a Changeling, but then won't be able to play it."
+        rule = "When gaining a card via Spell Scroll, you can first exchange it for a Changeling, but then won't be able to play it."
     else:
         rule = f"If you play a gained card using {on_gain_play_cso}, you cannot exchange it for a Changeling afterwards. Conversely, you cannot play it anymore after having exchanged it for a Changeling."
     add_interaction("Changeling", on_gain_play_cso, rule, df)
@@ -281,7 +281,7 @@ def _add_on_gain_topdeck_villa_interaction(
     if choice:
         rule = f"If you gain a Villa, you can decide whether to topdeck it using {topdeck_cso}, or gain it to your hand. In any case, you will receive +1 Action and return to your Action phase if you're in your buy phase."
     elif topdeck_cso == "Progress":
-        rule = f"If you gain a Villa while Progress is active, it is topdecked instead of put into your hand (unless you gain it on top of your deck directly with e.g. Armory, in which case it paradoxically is put into your hand afterwards)."
+        rule = "If you gain a Villa while Progress is active, it is topdecked instead of put into your hand (unless you gain it on top of your deck directly with e.g. Armory, in which case it paradoxically is put into your hand afterwards)."
     else:
         rule = f"If you gain a Villa using {topdeck_cso}, it is first topdecked and then you put it into your hand."
     add_interaction("Villa", topdeck_cso, rule, df)
@@ -344,7 +344,7 @@ def _add_on_gain_hand_gatekeeper_interaction(hand_cso: str, df: pd.DataFrame):
 
 def _add_night_gain_to_hand_gatekeeper(df: pd.DataFrame):
     rule = "Guardian|Den of Sin|Night Watchman|Ghost Town/Gatekeeper---If you gain a {card_a} to your hand while under the Gatekeeper attack, you do not exile it."
-    TODO: CONFIRM
+    # TODO: confirm
     add_multiple_interactions_from_single(rule, df)
 
 
@@ -386,7 +386,7 @@ def _add_multi_gain_gatekeeper_interaction(df: pd.DataFrame):
         rule = f"If you gain two {cso}s while under the Gatekeeper attack, if you don't already have a copy in Exile, you need to exile the first, but may discard the exiled copy along with the gain of the second."
         add_interaction("Gatekeeper", cso, rule, df, add_together_if_present=True)
     # Fortune/Beggar
-    rule = f"If you gain a Fortune while having two or more Gladiators in play while under the Gatekeeper attack, if you don't already have a copy of Gold in Exile, you need to exile the first, but may discard the exiled copy along with any later Gold gains."
+    rule = "If you gain a Fortune while having two or more Gladiators in play while under the Gatekeeper attack, if you don't already have a copy of Gold in Exile, you need to exile the first, but may discard the exiled copy along with any later Gold gains."
     add_interaction("Gatekeeper", "Fortune", rule, df)
 
 
@@ -394,7 +394,7 @@ def _add_beggar_extra_interactions(df: pd.DataFrame):
     add_interaction(
         "Beggar",
         "Sheepdog",
-        f"If you react with a Beggar to an Attack, the first Silver you gain is topdecked, so you will draw it if you react with a Sheepdog to the second Silver gain. If you react Sheepdog to the first Silver gain, you draw two cards, topdeck it, and gain the other one to the discard pile, or can react with Sheepdog to the second Silver gain and draw the first one immediately. NOTE THAT ON THE TGG CLIENT, THIS IS CURRENTLY IMPLEMENTED THE OTHER WAY AROUND.",
+        "If you react with a Beggar to an Attack, the first Silver you gain is topdecked, so you will draw it if you react with a Sheepdog to the second Silver gain. If you react Sheepdog to the first Silver gain, you draw two cards, topdeck it, and gain the other one to the discard pile, or can react with Sheepdog to the second Silver gain and draw the first one immediately. NOTE THAT ON THE TGG CLIENT, THIS IS CURRENTLY IMPLEMENTED THE OTHER WAY AROUND.",
         df,
     )
     add_interaction(
@@ -417,15 +417,15 @@ def _add_on_gain_topdeck_gatekeeper_interaction(
 ):
     rule = f"If you gain a card that you do not have a copy of in Exile and topdeck it first using {topdeck_cso} while under the Gatekeeper attack, you do not need to put it into Exile."
     if topdeck_cso == "Sleigh":
-        rule = f"If you gain an Action or Treasure that you do not have a copy of in Exile while under the Gatekeeper attack, you can choose to first react with Sleigh to topdeck or put it into your hand, in which case you do not put it into Exile."
+        rule = "If you gain an Action or Treasure that you do not have a copy of in Exile while under the Gatekeeper attack, you can choose to first react with Sleigh to topdeck or put it into your hand, in which case you do not put it into Exile."
     elif topdeck_cso == "Watchtower":
-        rule = f"If you gain an Action or Treasure that you do not have a copy of in Exile while under the Gatekeeper attack, you can choose to first react with Watchtower to topdeck or trash it, in which case you do not put it into Exile."
+        rule = "If you gain an Action or Treasure that you do not have a copy of in Exile while under the Gatekeeper attack, you can choose to first react with Watchtower to topdeck or trash it, in which case you do not put it into Exile."
     elif choice:
         rule = f"If you gain an Action or Treasure that you do not have a copy of in Exile while under the Gatekeeper attack, you can choose to first topdeck it using {topdeck_cso}, in which case you do not put it into Exile."
     elif topdeck_cso == "Invasion":
-        rule = f"If you are under the Gatekeeper attack and buy Invasion, both the Action card and the Loot you gain are Exiled (instead of topdecked and played) unless you have a copy of it in Exile."
+        rule = "If you are under the Gatekeeper attack and buy Invasion, both the Action card and the Loot you gain are Exiled (instead of topdecked and played) unless you have a copy of it in Exile."
     elif topdeck_cso == "Progress":
-        rule = f"When you gain an Action or Treasure of which you do not have a copy in Exile while Progress is active and you are under the Gatekeeper attack, you may decide whether to topdeck or Exile it."
+        rule = "When you gain an Action or Treasure of which you do not have a copy in Exile while Progress is active and you are under the Gatekeeper attack, you may decide whether to topdeck or Exile it."
     else:
         rule = f"When you gain an Action or Treasure using {topdeck_cso} while under the Gatekeeper attack, it will be gained on top of your deck and then Exiled if you do not have a copy of it in Exile."
     add_interaction("Gatekeeper", topdeck_cso, rule, df)
@@ -441,7 +441,7 @@ def _add_on_gain_topdeck_rapid_expansion_interaction(
     elif choice:
         rule = f"When you gain a card while Rapid Expansion is active, you can decide to topdeck it using {topdeck_cso} instead of setting it aside."
     elif topdeck_cso == "Invasion":
-        rule = f"If Rapid Expansion is active, both the Action card and the Loot you gain are set aside (instead of topdecked and played)."
+        rule = "If Rapid Expansion is active, both the Action card and the Loot you gain are set aside (instead of topdecked and played)."
     else:
         rule = f"When you gain a card using {topdeck_cso}, it will be gained on top of your deck and then be set aside if Rapid Expansion is active."
     add_interaction("rapid expansion", topdeck_cso, rule, df)

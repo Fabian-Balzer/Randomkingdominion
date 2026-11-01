@@ -67,9 +67,9 @@ def _add_token_event_interactions(event: str, token: str, df: pd.DataFrame):
         rule = f"Once Divine Wind is triggered, the {token} token is removed from its pile upon the pile's removal if you have bought {event} before that."
         add_interaction(event, "Divine Wind", rule, df)
     if event == "Seaway":
-        rule = f"After buying Inheritance, you may gain an Estate and put your +Buy token on it using Seaway."
+        rule = "After buying Inheritance, you may gain an Estate and put your +Buy token on it using Seaway."
         add_interaction("Inheritance", event, rule, df)
-        rule = f"If Enlightenment is active, you may gain an Action-Treasure costing up to $4 and put your +Buy token on it using Seaway."
+        rule = "If Enlightenment is active, you may gain an Action-Treasure costing up to $4 and put your +Buy token on it using Seaway."
         add_interaction("Enlightenment", event, rule, df)
         return
     rule = f"Even after buying Inheritance, you may not put the {token} token on the Estate pile using {event} as it's not an Action supply pile."
@@ -82,9 +82,9 @@ def _add_individual_event_interactions(df: pd.DataFrame):
     # INVEST
     castle_stuff = "Invest/Castles---You can Invest in Small Castle or Opulent Castle if it's on top, but would only draw cards if an opponent gained a copy of it (which is not possible in 2-player mode)."
     add_multiple_interactions_from_single(castle_stuff, df)
-    knight_stuff = f"Invest/Knights---You can Invest in Knights, but this will never draw you cards (since your opponent will never gain a copy of them) and they might be stranded in Exile."
+    knight_stuff = "Invest/Knights---You can Invest in Knights, but this will never draw you cards (since your opponent will never gain a copy of them) and they might be stranded in Exile."
     add_multiple_interactions_from_single(knight_stuff, df)
-    ruins_stuff = f"Invest/Ruins---You can Invest in Ruins, but you will only draw cards if another player gains a copy of the exact Ruins you exiled."
+    ruins_stuff = "Invest/Ruins---You can Invest in Ruins, but you will only draw cards if another player gains a copy of the exact Ruins you exiled."
     add_multiple_interactions_from_single(ruins_stuff, df)
     for event, token in TOKEN_EVENTS.items():
         _add_token_event_interactions(event, token, df)

@@ -370,7 +370,7 @@ if "Image" in cols:
     cols = ["ImagePath"] + cols
 rk.display_stylysed_cso_df(FILTERED_DF[cols + ["Name"]], with_reroll=False)
 
-text = f"*Hint*: You can click on the column names to sort the table."
+text = "*Hint*: You can click on the column names to sort the table."
 st.info(text)
 
 

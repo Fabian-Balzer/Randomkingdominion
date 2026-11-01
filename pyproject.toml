@@ -66,3 +66,22 @@ markers = [
 target-version = ["py313"]
 # The owner's local notebooks are read-only for agents
 extend-exclude = "scripts/notebooks"
+
+[tool.ruff]
+target-version = "py312"
+# Notebooks are read-only for agents (also those in card_info/)
+extend-exclude = ["*.ipynb"]
+
+[tool.ruff.lint]
+# The pyflakes rules for a start (M22): unused imports and variables, undefined names
+select = ["F"]
+
+[tool.ruff.lint.per-file-ignores]
+# Star imports make the package's names reachable as rk.<name> (M18)
+"__init__.py" = ["F401", "F403"]
+"random_kingdominion/utils/interaction_setup/write_interaction_database.py" = [
+    "F403",
+    "F405",
+]
+# A template to copy, with the imports a new file usually needs
+"random_kingdominion/utils/interaction_setup/specifics/mechanic_template.py" = ["F401"]

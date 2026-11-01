@@ -22,7 +22,7 @@ def build_combo_inter_filter_expansion(
     name = get_name(pair_type)
     key_in_exp = f"{pair_type}_require_same_exp"
     req_same_exp = flex.checkbox(
-        f"Req. Same Expansion",
+        "Req. Same Expansion",
         value=st.session_state.get(key_in_exp, False),
         key=key_in_exp,
         help=f"Limit to {name}s where both CSOs are from the same expansion",

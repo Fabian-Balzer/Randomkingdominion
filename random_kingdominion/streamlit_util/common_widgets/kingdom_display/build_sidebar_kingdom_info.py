@@ -100,7 +100,7 @@ def _build_kingdom_combos_display(k: Kingdom):
         get_cached_combo_df(), k.full_kingdom_df.index, True
     )
     icon = ST_ICONS["combos"]
-    with st.expander(f"??? (Spoilers!)", expanded=False, icon=icon):
+    with st.expander("??? (Spoilers!)", expanded=False, icon=icon):
         st.warning("Please don't use this to analyze kingdoms for competitive play.")
         if len(combos) == 0:
             st.info("No synergies/combos/counters available for this kingdom.")

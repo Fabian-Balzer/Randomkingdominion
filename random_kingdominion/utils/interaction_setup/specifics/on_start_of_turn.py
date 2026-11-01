@@ -41,7 +41,7 @@ def _add_individual_on_start_of_turn_interactions(df: pd.DataFrame):
     add_interaction(
         "ninja",
         "invasion",
-        f"When buying Invasion, you may play a Ninja from your deck as the Attack.",
+        "When buying Invasion, you may play a Ninja from your deck as the Attack.",
         df,
     )
 

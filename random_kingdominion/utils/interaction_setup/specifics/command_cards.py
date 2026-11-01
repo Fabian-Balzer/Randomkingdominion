@@ -84,14 +84,14 @@ def _add_all_workshop_interactions(df: pd.DataFrame):
     add_multiple_interactions_from_single(
         remodel_inter, df, add_together_if_present=True
     )
-    remodel_inter = f"Band of Misfits|Captain/Remodel|Change|Remake---If you play {{card_b}} using {{card_a}}, trashing an appropriate card from your hand, you can gain another {{card_b}} with it (despite {{card_a}} saying 'leaving it there', as this just refers to the card moving into play)."
+    remodel_inter = "Band of Misfits|Captain/Remodel|Change|Remake---If you play {card_b} using {card_a}, trashing an appropriate card from your hand, you can gain another {card_b} with it (despite {card_a} saying 'leaving it there', as this just refers to the card moving into play)."
     add_multiple_interactions_from_single(
         remodel_inter, df, add_together_if_present=True
     )
 
 
 def _add_all_inheritance_interactions(df: pd.DataFrame):
-    inheritance_inter = f"Daimyo|Flagship/Inheritance---If you Inherit a non-Command card and have a {{card_a}} prior to playing an Estate, the set-aside card (not the Estate, which is a Command card) will be played again."
+    inheritance_inter = "Daimyo|Flagship/Inheritance---If you Inherit a non-Command card and have a {card_a} prior to playing an Estate, the set-aside card (not the Estate, which is a Command card) will be played again."
     add_multiple_interactions_from_single(inheritance_inter, df)
     play_estate = "Inheritance/Captain|Overlord|Band of Misfits|Necromancer---Even after setting aside a card with Inheritance, you may not play an Estate using {card_b} as Estates become Command cards."
     add_multiple_interactions_from_single(play_estate, df)

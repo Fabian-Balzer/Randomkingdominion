@@ -760,6 +760,17 @@ def test_same_trait_on_two_cards():
     _test_dombot_readin_readout(_NEARBY_ON_TWO_CARDS)
 
 
+def test_trait_with_two_targets_in_one_entry():
+    """TGG's campaigns write "friendly(scavenger, trickster)", which used to be
+    unrecognized (32 kingdoms of campaign_dump.yml, M30)."""
+    one_entry = _NEARBY_ON_TWO_CARDS.replace(
+        "nearby(imperial_envoy), nearby(engineer)", "nearby(imperial_envoy, engineer)"
+    )
+    kingdom = rk.Kingdom.from_dombot_csv_string(one_entry)
+    assert kingdom.notes == ""
+    assert kingdom == rk.Kingdom.from_dombot_csv_string(_NEARBY_ON_TWO_CARDS)
+
+
 def test_trait_on_a_non_supply_pile():
     kingdom = rk.Kingdom.from_dombot_csv_string(_SHY_ON_GOLD)
     assert kingdom.notes == ""
@@ -952,18 +963,23 @@ def test_copper_replacements_beyond_the_coppers_are_skipped(caplog):
     assert "4 Copper replacements, but only 3 Coppers" in caplog.text
 
 
-def test_too_many_estate_replacements_raise():
+def test_estate_replacements_beyond_the_estates_are_skipped(caplog):
+    """Like the Coppers (11 kingdoms of campaign_dump.yml, M30)."""
     kingdom = rk.Kingdom(
         ["village"], stamps_and_effects=[["replace_estate", "silver"]] * 4
     )
-    with pytest.raises(ValueError, match="4 Estate replacements"):
-        kingdom.get_starting_deck
+    with caplog.at_level("WARNING", logger=rk.LOGGER.name):
+        deck = kingdom.get_starting_deck
+    assert deck.count("silver") == 3 and "estate" not in deck
+    assert "4 Estate replacements, but only 3 Estates or Shelters" in caplog.text
 
 
 def test_campaign_effect_aliases():
-    """TGG calls the Free Stamp 'cost_zero' (Daily 2025-08-17)."""
+    """TGG calls the Free Stamp 'cost_zero' (Daily 2025-08-17) and writes
+    'chameleonize' in its campaigns (M30)."""
     assert rk.sanitize_cso_name("stamp_cost_zero") == "free"
     assert rk.sanitize_cso_name("harem") == "farm"
+    assert rk.sanitize_cso_name("stamp_chameleonize") == "chameleonized"
     kingdom = rk.Kingdom.from_dombot_csv_string(
         "monastery, sleigh, watchtower, sailor, wandering_minstrel, crypt, ronin, "
         "farmland, nobles, wayfarer, seize_the_day, stamp_cost_zero(seize_the_day)"
@@ -1006,6 +1022,21 @@ def test_specials_inside_divine_wind():
     assert subkingdom is not None and subkingdom.bane_pile == "vassal"
     assert "Young Witch (Vassal))" in kingdom.get_dombot_csv_string()
     _test_dombot_readin_readout(dombot_str)
+
+
+def test_bane_inside_divine_wind_is_stored_as_a_pile():
+    """Printing lists the Bane on its own, so the stored string changed after one
+    roundtrip when it was only entered as the target (2 kingdoms of
+    campaign_dump.yml, M30). Unknown piles stay, for their note."""
+    without_vassal = _DIVINE_WIND_WITH_BANE.replace(", vassal)", ")")
+    kingdom = rk.Kingdom.from_dombot_csv_string(without_vassal)
+    with_vassal = rk.Kingdom.from_dombot_csv_string(_DIVINE_WIND_WITH_BANE)
+    assert kingdom.divine_wind_cso_str == with_vassal.divine_wind_cso_str
+    printed = rk.Kingdom.from_dombot_csv_string(kingdom.get_dombot_csv_string())
+    assert printed.divine_wind_cso_str == kingdom.divine_wind_cso_str
+    unknown = rk.Kingdom.from_dombot_csv_string(without_vassal.replace("page", "foo"))
+    assert "foo" in unknown.divine_wind_cso_str.split(", ")
+    assert "divine_wind_incorrect" in _reason_keys(unknown)
 
 
 # Bauble is a Liaison, Band of Nomads its Ally

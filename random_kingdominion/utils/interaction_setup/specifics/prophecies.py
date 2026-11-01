@@ -17,11 +17,11 @@ from ..interaction_util import add_interaction, add_multiple_interactions_from_s
 
 
 def _add_game_change_divine_wind_interactions(df: pd.DataFrame):
-    rule = f"In games where Footpad is part of the initial kingdom, you still get +1 Card for every card gained during an Action phase even after Divine Wind has removed it from the Supply. If Footpad is instead part of the Divine Wind kingdom, the additional rule comes online once Divine Wind has been triggered."
+    rule = "In games where Footpad is part of the initial kingdom, you still get +1 Card for every card gained during an Action phase even after Divine Wind has removed it from the Supply. If Footpad is instead part of the Divine Wind kingdom, the additional rule comes online once Divine Wind has been triggered."
     add_interaction("Divine Wind", "Footpad", rule, df)
-    rule = f"In games where Charlatan is part of the initial kingdom, Curses are also Treasures worth $1 even after Divine Wind has removed it from the Supply. If Charlatan is instead part of the Divine Wind kingdom, the additional rule comes online once Divine Wind has been triggered."
+    rule = "In games where Charlatan is part of the initial kingdom, Curses are also Treasures worth $1 even after Divine Wind has removed it from the Supply. If Charlatan is instead part of the Divine Wind kingdom, the additional rule comes online once Divine Wind has been triggered."
     add_interaction("Divine Wind", "Charlatan", rule, df)
-    rule = f"In games where Shaman is part of the initial kingdom, you still gain a card costing up to $6 from the trash at the beginning of your turn even after Divine Wind has removed it from the Supply. If Shaman is instead part of the Divine Wind kingdom, the additional rule comes online once Divine Wind has been triggered."
+    rule = "In games where Shaman is part of the initial kingdom, you still gain a card costing up to $6 from the trash at the beginning of your turn even after Divine Wind has removed it from the Supply. If Shaman is instead part of the Divine Wind kingdom, the additional rule comes online once Divine Wind has been triggered."
     add_interaction("Divine Wind", "Shaman", rule, df)
 
 
@@ -251,13 +251,13 @@ def _add_panic_interactions(df: pd.DataFrame):
     add_interaction(
         "panic",
         "capital",
-        f"When discarding Capital from play and Panic is active, you need to return it to its pile and also get +6 Debt.",
+        "When discarding Capital from play and Panic is active, you need to return it to its pile and also get +6 Debt.",
         df,
     )
     add_interaction(
         "panic",
         "crown",
-        f"Even if you play Crown before Panic becomes active, if Panic becomes active later that turn, you need to return the Crown to its pile when you discard it from play.",
+        "Even if you play Crown before Panic becomes active, if Panic becomes active later that turn, you need to return the Crown to its pile when you discard it from play.",
         df,
     )
 

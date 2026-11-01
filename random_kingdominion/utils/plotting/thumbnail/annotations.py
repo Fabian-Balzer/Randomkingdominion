@@ -3,7 +3,7 @@ from typing import TYPE_CHECKING
 from matplotlib.axes import Axes
 
 from ....constants import ALL_CSOS
-from ..constants import CAMPAIGN_COLOR, DOM_BEIGE, XKCD_FONT
+from ..constants import CAMPAIGN_COLOR, XKCD_FONT
 from .config import TitleConfig
 from .icons import annotate_campaign_seal
 

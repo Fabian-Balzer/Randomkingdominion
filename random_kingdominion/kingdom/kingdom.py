@@ -26,7 +26,7 @@ from ..utils import (
     sanitize_cso_list,
     sanitize_cso_name,
 )
-from ..utils.kingdom_helper_funcs import explain_total_quality
+from ..utils.kingdom_helper_funcs import explain_total_quality, get_parent_piles
 from .dombot_parsing import (
     get_canonical_dombot_string,
     get_kingdom_fields,
@@ -92,13 +92,29 @@ def _normalize_target_pairs(
     return sorted(normalized)
 
 
+@lru_cache(maxsize=None)
 def _normalize_divine_wind_str(divine_wind_str: str) -> str:
     """The Divine Wind CSOs as sorted keys with their special targets, so that a
     kingdom compares equal however they were entered (display names or keys, any
-    order), e.g. ``"distant_lands, page, young_witch(vassal)"``."""
+    order), e.g. ``"distant_lands, page, vassal, young_witch(vassal)"``.
+
+    The piles that parsing adds for targets (e.g. the Bane) are included, as
+    printing lists them on their own: otherwise the string changed after printing
+    and parsing again (M30)."""
     if not isinstance(divine_wind_str, str) or not divine_wind_str:
         return ""  # Also a missing value (NaN) in a DataFrame row
-    return get_canonical_dombot_string(divine_wind_str)
+    canonical = get_canonical_dombot_string(divine_wind_str)
+    entries, _ = tokenize_dombot_string(canonical)
+    entered = {get_parent_piles().get(entry.name, entry.name) for entry in entries}
+    divine_wind = _get_divine_wind_kingdom(canonical)
+    added = [
+        pile
+        for pile in divine_wind.cards + divine_wind.landscapes
+        if pile not in entered
+    ]
+    if not added:
+        return canonical
+    return get_canonical_dombot_string(", ".join([canonical, *added]))
 
 
 def _sort_like_kingdom(keys: Iterable[str]) -> list[str]:
@@ -295,10 +311,12 @@ class Kingdom:
             for i, card in enumerate(starting_deck)
             if card == name
         ]
+        # Skipped once they've run out, like the Coppers below
         if len(estate_targets) > len(estate_slots):
-            raise ValueError(
-                f"{len(estate_targets)} Estate replacements, but only "
-                f"{len(estate_slots)} Estates or Shelters in the starting deck."
+            LOGGER.warning(
+                f"{self.name}: {len(estate_targets)} Estate replacements, but only "
+                f"{len(estate_slots)} Estates or Shelters in the starting deck; "
+                f"skipped {estate_targets[len(estate_slots):]}."
             )
         for slot, target in zip(estate_slots, estate_targets):
             starting_deck[slot] = target
@@ -527,11 +545,11 @@ class Kingdom:
                 text += f" (On: {', '.join(get_cso_name(t) for t in targets)})"
         # Do the same thing the other way round:
         if cso_key == self.bane_pile:
-            text += f" >>>Bane<<<"
+            text += " >>>Bane<<<"
         if cso_key == self.army_pile:
-            text += f" >>>For Approaching Army<<<"
+            text += " >>>For Approaching Army<<<"
         if cso_key == self.obelisk_pile:
-            text += f" >>>Obelisk<<<"
+            text += " >>>Obelisk<<<"
         for trait_or_effect in self.get_traits_on(cso_key) + self.get_effects_on(
             cso_key
         ):

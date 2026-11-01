@@ -272,7 +272,7 @@ def st_build_existing_kingdom_filter_widget(
         if selection_type == "TGG Dailies":
             with tabs[2]:
                 df = _build_tgg_winrate_filter_widget(df)
-            if num_after_third > (num_after_fourth := len(df)):
+            if num_after_third > len(df):
                 filt_str += ST_ICONS["winrate"]
     with flex:
         flex1 = st.container(horizontal=False, horizontal_alignment="right", width=170)

@@ -3,13 +3,13 @@ from typing import TYPE_CHECKING
 
 from matplotlib.axes import Axes
 
-from ....constants import EXPANSION_LIST, PATH_ASSETS
+from ....constants import PATH_ASSETS
 from ....logger import LOGGER
 from ....utils import sanitize_cso_name
 from ..constants import DOM_BEIGE
 from ..util import annotate_dominion_logo
 from .annotations import annotate_twists
-from .config import ExpansionIconsConfig, ThumbnailConfig
+from .config import ThumbnailConfig
 from .icons import (
     annotate_campaign_seal,
     annotate_difficulty,

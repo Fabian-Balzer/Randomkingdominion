@@ -59,7 +59,7 @@ def register_daily_kingdom(
     add_yt_note_basics: bool = True,
 ) -> KingdomManager:
     """Register the kingdom string for the given date in the tgg_dailies.txt file"""
-    txt_path = PATH_MAIN.joinpath(f"scripts/data/new_kingdoms/tgg_dailies.txt")
+    txt_path = PATH_MAIN.joinpath("scripts/data/new_kingdoms/tgg_dailies.txt")
     date = parse_daily_date(date_str)
     existing_kingdoms = _parse_existing_kingdoms_in_txt(txt_path)
     existing = existing_kingdoms.get(date, "").strip()

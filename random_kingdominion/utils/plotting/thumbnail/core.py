@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Literal
+from typing import TYPE_CHECKING
 
 from ..util import get_video_title, plot_gradient_image, set_up_fig_and_ax_for_img
 from .annotations import annotate_subtitle, annotate_title

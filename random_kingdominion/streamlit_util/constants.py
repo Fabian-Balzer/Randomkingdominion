@@ -5,7 +5,6 @@ from ..constants import (
     ALL_COMBOS,
     ALL_INTERACTIONS,
     EXPANSION_LIST,
-    PATH_ASSETS,
     PATH_CARD_INFO,
     RENEWED_EXPANSIONS,
     VALID_COMBO_TYPES,

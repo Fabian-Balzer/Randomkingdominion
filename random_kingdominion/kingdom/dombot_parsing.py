@@ -371,11 +371,11 @@ def _resolve_targets(
         if not parsed.divine_wind_cso_str:
             parsed.divine_wind_cso_str = ", ".join(arg.text for arg in args)
     elif key in keys.traits:
-        if len(args) > 1:  # Several targets of a Trait are listed separately
-            joined = ", ".join(arg.text for arg in args)
-            parsed.unrecognized.append(sanitize_cso_name(joined))
-        elif target := _resolve_target(args[0], parsed):
-            parsed.trait_targets.setdefault(key, []).append(target)
+        # Several targets (campaigns only) also come as one entry, e.g.
+        # "friendly(scavenger, trickster)" in TGG's campaigns
+        for arg in args:
+            if target := _resolve_target(arg, parsed):
+                parsed.trait_targets.setdefault(key, []).append(target)
     elif key in keys.effects:
         replace_parent_pile = key not in _EFFECTS_ON_SPECIFIC_CARDS
         if is_typhoon := key == "typhoon":

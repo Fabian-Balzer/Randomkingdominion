@@ -9,7 +9,7 @@ from ..interaction_util import add_interaction, add_multiple_interactions_from_s
 
 def _add_single_way_reckless_inter(way: str, df: pd.DataFrame):
     if "chameleon" in way.lower():
-        rule = f"[Only if Reckless is on an Action card] If you play a Reckless Action card using Way of the Chameleon, you follow its cards vs. $$ switched-around instructions twice, you do not get to choose in between."
+        rule = "[Only if Reckless is on an Action card] If you play a Reckless Action card using Way of the Chameleon, you follow its cards vs. $$ switched-around instructions twice, you do not get to choose in between."
     else:
         rule = f"[Only if Reckless is on an Action card] If you play a Reckless Action card using {way}, you will only play it as {way} once and then fail to follow its instructions the second time"
     if "turtle" in way.lower():

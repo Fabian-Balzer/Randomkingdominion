@@ -444,7 +444,7 @@ class DruidButNoBoons(InvalidityReason):
 class DruidBoonsSpecifiedButNoDruid(InvalidityReason):
 
     def get_description(self) -> str:
-        return f"Druid Boons have been specified, but Druid itself hasn't been added."
+        return "Druid Boons have been specified, but Druid itself hasn't been added."
 
     def check_if_invalid(self, k: Kingdom) -> bool:
         return not _uses_druid(k) and len(k.druid_boons) > 0

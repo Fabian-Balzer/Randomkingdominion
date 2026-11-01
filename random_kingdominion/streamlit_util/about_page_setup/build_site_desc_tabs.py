@@ -22,7 +22,7 @@ You can specify CSOs that you want to exclude, require, like, or dislike. The ra
 
 
 def _get_oracle_desc_text() -> str:
-    oracle_desc_text = f"""The Kingdom Oracle allows you to easily input a kingdom to visualize its engine qualities derived from the included CSOs, and to take a more detailed look on its cards. The resulting plot also shows any extra components you'd need to set up the kingdom in its physical form, and can also provide information on special combos or rules interactions that are present in the kingdom.
+    oracle_desc_text = """The Kingdom Oracle allows you to easily input a kingdom to visualize its engine qualities derived from the included CSOs, and to take a more detailed look on its cards. The resulting plot also shows any extra components you'd need to set up the kingdom in its physical form, and can also provide information on special combos or rules interactions that are present in the kingdom.
 
 ### How to use
 
@@ -42,12 +42,12 @@ You can select these kingdoms from a simple dropdown menu, and even filter them 
 
 
 def _get_cso_database_desc_text() -> str:
-    cso_db_desc_text = f"""The CSO Database page provides an overview of all CSOs available in the game of Dominion, and the qualities I have associated with them. You can filter and sort the CSOs by their properties, qualities, and other fun stuff."""
+    cso_db_desc_text = """The CSO Database page provides an overview of all CSOs available in the game of Dominion, and the qualities I have associated with them. You can filter and sort the CSOs by their properties, qualities, and other fun stuff."""
     return cso_db_desc_text
 
 
 def _get_cso_interactions_desc_text() -> str:
-    cso_inter_desc_text = f"""The CSO Interactions page allows you to explore interactions between CSOs that might catch you off-guard rules-wise. The project was initiated on discord by `nave`; while there are lot of different combinations, these do not cover the straight-forward interactions like your typical Village/Smithy. The interactions have been gathered with the assumption that those reading them have a base knowledge of the rules of Dominion and are looking for edge-cases and things that might not be 100 % intuitive.
+    cso_inter_desc_text = """The CSO Interactions page allows you to explore interactions between CSOs that might catch you off-guard rules-wise. The project was initiated on discord by `nave`; while there are lot of different combinations, these do not cover the straight-forward interactions like your typical Village/Smithy. The interactions have been gathered with the assumption that those reading them have a base knowledge of the rules of Dominion and are looking for edge-cases and things that might not be 100 % intuitive.
 
 ### Contribution
 
@@ -56,7 +56,7 @@ Please contact me via [discord](https://discord.gg/dominiongame) (e.g. in the #r
 
 
 def _get_cso_combos_desc_text() -> str:
-    cso_combos_desc_text = f"""The CSO Combo page allows you to explore pairwise CSO synergies, rushes, counters, and more.
+    cso_combos_desc_text = """The CSO Combo page allows you to explore pairwise CSO synergies, rushes, counters, and more.
 
 ### Contribution
 

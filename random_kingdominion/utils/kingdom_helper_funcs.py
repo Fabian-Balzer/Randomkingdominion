@@ -1,7 +1,7 @@
 """Helper functions needed for kingdom creation and manipulation."""
 
 from functools import lru_cache
-from typing import Any, Collection
+from typing import Collection
 
 import numpy as np
 import pandas as pd
@@ -129,7 +129,12 @@ def get_cso_sort_ranks() -> dict[str, int]:
 
 
 # Other names in use for a CSO, e.g. first-edition or TGG's internal names
-_CSO_ALIASES = {"harem": "farm", "harem_farm": "farm", "cost_zero": "free"}
+_CSO_ALIASES = {
+    "harem": "farm",
+    "harem_farm": "farm",
+    "cost_zero": "free",
+    "chameleonize": "chameleonized",  # TGG's spelling in campaigns
+}
 
 
 def sanitize_cso_name(name: str, replace_parent_pile: bool = False) -> str:
