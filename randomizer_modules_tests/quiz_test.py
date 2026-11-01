@@ -624,6 +624,26 @@ def test_expansion_filter_handles_editions(
     assert uses_only_expansions(csos_expansions, selected) is expected
 
 
+def test_curated_kingdoms_need_the_expansions_of_their_divine_wind_piles() -> None:
+    """They come from the Kingdom (M19, step 11), unmapped to an edition, so that
+    `uses_only_expansions` can handle cards in both editions."""
+    divine_wind_str = (
+        "mountain_shrine, daimyo, dungeon, infirmary, poet, transmogrify, baker, "
+        "footpad, lost_city, samurai, training, amass, divine_wind(distant_lands, "
+        "page, miser, stonemason, young_witch(moat), journeyman, magpie, "
+        "wine_merchant, guide, aristocrat, moat)"
+    )
+    info = Kingdom.from_dombot_csv_string(divine_wind_str).get_dict_repr()
+    csos_expansions = kingdom_pool._get_csos_expansions(info)
+    assert "Base" in csos_expansions  # Moat, only among the Divine Wind piles
+    without_base = [exp for exp in QUIZ_EXPANSION_OPTIONS if "Base" not in exp]
+    assert not uses_only_expansions(csos_expansions, without_base)
+    # Moat is in both editions
+    assert uses_only_expansions(csos_expansions, without_base + ["Base, 1E"])
+    # Broken kingdoms are never drawn
+    assert kingdom_pool._get_csos_expansions({"cards": ["not_a_card"]}) == {"Unknown"}
+
+
 def test_random_pool_draws_from_the_selected_expansions() -> None:
     pool = QuizKingdomPool(expansions=("Alchemy",))
     kingdom = Kingdom.from_dombot_csv_string(draw_quiz_kingdom(pool))

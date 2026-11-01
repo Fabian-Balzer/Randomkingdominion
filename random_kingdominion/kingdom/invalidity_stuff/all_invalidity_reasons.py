@@ -58,18 +58,27 @@ class DivineWindIncorrect(InvalidityReason):
         dw_k = k.divine_wind_subkingdom
         if dw_k is None:
             return False
-        # A missing prophecy is correct for a DW kingdom as DW is already out.
-        dw_k.invalidity_reasons = [
-            t for t in dw_k.invalidity_reasons if not isinstance(t, OmenButNoProphecy)
-        ]
         if "divine_wind" not in k.landscapes:
             self.params["subk_invalidity"] = "Divine Wind landscape not in kingdom"
             return True
-        if dw_k.is_valid:
+        # The piles replace the kingdom's cards, its landscapes stay: Divine Wind is
+        # the Prophecy, and the kingdom's Ally (if any) serves the new Liaisons.
+        # Not filtered in place, as the sub-kingdom is shared
+        covered: tuple[type[InvalidityReason], ...] = (OmenButNoProphecy,)
+        if k.contains_ally():
+            covered += (LiaisonButNoAlly,)
+        problems = [
+            r.get_description()
+            for r in dw_k.invalidity_reasons
+            if not isinstance(r, covered)
+        ]
+        if dw_k.contains_prophecy():
+            problems.append("Divine Wind is the Prophecy, the piles can't add another")
+        if k.contains_ally() and dw_k.contains_ally():
+            problems.append("The kingdom already has an Ally, the piles can't add one")
+        if not problems:
             return False
-        self.params["subk_invalidity"] = ", ".join(
-            r.get_description() for r in dw_k.invalidity_reasons
-        )
+        self.params["subk_invalidity"] = ", ".join(problems)
         return True
 
 

@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from collections import defaultdict
 from dataclasses import asdict, dataclass, field
-from functools import reduce
+from functools import lru_cache, reduce
 from json import JSONDecodeError, dumps, loads
 from typing import Any, Callable, Iterable, Literal
 from uuid import uuid4
@@ -100,6 +100,12 @@ def _normalize_divine_wind_str(divine_wind_str: str) -> str:
     return get_canonical_dombot_string(divine_wind_str)
 
 
+@lru_cache(maxsize=256)
+def _get_divine_wind_kingdom(divine_wind_cso_str: str) -> Kingdom:
+    """The validity check and the printing each parsed it again (~2 ms)."""
+    return Kingdom.from_dombot_csv_string(divine_wind_cso_str)
+
+
 @dataclass(order=True)
 class Kingdom:
     """Kingdom model similar to Kieranmillar's sets.
@@ -189,6 +195,9 @@ class Kingdom:
         init=False, repr=False, compare=False
     )
     total_qualities: dict[str, float] = field(default_factory=dict, compare=False)
+    csos_expansions: frozenset[str] = field(init=False, repr=False, compare=False)
+    """The expansions of all CSOs (incl. the Divine Wind piles) as in `ALL_CSOS`,
+    e.g. "Base" for cards in both editions, which `expansions` maps to one."""
 
     __yaml_ignore__ = {
         "full_kingdom_df",
@@ -198,6 +207,7 @@ class Kingdom:
         "extras",
         "total_qualities",
         "uses_bane_syntax",
+        "csos_expansions",
     }
 
     @classmethod
@@ -281,9 +291,11 @@ class Kingdom:
 
     @property
     def divine_wind_subkingdom(self) -> Kingdom | None:
+        """The Divine Wind piles as a kingdom of their own. Parsed once per string
+        and shared between kingdoms, so don't modify it."""
         if len(self.divine_wind_cso_str) == 0:
             return None
-        return Kingdom.from_dombot_csv_string(self.divine_wind_cso_str)
+        return _get_divine_wind_kingdom(self.divine_wind_cso_str)
 
     @property
     def has_modified_starting_deck(self) -> bool:
@@ -359,9 +371,15 @@ class Kingdom:
 
         # TODO: Calculate extra piles necessary for the kingdom.
         # Also don't forgot to add a df for it?
-        unique_expansions = np.unique(
-            full_kingdom_df[~full_kingdom_df["IsCampaignEffect"]]["Expansion"]
-        )
+        is_effect = full_kingdom_df["IsCampaignEffect"]
+        expansions = full_kingdom_df.loc[~is_effect, "Expansion"].tolist()
+        if (divine_wind := self.divine_wind_subkingdom) is not None:
+            # Its piles join later, but are needed to set up the game (decided
+            # 2026-11-01); before the edition mapping, as one set covers both
+            dw_df = divine_wind.full_kingdom_df
+            expansions += dw_df.loc[~dw_df["IsCampaignEffect"], "Expansion"].tolist()
+        self.csos_expansions = frozenset(expansions)
+        unique_expansions = np.unique(expansions)
         exps_to_remove = []
         exps_to_add = []
         for exp in unique_expansions:
@@ -519,8 +537,7 @@ class Kingdom:
         ``[" (Moat)"]`` for Young Witch, or ``[""]`` if it has none. A target that
         isn't printed on its own carries its own specials, the first time it's
         printed (tracked in `nested`): ``Ferryman (Young Witch (Vassal))``."""
-        if cso_key == "divine_wind" and self.divine_wind_cso_str:
-            divine_wind = Kingdom.from_dombot_csv_string(self.divine_wind_cso_str)
+        if cso_key == "divine_wind" and (divine_wind := self.divine_wind_subkingdom):
             return [f" ({divine_wind.get_dombot_csv_string(ignore_col_shelt=True)})"]
         if cso_key not in special_targets:
             return [""]

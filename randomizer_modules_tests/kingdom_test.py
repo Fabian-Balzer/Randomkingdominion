@@ -728,15 +728,18 @@ def test_divine_wind_survives_printing_and_parsing():
     _test_dombot_readin_readout(dombot_str)
 
 
+_DIVINE_WIND_WITH_BANE = (
+    "mountain_shrine, daimyo, dungeon, infirmary, poet, transmogrify, baker, "
+    "footpad, lost_city, samurai, training, amass, divine_wind(Distant Lands, "
+    "page, miser, stonemason, Young Witch (Vassal), journeyman, magpie, "
+    "wine_merchant, guide, aristocrat, vassal)"
+)
+
+
 def test_specials_inside_divine_wind():
     """The Divine Wind piles are a kingdom of their own, with its own specials, which
     don't apply to the kingdom itself (M19, step 9)."""
-    dombot_str = (
-        "mountain_shrine, daimyo, dungeon, infirmary, poet, transmogrify, baker, "
-        "footpad, lost_city, samurai, training, amass, divine_wind(Distant Lands, "
-        "page, miser, stonemason, Young Witch (Vassal), journeyman, magpie, "
-        "wine_merchant, guide, aristocrat, vassal)"
-    )
+    dombot_str = _DIVINE_WIND_WITH_BANE
     kingdom = rk.Kingdom.from_dombot_csv_string(dombot_str)
     assert kingdom.notes == ""
     assert kingdom.is_valid, kingdom.invalidity_reasons
@@ -746,6 +749,89 @@ def test_specials_inside_divine_wind():
     assert subkingdom is not None and subkingdom.bane_pile == "vassal"
     assert "Young Witch (Vassal))" in kingdom.get_dombot_csv_string()
     _test_dombot_readin_readout(dombot_str)
+
+
+# Bauble is a Liaison, Band of Nomads its Ally
+_DIVINE_WIND_WITH_ALLY = _DIVINE_WIND_WITH_BANE.replace(
+    "samurai", "bauble, band_of_nomads"
+)
+
+
+@pytest.mark.parametrize(
+    "dombot_str, is_valid",
+    [
+        # The kingdom's Ally stays when the Divine Wind piles replace the cards, so
+        # a Liaison among them (Sycophant) needs no Ally of its own...
+        (_DIVINE_WIND_WITH_ALLY.replace("aristocrat", "sycophant"), True),
+        # ... and can't bring a second one
+        (
+            _DIVINE_WIND_WITH_ALLY.replace("aristocrat", "sycophant, cave_dwellers"),
+            False,
+        ),
+        # Without a Liaison (and so an Ally) before, the piles' Liaison brings one
+        (_DIVINE_WIND_WITH_BANE.replace("aristocrat", "sycophant"), False),
+        (
+            _DIVINE_WIND_WITH_BANE.replace("aristocrat", "sycophant, cave_dwellers"),
+            True,
+        ),
+        # Divine Wind is the Prophecy, so the piles can't bring another one, even
+        # with an Omen (Poet) among them
+        (_DIVINE_WIND_WITH_BANE.replace("aristocrat", "poet, biding_time"), False),
+    ],
+    ids=[
+        "liaison_with_the_kingdoms_ally",
+        "second_ally",
+        "liaison_without_ally",
+        "liaison_with_its_own_ally",
+        "second_prophecy",
+    ],
+)
+def test_allies_and_prophecies_among_divine_wind_piles(dombot_str: str, is_valid):
+    kingdom = rk.Kingdom.from_dombot_csv_string(dombot_str)
+    assert kingdom.notes == ""
+    if is_valid:
+        assert kingdom.is_valid, kingdom.invalidity_reasons[0].get_description()
+    else:
+        assert _reason_keys(kingdom) == {"divine_wind_incorrect"}
+    _test_dombot_readin_readout(dombot_str)
+
+
+def test_ally_among_divine_wind_piles():
+    """It joins with the piles: not one of the kingdom's landscapes, but needed to
+    set up the game."""
+    kingdom = rk.Kingdom.from_dombot_csv_string(
+        _DIVINE_WIND_WITH_BANE.replace("aristocrat", "sycophant, cave_dwellers")
+    )
+    assert "cave_dwellers" not in kingdom.landscapes
+    subkingdom = kingdom.divine_wind_subkingdom
+    assert subkingdom is not None and subkingdom.landscapes == ["cave_dwellers"]
+    assert "Allies" in kingdom.expansions
+    assert "Cave Dwellers" in kingdom.get_dombot_csv_string()
+
+
+def test_divine_wind_piles_count_for_the_expansions():
+    """They're needed to set up the game (M19, step 11): Vassal (Base) is only
+    among the Divine Wind piles."""
+    kingdom = rk.Kingdom.from_dombot_csv_string(_DIVINE_WIND_WITH_BANE)
+    without_piles = _DIVINE_WIND_WITH_BANE.split(", divine_wind")[0]
+    assert "Base, 2E" not in rk.Kingdom.from_dombot_csv_string(without_piles).expansions
+    assert "Base, 2E" in kingdom.expansions
+
+
+def test_divine_wind_subkingdom_is_shared_and_left_unchanged():
+    """It's parsed once per string and shared (M19, step 10), so the validity check
+    mustn't filter the sub-kingdom's reasons in place, as it did before."""
+    from random_kingdominion.kingdom.invalidity_stuff import InvalidityReason
+
+    # Poet is an Omen, and Divine Wind, the Prophecy, is gone once its piles join
+    dombot_str = _DIVINE_WIND_WITH_BANE.replace("aristocrat", "poet")
+    kingdom = rk.Kingdom.from_dombot_csv_string(dombot_str)
+    subkingdom = kingdom.divine_wind_subkingdom
+    other = rk.Kingdom.from_dombot_csv_string(dombot_str)
+    assert subkingdom is not None and subkingdom is other.divine_wind_subkingdom
+    assert kingdom.is_valid, kingdom.invalidity_reasons
+    assert InvalidityReason.check_kingdom_validity(kingdom) == []
+    assert _reason_keys(subkingdom) == {"omen_but_no_prophecy"}
 
 
 def test_colony_as_a_campaign_effect_target():

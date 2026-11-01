@@ -9,7 +9,6 @@ from enum import StrEnum
 from functools import lru_cache
 
 from ...constants import (
-    ALL_CSOS,
     EXPANSION_LIST,
     QUALITIES_AVAILABLE,
     SPECIAL_QUAL_TYPES_AVAILABLE,
@@ -143,7 +142,6 @@ _KingdomIdentity = tuple[frozenset[str], bool, bool]
 
 # Non-supply piles, which Kingdom removes from its cards
 _NON_SUPPLY_FIELDS = ("ferryman_pile", "riverboat_card", "mouse_card")
-_EXTRA_PILE_FIELDS = ("bane_pile", "obelisk_pile", "army_pile") + _NON_SUPPLY_FIELDS
 
 
 @dataclass(frozen=True)
@@ -184,25 +182,14 @@ def _get_identity_of_string(kingdom_str: str) -> _KingdomIdentity:
 
 
 def _get_csos_expansions(info: dict) -> frozenset[str]:
-    """The expansions of the CSOs a Kingdom built from `info` would contain. Building
-    each Kingdom instead would take ~30 ms per kingdom, i.e. ~40 s for the Dailies."""
-    csos = sanitize_cso_list(info.get("cards", []))
-    csos += sanitize_cso_list(info.get("landscapes", []))
-    csos += sanitize_cso_list(info.get("druid_boons", []))
-    csos += [sanitize_cso_name(info.get(f, "")) for f in _EXTRA_PILE_FIELDS]
-    if _is_set(info, "use_colonies"):
-        csos += ["colony", "platinum"]
-    if _is_set(info, "use_shelters"):
-        csos += ["necropolis", "hovel", "overgrown_estate"]
-    cso_expansions = _get_cso_expansion_dict()
-    # Unknown CSOs get an expansion no selection contains, so that broken kingdoms
-    # are never drawn
-    return frozenset(cso_expansions.get(cso, "Unknown") for cso in csos if cso)
-
-
-@lru_cache(maxsize=1)
-def _get_cso_expansion_dict() -> dict[str, str]:
-    return ALL_CSOS["Expansion"].to_dict()
+    """The expansions of the CSOs of the Kingdom built from `info`, also those of
+    its Divine Wind piles (~1.5 ms per kingdom, so ~2 s for the Dailies, once)."""
+    try:
+        return Kingdom.from_dict(info).csos_expansions
+    except KeyError:
+        # Unknown CSOs get an expansion no selection contains, so that broken
+        # kingdoms are never drawn
+        return frozenset({"Unknown"})
 
 
 @lru_cache(maxsize=None)
