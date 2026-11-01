@@ -12,7 +12,7 @@ from functools import lru_cache
 from typing import Any
 
 from ..constants import ALL_CSOS
-from ..utils import sanitize_cso_name
+from ..utils import get_parent_piles, sanitize_cso_name
 
 # Other separators in use, e.g. TGG's "-m" before Colonies and Shelters, and "-x"
 # before the campaign effects
@@ -62,7 +62,6 @@ class _CsoKeys:
     landscapes: frozenset[str]
     traits: frozenset[str]
     effects: frozenset[str]
-    parent_piles: dict[str, str]
 
 
 @lru_cache(maxsize=1)
@@ -73,22 +72,20 @@ def _get_cso_keys() -> _CsoKeys:
     def keys(column: str) -> frozenset[str]:
         return frozenset(ALL_CSOS.index[ALL_CSOS[column]])
 
-    parent_piles = ALL_CSOS.loc[ALL_CSOS["HasParentPile"], "ParentPile"]
     return _CsoKeys(
         all=frozenset(ALL_CSOS.index),
         supply=keys("IsInSupply"),
         landscapes=keys("IsExtendedLandscape"),
         traits=keys("IsTrait"),
         effects=keys("IsCampaignEffect"),
-        parent_piles={k: sanitize_cso_name(p) for k, p in parent_piles.items()},
     )
 
 
 def _to_key(name: str, replace_parent_pile: bool = True) -> str:
-    """Like `sanitize_cso_name`, without its lookup (and log) per name."""
+    """Like `sanitize_cso_name`, without its log for unknown names (they're noted)."""
     key = sanitize_cso_name(name.strip(" _"))
     if replace_parent_pile:
-        return _get_cso_keys().parent_piles.get(key, key)
+        return get_parent_piles().get(key, key)
     return key
 
 

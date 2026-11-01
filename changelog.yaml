@@ -9,7 +9,7 @@
   - Kingdom strings may nest special targets, e.g. "ferryman(young_witch(vassal))" for Vassal as the Bane of Young Witch as Ferryman's pile, and are printed that way
   - Divine Wind's piles may have their own special targets (e.g. a Bane), count for the expansions you need, and are checked for Allies and Prophecies
   - Clearer notes on mistyped kingdom strings (unbalanced parentheses, ignored or unknown targets); unknown targets no longer cause an error, and "bane(…)" is pointed out as not understood by DomBot
-  - Kingdoms are parsed and built several times faster, e.g. the recommended kingdoms in the Kingdom Oracle load in half the time
+  - Kingdoms are parsed and built several times faster, and the Kingdom Oracle loads its kingdom lists about four times as fast (the TGG Dailies in under 2 s instead of 8 s)
 - 1.5.3 (2026-10-31):
   - Minor tweaks to card qualities (Livery, Paddock, Gamble)
   - Some Inn-teractions added

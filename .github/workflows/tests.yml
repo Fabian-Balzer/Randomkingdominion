@@ -1,5 +1,6 @@
 # Runs the whole test suite (including the slow Streamlit page tests) on GitHub's
-# servers for every push to main, every pull request, and on demand.
+# servers for every push to main, every pull request, and on demand. For main, it
+# then warms up the deployed app (scripts/warm_up_app.py).
 name: Tests
 
 on:
@@ -41,3 +42,31 @@ jobs:
       - name: Run the tests
         # In parallel, one worker per CPU core
         run: python -m pytest randomizer_modules_tests -n auto
+
+  warm-up:
+    # Loads the TGG Dailies into the deployed app's caches, so that its first visitor
+    # doesn't wait for them. After the tests, which gives Community Cloud a few
+    # minutes to pick up the push (it doesn't signal when it's done).
+    needs: test
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    # The app being slow to wake up shouldn't mark the commit as failed
+    continue-on-error: true
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Install Playwright with Chromium
+        run: |
+          python -m pip install --upgrade pip
+          pip install playwright
+          python -m playwright install --with-deps chromium
+
+      - name: Open the Oracle and the quiz with the TGG Dailies
+        run: python scripts/warm_up_app.py

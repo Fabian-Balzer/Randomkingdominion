@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from collections import defaultdict
 from dataclasses import asdict, dataclass, field
-from functools import lru_cache, reduce
+from functools import cached_property, lru_cache, reduce
 from json import JSONDecodeError, dumps, loads
 from typing import Any, Callable, Iterable, Literal
 from uuid import uuid4
@@ -22,10 +22,10 @@ from ..logger import LOGGER
 from ..utils import (
     get_cso_name,
     get_cso_sort_ranks,
-    get_total_quality,
     sanitize_cso_list,
     sanitize_cso_name,
 )
+from ..utils.kingdom_helper_funcs import explain_total_quality
 from .dombot_parsing import (
     get_canonical_dombot_string,
     get_kingdom_fields,
@@ -98,6 +98,31 @@ def _normalize_divine_wind_str(divine_wind_str: str) -> str:
     if not isinstance(divine_wind_str, str) or not divine_wind_str:
         return ""  # Also a missing value (NaN) in a DataFrame row
     return get_canonical_dombot_string(divine_wind_str)
+
+
+def _sort_like_kingdom(keys: Iterable[str]) -> list[str]:
+    """The keys in the order of `sort_kingdom`, without sorting a DataFrame."""
+    ranks = get_cso_sort_ranks()
+    return sorted(keys, key=ranks.__getitem__)
+
+
+@lru_cache(maxsize=1)
+def _get_quality_values() -> dict[str, dict[str, float]]:
+    """The value of each quality per CSO."""
+    return {
+        qual: ALL_CSOS[f"{qual}_quality"].to_dict() for qual in QUALITIES_AVAILABLE
+    }
+
+
+@lru_cache(maxsize=1)
+def _get_cso_expansions() -> dict[str, str | None]:
+    """The expansion of each CSO as in `ALL_CSOS`, None for campaign effects."""
+    return {
+        key: None if is_effect else str(exp)
+        for key, exp, is_effect in zip(
+            ALL_CSOS.index, ALL_CSOS["Expansion"], ALL_CSOS["IsCampaignEffect"]
+        )
+    }
 
 
 @lru_cache(maxsize=256)
@@ -186,24 +211,12 @@ class Kingdom:
     """Whether the parsed input used ``bane(…)``, which DomBot doesn't understand."""
     idx: int = field(default_factory=lambda: int(uuid4()), compare=False)
 
-    # TODO: Find a more lightweight way to do this as it causes load times > 1 sec for > 100 kingdoms
-    full_kingdom_df: pd.DataFrame = field(init=False, repr=False, compare=False)
-    """All components of the kingdom except for Boons, Loot etc., but including Colonies, Shelters, and Ruins plus the special cards as well as Druid Boons."""
-    kingdom_card_df: pd.DataFrame = field(init=False, repr=False, compare=False)
-    kingdom_landscape_df: pd.DataFrame = field(init=False, repr=False, compare=False)
-    kingdom_campaign_effects_df: pd.DataFrame = field(
-        init=False, repr=False, compare=False
-    )
     total_qualities: dict[str, float] = field(default_factory=dict, compare=False)
     csos_expansions: frozenset[str] = field(init=False, repr=False, compare=False)
     """The expansions of all CSOs (incl. the Divine Wind piles) as in `ALL_CSOS`,
     e.g. "Base" for cards in both editions, which `expansions` maps to one."""
 
     __yaml_ignore__ = {
-        "full_kingdom_df",
-        "kingdom_card_df",
-        "kingdom_landscape_df",
-        "kingdom_campaign_effects_df",
         "extras",
         "total_qualities",
         "uses_bane_syntax",
@@ -353,31 +366,20 @@ class Kingdom:
             key_list += ["ruins"]
         if self.druid_boons:
             key_list += self.druid_boons
-        # One lookup in the order of `sort_kingdom`, instead of sorting each table
-        ranks = get_cso_sort_ranks()
-
-        def by_rank(keys: Iterable[str]) -> list[str]:
-            # Unknown keys go on to `.loc`, which raises a KeyError as before
-            return sorted(keys, key=lambda key: ranks.get(key, -1))
-
-        full_kingdom_df = ALL_CSOS.loc[by_rank(set(key_list))]
-        self.full_kingdom_df = full_kingdom_df
-        self.kingdom_card_df = full_kingdom_df.loc[by_rank(self.cards)]
-        self.kingdom_landscape_df = full_kingdom_df.loc[by_rank(self.landscapes)]
-        self.kingdom_campaign_effects_df = full_kingdom_df.loc[
-            by_rank(self.campaign_effects)
-        ]
+        if unknown := set(key_list) - _get_cso_expansions().keys():
+            raise KeyError(f"{sorted(unknown)} not in the CSOs")
+        self._full_keys = _sort_like_kingdom(set(key_list))
         self._set_quality_values()
 
         # TODO: Calculate extra piles necessary for the kingdom.
-        # Also don't forgot to add a df for it?
-        is_effect = full_kingdom_df["IsCampaignEffect"]
-        expansions = full_kingdom_df.loc[~is_effect, "Expansion"].tolist()
+        cso_expansions = _get_cso_expansions()
+        expansions = [
+            exp for key in self._full_keys if (exp := cso_expansions[key]) is not None
+        ]
         if (divine_wind := self.divine_wind_subkingdom) is not None:
             # Its piles join later, but are needed to set up the game (decided
             # 2026-11-01); before the edition mapping, as one set covers both
-            dw_df = divine_wind.full_kingdom_df
-            expansions += dw_df.loc[~dw_df["IsCampaignEffect"], "Expansion"].tolist()
+            expansions += divine_wind.csos_expansions
         self.csos_expansions = frozenset(expansions)
         unique_expansions = np.unique(expansions)
         exps_to_remove = []
@@ -670,9 +672,32 @@ class Kingdom:
 
     def _set_quality_values(self):
         """Update the quality values for this kingdom by summing them up."""
+        quality_values = _get_quality_values()
         for qual in QUALITIES_AVAILABLE:
-            val = get_total_quality(qual, self.full_kingdom_df)
-            self.total_qualities[qual] = val
+            values = [quality_values[qual][key] for key in self._full_keys]
+            self.total_qualities[qual] = explain_total_quality(values)[0]
+
+    # Built on first use: most uses of a Kingdom (loading the stored ones, the
+    # quiz's pools, printing) don't need them, and the four lookups took ~1.2 of
+    # ~1.5 ms per Kingdom
+    @cached_property
+    def full_kingdom_df(self) -> pd.DataFrame:
+        """All components of the kingdom except for Boons, Loot etc., but including
+        Colonies, Shelters, and Ruins plus the special cards as well as Druid Boons,
+        in the order of `sort_kingdom`."""
+        return ALL_CSOS.loc[self._full_keys]
+
+    @cached_property
+    def kingdom_card_df(self) -> pd.DataFrame:
+        return self.full_kingdom_df.loc[_sort_like_kingdom(self.cards)]
+
+    @cached_property
+    def kingdom_landscape_df(self) -> pd.DataFrame:
+        return self.full_kingdom_df.loc[_sort_like_kingdom(self.landscapes)]
+
+    @cached_property
+    def kingdom_campaign_effects_df(self) -> pd.DataFrame:
+        return self.full_kingdom_df.loc[_sort_like_kingdom(self.campaign_effects)]
 
     def get_card_string_for_quality(self, qual_name: str) -> str:
         """Get a string to describe which cards contribute to the given

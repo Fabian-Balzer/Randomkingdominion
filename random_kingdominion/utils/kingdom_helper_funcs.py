@@ -150,14 +150,29 @@ def sanitize_cso_name(name: str, replace_parent_pile: bool = False) -> str:
     name = _CSO_ALIASES.get(name, name)
     if not replace_parent_pile:
         return name
-    from ..constants import ALL_CSOS
-
-    try:
-        if (cso := ALL_CSOS.loc[name])["HasParentPile"]:  # type: ignore
-            name = sanitize_cso_name(cso["ParentPile"])  # type: ignore
-    except KeyError:
+    parent_piles, all_keys = get_parent_piles(), _get_all_cso_keys()
+    if name in parent_piles:
+        return parent_piles[name]
+    if name not in all_keys:
         LOGGER.warning(f"Could not find cso: {name}")
     return name
+
+
+@lru_cache(maxsize=1)
+def get_parent_piles() -> dict[str, str]:
+    """The split pile of each CSO that has one (Elder → Townsfolk). A lookup in
+    `ALL_CSOS` per name took ~150 µs; the Oracle needed 7.9 s for the Dailies."""
+    from ..constants import ALL_CSOS
+
+    piles = ALL_CSOS.loc[ALL_CSOS["HasParentPile"], "ParentPile"]
+    return {key: sanitize_cso_name(pile) for key, pile in piles.items()}
+
+
+@lru_cache(maxsize=1)
+def _get_all_cso_keys() -> frozenset[str]:
+    from ..constants import ALL_CSOS
+
+    return frozenset(ALL_CSOS.index)
 
 
 def get_interaction_identifier(card1: str, card2: str, sanitize=False) -> str:

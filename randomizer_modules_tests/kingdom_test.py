@@ -431,6 +431,20 @@ def test_cso_names_match_the_card_data():
     assert utils._get_cso_name_dict() is utils._get_cso_name_dict()
 
 
+def test_split_piles_agree_with_the_card_data(caplog):
+    """`sanitize_cso_name(…, True)` uses a dict built once instead of a lookup in
+    ALL_CSOS per name (~150 µs); it must give the same split piles."""
+    csos = rk.ALL_CSOS
+    for key, cso in csos.iterrows():
+        expected = (
+            rk.sanitize_cso_name(cso["ParentPile"]) if cso["HasParentPile"] else key
+        )
+        assert rk.sanitize_cso_name(str(key), replace_parent_pile=True) == expected
+    assert rk.sanitize_cso_name("Elder", replace_parent_pile=True) == "townsfolk"
+    assert rk.sanitize_cso_name("not_a_cso", replace_parent_pile=True) == "not_a_cso"
+    assert "Could not find cso: not_a_cso" in caplog.text
+
+
 def test_cso_sort_ranks_order_like_sort_kingdom():
     """Kingdoms sort their tables by a rank computed once per CSO (M19, step 2),
     which only gives `sort_kingdom`'s order as long as no two CSOs tie."""
@@ -470,6 +484,24 @@ def test_kingdom_tables_are_sorted():
         "pay_later",
         "replace_copper",
     ]
+
+
+def test_kingdom_tables_are_built_on_first_use():
+    """Building them took ~1.2 of ~1.5 ms per Kingdom, which most uses don't need;
+    the qualities and expansions come without them."""
+    kingdom = rk.Kingdom(["village", "smithy"], landscapes=["alms"])
+    assert "full_kingdom_df" not in vars(kingdom)
+    assert kingdom.total_qualities["village"] == 2  # Village is a 2
+    assert kingdom.expansions == ["Adventures", "Base, 2E"]
+    assert kingdom.kingdom_card_df.index.to_list() == ["village", "smithy"]
+    assert "full_kingdom_df" in vars(kingdom)
+    assert "full_kingdom_df" not in kingdom.get_dict_repr()  # Not stored
+
+
+def test_unknown_csos_raise_when_building_a_kingdom():
+    # Callers rely on it, e.g. the quiz's pools to skip broken stored kingdoms
+    with pytest.raises(KeyError, match="not_a_card"):
+        rk.Kingdom(["village", "not_a_card"])
 
 
 def test_dombot_string_uses_display_names_of_cards_and_extra_piles():

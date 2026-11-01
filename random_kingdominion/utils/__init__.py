@@ -2,6 +2,7 @@ from .config import CustomConfigParser
 from .kingdom_helper_funcs import (
     get_cso_sort_ranks,
     get_interaction_identifier,
+    get_parent_piles,
     get_total_quality,
     sanitize_cso_list,
     sanitize_cso_name,
