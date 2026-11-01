@@ -18,6 +18,9 @@ from random_kingdominion.utils.interaction_setup import (
     get_combo_df,
 )
 
+# Rebuilding the card data takes ~7 s, the interactions ~3.5 s; CI runs them anyway
+pytestmark = pytest.mark.slow
+
 
 def _csv_lines(text: str) -> list[str]:
     # git may check the files out with CRLF line endings

@@ -28,6 +28,10 @@ except pd.errors.OptionError:
     pass
 
 
+# The C implementation (safe as well) loads tgg_dailies.yml in ~0.3-0.5 s instead of
+# ~2.3 s; it's missing if PyYAML was built without libyaml
+_YAML_LOADER = getattr(yaml, "CSafeLoader", yaml.SafeLoader)
+
 # Since February 2025, TGG's Sunday Dailies use campaign features, e.g. a Trait on
 # two piles
 _FIRST_CAMPAIGN_DAILY = date(2025, 2, 2)
@@ -299,7 +303,7 @@ class KingdomManager:
     def from_yaml(cls, yaml_str: str, max_amount=None) -> "KingdomManager":
         """Create a KingdomManager from a yaml file."""
         kingdom_manager = cls(max_amount=max_amount)
-        data = yaml.safe_load(yaml_str)
+        data = yaml.load(yaml_str, Loader=_YAML_LOADER)
         if data is not None:
             kingdom_manager.kingdoms = [kingdom_data for kingdom_data in data]
         return kingdom_manager
@@ -405,7 +409,7 @@ class KingdomManager:
     def load_kingdoms_from_yaml(self, file_path: str | Path, sort: bool = False):
         # In the future, I might want to use pickling or a database for faster loading
         with open(file_path, "r", encoding="utf-8") as yaml_file:
-            data = yaml.safe_load(yaml_file)
+            data = yaml.load(yaml_file, Loader=_YAML_LOADER)
             if data is not None:
                 self.kingdoms = [
                     kingdom_data for kingdom_data in data if "cards" in kingdom_data

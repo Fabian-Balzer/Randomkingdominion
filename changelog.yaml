@@ -4,6 +4,7 @@
   - Sunday Dailies since February 2025 count as campaign kingdoms, as they use campaign rules, so multi-Traits can be parsed accordingly
   - Young Witch as a Ferryman pile now keeps its Bane and is no longer marked as invalid
   - Fixed some Dailies with cards listed twice or among the landscapes
+  - Faster loading of the stored Dailies when the app wakes up (about 2 s less)
 - 1.5.3 (2026-10-31):
   - Minor tweaks to card qualities (Livery, Paddock, Gamble)
   - Some Inn-teractions added

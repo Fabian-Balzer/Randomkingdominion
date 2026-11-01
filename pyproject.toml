@@ -56,5 +56,5 @@ where = ["."]
 
 [tool.pytest.ini_options]
 markers = [
-    "slow: drives a page through Streamlit's AppTest (seconds per test); skip with -m 'not slow'",
+    "slow: takes seconds (AppTest page tests, rebuilding the generated data, checks over all stored kingdoms); skip with -m 'not slow'",
 ]

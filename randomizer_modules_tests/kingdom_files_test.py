@@ -33,10 +33,12 @@ _CAMPAIGN_ONLY_REASONS = {
 }
 
 
-# Parsing all files takes ~2.5 s; the tests only read the entries
+# Like KingdomManager: the C loader is ~5x faster. The tests only read the entries,
+# so each file is loaded once
 @cache
 def _load(path: Path) -> list[dict]:
-    return yaml.safe_load(path.read_text(encoding="utf-8")) or []
+    loader = getattr(yaml, "CSafeLoader", yaml.SafeLoader)
+    return yaml.load(path.read_text(encoding="utf-8"), Loader=loader) or []
 
 
 def _entry_problems(info: dict) -> list[str]:
