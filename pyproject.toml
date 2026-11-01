@@ -46,8 +46,10 @@ scripts = [
     "beautifulsoup4",
     "yt-dlp",
 ]
-# pytest-xdist runs the tests in parallel (-n auto)
-test = ["pytest>=8", "pytest-xdist>=3"]
+# pytest-xdist runs the tests in parallel (-n auto); Black and ruff are checked in
+# CI. Black stays within one year's style (the VS Code extension bundles 26.x),
+# otherwise CI would reject code formatted locally.
+test = ["pytest>=8", "pytest-xdist>=3", "black>=26.5,<27", "ruff>=0.17"]
 
 [tool.setuptools]
 include-package-data = true

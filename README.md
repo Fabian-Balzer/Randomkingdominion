@@ -32,7 +32,7 @@ The Streamlit entry point is `RandomKingdominion.py`; run it with Streamlit rath
 
 ## Development
 
-Dependencies are declared twice on purpose: `requirements.txt` pins the exact versions the deployed app installs and the tests pass with, while `pyproject.toml` describes the package with loose lower bounds. A test keeps both lists in sync. Optional extras: `pip install -e .[scripts]` for the data maintenance scripts, `.[test]` for pytest. The test suite needs both (`pip install -e .[scripts,test]`).
+Dependencies are declared twice on purpose: `requirements.txt` pins the exact versions the deployed app installs and the tests pass with, while `pyproject.toml` describes the package with loose lower bounds. A test keeps both lists in sync. Optional extras: `pip install -e .[scripts]` for the data maintenance scripts, `.[test]` for pytest, Black and ruff. The test suite needs both (`pip install -e .[scripts,test]`).
 
 Running the tests:
 
@@ -42,6 +42,13 @@ python -m pytest randomizer_modules_tests -m "not slow" -n auto  # without the p
 ```
 
 `-n auto` (pytest-xdist, part of the `test` extra) runs one worker per CPU core. Each worker imports the package first (~5 s), so for a single test file it's faster without.
+
+The code is formatted with Black and linted with ruff (settings in `pyproject.toml`); CI fails if either complains:
+
+```sh
+python -m black .         # format
+python -m ruff check .    # lint (--fix applies the safe fixes)
+```
 
 Pitfalls for writing page tests with Streamlit's `AppTest` are listed in the docstring of `randomizer_modules_tests/conftest.py`.
 

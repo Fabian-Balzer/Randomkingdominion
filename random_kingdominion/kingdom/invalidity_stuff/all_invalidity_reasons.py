@@ -231,6 +231,10 @@ class TraitTargetsInvalid(InvalidityReason):
         return f"The following Trait targets are invalid (not Action or Treasure cards): {traits}."
 
     def check_if_invalid(self, k: Kingdom) -> bool:
+        """Campaigns may put Traits on other cards, e.g. Night or Victory cards
+        (decided 2026-11-01, M30)."""
+        if k.is_campaign:
+            return False
         for trait, target in k.traits:
             cso = ALL_CSOS.loc[target]
             is_action_or_treasure = (

@@ -745,6 +745,11 @@ _SHY_ON_GOLD = (
     "cellar, shaman, gardens, gondola, harbor_village, landing_party, mapmaker, "
     "smithy, bandit, first_mate, patient(first_mate), shy(gold)"
 )
+# A Trait on a Night card, as in some of TGG's campaigns (campaign_dump.yml, M30)
+_PIOUS_ON_MONASTERY = (
+    "cellar, shaman, gardens, gondola, harbor_village, landing_party, mapmaker, "
+    "smithy, bandit, monastery, pious(monastery)"
+)
 
 
 def _reason_keys(kingdom: rk.Kingdom) -> set[str]:
@@ -784,6 +789,7 @@ def test_trait_on_a_non_supply_pile():
     [
         (_NEARBY_ON_TWO_CARDS, "trait_on_several_piles_outside_campaign"),
         (_SHY_ON_GOLD, "trait_on_non_supply_pile_outside_campaign"),
+        (_PIOUS_ON_MONASTERY, "trait_targets_invalid"),
     ],
 )
 def test_campaign_only_traits_are_invalid_outside_of_campaigns(
