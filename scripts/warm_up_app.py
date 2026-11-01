@@ -56,17 +56,18 @@ def _wait_until_idle(frame: Frame, timeout_s: float):
     status.wait_for(state="hidden", timeout=timeout_s * 1000)
 
 
-def _open_page_and_click(page: Page, url: str, button_name: str):
+def _open_page_and_select(page: Page, url: str, option_name: str):
+    """Select an option of a segmented control on the page."""
     start = time.monotonic()
     print(f"Opening {url}")
-    # By default, `goto` waits up to 30 s for the load event of the page and all its
-    # frames, which a waking or busy app can exceed; `_find_app_frame` does the waiting
-    page.goto(url, wait_until="domcontentloaded", timeout=APP_START_TIMEOUT_S * 1000)
+    page.goto(url)
     frame = _find_app_frame(page, APP_START_TIMEOUT_S)
-    button = frame.get_by_role("button", name=re.compile(re.escape(button_name)))
-    button.first.click(timeout=LOADING_TIMEOUT_S * 1000)
+    # Streamlit renders the options as <button role="radio">, so they aren't found
+    # with the role "button"
+    option = frame.get_by_role("radio", name=re.compile(re.escape(option_name)))
+    option.first.click(timeout=LOADING_TIMEOUT_S * 1000)
     _wait_until_idle(frame, LOADING_TIMEOUT_S)
-    print(f"{url}: '{button_name}' loaded after {time.monotonic() - start:.0f} s")
+    print(f"{url}: '{option_name}' loaded after {time.monotonic() - start:.0f} s")
 
 
 def warm_up(app_url: str):
@@ -74,8 +75,8 @@ def warm_up(app_url: str):
         browser = playwright.chromium.launch()
         page = browser.new_page()
         try:
-            _open_page_and_click(page, f"{app_url}/oracle", "TGG Dailies")
-            _open_page_and_click(page, f"{app_url}/quiz", "TGG Dailies")
+            _open_page_and_select(page, f"{app_url}/oracle", "TGG Dailies")
+            _open_page_and_select(page, f"{app_url}/quiz", "TGG Dailies")
         except PlaywrightTimeoutError:
             # The workflow attaches it to the run, to see what the browser saw
             page.screenshot(path=FAILURE_SCREENSHOT, full_page=True)
