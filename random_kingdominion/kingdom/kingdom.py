@@ -302,8 +302,18 @@ class Kingdom:
             )
         for slot, target in zip(estate_slots, estate_targets):
             starting_deck[slot] = target
-        for target in effect_targets.get("replace_copper", []):
-            starting_deck[starting_deck.index("copper")] = target
+        # TGG's client skips replacements once the Coppers have run out (e.g. after
+        # four Heirlooms in campaign Nocturne 4)
+        copper_slots = [i for i, card in enumerate(starting_deck) if card == "copper"]
+        copper_targets = effect_targets.get("replace_copper", [])
+        if len(copper_targets) > len(copper_slots):
+            LOGGER.warning(
+                f"{self.name}: {len(copper_targets)} Copper replacements, but only "
+                f"{len(copper_slots)} Coppers in the starting deck; skipped "
+                f"{copper_targets[len(copper_slots):]}."
+            )
+        for slot, target in zip(copper_slots, copper_targets):
+            starting_deck[slot] = target
         starting_deck += effect_targets.get("add_card", [])
         if "add_each_pile" in self.campaign_effects:
             for card in self.cards:

@@ -935,6 +935,23 @@ def test_double_heirloom_on_a_wrong_target_raises(cards: list[str], target: str)
         kingdom.get_starting_deck
 
 
+def test_copper_replacements_beyond_the_coppers_are_skipped(caplog):
+    """Campaign Nocturne 4: four Heirlooms and four Copper replacements; TGG's client
+    skips the last replacement."""
+    kingdom = rk.Kingdom.from_dombot_csv_string(
+        "druid(the_moons_gift, the_suns_gift, the_mountains_gift), faithful_hound, "
+        "tracker, fool, secret_cave, bard, militia, shepherd, cursed_village, "
+        "sacred_grove, start_replace_copper(silver), start_replace_copper(silver), "
+        "start_replace_copper(estate), start_replace_copper(estate)"
+    )
+    with caplog.at_level("WARNING", logger=rk.LOGGER.name):
+        deck = kingdom.get_starting_deck
+    assert len(deck) == 10 and "copper" not in deck
+    assert {"lucky_coin", "magic_lamp", "pasture", "pouch"} <= set(deck)
+    assert deck.count("estate") + deck.count("silver") == 6
+    assert "4 Copper replacements, but only 3 Coppers" in caplog.text
+
+
 def test_too_many_estate_replacements_raise():
     kingdom = rk.Kingdom(
         ["village"], stamps_and_effects=[["replace_estate", "silver"]] * 4

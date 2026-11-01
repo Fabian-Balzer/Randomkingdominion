@@ -13,7 +13,7 @@ The app includes local CSO data under `card_info/` and card images under `static
 
 ## Run locally
 
-The project requires Python 3.11 or newer. From the repository root, create and activate a virtual environment, install the app dependencies, and launch the Streamlit app:
+The project requires Python 3.12 or newer. From the repository root, create and activate a virtual environment, install the app dependencies, and launch the Streamlit app:
 
 ```powershell
 python -m venv .venv

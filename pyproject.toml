@@ -36,7 +36,7 @@ dependencies = [
     "st-copy-to-clipboard>=0.1.6",
     "colorama>=0.4",
 ]
-requires-python = ">=3.11"
+requires-python = ">=3.12"  # f-strings with nested quotes (PEP 701)
 
 [project.optional-dependencies]
 # Data maintenance scripts (scripts/, utils/data_setup/): beautifulsoup4 parses the
