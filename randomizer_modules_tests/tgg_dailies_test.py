@@ -71,9 +71,9 @@ def test_daily_kingdoms_are_unique(dailies: list[dict]) -> None:
 
 def test_dailies_file_is_sorted_newest_first(dailies: list[dict]) -> None:
     names = [daily["name"] for daily in dailies]
-    assert names == sorted(names, reverse=True), (
-        "Sort it with kingdom_manager.sort_kingdom_yaml_file()"
-    )
+    assert names == sorted(
+        names, reverse=True
+    ), "Sort it with kingdom_manager.sort_kingdom_yaml_file()"
 
 
 def test_sorting_a_kingdom_file_keeps_every_entry(tmp_path) -> None:
@@ -91,7 +91,11 @@ def test_sorting_a_kingdom_file_keeps_every_entry(tmp_path) -> None:
     sort_kingdom_yaml_file(fpath, newest_first=False)
     oldest_first = yaml.safe_load(fpath.read_text(encoding="utf-8"))
 
-    assert [e["name"] for e in newest_first] == ["2024-01-03", "2024-01-02", "2024-01-01"]
+    assert [e["name"] for e in newest_first] == [
+        "2024-01-03",
+        "2024-01-02",
+        "2024-01-01",
+    ]
     assert oldest_first == newest_first[::-1]
     assert sorted(oldest_first, key=lambda e: e["idx"]) == sorted(
         entries, key=lambda e: e["idx"]

@@ -198,7 +198,10 @@ class QuizRunState:
 
     @property
     def perfect_round_count(self) -> int:
-        return sum(round_result.score == MAX_ROUND_SCORE for round_result in self.completed_rounds)
+        return sum(
+            round_result.score == MAX_ROUND_SCORE
+            for round_result in self.completed_rounds
+        )
 
     @property
     def maximum_score(self) -> int:

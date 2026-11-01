@@ -68,8 +68,7 @@ from random_kingdominion.streamlit_util.quiz_setup.util import (
 )
 def test_quiz_quality_score_offsets(user_value: float, expected_score: float) -> None:
     assert (
-        calc_quiz_score({"draw": user_value}, {"draw": 2}, "", "no")
-        == expected_score
+        calc_quiz_score({"draw": user_value}, {"draw": 2}, "", "no") == expected_score
     )
 
 
@@ -407,8 +406,13 @@ def test_quiz_run_persistence_restores_finished_cumulative_score() -> None:
 
 def test_max_round_score_matches_scoring_rules() -> None:
     assert MAX_ROUND_SCORE == 15
-    perfect_answers = {q: 1.0 for q in ("gain", "thinning", "draw", "village", "altvp", "attack")}
-    assert calc_quiz_score(perfect_answers, perfect_answers, "yes", "yes") == MAX_ROUND_SCORE
+    perfect_answers = {
+        q: 1.0 for q in ("gain", "thinning", "draw", "village", "altvp", "attack")
+    }
+    assert (
+        calc_quiz_score(perfect_answers, perfect_answers, "yes", "yes")
+        == MAX_ROUND_SCORE
+    )
 
 
 @pytest.mark.parametrize(
@@ -515,7 +519,9 @@ def test_total_elapsed_time_does_not_count_the_scored_round_twice() -> None:
     ("user_value", "real_value", "expected_points"),
     [(2, 2, 2), (2.5, 2, 1.5), (1, 2, 1), (0, 2, 0), (0.5, 0, 1.5)],
 )
-def test_quality_points(user_value: float, real_value: float, expected_points: float) -> None:
+def test_quality_points(
+    user_value: float, real_value: float, expected_points: float
+) -> None:
     assert get_quality_points(user_value, real_value) == expected_points
 
 
@@ -684,7 +690,9 @@ def test_empty_selection_has_no_kingdoms() -> None:
 
 
 def test_curated_pool_only_uses_selected_expansions_and_never_repeats() -> None:
-    all_recommended = QuizKingdomPool(QuizPoolSource.RECOMMENDED, QUIZ_EXPANSION_OPTIONS)
+    all_recommended = QuizKingdomPool(
+        QuizPoolSource.RECOMMENDED, QUIZ_EXPANSION_OPTIONS
+    )
     pool = QuizKingdomPool(QuizPoolSource.RECOMMENDED, ("Base, 2E",))
     num_available = count_available_kingdoms(pool)
     assert num_available is not None
@@ -731,9 +739,9 @@ def test_tgg_dailies_count_duplicates_once() -> None:
     curated = kingdom_pool._load_curated_kingdoms(QuizPoolSource.TGG_DAILIES)
 
     assert count_available_kingdoms(pool) == len({k.identity for k in curated})
-    assert get_curated_kingdom_name(
-        pool, draw_quiz_kingdom(pool)
-    ) in {k.name for k in curated}
+    assert get_curated_kingdom_name(pool, draw_quiz_kingdom(pool)) in {
+        k.name for k in curated
+    }
 
 
 def test_used_kingdoms_cover_completed_and_current_rounds() -> None:

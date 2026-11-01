@@ -424,6 +424,11 @@ class ObeliskPileButNoObelisk(InvalidityReason):
         return "obelisk" not in k.landscapes and k.obelisk_pile != ""
 
 
+def _uses_druid(k: Kingdom) -> bool:
+    """Druid as a card or as Way of the Mouse's card (which needs the Boons too)."""
+    return "druid" in k.cards or k.mouse_card == "druid"
+
+
 @dataclass
 class DruidButNoBoons(InvalidityReason):
 
@@ -432,7 +437,7 @@ class DruidButNoBoons(InvalidityReason):
 
     def check_if_invalid(self, k: Kingdom) -> bool:
         self.params["boon_num"] = len(k.druid_boons)
-        return "druid" in k.cards and not len(k.druid_boons) == 3
+        return _uses_druid(k) and not len(k.druid_boons) == 3
 
 
 @dataclass
@@ -442,4 +447,4 @@ class DruidBoonsSpecifiedButNoDruid(InvalidityReason):
         return f"Druid Boons have been specified, but Druid itself hasn't been added."
 
     def check_if_invalid(self, k: Kingdom) -> bool:
-        return "druid" not in k.cards and len(k.druid_boons) > 0
+        return not _uses_druid(k) and len(k.druid_boons) > 0

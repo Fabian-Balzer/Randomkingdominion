@@ -52,7 +52,8 @@ def get_cso_display_image(
 ) -> Image.Image:
     """Compose the image of a CSO as displayed for the given kingdom, including
     overlays for e.g. the Bane, Ferryman, Trait or Obelisk piles.
-    Landscapes are shown in full unless `hide_landscape_text` is set, independent of `full_image`."""
+    Landscapes are shown in full unless `hide_landscape_text` is set, independent of `full_image`.
+    """
     cso_key = str(cso.name)
     is_landscape = bool(cso["IsExtendedLandscape"])
     img = (

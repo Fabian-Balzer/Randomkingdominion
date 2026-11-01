@@ -9,6 +9,7 @@ from ...utils.utils import convert_upper_camel_to_snake_case
 if TYPE_CHECKING:
     from ..kingdom import Kingdom
 
+
 @dataclass
 class InvalidityReason:
     params: dict[str, Any] = field(default_factory=dict)
@@ -20,20 +21,21 @@ class InvalidityReason:
     @property
     def name(self) -> str:
         return self.key.replace("_", " ").title()
-    
+
     def __str__(self) -> str:
         return self.name
-    
+
     @staticmethod
     def get_all_invalidity_reasons() -> list[Type[InvalidityReason]]:
         from . import all_invalidity_reasons  # Import the neighboring script
+
         members = inspect.getmembers(all_invalidity_reasons, inspect.isclass)
-        return [cls
-                for _, cls in members
-                    if issubclass(cls, InvalidityReason)
-                    and cls is not InvalidityReason
-                    ]
-    
+        return [
+            cls
+            for _, cls in members
+            if issubclass(cls, InvalidityReason) and cls is not InvalidityReason
+        ]
+
     @staticmethod
     def check_kingdom_validity(k: Kingdom) -> list[InvalidityReason]:
         """Check the validity of the given kingdom."""
@@ -44,7 +46,6 @@ class InvalidityReason:
                 reasons.append(reason)
         return reasons
 
-    
     def get_description(self) -> str:
         raise NotImplementedError
 

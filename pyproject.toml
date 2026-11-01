@@ -59,3 +59,10 @@ where = ["."]
 markers = [
     "slow: takes seconds (AppTest page tests, rebuilding the generated data, checks over all stored kingdoms); skip with -m 'not slow'",
 ]
+
+[tool.black]
+# Otherwise Black infers the target from the newest syntax it finds, which the env's
+# Python 3.13 can't parse for its safety check
+target-version = ["py313"]
+# The owner's local notebooks are read-only for agents
+extend-exclude = "scripts/notebooks"

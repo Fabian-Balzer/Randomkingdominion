@@ -126,7 +126,9 @@ def get_kingdom_solution(kingdom_str: str) -> KingdomSolution:
     aggregation_steps = {}
     for q in QUIZ_QUALITY_NAMES:
         col = f"{q}_quality"
-        contributing = df[df[col] > 0].sort_values([col, "Name"], ascending=[False, True])
+        contributing = df[df[col] > 0].sort_values(
+            [col, "Name"], ascending=[False, True]
+        )
         contributions[q] = tuple(
             (str(name), float(val))
             for name, val in zip(contributing["Name"], contributing[col])

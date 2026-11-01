@@ -1,4 +1,5 @@
 """Module to help with utilities for Series objects"""
+
 from typing import Sequence
 
 import numpy as np
