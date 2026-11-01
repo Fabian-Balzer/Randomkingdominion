@@ -186,11 +186,11 @@ class TraitsWithoutTargets(InvalidityReason):
 
     def check_if_invalid(self, k: Kingdom) -> bool:
         """Check if there are traits in the kingdom with no targets specified, and add them to the internal params."""
-        trait_dict = k.trait_dict
+        trait_targets = k.trait_targets
         ls = k.kingdom_landscape_df
         traits = ls[ls["IsTrait"]].index.tolist()
         for trait in traits:
-            if trait not in trait_dict:
+            if trait not in trait_targets:
                 prev = self.params.get("traits", [])
                 self.params["traits"] = prev + [trait]
         return self.params.get("traits", []) != []
@@ -207,7 +207,7 @@ class TraitTargetsInvalid(InvalidityReason):
         return f"The following Trait targets are invalid (not Action or Treasure cards): {traits}."
 
     def check_if_invalid(self, k: Kingdom) -> bool:
-        for trait, target in k.trait_dict.items():
+        for trait, target in k.traits:
             cso = ALL_CSOS.loc[target]
             is_action_or_treasure = (
                 len({"Action", "Treasure"}.intersection(set(cso["Types"]))) > 0
@@ -224,13 +224,11 @@ class TraitTargetsInvalid(InvalidityReason):
 class TraitTargetNotInCards(InvalidityReason):
 
     def check_if_invalid(self, k: Kingdom) -> bool:
-        """Check if there are Trait targets in the kingdom that are not in the cards, and add them to the internal params."""
-        trait_dict = k.trait_dict
-        ls = k.kingdom_landscape_df
-        traits = ls[ls["IsTrait"]].index.tolist()
-        for trait in traits:
-            target = trait_dict.get(trait, "")
-            if target not in k.cards:
+        """Check if there are Trait targets in the kingdom that are not in the cards, and add them to the internal params.
+        Non-supply targets (e.g. Gold in a campaign) can't be kingdom cards; see
+        `TraitOnNonSupplyPileOutsideCampaign`."""
+        for _, target in k.traits:
+            if target not in k.cards and ALL_CSOS.loc[target, "IsInSupply"]:
                 prev = self.params.get("targets", [])
                 self.params["targets"] = prev + [target]
         return self.params.get("targets", []) != []
@@ -245,7 +243,7 @@ class TraitNotInLandscapes(InvalidityReason):
 
     def check_if_invalid(self, k: Kingdom) -> bool:
         """Check if there are Traits in the kingdom that are not in the landscapes, and add them to the internal params."""
-        for trait in k.trait_dict:
+        for trait in k.trait_targets:
             if trait not in k.landscapes:
                 prev = self.params.get("traits", [])
                 self.params["traits"] = prev + [trait]
@@ -254,6 +252,45 @@ class TraitNotInLandscapes(InvalidityReason):
     def get_description(self) -> str:
         traits = ", ".join(self.params.get("traits", []))
         return f"There are Traits specified that are not in the landscapes: {traits}."
+
+
+@dataclass
+class TraitOnSeveralPilesOutsideCampaign(InvalidityReason):
+
+    def check_if_invalid(self, k: Kingdom) -> bool:
+        """Outside of campaigns, a Trait applies to exactly one pile."""
+        if k.is_campaign:
+            return False
+        self.params["traits"] = [
+            f"{get_cso_name(trait)} ({', '.join(get_cso_name(t) for t in targets)})"
+            for trait, targets in k.trait_targets.items()
+            if len(targets) > 1
+        ]
+        return self.params["traits"] != []
+
+    def get_description(self) -> str:
+        traits = "; ".join(self.params.get("traits", []))
+        return f"These Traits apply to several piles, which is only possible in campaigns: {traits}."
+
+
+@dataclass
+class TraitOnNonSupplyPileOutsideCampaign(InvalidityReason):
+
+    def check_if_invalid(self, k: Kingdom) -> bool:
+        """Outside of campaigns, a Trait applies to a kingdom (supply) pile, not
+        e.g. to Gold."""
+        if k.is_campaign:
+            return False
+        self.params["traits"] = [
+            f"{get_cso_name(trait)} -> {get_cso_name(target)}"
+            for trait, target in k.traits
+            if not ALL_CSOS.loc[target, "IsInSupply"]
+        ]
+        return self.params["traits"] != []
+
+    def get_description(self) -> str:
+        traits = ", ".join(self.params.get("traits", []))
+        return f"These Traits apply to non-supply piles, which is only possible in campaigns: {traits}."
 
 
 @dataclass

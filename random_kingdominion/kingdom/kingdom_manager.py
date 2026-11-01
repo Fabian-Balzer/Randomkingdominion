@@ -18,6 +18,7 @@ from ..constants import (
     PATH_MAIN,
 )
 from ..logger import LOGGER
+from .invalidity_stuff import InvalidityReason
 from .kingdom import Kingdom
 
 try:
@@ -192,6 +193,9 @@ class KingdomManager:
             has_added_kingdoms = True
             k = Kingdom.from_dombot_csv_string(kingdom_str)
             k.name = name
+            if ftype == "campaigns" and not k.is_campaign:
+                k.is_campaign = True
+                k.invalidity_reasons = InvalidityReason.check_kingdom_validity(k)
             if len(parts := (line.split("---"))) > 2:
                 if ftype == "fabi_recsets":
                     k.notes = '{"Comment": "' + parts[2] + '"'
@@ -352,6 +356,9 @@ class KingdomManager:
 
     def load_campaigns(self, reload=False, do_assertion=True, curated_only=False):
         self.load_kingdoms_from_yaml(FPATH_KINGDOMS_CAMPAIGNS)
+        # They may use campaign rules, e.g. a Trait on several piles or on Gold
+        for kingdom in self.kingdoms:
+            kingdom["is_campaign"] = True
         if curated_only:
             self.kingdoms = [
                 kingdom

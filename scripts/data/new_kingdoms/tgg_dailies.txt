@@ -1,3 +1,4 @@
+2026-11-01---daimyo, clashes, fool, secluded_shrine, change, spice_merchant, highwayman, lost_city, mining_road, tea_house, kind_emperor, scrounge, banquet -x start_replace_estate(ruined_market), start_replace_estate(abandoned_mine), start_replace_estate(ruined_village), start_replace_copper(ruined_library), start_replace_copper(survivors)
 2026-10-31---experiment, warehouse, cabin_boy, flag_bearer, hideout, rats, guildmaster, kitsune, merchant_guild, altar, fountain, good_harvest, mountain_folk, shelters
 2026-10-30---castles, changeling, leprechaun, cemetery, temple, crown, forum, idol, replace, nobles, colonnade, aqueduct
 2026-10-29---goatherd, scrap, cardinal, flag_bearer, hostelry, village_green, coven, falconer, gatekeeper, scepter, way_of_the_turtle, citadel
@@ -11,7 +12,7 @@
 2026-10-21---lighthouse, farrier, blockade, plaza, sailor, tide_pools, treasure_map, baker, merchant_guild, soothsayer
 2026-10-20---develop, guard_dog, weaver, cartographer, haggler, highway, inn, margrave, stables, witchs_hut
 2026-10-19---moneylender, poacher, charlatan, collection, council_room, festival, library, mint, rabble, peddler
-2026-10-18---engineer, daimyo, artist, overlord, search, abundance, rustic_village, capital, imperial_envoy, kitsune, rush, nearby(imperial_envoy), sickness
+2026-10-18---nearby(engineer), daimyo, artist, overlord, search, abundance, rustic_village, capital, imperial_envoy, kitsune, rush, nearby(imperial_envoy), sickness 
 2026-10-17---bauble, pixie, siren, sacrifice, tools, bandit_camp, quartermaster, tea_house, artisan, fairgrounds, tax, fawning(pixie), peaceful_cult, kind_emperor
 2026-10-16---engineer, city_quarter, hamlet, pawn, diplomat, farmhands, mill, villa, duke, torturer, basilica, baths
 2026-10-15---vineyard, farrier, university, familiar, philosophers_stone, advisor, plaza, golem, butcher, merchant_guild
@@ -424,7 +425,7 @@
 2025-09-03---hamlet, develop, shop, nomads, spice_merchant, cartographer, inn, margrave, wheelwright, witchs_hut
 2025-09-02---supplies, stockpile, cavalry, hostelry, village_green, barge, displace, mastermind, paddock, animal_fair, stampede, banish
 2025-09-01---merchant, sea_chart, bureaucrat, poacher, salvager, throne_room, treasure_map, bazaar, corsair, library
-2025-08-31---pixie, enchantress, clerk, flag_bearer, mining_village, bandit_camp, carnival, sanctuary, swashbuckler, villain, fawning(pixie), triumphal_arch, shelters, stamp_with_villager(pixie), stamp_with_action(mining_village)
+2025-08-31---pixie, enchantress, clerk, flag_bearer, mining_village, bandit_camp, carnival, sanctuary, swashbuckler, villain, fawning(pixie), triumphal_arch, shelters, stamp_with_villager(pixie), stamp_plus_action(mining_village)
 2025-08-30---border_guard, aristocrat, secret_cave, steward, hideout, research, transmogrify, contract, seer, fairgrounds, ferry, mountain_folk
 2025-08-29---overlord, beggar, encampment, settlers, castles, feodum, scavenger, charm, mystic, altar, bandit_fort, tomb, shelters
 2025-08-28---changeling, leprechaun, night_watchman, bard, flag_bearer, inventor, patron, research, scepter, villain, piazza, innovation
@@ -564,7 +565,7 @@
 2025-04-16---border_guard, ducat, flag_bearer, investment, monument, mountain_village, mint, scholar, bank, expand, sewers, sinister_plot, colonies
 2025-04-15---border_guard, ducat, lackeys, acting_troupe, cargo_ship, hideout, patron, priest, research, sculptor, star_chart, city_gate
 2025-04-14---augurs, clashes, village, wizards, innkeeper, poacher, council_room, highwayman, specialist, artisan, family_of_inventors
-2025-04-13---squire, taskmaster, patron, capital, galleria, litter, livery, minion, swamp_hag, upgrade, wedding, start_replace_estate(ruined_market), start_replace_estate(ruined_mine), start_replace_estate(ruined_village), start_replace_copper(ruined_library), start_replace_copper(survivors)
+2025-04-13---squire, taskmaster, patron, capital, galleria, litter, livery, minion, swamp_hag, upgrade, wedding, start_replace_estate(ruined_market), start_replace_estate(abandoned_mine), start_replace_estate(ruined_village), start_replace_copper(ruined_library), start_replace_copper(survivors)
 2025-04-12---royal_blacksmith, peasant, vagrant, merchant_camp, siren, graverobber, guildmaster, legionary, paddock, sanctuary, order_of_masons, save
 2025-04-11---night_watchman, bard, poet, remake, shepherd, hunting_party, idol, imperial_envoy, litter, tormentor, sickness
 2025-04-10---grotto, jewelled_egg, siren, abundance, landing_party, mapmaker, maroon, minion, farm, nobles, reckless(farm), rush

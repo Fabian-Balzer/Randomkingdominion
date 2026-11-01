@@ -128,7 +128,9 @@
   name: Seaside 7
   stamps_and_effects:
   - - replace_copper
-    - silver,_estate
+    - silver
+  - - replace_copper
+    - estate
 - campaign_effects:
   - head_start
   cards:
@@ -466,7 +468,19 @@
   name: Prosperity 4
   stamps_and_effects:
   - - replace_copper
-    - curse,_curse,_curse,_curse,_curse,_curse,_curse
+    - curse
+  - - replace_copper
+    - curse
+  - - replace_copper
+    - curse
+  - - replace_copper
+    - curse
+  - - replace_copper
+    - curse
+  - - replace_copper
+    - curse
+  - - replace_copper
+    - curse
   use_colonies: true
 - campaign_effects:
   - sale
@@ -592,7 +606,13 @@
   name: Prosperity 10
   stamps_and_effects:
   - - replace_copper
-    - silver,_silver,_estate,_estate
+    - silver
+  - - replace_copper
+    - silver
+  - - replace_copper
+    - estate
+  - - replace_copper
+    - estate
   use_colonies: true
 - cards:
   - carnival
@@ -738,7 +758,13 @@
   name: Cornucopia 7
   stamps_and_effects:
   - - replace_copper
-    - silver,_silver,_estate,_estate
+    - silver
+  - - replace_copper
+    - silver
+  - - replace_copper
+    - estate
+  - - replace_copper
+    - estate
 - bane_pile: harbinger
   campaign_effects:
   - room_for_more
@@ -946,7 +972,13 @@
   name: Hinterlands 7
   stamps_and_effects:
   - - replace_copper
-    - silver,_silver,_estate,_estate
+    - silver
+  - - replace_copper
+    - silver
+  - - replace_copper
+    - estate
+  - - replace_copper
+    - estate
 - campaign_effects:
   - incoming
   cards:
@@ -1065,9 +1097,15 @@
   name: Dark Ages 3
   stamps_and_effects:
   - - replace_copper
-    - ruins,_ruins
+    - ruins
+  - - replace_copper
+    - ruins
   - - replace_estate
-    - ruins,_ruins,_ruins
+    - ruins
+  - - replace_estate
+    - ruins
+  - - replace_estate
+    - ruins
   use_shelters: true
 - campaign_effects:
   - replace_copper
@@ -1090,9 +1128,15 @@
   name: Dark Ages 4
   stamps_and_effects:
   - - replace_copper
-    - rats,_rats,_rats
+    - rats
+  - - replace_copper
+    - rats
+  - - replace_copper
+    - rats
   - - replace_estate
-    - rats,_rats
+    - rats
+  - - replace_estate
+    - rats
   use_shelters: true
 - campaign_effects:
   - garbage_heap
@@ -1134,7 +1178,19 @@
   name: Dark Ages 6
   stamps_and_effects:
   - - replace_copper
-    - spoils,_spoils,_spoils,_spoils,_spoils,_spoils,_spoils
+    - spoils
+  - - replace_copper
+    - spoils
+  - - replace_copper
+    - spoils
+  - - replace_copper
+    - spoils
+  - - replace_copper
+    - spoils
+  - - replace_copper
+    - spoils
+  - - replace_copper
+    - spoils
   - - with_spoils
     - wandering_minstrel
   use_shelters: true
@@ -1200,7 +1256,11 @@
   name: Dark Ages 9
   stamps_and_effects:
   - - replace_estate
-    - overgrown_estate,_overgrown_estate,_overgrown_estate
+    - overgrown_estate
+  - - replace_estate
+    - overgrown_estate
+  - - replace_estate
+    - overgrown_estate
   - - with_spoils
     - ironmonger
   use_shelters: true
@@ -1709,7 +1769,9 @@
   name: Empires 3
   stamps_and_effects:
   - - make_split_pile
-    - vassal,_groundskeeper
+    - vassal
+  - - make_split_pile
+    - groundskeeper
 - campaign_effects:
   - double_pile
   cards:
@@ -1929,7 +1991,11 @@
   name: Nocturne 3
   stamps_and_effects:
   - - replace_estate
-    - zombie_apprentice,_zombie_mason,_zombie_spy
+    - zombie_apprentice
+  - - replace_estate
+    - zombie_mason
+  - - replace_estate
+    - zombie_spy
 - campaign_effects:
   - replace_copper
   cards:
@@ -1954,7 +2020,13 @@
   name: Nocturne 4
   stamps_and_effects:
   - - replace_copper
-    - silver,_silver,_estate,_estate
+    - silver
+  - - replace_copper
+    - silver
+  - - replace_copper
+    - estate
+  - - replace_copper
+    - estate
 - campaign_effects:
   - delayed_joy
   cards:
@@ -2431,7 +2503,9 @@
   name: Allies 6
   stamps_and_effects:
   - - make_split_pile
-    - vassal,_skirmisher
+    - vassal
+  - - make_split_pile
+    - skirmisher
   - - plus_buy
     - contract
 - campaign_effects:
@@ -2709,7 +2783,45 @@
   name: Rising Sun 5
   stamps_and_effects:
   - - typhoon
-    - harbinger,_alley,_change,_gardens,_fishmonger,_chapel,_sentry,_merchant,_rustic_village,_riverboat,_village,_river_shrine,_moat,_bureaucrat,_vassal,_artist,_smithy,_witch,_poacher,_remodel
+    - harbinger
+  - - typhoon
+    - alley
+  - - typhoon
+    - change
+  - - typhoon
+    - gardens
+  - - typhoon
+    - fishmonger
+  - - typhoon
+    - chapel
+  - - typhoon
+    - sentry
+  - - typhoon
+    - merchant
+  - - typhoon
+    - rustic_village
+  - - typhoon
+    - riverboat
+  - - typhoon
+    - village
+  - - typhoon
+    - river_shrine
+  - - typhoon
+    - moat
+  - - typhoon
+    - bureaucrat
+  - - typhoon
+    - vassal
+  - - typhoon
+    - artist
+  - - typhoon
+    - smithy
+  - - typhoon
+    - witch
+  - - typhoon
+    - poacher
+  - - typhoon
+    - remodel
   notes:
     crucial_cards: [Mountain Shrine, Kitsune, Credit, Artisan]
     ending: [Province, Curse]
@@ -2888,7 +3000,45 @@
     turns: [14, 14]
   stamps_and_effects:
   - - typhoon
-    - witch,_rustic_village,_gardens,_mountain_shrine,_village,_poacher,_ninja,_litter,_harbinger,_daimyo,_sentry,_ronin,_snake_witch,_alley,_library,_change,_craftsman,_riverboat,_rice,_throne_room
+    - witch
+  - - typhoon
+    - rustic_village
+  - - typhoon
+    - gardens
+  - - typhoon
+    - mountain_shrine
+  - - typhoon
+    - village
+  - - typhoon
+    - poacher
+  - - typhoon
+    - ninja
+  - - typhoon
+    - litter
+  - - typhoon
+    - harbinger
+  - - typhoon
+    - daimyo
+  - - typhoon
+    - sentry
+  - - typhoon
+    - ronin
+  - - typhoon
+    - snake_witch
+  - - typhoon
+    - alley
+  - - typhoon
+    - library
+  - - typhoon
+    - change
+  - - typhoon
+    - craftsman
+  - - typhoon
+    - riverboat
+  - - typhoon
+    - rice
+  - - typhoon
+    - throne_room
 - campaign_effects:
   - shadowified
   cards:
@@ -2963,7 +3113,45 @@
   - - fawning_service
     - receive_tribute
   - - typhoon
-    - samurai,_library,_bureaucrat,_craftsman,_militia,_snake_witch,_poacher,_rice_broker,_sentry,_artist,_change,_remodel,_village,_kitsune,_rice,_river_shrine,_litter,_aristocrat,_vassal,_harbinger
+    - samurai
+  - - typhoon
+    - library
+  - - typhoon
+    - bureaucrat
+  - - typhoon
+    - craftsman
+  - - typhoon
+    - militia
+  - - typhoon
+    - snake_witch
+  - - typhoon
+    - poacher
+  - - typhoon
+    - rice_broker
+  - - typhoon
+    - sentry
+  - - typhoon
+    - artist
+  - - typhoon
+    - change
+  - - typhoon
+    - remodel
+  - - typhoon
+    - village
+  - - typhoon
+    - kitsune
+  - - typhoon
+    - rice
+  - - typhoon
+    - river_shrine
+  - - typhoon
+    - litter
+  - - typhoon
+    - aristocrat
+  - - typhoon
+    - vassal
+  - - typhoon
+    - harbinger
   notes:
     crucial_cards: [Receive Tribute, Ronin, Rustic Village, Snake Witch]
     ending: [Curse, Rustic Village, Snake Witch]
@@ -3122,7 +3310,13 @@
   name: Intrigue 7
   stamps_and_effects:
   - - replace_copper
-    - silver,_silver,_estate,_estate
+    - silver
+  - - replace_copper
+    - silver
+  - - replace_copper
+    - estate
+  - - replace_copper
+    - estate
 - campaign_effects:
   - from_the_throne
   cards:
@@ -3301,7 +3495,11 @@
     - 7
   stamps_and_effects:
   - - replace_estate
-    - horse,_horse,_horse
+    - horse
+  - - replace_estate
+    - horse
+  - - replace_estate
+    - horse
 - campaign_effects:
   - action_way
   - double_pile

@@ -53,22 +53,46 @@ def _dict_factory_func(attrs: list[tuple[str, str]], ignore_keys: set) -> dict:
     }
 
 
-def _handle_replacements(full_list: list[str]) -> list[str]:
-    """Handle the replace_copper and replace_estate entries in the list as they can potentially appear multiple times and should not be handled as duplicates."""
-    specials = ["replace_copper", "replace_estate", "add_card"]
-    if not any([s in str(full_list) for s in specials]):
-        return full_list
-    full_list = [entry.replace("start_", "") for entry in full_list]
-    for thing in specials:
-        if thing in str(full_list):
-            replacements = []
-            for entry in full_list:
-                # This also handles start_replace_estate_from_pile
-                if thing in entry:
-                    replacements.append(entry.split("(")[1].strip(")"))
-            full_list = [entry for entry in full_list if thing not in entry]
-            full_list.append(f"{thing}(" + ", ".join(replacements) + ")")
-    return full_list
+def _group_targets(pairs: list[list[str]]) -> dict[str, list[str]]:
+    grouped: dict[str, list[str]] = defaultdict(list)
+    for name, target in pairs:
+        grouped[name].append(target)
+    return dict(grouped)
+
+
+def _split_targets(raw_targets: str, replace_parent_pile: bool = False) -> list[str]:
+    """Split a comma-separated list of targets (e.g. "silver, estate", or the
+    "silver,_estate" older kingdom files contain) into sanitized CSO keys."""
+    return [
+        sanitize_cso_name(target.strip(" _"), replace_parent_pile)
+        for target in raw_targets.split(",")
+        if target.strip(" _")
+    ]
+
+
+def _normalize_target_pairs(
+    pairs: list[list[str]] | float, remove_duplicates: bool = False
+) -> list[list[str]]:
+    """Sorted [trait or campaign effect, target] pairs, one per target."""
+    if isinstance(pairs, float):  # A missing value in a DataFrame row
+        return []
+    normalized = []
+    for name, raw_targets in pairs:
+        for target in _split_targets(raw_targets):
+            pair = [sanitize_cso_name(name), target]
+            if not (remove_duplicates and pair in normalized):
+                normalized.append(pair)
+    return sorted(normalized)
+
+
+def _normalize_divine_wind_str(divine_wind_str: str) -> str:
+    """The Divine Wind CSOs as sorted keys, so that a kingdom compares equal however
+    they were entered (display names or keys, any order). Special targets inside,
+    e.g. a Bane, aren't supported yet (M19)."""
+    if not isinstance(divine_wind_str, str) or not divine_wind_str:
+        return ""  # Also a missing value (NaN) in a DataFrame row
+    entries = re.split(r"\s*,\s*(?![^()]*\))", divine_wind_str)
+    return ", ".join(sorted(sanitize_cso_name(e) for e in entries if e.strip()))
 
 
 def remove_deep_nested_parentheses(s: str) -> str:
@@ -164,6 +188,7 @@ class Kingdom:
     divine_wind_cso_str: str = ""
     traits: list[list[str]] = field(default_factory=list)
     stamps_and_effects: list[list[str]] = field(default_factory=list)
+    is_campaign: bool = False
 
     name: str = ""
     notes: str = field(default="", compare=False)
@@ -217,16 +242,35 @@ class Kingdom:
             .replace("city_state", "city-state")
             .replace("will_o_wisp", "will-o-wisp")
         )
-        # Longest spelling first; "colony/platinum" would become "colonies/colonies"
-        for col_str in ["colony/platinum", "colony", "platinum"]:
-            new_string = new_string.replace(col_str, "colonies")
         # Search for all single entries (we can't just split by "," because of druid boons)
         pattern = r"\s*,\s*(?![^()]*\))"
         full_list = re.split(pattern, new_string)
         full_list = [entry.replace(":", "(") for entry in full_list]
-        # Handle replace_copper and replace_estate:
-        full_list = _handle_replacements(full_list)
-        duplicates = [entry for entry in full_list if full_list.count(entry) > 1]
+        # Only standalone entries: "start_double_pile(colony)" targets the Colony pile.
+        # Longest spelling first; "colony/platinum" would become "colonies/colonies"
+        for i, entry in enumerate(full_list):
+            if "(" not in entry:
+                for col_str in ["colony/platinum", "colony", "platinum"]:
+                    entry = entry.replace(col_str, "colonies")
+                full_list[i] = entry
+        # Marks a kingdom that may use campaign rules (see `is_campaign`)
+        is_campaign = "campaign" in full_list
+        full_list = [entry for entry in full_list if entry != "campaign"]
+        # Specials are collected from all entries: a campaign effect may appear
+        # several times (start_replace_copper(silver) twice replaces two Coppers),
+        # and a Trait may have several targets in campaigns
+        special_dict: defaultdict[str, list[str]] = defaultdict(list)
+        for entry in full_list:
+            if "(" in entry:
+                cso, inside = entry.split("(", 1)
+                special_dict[sanitize_cso_name(cso, True)].append(inside.strip(") "))
+        effect_keys = set(ALL_CSOS.index[ALL_CSOS["IsCampaignEffect"]])
+        duplicates = [
+            entry
+            for entry in full_list
+            if full_list.count(entry) > 1
+            and sanitize_cso_name(entry.split("(")[0], True) not in effect_keys
+        ]
         full_list = list(set(full_list))
         # Find the instance of Colonies/NoColonies:
         colony_indicator = next(
@@ -244,35 +288,29 @@ class Kingdom:
             if not ("colonies" in entry.lower() or "shelters" in entry.lower())
         ]
         cso_list = [sanitize_cso_name(entry.split("(")[0], True) for entry in cso_list]
-        special_ones = [entry for entry in full_list if "(" in entry]
-        special_tuples = [tupstr.split("(") for tupstr in special_ones]
-        special_dict = {
-            sanitize_cso_name(cso, True): inside.strip(") ")
-            for cso, inside in special_tuples
-        }
-        special_dict = defaultdict(lambda: "", special_dict)
+
+        def single_special(key: str) -> str:
+            """The target of a special that only takes one (e.g. the Bane)."""
+            return special_dict[key][0] if special_dict.get(key) else ""
+
         druid_boons = (
-            [sanitize_cso_name(boon) for boon in special_dict["druid"].split(",")]
+            [sanitize_cso_name(boon) for boon in single_special("druid").split(",")]
             if "druid" in special_dict
             else []
         )
-        divine_wind_cso_str = (
-            special_dict["divine_wind"] if "divine_wind" in special_dict else ""
-        )
-        bane_pile = (
-            sanitize_cso_name(special_dict["young_witch"], True)
-            if "young_witch" in special_dict
-            else sanitize_cso_name(special_dict["bane"], True)
+        divine_wind_cso_str = single_special("divine_wind")
+        bane_pile = sanitize_cso_name(
+            single_special("young_witch") or single_special("bane"), True
         )
         if bane_pile != "":
             cso_list += [bane_pile]
-        obelisk_pile = sanitize_cso_name(special_dict["obelisk"], True)
-        ferryman_pile = sanitize_cso_name(special_dict["ferryman"], True)
-        riverboat_card = sanitize_cso_name(special_dict["riverboat"], True)
-        army_pile = sanitize_cso_name(special_dict["approaching_army"], True)
+        obelisk_pile = sanitize_cso_name(single_special("obelisk"), True)
+        ferryman_pile = sanitize_cso_name(single_special("ferryman"), True)
+        riverboat_card = sanitize_cso_name(single_special("riverboat"), True)
+        army_pile = sanitize_cso_name(single_special("approaching_army"), True)
         if army_pile != "":
             cso_list += [army_pile]
-        mouse_card = sanitize_cso_name(special_dict["way_of_the_mouse"], True)
+        mouse_card = sanitize_cso_name(single_special("way_of_the_mouse"), True)
 
         # Replace the split pile thingies:
         avail_csos = [cso for cso in cso_list if cso in ALL_CSOS.index]
@@ -284,48 +322,49 @@ class Kingdom:
         cards = csos[csos["IsInSupply"]]
         landscapes = csos[csos["IsExtendedLandscape"]]
         campaign_effects = csos[csos["IsCampaignEffect"]]
-        # Add Traits plus their targets (if not in there already):
+        # Add Traits plus their targets (if not in there already). Outside of
+        # campaigns, a Trait has exactly one supply pile as its target; several
+        # targets or non-supply ones (e.g. Gold) are kept, and the validity check
+        # marks them as campaign-only.
         traits = []
         for trait, _ in landscapes[landscapes["IsTrait"]].iterrows():
-            target: str = sanitize_cso_name(special_dict[trait], True)  # type: ignore
-            if target not in ALL_CSOS[ALL_CSOS["IsInSupply"]].index:
-                unrecognized_csos.append(target)
-            else:
-                traits.append([trait, target])
-        if len(traits) > 0:
-            cards = pd.concat(
-                [cards, ALL_CSOS.loc[[t[1] for t in traits if t[1] not in cards.index]]]
-            )
-        # Add Stamps plus their targets (if not in there already):
-        stamps_and_effects = []
-        for campaign_effect, _ in campaign_effects.iterrows():
-            raw_target = special_dict[campaign_effect]  # type: ignore
-            if raw_target == "":
-                continue
-            # We don't want to replace a starting conjurer with Wizards
-            replace_parent_pile = not str(campaign_effect).startswith("replace")
-            if "," in raw_target:
-                targets = [
-                    sanitize_cso_name(t, replace_parent_pile)
-                    for t in raw_target.split(",")
-                ]
-                good_targets = [t for t in targets if t in ALL_CSOS.index]
-                bad_targets = [t for t in targets if t not in good_targets]
-                for target in bad_targets:
-                    unrecognized_csos.append(target)
-                stamps_and_effects.append([campaign_effect, ", ".join(good_targets)])
-            else:
-                target: str = sanitize_cso_name(raw_target, replace_parent_pile)
+            for raw_target in special_dict.get(str(trait), []):
+                target = sanitize_cso_name(raw_target, True)
                 if target not in ALL_CSOS.index:
                     unrecognized_csos.append(target)
-                else:
-                    stamps_and_effects.append([campaign_effect, target])
+                elif [trait, target] not in traits:
+                    traits.append([trait, target])
+        supply_targets = [
+            t[1] for t in traits if ALL_CSOS.loc[t[1], "IsInSupply"]
+        ]
+        if len(supply_targets) > 0:
+            cards = pd.concat(
+                [cards, ALL_CSOS.loc[[t for t in supply_targets if t not in cards.index]]]
+            )
+        # Add Stamps plus their targets (if not in there already), one pair per
+        # target; several targets of one effect may also come comma-separated
+        stamps_and_effects = []
+        for campaign_effect, _ in campaign_effects.iterrows():
+            # We don't want to replace a starting conjurer with Wizards
+            replace_parent_pile = not str(campaign_effect).startswith("replace")
+            for raw_target in special_dict.get(str(campaign_effect), []):
+                for target in _split_targets(raw_target, replace_parent_pile):
+                    if target not in ALL_CSOS.index:
+                        unrecognized_csos.append(target)
+                    else:
+                        stamps_and_effects.append([campaign_effect, target])
         if len(stamps_and_effects) > 0:
+            # Only the target of an effect with a single target is a pile of the
+            # kingdom; e.g. Typhoon's list or the replacements of the starting
+            # cards aren't
+            num_targets = defaultdict(int)
+            for effect, _ in stamps_and_effects:
+                num_targets[effect] += 1
             new_targets = ALL_CSOS.loc[
                 [
                     t[1]
                     for t in stamps_and_effects
-                    if "," not in t[1]
+                    if num_targets[t[0]] == 1
                     and t[1] not in cards.index
                     and t[1] not in landscapes.index
                     and t[0] not in ["replace_copper", "replace_estate", "trash_pile"]
@@ -371,6 +410,7 @@ class Kingdom:
             notes=note_str,
             name=name,
             stamps_and_effects=stamps_and_effects,
+            is_campaign=is_campaign,
         )
         if check_validity:
             k.invalidity_reasons = InvalidityReason.check_kingdom_validity(k)
@@ -408,19 +448,12 @@ class Kingdom:
                 starting_deck[starting_deck.index("copper")] = heirloom_dict[card]
         if "double_deck" in self.campaign_effects:
             starting_deck += starting_deck
-        if "replace_estate" in self.campaign_effects:
-            targets = self.stamp_and_effects_dict.get("replace_estate", "").split(",")
-            for target in targets:
-                starting_deck[starting_deck.index("estate")] = sanitize_cso_name(target)
-
-        if "replace_copper" in self.campaign_effects:
-            targets = self.stamp_and_effects_dict.get("replace_copper", "").split(",")
-            for target in targets:
-                starting_deck[starting_deck.index("copper")] = sanitize_cso_name(target)
-        if "add_card" in self.campaign_effects:
-            targets = self.stamp_and_effects_dict.get("add_card", "").split(",")
-            for target in targets:
-                starting_deck.append(sanitize_cso_name(target))
+        effect_targets = self.effect_targets
+        for target in effect_targets.get("replace_estate", []):
+            starting_deck[starting_deck.index("estate")] = target
+        for target in effect_targets.get("replace_copper", []):
+            starting_deck[starting_deck.index("copper")] = target
+        starting_deck += effect_targets.get("add_card", [])
         if "add_each_pile" in self.campaign_effects:
             for card in self.cards:
                 c = ALL_CSOS.loc[card]
@@ -471,23 +504,10 @@ class Kingdom:
         self.obelisk_pile = sanitize_cso_name(self.obelisk_pile)
         self.ferryman_pile = sanitize_cso_name(self.ferryman_pile)
         self.riverboat_card = sanitize_cso_name(self.riverboat_card)
-        self.traits = (
-            []
-            if isinstance(self.traits, float)
-            else sorted(
-                [sanitize_cso_list(trait_tup, sort=False) for trait_tup in self.traits]
-            )
-        )
-        self.stamps_and_effects = (
-            []
-            if isinstance(self.stamps_and_effects, float)
-            else sorted(
-                [
-                    sanitize_cso_list(stamp_tup, sort=False)
-                    for stamp_tup in self.stamps_and_effects
-                ]
-            )
-        )
+        self.traits = _normalize_target_pairs(self.traits, remove_duplicates=True)
+        # Duplicates count here: replace_copper on silver twice replaces two Coppers
+        self.stamps_and_effects = _normalize_target_pairs(self.stamps_and_effects)
+        self.divine_wind_cso_str = _normalize_divine_wind_str(self.divine_wind_cso_str)
         # The following three are non-supply
         if self.ferryman_pile in self.cards:
             self.cards.remove(self.ferryman_pile)
@@ -559,14 +579,23 @@ class Kingdom:
         return len(self.expansions) == 0
 
     @property
-    def trait_dict(self) -> dict[str, str]:
-        """Mapping of traits to their targets"""
-        return {t[0]: t[1] for t in self.traits}
+    def trait_targets(self) -> dict[str, list[str]]:
+        """Mapping of the Traits to their targets (several only in campaigns)."""
+        return _group_targets(self.traits)
 
     @property
-    def stamp_and_effects_dict(self) -> dict[str, str]:
-        """Mapping of traits to their targets"""
-        return {t[0]: t[1] for t in self.stamps_and_effects}
+    def effect_targets(self) -> dict[str, list[str]]:
+        """Mapping of the campaign effects to their targets; a target may appear
+        several times (e.g. two Coppers replaced by Silvers)."""
+        return _group_targets(self.stamps_and_effects)
+
+    def get_traits_on(self, cso_key: str) -> list[str]:
+        """The Traits applying to the given pile."""
+        return [trait for trait, target in self.traits if target == cso_key]
+
+    def get_effects_on(self, cso_key: str) -> list[str]:
+        """The campaign effects (e.g. Stamps) applying to the given pile."""
+        return sorted({eff for eff, target in self.stamps_and_effects if target == cso_key})
 
     @property
     def card_and_landscape_text(self) -> str:
@@ -627,12 +656,12 @@ class Kingdom:
             text += (
                 f" (With: {', '.join(get_cso_name(boon) for boon in self.druid_boons)})"
             )
-        if cso_key in [t[0] for t in self.traits]:
-            target = [t[1] for t in self.traits if t[0] == cso_key][0]
-            text += f" (On: {", ".join([get_cso_name(t.strip("_")) for t in target.split(',')])})"
-        if cso_key in [t[0] for t in self.stamps_and_effects]:
-            target = [t[1] for t in self.stamps_and_effects if t[0] == cso_key][0]
-            text += f" (On: {", ".join([get_cso_name(t.strip("_")) for t in target.split(',')])})"
+        for targets in [
+            self.trait_targets.get(cso_key, []),
+            self.effect_targets.get(cso_key, []),
+        ]:
+            if targets:
+                text += f" (On: {', '.join(get_cso_name(t) for t in targets)})"
         # Do the same thing the other way round:
         if cso_key == self.bane_pile:
             text += f" >>>Bane<<<"
@@ -640,47 +669,47 @@ class Kingdom:
             text += f" >>>For Approaching Army<<<"
         if cso_key == self.obelisk_pile:
             text += f" >>>Obelisk<<<"
-        if cso_key in [t[1] for t in self.traits]:
-            trait = [t[0] for t in self.traits if t[1] == cso_key][0]
-            text += f" >>>{get_cso_name(trait)}<<<"
-        if cso_key in [t[1] for t in self.stamps_and_effects]:
-            stamp = [t[0] for t in self.stamps_and_effects if t[1] == cso_key][0]
-            text += f" >>>{get_cso_name(stamp)}<<<"
+        for trait_or_effect in self.get_traits_on(cso_key) + self.get_effects_on(cso_key):
+            text += f" >>>{get_cso_name(trait_or_effect)}<<<"
         return text
 
     def _get_special_dict(
         self, sani_func: Callable[[str], str], add_stamps=True
-    ) -> dict[str, str]:
-        """Get a dictionary with all of the special cards and their extra information."""
-        special_dict = {}
+    ) -> defaultdict[str, list[str]]:
+        """Get a dictionary with all of the special cards and their extra information,
+        e.g. ``{"young_witch": [" (Moat)"]}``. A Trait or campaign effect with several
+        targets gets one entry per target, which are printed separately."""
+        special_dict: defaultdict[str, list[str]] = defaultdict(list)
         if self.bane_pile:
-            special_dict["young_witch"] = sani_func(self.bane_pile)
+            special_dict["young_witch"].append(sani_func(self.bane_pile))
         if self.army_pile:
-            special_dict["approaching_army"] = sani_func(self.army_pile)
+            special_dict["approaching_army"].append(sani_func(self.army_pile))
         if self.druid_boons:
             boon_str = ", ".join([sani_func(boon) for boon in self.druid_boons])
-            special_dict["druid"] = boon_str
+            special_dict["druid"].append(boon_str)
         if self.obelisk_pile:
-            special_dict["obelisk"] = sani_func(self.obelisk_pile)
+            special_dict["obelisk"].append(sani_func(self.obelisk_pile))
         if self.ferryman_pile:
-            special_dict["ferryman"] = sani_func(self.ferryman_pile)
+            special_dict["ferryman"].append(sani_func(self.ferryman_pile))
         if self.riverboat_card:
-            special_dict["riverboat"] = sani_func(self.riverboat_card)
+            special_dict["riverboat"].append(sani_func(self.riverboat_card))
         if self.mouse_card:
-            special_dict["way_of_the_mouse"] = sani_func(self.mouse_card)
+            special_dict["way_of_the_mouse"].append(sani_func(self.mouse_card))
         if self.divine_wind_cso_str:
-            special_dict["divine_wind"] = Kingdom.from_dombot_csv_string(
-                self.divine_wind_cso_str
-            ).get_dombot_csv_string(ignore_col_shelt=True)
+            special_dict["divine_wind"].append(
+                Kingdom.from_dombot_csv_string(
+                    self.divine_wind_cso_str
+                ).get_dombot_csv_string(ignore_col_shelt=True)
+            )
         for trait, target in self.traits:
-            special_dict[trait] = sani_func(target)
+            special_dict[trait].append(sani_func(target))
         if add_stamps:
             for stamp, target in self.stamps_and_effects:
-                special_dict[stamp] = sani_func(target)
-        special_dict = defaultdict(
-            lambda: "", {key: f" ({val})" for key, val in special_dict.items()}
-        )
-        return special_dict
+                special_dict[stamp].append(sani_func(target))
+        formatted: defaultdict[str, list[str]] = defaultdict(lambda: [""])
+        for key, vals in special_dict.items():
+            formatted[key] = [f" ({val})" for val in vals]
+        return formatted
 
     def get_dombot_csv_string(self, ignore_col_shelt=False) -> str:
         """Construct a comma-separated string that can be fed to DomBot to generate
@@ -690,16 +719,21 @@ class Kingdom:
         cards = [card.split("/")[0] for card in self.cards]
         special_dict = self._get_special_dict(get_cso_name)
         proper_strings = [
-            get_cso_name(cso) + special_dict[cso] for cso in cards + self.landscapes
+            get_cso_name(cso) + extra
+            for cso in cards + self.landscapes
+            for extra in special_dict[cso]
         ]
         if not ignore_col_shelt:
             proper_strings.append("Shelters" if self.use_shelters else "No Shelters")
             proper_strings.append("Colonies" if self.use_colonies else "No Colonies")
+        if self.is_campaign:
+            # Not understood by DomBot, which doesn't support campaign features anyway
+            proper_strings.append("Campaign")
         sep_string = ", ".join(sorted(proper_strings))
         if len(self.campaign_effects) == 0:
             return sep_string
-        sep_string = sep_string + " -x "
         special_dict = self._get_special_dict(lambda x: x)
+        effect_strings = []
         for effect_name in self.campaign_effects:
             effect_type = (
                 ALL_CSOS.loc[effect_name]["Types"][0]
@@ -707,16 +741,16 @@ class Kingdom:
                 .replace("setup effect", "start")
             )
             effect = effect_type + "_" + effect_name
-            sep_string = sep_string + effect + special_dict[effect_name].strip() + ", "
-        sep_string = sep_string.rstrip(", ")
-        return sep_string
+            effect_strings += [effect + extra.strip() for extra in special_dict[effect_name]]
+        return sep_string + " -x " + ", ".join(effect_strings)
 
     def get_sanitized_tgg_string(self) -> str:
         """Get a sanitized string representation of the kingdom."""
         special_dict = self._get_special_dict(sanitize_cso_name, add_stamps=False)
         proper_strings = [
-            sanitize_cso_name(cso) + special_dict[cso]
+            sanitize_cso_name(cso) + extra
             for cso in self.cards + self.landscapes + self.campaign_effects
+            for extra in special_dict[cso]
         ]
 
         k_str = ", ".join(sorted(proper_strings))
@@ -725,17 +759,13 @@ class Kingdom:
         if self.use_colonies:
             k_str += ", colonies"
         if self.campaign_effects:
+            effect_targets = self.effect_targets
             k_str += " -x "
             k_str += ", ".join(
-                [
-                    (
-                        eff
-                        if eff not in self.stamp_and_effects_dict
-                        else f"{eff}({self.stamp_and_effects_dict[eff]})"
-                    )
-                    for eff in sorted(self.campaign_effects)
-                    if eff
-                ]
+                f"{eff}({target})" if eff in effect_targets else eff
+                for eff in sorted(self.campaign_effects)
+                if eff
+                for target in effect_targets.get(eff, [""])
             )
         return k_str
 

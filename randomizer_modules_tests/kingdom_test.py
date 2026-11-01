@@ -161,17 +161,17 @@ def test_traits():
     randomizer = rk.KingdomRandomizer(config)
     kingdom = randomizer.randomize_new_kingdom()
     assert "inherited" in kingdom.landscapes, "inherited has not been chosen correctly"
-    assert "inherited" in kingdom.trait_dict
-    target = kingdom.trait_dict["inherited"]
+    assert "inherited" in kingdom.trait_targets
+    target = kingdom.trait_targets["inherited"][0]
     assert target in kingdom.cards
     # Test rerolling target
     new_kingdom = randomizer.reroll_single_cso(kingdom, target)
-    assert new_kingdom.trait_dict["inherited"] != target
+    assert new_kingdom.trait_targets["inherited"][0] != target
     assert target not in new_kingdom.cards
     # Test rerolling the trait itself
     new_kingdom = randomizer.reroll_single_cso(kingdom, "inherited")
     assert "inherited" not in new_kingdom.landscapes
-    assert "inherited" not in new_kingdom.trait_dict
+    assert "inherited" not in new_kingdom.trait_targets
 
 
 def test_obelisk():
@@ -467,44 +467,129 @@ def test_dombot_string_special_targets(dombot_str: str, expected: dict):
     _test_dombot_readin_readout(dombot_str)
 
 
-@pytest.mark.xfail(
-    strict=True,
-    reason="M19: the second target of the same trait is dropped while parsing",
+_NEARBY_ON_TWO_CARDS = (
+    "engineer, daimyo, artist, overlord, search, abundance, rustic_village, "
+    "capital, imperial_envoy, kitsune, rush, nearby(imperial_envoy), "
+    "nearby(engineer), sickness"
 )
+# Campaign "Plunder 3": Shy on Gold, which isn't a supply pile
+_SHY_ON_GOLD = (
+    "cellar, shaman, gardens, gondola, harbor_village, landing_party, mapmaker, "
+    "smithy, bandit, first_mate, patient(first_mate), shy(gold)"
+)
+
+
+def _reason_keys(kingdom: rk.Kingdom) -> set[str]:
+    return {reason.key for reason in kingdom.invalidity_reasons}
+
+
 def test_same_trait_on_two_cards():
-    kingdom = rk.Kingdom.from_dombot_csv_string(
-        "engineer, daimyo, artist, overlord, search, abundance, rustic_village, "
-        "capital, imperial_envoy, kitsune, rush, nearby(imperial_envoy), "
-        "nearby(engineer), sickness"
-    )
+    """Only allowed in campaigns (M24), but parsed either way."""
+    kingdom = rk.Kingdom.from_dombot_csv_string(_NEARBY_ON_TWO_CARDS)
     assert kingdom.traits == [["nearby", "engineer"], ["nearby", "imperial_envoy"]]
+    assert kingdom.trait_targets == {"nearby": ["engineer", "imperial_envoy"]}
+    assert kingdom.get_traits_on("engineer") == ["nearby"]
+    _test_dombot_readin_readout(_NEARBY_ON_TWO_CARDS)
 
 
-@pytest.mark.xfail(
-    strict=True,
-    reason="M19: several targets of one start effect are merged into 'silver,_estate',"
-    " and only the first survives printing and parsing again",
+def test_trait_on_a_non_supply_pile():
+    kingdom = rk.Kingdom.from_dombot_csv_string(_SHY_ON_GOLD)
+    assert kingdom.notes == ""
+    assert ["shy", "gold"] in kingdom.traits
+    assert "gold" not in kingdom.cards  # Gold isn't a kingdom pile
+    _test_dombot_readin_readout(_SHY_ON_GOLD)
+
+
+@pytest.mark.parametrize(
+    "dombot_str, reason",
+    [
+        (_NEARBY_ON_TWO_CARDS, "trait_on_several_piles_outside_campaign"),
+        (_SHY_ON_GOLD, "trait_on_non_supply_pile_outside_campaign"),
+    ],
 )
-def test_start_effect_with_two_targets():
+def test_campaign_only_traits_are_invalid_outside_of_campaigns(
+    dombot_str: str, reason: str
+):
+    kingdom = rk.Kingdom.from_dombot_csv_string(dombot_str)
+    assert not kingdom.is_campaign
+    assert _reason_keys(kingdom) == {reason}
+
+    campaign = rk.Kingdom.from_dombot_csv_string(dombot_str + ", campaign")
+    assert campaign.is_campaign
+    assert campaign.is_valid, campaign.invalidity_reasons
+    # The flag survives printing ("Campaign") and parsing again
+    _test_dombot_readin_readout(dombot_str + ", campaign")
+
+
+def test_campaign_kingdoms_are_loaded_as_campaigns():
+    manager = rk.KingdomManager()
+    manager.load_campaigns()
+    plunder_3 = manager.get_kingdom_by_name("Plunder 3")
+    assert plunder_3 is not None and plunder_3.is_campaign
+    assert ["shy", "gold"] in plunder_3.traits
+
+
+def test_start_effect_with_several_targets():
+    """One pair per target, duplicates included: they replace several Coppers."""
     dombot_str = (
         "fishing_village, lookout, sea_chart, village, warehouse, sailor, bandit, "
         "corsair, festival, laboratory, start_replace_copper(silver), "
-        "start_replace_copper(estate)"
+        "start_replace_copper(silver), start_replace_copper(estate)"
     )
     kingdom = rk.Kingdom.from_dombot_csv_string(dombot_str)
-    assert kingdom.stamps_and_effects == [["replace_copper", "silver, estate"]]
+    assert kingdom.notes == ""  # Repeated campaign effects aren't duplicates
+    assert kingdom.stamps_and_effects == [
+        ["replace_copper", "estate"],
+        ["replace_copper", "silver"],
+        ["replace_copper", "silver"],
+    ]
+    deck = kingdom.get_starting_deck
+    assert (deck.count("copper"), deck.count("silver"), deck.count("estate")) == (4, 2, 4)
     _test_dombot_readin_readout(dombot_str)
 
 
-@pytest.mark.xfail(
-    strict=True,
-    reason="M19: the Divine Wind CSOs are printed with display names and come back"
-    " as a different string",
-)
-def test_divine_wind_survives_printing_and_parsing():
-    _test_dombot_readin_readout(
-        "mountain_shrine, daimyo, dungeon, infirmary, poet, transmogrify, baker, "
-        "footpad, lost_city, samurai, training, amass, divine_wind(distant_lands, page, "
-        "miser, stonemason, snake_witch, journeyman, magpie, wine_merchant, guide, "
-        "aristocrat)"
+def test_merged_effect_targets_of_older_files_are_split():
+    """Older kingdom files stored several targets as one "silver,_estate"."""
+    kingdom = rk.Kingdom(
+        ["village"], stamps_and_effects=[["replace_copper", "silver,_silver,_estate"]]
     )
+    assert kingdom.effect_targets == {"replace_copper": ["estate", "silver", "silver"]}
+
+
+def test_replace_estate_from_pile_is_its_own_effect():
+    """It used to be merged into replace_estate, as its name contains it."""
+    kingdom = rk.Kingdom.from_dombot_csv_string(
+        "village, smithy, chapel, market, militia, witch, festival, library, "
+        "laboratory, moat, start_replace_estate(silver), "
+        "start_replace_estate_from_pile(moat)"
+    )
+    assert kingdom.effect_targets == {
+        "replace_estate": ["silver"],
+        "replace_estate_from_pile": ["moat"],
+    }
+
+
+def test_divine_wind_survives_printing_and_parsing():
+    """The Divine Wind CSOs are stored as sorted keys, however they were entered
+    (specials inside them aren't supported yet, M19)."""
+    dombot_str = (
+        "mountain_shrine, daimyo, dungeon, infirmary, poet, transmogrify, baker, "
+        "footpad, lost_city, samurai, training, amass, divine_wind(Distant Lands, "
+        "page, miser, stonemason, snake_witch, journeyman, magpie, wine_merchant, "
+        "guide, aristocrat)"
+    )
+    kingdom = rk.Kingdom.from_dombot_csv_string(dombot_str)
+    assert kingdom.divine_wind_cso_str.startswith("aristocrat, distant_lands, guide")
+    _test_dombot_readin_readout(dombot_str)
+
+
+def test_colony_as_a_campaign_effect_target():
+    """The Colony/Platinum spellings are only normalized in standalone entries."""
+    kingdom = rk.Kingdom.from_dombot_csv_string(
+        "grotto, catapult, clashes, stockpile, blockade, clerk, patrol, rice_broker, "
+        "sculptor, forge, way_of_the_butterfly, ritual, colonies, "
+        "start_double_pile(province), start_double_pile(colony)"
+    )
+    assert kingdom.use_colonies
+    assert kingdom.notes == ""
+    assert kingdom.effect_targets == {"double_pile": ["colony", "province"]}

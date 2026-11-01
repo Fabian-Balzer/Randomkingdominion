@@ -7,6 +7,7 @@
   - Faster app start using vectorised interaction and combo counting (about 1.5 s faster when the app wakes up)
   - Fixed the images of 30 Stamps not showing up
   - Faster kingdom display: card images are cached, so redrawing a kingdom takes about a third less time
+  - Campaign kingdoms: Traits on several piles (or on e.g. Gold) and start effects with several targets (like replacing two Coppers by Silvers) are no longer lost, and a kingdom marked with "Campaign" may use these campaign rules
 - 1.5.2 (2026-10-25):
   - Added sharable image at the end of a quiz run
   - Minor improvements to quiz UI

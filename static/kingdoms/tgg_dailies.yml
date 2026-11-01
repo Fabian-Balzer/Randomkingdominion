@@ -1,3 +1,69 @@
+- campaign_effects:
+  - replace_copper
+  - replace_estate
+  cards:
+  - change
+  - clashes
+  - daimyo
+  - fool
+  - highwayman
+  - lost_city
+  - mining_road
+  - secluded_shrine
+  - spice_merchant
+  - tea_house
+  expansions:
+  - Adventures
+  - Allies
+  - Empires
+  - Hinterlands, 2E
+  - Nocturne
+  - Plunder
+  - Rising Sun
+  idx: 242700887165014883550561096133551753419
+  landscapes:
+  - banquet
+  - kind_emperor
+  - scrounge
+  name: '2026-11-01'
+  notes:
+    crucial_cards: [Daimyo, Tea House, Mining Road, Banquet]
+    ending: [Daimyo, Highwayman, Tea House]
+    link: 'https://youtu.be/3vKalXREsFQ'
+    name: 'This Tea Is Ruined'
+    openings:
+    - grade: 'B+'
+      t1: 'Scrounge, trashing Ruined Village > Survivors > Ruined Market'
+      t1_csos: [Scrounge, Ruined Village, lucky coin, silver]
+      t2: 'Scrounge, trashing Ruined Village > Survivors > Ruined Market'
+      t2_csos: [abandoned_mine, scrounge, Survivors]
+      type: 3/3
+    - grade: 'C'
+      t1: 'Scrounge, trashing the Ruin, or Change'
+      t1_csos: [Scrounge, Ruined Village, lucky coin, silver]
+      t2: 'Skip turn'
+      t2_csos: [tragic_hero]
+      type: 4/2|2/4
+    - grade: 'B'
+      t1: 'Tea House, or Highwayman'
+      t1_csos: [tea_house, lucky coin, silver]
+      t2: 'Skip turn'
+      t2_csos: [tragic_hero]
+      type: 5/1|1/5
+    points: [19, 6]
+    subtitle: 'With The Double-Scrounge Start, We Quickly Arrive At A Crazy Deck'
+    turns: [10, 9]
+  stamps_and_effects:
+  - - replace_copper
+    - ruined_library
+  - - replace_copper
+    - survivors
+  - - replace_estate
+    - abandoned_mine
+  - - replace_estate
+    - ruined_market
+  - - replace_estate
+    - ruined_village
 - cards:
   - altar
   - cabin_boy
@@ -4077,7 +4143,19 @@
   name: '2026-07-19'
   stamps_and_effects:
   - - replace_copper
-    - spoils,_spoils,_spoils,_spoils,_spoils,_spoils,_spoils
+    - spoils
+  - - replace_copper
+    - spoils
+  - - replace_copper
+    - spoils
+  - - replace_copper
+    - spoils
+  - - replace_copper
+    - spoils
+  - - replace_copper
+    - spoils
+  - - replace_copper
+    - spoils
   - - with_horse
     - rope
 - cards:
@@ -4398,7 +4476,9 @@
   - - chameleonized
     - broker
   - - replace_copper
-    - stronghold,_tiara
+    - stronghold
+  - - replace_copper
+    - tiara
   use_colonies: true
 - cards:
   - anvil
@@ -5154,7 +5234,11 @@
   - - double_pile
     - duchy
   - - replace_estate
-    - overgrown_estate,_overgrown_estate,_overgrown_estate
+    - overgrown_estate
+  - - replace_estate
+    - overgrown_estate
+  - - replace_estate
+    - overgrown_estate
   use_shelters: true
 - cards:
   - charlatan
@@ -7123,7 +7207,9 @@
     - 10
   stamps_and_effects:
   - - replace_estate
-    - taskmaster,_taskmaster
+    - taskmaster
+  - - replace_estate
+    - taskmaster
   traits:
   - - cursed
     - taskmaster
@@ -10599,7 +10685,11 @@
     - 7
   stamps_and_effects:
   - - replace_estate
-    - spoils,_spoils,_spoils
+    - spoils
+  - - replace_estate
+    - spoils
+  - - replace_estate
+    - spoils
   - - with_spoils
     - acting_troupe
 - cards:
@@ -12246,7 +12336,11 @@
     - 7
   stamps_and_effects:
   - - replace_estate
-    - horse,_horse,_horse
+    - horse
+  - - replace_estate
+    - horse
+  - - replace_estate
+    - horse
   - - with_spoils
     - enlarge
   use_shelters: true
@@ -12852,9 +12946,25 @@
   - - double_vp
     - labyrinth
   - - replace_copper
-    - spoils,_spoils,_abandoned_mine,_ruined_village,_ruined_library,_ruined_market,_survivors
+    - spoils
+  - - replace_copper
+    - spoils
+  - - replace_copper
+    - abandoned_mine
+  - - replace_copper
+    - ruined_village
+  - - replace_copper
+    - ruined_library
+  - - replace_copper
+    - ruined_market
+  - - replace_copper
+    - survivors
   - - replace_estate
-    - spoils,_spoils,_spoils
+    - spoils
+  - - replace_estate
+    - spoils
+  - - replace_estate
+    - spoils
   - - with_horse
     - merchant_guild
   use_colonies: true
@@ -14446,7 +14556,19 @@
     - 10
   stamps_and_effects:
   - - replace_copper
-    - spoils,_spoils,_spoils,_spoils,_spoils,_spoils,_spoils
+    - spoils
+  - - replace_copper
+    - spoils
+  - - replace_copper
+    - spoils
+  - - replace_copper
+    - spoils
+  - - replace_copper
+    - spoils
+  - - replace_copper
+    - spoils
+  - - replace_copper
+    - spoils
   traits:
   - - cursed
     - distant_lands
@@ -17848,7 +17970,11 @@
   - - pay_later
     - underling
   - - replace_estate
-    - duchy,_duchy,_duchy
+    - duchy
+  - - replace_estate
+    - duchy
+  - - replace_estate
+    - duchy
 - cards:
   - bandit_camp
   - changeling
@@ -19070,7 +19196,11 @@
   riverboat_card: torturer
   stamps_and_effects:
   - - replace_estate
-    - zombie_apprentice,_zombie_mason,_shop
+    - zombie_apprentice
+  - - replace_estate
+    - zombie_mason
+  - - replace_estate
+    - shop
 - cards:
   - bridge
   - caravan_guard
@@ -20341,7 +20471,17 @@
   - - plus_coin
     - way_of_the_otter
   - - replace_copper
-    - spoils,_spoils,_spoils,_spoils,_spoils,_spoils
+    - spoils
+  - - replace_copper
+    - spoils
+  - - replace_copper
+    - spoils
+  - - replace_copper
+    - spoils
+  - - replace_copper
+    - spoils
+  - - replace_copper
+    - spoils
 - cards:
   - capital
   - catacombs
@@ -20750,9 +20890,13 @@
     - 13
   stamps_and_effects:
   - - replace_copper
-    - ruins,_ruins
+    - ruins
+  - - replace_copper
+    - ruins
   - - replace_estate
-    - ruins,_ruins
+    - ruins
+  - - replace_estate
+    - ruins
 - cards:
   - graverobber
   - guildmaster

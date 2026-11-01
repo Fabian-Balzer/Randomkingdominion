@@ -226,10 +226,7 @@ def annotate_cards_landscapes(ax: Axes, k: "Kingdom", config: KingdomDisplayConf
     crucial_cards: list = k.unpacked_notes["crucial_cards"]
     crucial_cards = sanitize_cso_list(crucial_cards, sort=False)
     for i, cso in enumerate(crucial_cards):
-        stamps_traits = [
-            s for s in k.campaign_effects if k.stamp_and_effects_dict.get(s, "_") == cso
-        ]
-        stamps_traits += [s for s in k.trait_dict if k.trait_dict.get(s, "_") == cso]
+        stamps_traits = k.get_effects_on(cso) + k.get_traits_on(cso)
         annotate_single_crucial_cso(
             ax,
             cso,

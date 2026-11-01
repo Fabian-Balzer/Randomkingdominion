@@ -13,7 +13,6 @@ from ....utils import (
     crop_landscape_text,
     get_cropped_card_img_without_text,
     get_cso_quality_description,
-    invert_dict,
     load_cso_img_by_key,
     overlay_cutout,
     sanitize_cso_name,
@@ -101,12 +100,12 @@ def get_cso_display_image(
         army = crop_img_by_percentage(army, [0.3, 0.1, 0.65, 0.65])
         army = ImageOps.expand(army, border=3, fill="white")
         img = overlay_cutout(img, army, 0.45, (0.08, 0.18))
-    if cso_key in kingdom.trait_dict:
-        target_img = get_cropped_card_img_without_text(kingdom.trait_dict[cso_key])
+    # Only room for one target or Trait; several only happen in campaigns
+    if trait_targets := kingdom.trait_targets.get(cso_key):
+        target_img = get_cropped_card_img_without_text(trait_targets[0])
         img = overlay_cutout(img, target_img, 0.45, (0.65, 0.2))
-    if cso_key in kingdom.trait_dict.values():
-        trait_key = invert_dict(kingdom.trait_dict)[cso_key]
-        trait_img = load_cso_img_by_key(trait_key)
+    if traits_on_pile := kingdom.get_traits_on(cso_key):
+        trait_img = load_cso_img_by_key(traits_on_pile[0])
         trait_img = crop_img_by_percentage(trait_img, [0, 0.12, 0.063, 0.88])
         img = overlay_cutout(img, trait_img, 0.95, (0.01, 0.15))
     if is_landscape and hide_landscape_text:
@@ -122,8 +121,11 @@ def has_kingdom_overlay(cso_key: str, kingdom: Kingdom) -> bool:
     if source is not None and getattr(kingdom, source):
         return True
     marked_piles = {kingdom.obelisk_pile, kingdom.bane_pile, kingdom.army_pile} - {""}
-    traits = kingdom.trait_dict
-    return cso_key in marked_piles or cso_key in traits or cso_key in traits.values()
+    return (
+        cso_key in marked_piles
+        or cso_key in kingdom.trait_targets
+        or bool(kingdom.get_traits_on(cso_key))
+    )
 
 
 @cache
