@@ -261,6 +261,9 @@ ALL_CSOS = _init_main_df()
 ALL_CSOS["Final Expansion"] = ALL_CSOS["Expansion"].apply(
     lambda x: EXPANSION_DICT.get(x, x)
 )
+# Consolidated into one block per dtype (44 -> 5): every `.loc` of a kingdom's rows
+# takes each block, so building a Kingdom got ~1 ms faster, its validity check ~0.7 ms
+ALL_CSOS = ALL_CSOS.copy()
 EXPANSION_LIST: list[str] = [
     "Base, 1E",
     "Base, 2E",

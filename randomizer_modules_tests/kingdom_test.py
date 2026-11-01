@@ -395,6 +395,47 @@ def test_cso_names_match_the_card_data():
     assert utils._get_cso_name_dict() is utils._get_cso_name_dict()
 
 
+def test_cso_sort_ranks_order_like_sort_kingdom():
+    """Kingdoms sort their tables by a rank computed once per CSO (M19, step 2),
+    which only gives `sort_kingdom`'s order as long as no two CSOs tie."""
+    from random_kingdominion.utils.kingdom_helper_funcs import sort_kingdom
+
+    columns_before = rk.ALL_CSOS.columns.to_list()
+    ranks = rk.get_cso_sort_ranks()
+    assert rk.ALL_CSOS.columns.to_list() == columns_before  # Not changed in place
+    assert sorted(ranks) == sorted(rk.ALL_CSOS.index)
+    rng = np.random.default_rng(19)
+    for _ in range(100):
+        keys = list(rng.choice(rk.ALL_CSOS.index, size=15, replace=False))
+        expected = sort_kingdom(rk.ALL_CSOS.loc[keys]).index.to_list()
+        assert sorted(keys, key=ranks.__getitem__) == expected
+
+
+def test_kingdom_tables_are_sorted():
+    from random_kingdominion.utils.kingdom_helper_funcs import sort_kingdom
+
+    # Potion and Debt costs, landscapes, campaign effects and extra piles
+    kingdom = rk.Kingdom.from_dombot_csv_string(
+        "familiar, city_quarter, village, smithy, ferryman(cellar), "
+        "druid(the_earths_gift, the_fields_gift, the_suns_gift), market, militia, "
+        "witch, festival, alms, nearby(village), obelisk(smithy), colonies "
+        "-x stamp_pay_later(market), start_replace_copper(silver)"
+    )
+    assert kingdom.notes == ""
+    for df in [
+        kingdom.full_kingdom_df,
+        kingdom.kingdom_card_df,
+        kingdom.kingdom_landscape_df,
+        kingdom.kingdom_campaign_effects_df,
+    ]:
+        assert df.index.to_list() == sort_kingdom(df).index.to_list()
+    assert kingdom.kingdom_card_df.index[0] == "city_quarter"  # Debt costs first
+    assert kingdom.kingdom_campaign_effects_df.index.to_list() == [
+        "pay_later",
+        "replace_copper",
+    ]
+
+
 def test_dombot_string_uses_display_names_of_cards_and_extra_piles():
     kingdom = rk.Kingdom(
         cards=[

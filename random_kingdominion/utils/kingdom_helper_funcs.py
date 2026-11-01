@@ -1,5 +1,6 @@
 """Helper functions needed for kingdom creation and manipulation."""
 
+from functools import lru_cache
 from typing import Any, Collection
 
 import numpy as np
@@ -102,8 +103,7 @@ def sort_kingdom(df: pd.DataFrame) -> pd.DataFrame:
     then it is sorted by cost, then by name.
     """
     # To ensure Potion and Debt Cost will be ranked first:
-    df["CostSort"] = df["Cost"].str.replace("$", "Z")
-    df["NameSort"] = df["Name"]
+    df = df.assign(CostSort=df["Cost"].str.replace("$", "Z"), NameSort=df["Name"])
     df = df.sort_values(
         by=[
             "IsInSupply",
@@ -116,6 +116,16 @@ def sort_kingdom(df: pd.DataFrame) -> pd.DataFrame:
         ascending=[False, False, False, False, True, True],
     )
     return df.drop(["NameSort", "CostSort"], axis=1)
+
+
+@lru_cache(maxsize=1)
+def get_cso_sort_ranks() -> dict[str, int]:
+    """The position of each CSO in `sort_kingdom` applied to all CSOs. No two CSOs
+    tie in all sort keys, so sorting keys by their rank orders any subset exactly
+    like `sort_kingdom`; its four pandas sorts took ~13 of ~29 ms per `Kingdom`."""
+    from ..constants import ALL_CSOS
+
+    return {key: rank for rank, key in enumerate(sort_kingdom(ALL_CSOS).index)}
 
 
 # Other names in use for a CSO, e.g. first-edition or TGG's internal names

@@ -7,7 +7,7 @@ from collections import defaultdict
 from dataclasses import asdict, dataclass, field
 from functools import reduce
 from json import JSONDecodeError, dumps, loads
-from typing import Any, Callable, Literal
+from typing import Any, Callable, Iterable, Literal
 from uuid import uuid4
 
 import numpy as np
@@ -22,10 +22,10 @@ from ..constants import (
 from ..logger import LOGGER
 from ..utils import (
     get_cso_name,
+    get_cso_sort_ranks,
     get_total_quality,
     sanitize_cso_list,
     sanitize_cso_name,
-    sort_kingdom,
 )
 from .invalidity_stuff import InvalidityReason
 
@@ -536,19 +536,20 @@ class Kingdom:
             key_list += ["ruins"]
         if self.druid_boons:
             key_list += self.druid_boons
-        key_list = np.unique(key_list)
-        full_kingdom_df = ALL_CSOS.loc[key_list]
-        self.full_kingdom_df = sort_kingdom(full_kingdom_df)
+        # One lookup in the order of `sort_kingdom`, instead of sorting each table
+        ranks = get_cso_sort_ranks()
 
-        self.kingdom_card_df = sort_kingdom(
-            self.full_kingdom_df.loc[self.cards]  # type: ignore
-        )
-        self.kingdom_landscape_df = sort_kingdom(
-            self.full_kingdom_df.loc[self.landscapes]  # type: ignore
-        )
-        self.kingdom_campaign_effects_df = sort_kingdom(
-            self.full_kingdom_df.loc[self.campaign_effects]  # type: ignore
-        )
+        def by_rank(keys: Iterable[str]) -> list[str]:
+            # Unknown keys go on to `.loc`, which raises a KeyError as before
+            return sorted(keys, key=lambda key: ranks.get(key, -1))
+
+        full_kingdom_df = ALL_CSOS.loc[by_rank(set(key_list))]
+        self.full_kingdom_df = full_kingdom_df
+        self.kingdom_card_df = full_kingdom_df.loc[by_rank(self.cards)]
+        self.kingdom_landscape_df = full_kingdom_df.loc[by_rank(self.landscapes)]
+        self.kingdom_campaign_effects_df = full_kingdom_df.loc[
+            by_rank(self.campaign_effects)
+        ]
         self._set_quality_values()
 
         # TODO: Calculate extra piles necessary for the kingdom.
