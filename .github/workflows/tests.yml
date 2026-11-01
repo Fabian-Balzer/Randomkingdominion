@@ -50,7 +50,7 @@ jobs:
     needs: test
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     # The app being slow to wake up shouldn't mark the commit as failed
     continue-on-error: true
     steps:
@@ -69,4 +69,13 @@ jobs:
           python -m playwright install --with-deps chromium
 
       - name: Open the Oracle and the quiz with the TGG Dailies
-        run: python scripts/warm_up_app.py
+        # -u: without a terminal, Python would only print the log at the end
+        run: python -u scripts/warm_up_app.py
+
+      - name: Attach what the browser saw
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: warm-up-failure
+          path: warm_up_failure.png
+          if-no-files-found: ignore

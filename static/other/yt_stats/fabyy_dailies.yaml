@@ -23778,3 +23778,86 @@
   title: Daily Dominion 2026-10-27 - Porting the Message
   upload_date: '20261027'
   view_count: 73
+- chapters:
+  - end_time: 25
+    start_time: 0
+    title: Introduction
+  - end_time: 119
+    start_time: 25
+    title: Kingdom overview and strategy discussion
+  - end_time: 146
+    start_time: 119
+    title: Kingdom Plot
+  - end_time: 188
+    start_time: 146
+    title: Discussing Openings
+  - end_time: 900
+    start_time: 188
+    title: Game Starts
+  - end_time: 1015
+    start_time: 900
+    title: Game Ends
+  comment_count: null
+  description: 'Well, this Sunday Daily greets us with an atypical starting deck,
+    which leads to an incredibly fast-paced start.
+
+
+    Opening double Scrounge and seeing your early buys rather often seemed key.
+
+
+    You may join the discord here:
+
+    https://discord.gg/qZxwUpn9
+
+
+    Dominion is a deck building card game created by Donald X. Vaccarino.
+
+    Currently, there exist two online implementations: The browser and subscription-based
+    Dominion Online (https://dominion.games/ ), and the multi-platform-, single-purchase-based
+    client by Temple Gates Games (TGG), available e.g. on Steam (https://store.steampowered.com/app/1131620/Dominion/
+    ) and mobile appliances.
+
+
+    Here, we play on the TGG client, which offers free play of the Base game as well
+    as a free daily entry into a randomly generated (with some restrictions) kingdom,
+    where you get to compete against their AI.
+
+
+    Dombot Kingdom String:
+
+    Banquet, Change, Clashes, Daimyo, Fool, Highwayman, Kind Emperor, Lost City, Mining
+    Road, No Colonies, No Shelters, Scrounge, Secluded Shrine, Spice Merchant, Tea
+    House -x start_replace_copper(ruined_library), start_replace_copper(survivors),
+    start_replace_estate(abandoned_mine), start_replace_estate(ruined_market), start_replace_estate(ruined_village)
+
+    Expansions:
+
+    Adventures, Allies, Empires, Hinterlands, 2E, Nocturne, Plunder, Rising Sun
+
+
+
+    Ps.: Check out https://randomkingdominion.streamlit.app/oracle to visualize your
+    kingdoms!
+
+
+    Timestamps:
+
+    0:00 - Introduction
+
+    0:25 - Kingdom overview and strategy discussion
+
+    1:59 - Kingdom Plot
+
+    2:26 - Discussing Openings
+
+    3:08 - Game Starts
+
+    15:00 - Game Ends'
+  duration: 1015
+  id: 3vKalXREsFQ
+  like_count: 2
+  retrieval_time: '2026-11-01T17:29:20.069791'
+  thumbnail: https://i.ytimg.com/vi/3vKalXREsFQ/maxresdefault.jpg
+  title: Daily Dominion 2026-11-01 - This Tea Is Ruined
+  upload_date: '20261101'
+  view_count: 12
