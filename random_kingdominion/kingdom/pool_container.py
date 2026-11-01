@@ -16,6 +16,13 @@ from ..cso_frame_utils import (
     sample_single_cso_from_df,
 )
 from ..utils.config import CustomConfigParser, add_renewed_base_expansions
+from ..utils.kingdom_helper_funcs import get_parent_piles
+
+
+def _drop_single_cards(pool: pd.DataFrame) -> pd.DataFrame:
+    """The piles and landscapes of the pool, without the single cards of split piles
+    (e.g. Lich, which would otherwise count as a Liaison of its own)."""
+    return pool[pool["IsInSupply"] | pool["IsExtendedLandscape"]]
 
 
 class PoolContainer:
@@ -83,8 +90,11 @@ class PoolContainer:
 
         pool = self._exclude_forbidden_qualities(pool)
 
-        # Discard all non-supply-non-landscape-non-ally cards as we don't need them to draw from
-        pool = pool[pool["IsInSupply"] | pool["IsExtendedLandscape"]]
+        # Discard all non-supply-non-landscape-non-ally cards as we don't need them to
+        # draw from; single cards of split piles stay for Riverboat and Way of the Mouse
+        pool = pool[
+            pool["IsInSupply"] | pool["IsExtendedLandscape"] | pool["IsRealSupplyCard"]
+        ]
 
         # Drop excluded card levels
         excluded_card_levels = self.config.getlist(
@@ -200,12 +210,21 @@ class PoolContainer:
             return ""
         if len(pool) == 0:
             return ""
+        parent_piles = get_parent_piles()
+        if special_card_to_pick_for in ["way_of_the_mouse", "riverboat"]:
+            # A single card only while its pile is unused (not in the kingdom, banned
+            # or of another expansion)
+            is_available = [
+                parent_piles.get(key, key) in self.main_pool.index for key in pool.index
+            ]
+            pool = pool[is_available]
+            if len(pool) == 0:
+                return ""
         pool = self._narrow_pool_for_quality(pool, qualities_so_far)
         pick = sample_single_cso_from_df(pool)
         self.main_pool = self.main_pool.drop(pick)
-        if special_card_to_pick_for in ["way_of_the_mouse", "riverboat"]:
-            if (ancestor := ALL_CSOS.loc[pick]["ParentPile"]) != "":  # type: ignore
-                self.main_pool = self.main_pool.drop(ancestor, errors="ignore")  # type: ignore
+        if pick in parent_piles:
+            self.drop_csos([parent_piles[pick]])
         return pick
 
     def pick_next_landscape(
@@ -226,9 +245,13 @@ class PoolContainer:
         """Pick a CSO of the type given by the boolean `type_col` (e.g. "IsAlly")
         while also considering the required qualities. Falls back to the CSOs of all
         expansions if the eligible ones don't provide any (anymore)."""
-        pool = self.main_pool[self.main_pool[type_col]]
+        pool = _drop_single_cards(self.main_pool)
+        pool = pool[pool[type_col]]
         if len(pool) == 0:
-            fallback = self.get_initial_draw_pool(rerolled_csos=[], ignore_expansions=True)
+            fallback = self.get_initial_draw_pool(
+                rerolled_csos=[], ignore_expansions=True
+            )
+            fallback = _drop_single_cards(fallback)
             fallback = fallback[fallback[type_col]]
             pool = fallback.drop(list(self._excluded_csos), errors="ignore")
             if len(pool) == 0:

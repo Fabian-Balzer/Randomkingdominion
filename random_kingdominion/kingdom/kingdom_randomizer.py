@@ -96,8 +96,9 @@ class KingdomRandomizer:
         ferryman = self.pool_con.pick_next_card(
             random_kingdom.quality_of_selection, "ferryman"
         )
-        self.pick_next_card(random_kingdom, ferryman, add_to_cards=False)
+        # Set first, so that a Liaison here gets an Ally (pick_next_card)
         random_kingdom.set_ferryman_pile(ferryman)
+        self.pick_next_card(random_kingdom, ferryman, add_to_cards=False)
 
     def pick_riverboat_card(self, random_kingdom: RandomizedKingdom, repick=True):
         """Pick the card associated with riverboat."""
@@ -106,8 +107,9 @@ class KingdomRandomizer:
         riverboat = self.pool_con.pick_next_card(
             random_kingdom.quality_of_selection, "riverboat"
         )
-        self.pick_next_card(random_kingdom, riverboat, add_to_cards=False)
+        # Set first, so that a Liaison here gets an Ally (pick_next_card)
         random_kingdom.set_riverboat_card(riverboat)
+        self.pick_next_card(random_kingdom, riverboat, add_to_cards=False)
 
     def pick_druid_boons(self, random_kingdom: RandomizedKingdom, repick=True):
         """Pick the card associated with riverboat."""
@@ -124,8 +126,9 @@ class KingdomRandomizer:
         mouse = self.pool_con.pick_next_card(
             random_kingdom.quality_of_selection, "way_of_the_mouse"
         )
-        self.pick_next_card(random_kingdom, mouse, add_to_cards=False)
+        # Set first, so that a Liaison here gets an Ally (pick_next_card)
         random_kingdom.set_mouse_card(mouse)
+        self.pick_next_card(random_kingdom, mouse, add_to_cards=False)
 
     def pick_next_landscape(
         self, random_kingdom: RandomizedKingdom, pick: str | None = None

@@ -6,6 +6,11 @@
   - Fixed some Dailies with cards listed twice or among the landscapes
   - Faster loading of the stored Dailies when the app wakes up (about 2 s less)
   - The randomizer could crash, or come up one card short, when a required card or landscape was drawn a second time
+  - The randomizer almost never picked split piles like Augurs, Wizards, Townsfolk, Forts or Patrician/Emporium as kingdom cards; they now come up as often as other piles
+  - Riverboat could get the whole Knights pile; it now gets single cards (e.g. one Knight), like Way of the Mouse (e.g. Settlers), and only from piles that aren't in the kingdom
+  - A Liaison as Riverboat's or Way of the Mouse's card or as Ferryman's pile could come without an Ally after a reroll
+  - Druid as Way of the Mouse's card, with its Boons, is no longer marked as invalid
+  - The card database's "Require CSOs to be cards" filter no longer lists the Knights, Castles and Ruins piles themselves, only their cards
   - Kingdom strings may nest special targets, e.g. "ferryman(young_witch(vassal))" for Vassal as the Bane of Young Witch as Ferryman's pile, and are printed that way
   - Divine Wind's piles may have their own special targets (e.g. a Bane), count for the expansions you need, and are checked for Allies and Prophecies
   - Clearer notes on mistyped kingdom strings (unbalanced parentheses, ignored or unknown targets); unknown targets no longer cause an error, and "bane(…)" is pointed out as not understood by DomBot

@@ -184,6 +184,8 @@ def get_sub_df_for_special_card(
         The filtered dataframe
     """
     pool = df[df["IsInSupply"]]
+    if special_card_to_pick_for is None:
+        return pool
     if special_card_to_pick_for == "young_witch":
         pool = _get_sub_df_for_cost(pool, ["$2", "$3", "$2+", "$3+"])
         return pool
@@ -201,9 +203,7 @@ def get_sub_df_for_special_card(
         return pool
     # In the case of mouse or riverboat, we are picking single cards rather
     # than piles, such that single Knights etc. can also be part.
-    pool = df[
-        df["IsRealSupplyCard"]
-    ]  # TODO: Filter stuff where the parent is already in the pool
+    pool = df[df["IsRealSupplyCard"]]
     if special_card_to_pick_for == "way_of_the_mouse":
         # Ban useless cards, and also cards that just have effects that mirror other ways as you might as well play with these.
         banned_for_mouse = [
@@ -230,10 +230,15 @@ def get_sub_df_for_special_card(
         pool = _get_sub_df_for_cost(pool, ["$2", "$3", "$2+", "$3+"])
         pool = pool[listlike_contains(pool["Types"], "Action")]
         # As per the 2025 Duration errata, Mouse can't pick Durations anymore
-        pool = pool[~listlike_contains(pool["Types"], "Duration")]  
+        pool = pool[~listlike_contains(pool["Types"], "Duration")]
         pool = pool[~np.isin(pool["Name"], banned_for_mouse)]
     elif special_card_to_pick_for == "riverboat":
-        banned_for_riverboat = ["Royal Carriage", "Ferryman", "Distant Lands"]
+        banned_for_riverboat = [
+            "Royal Carriage",
+            "Ferryman",
+            "Distant Lands",
+            "Small Castle",  # Gains a Castle, but the Castles aren't in the kingdom
+        ]
         pool = _get_sub_df_for_cost(pool, ["$5", "$5*"])
         pool = pool[listlike_contains(pool["Types"], "Action")]
         pool = pool[~listlike_contains(pool["Types"], "Duration")]

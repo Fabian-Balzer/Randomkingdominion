@@ -9,6 +9,7 @@ from ...constants import (
     SPLIT_CARD_TYPES,
     SPLITPILE_CARDS,
     SPLITPILE_DICT,
+    UNIQUEPILE_LIST,
 )
 
 
@@ -106,8 +107,11 @@ def test_in_supply(df):
 
 
 def test_real_supply_card(df: pd.DataFrame):
-    split_headers = list(ROTATOR_DICT.keys()) + list(SPLITPILE_DICT.keys())
-    # Splitpile cards are not part of the supply, but still cards, while their headers are not.
+    split_headers = (
+        list(ROTATOR_DICT.keys()) + list(SPLITPILE_DICT.keys()) + UNIQUEPILE_LIST
+    )
+    # Splitpile cards are not part of the supply, but still cards, while their headers
+    # are not (e.g. Knights, which the randomizer picked for Riverboat).
     is_no_split_header = ~np.isin(df["Name"], split_headers)
     is_no_heirloom = ~df["Types"].apply(lambda x: "Heirloom" in x)
     series = (

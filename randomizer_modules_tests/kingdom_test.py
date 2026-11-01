@@ -118,6 +118,89 @@ def test_riverboat():
     assert new_kingdom.riverboat_card == ""
 
 
+def _drain_pool(pool_con, special_card_to_pick_for=None) -> list[str]:
+    """All picks until the pool is empty."""
+    qualities = {qual: 0 for qual in rk.QUALITIES_AVAILABLE}
+    picks = []
+    while (pick := pool_con.pick_next_card(qualities, special_card_to_pick_for)) != "":
+        picks.append(pick)
+    return picks
+
+
+def test_riverboat_picks_single_knights_not_the_pile():
+    """The Knights pile counted as a single card costing $5*, so Riverboat got it in
+    ~1 of 100 kingdoms. A single Knight is fine, but only one, and only while the
+    Knights aren't in the kingdom."""
+    from random_kingdominion.kingdom.pool_container import PoolContainer
+    from random_kingdominion.utils.kingdom_helper_funcs import get_parent_piles
+
+    config = rk.CustomConfigParser(load_default=True)
+    config.set_expansions(["Dark Ages"])
+    pool_con = PoolContainer(config)
+    picks = _drain_pool(pool_con, "riverboat")
+    assert "knights" not in picks
+    assert len([p for p in picks if get_parent_piles().get(p) == "knights"]) == 1
+    assert "knights" not in pool_con.main_pool.index
+    pool_con = PoolContainer(config)
+    pool_con.drop_csos(["knights"])
+    picks = _drain_pool(pool_con, "riverboat")
+    assert "bandit_camp" in picks
+    assert not [p for p in picks if get_parent_piles().get(p) == "knights"]
+
+
+def test_riverboat_never_gets_small_castle():
+    """It would gain a Castle, but the Castles aren't in the kingdom."""
+    from random_kingdominion.kingdom.pool_container import PoolContainer
+
+    config = rk.CustomConfigParser(load_default=True)
+    config.set_expansions(["Empires"])
+    picks = _drain_pool(PoolContainer(config), "riverboat")
+    assert "small_castle" not in picks
+    assert "legionary" in picks
+
+
+def test_split_piles_are_picked_as_kingdom_cards():
+    """Normal picks drew from the single cards, without the split pile headers, so
+    e.g. the Augurs were never picked (since 2024-08)."""
+    from random_kingdominion.kingdom.pool_container import PoolContainer
+    from random_kingdominion.utils.kingdom_helper_funcs import get_parent_piles
+
+    config = rk.CustomConfigParser(load_default=True)
+    config.set_expansions(["Allies", "Dark Ages", "Empires"])
+    picks = set(_drain_pool(PoolContainer(config)))
+    assert {"augurs", "castles", "knights", "patrician/emporium"} <= picks
+    single_cards = {key for key, pile in get_parent_piles().items() if key != pile}
+    assert not picks & single_cards
+
+
+def test_liaison_as_riverboat_card_gets_an_ally(monkeypatch):
+    """The randomizer looked for Liaisons before setting Riverboat's card, so only
+    later picks added the Ally: none when the card was rerolled or picked last."""
+    from random_kingdominion.kingdom.invalidity_stuff import InvalidityReason
+    from random_kingdominion.kingdom.pool_container import PoolContainer
+
+    config = rk.CustomConfigParser(load_default=True)
+    config.set_expansions(["Rising Sun"])  # No Liaisons of its own
+    config.setlist("General", "required_csos", ["riverboat"])
+    randomizer = rk.KingdomRandomizer(config)
+    kingdom = randomizer.randomize_new_kingdom()
+    assert not kingdom.contains_ally()
+
+    pick_next_card = PoolContainer.pick_next_card
+
+    def pick_guildmaster(self, qualities, special_card_to_pick_for=None):
+        if special_card_to_pick_for != "riverboat":
+            return pick_next_card(self, qualities, special_card_to_pick_for)
+        self.main_pool = self.main_pool.drop("guildmaster", errors="ignore")
+        return "guildmaster"
+
+    monkeypatch.setattr(PoolContainer, "pick_next_card", pick_guildmaster)
+    new_kingdom = randomizer.reroll_single_cso(kingdom, kingdom.riverboat_card)
+    assert new_kingdom.riverboat_card == "guildmaster"
+    assert new_kingdom.contains_ally()
+    assert InvalidityReason.check_kingdom_validity(new_kingdom) == []
+
+
 def test_young_witch():
     """Test whether a bane card is forced in after specifying young witch"""
     config = rk.CustomConfigParser(load_default=True)
@@ -223,6 +306,29 @@ def test_druid_boons():
     new_kingdom = randomizer.reroll_single_cso(kingdom, "druid")
     assert len(new_kingdom.druid_boons) == 0
     assert "druid" not in new_kingdom.cards
+
+
+@pytest.mark.parametrize(
+    "boons, expected_reasons",
+    [
+        (["the_earths_gift", "the_flames_gift", "the_swamps_gift"], []),
+        ([], ["druid_but_no_boons"]),
+    ],
+)
+def test_druid_as_mouse_card_needs_its_boons(boons: list[str], expected_reasons):
+    """The randomizer picks Boons for Druid as Mouse's card, which were flagged as
+    Boons without a Druid (in ~1 of 30 kingdoms with Way of the Mouse)."""
+    from random_kingdominion.kingdom.invalidity_stuff import InvalidityReason
+
+    kingdom = rk.Kingdom(
+        ["village", "smithy", "militia", "market", "mine", "witch", "festival"]
+        + ["library", "laboratory", "moat"],
+        landscapes=["way_of_the_mouse"],
+        mouse_card="druid",
+        druid_boons=boons,
+    )
+    reasons = InvalidityReason.check_kingdom_validity(kingdom)
+    assert [r.key for r in reasons] == expected_reasons
 
 
 def test_traits():
@@ -706,7 +812,11 @@ def test_start_effect_with_several_targets():
         ["replace_copper", "silver"],
     ]
     deck = kingdom.get_starting_deck
-    assert (deck.count("copper"), deck.count("silver"), deck.count("estate")) == (4, 2, 4)
+    assert (deck.count("copper"), deck.count("silver"), deck.count("estate")) == (
+        4,
+        2,
+        4,
+    )
     _test_dombot_readin_readout(dombot_str)
 
 
@@ -733,6 +843,104 @@ def test_replace_estate_from_pile_is_its_own_effect():
     deck = kingdom.get_starting_deck
     assert deck.count("estate") == 1
     assert deck.count("silver") == 1 and deck.count("moat") == 1
+
+
+@pytest.mark.parametrize(
+    "dombot_str, expected_counts",
+    [
+        # Daily 2025-03-02: one replacement takes the Hovel
+        (
+            "Colonies, Continue, Farrier, Forager, Fortress, Forum, King's Court, "
+            "Lurker, Rogue, Shelters, Souk, Tomb, Transmogrify, Warehouse -x "
+            "twist_head_start, start_replace_estate(lurker)",
+            {"lurker": 1, "hovel": 0, "overgrown_estate": 1, "necropolis": 1},
+        ),
+        # Campaign Dark Ages 9: the Overgrown Estates put in aren't replaced again
+        (
+            "Altar, Armory, Chapel, Counterfeit, Death Cart, Ironmonger, Market "
+            "Square, Merchant, No Colonies, Scavenger, Shelters, Village -x "
+            "start_replace_estate(overgrown_estate), "
+            "start_replace_estate(overgrown_estate), "
+            "start_replace_estate(overgrown_estate), stamp_with_spoils(ironmonger)",
+            {"overgrown_estate": 3, "hovel": 0, "necropolis": 0, "copper": 7},
+        ),
+        # Both effects together, the Necropolis goes last
+        (
+            "village, smithy, chapel, market, militia, witch, festival, library, "
+            "laboratory, moat, shelters, start_replace_estate(silver), "
+            "start_replace_estate_from_pile(moat)",
+            {
+                "silver": 1,
+                "moat": 1,
+                "hovel": 0,
+                "overgrown_estate": 0,
+                "necropolis": 1,
+            },
+        ),
+    ],
+)
+def test_replace_estate_with_shelters(dombot_str: str, expected_counts: dict):
+    """With Shelters, there's no Estate to replace (M19 step 13)."""
+    kingdom = rk.Kingdom.from_dombot_csv_string(dombot_str)
+    assert kingdom.use_shelters
+    deck = kingdom.get_starting_deck
+    assert len(deck) == 10
+    assert {card: deck.count(card) for card in expected_counts} == expected_counts
+
+
+@pytest.mark.parametrize(
+    "dombot_str, expected_counts",
+    [
+        # Campaign Nocturne 7
+        (
+            "Cobbler, Cursed Village, Monastery, Necromancer, No Colonies, No "
+            "Shelters, Raider, Secret Cave, Sentry, Smithy, Witch, Workshop -x "
+            "start_double_heirloom(secret_cave)",
+            {"copper": 5, "magic_lamp": 2, "estate": 3},
+        ),
+        # Campaign Nocturne 10: Cemetery's Heirloom isn't doubled
+        (
+            "Bard, Cemetery, Changeling, Cursed Village, Devil's Workshop, Exorcist, "
+            "Faithful Hound, No Colonies, No Shelters, Pooka, Skulk, Tormentor -x "
+            "twist_delayed_joy, start_double_heirloom(pooka)",
+            {"copper": 4, "cursed_gold": 2, "haunted_mirror": 1, "estate": 3},
+        ),
+        # Two of them (campaign_dump.yml)
+        (
+            "fool, pixie, village, smithy, militia, market, mine, witch, festival, "
+            "library, start_double_heirloom(fool), start_double_heirloom(pixie)",
+            {"copper": 3, "lucky_coin": 2, "goat": 2, "estate": 3},
+        ),
+    ],
+)
+def test_double_heirloom_doubles_the_targets_heirloom(
+    dombot_str: str, expected_counts: dict
+):
+    """It looked up an Heirloom for every card (KeyError on the first without one)."""
+    kingdom = rk.Kingdom.from_dombot_csv_string(dombot_str)
+    assert kingdom.has_modified_starting_deck
+    deck = kingdom.get_starting_deck
+    assert len(deck) == 10
+    assert {card: deck.count(card) for card in expected_counts} == expected_counts
+
+
+@pytest.mark.parametrize(
+    "cards, target",
+    [(["village", "smithy"], "smithy"), (["pixie", "village"], "secret_cave")],
+    ids=["no_heirloom", "not_in_kingdom"],
+)
+def test_double_heirloom_on_a_wrong_target_raises(cards: list[str], target: str):
+    kingdom = rk.Kingdom(cards, stamps_and_effects=[["double_heirloom", target]])
+    with pytest.raises(ValueError, match="Double Heirloom"):
+        kingdom.get_starting_deck
+
+
+def test_too_many_estate_replacements_raise():
+    kingdom = rk.Kingdom(
+        ["village"], stamps_and_effects=[["replace_estate", "silver"]] * 4
+    )
+    with pytest.raises(ValueError, match="4 Estate replacements"):
+        kingdom.get_starting_deck
 
 
 def test_campaign_effect_aliases():

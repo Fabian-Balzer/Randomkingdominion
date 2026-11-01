@@ -15,6 +15,7 @@ import pandas as pd
 from ..constants import (
     ALL_CSOS,
     EXPANSION_DICT,
+    HEIRLOOM_DICT,
     QUALITIES_AVAILABLE,
     RENEWED_EXPANSIONS,
 )
@@ -107,11 +108,18 @@ def _sort_like_kingdom(keys: Iterable[str]) -> list[str]:
 
 
 @lru_cache(maxsize=1)
+def _get_heirlooms() -> dict[str, str]:
+    """The Heirloom of each card that comes with one (Pixie → Goat)."""
+    return {
+        sanitize_cso_name(card): sanitize_cso_name(heirloom)
+        for heirloom, card in HEIRLOOM_DICT.items()
+    }
+
+
+@lru_cache(maxsize=1)
 def _get_quality_values() -> dict[str, dict[str, float]]:
     """The value of each quality per CSO."""
-    return {
-        qual: ALL_CSOS[f"{qual}_quality"].to_dict() for qual in QUALITIES_AVAILABLE
-    }
+    return {qual: ALL_CSOS[f"{qual}_quality"].to_dict() for qual in QUALITIES_AVAILABLE}
 
 
 @lru_cache(maxsize=1)
@@ -255,33 +263,45 @@ class Kingdom:
     @property
     def get_starting_deck(self) -> list[str]:
         """Get the starting deck for this kingdom."""
-        heirloom_dict = {
-            "pixie": "goat",
-            "cemetery": "haunted_mirror",
-            "pooka": "cursed_gold",
-            "fool": "lucky_coin",
-            "shepherd": "pasture",
-            "tracker": "pouch",
-            "secret_cave": "magic_lamp",
-        }
+        heirlooms = _get_heirlooms()
+        effect_targets = self.effect_targets
         starting_deck = ["copper"] * 7
         if self.use_shelters:
             starting_deck += ["necropolis", "hovel", "overgrown_estate"]
         else:
             starting_deck += ["estate"] * 3
         for card in self.cards:
-            if card in heirloom_dict:
-                starting_deck[starting_deck.index("copper")] = heirloom_dict[card]
-            if "double_heirloom" in self.campaign_effects:
-                starting_deck[starting_deck.index("copper")] = heirloom_dict[card]
+            if card in heirlooms:
+                starting_deck[starting_deck.index("copper")] = heirlooms[card]
+        # Each target's Heirloom replaces one more Copper
+        for target in effect_targets.get("double_heirloom", []):
+            if target not in heirlooms or target not in self.cards:
+                raise ValueError(
+                    f"Double Heirloom on '{target}', which is no kingdom card with an "
+                    "Heirloom."
+                )
+            starting_deck[starting_deck.index("copper")] = heirlooms[target]
         if "double_deck" in self.campaign_effects:
             starting_deck += starting_deck
-        effect_targets = self.effect_targets
         # From the Supply or not, the replacement ends up in the starting deck
-        for target in effect_targets.get("replace_estate", []) + effect_targets.get(
+        estate_targets = effect_targets.get("replace_estate", []) + effect_targets.get(
             "replace_estate_from_pile", []
-        ):
-            starting_deck[starting_deck.index("estate")] = target
+        )
+        # With Shelters, Hovel goes first, then Overgrown Estate, then Necropolis. The
+        # slots are fixed up front, so an Overgrown Estate put in isn't replaced again.
+        estate_slots = [
+            i
+            for name in ["estate", "hovel", "overgrown_estate", "necropolis"]
+            for i, card in enumerate(starting_deck)
+            if card == name
+        ]
+        if len(estate_targets) > len(estate_slots):
+            raise ValueError(
+                f"{len(estate_targets)} Estate replacements, but only "
+                f"{len(estate_slots)} Estates or Shelters in the starting deck."
+            )
+        for slot, target in zip(estate_slots, estate_targets):
+            starting_deck[slot] = target
         for target in effect_targets.get("replace_copper", []):
             starting_deck[starting_deck.index("copper")] = target
         starting_deck += effect_targets.get("add_card", [])
@@ -320,6 +340,7 @@ class Kingdom:
                     "replace_copper",
                     "replace_estate",
                     "replace_estate_from_pile",
+                    "double_heirloom",
                     "double_deck",
                     "add_each_pile",
                     "add_card",
@@ -425,7 +446,9 @@ class Kingdom:
 
     def get_effects_on(self, cso_key: str) -> list[str]:
         """The campaign effects (e.g. Stamps) applying to the given pile."""
-        return sorted({eff for eff, target in self.stamps_and_effects if target == cso_key})
+        return sorted(
+            {eff for eff, target in self.stamps_and_effects if target == cso_key}
+        )
 
     @property
     def card_and_landscape_text(self) -> str:
@@ -499,7 +522,9 @@ class Kingdom:
             text += f" >>>For Approaching Army<<<"
         if cso_key == self.obelisk_pile:
             text += f" >>>Obelisk<<<"
-        for trait_or_effect in self.get_traits_on(cso_key) + self.get_effects_on(cso_key):
+        for trait_or_effect in self.get_traits_on(cso_key) + self.get_effects_on(
+            cso_key
+        ):
             text += f" >>>{get_cso_name(trait_or_effect)}<<<"
         return text
 
@@ -591,9 +616,7 @@ class Kingdom:
                 .replace("setup effect", "start")
             )
             effect = effect_type + "_" + effect_name
-            extras = self._get_special_extras(
-                effect_name, special_targets, str, nested
-            )
+            extras = self._get_special_extras(effect_name, special_targets, str, nested)
             effect_strings += [effect + extra.strip() for extra in extras]
         return sep_string + " -x " + ", ".join(effect_strings)
 
@@ -620,9 +643,7 @@ class Kingdom:
                 eff + extra.strip()
                 for eff in sorted(self.campaign_effects)
                 if eff
-                for extra in self._get_special_extras(
-                    eff, special_targets, str, nested
-                )
+                for extra in self._get_special_extras(eff, special_targets, str, nested)
             )
         return k_str
 
