@@ -22,23 +22,29 @@ from playwright.sync_api import sync_playwright
 APP_URL = "https://randomkingdominion.streamlit.app"
 # The page Community Cloud shows while an app sleeps
 WAKE_UP_BUTTON = "Yes, get this app back up!"
-# Waking up or redeploying the app can take a few minutes
-APP_START_TIMEOUT_S = 300
+# Waking up or redeploying the app can take a few minutes. Per page, both together
+# below the job's timeout (20 min), so that the failure screenshot gets saved
+APP_START_TIMEOUT_S = 240
 # Loading the Dailies took ~2 s locally; Community Cloud has far fewer CPU cores
-LOADING_TIMEOUT_S = 180
+LOADING_TIMEOUT_S = 120
+FAILURE_SCREENSHOT = "warm_up_failure.png"
 
 
 def _find_app_frame(page: Page, timeout_s: float) -> Frame:
     """The frame with the Streamlit app: Community Cloud embeds it in an iframe."""
-    deadline = time.monotonic() + timeout_s
-    while time.monotonic() < deadline:
-        wake_up = page.get_by_role("button", name=WAKE_UP_BUTTON)
+    start = time.monotonic()
+    next_report = start + 30
+    while time.monotonic() < start + timeout_s:
+        wake_up = page.get_by_text(WAKE_UP_BUTTON)
         if wake_up.count() > 0:
             print("The app is asleep, waking it up")
             wake_up.first.click()
         for frame in page.frames:
             if frame.locator('[data-testid="stApp"]').count() > 0:
                 return frame
+        if time.monotonic() > next_report:
+            print(f"Still waiting for the app; frames: {[f.url for f in page.frames]}")
+            next_report += 30
         page.wait_for_timeout(2000)
     raise PlaywrightTimeoutError(f"The app didn't start within {timeout_s} s")
 
@@ -52,6 +58,7 @@ def _wait_until_idle(frame: Frame, timeout_s: float):
 
 def _open_page_and_click(page: Page, url: str, button_name: str):
     start = time.monotonic()
+    print(f"Opening {url}")
     page.goto(url)
     frame = _find_app_frame(page, APP_START_TIMEOUT_S)
     button = frame.get_by_role("button", name=re.compile(re.escape(button_name)))
@@ -67,6 +74,10 @@ def warm_up(app_url: str):
         try:
             _open_page_and_click(page, f"{app_url}/oracle", "TGG Dailies")
             _open_page_and_click(page, f"{app_url}/quiz", "TGG Dailies")
+        except PlaywrightTimeoutError:
+            # The workflow attaches it to the run, to see what the browser saw
+            page.screenshot(path=FAILURE_SCREENSHOT, full_page=True)
+            raise
         finally:
             browser.close()
 
