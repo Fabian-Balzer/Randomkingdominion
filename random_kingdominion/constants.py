@@ -3,6 +3,7 @@
 import ast
 import os
 import re
+from dataclasses import dataclass, fields
 from pathlib import Path
 from typing import Literal
 
@@ -133,13 +134,28 @@ FPATH_RANDOMIZER_CONFIG_DEFAULTS = PATH_ASSETS.joinpath(
     "randomization_config_default.ini"
 )
 
-FPATH_KINGDOMS_RECOMMENDED = PATH_ASSETS.joinpath("kingdoms/recommended.yml")
-FPATH_KINGDOMS_LAST100 = PATH_ASSETS.joinpath("kingdoms/last_100.yml")
-FPATH_KINGDOMS_TGG_DAILIES = PATH_ASSETS.joinpath("kingdoms/tgg_dailies.yml")
-FPATH_KINGDOMS_KOTW_REDDIT = PATH_ASSETS.joinpath("kingdoms/reddit_kotw.yml")
-FPATH_KINGDOMS_FABI_RECSETS = PATH_ASSETS.joinpath("kingdoms/fabi_recsets.yml")
-FPATH_KINGDOMS_CAMPAIGNS = PATH_ASSETS.joinpath("kingdoms/campaigns.yml")
-FPATH_KINGDOMS_MATCHES = PATH_ASSETS.joinpath("kingdoms/matches.yml")
+
+@dataclass(frozen=True)
+class KingdomFiles:
+    """The YAML files of the stored kingdom sets, one field per set, named like its
+    file, so that a set can also be looked up by name (``getattr(files, name)``)."""
+
+    recommended: Path
+    last_100: Path
+    tgg_dailies: Path
+    reddit_kotw: Path
+    fabi_recsets: Path
+    campaigns: Path
+    matches: Path
+
+    @classmethod
+    def from_dir(cls, directory: Path) -> "KingdomFiles":
+        """The files of all sets in the given directory (``<set name>.yml``)."""
+        return cls(**{f.name: directory.joinpath(f"{f.name}.yml") for f in fields(cls)})
+
+
+KINGDOM_FILES = KingdomFiles.from_dir(PATH_ASSETS.joinpath("kingdoms"))
+"""The stored kingdom sets, e.g. ``KINGDOM_FILES.tgg_dailies``."""
 
 
 ROTATOR_DICT = {

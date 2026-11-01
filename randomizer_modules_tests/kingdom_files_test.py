@@ -2,6 +2,7 @@
 data issues found while writing the M5 parser tests)."""
 
 from collections import Counter
+from dataclasses import fields
 from functools import cache
 from pathlib import Path
 
@@ -9,10 +10,12 @@ import pytest
 import yaml
 
 import random_kingdominion as rk
+from random_kingdominion.constants import KingdomFiles
+from random_kingdominion.kingdom import kingdom_manager
 from random_kingdominion.kingdom.invalidity_stuff import InvalidityReason
 
 KINGDOM_DIR = rk.PATH_ASSETS.joinpath("kingdoms")
-KINGDOM_FILES = sorted(KINGDOM_DIR.glob("*.yml"))
+STORED_FILES = sorted(KINGDOM_DIR.glob("*.yml"))
 _SINGLE_TARGETS = [
     "bane_pile",
     "obelisk_pile",
@@ -66,7 +69,7 @@ def _entry_problems(info: dict) -> list[str]:
     return problems
 
 
-@pytest.mark.parametrize("path", KINGDOM_FILES, ids=[p.name for p in KINGDOM_FILES])
+@pytest.mark.parametrize("path", STORED_FILES, ids=[p.name for p in STORED_FILES])
 def test_stored_kingdoms_have_consistent_entries(path: Path):
     problems = [
         f"{info.get('name', '?')}: {'; '.join(found)}"
@@ -81,7 +84,7 @@ def test_only_campaign_kingdoms_use_campaign_rules():
     in campaigns, which `load_campaigns` marks as such, and in the Sunday Dailies
     since February 2025 (`load_tgg_dailies`)."""
     problems = []
-    for path in KINGDOM_FILES:
+    for path in STORED_FILES:
         if path.name == "campaigns.yml":
             continue
         for info in _load(path):
@@ -122,6 +125,33 @@ def test_is_campaign_daily(name: str, expected: bool):
     assert rk.is_campaign_daily(name) == expected
 
 
+def test_every_kingdom_set_has_its_file():
+    for field in fields(rk.KINGDOM_FILES):
+        assert getattr(rk.KINGDOM_FILES, field.name).is_file(), field.name
+
+
+@pytest.mark.parametrize(
+    "ftype", ["tgg_dailies", "fabi_recsets", "campaigns", "matches"]
+)
+def test_kingdoms_added_from_txt_are_saved_to_their_set(
+    ftype: str, tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+):
+    """The save paths were a dict without "matches", which raised a KeyError (M31)."""
+    txt_dir = tmp_path.joinpath("scripts/data/new_kingdoms")
+    txt_dir.mkdir(parents=True)
+    kingdom_str = "cellar, chapel, moat, harbinger, merchant, vassal, village, workshop, bureaucrat, gardens"
+    txt_dir.joinpath(f"{ftype}.txt").write_text(f"2026-01-01---{kingdom_str}\n")
+    files = KingdomFiles.from_dir(tmp_path)
+    monkeypatch.setattr(kingdom_manager, "PATH_MAIN", tmp_path)
+    monkeypatch.setattr(kingdom_manager, "KINGDOM_FILES", files)
+
+    rk.KingdomManager()._add_kingdoms_from_txt(ftype)  # type: ignore[arg-type]
+
+    saved = rk.KingdomManager()
+    saved.load_kingdoms_from_yaml(getattr(files, ftype))
+    assert [info["name"] for info in saved.kingdoms] == ["2026-01-01"]
+
+
 def _target_pairs(kingdom: rk.Kingdom) -> Counter:
     return Counter(tuple(pair) for pair in kingdom.traits + kingdom.stamps_and_effects)
 
@@ -134,7 +164,7 @@ def test_stored_kingdoms_keep_the_targets_of_their_input(name: str):
     input may be missing, as with older parser versions: a second target was dropped
     as a duplicate, or a replacement stored as its pile (Ruins instead of Survivors).
     """
-    stored = {info["name"]: info for info in _load(KINGDOM_DIR / f"{name}.yml")}
+    stored = {info["name"]: info for info in _load(getattr(rk.KINGDOM_FILES, name))}
     lines = (rk.PATH_MAIN / f"scripts/data/new_kingdoms/{name}.txt").read_text(
         encoding="utf-8"
     )
@@ -166,7 +196,7 @@ def test_start_effects_replace_by_cards_not_by_piles():
     )
     problems = [
         f"{path.name} {info.get('name', '?')}: {effect}({target})"
-        for path in KINGDOM_FILES
+        for path in STORED_FILES
         for info in _load(path)
         for effect, target in info.get("stamps_and_effects") or []
         if effect in _EFFECTS_ON_SPECIFIC_CARDS and target in split_piles
@@ -179,7 +209,7 @@ def test_stored_kingdoms_survive_printing_and_parsing():
     """kingdom -> DomBot string -> kingdom gives the same kingdom, for all stored
     kingdoms with special targets (~530 of ~2200, ~25 s; the others have none)."""
     problems = []
-    for path in KINGDOM_FILES:
+    for path in STORED_FILES:
         for info in _load(path):
             if not any(info.get(col) for col in _SPECIALS):
                 continue

@@ -8,16 +8,7 @@ import numpy as np
 import pandas as pd
 import yaml
 
-from ..constants import (
-    FPATH_KINGDOMS_CAMPAIGNS,
-    FPATH_KINGDOMS_FABI_RECSETS,
-    FPATH_KINGDOMS_LAST100,
-    FPATH_KINGDOMS_MATCHES,
-    FPATH_KINGDOMS_RECOMMENDED,
-    FPATH_KINGDOMS_TGG_DAILIES,
-    PATH_ASSETS,
-    PATH_MAIN,
-)
+from ..constants import KINGDOM_FILES, PATH_ASSETS, PATH_MAIN
 from ..logger import LOGGER
 from .invalidity_stuff import InvalidityReason
 from .kingdom import Kingdom
@@ -276,12 +267,7 @@ class KingdomManager:
             return
         if ftype == "tgg_dailies":
             self.sort_by_name()
-        savepath = {
-            "tgg_dailies": FPATH_KINGDOMS_TGG_DAILIES,
-            "fabi_recsets": FPATH_KINGDOMS_FABI_RECSETS,
-            "campaigns": FPATH_KINGDOMS_CAMPAIGNS,
-        }[ftype]
-        self.save_kingdoms_to_yaml(savepath)
+        self.save_kingdoms_to_yaml(getattr(KINGDOM_FILES, ftype))
 
     def load_expansions(self):
         for kingdom in self.kingdoms:
@@ -361,18 +347,18 @@ class KingdomManager:
             self.save_last_100_kingdoms()
 
     def load_last_100_kingdoms(self):
-        self.load_kingdoms_from_yaml(FPATH_KINGDOMS_LAST100)
+        self.load_kingdoms_from_yaml(KINGDOM_FILES.last_100)
 
     def load_recommended_kingdoms(self):
-        self.load_kingdoms_from_yaml(FPATH_KINGDOMS_RECOMMENDED)
+        self.load_kingdoms_from_yaml(KINGDOM_FILES.recommended)
 
     def load_matches(self, reload=False):
-        self.load_kingdoms_from_yaml(FPATH_KINGDOMS_MATCHES)
+        self.load_kingdoms_from_yaml(KINGDOM_FILES.matches)
         if reload:
             self._add_kingdoms_from_txt("matches")
 
     def load_tgg_dailies(self, reload=False, sort=True):
-        self.load_kingdoms_from_yaml(FPATH_KINGDOMS_TGG_DAILIES, sort=sort)
+        self.load_kingdoms_from_yaml(KINGDOM_FILES.tgg_dailies, sort=sort)
         if reload:
             self._add_kingdoms_from_txt("tgg_dailies")
         win_data = _load_tgg_winrate_data()
@@ -382,12 +368,12 @@ class KingdomManager:
                 k["is_campaign"] = True
 
     def load_fabi_recsets_kingdoms(self, reload=False):
-        self.load_kingdoms_from_yaml(FPATH_KINGDOMS_FABI_RECSETS)
+        self.load_kingdoms_from_yaml(KINGDOM_FILES.fabi_recsets)
         if reload:
             self._add_kingdoms_from_txt("fabi_recsets")
 
     def load_campaigns(self, reload=False, do_assertion=True, curated_only=False):
-        self.load_kingdoms_from_yaml(FPATH_KINGDOMS_CAMPAIGNS)
+        self.load_kingdoms_from_yaml(KINGDOM_FILES.campaigns)
         # They may use campaign rules, e.g. a Trait on several piles or on Gold
         for kingdom in self.kingdoms:
             kingdom["is_campaign"] = True
@@ -406,7 +392,7 @@ class KingdomManager:
                 "Skipped saving last 100 kingdoms as not started in lastKingdomMode"
             )
             return
-        self.save_kingdoms_to_yaml(FPATH_KINGDOMS_LAST100)
+        self.save_kingdoms_to_yaml(KINGDOM_FILES.last_100)
 
     def load_kingdoms_from_yaml(self, file_path: str | Path, sort: bool = False):
         # In the future, I might want to use pickling or a database for faster loading
@@ -428,13 +414,13 @@ class KingdomManager:
             if "/" in file_path:
                 file_path = Path(file_path)
             else:
-                file_path = FPATH_KINGDOMS_RECOMMENDED.parent.joinpath(file_path)
+                file_path = KINGDOM_FILES.recommended.parent.joinpath(file_path)
         with open(file_path, "w", encoding="utf-8") as yaml_file:
             yaml_file.write(self.yaml_repr)
 
 
 def sort_kingdom_yaml_file(
-    file_path: str | Path = FPATH_KINGDOMS_TGG_DAILIES, newest_first: bool = True
+    file_path: str | Path = KINGDOM_FILES.tgg_dailies, newest_first: bool = True
 ):
     """Sort the kingdoms of the given yaml file by name, i.e. the TGG Dailies by date,
     and save it in place. Unlike `load_kingdoms_from_yaml`, this keeps every entry."""

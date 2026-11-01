@@ -10,8 +10,7 @@ from functools import lru_cache
 
 from ...constants import (
     EXPANSION_LIST,
-    FPATH_KINGDOMS_RECOMMENDED,
-    FPATH_KINGDOMS_TGG_DAILIES,
+    KINGDOM_FILES,
     QUALITIES_AVAILABLE,
     SPECIAL_QUAL_TYPES_AVAILABLE,
 )
@@ -196,8 +195,8 @@ def _get_csos_expansions(info: dict) -> frozenset[str]:
 
 
 _SOURCE_FILES = {
-    QuizPoolSource.RECOMMENDED: FPATH_KINGDOMS_RECOMMENDED,
-    QuizPoolSource.TGG_DAILIES: FPATH_KINGDOMS_TGG_DAILIES,
+    QuizPoolSource.RECOMMENDED: KINGDOM_FILES.recommended,
+    QuizPoolSource.TGG_DAILIES: KINGDOM_FILES.tgg_dailies,
 }
 
 

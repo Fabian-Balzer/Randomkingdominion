@@ -1,6 +1,6 @@
 """Registering Dailies for Random Kingdominion."""
 
-from ..constants import FPATH_KINGDOMS_MATCHES
+from ..constants import KINGDOM_FILES
 from ..kingdom import KingdomManager
 
 
@@ -40,5 +40,5 @@ def register_match(
     manager.add_kingdom_from_string(
         match_key, kingdom_str, notes=notes, do_assertion=validate
     )
-    manager.save_kingdoms_to_yaml(FPATH_KINGDOMS_MATCHES)
+    manager.save_kingdoms_to_yaml(KINGDOM_FILES.matches)
     return manager

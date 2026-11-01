@@ -1,11 +1,7 @@
 import pandas as pd
 import streamlit as st
 
-from ...constants import (
-    FPATH_KINGDOMS_KOTW_REDDIT,
-    FPATH_KINGDOMS_TGG_DAILIES,
-    PATH_ASSETS,
-)
+from ...constants import KINGDOM_FILES, PATH_ASSETS
 from ...kingdom import KingdomManager
 from ...utils import get_modification_timestamp
 from ..combo_and_inter_setup.util import add_combo_inter_info_for_kingdoms
@@ -80,7 +76,7 @@ def _load_existing_kingdoms(
     elif selection_type == "Recommended":
         manager.load_recommended_kingdoms()
     elif selection_type == "Reddit's KOTW":
-        manager.load_kingdoms_from_yaml(FPATH_KINGDOMS_KOTW_REDDIT)
+        manager.load_kingdoms_from_yaml(KINGDOM_FILES.reddit_kotw)
     elif selection_type == "Fabi's Rec's":
         manager.load_fabi_recsets_kingdoms()
     elif selection_type == "Fabi's Matches":
@@ -115,5 +111,5 @@ def get_existing_kingdoms(
     selection_type: OracleSelectionType,
 ) -> pd.DataFrame:
     """Get the streamlit-cached existing kingdoms DataFrame for the given selection type."""
-    mod_time = get_modification_timestamp(FPATH_KINGDOMS_TGG_DAILIES)
+    mod_time = get_modification_timestamp(KINGDOM_FILES.tgg_dailies)
     return _load_existing_kingdoms(selection_type, mod_time)
