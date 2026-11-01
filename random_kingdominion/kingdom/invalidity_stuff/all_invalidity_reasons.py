@@ -32,6 +32,21 @@ class YoungWitchButNoBane(InvalidityReason):
 
 
 @dataclass
+class BaneSyntaxNotSupported(InvalidityReason):
+    def get_description(self) -> str:
+        bane = self.params.get("bane_pile", "<bane>")
+        return (
+            f"DomBot doesn't understand 'bane({bane})'; write the Bane as Young "
+            f"Witch's target instead: 'young_witch({bane})', nested if needed, "
+            f"e.g. 'ferryman(young_witch({bane}))'."
+        )
+
+    def check_if_invalid(self, k: Kingdom) -> bool:
+        self.params["bane_pile"] = k.bane_pile
+        return k.uses_bane_syntax
+
+
+@dataclass
 class DivineWindIncorrect(InvalidityReason):
     def get_description(self) -> str:
         return (

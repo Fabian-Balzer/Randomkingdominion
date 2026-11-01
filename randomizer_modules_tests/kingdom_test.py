@@ -171,26 +171,44 @@ def test_young_witch_as_ferryman_pile_gets_a_bane(monkeypatch):
     assert kingdom.bane_pile not in new_kingdom.cards
 
 
-# Daily 2024-03-20
+# Daily 2024-03-20, with the Bane nested into Ferryman's pile
 _FERRYMAN_ON_YOUNG_WITCH = (
-    "barge, bounty_hunter, camel_train, cavalry, ferryman(young_witch), hamlet, "
-    "horn_of_plenty, remake, sleigh, stockpile, bane(black_cat)"
+    "barge, bounty_hunter, camel_train, cavalry, ferryman(young_witch(black_cat)), "
+    "hamlet, horn_of_plenty, remake, sleigh, stockpile"
 )
 
 
 def test_young_witch_as_ferryman_pile_in_dombot_strings():
     kingdom = rk.Kingdom.from_dombot_csv_string(_FERRYMAN_ON_YOUNG_WITCH)
+    assert kingdom.notes == ""
     assert kingdom.ferryman_pile == "young_witch"
     assert kingdom.bane_pile == "black_cat"
     assert "black_cat" in kingdom.cards and "young_witch" not in kingdom.cards
     assert kingdom.is_valid, kingdom.invalidity_reasons
-    # The Bane can't be printed with Young Witch, which isn't in the cards
-    assert "Bane (Black Cat)" in kingdom.get_dombot_csv_string()
+    # Young Witch isn't printed on its own, so its Bane goes with it (M19, step 7)
+    assert "Ferryman (Young Witch (Black Cat))" in kingdom.get_dombot_csv_string()
+    assert "ferryman (young_witch (black_cat))" in kingdom.get_sanitized_tgg_string()
     _test_dombot_readin_readout(_FERRYMAN_ON_YOUNG_WITCH)
 
-    without_bane = _FERRYMAN_ON_YOUNG_WITCH.replace(", bane(black_cat)", "")
+    without_bane = _FERRYMAN_ON_YOUNG_WITCH.replace("(black_cat)", "")
     kingdom = rk.Kingdom.from_dombot_csv_string(without_bane)
     assert _reason_keys(kingdom) == {"young_witch_but_no_bane"}
+
+
+def test_bane_syntax_is_invalid():
+    """DomBot doesn't understand bane(…) (M19, step 8): the Bane is still read, and
+    the kingdom is marked invalid until it's written as Young Witch's target."""
+    bane_syntax = _FERRYMAN_ON_YOUNG_WITCH.replace(
+        "ferryman(young_witch(black_cat))", "ferryman(young_witch), bane(black_cat)"
+    )
+    kingdom = rk.Kingdom.from_dombot_csv_string(bane_syntax)
+    assert kingdom == rk.Kingdom.from_dombot_csv_string(_FERRYMAN_ON_YOUNG_WITCH)
+    assert _reason_keys(kingdom) == {"bane_syntax_not_supported"}
+    assert "'young_witch(black_cat)'" in kingdom.invalidity_reasons[0].get_description()
+    # Printed as DomBot syntax, which is valid again
+    reparsed = rk.Kingdom.from_dombot_csv_string(kingdom.get_dombot_csv_string())
+    assert reparsed.is_valid, reparsed.invalidity_reasons
+    assert "uses_bane_syntax" not in kingdom.get_dict_repr()
 
 
 def test_druid_boons():
@@ -225,6 +243,24 @@ def test_traits():
     new_kingdom = randomizer.reroll_single_cso(kingdom, "inherited")
     assert "inherited" not in new_kingdom.landscapes
     assert "inherited" not in new_kingdom.trait_targets
+
+
+def test_required_csos_are_not_drawn_again():
+    """Required CSOs stayed in the draw pool, so a random pick could add a required
+    landscape a second time (which crashed `add_landscape`, in ~1 of 400 kingdoms
+    with Inherited required) or leave the kingdom a card short."""
+    from random_kingdominion.kingdom.pool_container import PoolContainer
+    from random_kingdominion.kingdom.randomized_kingdom import RandomizedKingdom
+
+    config = rk.CustomConfigParser(load_default=True)
+    config.setlist("General", "required_csos", ["inherited", "village"])
+    randomizer = rk.KingdomRandomizer(config)
+    randomizer.pool_con = PoolContainer(config)
+    required = {"inherited", "village"}
+    assert required <= set(randomizer.pool_con.main_pool.index)
+    kingdom = randomizer.add_required_csos(RandomizedKingdom(num_desired_landscapes=2))
+    assert required <= set(kingdom.contained_csos)
+    assert not required & set(randomizer.pool_con.main_pool.index)
 
 
 def test_obelisk():
@@ -680,8 +716,7 @@ def test_campaign_effect_aliases():
 
 
 def test_divine_wind_survives_printing_and_parsing():
-    """The Divine Wind CSOs are stored as sorted keys, however they were entered
-    (specials inside them aren't supported yet, M19)."""
+    """The Divine Wind CSOs are stored as sorted keys, however they were entered."""
     dombot_str = (
         "mountain_shrine, daimyo, dungeon, infirmary, poet, transmogrify, baker, "
         "footpad, lost_city, samurai, training, amass, divine_wind(Distant Lands, "
@@ -690,6 +725,26 @@ def test_divine_wind_survives_printing_and_parsing():
     )
     kingdom = rk.Kingdom.from_dombot_csv_string(dombot_str)
     assert kingdom.divine_wind_cso_str.startswith("aristocrat, distant_lands, guide")
+    _test_dombot_readin_readout(dombot_str)
+
+
+def test_specials_inside_divine_wind():
+    """The Divine Wind piles are a kingdom of their own, with its own specials, which
+    don't apply to the kingdom itself (M19, step 9)."""
+    dombot_str = (
+        "mountain_shrine, daimyo, dungeon, infirmary, poet, transmogrify, baker, "
+        "footpad, lost_city, samurai, training, amass, divine_wind(Distant Lands, "
+        "page, miser, stonemason, Young Witch (Vassal), journeyman, magpie, "
+        "wine_merchant, guide, aristocrat, vassal)"
+    )
+    kingdom = rk.Kingdom.from_dombot_csv_string(dombot_str)
+    assert kingdom.notes == ""
+    assert kingdom.is_valid, kingdom.invalidity_reasons
+    assert kingdom.bane_pile == "" and "vassal" not in kingdom.cards
+    assert kingdom.divine_wind_cso_str.endswith("wine_merchant, young_witch(vassal)")
+    subkingdom = kingdom.divine_wind_subkingdom
+    assert subkingdom is not None and subkingdom.bane_pile == "vassal"
+    assert "Young Witch (Vassal))" in kingdom.get_dombot_csv_string()
     _test_dombot_readin_readout(dombot_str)
 
 
@@ -786,24 +841,9 @@ def test_normalized_colon_syntax_and_separators():
     ]
 
 
-# Daily 2024-03-20, with the Bane nested into Ferryman's pile
-_FERRYMAN_ON_NESTED_YOUNG_WITCH = (
-    "barge, bounty_hunter, camel_train, cavalry, ferryman(young_witch(black_cat)), "
-    "hamlet, horn_of_plenty, remake, sleigh, stockpile"
-)
-
-
 def test_nested_special_targets():
-    """A target resolves its own targets without becoming a pile itself (M19)."""
-    kingdom = rk.Kingdom.from_dombot_csv_string(_FERRYMAN_ON_NESTED_YOUNG_WITCH)
-    assert kingdom.notes == ""
-    assert kingdom.ferryman_pile == "young_witch"
-    assert kingdom.bane_pile == "black_cat"
-    assert "black_cat" in kingdom.cards and "young_witch" not in kingdom.cards
-    assert kingdom.is_valid, kingdom.invalidity_reasons
-    assert kingdom == rk.Kingdom.from_dombot_csv_string(_FERRYMAN_ON_YOUNG_WITCH)
-    _test_dombot_readin_readout(_FERRYMAN_ON_NESTED_YOUNG_WITCH)
-
+    """A target resolves its own targets without becoming a pile itself (M19); for
+    a nested Bane, see `test_young_witch_as_ferryman_pile_in_dombot_strings`."""
     kingdom = rk.Kingdom.from_dombot_csv_string(
         "nearby(druid(the_earths_gift, the_flames_gift, the_swamps_gift)), village, "
         "smithy, militia, market, mine, witch, festival, library, moat"
@@ -817,6 +857,16 @@ def test_nested_special_targets():
     ]
     assert "druid" in kingdom.cards  # As a Trait's target
     assert kingdom.is_valid, kingdom.invalidity_reasons
+
+
+def test_nested_targets_carry_their_specials_once():
+    """Young Witch isn't printed on its own, so its Bane goes with Ferryman's pile,
+    but not a second time with an effect on it (M19, step 7)."""
+    dombot_str = _FERRYMAN_ON_YOUNG_WITCH + " -x start_in_play(young_witch)"
+    printed = rk.Kingdom.from_dombot_csv_string(dombot_str).get_dombot_csv_string()
+    assert "Ferryman (Young Witch (Black Cat))" in printed
+    assert printed.endswith(" -x start_in_play(young_witch)")
+    _test_dombot_readin_readout(dombot_str)
 
 
 def test_specials_inside_typhoon_are_ignored():

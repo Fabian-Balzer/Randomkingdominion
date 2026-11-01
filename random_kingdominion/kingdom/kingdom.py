@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import re
 from collections import defaultdict
 from dataclasses import asdict, dataclass, field
 from functools import reduce
@@ -28,6 +27,7 @@ from ..utils import (
     sanitize_cso_name,
 )
 from .dombot_parsing import (
+    get_canonical_dombot_string,
     get_kingdom_fields,
     normalize_dombot_string,
     resolve_dombot_entries,
@@ -92,13 +92,12 @@ def _normalize_target_pairs(
 
 
 def _normalize_divine_wind_str(divine_wind_str: str) -> str:
-    """The Divine Wind CSOs as sorted keys, so that a kingdom compares equal however
-    they were entered (display names or keys, any order). Special targets inside,
-    e.g. a Bane, aren't supported yet (M19)."""
+    """The Divine Wind CSOs as sorted keys with their special targets, so that a
+    kingdom compares equal however they were entered (display names or keys, any
+    order), e.g. ``"distant_lands, page, young_witch(vassal)"``."""
     if not isinstance(divine_wind_str, str) or not divine_wind_str:
         return ""  # Also a missing value (NaN) in a DataFrame row
-    entries = re.split(r"\s*,\s*(?![^()]*\))", divine_wind_str)
-    return ", ".join(sorted(sanitize_cso_name(e) for e in entries if e.strip()))
+    return get_canonical_dombot_string(divine_wind_str)
 
 
 @dataclass(order=True)
@@ -177,6 +176,8 @@ class Kingdom:
     invalidity_reasons: list[InvalidityReason] = field(
         default_factory=list, compare=False
     )
+    uses_bane_syntax: bool = field(default=False, compare=False, repr=False)
+    """Whether the parsed input used ``bane(…)``, which DomBot doesn't understand."""
     idx: int = field(default_factory=lambda: int(uuid4()), compare=False)
 
     # TODO: Find a more lightweight way to do this as it causes load times > 1 sec for > 100 kingdoms
@@ -196,6 +197,7 @@ class Kingdom:
         "kingdom_campaign_effects_df",
         "extras",
         "total_qualities",
+        "uses_bane_syntax",
     }
 
     @classmethod
@@ -481,43 +483,62 @@ class Kingdom:
             text += f" >>>{get_cso_name(trait_or_effect)}<<<"
         return text
 
-    def _get_special_dict(
-        self, sani_func: Callable[[str], str], add_stamps=True
-    ) -> defaultdict[str, list[str]]:
-        """Get a dictionary with all of the special cards and their extra information,
-        e.g. ``{"young_witch": [" (Moat)"]}``. A Trait or campaign effect with several
-        targets gets one entry per target, which are printed separately."""
-        special_dict: defaultdict[str, list[str]] = defaultdict(list)
-        if self.bane_pile:
-            special_dict["young_witch"].append(sani_func(self.bane_pile))
-        if self.army_pile:
-            special_dict["approaching_army"].append(sani_func(self.army_pile))
+    def _get_special_targets(self, add_stamps=True) -> dict[str, list[list[str]]]:
+        """The targets of each special CSO, one list per entry in parentheses, e.g.
+        ``{"young_witch": [["moat"]], "druid": [[<its three Boons>]]}``. A Trait or
+        campaign effect with several targets has one entry per target, which are
+        printed separately."""
+        special_targets: defaultdict[str, list[list[str]]] = defaultdict(list)
+        for special, target in [
+            ("young_witch", self.bane_pile),
+            ("approaching_army", self.army_pile),
+            ("obelisk", self.obelisk_pile),
+            ("ferryman", self.ferryman_pile),
+            ("riverboat", self.riverboat_card),
+            ("way_of_the_mouse", self.mouse_card),
+        ]:
+            if target:
+                special_targets[special].append([target])
         if self.druid_boons:
-            boon_str = ", ".join([sani_func(boon) for boon in self.druid_boons])
-            special_dict["druid"].append(boon_str)
-        if self.obelisk_pile:
-            special_dict["obelisk"].append(sani_func(self.obelisk_pile))
-        if self.ferryman_pile:
-            special_dict["ferryman"].append(sani_func(self.ferryman_pile))
-        if self.riverboat_card:
-            special_dict["riverboat"].append(sani_func(self.riverboat_card))
-        if self.mouse_card:
-            special_dict["way_of_the_mouse"].append(sani_func(self.mouse_card))
-        if self.divine_wind_cso_str:
-            special_dict["divine_wind"].append(
-                Kingdom.from_dombot_csv_string(
-                    self.divine_wind_cso_str
-                ).get_dombot_csv_string(ignore_col_shelt=True)
-            )
+            special_targets["druid"].append(self.druid_boons)
         for trait, target in self.traits:
-            special_dict[trait].append(sani_func(target))
+            special_targets[trait].append([target])
         if add_stamps:
             for stamp, target in self.stamps_and_effects:
-                special_dict[stamp].append(sani_func(target))
-        formatted: defaultdict[str, list[str]] = defaultdict(lambda: [""])
-        for key, vals in special_dict.items():
-            formatted[key] = [f" ({val})" for val in vals]
-        return formatted
+                special_targets[stamp].append([target])
+        return special_targets
+
+    def _get_special_extras(
+        self,
+        cso_key: str,
+        special_targets: dict[str, list[list[str]]],
+        sani_func: Callable[[str], str],
+        nested: set[str],
+    ) -> list[str]:
+        """The parentheses printed after the given CSO, one per entry, e.g.
+        ``[" (Moat)"]`` for Young Witch, or ``[""]`` if it has none. A target that
+        isn't printed on its own carries its own specials, the first time it's
+        printed (tracked in `nested`): ``Ferryman (Young Witch (Vassal))``."""
+        if cso_key == "divine_wind" and self.divine_wind_cso_str:
+            divine_wind = Kingdom.from_dombot_csv_string(self.divine_wind_cso_str)
+            return [f" ({divine_wind.get_dombot_csv_string(ignore_col_shelt=True)})"]
+        if cso_key not in special_targets:
+            return [""]
+        printed_alone = set(self.cards + self.landscapes + self.campaign_effects)
+
+        def format_target(target: str) -> str:
+            if target in printed_alone or target in nested:
+                return sani_func(target)
+            nested.add(target)
+            own_extras = self._get_special_extras(
+                target, special_targets, sani_func, nested
+            )
+            return sani_func(target) + "".join(own_extras)
+
+        return [
+            f" ({', '.join(format_target(target) for target in entry)})"
+            for entry in special_targets[cso_key]
+        ]
 
     def get_dombot_csv_string(self, ignore_col_shelt=False) -> str:
         """Construct a comma-separated string that can be fed to DomBot to generate
@@ -525,16 +546,15 @@ class Kingdom:
         """
         # Remove the / for split piles:
         cards = [card.split("/")[0] for card in self.cards]
-        special_dict = self._get_special_dict(get_cso_name)
+        special_targets = self._get_special_targets()
+        nested: set[str] = set()
         proper_strings = [
             get_cso_name(cso) + extra
             for cso in cards + self.landscapes
-            for extra in special_dict[cso]
+            for extra in self._get_special_extras(
+                cso, special_targets, get_cso_name, nested
+            )
         ]
-        if self.bane_pile and "young_witch" not in self.cards:
-            # Young Witch as a non-supply pile (e.g. Ferryman's) still has a Bane,
-            # which would otherwise be printed with it (parsed back as "bane")
-            proper_strings.append(f"Bane ({get_cso_name(self.bane_pile)})")
         if not ignore_col_shelt:
             proper_strings.append("Shelters" if self.use_shelters else "No Shelters")
             proper_strings.append("Colonies" if self.use_colonies else "No Colonies")
@@ -544,7 +564,6 @@ class Kingdom:
         sep_string = ", ".join(sorted(proper_strings))
         if len(self.campaign_effects) == 0:
             return sep_string
-        special_dict = self._get_special_dict(lambda x: x)
         effect_strings = []
         for effect_name in self.campaign_effects:
             effect_type = (
@@ -553,17 +572,23 @@ class Kingdom:
                 .replace("setup effect", "start")
             )
             effect = effect_type + "_" + effect_name
-            effect_strings += [effect + extra.strip() for extra in special_dict[effect_name]]
+            extras = self._get_special_extras(
+                effect_name, special_targets, str, nested
+            )
+            effect_strings += [effect + extra.strip() for extra in extras]
         return sep_string + " -x " + ", ".join(effect_strings)
 
     def get_sanitized_tgg_string(self) -> str:
         """Get a sanitized string representation of the kingdom."""
-        special_dict = self._get_special_dict(sanitize_cso_name, add_stamps=False)
+        special_targets = self._get_special_targets()
+        nested: set[str] = set()
         proper_strings = [
             sanitize_cso_name(cso) + extra
-            for cso in self.cards + self.landscapes + self.campaign_effects
-            for extra in special_dict[cso]
-        ]
+            for cso in self.cards + self.landscapes
+            for extra in self._get_special_extras(
+                cso, special_targets, sanitize_cso_name, nested
+            )
+        ] + [sanitize_cso_name(effect) for effect in self.campaign_effects]
 
         k_str = ", ".join(sorted(proper_strings))
         if self.use_shelters:
@@ -571,13 +596,14 @@ class Kingdom:
         if self.use_colonies:
             k_str += ", colonies"
         if self.campaign_effects:
-            effect_targets = self.effect_targets
             k_str += " -x "
             k_str += ", ".join(
-                f"{eff}({target})" if eff in effect_targets else eff
+                eff + extra.strip()
                 for eff in sorted(self.campaign_effects)
                 if eff
-                for target in effect_targets.get(eff, [""])
+                for extra in self._get_special_extras(
+                    eff, special_targets, str, nested
+                )
             )
         return k_str
 

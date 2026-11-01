@@ -28,7 +28,7 @@ _COLONY_SPELLINGS = ["colony/platinum", "colony", "platinum"]
 # Specials with a single target, and the `Kingdom` field the target goes into
 _SINGLE_TARGET_SPECIALS = {
     "young_witch": "bane_pile",
-    "bane": "bane_pile",  # Not understood by DomBot, to be dropped (M19, step 8)
+    "bane": "bane_pile",  # Not understood by DomBot, see `BaneSyntaxNotSupported`
     "ferryman": "ferryman_pile",
     "riverboat": "riverboat_card",
     "way_of_the_mouse": "mouse_card",
@@ -218,6 +218,27 @@ def _parse_entry(
     return DomBotEntry(name, tuple(args), text), pos
 
 
+def get_canonical_dombot_string(dombot_str: str) -> str:
+    """The entries as keys, sorted at each level, with the targets in parentheses
+    (any depth): a kingdom's Divine Wind piles compare equal however they were
+    entered.
+
+    Examples
+    --------
+    >>> get_canonical_dombot_string("Young Witch (Vassal), Distant Lands, page")
+    'distant_lands, page, young_witch(vassal)'
+    """
+    entries, _ = tokenize_dombot_string(normalize_dombot_string(dombot_str))
+    return ", ".join(sorted(_get_canonical_entry(entry) for entry in entries))
+
+
+def _get_canonical_entry(entry: DomBotEntry) -> str:
+    key = sanitize_cso_name(entry.name)
+    if not entry.args:
+        return key
+    return f"{key}({', '.join(sorted(_get_canonical_entry(a) for a in entry.args))})"
+
+
 @dataclass
 class ParsedDomBotKingdom:
     """What a DomBot string specifies, before deciding which targets are piles."""
@@ -235,6 +256,7 @@ class ParsedDomBotKingdom:
     use_colonies: bool = False
     use_shelters: bool = False
     is_campaign: bool = False
+    uses_bane_syntax: bool = False
     unrecognized: list[str] = field(default_factory=list)
     ignored_targets: list[str] = field(default_factory=list)
     """Targets of CSOs that take none, or more than they take, as "cso(target)"."""
@@ -316,8 +338,8 @@ def _resolve_target(
 def _note_unsupported_specials(
     cso_name: str, args: tuple[DomBotEntry, ...], parsed: ParsedDomBotKingdom
 ) -> None:
-    """The piles of Divine Wind and Typhoon only join the kingdom later, so their
-    specials don't apply to it (M19, step 9)."""
+    """The piles of Typhoon only join the kingdom later, so their specials don't
+    apply to it (M19, step 9)."""
     if nested := [arg.text for arg in args if arg.args]:
         parsed.notes.append(
             f"Specials inside {cso_name} aren't supported yet, ignored the targets of: {', '.join(nested)}."
@@ -333,6 +355,7 @@ def _resolve_targets(
     keys = _get_cso_keys()
     ignored = [f"{key}({arg.text})" for arg in args]
     if key in _SINGLE_TARGET_SPECIALS:
+        parsed.uses_bane_syntax |= key == "bane"
         field_name = _SINGLE_TARGET_SPECIALS[key]
         if field_name not in parsed.specials:
             if target := _resolve_target(args[0], parsed):
@@ -347,9 +370,9 @@ def _resolve_targets(
         elif sorted(parsed.druid_boons) != sorted(boons):
             parsed.ignored_targets += ignored
     elif key == "divine_wind":
-        _note_unsupported_specials("Divine Wind", args, parsed)
+        # A kingdom of its own, parsed as such (`Kingdom.divine_wind_subkingdom`)
         if not parsed.divine_wind_cso_str:
-            parsed.divine_wind_cso_str = ", ".join(arg.name for arg in args)
+            parsed.divine_wind_cso_str = ", ".join(arg.text for arg in args)
     elif key in keys.traits:
         if len(args) > 1:  # Several targets of a Trait are listed separately
             joined = ", ".join(arg.text for arg in args)
@@ -444,5 +467,6 @@ def get_kingdom_fields(
         "traits": traits,
         "stamps_and_effects": stamps_and_effects,
         "is_campaign": parsed.is_campaign,
+        "uses_bane_syntax": parsed.uses_bane_syntax,
         "notes": "".join(f"{note}\n" for note in notes),
     } | specials
