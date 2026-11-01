@@ -37,9 +37,11 @@ Dependencies are declared twice on purpose: `requirements.txt` pins the exact ve
 Running the tests:
 
 ```sh
-python -m pytest randomizer_modules_tests                 # everything (~1.5 min)
-python -m pytest randomizer_modules_tests -m "not slow"   # without the Streamlit page tests (~25 s)
+python -m pytest randomizer_modules_tests -n auto                # everything, in parallel (~1.5 min; ~3 min without -n)
+python -m pytest randomizer_modules_tests -m "not slow" -n auto  # without the page tests and other slow checks (~17 s; ~25 s without -n)
 ```
+
+`-n auto` (pytest-xdist, part of the `test` extra) runs one worker per CPU core. Each worker imports the package first (~5 s), so for a single test file it's faster without.
 
 Pitfalls for writing page tests with Streamlit's `AppTest` are listed in the docstring of `randomizer_modules_tests/conftest.py`.
 

@@ -46,7 +46,8 @@ scripts = [
     "beautifulsoup4",
     "yt-dlp",
 ]
-test = ["pytest>=8"]
+# pytest-xdist runs the tests in parallel (-n auto)
+test = ["pytest>=8", "pytest-xdist>=3"]
 
 [tool.setuptools]
 include-package-data = true

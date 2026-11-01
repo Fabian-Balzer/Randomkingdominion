@@ -170,5 +170,6 @@ cython_debug/
 #.idea/
 
 .vscode/
-# Safety net for refactoring the DomBot parser (M19), see scripts/parser_snapshot.py
+# Safety net for refactoring the DomBot parser (M19), local only
+scripts/parser_snapshot.py
 scripts/data/parser_snapshot.json
