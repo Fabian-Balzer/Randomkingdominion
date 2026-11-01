@@ -5,6 +5,7 @@
   - Young Witch as a Ferryman pile now keeps its Bane and is no longer marked as invalid
   - Fixed some Dailies with cards listed twice or among the landscapes
   - Faster loading of the stored Dailies when the app wakes up (about 2 s less)
+  - The randomizer could crash, or come up one card short, when a required card or landscape was drawn a second time
 - 1.5.3 (2026-10-31):
   - Minor tweaks to card qualities (Livery, Paddock, Gamble)
   - Some Inn-teractions added

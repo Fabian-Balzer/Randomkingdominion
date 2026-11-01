@@ -40,6 +40,8 @@ class KingdomRandomizer:
         was_added = False
         if pick is None:
             pick = self.pool_con.pick_next_card(random_kingdom.quality_of_selection)
+        # A given pick (e.g. a required card) could otherwise be drawn again
+        self.pool_con.drop_csos([pick])
         if add_to_cards:
             was_added = random_kingdom.add_card(pick)
         if pick == "young_witch":
@@ -134,6 +136,9 @@ class KingdomRandomizer:
             pick = self.pool_con.pick_next_landscape(
                 random_kingdom.quality_of_selection, random_kingdom.contains_way()
             )
+        # A given pick (e.g. a required landscape) could otherwise be drawn again,
+        # which added it twice
+        self.pool_con.drop_csos([pick])
         was_added = random_kingdom.add_landscape(pick)
         if pick == "way_of_the_mouse":
             self.pick_mouse_card(random_kingdom)
@@ -257,7 +262,7 @@ class KingdomRandomizer:
         that card rerolled."""
         self.rerolled_csos.append(cso_name)
         random_kingdom = RandomizedKingdom.from_kingdom(old_kingdom)
-        self.pool_con.drop_rerolled_csos(random_kingdom.contained_csos)
+        self.pool_con.drop_csos(random_kingdom.contained_csos)
         if random_kingdom.contains_card(cso_name):
             bane_army = random_kingdom.remove_card_and_test_bane_army(cso_name)
             if bane_army["bane"]:

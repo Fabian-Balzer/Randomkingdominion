@@ -36,10 +36,11 @@ class PoolContainer:
 
         self.main_pool: pd.DataFrame = self.get_initial_draw_pool(rerolled_csos)
 
-    def drop_rerolled_csos(self, rerolled_csos: list[str]):
-        """Drop the given rerolled CSOs from the main pool."""
-        self._excluded_csos.update(rerolled_csos)
-        self.main_pool = self.main_pool.drop(rerolled_csos, errors="ignore")
+    def drop_csos(self, csos: list[str]):
+        """Drop the given CSOs (picked or already in the kingdom) from the main pool,
+        so that they can't be drawn (again)."""
+        self._excluded_csos.update(csos)
+        self.main_pool = self.main_pool.drop(csos, errors="ignore")
 
     def get_initial_draw_pool(
         self, rerolled_csos: list[str], ignore_expansions: bool = False
