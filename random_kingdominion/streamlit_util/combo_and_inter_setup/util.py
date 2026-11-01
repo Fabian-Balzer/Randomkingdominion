@@ -93,22 +93,59 @@ def st_build_combo_type_filter(
     return [val_dict[s] for s in selected]
 
 
+def _get_pairs_by_first_cso(df: pd.DataFrame) -> dict[str, list[tuple[int, str]]]:
+    """For each CSO, the row positions of the pairs it's the first CSO of, together
+    with the second CSO."""
+    pairs_by_first_cso: dict[str, list[tuple[int, str]]] = {}
+    for pos, (cso1, cso2) in enumerate(zip(df["CSO1"], df["CSO2"])):
+        pairs_by_first_cso.setdefault(cso1, []).append((pos, cso2))
+    return pairs_by_first_cso
+
+
+def _get_pair_positions_within(
+    pairs_by_first_cso: dict[str, list[tuple[int, str]]], csos: set[str]
+) -> list[int]:
+    """The row positions of the pairs with both CSOs among the given ones, in table
+    order, as `filter_combo_or_inter_df_for_csos` with `require_all=True` returns them.
+    """
+    return sorted(
+        pos
+        for cso in csos
+        for pos, other in pairs_by_first_cso.get(cso, [])
+        if other in csos
+    )
+
+
 def add_combo_inter_info_for_kingdoms(df: pd.DataFrame) -> pd.DataFrame:
     """Add combo and interaction information to the given DataFrame of kingdoms."""
     all_inters = get_cached_inter_df()
     all_combos = get_cached_combo_df()
+    # Looked up per kingdom instead of filtering both tables for each one, which took
+    # ~1.3 s of the ~1.9 s for the 1370 TGG Dailies (M28)
+    inters_by_cso = _get_pairs_by_first_cso(all_inters)
+    combos_by_cso = _get_pairs_by_first_cso(all_combos)
+    inter_keys = all_inters.index.tolist()
+    combo_keys = all_combos.index.tolist()
+    combo_type_list = all_combos["Type"].tolist()
     combo_infos = []
     combo_types = []
     inter_infos = []
-    for _, row in df.iterrows():
-        cards = row["cards"]
-        landsc = row["landscapes"]
+    for cards, landsc in zip(df["cards"], df["landscapes"]):
         kingdom_csos = set(cards + landsc)
-        inters = filter_combo_or_inter_df_for_csos(all_inters, kingdom_csos, True)
-        combos = filter_combo_or_inter_df_for_csos(all_combos, kingdom_csos, True)
-        inter_infos.append(inters.index.tolist())
-        combo_infos.append(combos.index.tolist())
-        combo_types.append(combos["Type"].tolist())
+        csos = sanitize_cso_list(kingdom_csos, replace_parent_pile=True)
+        if len(csos) <= 1:
+            # The filter then takes pairs with any of the CSOs
+            inters = filter_combo_or_inter_df_for_csos(all_inters, kingdom_csos, True)
+            combos = filter_combo_or_inter_df_for_csos(all_combos, kingdom_csos, True)
+            inter_infos.append(inters.index.tolist())
+            combo_infos.append(combos.index.tolist())
+            combo_types.append(combos["Type"].tolist())
+            continue
+        inter_pos = _get_pair_positions_within(inters_by_cso, set(csos))
+        combo_pos = _get_pair_positions_within(combos_by_cso, set(csos))
+        inter_infos.append([inter_keys[pos] for pos in inter_pos])
+        combo_infos.append([combo_keys[pos] for pos in combo_pos])
+        combo_types.append([combo_type_list[pos] for pos in combo_pos])
     df["interactions"] = inter_infos
     df["num_interactions"] = df["interactions"].apply(len)
     df["combos"] = combo_infos

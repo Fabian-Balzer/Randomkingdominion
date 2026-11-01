@@ -1,4 +1,3 @@
-
 - 1.5.4 (2026-11-01):
   - Fixed Traits, Stamps and start effects that were missing or wrong in some Dailies and campaigns (e.g. a Trait on only one of its two piles, or the Ruins pile instead of the specific Ruins in the starting deck)
   - Sunday Dailies since February 2025 count as campaign kingdoms, as they use campaign rules, so multi-Traits can be parsed accordingly
@@ -15,7 +14,8 @@
   - Kingdom strings may nest special targets, e.g. "ferryman(young_witch(vassal))" for Vassal as the Bane of Young Witch as Ferryman's pile, and are printed that way
   - Divine Wind's piles may have their own special targets (e.g. a Bane), count for the expansions you need, and are checked for Allies and Prophecies
   - Clearer notes on mistyped kingdom strings (unbalanced parentheses, ignored or unknown targets); unknown targets no longer cause an error, and "bane(…)" is pointed out as not understood by DomBot
-  - Kingdoms are parsed and built several times faster, and the Kingdom Oracle loads its kingdom lists about four times as fast (the TGG Dailies in under 2 s instead of 8 s)
+  - Kingdoms are parsed and built several times faster, and the Kingdom Oracle loads its kingdom lists about ten times as fast (the TGG Dailies in around 0.5 s instead of 8 s)
+  - Improved Divine Wind invalidity message.
 - 1.5.3 (2026-10-31):
   - Minor tweaks to card qualities (Livery, Paddock, Gamble)
   - Some Inn-teractions added
